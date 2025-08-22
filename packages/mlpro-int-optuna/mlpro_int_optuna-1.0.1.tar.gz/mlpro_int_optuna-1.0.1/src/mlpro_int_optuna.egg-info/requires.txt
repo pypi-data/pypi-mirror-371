@@ -1,0 +1,4 @@
+
+[full]
+mlpro[full]>=2.1.0
+optuna>=3.4.0
