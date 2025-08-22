@@ -1,0 +1,46 @@
+strictness: none
+test-warnings: true
+max-line-length: 110
+
+ruff:
+  run: true
+  options:
+    extend-select:
+      UP: true # pyupgrade
+      I: true # isort
+      B: true # flake8-bugbear
+      PT: true # flake8-pytest-style
+  disable:
+    - E722 # Do not use bare `except`
+    - RUF100 # Unused `noqa` directive [Fix applicability: safe]
+    - RUF012 # Mutable class attributes should be annotated with `typing.ClassVar`
+    - INP001 # File `{}` is part of an implicit namespace package. Add an `__init__.py`.
+    - S108 # Probable insecure usage of temporary file or directory
+    - S113 # Probable use of `requests` call without timeout
+    - S603 # `subprocess` call: check for execution of untrusted input
+    - S607 # Starting a process with a partial executable path
+    - PLC0415 # `import` should be at the top-level of a file
+    - PLR2004 # Magic value used in comparison, consider replacing `{}` with a constant variable
+    - FBT003 # Boolean positional value in function call
+    - ASYNC # Asyncio usage
+    - D # Missing docstring
+    - N # Naming conventions
+    - SLF # flake8-self
+    - RET # flake8-return
+    - ANN # flake8-annotations
+    - ARG # flake8-unused-arguments
+
+pylint:
+  run: false
+
+dodgy:
+  run: false
+
+mccabe:
+  run: false
+
+pycodestyle:
+  run: false
+
+pyflakes:
+  run: false
