@@ -1,0 +1,2 @@
+[console_scripts]
+advsel = advselenium.cli:main
