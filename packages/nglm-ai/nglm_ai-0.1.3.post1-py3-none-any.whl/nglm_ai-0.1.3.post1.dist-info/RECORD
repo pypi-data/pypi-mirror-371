@@ -1,0 +1,17 @@
+evolution/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+evolution/algo/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+evolution/main/AppStart.py,sha256=ni9TCnsST6CpgbuNdty5RZjSHuCwLvr2ddBIYlupy9w,3150
+evolution/main/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+evolution/plugin/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+evolution/plugin/inputs/DataCleaner.py,sha256=nkp_yCgrVdrKDeeSE7Vl_zc4oqzn2BffoLHtwKHvuf0,196
+evolution/plugin/inputs/DataExplorer.py,sha256=VzIg1slv8KoXDrMdjLd0PunSlVFBzuKI56ldDpgrcr8,201
+evolution/plugin/inputs/InputDataReader.py,sha256=hobW0ZBs24g6MUjEEbhpWg6ysTXT00P8Xs2_nFmbQMA,421
+evolution/plugin/inputs/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+evolution/plugin/inputs/file/FileInputDataReader.py,sha256=BBeanAZSiN2KFg-NuypMbTb3XD3lfxAHtpis3J4PMy4,598
+evolution/plugin/inputs/file/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+evolution/plugin/outputs/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+evolution/plugin/outputs/file/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+nglm_ai-0.1.3.post1.dist-info/METADATA,sha256=TCBytkwV5H_EwMtTzO1rdIxhyMbuz-4cVsioFlwS3h4,243
+nglm_ai-0.1.3.post1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+nglm_ai-0.1.3.post1.dist-info/top_level.txt,sha256=gW3pWW6BWlvnuBZ0UUaTfFXmsO2ln3T2GXAWfmlzr-s,10
+nglm_ai-0.1.3.post1.dist-info/RECORD,,
