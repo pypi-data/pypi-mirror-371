@@ -1,0 +1,33 @@
+{
+    "entity": {
+        "switch": {
+            "push": {
+                "name": "Br\u00faigh"
+            }
+        }
+    },
+    "services": {
+        "calibrate": {
+            "description": "Socra\u00edonn s\u00e9 an doimhneacht, fad an bhr\u00fa n\u00f3 an scaoilte, agus an modh oibr\u00edochta. Rabhadh - seolfaidh s\u00e9 seo ord\u00fa br\u00fa chuig an bhfeiste.",
+            "fields": {
+                "depth": {
+                    "description": "C\u00e9 chomh fada is ceart an l\u00e1mh bhr\u00fa a sh\u00edneadh.",
+                    "name": "Doimhneacht"
+                },
+                "duration": {
+                    "description": "C\u00e1 fhad a bhr\u00faitear n\u00f3 a scaoiltear.",
+                    "name": "Fad"
+                },
+                "entity_id": {
+                    "description": "Ainm an eintitis at\u00e1 le calabr\u00fa.",
+                    "name": "Eintiteas"
+                },
+                "mode": {
+                    "description": "Modh oibr\u00edochta an l\u00e1imhe.",
+                    "name": "M\u00f3d"
+                }
+            },
+            "name": "Calabraigh"
+        }
+    }
+}

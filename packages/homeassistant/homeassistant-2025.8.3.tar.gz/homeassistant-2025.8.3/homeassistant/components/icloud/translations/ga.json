@@ -1,0 +1,16 @@
+{
+    "services": {
+        "display_message": {
+            "description": "Taispe\u00e1nann s\u00e9 teachtaireacht ar ghl\u00e9as Apple.",
+            "fields": {
+                "account": {
+                    "name": "Cuntas"
+                },
+                "device_name": {
+                    "description": "Ainm an ghl\u00e9is Apple chun an teachtaireacht a thaispe\u00e1int.",
+                    "name": "Ainm an ghl\u00e9is"
+                }
+            }
+        }
+    }
+}

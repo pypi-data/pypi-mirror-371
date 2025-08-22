@@ -1,0 +1,36 @@
+{
+    "config": {
+        "step": {
+            "user": {
+                "data": {
+                    "radius": "Ga an st\u00e1isi\u00fain (m\u00edle; roghnach)"
+                },
+                "description": "Chun eochair API a ghini\u00faint, t\u00e9igh chuig https://docs.airnowapi.org/account/request/"
+            }
+        }
+    },
+    "entity": {
+        "sensor": {
+            "station": {
+                "name": "St\u00e1isi\u00fan tuairiscithe",
+                "state_attributes": {
+                    "lat": {
+                        "name": "Domhanleithead"
+                    },
+                    "long": {
+                        "name": "Domhanfhad"
+                    }
+                }
+            }
+        }
+    },
+    "options": {
+        "step": {
+            "init": {
+                "data": {
+                    "radius": "Ga an st\u00e1isi\u00fain (m\u00edle)"
+                }
+            }
+        }
+    }
+}

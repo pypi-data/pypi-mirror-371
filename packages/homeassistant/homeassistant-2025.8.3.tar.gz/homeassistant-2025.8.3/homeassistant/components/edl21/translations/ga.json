@@ -1,0 +1,9 @@
+{
+    "entity": {
+        "sensor": {
+            "positive_active_instantaneous_power": {
+                "name": "Cumhacht mheandarach ghn\u00edomhach dhearfach"
+            }
+        }
+    }
+}

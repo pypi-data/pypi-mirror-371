@@ -1,0 +1,19 @@
+{
+    "services": {
+        "set_custom_effect": {
+            "fields": {
+                "speed_pct": {
+                    "name": "Luas"
+                }
+            }
+        },
+        "set_zones": {
+            "fields": {
+                "speed_pct": {
+                    "name": "Luas"
+                }
+            },
+            "name": "Socraigh criosanna"
+        }
+    }
+}

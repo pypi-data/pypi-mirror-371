@@ -1,0 +1,52 @@
+{
+    "entity": {
+        "climate": {
+            "ubercool": {
+                "state_attributes": {
+                    "swing_horizontal_mode": {
+                        "state": {
+                            "auto": "Uath",
+                            "off": "As",
+                            "rangefull": "Raon ioml\u00e1n"
+                        }
+                    }
+                }
+            }
+        },
+        "event": {
+            "push": {
+                "state_attributes": {
+                    "event_type": {
+                        "state": {
+                            "pressed": "Br\u00faite"
+                        }
+                    }
+                }
+            }
+        },
+        "fan": {
+            "demo": {
+                "state_attributes": {
+                    "preset_mode": {
+                        "state": {
+                            "auto": "Uath",
+                            "on": "Ar si\u00fal",
+                            "smart": "Cliste"
+                        }
+                    }
+                }
+            }
+        },
+        "light": {
+            "bed_light": {
+                "state_attributes": {
+                    "effect": {
+                        "state": {
+                            "rainbow": "Bogha ceatha"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

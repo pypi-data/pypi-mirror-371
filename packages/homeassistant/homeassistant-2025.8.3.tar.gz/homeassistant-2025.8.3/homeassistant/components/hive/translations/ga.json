@@ -1,0 +1,64 @@
+{
+    "entity": {
+        "sensor": {
+            "heating": {
+                "state": {
+                    "manual": "L\u00e1mhleabhar",
+                    "off": "As",
+                    "schedule": "Sceideal"
+                }
+            },
+            "hot_water": {
+                "state": {
+                    "off": "As",
+                    "on": "Ar si\u00fal",
+                    "schedule": "Sceideal"
+                }
+            }
+        }
+    },
+    "services": {
+        "boost_heating_off": {
+            "description": "Cuireann s\u00e9 an modh borrtha AS.",
+            "fields": {
+                "entity_id": {
+                    "description": "An t-aitheantas eintitis le haghaidh an borradh a mh\u00fachadh.",
+                    "name": "Aitheantas Eintitis"
+                }
+            },
+            "name": "M\u00fach an teas le borradh"
+        },
+        "boost_heating_on": {
+            "description": "Socra\u00edonn s\u00e9 an modh borrtha AR SI\u00daL, ag sainmh\u00edni\u00fa na tr\u00e9imhse ama agus an teocht sprice at\u00e1 ag teast\u00e1il don bhorradh.",
+            "fields": {
+                "temperature": {
+                    "description": "An teocht sprice don tr\u00e9imhse borrtha.",
+                    "name": "Teocht"
+                },
+                "time_period": {
+                    "description": "An tr\u00e9imhse ama don borradh.",
+                    "name": "Tr\u00e9imhse ama"
+                }
+            },
+            "name": "T\u00e9amh borrtha ar si\u00fal"
+        },
+        "boost_hot_water": {
+            "description": "Socra\u00edonn s\u00e9 an modh borrtha AR SI\u00daL n\u00f3 AS, ag sainmh\u00edni\u00fa na tr\u00e9imhse ama don bhorradh.",
+            "fields": {
+                "entity_id": {
+                    "description": "An t-aitheantas eintitis at\u00e1 le borradh.",
+                    "name": "Aitheantas Eintitis"
+                },
+                "on_off": {
+                    "description": "Socraigh an fheidhm borrtha air n\u00f3 as.",
+                    "name": "M\u00f3d"
+                },
+                "time_period": {
+                    "description": "An tr\u00e9imhse ama don borradh.",
+                    "name": "Tr\u00e9imhse ama"
+                }
+            },
+            "name": "Uisce te a threisi\u00fa"
+        }
+    }
+}

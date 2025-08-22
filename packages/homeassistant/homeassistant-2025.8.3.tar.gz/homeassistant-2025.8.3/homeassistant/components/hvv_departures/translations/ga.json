@@ -1,0 +1,8 @@
+{
+    "options": {
+        "error": {
+            "cannot_connect": "Theip ar an nascadh",
+            "invalid_auth": "F\u00edordheimhni\u00fa neamhbhail\u00ed"
+        }
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "config": {
+        "abort": {
+            "unknown": "Earr\u00e1id gan choinne"
+        }
+    },
+    "entity": {
+        "sensor": {
+            "dew_point": {
+                "name": "Pointe dr\u00fachta"
+            }
+        }
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "services": {
+        "set_value": {
+            "fields": {
+                "value": {
+                    "name": "Luach"
+                }
+            }
+        }
+    }
+}

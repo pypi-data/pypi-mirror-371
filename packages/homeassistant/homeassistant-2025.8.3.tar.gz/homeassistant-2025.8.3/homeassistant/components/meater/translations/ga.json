@@ -1,0 +1,24 @@
+{
+    "config": {
+        "abort": {
+            "reauth_successful": "D'\u00e9irigh leis an athfh\u00edordheimhni\u00fa"
+        }
+    },
+    "entity": {
+        "sensor": {
+            "cook_state": {
+                "state": {
+                    "configured": "Cumraithe",
+                    "finished": "Cr\u00edochnaithe",
+                    "not_started": "N\u00edor tosa\u00edodh",
+                    "overcooked": "R\u00f3ch\u00f3car\u00e1ilte",
+                    "ready_for_resting": "R\u00e9idh le haghaidh sc\u00edthe",
+                    "resting": "Ag sc\u00edth a ligean",
+                    "slightly_overdone": "Beag\u00e1n r\u00f3-dh\u00e9anta",
+                    "slightly_underdone": "Beag\u00e1n tearcfhorbartha",
+                    "started": "Thosaigh"
+                }
+            }
+        }
+    }
+}

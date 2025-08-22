@@ -1,0 +1,94 @@
+{
+    "config": {
+        "error": {
+            "pwd_required": "T\u00e1 pasfhocal ag teast\u00e1il don phr\u00f3tacal roghnaithe"
+        },
+        "step": {
+            "legacy": {
+                "data": {
+                    "mode": "M\u00f3d oibri\u00fach\u00e1in an r\u00f3daire"
+                },
+                "description": "Socraigh paraim\u00e9adair riachtanacha chun ceangal le do r\u00f3daire"
+            },
+            "user": {
+                "data_description": {
+                    "host": "Ainm \u00f3stach n\u00f3 seoladh IP do r\u00f3daire ASUSWRT."
+                }
+            }
+        }
+    },
+    "entity": {
+        "sensor": {
+            "24ghz_temperature": {
+                "name": "Teocht 2.4GHz"
+            },
+            "5ghz_2_temperature": {
+                "name": "Teocht 5GHz (Raidi\u00f3 2)"
+            },
+            "5ghz_temperature": {
+                "name": "Teocht 5GHz"
+            },
+            "6ghz_temperature": {
+                "name": "Teocht 6GHz"
+            },
+            "cpu_core_usage": {
+                "name": "\u00das\u00e1id chro\u00edl\u00e1r LAP {core_id}"
+            },
+            "cpu_temperature": {
+                "name": "Teocht an LAP"
+            },
+            "cpu_usage": {
+                "name": "\u00das\u00e1id LAP"
+            },
+            "devices_connected": {
+                "name": "Gl\u00e9asanna ceangailte"
+            },
+            "download": {
+                "name": "\u00cdosl\u00f3d\u00e1il"
+            },
+            "download_speed": {
+                "name": "Luas \u00edosl\u00f3d\u00e1la"
+            },
+            "last_boot": {
+                "name": "An tosaithe deireanach"
+            },
+            "load_avg_15m": {
+                "name": "Me\u00e1nualach (15 n\u00f3im\u00e9ad)"
+            },
+            "load_avg_1m": {
+                "name": "Me\u00e1nualach (1 n\u00f3im\u00e9ad)"
+            },
+            "load_avg_5m": {
+                "name": "Me\u00e1nualach (5 n\u00f3im\u00e9ad)"
+            },
+            "memory_free": {
+                "name": "Saor \u00f3 chuimhne"
+            },
+            "memory_usage": {
+                "name": "\u00das\u00e1id chuimhne"
+            },
+            "memory_used": {
+                "name": "Cuimhne a \u00fas\u00e1ideadh"
+            },
+            "upload": {
+                "name": "Uasl\u00f3d\u00e1il"
+            },
+            "upload_speed": {
+                "name": "Luas uasl\u00f3d\u00e1la"
+            },
+            "uptime": {
+                "name": "Am ar F\u00e1il"
+            }
+        }
+    },
+    "selector": {
+        "protocols": {
+            "options": {
+                "http": "HTTP",
+                "https": "HTTPS",
+                "ssh": "SSH",
+                "telnet": "Telnet"
+            }
+        }
+    }
+}

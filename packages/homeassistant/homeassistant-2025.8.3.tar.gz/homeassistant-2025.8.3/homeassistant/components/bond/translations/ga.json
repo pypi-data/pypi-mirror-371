@@ -1,0 +1,41 @@
+{
+    "config": {
+        "step": {
+            "user": {
+                "data_description": {
+                    "host": "Seoladh IP do mhol Bond."
+                }
+            }
+        }
+    },
+    "services": {
+        "set_fan_speed_tracked_state": {
+            "fields": {
+                "entity_id": {
+                    "name": "Eintiteas"
+                }
+            }
+        },
+        "set_light_brightness_tracked_state": {
+            "fields": {
+                "entity_id": {
+                    "name": "Eintiteas"
+                }
+            }
+        },
+        "set_light_power_tracked_state": {
+            "fields": {
+                "entity_id": {
+                    "name": "Eintiteas"
+                }
+            }
+        },
+        "set_switch_power_tracked_state": {
+            "fields": {
+                "entity_id": {
+                    "name": "Eintiteas"
+                }
+            }
+        }
+    }
+}

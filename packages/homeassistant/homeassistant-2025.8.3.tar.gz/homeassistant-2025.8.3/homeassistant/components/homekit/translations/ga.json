@@ -1,0 +1,25 @@
+{
+    "options": {
+        "step": {
+            "accessory": {
+                "data": {
+                    "entities": "Eintiteas"
+                }
+            }
+        }
+    },
+    "services": {
+        "reload": {
+            "description": "Athl\u00f3d\u00e1lann s\u00e9 HomeKit agus athphr\u00f3ise\u00e1lann s\u00e9 cumra\u00edocht YAML.",
+            "name": "Athl\u00f3d\u00e1il"
+        },
+        "reset_accessory": {
+            "description": "Athshocra\u00edonn s\u00e9 gabh\u00e1las HomeKit.",
+            "name": "Athshocraigh an gabh\u00e1las"
+        },
+        "unpair": {
+            "description": "Baintear gach p\u00e9ire\u00e1il \u00f3 ghabh\u00e1las go f\u00f3rs\u00fail chun athph\u00e9ire\u00e1il a chead\u00fa. Bain \u00fas\u00e1id as an ngn\u00edomh seo mura bhfuil an gabh\u00e1las freagr\u00fail a thuilleadh, agus mura mian leat an iontr\u00e1il a scriosadh agus a chur leis ar\u00eds a sheachaint. Caillfear su\u00edomhanna seomra\u00ed agus roghanna gabh\u00e1lais.",
+            "name": "D\u00edph\u00e9ire\u00e1il gabh\u00e1lais n\u00f3 droichead"
+        }
+    }
+}

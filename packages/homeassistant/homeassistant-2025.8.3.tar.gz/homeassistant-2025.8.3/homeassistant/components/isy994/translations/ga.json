@@ -1,0 +1,73 @@
+{
+    "config": {
+        "abort": {
+            "reauth_successful": "D'\u00e9irigh leis an athfh\u00edordheimhni\u00fa"
+        }
+    },
+    "services": {
+        "send_program_command": {
+            "fields": {
+                "address": {
+                    "name": "Seoladh"
+                },
+                "name": {
+                    "name": "Ainm"
+                }
+            },
+            "name": "Seol ord\u00fa cl\u00e1ir"
+        },
+        "send_raw_node_command": {
+            "description": "Seolann s\u00e9 ord\u00fa gl\u00e9is ISY REST \u201camh\u201d (m.sh., DON, DOF) chuig n\u00f3d ag baint \u00fas\u00e1ide as a ID eintitis Home Assistant. T\u00e1 s\u00e9 seo \u00fas\u00e1ideach do ghl\u00e9asanna nach bhfuil taca\u00edocht ioml\u00e1n tugtha d\u00f3ibh i Home Assistant go f\u00f3ill, amhail rialuithe do go leor n\u00f3id NodeServer.",
+            "fields": {
+                "command": {
+                    "description": "An t-ord\u00fa ISY REST le seoladh chuig an bhfeiste.",
+                    "name": "Ord\u00fa"
+                },
+                "parameters": {
+                    "description": "Liosta paraim\u00e9adair le seoladh sa teaghr\u00e1n fiosr\u00fach\u00e1in (m.sh. chun bolg\u00e1in dhaite a rial\u00fa).",
+                    "name": "Paraim\u00e9adair"
+                },
+                "unit_of_measurement": {
+                    "description": "An t-aonad tomhais ISY (UOM) le seoladh leis an ord\u00fa, m\u00e1s g\u00e1.",
+                    "name": "Aonad tomhais"
+                },
+                "value": {
+                    "description": "An luach sl\u00e1nuimhir le seoladh leis an ord\u00fa.",
+                    "name": "Luach"
+                }
+            },
+            "name": "Seol ord\u00fa n\u00f3d amh"
+        },
+        "set_zwave_lock_user_code": {
+            "description": "Socra\u00edonn s\u00e9 c\u00f3d \u00fas\u00e1ideora le haghaidh glas Z-Wave tr\u00edd an ISY.",
+            "fields": {
+                "code": {
+                    "description": "An c\u00f3d le socr\u00fa don \u00fas\u00e1ideoir.",
+                    "name": "C\u00f3d"
+                },
+                "user_num": {
+                    "description": "Uimhir sliot\u00e1n an \u00fas\u00e1ideora ar an nglas.",
+                    "name": "Uimhir \u00das\u00e1ideora"
+                }
+            },
+            "name": "Socraigh c\u00f3d \u00fas\u00e1ideora glas\u00e1la Z-Wave"
+        },
+        "set_zwave_parameter": {
+            "description": "Nuashonra\u00edonn s\u00e9 paraim\u00e9adar gl\u00e9is Z-Wave tr\u00edd an ISY. Cuirfear luach an pharaim\u00e9adair ar ais freisin mar thr\u00e9ith st\u00e1it bhreise eintitis leis an ainm \"ZW_#\" \u00e1it a seasann \"#\" do uimhir an pharaim\u00e9adair.",
+            "fields": {
+                "parameter": {
+                    "description": "An uimhir paraim\u00e9adair le socr\u00fa ar an ngl\u00e9as deiridh."
+                },
+                "size": {
+                    "description": "M\u00e9id an pharaim\u00e9adair, b\u00edodh s\u00e9 1, 2, n\u00f3 4 beart.",
+                    "name": "M\u00e9id"
+                },
+                "value": {
+                    "description": "An luach at\u00e1 le socr\u00fa don pharaim\u00e9adar. F\u00e9adfaidh s\u00e9 a bheith ina shl\u00e1nuimhir n\u00f3 ina shraith beart (m.sh. \"0xFFFF\").",
+                    "name": "Luach"
+                }
+            },
+            "name": "Socraigh paraim\u00e9adar Z-Wave"
+        }
+    }
+}

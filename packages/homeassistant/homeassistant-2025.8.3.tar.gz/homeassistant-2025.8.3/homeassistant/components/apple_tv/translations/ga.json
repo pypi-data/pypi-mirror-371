@@ -1,0 +1,13 @@
+{
+    "config": {
+        "step": {
+            "confirm": {
+                "description": "T\u00e1 t\u00fa ar t\u00ed `{name}` den chine\u00e1l `{type}` a chur le Home Assistant.\n\n**Chun an pr\u00f3iseas a chr\u00edochn\u00fa, b\u2019fh\u00e9idir go mbeidh ort roinnt c\u00f3id PIN a iontr\u00e1il.**\n\nTabhair faoi deara nach mbeidh t\u00fa in ann do Apple TV a mh\u00fachadh leis an gcomhth\u00e1th\u00fa seo. N\u00ed mh\u00fachfar ach an seinnteoir me\u00e1n i Home Assistant!"
+            },
+            "restore_device": {
+                "description": "Athchumraigh an gl\u00e9as seo chun a fheidhmi\u00falacht a athbhun\u00fa.",
+                "title": "Athchumr\u00fa gl\u00e9asanna"
+            }
+        }
+    }
+}

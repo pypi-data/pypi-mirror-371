@@ -1,0 +1,63 @@
+{
+    "device_automation": {
+        "extra_fields": {
+            "above": "Thuas",
+            "below": "Th\u00edos",
+            "for": "Fad",
+            "position": "Seasamh"
+        }
+    },
+    "entity_component": {
+        "_": {
+            "state_attributes": {
+                "current_position": {
+                    "name": "Seasamh"
+                }
+            }
+        }
+    },
+    "services": {
+        "close_cover": {
+            "description": "D\u00fanann cl\u00fadach.",
+            "name": "D\u00fan"
+        },
+        "close_cover_tilt": {
+            "description": "Claonann s\u00e9 cl\u00fadach le d\u00fanadh.",
+            "name": "D\u00fan claonadh"
+        },
+        "open_cover": {
+            "description": "Oscla\u00edonn s\u00e9 cl\u00fadach.",
+            "name": "Oscail"
+        },
+        "open_cover_tilt": {
+            "description": "Claonann s\u00e9 cl\u00fadach ar oscailt.",
+            "name": "Claonadh oscailte"
+        },
+        "set_cover_position": {
+            "description": "Bogann s\u00e9 cl\u00fadach go su\u00edomh ar leith.",
+            "fields": {
+                "position": {
+                    "description": "Seasamh sprice.",
+                    "name": "Seasamh"
+                }
+            },
+            "name": "Socraigh su\u00edomh"
+        },
+        "set_cover_tilt_position": {
+            "description": "Bogann s\u00e9 claonadh cl\u00fadaigh go su\u00edomh ar leith.",
+            "fields": {
+                "tilt_position": {
+                    "description": "Seasamh claonta sprice.",
+                    "name": "Seasamh claonta"
+                }
+            }
+        },
+        "toggle": {
+            "name": "Scor\u00e1naigh"
+        },
+        "toggle_cover_tilt": {
+            "description": "Athra\u00edonn s\u00e9 claonadh cl\u00fadaigh idir oscailt/d\u00fanadh.",
+            "name": "Scor\u00e1naigh tilt"
+        }
+    }
+}
