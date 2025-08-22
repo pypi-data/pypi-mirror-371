@@ -1,0 +1,10 @@
+avocavo/__init__.py,sha256=v25QeSaCLNwIiF1kQLObsaVjFAxnhA0rIpPXDiFc3Ko,1759
+avocavo/auth.py,sha256=7ieWYVHq03g3kIHh7wn8xvC70JCx6xES4k69IaoUNmc,51113
+avocavo/auth_supabase.py,sha256=6-b_lUlYfIJ6X-ykfKBsOtHcCW1KBet1QLl1PisoWt8,25894
+avocavo/client.py,sha256=SM2SBO2LADbKaxGEy0AU0AB1m2gyKucrR9lKgRLDsRc,48426
+avocavo/exceptions.py,sha256=4vBSRqf2Mgh0hqu9_WqQVmrIAlXj4ljAgizWlzyfPf4,881
+avocavo/models.py,sha256=CjfGTFvOROx6uCpkg5qrAVR2hA-NhMrh9kGGiyzvaUA,14244
+avocavo-1.1.1.dist-info/METADATA,sha256=Ivl1v05Nul7GfKwxcFKnWSOsqNChPPDsy99SVhQU2Ko,9792
+avocavo-1.1.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+avocavo-1.1.1.dist-info/top_level.txt,sha256=HIh6Qe2piTkTKHNfZxvpR9G9SbMfWYFHEmFQfRFqnH8,8
+avocavo-1.1.1.dist-info/RECORD,,
