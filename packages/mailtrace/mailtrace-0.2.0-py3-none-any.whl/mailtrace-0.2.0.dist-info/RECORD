@@ -1,0 +1,16 @@
+mailtrace/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+mailtrace/__main__.py,sha256=-0vGLckEGt59dN7SE-XYCz6_aaZzJvyekZt4Ixwkbm8,8121
+mailtrace/config.py,sha256=imY5ThOiUkhny5EcpaJ0zzce0aCWVWWFHMG3HdedBFg,5656
+mailtrace/log.py,sha256=83JKg9MkVnvTc8T6MO8n-uaRSgwcWcYXT04SqFJR8U8,461
+mailtrace/models.py,sha256=bw_Pf-IvyBUWnjASz04qGOkc9PYIgqi0J5fQBrNz3mo,1499
+mailtrace/parser.py,sha256=z7Q9mD5a-85fU7n5GtGgX7x5MMXaXDgGNPLR8YjaNV4,4303
+mailtrace/utils.py,sha256=6PZdSliefNu0UM1mmtlgMsElWkvrlbWymq4UYAHydE0,2066
+mailtrace/aggregator/__init__.py,sha256=D8vhiZxf0iB0lLe1_kGdnMTzoaaUmiou5OdA_M01avw,3132
+mailtrace/aggregator/base.py,sha256=L4vzqtbfHg8TCge-sS8qQKCZaU-Qc7Z8Y1wGzX1O1-I,670
+mailtrace/aggregator/opensearch.py,sha256=8DQGIUmXzVv7V8Xp7VZiMILOB4LJUkPoPiB15lsvdrM,3898
+mailtrace/aggregator/ssh_host.py,sha256=80m64Ft6p4vzcQO8zoKnkjqRq1Tcx6Mu4SzXO2SeRmg,5606
+mailtrace-0.2.0.dist-info/METADATA,sha256=KhBTTz2ZzGtJSMF_uKoBbeV8e8cUyM5jPM3GVP3lx_8,4016
+mailtrace-0.2.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+mailtrace-0.2.0.dist-info/entry_points.txt,sha256=V1f8LrlJUImYcvM0qzLHoDxroVU2EKk9yqc6beIgD94,53
+mailtrace-0.2.0.dist-info/top_level.txt,sha256=H9zp4pqbjvpxfp5IO0QMK947pZaKlAd6ggAhY7JbTeo,10
+mailtrace-0.2.0.dist-info/RECORD,,
