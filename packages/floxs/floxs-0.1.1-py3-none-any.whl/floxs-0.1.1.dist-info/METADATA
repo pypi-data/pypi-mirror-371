@@ -1,0 +1,120 @@
+Metadata-Version: 2.1
+Name: floxs
+Version: 0.1.1
+Summary: Multi-agent RL flock and swarm environments implemented in JAX
+Home-page: https://zombie-einstein.github.io/floxs
+License: MIT
+Keywords: simulation,reinforcement-learning
+Author: zombie-einstein
+Author-email: zombie-einstein@proton.me
+Requires-Python: >=3.10,<3.12
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: GPU
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Scientific/Engineering :: Artificial Life
+Requires-Dist: chex (>=0.1.6,<0.2.0)
+Requires-Dist: esquilax (>=2.0.0)
+Requires-Dist: jax (>=0.4.4,<0.5.0)
+Requires-Dist: jumanji (>=1.1.1,<2.0.0)
+Project-URL: Documentation, https://zombie-einstein.github.io/floxs
+Project-URL: Repository, https://github.com/zombie-einstein/floxs
+Description-Content-Type: text/markdown
+
+# Floxs
+
+**Swarm and Flock Multi-agent RL environments, implemented with [JAX](https://github.com/google/jax) using [Esquilax](https://zombie-einstein.github.io/esquilax/)**
+
+Full documentation can be found [**here**](https://zombie-einstein.github.io/floxs/)
+
+<p float="left">
+  <img src="https://github.com/zombie-einstein/floxs/raw/master/.github/images/rl_boids001.gif?raw=true" width="300" />
+  <img src="https://github.com/zombie-einstein/floxs/raw/master/.github/images/rl_boids002.gif?raw=true" width="300" />
+</p>
+
+Multi-agent RL environments with a focus on larger scale flocks and swarms on continuos
+spaces. Implemented using [Esquilax](https://zombie-einstein.github.io/esquilax/) a JAX multi-agent simulation and RL
+library, and the [Jumanji](https://github.com/instadeepai/jumanji) RL environment API.
+
+```python
+from floxs.flock.env import Flock
+import jax
+
+
+env = Flock()
+
+key = jax.random.PRNGKey(101)
+state, ts = env.reset(key)
+states = [state]
+
+for _ in range(100):
+    key, k = jax.random.split(key)
+    actions = jax.random.uniform(k, (env.generator.num_boids, 2), minval=0.5, maxval=1.0)
+    state, ts = env.step(state, actions)
+    states.append(state)
+
+# Save an animation of the environment
+env.animate(states, interval=100, save_path="animation.gif")
+```
+
+See the [Jumanji docs](https://instadeepai.github.io/jumanji/) for more usage information.
+
+## Usage
+
+Floxs can be installed using pip
+
+```shell
+pip install floxs
+```
+
+From the repository the package and requirements can be installed
+using [poetry](https://python-poetry.org/docs/) by running
+
+```shell
+poetry install
+```
+
+## Developers
+
+### Pre-Commit Hooks
+
+Pre commit hooks can be installed by running
+
+```bash
+pre-commit install
+```
+
+Pre-commit checks can then be run using
+
+```bash
+task lint
+```
+
+### Tests
+
+Tests can be run with
+
+```bash
+task test
+```
+
+### Build Documentation
+
+Docs can be built using
+[Sphinx](https://www.sphinx-doc.org/en/master/)
+by running
+
+```bash
+task docs
+```
+
+Built docs will be generated in the `docs/build` folder.
+
