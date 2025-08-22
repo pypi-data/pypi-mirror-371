@@ -1,0 +1,15 @@
+tabbed/__init__.py,sha256=qbXjWiQaGTSvKEBP3Xce0yvYwcNUzwjEbPVN4_O4gSU,150
+tabbed/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tabbed/reading.py,sha256=EbgL--hEoOH02XDSg4q41wvn6TZowmgsmxCYYYg0CDQ,22056
+tabbed/sniffing.py,sha256=mfu2rLPYO9YMpxBATl48EXBaSoY9c_xrgIquCCbpDQQ,26479
+tabbed/tabbing.py,sha256=hMLzg-g9odNUy0RR4vbNDfBMUZ5dPJ-CPFRdPBzigHY,22046
+tabbed/samples/__init__.py,sha256=irRmw3Nlo63oaEFvnEoyZRP1PsFsK7lxAJC38TCw7xo,399
+tabbed/samples/annotations.txt,sha256=vQdJCv1WjN9krvtmqMvP3aaxx1ikbCwDoC413X3VVBk,2929
+tabbed/utils/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tabbed/utils/mixins.py,sha256=YtIBt75-flNLTxxhbECd57VyIuup_oulPhntgUj2uhU,2167
+tabbed/utils/parsing.py,sha256=TmD2k-_Dwr6p4J9ZYWIKU4Q25REpjsZT3kIjlldoI0Q,9092
+tabbed-1.1.0.dist-info/licenses/LICENSE,sha256=S6uMkLZ6U4iWqzB026OS4JcgPlyr_N85u2v53O0-JMU,1528
+tabbed-1.1.0.dist-info/METADATA,sha256=I2LYWaOdmNHW7EQq8iw5h1pJdQX35B7_5Qt8L_RH57Y,8321
+tabbed-1.1.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+tabbed-1.1.0.dist-info/top_level.txt,sha256=RO0LRnCj5DgLEyDgbL6eoB9ArMp8l4YIiDQYWTiJ1bo,7
+tabbed-1.1.0.dist-info/RECORD,,
