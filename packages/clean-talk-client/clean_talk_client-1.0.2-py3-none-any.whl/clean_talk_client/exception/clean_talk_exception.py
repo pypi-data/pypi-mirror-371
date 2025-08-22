@@ -1,0 +1,2 @@
+class CleanTalkException(Exception):
+    pass
