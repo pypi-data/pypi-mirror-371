@@ -1,0 +1,8 @@
+[project]
+name = "huggingface-zeusdb"
+version = "0.0.0"
+description = "Open-source RAG with any model: Hugging Face embeddings + ZeusDB vector storage with local deployment and GPU optimization."
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"

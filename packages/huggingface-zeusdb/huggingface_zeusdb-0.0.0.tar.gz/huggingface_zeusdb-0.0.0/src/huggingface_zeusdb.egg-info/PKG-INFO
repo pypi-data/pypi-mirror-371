@@ -1,0 +1,4 @@
+Metadata-Version: 2.4
+Name: huggingface-zeusdb
+Version: 0.0.0
+Summary: Open-source RAG with any model: Hugging Face embeddings + ZeusDB vector storage with local deployment and GPU optimization.
