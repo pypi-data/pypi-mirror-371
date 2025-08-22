@@ -1,0 +1,2 @@
+[console_scripts]
+wfmeta_dask = wfmeta_dask:create_parser_and_run
