@@ -1,0 +1,14 @@
+McSixAI/__init__.py,sha256=pSuLN2YUNA4H3HcUnZ4FRp7yKIgm1Wg1xFBle8iJ19U,128
+McSixAI/__main__.py,sha256=-vt2T7-_AnWJ8BTBSmJKPXmOZtpe6TkNXghJJ6dIP_o,63
+McSixAI/cli.py,sha256=8sn3bXuCoDzON-E5S0p8p-QtSedm2FGTEQLpC2eqxK4,370
+McSixAI/commands.py,sha256=BMGq3qK9CWUZQLgy7QptrxoJxx7rlEiPI4rYdSQ1utE,4356
+McSixAI/config.py,sha256=ns3GEzeCMWjzEitaCeZCDtKNsRgRmTqMYRwWrFOoW6o,276
+McSixAI/file_manager.py,sha256=8GwyN6II5Fr0jz0cBW69p0-HNxVB7ZsB8oB_u20H1IU,2779
+McSixAI/main.py,sha256=VrpH5OhKLfpCAdMEdluzyYgt98TdxLAQv0dZsnpdw10,3975
+McSixAI/openrouter.py,sha256=uGLeziH-9GYrDM7rBbMfYK-BZ0yFNf8PkXgqzb7ixWI,1859
+McSixAI/utils.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+mcsixai-0.1.6.dist-info/METADATA,sha256=lvThvUF7zqJM9-A692u_bCu8PGKrlxnYFRIG87LVS4U,379
+mcsixai-0.1.6.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+mcsixai-0.1.6.dist-info/entry_points.txt,sha256=v_kVkpmIj3knLCRVr7JHhk-T8iRV8kFfjoFtxEJCRSA,45
+mcsixai-0.1.6.dist-info/top_level.txt,sha256=KurZKmJ5cMNCKagZfUsk0Ohgv_DCbVQd7VNT6dDDHjw,8
+mcsixai-0.1.6.dist-info/RECORD,,
