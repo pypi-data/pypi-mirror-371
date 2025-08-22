@@ -1,0 +1,3 @@
+[console_scripts]
+guadalupe-weather=guadalupe_weather.cli:cli
+
