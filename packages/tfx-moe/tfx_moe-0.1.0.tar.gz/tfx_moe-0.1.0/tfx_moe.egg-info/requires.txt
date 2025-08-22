@@ -1,0 +1,3 @@
+tfx<2.0,>=1.15.1
+tensorflow<2.16,>=2.15.1
+tensorflow-transform<2.0,>=1.15.0
