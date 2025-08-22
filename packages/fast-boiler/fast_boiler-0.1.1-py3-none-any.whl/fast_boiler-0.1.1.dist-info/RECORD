@@ -1,0 +1,12 @@
+fast_boiler/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+fast_boiler/main.py,sha256=jT1vPsku3_7OHP79xd0R_pA1M8YoHwqtSL1RyzndrLo,6711
+fast_boiler/templates/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+fast_boiler/templates/database.py.j2,sha256=elPTsj9TNKW1D80WQSoJth71rkR8Xulr9XQJp3qPJ8M,632
+fast_boiler/templates/gitignore.j2,sha256=6HEZGy9_w90oHrXTPbeuyGyd1PJ5o0UAM13wv9eBJcw,115
+fast_boiler/templates/main.py.j2,sha256=IVJce88sr-bPEkwtopGrs2aPzvudjBRVNEtzIRI1gIk,1093
+fast_boiler/templates/requirements.txt.j2,sha256=SjhK71tiQTVZQw4x4_PJsSD5dSf7yyD3elqTPXUsTZs,139
+fast_boiler-0.1.1.dist-info/METADATA,sha256=7_B894pwhG7ZlcDpibSatCgY-wWexIU-s7IClRpmzvo,5022
+fast_boiler-0.1.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+fast_boiler-0.1.1.dist-info/entry_points.txt,sha256=iS_kTdRPK_pSZbcxbTrahKaUL2szZeMzyIG0cJc4ZMo,53
+fast_boiler-0.1.1.dist-info/top_level.txt,sha256=FX75oBRF5NUy0mLuIG76bUMfHmqZCwGX9dGWwxoIEeM,12
+fast_boiler-0.1.1.dist-info/RECORD,,
