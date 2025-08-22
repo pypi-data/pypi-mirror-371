@@ -1,0 +1,22 @@
+Metadata-Version: 2.4
+Name: powder_ens_commons
+Version: 0.1.0
+Summary: A simple data/model commons package for POWDER experiments
+Home-page: https://gitlab.flux.utah.edu/mumtahin_habib/powder_ens_commons
+Author: Mumtahin Habib
+Author-email: mumtahin.mazumder@utah.edu
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Requires-Dist: requests
+Requires-Dist: tqdm
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: rasterio
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
