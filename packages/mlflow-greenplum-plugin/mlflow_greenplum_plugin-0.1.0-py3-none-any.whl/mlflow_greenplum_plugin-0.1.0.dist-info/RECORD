@@ -1,0 +1,13 @@
+mlflow_greenplum/__init__.py,sha256=0Z3_8Dsr-iGAUDIwGvZ3Wpa3Bk_87xAdEssWLme7zvA,1150
+mlflow_greenplum/artifacts.py,sha256=49_DNIKophRuOUrUNzI0_0e8qm-Pycgx9e6c9Jl3KKg,4018
+mlflow_greenplum/models.py,sha256=XtGcezFXOrKA1TdLwBdXi0i8ppfvqJFEXoogVpmcWZ4,23570
+mlflow_greenplum/patching.py,sha256=l2TMBkd4wwEQk3kmRTxgGkmzL2DEiLS3GgPNm0ctXoE,26567
+mlflow_greenplum/registry.py,sha256=4RiIkkIE5_KMNwnaTS8Akc92xcZ8LHGtIsDFypXowG8,20579
+mlflow_greenplum/store.py,sha256=cdQJ4Owk-Nkl2TT76S8fk74kkUTEZK84F1-iUBjIhDI,25977
+mlflow_greenplum_plugin-0.1.0.dist-info/LICENSE,sha256=L9TYYqjEPXRJERD-OXDQmA2HsYLHSpaIA_38A5cLoV4,10634
+mlflow_greenplum_plugin-0.1.0.dist-info/METADATA,sha256=IBvwSiGiIeC7z50bKy2dHNggzqazWbierD0itAT5h1w,9642
+mlflow_greenplum_plugin-0.1.0.dist-info/NOTICE,sha256=a9cXbGeO14zG-Krwstb8cZMdnT8thPRUZAvvE2qXRR0,196
+mlflow_greenplum_plugin-0.1.0.dist-info/WHEEL,sha256=iAkIy5fosb7FzIOwONchHf19Qu7_1wCWyFNR5gu9nU0,91
+mlflow_greenplum_plugin-0.1.0.dist-info/entry_points.txt,sha256=lhQ1DdA0YkMYna30uiRMVWGv0aA1kLUQvb8Z_tpVWYA,268
+mlflow_greenplum_plugin-0.1.0.dist-info/top_level.txt,sha256=Pus4ki9OXawZPcc_VzJJ4h_FPFESHi5PsVCTOZjQBHc,17
+mlflow_greenplum_plugin-0.1.0.dist-info/RECORD,,
