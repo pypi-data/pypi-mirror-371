@@ -1,0 +1,12 @@
+mcp_deep_research/__init__.py,sha256=9ge1123yPgM0_A8p_15QrD0Jvn-B3_w-L6qBaKS2elo,90
+mcp_deep_research/__main__.py,sha256=glNNfnrVTN2hmKf-d6drxZUDn90cUuSqDtQEbZc07D4,4986
+mcp_deep_research/mcp_tools.py,sha256=XrOBMsCpogOO8_THTejyjTIzMlr2un9uWjigBF0IMEI,2865
+mcp_deep_research/tools/fetcher.py,sha256=t92IFjWWyPasRGzs4LJaoia6KfCdH-pJwTANuYXdAHw,3682
+mcp_deep_research/tools/md_handler.py,sha256=R1cE9swuknc3zhaLkSbGLzPI3Wi5QovC3bXmaCn2SsU,3221
+mcp_deep_research/tools/read_tools.py,sha256=q8oQHL6Ib1jvrIs7NDFdtoKPKbWUcjvUqO3_qhIVWVs,326
+mcp_deep_research/tools/search_tools.py,sha256=rpvhgy3xkyXEuQjPt1VjInpF2lSCuNSYwJMBRmWospk,1229
+mcp_deep_research-0.1.6.dist-info/METADATA,sha256=PbC_aZU4W-8KIoCCTheLeqr1YJNdyzfS7GUMT9ZjffY,515
+mcp_deep_research-0.1.6.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+mcp_deep_research-0.1.6.dist-info/entry_points.txt,sha256=yG_AqlZhctkFp5l-acW6kd5SjVfJ4dAf4Ui4DYrpaGY,70
+mcp_deep_research-0.1.6.dist-info/top_level.txt,sha256=MFEAQeV1NxACaSD6ZmtFMlf2nxS-hIngWaelJ1vZBRI,18
+mcp_deep_research-0.1.6.dist-info/RECORD,,
