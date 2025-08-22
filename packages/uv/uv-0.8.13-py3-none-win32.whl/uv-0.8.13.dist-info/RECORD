@@ -1,0 +1,12 @@
+uv-0.8.13.data/scripts/uv.exe,sha256=-P30Bru-cggVPo8OQ7DyhNkoDT9QQrPLfwqM9AWbe6A,43970048
+uv-0.8.13.data/scripts/uvw.exe,sha256=zfVHyJqsjeuGSp-tmW1_dTEcKa8CWUQsD4OoYB35jRc,276992
+uv-0.8.13.data/scripts/uvx.exe,sha256=yIiGvsP5wmFSvJht1qCAeK7KRENKqInSXABQDY0gUJU,277504
+uv-0.8.13.dist-info/METADATA,sha256=VQSesfX3yvdb9l0lH1rHgF_x6Q7qGQCSVH8TSA9APUo,12202
+uv-0.8.13.dist-info/WHEEL,sha256=Q4EuPurnoomImVpjwa0YbplsthbqY-uCz1VRFQ9bQ98,89
+uv-0.8.13.dist-info/licenses/LICENSE-APACHE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+uv-0.8.13.dist-info/licenses/LICENSE-MIT,sha256=hg49eoa4TmpwEsemNfxk30dc68bM403-tzpZguxYF2w,1077
+uv/__init__.py,sha256=DLA95X6E43S_PG_aShLgH2Mx0Os_P31OmoGXrS2Mc30,778
+uv/__main__.py,sha256=QxLDHR5ZJFB81It-o8QQVSfM2B9NtWPvxSTKclYga40,1181
+uv/_find_uv.py,sha256=CLps15bavfKFrHLOaw90f2g18Y3y4LC9ylI35o_qlKE,3139
+uv/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+uv-0.8.13.dist-info/RECORD,,
