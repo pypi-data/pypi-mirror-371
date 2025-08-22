@@ -1,0 +1,13 @@
+wfmeta_dask/__init__.py,sha256=EJ8VCvskbg-arhclTGOwsd0qwhR8oeipdXvHS39hde0,6131
+wfmeta_dask/__main__.py,sha256=qKoVoqBW6PCE3oQJlhuI__UQwbY8HK5pLVb9U5dPLSE,91
+wfmeta_dask/helpers.py,sha256=EWAz3ofzTRgiH4q3pKNz2p98G7aj5C0iT__Rh9eL8ZI,1769
+wfmeta_dask/objs/__init__.py,sha256=JTD8WDr310WfKnGELg2KNGaWSigzffZZYffDVF7bTLc,284
+wfmeta_dask/objs/enums.py,sha256=3aOUmlYqDCSGS6xTVA_QM5n_fOlE29_w_5WY_e2nl1s,866
+wfmeta_dask/objs/events.py,sha256=7EjmeKw5nOw6A9JPmxt8WeFmQElfTRSIcFjly5cLPOM,11400
+wfmeta_dask/objs/tasks.py,sha256=4oprYgYs2bbDbu8fYeSI5TrDs2fv6j887ehCP3Ats5k,8431
+wfmeta_dask-1.0.0.dist-info/licenses/LICENSE,sha256=KNAADYhXKAIGySYjfCVq6P4ZDhIUFfHxeZFYa3-32ec,1055
+wfmeta_dask-1.0.0.dist-info/METADATA,sha256=gQC9Z0I76rO5BGeqY2StxKcHLSVheVHzMgB8akuaZeI,2362
+wfmeta_dask-1.0.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+wfmeta_dask-1.0.0.dist-info/entry_points.txt,sha256=U8CvGy3YzRrMfTJR6Jv0K4DILAWv4JDU6op-VUlp6LM,66
+wfmeta_dask-1.0.0.dist-info/top_level.txt,sha256=DkwigEGq2w7NLYlJJ1asWHK4LVtYUsetT770oVvAu74,12
+wfmeta_dask-1.0.0.dist-info/RECORD,,
