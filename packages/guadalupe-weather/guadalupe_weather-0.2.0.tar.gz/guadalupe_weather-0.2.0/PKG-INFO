@@ -1,0 +1,30 @@
+Metadata-Version: 2.4
+Name: guadalupe_weather
+Version: 0.2.0
+Summary: Paquete analisis de clima en Isla Guadalupe
+Home-page: https://bitbucket.org/IslasGECI/clima_guadalupe/
+Author: Ciencia de Datos • GECI
+Author-email: ciencia.datos@islas.org.mx
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+License-File: LICENSE
+Requires-Dist: geci_plots
+Requires-Dist: matplotlib
+Requires-Dist: pandas
+Requires-Dist: typer[all]
+Requires-Dist: matplotlib-stubs ; extra == "dev"
+Requires-Dist: pandas-stubs ; extra == "dev"
+Requires-Dist: types-click ; extra == "dev"
+Provides-Extra: dev
+
+<a href="https://www.islas.org.mx/"><img src="https://www.islas.org.mx/img/logo.svg" align="right" width="256" /></a>
+# Dummy Transformations
+[![codecov](https://codecov.io/gh/IslasGECI/guadalupe_weather/graph/badge.svg?token=RY807ST1T1)](https://codecov.io/gh/IslasGECI/guadalupe_weather)
+![example branch
+parameter](https://github.com/IslasGECI/guadalupe_weather/actions/workflows/actions.yml/badge.svg)
+![licencia](https://img.shields.io/github/license/IslasGECI/guadalupe_weather)
+![languages](https://img.shields.io/github/languages/top/IslasGECI/guadalupe_weather)
+![commits](https://img.shields.io/github/commit-activity/y/IslasGECI/guadalupe_weather)
+![PyPI - Version](https://img.shields.io/pypi/v/guadalupe_weather)
+

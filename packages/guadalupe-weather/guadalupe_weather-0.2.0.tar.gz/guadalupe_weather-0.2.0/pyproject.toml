@@ -1,0 +1,33 @@
+[build-system]
+requires = ["flit_core >=2,<4"]
+build-backend = "flit_core.buildapi"
+
+[tool.flit.metadata]
+author = "Ciencia de Datos • GECI"
+author-email = "ciencia.datos@islas.org.mx"
+classifiers = [ "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",]
+description-file = "README.md"
+home-page = "https://bitbucket.org/IslasGECI/clima_guadalupe/"
+module = "guadalupe_weather"
+requires = [
+	"geci_plots",
+	"matplotlib",
+	"pandas",
+	"typer[all]",
+]
+requires-python=">=3.9"
+
+[tool.mutmut]
+paths_to_mutate = [ "guadalupe_weather/" ]
+tests_dir = [ "tests/" ]
+[[tool.mypy.overrides]]
+module = ["geci_plots.*","geci_test_tools.*"]
+ignore_missing_imports = true
+
+[tool.flit.metadata.requires-extra]
+dev = [
+	"matplotlib-stubs",
+	"pandas-stubs",
+	"types-click",
+]
+
