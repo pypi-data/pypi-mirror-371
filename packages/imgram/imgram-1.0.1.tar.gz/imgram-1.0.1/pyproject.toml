@@ -1,0 +1,34 @@
+[project]
+name = "imgram"
+version = "1.0.1"
+authors = [
+    { name="Doozy" }
+]
+description = "Instagram media downloader CLI (doesn't work for stories)"
+readme = "README.md"
+requires-python = ">=3.11"
+keywords = ["Instagram", "IG", "Instagram download", "download", "instagram post", "social media"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Development Status :: 5 - Production/Stable",
+]
+license = "MIT"
+license-files = ["LICENSE"]
+dependencies = [
+    "click>=8.1",
+    "instagrapi",
+    "pwinput",
+]
+
+[project.scripts]
+imgram = "imgram.imgram:imgram"
+
+[build-system]
+requires = ["flit_core >= 3.12.0, <4"]
+build-backend = "flit_core.buildapi"
+
+[project.urls]
+Homepage = "https://github.com/d00zylive/Imgram/tree/master"
+Repository = "https://github.com/d00zylive/Imgram.git"
+Issues = "https://github.com/d00zylive/Imgram/issues"
