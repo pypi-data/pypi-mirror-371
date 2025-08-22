@@ -1,0 +1,11 @@
+jsoniq/__init__.py,sha256=jM7-xaKVjhQUW1yb9dsFryUWwPp7hIG2B37VC9MY2ns,70
+jsoniq/sequence.py,sha256=5aSTZGS-4JoE0Xz5YM0F3gqQUVOj2T1MJPW7jBRC6tY,2938
+jsoniq/session.py,sha256=HYDKUQmhMCrlI7ZPNP1rYKZobvKd6yplED-oKrkka3Y,13433
+jsoniq/jars/rumbledb-1.24.0.jar,sha256=zgxYCGdK3HFJgutUxNvJBQ4liNXCTsMWCuSsjuDjLvI,29914596
+jsoniq-0.2.0a9.dist-info/licenses/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+jsoniqmagic/__init__.py,sha256=0uy1y3uHjHgbovsoKUUEE1yMw_NfYP-R_eVhgkFm_cs,287
+jsoniqmagic/magic.py,sha256=R-8EfqzMdqMlIJYEZdVXEwmKC2zbA1HsvBTFeP38GkI,3690
+jsoniq-0.2.0a9.dist-info/METADATA,sha256=6XDJWknZ6y81KcVBRjqgNVVOeZP_kge4RzUBEf6mnnQ,34412
+jsoniq-0.2.0a9.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+jsoniq-0.2.0a9.dist-info/top_level.txt,sha256=jjkybEbT8mxQC6pha9-NV3kZtgOLYvz9Q0-d9vu7ccI,19
+jsoniq-0.2.0a9.dist-info/RECORD,,
