@@ -1,0 +1,14 @@
+fast_plaid/fast_plaid_rust.cp39-win_amd64.pyd,sha256=-_j0R_8YxCTNXLCHW0QrGgLNkfqdIFUswdpRaV596wg,3272192
+fast_plaid/__init__.py,sha256=ZkJq7gcpvBOUetN5hKOeVYmXOlmpzqJU_kZHRSyqxaQ,1576
+fast_plaid/evaluation/evaluation.py,sha256=t45Au8ijgu9nopKtrWKhfoVvGah594p9vP5GS5ztVGQ,4239
+fast_plaid/evaluation/__init__.py,sha256=52Tu8abNstQaXSCnpqrL6NqsId4RiaN9lamow6VNLsY,98
+fast_plaid/search/fast_plaid.py,sha256=maeieffbQzE5A0DwvFaJwRfUTnaNj8oufNrxISg5VJ8,14727
+fast_plaid/search/__init__.py,sha256=YTzPM5TgKmgP_0lF2A676EeQaZBqk6fhT7tNN78XNbc,62
+fast_plaid-1.1.1.dist-info/DELVEWHEEL,sha256=1-DBN_5w-AUqJFfnBKLXwUxy4WfoJN2hArrGFqqaxyM,484
+fast_plaid-1.1.1.dist-info/METADATA,sha256=nbxkeJlOXdpY8RLEZKgj6m-nnhMQc6E87SfPmMMmGOM,1107
+fast_plaid-1.1.1.dist-info/RECORD,,
+fast_plaid-1.1.1.dist-info/WHEEL,sha256=SFq8SBzC81NB5ITKJAU_CjsCJk-sqmjha07boBg64KU,94
+fast_plaid-1.1.1.dist-info/licenses/LICENSE,sha256=nXAKkdclTMX-qXQaYCmzDRy6pUiyWGGx9sT3z3cuqfQ,1085
+fast_plaid.libs/.load-order-fast_plaid-1.1.1,sha256=8dQdKchh49APW2RUVXmufwRg-zq9qxSihNkJE4Kfkds,87
+fast_plaid.libs/c10-699da02640c3c4ece0c77eea338c2ec2.dll,sha256=YhatP80itTVW2vf4PsW7zSYWv9P4uu_MNVOeaOSj0ng,1046528
+fast_plaid.libs/msvcp140-a4c2229bdc2a2a630acdc095b4d86008.dll,sha256=pMIim9wqKmMKzcCVtNhgCOXD47x3cxdDVPPaT1vrnN4,575056
