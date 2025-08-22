@@ -1,0 +1,3 @@
+[console_scripts]
+pure-validator = pure_validator.__main__:main
+
