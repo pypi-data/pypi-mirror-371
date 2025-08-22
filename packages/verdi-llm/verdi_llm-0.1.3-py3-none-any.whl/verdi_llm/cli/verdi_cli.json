@@ -1,0 +1,2198 @@
+[
+  {
+    "command_usage": "verdi help [OPTIONS] [COMMAND]",
+    "description": "Show help for given command.",
+    "required_arguments": [],
+    "options": [
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi presto [OPTIONS]",
+    "description": "Set up a new profile in a jiffy. This command aims to make setting up a new profile as easy as possible. It does not require any services, such as PostgreSQL and RabbitMQ. It intentionally provides only a limited amount of options to customize the profile and by default does not require any options to be specified at all. To create a new profile with full control over its configuration, please use `verdi profile setup` instead. After running `verdi presto` you can immediately start using AiiDA without additional setup. The command performs the following actions: * Create a new profile that is set as the new default * Create a default user for the profile (email can be configured through the `--email` option) * Set up the localhost as a `Computer` and configure it * Set a number of configuration options with sensible defaults By default the command creates a profile that uses SQLite for the database. It automatically checks for RabbitMQ running on the localhost, and, if it can connect, configures that as the broker for the profile. Otherwise, the profile is created without a broker, in which case some functionality will be unavailable, most notably running the daemon and submitting processes to said daemon. When the `--use-postgres` flag is toggled, the command tries to connect to the PostgreSQL server with connection paramaters taken from the `--postgres- hostname`, `--postgres-port`, `--postgres-username` and `--postgres- password` options. It uses these credentials to try and automatically create a user and database. If successful, the newly created profile uses the new PostgreSQL database instead of SQLite.",
+    "required_arguments": [],
+    "options": [
+      "-p / --profile-name TEXT: Name of the profile. By default, a unique name starting with `presto` is automatically generated.  [default: (dynamic)]",
+      "--email TEXT: Email of the default user.  [default: (dynamic)]",
+      "--use-postgres: When toggled on, the profile uses a PostgreSQL database instead of an SQLite one. The connection details to the PostgreSQL server can be configured with the relevant options. The command attempts to automatically create a user and database to use for the profile, but this can fail depending on the configuration of the server.",
+      "--postgres-port INTEGER: The port of the PostgreSQL server.",
+      "--postgres-username TEXT: The username of the PostgreSQL user that is authorized to create new databases.",
+      "--postgres-password TEXT: The password of the PostgreSQL user that is authorized to create new databases.",
+      "-n / --non-interactive / -I / --interactive:  Never prompt, such as for sudo password. [default: (--interactive)]",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi quicksetup [OPTIONS]",
+    "description": "(Deprecated) Setup a new profile in a fully automated fashion.",
+    "required_arguments": [],
+    "options": [
+      "-n / --non-interactive / -I / --interactive:  In non-interactive mode, the CLI never prompts for options but simply uses default values for options that define one. In interactive mode, the CLI will prompt for each interactive option.   [default: (--interactive)]",
+      "--profile PROFILE: The name of the new profile.  [required]",
+      "--email EMAIL: Email address associated with the data you generate. The email address is exported along with the data, when sharing it. [required]",
+      "--first-name NONEMPTYSTRING: First name of the user.  [required]",
+      "--last-name NONEMPTYSTRING: Last name of the user.  [required]",
+      "--institution NONEMPTYSTRING: Institution of the user.  [required]",
+      "--db-engine [postgresql_psycopg|postgresql_psycopg2]:  Engine to use to connect to the database. (deprecated)",
+      "--db-backend [core.psql_dos]: Database backend to use.  [required] authentication.  [required]",
+      "--db-port INTEGER: Database server port.  [required]",
+      "--db-name NONEMPTYSTRING: Name of the database to create.",
+      "--db-username NONEMPTYSTRING: Name of the database user to create.",
+      "--db-password TEXT: Password of the database user.",
+      "--su-db-name TEXT: Name of the template database to connect to as the database superuser.",
+      "--su-db-username TEXT: User name of the database super user.",
+      "--su-db-password TEXT: Password to connect as the database superuser.",
+      "--broker-protocol [amqp|amqps]: Protocol to use for the message broker. [default: amqp]",
+      "--broker-username NONEMPTYSTRING:  Username to use for authentication with the message broker.  [default: guest]",
+      "--broker-password NONEMPTYSTRING:  Password to use for authentication with the message broker.  [default: guest] 127.0.0.1]",
+      "--broker-port INTEGER: Port for the message broker.  [default: 5672] broker without leading forward slash.",
+      "--repository DIRECTORY: Absolute path to the file repository.",
+      "--test-profile: Designate the profile to be used for running the test suite only.",
+      "--config FILEORURL: Load option values from configuration file in yaml format (local path or URL).",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi restapi [OPTIONS]",
+    "description": "Run the AiiDA REST API server. Example Usage: verdi -p <profile_name> restapi --hostname 127.0.0.5 --port 6789",
+    "required_arguments": [],
+    "options": [
+      "-P / --port INTEGER: Port number.",
+      "-c / --config-dir PATH: Path to the configuration directory",
+      "--wsgi-profile: Whether to enable WSGI profiler middleware for finding bottlenecks",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi run [OPTIONS] [--] FILEPATH [VARARGS]...",
+    "description": "Execute scripts with preloaded AiiDA environment.",
+    "required_arguments": [
+      "FILEPATH: The filepath argument",
+      "VARARGS: The varargs argument"
+    ],
+    "options": [
+      "--auto-group: Enables the autogrouping",
+      "-l / --auto-group-label-prefix TEXT:  Specify the prefix of the label of the auto group (numbers might be automatically appended to generate unique names per run).",
+      "-e / --exclude STR...: Exclude these classes from auto grouping (use full entrypoint strings).",
+      "-i / --include STR...: Include these classes from auto grouping (use full entrypoint strings or \"all\").",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi shell [OPTIONS]",
+    "description": "Start a python shell with preloaded AiiDA environment.",
+    "required_arguments": [],
+    "options": [
+      "--plain: Use a plain Python shell.",
+      "--no-startup: When using plain Python, ignore the PYTHONSTARTUP environment variable and ~/.pythonrc.py script.",
+      "-i / --interface [ipython|bpython]:  Specify an interactive interpreter interface.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi setup [OPTIONS]",
+    "description": "(Deprecated) Setup a new profile (use `verdi profile setup`). This method assumes that an empty PSQL database has been created and that the database user has been created.",
+    "required_arguments": [],
+    "options": [
+      "-n / --non-interactive / -I / --interactive:  In non-interactive mode, the CLI never prompts for options but simply uses default values for options that define one. In interactive mode, the CLI will prompt for each interactive option.   [default: (--interactive)]",
+      "--profile PROFILE: The name of the new profile.  [required]",
+      "--email EMAIL: Email address associated with the data you generate. The email address is exported along with the data, when sharing it. [required]",
+      "--first-name NONEMPTYSTRING: First name of the user.  [required]",
+      "--last-name NONEMPTYSTRING: Last name of the user.  [required]",
+      "--institution NONEMPTYSTRING: Institution of the user.  [required]",
+      "--db-engine [postgresql_psycopg|postgresql_psycopg2]:  Engine to use to connect to the database. (deprecated)",
+      "--db-backend [core.psql_dos]: Database backend to use.  [required] authentication.  [required]",
+      "--db-port INTEGER: Database server port.  [required]",
+      "--db-name NONEMPTYSTRING: Name of the database to create.  [required]",
+      "--db-username NONEMPTYSTRING: Name of the database user to create. [required]",
+      "--db-password TEXT: Password of the database user.  [required]",
+      "--broker-protocol [amqp|amqps]: Protocol to use for the message broker. [required]",
+      "--broker-username NONEMPTYSTRING:  Username to use for authentication with the message broker.  [required]",
+      "--broker-password NONEMPTYSTRING:  Password to use for authentication with the message broker.  [required]",
+      "--broker-port INTEGER: Port for the message broker.  [required] broker without leading forward slash. [required]",
+      "--repository DIRECTORY: Absolute path to the file repository. [required]",
+      "--test-profile: Designate the profile to be used for running the test suite only.",
+      "--config FILEORURL: Load option values from configuration file in yaml format (local path or URL).",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi status [OPTIONS]",
+    "description": "Print status of AiiDA services.",
+    "required_arguments": [],
+    "options": [
+      "-t / --print-traceback: Print the full traceback in case an exception is raised.",
+      "--no-rmq: Do not check RabbitMQ status",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi config downgrade [OPTIONS] {0|1|2|3|4|5|6|7|8}",
+    "description": "Print a configuration, downgraded to a specific version.",
+    "required_arguments": [],
+    "options": [
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi config get [OPTIONS] OPTION_NAME",
+    "description": "Get the value of an AiiDA option for the current profile.",
+    "required_arguments": [
+      "OPTION_NAME: The option_name argument"
+    ],
+    "options": [
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi config caching [OPTIONS]",
+    "description": "List caching-enabled process types for the current profile.",
+    "required_arguments": [],
+    "options": [
+      "-d / --disabled: List disabled types instead.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi config list [OPTIONS] PREFIX",
+    "description": "List AiiDA options for the current profile. Optionally filtered by a prefix.",
+    "required_arguments": [
+      "PREFIX: The prefix argument"
+    ],
+    "options": [
+      "-d / --description: Include description of options",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi config set [OPTIONS] OPTION_NAME OPTION_VALUE",
+    "description": "Set an AiiDA option. List values are split by whitespace, e.g. \"a b\" becomes [\"a\", \"b\"].",
+    "required_arguments": [
+      "OPTION_NAME: The option_name argument",
+      "OPTION_VALUE: The option_value argument"
+    ],
+    "options": [
+      "-g / --global: Apply the option configuration wide.",
+      "-a / --append: Append the value to an existing array.",
+      "-r / --remove: Remove the value from an existing array.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi config unset [OPTIONS] OPTION_NAME",
+    "description": "Unset an AiiDA option.",
+    "required_arguments": [
+      "OPTION_NAME: The option_name argument"
+    ],
+    "options": [
+      "-g / --global: Unset the option configuration wide.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi config show [OPTIONS] OPTION_NAME",
+    "description": "Show details of an AiiDA option for the current profile.",
+    "required_arguments": [
+      "OPTION_NAME: The option_name argument"
+    ],
+    "options": [
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi code duplicate [OPTIONS] CODE",
+    "description": "Duplicate a code allowing to change some parameters.",
+    "required_arguments": [
+      "CODE: The code to use"
+    ],
+    "options": [
+      "--on-computer / --store-in-db: Whether the code is installed on the target computer, or should be copied to the target computer each time from a local path.",
+      "-Y / --computer COMPUTER: Name of the computer, on which the code is installed.",
+      "-L / --label LABEL: This label can be used to identify the code (using 'label@computerlabel'), as long as labels are unique per computer.",
+      "-D / --description DESCRIPTION: A human-readable description of this code, ideally including version and compilation environment.",
+      "-P / --input-plugin PLUGIN: Entry point name of the default calculation plugin (as listed in 'verdi plugin list aiida.calculations').",
+      "--remote-abs-path FILE: [if --on-computer]: Absolute path to the executable on the target computer.",
+      "--code-folder DIRECTORY: [if --store-in-db]: Absolute path to directory containing the executable and all other files necessary for running it (to be copied to target computer).",
+      "--code-rel-path FILE: [if --store-in-db]: Relative path of the executable inside the code-folder.",
+      "--prepend-text TEXT: Bash commands that should be prepended to the executable call in all submit scripts for this code.",
+      "--append-text TEXT: Bash commands that should be appended to the executable call in all submit scripts for this code.",
+      "-n / --non-interactive / -I / --interactive:  In non-interactive mode, the CLI never prompts for options but simply uses default values for options that define one. In interactive mode, the CLI will prompt for each interactive option.   [default: (--interactive)]",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi code export [OPTIONS] CODE OUTPUT_FILE",
+    "description": "Export code to a yaml file. If no output file is given, default name is created based on the code label.",
+    "required_arguments": [
+      "CODE: The code to use",
+      "OUTPUT_FILE: The output_file argument"
+    ],
+    "options": [
+      "-o / --overwrite: Overwrite file/directory when writing to disk.",
+      "--sort / --no-sort: Sort the keys of the output YAML.  [default: sort]",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi code delete [OPTIONS] [CODES]...",
+    "description": "Delete a code. Note that codes are part of the data provenance, and deleting a code will delete all calculations using it.",
+    "required_arguments": [
+      "CODES: The codes argument"
+    ],
+    "options": [
+      "-n / --dry-run: Perform a dry run.",
+      "-f / --force: Do not ask for confirmation.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi code relabel [OPTIONS] CODE LABEL",
+    "description": "Relabel a code.",
+    "required_arguments": [
+      "CODE: The code to use",
+      "LABEL: The label argument"
+    ],
+    "options": [
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi code list [OPTIONS] [--]",
+    "description": "List the available codes.",
+    "required_arguments": [],
+    "options": [
+      "-Y / --computer COMPUTER: Filter codes by computer.",
+      "-d / --default-calc-job-plugin PLUGIN:  Filter codes by their optional default calculation job plugin.",
+      "-a / --all: Include hidden codes.",
+      "-A / --all-users: Include codes from all users.",
+      "-P / --project [full_label|entry_point|pk|uuid|label|default_calc_job_plugin|computer|user]:  Select the list of entity attributes to project.",
+      "-r / --raw: Display only raw query results, without any headers or footers.",
+      "-o / --show-owner: Show owners of codes.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi code show [OPTIONS] CODE",
+    "description": "Display detailed information for a code.",
+    "required_arguments": [
+      "CODE: The code to use"
+    ],
+    "options": [
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi code reveal [OPTIONS] [CODES]...",
+    "description": "Reveal one or more hidden codes in `verdi code list`.",
+    "required_arguments": [
+      "CODES: The codes argument"
+    ],
+    "options": [
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi code hide [OPTIONS] [CODES]...",
+    "description": "Hide one or more codes from `verdi code list`.",
+    "required_arguments": [
+      "CODES: The codes argument"
+    ],
+    "options": [
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi code setup [OPTIONS]",
+    "description": "(Deprecated) Setup a new code (use `verdi code create`).",
+    "required_arguments": [],
+    "options": [
+      "--on-computer / --store-in-db: Whether the code is installed on the target computer, or should be copied to the target computer each time from a local path.",
+      "-Y / --computer COMPUTER: Name of the computer, on which the code is installed.",
+      "-L / --label LABEL: This label can be used to identify the code (using 'label@computerlabel'), as long as labels are unique per computer.",
+      "-D / --description DESCRIPTION: A human-readable description of this code, ideally including version and compilation environment.",
+      "-P / --input-plugin PLUGIN: Entry point name of the default calculation plugin (as listed in 'verdi plugin list aiida.calculations').",
+      "--remote-abs-path FILE: [if --on-computer]: Absolute path to the executable on the target computer.",
+      "--code-folder DIRECTORY: [if --store-in-db]: Absolute path to directory containing the executable and all other files necessary for running it (to be copied to target computer).",
+      "--code-rel-path FILE: [if --store-in-db]: Relative path of the executable inside the code-folder.",
+      "--use-double-quotes / --not-use-double-quotes:  Whether the executable and arguments of the code in the submission script should be escaped with single or double quotes.",
+      "--prepend-text TEXT: Bash commands that should be prepended to the executable call in all submit scripts for this code.",
+      "--append-text TEXT: Bash commands that should be appended to the executable call in all submit scripts for this code.",
+      "-n / --non-interactive / -I / --interactive:  In non-interactive mode, the CLI never prompts for options but simply uses default values for options that define one. In interactive mode, the CLI will prompt for each interactive option.   [default: (--interactive)]",
+      "--config FILEORURL: Load option values from configuration file in yaml format (local path or URL).",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi code test [OPTIONS] CODE",
+    "description": "Run tests for the given code to check whether it is usable. For remote codes the following checks are performed: * Whether the remote executable exists.",
+    "required_arguments": [
+      "CODE: The code to use"
+    ],
+    "options": [
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi archive info [OPTIONS] PATH",
+    "description": "Summarise the contents of an archive.",
+    "required_arguments": [
+      "PATH: The path argument"
+    ],
+    "options": [
+      "--detailed: Provides more detailed information.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi archive migrate [OPTIONS] INPUT_FILE OUTPUT_FILE",
+    "description": "Migrate an archive to a more recent schema version.",
+    "required_arguments": [
+      "INPUT_FILE: The input_file argument",
+      "OUTPUT_FILE: The output_file argument"
+    ],
+    "options": [
+      "-f / --force: overwrite output file if it already exists",
+      "-i / --in-place: Migrate the archive in place, overwriting the original file.",
+      "--version VERSION: Archive format version to migrate to (defaults to latest version).",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi archive create [OPTIONS] [--] OUTPUT_FILE",
+    "description": "Create an archive from all or part of a profiles's data. Besides Nodes of the provenance graph, you can archive Groups, Codes, Computers, Comments and Logs. By default, the archive file will include not only the entities explicitly provided via the command line but also their provenance, according to the rules outlined in the documentation. You can modify some of those rules using options of this command.",
+    "required_arguments": [
+      "OUTPUT_FILE: The output_file argument"
+    ],
+    "options": [
+      "-a / --all: Include all entries, disregarding all other filter options and flags.",
+      "-X / --codes CODE...: One or multiple codes identified by their ID, UUID or label.",
+      "-Y / --computers COMPUTER...: One or multiple computers identified by their ID, UUID or label.",
+      "-G / --groups GROUP...: One or multiple groups identified by their ID, UUID or label.",
+      "-N / --nodes NODE...: One or multiple nodes identified by their ID or UUID.",
+      "-f / --force: Overwrite output file if it already exists.",
+      "--call-calc-backward / --no-call-calc-backward:  Whether to expand the node set by following CALL links to calculations backwards. [default: call-calc-backward]",
+      "--call-work-backward / --no-call-work-backward:  Whether to expand the node set by following CALL links to workflows backwards. [default: call-work-backward]",
+      "--create-backward / --no-create-backward:  Whether to expand the node set by following CREATE links backwards.  [default: create- backward]",
+      "--input-calc-forward / --no-input-calc-forward:  Whether to expand the node set by following INPUT links to calculations forwards. [default: no-input-calc-forward]",
+      "--input-work-forward / --no-input-work-forward:  Whether to expand the node set by following INPUT links to workflows forwards. [default: no-input-work-forward]",
+      "--return-backward / --no-return-backward:  Whether to expand the node set by following RETURN links backwards.  [default: no- return-backward]",
+      "--include-logs / --exclude-logs:  Include or exclude logs for node(s) in export.  [default: include-logs]",
+      "--include-comments / --exclude-comments:  Include or exclude comments for node(s) in export. (Will also export extra users who commented).  [default: include-comments]",
+      "--include-authinfos / --exclude-authinfos:  Include or exclude authentication information for computer(s) in export. [default: exclude-authinfos]",
+      "--compress INTEGER: Level of compression to use (0-9). [default: 6]",
+      "-b / --batch-size INTEGER: Stream database rows in batches, to reduce memory usage.",
+      "--test-run: Determine entities to export, but do not create the archive. Deprecated, please use `--dry-run` instead.",
+      "-n / --dry-run: Determine entities to export, but do not create the archive.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi archive import [OPTIONS] [--] [ARCHIVES]...",
+    "description": "Import archived data to a profile. The archive can be specified by its relative or absolute file path, or its HTTP URL.",
+    "required_arguments": [
+      "ARCHIVES: The archives argument"
+    ],
+    "options": [
+      "-w / --webpages TEXT...: Discover all URL targets pointing to files with the .aiida extension for these HTTP addresses. Automatically discovered archive URLs will be downloaded and added to ARCHIVES for importing.",
+      "--import-group / --no-import-group:  Add all imported nodes to the specified group, or an automatically created one [default: import-group]",
+      "-G / --group GROUP: Specify group to which all the import nodes will be added. If such a group does not exist, it will be created automatically.",
+      "-e / --extras-mode-existing [keep_existing|update_existing|mirror|none]:  Specify which extras from the export archive should be imported for nodes that are already contained in the database: none: do not import any extras.keep_existing: import all extras and keep original value of existing extras. update_existing: import all extras and overwrite value of existing extras. mirror: import all extras and remove any existing extras that are not present in the archive.",
+      "-n / --extras-mode-new [import|none]:  Specify whether to import extras of new nodes: import: import extras. none: do not import extras.",
+      "--comment-mode [leave|newest|overwrite]:  Specify the way to import Comments with identical UUIDs: leave: Leave the existing Comments in the database (default).newest: Use only the newest Comments (based on mtime).overwrite: Replace existing Comments with those from the import file.",
+      "--include-authinfos / --exclude-authinfos:  Include or exclude authentication information for computer(s) in import. [default: exclude-authinfos]",
+      "--migration / --no-migration: Force migration of archive file archives, if needed.  [default: migration]",
+      "-b / --batch-size INTEGER: Stream database rows in batches, to reduce memory usage.",
+      "--test-run: Determine entities to import, but do not actually import them. Deprecated, please use `--dry-run` instead.",
+      "-n / --dry-run: Determine entities to import, but do not actually import them.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi calcjob inputcat [OPTIONS] CALCJOB [PATH]",
+    "description": "Show the contents of one of the calcjob input files. You can specify the relative PATH in the raw input folder of the CalcJob. If PATH is not specified, the default input file path will be used, if defined by the calcjob plugin class.",
+    "required_arguments": [
+      "CALCJOB: The calcjob argument",
+      "PATH: The path argument"
+    ],
+    "options": [
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi calcjob cleanworkdir [OPTIONS] [--] [CALCJOBS]...",
+    "description": "Clean all content of all output remote folders of calcjobs. If no explicit calcjobs are specified as arguments, one or both of the -p and -o options has to be specified. If both are specified, a logical AND is done between the two, i.e. the calcjobs that will be cleaned have been modified AFTER [-p option] days from now, but BEFORE [-o option] days from now.",
+    "required_arguments": [
+      "CALCJOBS: The calcjobs argument"
+    ],
+    "options": [
+      "-p / --past-days PAST_DAYS: Only include entries created in the last PAST_DAYS number of days.",
+      "-o / --older-than OLDER_THAN: Only include entries created before OLDER_THAN days ago.",
+      "-Y / --computers COMPUTER...: include only calcjobs that were ran on these computers",
+      "-f / --force: Do not ask for confirmation.",
+      "-E / --exit-status INTEGER: Only include entries with this exit status.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi calcjob gotocomputer [OPTIONS] CALCJOB",
+    "description": "Open a shell in the remote folder on the calcjob. This command opens a ssh connection to the folder on the remote computer on which the calcjob is being/has been executed.",
+    "required_arguments": [
+      "CALCJOB: The calcjob argument"
+    ],
+    "options": [
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi archive version [OPTIONS] PATH",
+    "description": "Print the current version of an archive's schema.",
+    "required_arguments": [
+      "PATH: The path argument"
+    ],
+    "options": [
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi calcjob outputls [OPTIONS] CALCJOB [PATH]",
+    "description": "Show the list of the retrieved calcjob output files. You can specify a relative PATH in the retrieved folder of the CalcJob. If PATH is not specified, the base path of the retrieved folder will be used. Content can only be shown after the daemon has retrieved the remote files.",
+    "required_arguments": [
+      "CALCJOB: The calcjob argument",
+      "PATH: The path argument"
+    ],
+    "options": [
+      "-c / --color: color folders with a different color",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi calcjob res [OPTIONS] [--] CALCJOB",
+    "description": "Print data from the result output Dict node of a calcjob.",
+    "required_arguments": [
+      "CALCJOB: The calcjob argument"
+    ],
+    "options": [
+      "-k / --keys TEXT...: Filter the output by one or more keys.",
+      "-f / --format [json+date|yaml|yaml_expanded]:  The format of the output data.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi calcjob inputls [OPTIONS] CALCJOB [PATH]",
+    "description": "Show the list of the generated calcjob input files. You can specify a relative PATH in the raw input folder of the CalcJob. If PATH is not specified, the base path of the input folder will be used.",
+    "required_arguments": [
+      "CALCJOB: The calcjob argument",
+      "PATH: The path argument"
+    ],
+    "options": [
+      "-c / --color: color folders with a different color",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi calcjob outputcat [OPTIONS] CALCJOB [PATH]",
+    "description": "Show the contents of one of the calcjob retrieved outputs. You can specify the relative PATH in the retrieved folder of the CalcJob. If PATH is not specified, the default output file path will be used, if defined by the calcjob plugin class. Content can only be shown after the daemon has retrieved the remote files.",
+    "required_arguments": [
+      "CALCJOB: The calcjob argument",
+      "PATH: The path argument"
+    ],
+    "options": [
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi calcjob remotecat [OPTIONS] CALCJOB [PATH]",
+    "description": "Show the contents of a file in the remote working directory. The file to show can be specified using the PATH argument. If PATH is not specified, the default output file path as defined by the `CalcJob` plugin class will be used instead.",
+    "required_arguments": [
+      "CALCJOB: The calcjob argument",
+      "PATH: The path argument"
+    ],
+    "options": [
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi devel check-load-time [OPTIONS]",
+    "description": "Check for common indicators that slowdown `verdi`. Check for environment properties that negatively affect the responsiveness of the `verdi` command line interface. Known pathways that increase load time: * the database environment is loaded when it doesn't need to be     * Unexpected `aiida.*` modules are imported If either of these conditions are true, the command will raise a critical error",
+    "required_arguments": [],
+    "options": [
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi devel launch-add [OPTIONS]",
+    "description": "Launch an ``ArithmeticAddCalculation``. Unless specified with the option ``--code``, a suitable ``Code`` is automatically setup. By default the command configures ``bash`` on the ``localhost``. If the localhost is not yet configured as a ``Computer``, that is also done automatically.",
+    "required_arguments": [],
+    "options": [
+      "-X / --code CODE: A single code identified by its ID, UUID or label.",
+      "-d / --daemon: Submit to the daemon instead of running blockingly.",
+      "-s / --sleep INTEGER: Set the `sleep` input in seconds.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi devel check-undesired-imports [OPTIONS]",
+    "description": "Check that verdi does not import python modules it shouldn't. This is to keep the verdi CLI snappy, especially for tab-completion.",
+    "required_arguments": [],
+    "options": [
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi devel launch-multiply-add [OPTIONS]",
+    "description": "Launch a ``MultipylAddWorkChain``. Unless specified with the option ``--code``, a suitable ``Code`` is automatically setup. By default the command configures ``bash`` on the ``localhost``. If the localhost is not yet configured as a ``Computer``, that is also done automatically.",
+    "required_arguments": [],
+    "options": [
+      "-X / --code CODE: A single code identified by its ID, UUID or label.",
+      "-d / --daemon: Submit to the daemon instead of running blockingly.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi devel validate-plugins [OPTIONS]",
+    "description": "Validate all plugins by checking they can be loaded.",
+    "required_arguments": [],
+    "options": [
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi daemon decr [OPTIONS] [NUMBER]",
+    "description": "Remove NUMBER [default=1] workers from the running daemon. Returns exit code 0 if the daemon is OK, non-zero if there was an error.",
+    "required_arguments": [
+      "NUMBER: The number argument"
+    ],
+    "options": [
+      "-t / --timeout INTEGER: Time in seconds to wait for a response before timing out.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi daemon incr [OPTIONS] [NUMBER]",
+    "description": "Add NUMBER [default=1] workers to the running daemon. Returns exit code 0 if the daemon is OK, non-zero if there was an error.",
+    "required_arguments": [
+      "NUMBER: The number argument"
+    ],
+    "options": [
+      "-t / --timeout INTEGER: Time in seconds to wait for a response before timing out.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi devel run-sql [OPTIONS] SQL",
+    "description": "Run a raw SQL command on the profile database (only available for 'core.psql_dos' storage).",
+    "required_arguments": [
+      "SQL: The sql argument"
+    ],
+    "options": [
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi daemon status [OPTIONS]",
+    "description": "Print the status of the current daemon or all daemons. Returns exit code 0 if all requested daemons are running, else exit code 3.",
+    "required_arguments": [],
+    "options": [
+      "--all: Show status of all daemons.",
+      "-t / --timeout INTEGER: Time in seconds to wait for a response before timing out.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi daemon start [OPTIONS] [NUMBER]",
+    "description": "Start the daemon with NUMBER workers. If the NUMBER of desired workers is not specified, the default is used, which is determined by the configuration option `daemon.default_workers`, which if not explicitly changed defaults to 1. Returns exit code 0 if the daemon is OK, non-zero if there was an error.",
+    "required_arguments": [
+      "NUMBER: The number argument"
+    ],
+    "options": [
+      "--foreground: Run in foreground.",
+      "-t / --timeout INTEGER: Time in seconds to wait for a response before timing out.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi daemon logshow [OPTIONS]",
+    "description": "Show the log of the daemon, press CTRL+C to quit.",
+    "required_arguments": [],
+    "options": [
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi daemon restart [OPTIONS]",
+    "description": "Restart the daemon. The daemon is stopped before being restarted with the default number of workers that is started when calling `verdi daemon start` manually. Returns exit code 0 if the result is OK, non-zero if there was an error.",
+    "required_arguments": [],
+    "options": [
+      "--reset: Completely reset the daemon.",
+      "--no-wait: Do not wait for confirmation.",
+      "-t / --timeout INTEGER: Time in seconds to wait for a response before timing out.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi daemon stop [OPTIONS]",
+    "description": "Stop the daemon. Returns exit code 0 if the daemon was shut down successfully (or was not running), non-zero if there was an error.",
+    "required_arguments": [],
+    "options": [
+      "--no-wait: Do not wait for confirmation.",
+      "--all: Stop all daemons.",
+      "-t / --timeout INTEGER: Time in seconds to wait for a response before timing out.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi group add-nodes [OPTIONS] [NODES]...",
+    "description": "Add nodes to a group.",
+    "required_arguments": [
+      "NODES: The nodes argument"
+    ],
+    "options": [
+      "-G / --group GROUP: A single group identified by its ID, UUID or label.  [required]",
+      "-f / --force: Do not ask for confirmation.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi daemon worker [OPTIONS]",
+    "description": "Run a single daemon worker in the current interpreter.",
+    "required_arguments": [],
+    "options": [
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi group copy [OPTIONS] SOURCE_GROUP DESTINATION_GROUP",
+    "description": "Duplicate a group. More in detail, add all nodes from the source group to the destination group. Note that the destination group may not exist.",
+    "required_arguments": [
+      "SOURCE_GROUP: The source_group argument",
+      "DESTINATION_GROUP: The destination_group argument"
+    ],
+    "options": [
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi group create [OPTIONS] GROUP_LABEL",
+    "description": "Create an empty group with a given label.",
+    "required_arguments": [
+      "GROUP_LABEL: The group_label argument"
+    ],
+    "options": [
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi group delete [OPTIONS] [GROUPS]...",
+    "description": "Delete groups and (optionally) the nodes they contain.",
+    "required_arguments": [
+      "GROUPS: The groups argument"
+    ],
+    "options": [
+      "-A / --all-users: Filter and delete groups for all users, rather than only for the current user.",
+      "-u / --user USER: Add a filter to delete groups belonging to a specific user.",
+      "-T / --type-string TEXT: Filter to only include groups of this type string.",
+      "-p / --past-days PAST_DAYS: Add a filter to delete only groups created in the past N days.",
+      "-s / --startswith TEXT: Add a filter to delete only groups for which the label begins with STRING.",
+      "-e / --endswith TEXT: Add a filter to delete only groups for which the label ends with STRING.",
+      "-c / --contains TEXT: Add a filter to delete only groups for which the label contains STRING.",
+      "-N / --node NODE: Delete only the groups that contain a node.",
+      "-f / --force: Do not ask for confirmation.",
+      "--delete-nodes: Delete all nodes in the group along with the group itself.",
+      "--call-calc-forward / --no-call-calc-forward:  Whether to expand the node set by following CALL links to calculations forwards. [default: call-calc-forward]",
+      "--call-work-forward / --no-call-work-forward:  Whether to expand the node set by following CALL links to workflows forwards.  [default: call-work-forward]",
+      "--create-forward / --no-create-forward:  Whether to expand the node set by following CREATE links forwards.  [default: create- forward]",
+      "-n / --dry-run: Perform a dry run.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi group list [OPTIONS]",
+    "description": "Show a list of existing groups.",
+    "required_arguments": [],
+    "options": [
+      "-A / --all-users: Show groups for all users, rather than only for the current user.",
+      "-u / --user USER: Add a filter to show only groups belonging to a specific user.",
+      "-a / --all: Show groups of all types.",
+      "-T / --type-string TEXT: Filter to only include groups of this type string.",
+      "-d / --with-description: Show also the group description.",
+      "-C / --count: Show also the number of nodes in the group.",
+      "-p / --past-days PAST_DAYS: Add a filter to show only groups created in the past N days.",
+      "-s / --startswith TEXT: Add a filter to show only groups for which the label begins with STRING.",
+      "-e / --endswith TEXT: Add a filter to show only groups for which the label ends with STRING.",
+      "-c / --contains TEXT: Add a filter to show only groups for which the label contains STRING.",
+      "-O / --order-by [id|label|ctime]:  Order the entries by this attribute. [default: label]",
+      "-D / --order-direction [asc|desc]:  List the entries in ascending or descending order  [default: asc]",
+      "-N / --node NODE: Show only the groups that contain this node.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi group move-nodes [OPTIONS] [NODES]...",
+    "description": "Move the specified NODES from one group to another.",
+    "required_arguments": [
+      "NODES: The nodes argument"
+    ],
+    "options": [
+      "-s / --source-group GROUP: The group whose nodes to move.  [required]",
+      "-t / --target-group GROUP: The group to which the nodes are moved. [required]",
+      "-f / --force: Do not ask for confirmation and skip all checks.",
+      "-a / --all: Move all nodes from the source to the target group.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi group description [OPTIONS] GROUP [DESCRIPTION]",
+    "description": "Change the description of a group. If no description is defined, the current description will simply be echoed.",
+    "required_arguments": [
+      "GROUP: The group to use",
+      "DESCRIPTION: The description argument"
+    ],
+    "options": [
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi group dump [OPTIONS] GROUP",
+    "description": "Dump data of an AiiDA group to disk.",
+    "required_arguments": [
+      "GROUP: The group to use"
+    ],
+    "options": [
+      "-p / --path PATH: Base path for dump operations that write to disk.",
+      "-n / --dry-run: Perform a dry run.",
+      "-o / --overwrite: Overwrite file/directory when writing to disk.",
+      "-p / --past-days PAST_DAYS: Only include entries created in the last PAST_DAYS number of days.",
+      "--start-date TEXT: Start date for node mtime range selection for node collection dumping.",
+      "--end-date TEXT: End date for node mtime range selection for node collection dumping.",
+      "--filter-by-last-dump-time / --no-filter-by-last-dump-time:  Only select nodes whose `mtime` is after the last dump time.  [default: filter-by-last- dump-time]",
+      "--only-top-level-calcs / --no-only-top-level-calcs:  Dump calculations in their own dedicated directories, not just as part of the dumped workflow.  [default: only-top-level-calcs]",
+      "--only-top-level-workflows / --no-only-top-level-workflows:  If a top-level workflow calls sub-workflows, create a designated directory only for the top-level workflow.  [default: only-top- level-workflows]",
+      "--delete-missing / --no-delete-missing:  If a previously dumped group or node is deleted from the DB, delete the corresponding dump directory.  [default: delete-missing]",
+      "--symlink-calcs / --no-symlink-calcs:  Symlink workflow sub-calculations to their own dedicated directories.  [default: no- symlink-calcs]",
+      "--include-inputs / --exclude-inputs:  Include linked input nodes of `CalculationNode`(s).  [default: include- inputs]",
+      "--include-outputs / --exclude-outputs:  Include linked output nodes of `CalculationNode`(s).  [default: exclude- outputs]",
+      "--include-attributes / --exclude-attributes:  Include attributes in the `aiida_node_metadata.yaml` written for every `ProcessNode`.  [default: include- attributes]",
+      "--include-extras / --exclude-extras:  Include extras in the `aiida_node_metadata.yaml` written for every `ProcessNode`.  [default: exclude-extras]",
+      "-f / --flat: Dump files in a flat directory for every step of a workflow.",
+      "--dump-unsealed / --no-dump-unsealed:  Also allow the dumping of unsealed process nodes.  [default: no-dump-unsealed]",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi group remove-nodes [OPTIONS] [NODES]...",
+    "description": "Remove nodes from a group.",
+    "required_arguments": [
+      "NODES: The nodes argument"
+    ],
+    "options": [
+      "-G / --group GROUP: A single group identified by its ID, UUID or label.  [required]",
+      "-c / --clear: Remove all the nodes from the group.",
+      "-f / --force: Do not ask for confirmation.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi group show [OPTIONS] GROUP",
+    "description": "Show information for a given group.",
+    "required_arguments": [
+      "GROUP: The group to use"
+    ],
+    "options": [
+      "-r / --raw: Show only a space-separated list of PKs of the calculations in the group",
+      "-l / --limit INTEGER: Limit the number of entries to display.",
+      "-u / --uuid: Show UUIDs together with PKs. Note: if the",
+      "--raw option is also passed / PKs are not:  printed, but only UUIDs.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi group relabel [OPTIONS] GROUP LABEL",
+    "description": "Change the label of a group.",
+    "required_arguments": [
+      "GROUP: The group to use",
+      "LABEL: The label argument"
+    ],
+    "options": [
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi computer delete [OPTIONS] COMPUTER",
+    "description": "Delete a computer. Note: a computer can be deleted even if calculations are currently running on it. The calculation nodes will be deleted with the computer if confirmed but the calculations will not be automatically cancelled with the scheduler",
+    "required_arguments": [
+      "COMPUTER: The computer to configure"
+    ],
+    "options": [
+      "-n / --dry-run: Perform a dry run.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi computer enable [OPTIONS] COMPUTER USER",
+    "description": "Enable the computer for the given user.",
+    "required_arguments": [
+      "COMPUTER: The computer to configure",
+      "USER: The user argument"
+    ],
+    "options": [
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi computer disable [OPTIONS] COMPUTER USER",
+    "description": "Disable the computer for the given user. Thi can be useful, for example, when a computer is under maintenance.",
+    "required_arguments": [
+      "COMPUTER: The computer to configure",
+      "USER: The user argument"
+    ],
+    "options": [
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi computer duplicate [OPTIONS] COMPUTER",
+    "description": "Duplicate a computer allowing to change some parameters.",
+    "required_arguments": [
+      "COMPUTER: The computer to configure"
+    ],
+    "options": [
+      "-L / --label LABEL: Unique, human-readable label for this computer.  [required] (e.g. daint.cscs.ch). Use \"localhost\" when setting up the computer that AiiDA is running on.  [required]",
+      "-D / --description DESCRIPTION: A human-readable description of this computer.",
+      "-T / --transport PLUGIN: A transport plugin (as listed in `verdi plugin list aiida.transports`).  [required]",
+      "-S / --scheduler PLUGIN: A scheduler plugin (as listed in `verdi plugin list aiida.schedulers`).  [required]",
+      "--shebang SHEBANGLINE: Specify the first line of the submission script for this computer (only the bash shell is supported).",
+      "-w / --work-dir TEXT: The absolute path of the directory on the computer where AiiDA will run the calculations (often a \"scratch\" directory).The {username} string will be replaced by your username on the remote computer.",
+      "-m / --mpirun-command MPIRUNCOMMANDSTRING:  The mpirun command needed on the cluster to run parallel MPI programs. The {tot_num_mpiprocs} string will be replaced by the total number of cpus. See the scheduler docs for further scheduler- dependent template variables.",
+      "--mpiprocs-per-machine INTEGER: The default number of MPI processes that should be executed per machine (node), if not otherwise specified.",
+      "--default-memory-per-machine INTEGER:  The default amount of RAM (kB) that should be allocated per machine (node), if not otherwise specified.",
+      "--prepend-text TEXT: Bash commands that should be prepended to the executable call in all submit scripts for this computer.",
+      "--append-text TEXT: Bash commands that should be appended to the executable call in all submit scripts for this computer.",
+      "-n / --non-interactive / -I / --interactive:  In non-interactive mode, the CLI never prompts for options but simply uses default values for options that define one. In interactive mode, the CLI will prompt for each interactive option.   [default: (--interactive)]",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi computer list [OPTIONS]",
+    "description": "List all available computers.",
+    "required_arguments": [],
+    "options": [
+      "-a / --all: Show also disabled or unconfigured computers.",
+      "-r / --raw: Show only the computer labels, one per line.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi computer relabel [OPTIONS] COMPUTER LABEL",
+    "description": "Relabel a computer.",
+    "required_arguments": [
+      "COMPUTER: The computer to configure",
+      "LABEL: The label argument"
+    ],
+    "options": [
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi computer show [OPTIONS] COMPUTER",
+    "description": "Show detailed information for a computer.",
+    "required_arguments": [
+      "COMPUTER: The computer to configure"
+    ],
+    "options": [
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi computer setup [OPTIONS]",
+    "description": "Create a new computer.",
+    "required_arguments": [],
+    "options": [
+      "-L / --label LABEL: Unique, human-readable label for this computer.  [required] (e.g. daint.cscs.ch). Use \"localhost\" when setting up the computer that AiiDA is running on.  [required]",
+      "-D / --description DESCRIPTION: A human-readable description of this computer.",
+      "-T / --transport PLUGIN: A transport plugin (as listed in `verdi plugin list aiida.transports`).  [required]",
+      "-S / --scheduler PLUGIN: A scheduler plugin (as listed in `verdi plugin list aiida.schedulers`).  [required]",
+      "--shebang SHEBANGLINE: Specify the first line of the submission script for this computer (only the bash shell is supported).",
+      "-w / --work-dir TEXT: The absolute path of the directory on the computer where AiiDA will run the calculations (often a \"scratch\" directory).The {username} string will be replaced by your username on the remote computer.",
+      "-m / --mpirun-command MPIRUNCOMMANDSTRING:  The mpirun command needed on the cluster to run parallel MPI programs. The {tot_num_mpiprocs} string will be replaced by the total number of cpus. See the scheduler docs for further scheduler- dependent template variables.",
+      "--mpiprocs-per-machine INTEGER: The default number of MPI processes that should be executed per machine (node), if not otherwise specified.",
+      "--default-memory-per-machine INTEGER:  The default amount of RAM (kB) that should be allocated per machine (node), if not otherwise specified.",
+      "--use-double-quotes / --not-use-double-quotes:  Whether the command line arguments before and after the executable in the submission script should be escaped with single or double quotes.",
+      "--prepend-text TEXT: Bash commands that should be prepended to the executable call in all submit scripts for this computer.",
+      "--append-text TEXT: Bash commands that should be appended to the executable call in all submit scripts for this computer.",
+      "-n / --non-interactive / -I / --interactive:  In non-interactive mode, the CLI never prompts for options but simply uses default values for options that define one. In interactive mode, the CLI will prompt for each interactive option.   [default: (--interactive)]",
+      "--config FILEORURL: Load option values from configuration file in yaml format (local path or URL).",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi computer test [OPTIONS] COMPUTER",
+    "description": "Test the connection to a computer. It tries to connect, to get the list of calculations on the queue and to perform other tests.",
+    "required_arguments": [
+      "COMPUTER: The computer to configure"
+    ],
+    "options": [
+      "-u / --user USER: Test the connection for a given AiiDA user, specified bytheir email address. If not specified, uses the current default user.",
+      "-t / --print-traceback: Print the full traceback in case an exception is raised.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi node attributes [OPTIONS] [--] [NODES]...",
+    "description": "Show the attributes of one or more nodes.",
+    "required_arguments": [
+      "NODES: The nodes argument"
+    ],
+    "options": [
+      "-k / --keys TEXT...: Filter the output by one or more keys.",
+      "-f / --format [json+date|yaml|yaml_expanded]:  The format of the output data.",
+      "-i / --identifier [pk|uuid]: The type of identifier used for specifying each node.",
+      "-r / --raw: Print the results as a single dictionary.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi node delete [OPTIONS] NODES",
+    "description": "Delete nodes from the provenance graph. This will not only delete the nodes explicitly provided via the command line, but will also include the nodes necessary to keep a consistent graph, according to the rules outlined in the documentation. You can modify some of those rules using options of this command.",
+    "required_arguments": [
+      "NODES: The nodes argument"
+    ],
+    "options": [
+      "-n / --dry-run: Perform a dry run.",
+      "-f / --force: Do not ask for confirmation.",
+      "--clean-workdir: Also clean the remote work directory, if applicable.",
+      "--call-calc-forward / --no-call-calc-forward:  Whether to expand the node set by following CALL links to calculations forwards. [default: call-calc-forward]",
+      "--call-work-forward / --no-call-work-forward:  Whether to expand the node set by following CALL links to workflows forwards.  [default: call-work-forward]",
+      "--create-forward / --no-create-forward:  Whether to expand the node set by following CREATE links forwards.  [default: create- forward]",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi node description [OPTIONS] [NODES]...",
+    "description": "View or set the description of one or more nodes.",
+    "required_arguments": [
+      "NODES: The nodes argument"
+    ],
+    "options": [
+      "-D / --description DESCRIPTION: Set DESCRIPTION as the new description for all NODES",
+      "-r / --raw: Display only descriptions, no extra information",
+      "-f / --force: Do not ask for confirmation.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi node extras [OPTIONS] [--] [NODES]...",
+    "description": "Show the extras of one or more nodes.",
+    "required_arguments": [
+      "NODES: The nodes argument"
+    ],
+    "options": [
+      "-k / --keys TEXT...: Filter the output by one or more keys.",
+      "-f / --format [json+date|yaml|yaml_expanded]:  The format of the output data.",
+      "-i / --identifier [pk|uuid]: The type of identifier used for specifying each node.",
+      "-r / --raw: Print the results as a single dictionary.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi node label [OPTIONS] [NODES]...",
+    "description": "View or set the label of one or more nodes.",
+    "required_arguments": [
+      "NODES: The nodes argument"
+    ],
+    "options": [
+      "-L / --label LABEL: Set LABEL as the new label for all NODES",
+      "-r / --raw: Display only the labels, no extra information",
+      "-f / --force: Do not ask for confirmation.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi node rehash [OPTIONS] [NODES]...",
+    "description": "Recompute the hash for nodes in the database. The set of nodes that will be rehashed can be filtered by their identifier and/or based on their class.",
+    "required_arguments": [
+      "NODES: The nodes argument"
+    ],
+    "options": [
+      "-e / --entry-point PLUGIN: Only include nodes that are class or sub class of the class identified by this entry point.",
+      "-f / --force: Do not ask for confirmation.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi node list [OPTIONS] [--]",
+    "description": "Query all nodes with optional filtering and ordering.",
+    "required_arguments": [],
+    "options": [
+      "-e / --entry-point TEXT: ",
+      "--subclassing / --no-subclassing:  Pass `--no-subclassing` to disable matching subclasses of the specified `--entry-point`.",
+      "-P / --project [id|uuid|node_type|process_type|label|description|ctime|mtime|attributes|extras]:  Select the list of entity attributes to project.",
+      "-p / --past-days PAST_DAYS: Only include entries created in the last PAST_DAYS number of days.",
+      "-O / --order-by [id|ctime]: Order the entries by this attribute. [default: ctime]",
+      "-D / --order-direction [asc|desc]:  List the entries in ascending or descending order  [default: asc]",
+      "-l / --limit INTEGER: Limit the number of entries to display.",
+      "-r / --raw: Display only raw query results, without any headers or footers.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi node show [OPTIONS] [NODES]...",
+    "description": "Show generic information on one or more nodes.",
+    "required_arguments": [
+      "NODES: The nodes argument"
+    ],
+    "options": [
+      "--print-groups: Show groups containing the nodes.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi plugin list [OPTIONS] [[aiida.calculations|aiida.calculations.imp",
+    "description": "orters|aiida.calculations.monitors|aiida.cmdline.comp uter.configure|aiida.cmdline.data|aiida.cmdline.data. structure.import|aiida.data|aiida.groups|aiida.orm|ai ida.node|aiida.parsers|aiida.schedulers|aiida.storage |aiida.transports|aiida.tools.calculations|aiida.tool s.data.orbitals|aiida.tools.dbexporters|aiida.tools.d bimporters|aiida.workflows]] [ENTRY_POINT] Display a list of all available plugins.",
+    "required_arguments": [],
+    "options": [
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi profile configure-rabbitmq [OPTIONS] [PROFILE]",
+    "description": "Configure RabbitMQ for a profile. Enable RabbitMQ for a profile that was created without a broker, or reconfigure existing connection details.",
+    "required_arguments": [],
+    "options": [
+      "-f / --force: Do not ask for confirmation.",
+      "--broker-protocol [amqp|amqps]: Protocol to use for the message broker. [required]",
+      "--broker-username NONEMPTYSTRING:  Username to use for authentication with the message broker.  [required]",
+      "--broker-password NONEMPTYSTRING:  Password to use for authentication with the message broker.  [required]",
+      "--broker-port INTEGER: Port for the message broker.  [required] broker without leading forward slash. [required]",
+      "-n / --non-interactive / -I / --interactive:  In non-interactive mode, the CLI never prompts for options but simply uses default values for options that define one. In interactive mode, the CLI will prompt for each interactive option.   [default: (--non- interactive)]",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi profile dump [OPTIONS] [--]",
+    "description": "Dump all data in an AiiDA profile's storage to disk.",
+    "required_arguments": [],
+    "options": [
+      "-p / --path PATH: Base path for dump operations that write to disk.",
+      "-n / --dry-run: Perform a dry run.",
+      "-o / --overwrite: Overwrite file/directory when writing to disk.",
+      "-a / --all: Include all entries, disregarding all other filter options and flags.",
+      "-X / --codes CODE...: One or multiple codes identified by their ID, UUID or label.",
+      "-Y / --computers COMPUTER...: One or multiple computers identified by their ID, UUID or label.",
+      "-G / --groups GROUP...: One or multiple groups identified by their ID, UUID or label.",
+      "-u / --user USER: Email address of the user.",
+      "-p / --past-days PAST_DAYS: Only include entries created in the last PAST_DAYS number of days.",
+      "--start-date TEXT: Start date for node mtime range selection for node collection dumping.",
+      "--end-date TEXT: End date for node mtime range selection for node collection dumping.",
+      "--filter-by-last-dump-time / --no-filter-by-last-dump-time:  Only select nodes whose `mtime` is after the last dump time.  [default: filter-by-last- dump-time]",
+      "--only-top-level-calcs / --no-only-top-level-calcs:  Dump calculations in their own dedicated directories, not just as part of the dumped workflow.  [default: only-top-level-calcs]",
+      "--only-top-level-workflows / --no-only-top-level-workflows:  If a top-level workflow calls sub-workflows, create a designated directory only for the top-level workflow.  [default: only-top- level-workflows]",
+      "--delete-missing / --no-delete-missing:  If a previously dumped group or node is deleted from the DB, delete the corresponding dump directory.  [default: delete-missing]",
+      "--symlink-calcs / --no-symlink-calcs:  Symlink workflow sub-calculations to their own dedicated directories.  [default: no- symlink-calcs]",
+      "--organize-by-groups / --no-organize-by-groups:  If the collection of nodes to be dumped is organized in groups, reproduce its hierarchy.  [default: organize-by-groups]",
+      "--also-ungrouped / --no-also-ungrouped:  Dump also data of nodes that are not part of any group.  [default: no-also-ungrouped]",
+      "--relabel-groups / --no-relabel-groups:  Update directories and log entries for the dumping if groups have been relabeled since the last dump.  [default: relabel-groups]",
+      "--include-inputs / --exclude-inputs:  Include linked input nodes of `CalculationNode`(s).  [default: include- inputs]",
+      "--include-outputs / --exclude-outputs:  Include linked output nodes of `CalculationNode`(s).  [default: exclude- outputs]",
+      "--include-attributes / --exclude-attributes:  Include attributes in the `aiida_node_metadata.yaml` written for every `ProcessNode`.  [default: include- attributes]",
+      "--include-extras / --exclude-extras:  Include extras in the `aiida_node_metadata.yaml` written for every `ProcessNode`.  [default: exclude-extras]",
+      "-f / --flat: Dump files in a flat directory for every step of a workflow.",
+      "--dump-unsealed / --no-dump-unsealed:  Also allow the dumping of unsealed process nodes.  [default: no-dump-unsealed]",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi profile delete [OPTIONS] PROFILES...",
+    "description": "Delete one or more profiles. The PROFILES argument takes one or multiple profile names that will be deleted. Deletion here means that the profile will be removed from the config file. If ``--delete-storage`` is specified, the storage containing all data is also deleted.",
+    "required_arguments": [
+      "PROFILES: The profiles argument"
+    ],
+    "options": [
+      "-f / --force: Skip any prompts for confirmation.",
+      "--delete-data / --keep-data: Whether to delete the storage with all its data or not. This flag has to be explicitly specified",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi profile set-default [OPTIONS] PROFILE",
+    "description": "Set a profile as the default profile.",
+    "required_arguments": [],
+    "options": [
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi profile list [OPTIONS]",
+    "description": "Display a list of all available profiles.",
+    "required_arguments": [],
+    "options": [
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi profile setdefault [OPTIONS] PROFILE",
+    "description": "(Deprecated) Set a profile as the default profile.",
+    "required_arguments": [],
+    "options": [
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi process dump [OPTIONS] PROCESS",
+    "description": "Dump process input and output files to disk. Child calculations/workflows (also called `CalcJob`s/`CalcFunction`s and `WorkChain`s/`WorkFunction`s in AiiDA jargon) run by the parent workflow are contained in the directory tree as sub-folders and are sorted by their creation time. The directory tree thus mirrors the logical execution of the workflow, which can also be queried by running `verdi process status <pk>` on the command line. By default, input and output files of each calculation can be found in the corresponding \"inputs\" and \"outputs\" directories (the former also contains the hidden \".aiida\" folder with machine-readable job execution settings). Additional input and output files (depending on the type of calculation) are placed in the \"node_inputs\" and \"node_outputs\", respectively. Lastly, every folder also contains a hidden, human-readable `aiida_node_metadata.yaml` file with the relevant AiiDA node data for further inspection.",
+    "required_arguments": [
+      "PROCESS: The process argument"
+    ],
+    "options": [
+      "-p / --path PATH: Base path for dump operations that write to disk.",
+      "-n / --dry-run: Perform a dry run.",
+      "-o / --overwrite: Overwrite file/directory when writing to disk.",
+      "--include-inputs / --exclude-inputs:  Include linked input nodes of `CalculationNode`(s).  [default: include- inputs]",
+      "--include-outputs / --exclude-outputs:  Include linked output nodes of `CalculationNode`(s).  [default: exclude- outputs]",
+      "--include-attributes / --exclude-attributes:  Include attributes in the `aiida_node_metadata.yaml` written for every `ProcessNode`.  [default: include- attributes]",
+      "--include-extras / --exclude-extras:  Include extras in the `aiida_node_metadata.yaml` written for every `ProcessNode`.  [default: exclude-extras]",
+      "-f / --flat: Dump files in a flat directory for every step of a workflow.",
+      "--dump-unsealed / --no-dump-unsealed:  Also allow the dumping of unsealed process nodes.  [default: no-dump-unsealed]",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi process call-root [OPTIONS] [PROCESSES]...",
+    "description": "Show root process of processes. Show root process(es) of the call stack for one or multiple processes.",
+    "required_arguments": [
+      "PROCESSES: The processes argument"
+    ],
+    "options": [
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi profile show [OPTIONS] [PROFILE]",
+    "description": "Show details for a profile.",
+    "required_arguments": [],
+    "options": [
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi process kill [OPTIONS] [PROCESSES]...",
+    "description": "Kill running processes. Kill one or multiple running processes.",
+    "required_arguments": [
+      "PROCESSES: The processes argument"
+    ],
+    "options": [
+      "-a / --all: Kill all processes if no specific processes are specified.",
+      "-t / --timeout FLOAT RANGE: Time in seconds to wait for a response before timing out. If the timeout is 0 the command returns immediately and attempts to kill the process in the background. [default: inf; 0<=x<=inf]",
+      "-F / --force: Kills the process without waiting for a confirmation if the job has been killed. Note: This may lead to orphaned jobs on your HPC and should be used with caution.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi process play [OPTIONS] [PROCESSES]...",
+    "description": "Play (unpause) paused processes. Play (unpause) one or multiple paused processes.",
+    "required_arguments": [
+      "PROCESSES: The processes argument"
+    ],
+    "options": [
+      "-a / --all: Play all paused processes if no specific processes are specified.",
+      "-t / --timeout FLOAT RANGE: Time in seconds to wait for a response before timing out. If the timeout is 0 the command returns immediately and attempts to kill the process in the background. [default: inf; 0<=x<=inf]",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi process pause [OPTIONS] [PROCESSES]...",
+    "description": "Pause running processes. Pause one or multiple running processes.",
+    "required_arguments": [
+      "PROCESSES: The processes argument"
+    ],
+    "options": [
+      "-a / --all: Pause all active processes if no specific processes are specified.",
+      "-t / --timeout FLOAT RANGE: Time in seconds to wait for a response before timing out. If the timeout is 0 the command returns immediately and attempts to kill the process in the background. [default: inf; 0<=x<=inf]",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi process repair [OPTIONS]",
+    "description": "Automatically repair all stuck processes. N.B.: This command requires the daemon to be stopped. This command queries the database to find all \"active\" processes, meaning those that haven't yet reached a terminal state, and cross-references them with the active process tasks in the process queue of RabbitMQ. Any active process that does not have a corresponding process task can be considered a zombie, as it will never be picked up by a daemon worker to complete it and will effectively be \"stuck\". Any process task that does not correspond to an active process is useless and should be discarded. Finally, duplicate process tasks are also problematic and are discarded.",
+    "required_arguments": [],
+    "options": [
+      "-n / --dry-run: Perform a dry run.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi process report [OPTIONS] [PROCESSES]...",
+    "description": "Show the log report of processes. Show the log report for one or multiple processes.",
+    "required_arguments": [
+      "PROCESSES: The processes argument"
+    ],
+    "options": [
+      "-M / --most-recent-node: Select the most recently created node.",
+      "-i / --indent-size INTEGER: Set the number of spaces to indent each level by.",
+      "-l / --levelname [NOTSET|DEBUG|INFO|REPORT|WARNING|ERROR|CRITICAL]:  Filter the results by name of the log level.",
+      "-m / --max-depth INTEGER: Limit the number of levels to be printed.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi process show [OPTIONS] [PROCESSES]...",
+    "description": "Show details of processes. Show details for one or multiple processes.",
+    "required_arguments": [
+      "PROCESSES: The processes argument"
+    ],
+    "options": [
+      "-M / --most-recent-node: Select the most recently created node.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi process status [OPTIONS] [PROCESSES]...",
+    "description": "Show the status of processes. Show the status of one or multiple processes.",
+    "required_arguments": [
+      "PROCESSES: The processes argument"
+    ],
+    "options": [
+      "-M / --most-recent-node: Select the most recently created node.",
+      "-c / --call-link-label: Include the call link label if set.",
+      "-m / --max-depth INTEGER: Limit the number of levels to be printed.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi process watch [OPTIONS] [PROCESSES]...",
+    "description": "Watch the state transitions of processes. Watch the state transitions for one or multiple running processes.",
+    "required_arguments": [
+      "PROCESSES: The processes argument"
+    ],
+    "options": [
+      "-M / --most-recent-node: Select the most recently created node.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi user configure [OPTIONS]",
+    "description": "Configure a new or existing user. An e-mail address is used as the user name.",
+    "required_arguments": [],
+    "options": [
+      "--email USER: Email address that serves as the user name and a way to identify data created by it.",
+      "--first-name NONEMPTYSTRING: First name of the user.  [required]",
+      "--last-name NONEMPTYSTRING: Last name of the user.  [required]",
+      "--institution NONEMPTYSTRING: Institution of the user.  [required]",
+      "--set-default: Set the user as the default user.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi user list [OPTIONS]",
+    "description": "Show a list of all users.",
+    "required_arguments": [],
+    "options": [
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi storage backup [OPTIONS] DEST",
+    "description": "Backup the data storage of a profile. The backup is created in the destination `DEST`, in a subfolder that follows the naming convention backup_<timestamp>_<randstr> and a symlink called `last-backup` is pointed to it. Destination (DEST) can either be a local path, or a remote destination (reachable via ssh). In the latter case, remote destination needs to have the following syntax: [<remote_user>@]<remote_host>:<path> i.e., contain the remote host name and the remote path, separated by a colon (and optionally the remote user separated by an @ symbol). You can tune SSH parameters using the standard options given by OpenSSH, such as adding configuration options to ~/.ssh/config (e.g. to allow for passwordless login - recommended, since this script might ask multiple times for the password). NOTE: 'rsync' and other UNIX-specific commands are called, thus the command will not work on non-UNIX environments. What other executables are called, depend on the storage backend.",
+    "required_arguments": [
+      "DEST: The dest argument"
+    ],
+    "options": [
+      "--keep INTEGER: Number of previous backups to keep in the destination, if the storage backend supports it. If not set, keeps all previous backups.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi user set-default [OPTIONS] USER",
+    "description": "Set a user as the default user for the profile.",
+    "required_arguments": [
+      "USER: The user argument"
+    ],
+    "options": [
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi storage info [OPTIONS]",
+    "description": "Summarise the contents of the storage.",
+    "required_arguments": [],
+    "options": [
+      "--detailed: Provides more detailed information.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi storage integrity [OPTIONS] COMMAND [ARGS]...",
+    "description": "Checks for the integrity of the data storage.",
+    "required_arguments": [],
+    "options": [
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi storage migrate [OPTIONS]",
+    "description": "Migrate the storage to the latest schema version.",
+    "required_arguments": [],
+    "options": [
+      "-f / --force: Do not ask for confirmation.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi storage maintain [OPTIONS]",
+    "description": "Performs maintenance tasks on the repository.",
+    "required_arguments": [],
+    "options": [
+      "--full: Perform all maintenance tasks, including the ones that should not be executed while the profile is in use.",
+      "--no-repack: Disable the repacking of the storage when running a `full maintenance`.",
+      "-f / --force: Do not ask for confirmation.",
+      "--dry-run: Run the maintenance in dry-run mode to print actions that would be taken without actually executing them.",
+      "--compress: Use compression if possible when carrying out maintenance tasks.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi storage version [OPTIONS]",
+    "description": "Print the current version of the storage schema. The command returns the following exit codes: * 0: If the storage schema is equal and compatible to the schema version of the code * 3: If the storage cannot be reached or is corrupt * 4: If the storage schema is compatible with the code schema version and probably needs to be migrated.",
+    "required_arguments": [],
+    "options": [
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi devel rabbitmq server-properties [OPTIONS]",
+    "description": "List the server properties.",
+    "required_arguments": [],
+    "options": [
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi process list [OPTIONS] [--]",
+    "description": "Show a list of processes. By default, only processes that are still running are shown, but there are options to show also the finished ones.",
+    "required_arguments": [],
+    "options": [
+      "-P / --project [pk|uuid|ctime|mtime|state|process_state|process_status|exit_status|exit_message|sealed|process_label|label|description|node_type|paused|process_type|job_state|scheduler_state|exception|cached|cached_from]:  Select the list of entity attributes to project.",
+      "-O / --order-by [id|ctime]: Order the entries by this attribute. [default: ctime]",
+      "-D / --order-direction [asc|desc]:  List the entries in ascending or descending order  [default: asc]",
+      "-G / --group GROUP: Only include entries that are a member of this group.",
+      "-a / --all: Show all entries, regardless of their process state.",
+      "-S / --process-state [created|running|waiting|finished|excepted|killed]:  Only include entries with this process state.",
+      "-L / --process-label TEXT: Only include entries whose process label matches this filter.",
+      "--paused: Only include entries that are paused.",
+      "-E / --exit-status INTEGER: Only include entries with this exit status.",
+      "-X / --failed: Only include entries that have failed.",
+      "-p / --past-days PAST_DAYS: Only include entries created in the last PAST_DAYS number of days.",
+      "-l / --limit INTEGER: Limit the number of entries to display.",
+      "-r / --raw: Display only raw query results, without any headers or footers.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi group path ls [OPTIONS] [PATH]",
+    "description": "Show a list of existing group paths.",
+    "required_arguments": [
+      "PATH: The path argument"
+    ],
+    "options": [
+      "-T / --type-string TEXT: Filter to only include groups of this type string.",
+      "-R / --recursive: Recursively list sub-paths encountered.",
+      "-l / --long: List as a table, with sub-group count.",
+      "-d / --with-description: Show also the group description.",
+      "--no-virtual: Only show paths that fully correspond to an existing group.",
+      "--no-warn: Do not issue a warning if any paths are invalid.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi computer export setup [OPTIONS] COMPUTER OUTPUT_FILE",
+    "description": "Export computer setup to a YAML file.",
+    "required_arguments": [
+      "COMPUTER: The computer to configure",
+      "OUTPUT_FILE: The output_file argument"
+    ],
+    "options": [
+      "-o / --overwrite: Overwrite file/directory when writing to disk.",
+      "--sort / --no-sort: Sort the keys of the output YAML.  [default: sort]",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi computer export config [OPTIONS] COMPUTER OUTPUT_FILE",
+    "description": "Export computer transport configuration for a user to a YAML file.",
+    "required_arguments": [
+      "COMPUTER: The computer to configure",
+      "OUTPUT_FILE: The output_file argument"
+    ],
+    "options": [
+      "-u / --user USER: Email address of the AiiDA user from whom to export this computer (if different from default user).",
+      "-o / --overwrite: Overwrite file/directory when writing to disk.",
+      "--sort / --no-sort: Sort the keys of the output YAML.  [default: sort]",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi data core.array show [OPTIONS] [DATA]...",
+    "description": "Visualize ArrayData objects.",
+    "required_arguments": [
+      "DATA: The data argument"
+    ],
+    "options": [
+      "-f / --format [json+date|yaml|yaml_expanded]:  The format of the output data.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi code create core.code.containerized [OPTIONS]",
+    "description": "Data plugin representing an executable code in container on a remote computer.",
+    "required_arguments": [],
+    "options": [
+      "-E / --engine-command TEXT: The command to run the container. It must contain the placeholder {image_name} that will be replaced with the `image_name`. [required]",
+      "-Y / --computer TEXT: The remote computer on which the executable resides.  [required]",
+      "-I / --image-name TEXT: Name of the image container in which to the run the executable.  [required]",
+      "-X / --filepath-executable TEXT: Filepath of the executable on the remote computer.  [required]",
+      "--wrap-cmdline-params / --no-wrap-cmdline-params:  Whether all command line parameters to be passed to the engine command should be wrapped in a double quotes to form a single argument. This should be set to `True` for Docker.",
+      "-L / --label TEXT: A unique label to identify the code by. [required]",
+      "-D / --description TEXT: Human-readable description, ideally including version and compilation environment.",
+      "-P / --default-calc-job-plugin TEXT:  Entry point name of the default plugin (as listed in `verdi plugin list aiida.calculations`).",
+      "--use-double-quotes / --no-use-double-quotes:  Whether the executable and arguments of the code in the submission script should be escaped with single or double quotes.",
+      "--with-mpi / --no-with-mpi: Whether the executable should be run as an MPI program. This option can be left unspecified in which case `None` will be set and it is left up to the calculation job plugin or inputs whether to run with MPI.",
+      "--prepend-text TEXT: Bash commands that should be prepended to the run line in all submit scripts for this code.",
+      "--append-text TEXT: Bash commands that should be appended to the run line in all submit scripts for this code.",
+      "--config FILEORURL: Load option values from configuration file in yaml format (local path or URL).",
+      "-n / --non-interactive / -I / --interactive:  In non-interactive mode, the CLI never prompts for options but simply uses default values for options that define one. In interactive mode, the CLI will prompt for each interactive option.   [default: (--interactive)]"
+    ]
+  },
+  {
+    "command_usage": "verdi code create core.code.abstract [OPTIONS]",
+    "description": "Abstract data plugin representing an executable code.",
+    "required_arguments": [],
+    "options": [
+      "-L / --label TEXT: A unique label to identify the code by. [required]",
+      "-D / --description TEXT: Human-readable description, ideally including version and compilation environment.",
+      "-P / --default-calc-job-plugin TEXT:  Entry point name of the default plugin (as listed in `verdi plugin list aiida.calculations`).",
+      "--use-double-quotes / --no-use-double-quotes:  Whether the executable and arguments of the code in the submission script should be escaped with single or double quotes.",
+      "--with-mpi / --no-with-mpi: Whether the executable should be run as an MPI program. This option can be left unspecified in which case `None` will be set and it is left up to the calculation job plugin or inputs whether to run with MPI.",
+      "--prepend-text TEXT: Bash commands that should be prepended to the run line in all submit scripts for this code.",
+      "--append-text TEXT: Bash commands that should be appended to the run line in all submit scripts for this code.",
+      "--config FILEORURL: Load option values from configuration file in yaml format (local path or URL).",
+      "-n / --non-interactive / -I / --interactive:  In non-interactive mode, the CLI never prompts for options but simply uses default values for options that define one. In interactive mode, the CLI will prompt for each interactive option.   [default: (--interactive)]"
+    ]
+  },
+  {
+    "command_usage": "verdi code create core.code.installed [OPTIONS]",
+    "description": "Data plugin representing an executable code on a remote computer.",
+    "required_arguments": [],
+    "options": [
+      "-Y / --computer TEXT: The remote computer on which the executable resides.  [required]",
+      "-X / --filepath-executable TEXT: Filepath of the executable on the remote computer.  [required]",
+      "-L / --label TEXT: A unique label to identify the code by. [required]",
+      "-D / --description TEXT: Human-readable description, ideally including version and compilation environment.",
+      "-P / --default-calc-job-plugin TEXT:  Entry point name of the default plugin (as listed in `verdi plugin list aiida.calculations`).",
+      "--use-double-quotes / --no-use-double-quotes:  Whether the executable and arguments of the code in the submission script should be escaped with single or double quotes.",
+      "--with-mpi / --no-with-mpi: Whether the executable should be run as an MPI program. This option can be left unspecified in which case `None` will be set and it is left up to the calculation job plugin or inputs whether to run with MPI.",
+      "--prepend-text TEXT: Bash commands that should be prepended to the run line in all submit scripts for this code.",
+      "--append-text TEXT: Bash commands that should be appended to the run line in all submit scripts for this code.",
+      "--config FILEORURL: Load option values from configuration file in yaml format (local path or URL).",
+      "-n / --non-interactive / -I / --interactive:  In non-interactive mode, the CLI never prompts for options but simply uses default values for options that define one. In interactive mode, the CLI will prompt for each interactive option.   [default: (--interactive)]"
+    ]
+  },
+  {
+    "command_usage": "verdi data core.bands list [OPTIONS] [--]",
+    "description": "List BandsData objects.",
+    "required_arguments": [],
+    "options": [
+      "-G / --groups GROUP...: One or multiple groups identified by their ID, UUID or label.",
+      "-p / --past-days PAST_DAYS: Only include entries created in the last PAST_DAYS number of days.",
+      "-A / --all-users: Include all entries regardless of the owner.",
+      "-r / --raw: Display only raw query results, without any headers or footers.",
+      "-e / --with-elements TEXT...: Only select objects containing these elements.",
+      "-E / --with-elements-exclusive TEXT...:  Only select objects containing only these and no other elements.",
+      "-f / --formula-mode [hill|hill_compact|reduce|group|count|count_compact]:  Mode for printing the chemical formula.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi data core.bands export [OPTIONS] DATUM",
+    "description": "Export BandsData objects.",
+    "required_arguments": [
+      "DATUM: The datum argument"
+    ],
+    "options": [
+      "-F / --format [agr|agr_batch|dat_blocks|dat_multicolumn|gnuplot|json|mpl_pdf|mpl_png|mpl_singlefile|mpl_withjson]:  Format of the exported file.  [default: json]",
+      "--y-min-lim FLOAT: The minimum value for the y axis. Default: minimum of all bands",
+      "--y-max-lim FLOAT: The maximum value for the y axis. Default: maximum of all bands",
+      "-o / --output TEXT: If present, store the output directly on a file with the given name. It is essential to use this option if more than one file needs to be created.",
+      "-f / --force: If passed, overwrite files without checking.",
+      "--prettify-format [agr_seekpath|agr_simple|gnuplot_seekpath|gnuplot_simple|latex_seekpath|latex_simple|pass]:  The style of labels for the prettifier",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi data core.cif content [OPTIONS] [DATA]...",
+    "description": "Show the content of the CIF file.",
+    "required_arguments": [
+      "DATA: The data argument"
+    ],
+    "options": [
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi data core.cif export [OPTIONS] DATUM",
+    "description": "Export CifData object.",
+    "required_arguments": [
+      "DATUM: The datum argument"
+    ],
+    "options": [
+      "-F / --format [cif]: Format of the exported file.  [default: cif]",
+      "--reduce-symmetry / --no-reduce-symmetry:  Do (default) or do not perform symmetry reduction.",
+      "--parameter-data INTEGER: ID of the Dict to be exported alongside the StructureData instance. By default, if StructureData originates from a calculation with single Dict in the output, aforementioned Dict is picked automatically. Instead, the option is used in the case the calculation produces more than a single instance of Dict.",
+      "--dump-aiida-database / --no-dump-aiida-database:  Export (default) or do not export AiiDA database to the CIF file.",
+      "--exclude-external-contents / --no-exclude-external-contents:  Do not (default) or do save the contents for external resources even if URIs are provided",
+      "--gzip / --no-gzip: Do or do not (default) gzip large files.",
+      "--gzip-threshold INTEGER: Specify the minimum size of exported file which should be gzipped.",
+      "-o / --output TEXT: If present, store the output directly on a file with the given name. It is essential to use this option if more than one file needs to be created.",
+      "-f / --force: Overwrite files without checking.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi data core.bands show [OPTIONS] [DATA]...",
+    "description": "Visualize BandsData objects.",
+    "required_arguments": [
+      "DATA: The data argument"
+    ],
+    "options": [
+      "-F / --format [xmgrace]: Format of the visualized output.  [default: xmgrace]",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi code create core.code.portable [OPTIONS]",
+    "description": "Data plugin representing an executable code stored in AiiDA's storage.",
+    "required_arguments": [],
+    "options": [
+      "-F / --filepath-files TEXT: Filepath to directory containing code files. [required]",
+      "-X / --filepath-executable TEXT: Relative filepath of executable with directory of code files.  [required]",
+      "-L / --label TEXT: A unique label to identify the code by. [required]",
+      "-D / --description TEXT: Human-readable description, ideally including version and compilation environment.",
+      "-P / --default-calc-job-plugin TEXT:  Entry point name of the default plugin (as listed in `verdi plugin list aiida.calculations`).",
+      "--use-double-quotes / --no-use-double-quotes:  Whether the executable and arguments of the code in the submission script should be escaped with single or double quotes.",
+      "--with-mpi / --no-with-mpi: Whether the executable should be run as an MPI program. This option can be left unspecified in which case `None` will be set and it is left up to the calculation job plugin or inputs whether to run with MPI.",
+      "--prepend-text TEXT: Bash commands that should be prepended to the run line in all submit scripts for this code.",
+      "--append-text TEXT: Bash commands that should be appended to the run line in all submit scripts for this code.",
+      "--config FILEORURL: Load option values from configuration file in yaml format (local path or URL).",
+      "-n / --non-interactive / -I / --interactive:  In non-interactive mode, the CLI never prompts for options but simply uses default values for options that define one. In interactive mode, the CLI will prompt for each interactive option.   [default: (--interactive)]"
+    ]
+  },
+  {
+    "command_usage": "verdi data core.cif import [OPTIONS] FILENAME",
+    "description": "Import .cif file into CifData object.",
+    "required_arguments": [
+      "FILENAME: The filename argument"
+    ],
+    "options": [
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi data core.cif list [OPTIONS] [--]",
+    "description": "List store CifData objects.",
+    "required_arguments": [],
+    "options": [
+      "-f / --formula-mode [hill|hill_compact|reduce|group|count|count_compact]:  Mode for printing the chemical formula.",
+      "-G / --groups GROUP...: One or multiple groups identified by their ID, UUID or label.",
+      "-p / --past-days PAST_DAYS: Only include entries created in the last PAST_DAYS number of days.",
+      "-A / --all-users: Include all entries regardless of the owner.",
+      "-r / --raw: Display only raw query results, without any headers or footers.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi data core.cif show [OPTIONS] [DATA]...",
+    "description": "Visualize CifData objects.",
+    "required_arguments": [
+      "DATA: The data argument"
+    ],
+    "options": [
+      "-F / --format [jmol|vesta]: Format of the visualized output.  [default: jmol]",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi data core.singlefile content [OPTIONS] DATUM",
+    "description": "Show the content of the file.",
+    "required_arguments": [
+      "DATUM: The datum argument"
+    ],
+    "options": [
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi data core.remote cat [OPTIONS] DATUM PATH",
+    "description": "Show content of a file in a RemoteData object.",
+    "required_arguments": [
+      "DATUM: The datum argument",
+      "PATH: The path argument"
+    ],
+    "options": [
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi data core.dict show [OPTIONS] [DATA]...",
+    "description": "Show contents of Dict nodes.",
+    "required_arguments": [
+      "DATA: The data argument"
+    ],
+    "options": [
+      "-f / --format [json+date|yaml|yaml_expanded]:  The format of the output data.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi data core.remote ls [OPTIONS] DATUM",
+    "description": "List content of a (sub)directory in a RemoteData object.",
+    "required_arguments": [
+      "DATUM: The datum argument"
+    ],
+    "options": [
+      "-l / --long: Display also file metadata.",
+      "-p / --path TEXT: The folder to list.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi data core.remote show [OPTIONS] DATUM",
+    "description": "Show information for a RemoteData object.",
+    "required_arguments": [
+      "DATUM: The datum argument"
+    ],
+    "options": [
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi data core.remote size [OPTIONS] NODE",
+    "description": "Obtain the total size of a file or directory at a given path that is stored via a ``RemoteData`` object.",
+    "required_arguments": [
+      "NODE: The node identifier"
+    ],
+    "options": [
+      "-m / --method TEXT: The method that should be used to evaluate the size (either ``du`` or ``stat``.)",
+      "-p / --path PATH: Relative path of the object of the ``RemoteData`` node for which the size should be evaluated.",
+      "-b / --bytes: Return the size in bytes or human-readable format?",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi code create core.code.installed.shell [OPTIONS]",
+    "description": "Code that represents a shell command. This code type is automatically generated by the :func:`~aiida_shell.engine.launch.launch_shell_job` function and is a subclass of :class:`~aiida.orm.nodes.data.code.installed.InstalledCode`. It can therefore be used for any other calculation job as well.",
+    "required_arguments": [],
+    "options": [
+      "-Y / --computer TEXT: The remote computer on which the executable resides.  [required]",
+      "-X / --filepath-executable TEXT: Filepath of the executable on the remote computer.  [required]",
+      "-L / --label TEXT: A unique label to identify the code by. [required]",
+      "-D / --description TEXT: Human-readable description, ideally including version and compilation environment.",
+      "--default-calc-job-plugin TEXT: ",
+      "--use-double-quotes / --no-use-double-quotes:  Whether the executable and arguments of the code in the submission script should be escaped with single or double quotes.",
+      "--with-mpi / --no-with-mpi: Whether the executable should be run as an MPI program. This option can be left unspecified in which case `None` will be set and it is left up to the calculation job plugin or inputs whether to run with MPI.",
+      "--prepend-text TEXT: Bash commands that should be prepended to the run line in all submit scripts for this code.",
+      "--append-text TEXT: Bash commands that should be appended to the run line in all submit scripts for this code.",
+      "--config FILEORURL: Load option values from configuration file in yaml format (local path or URL).",
+      "-n / --non-interactive / -I / --interactive:  In non-interactive mode, the CLI never prompts for options but simply uses default values for options that define one. In interactive mode, the CLI will prompt for each interactive option.   [default: (--interactive)]"
+    ]
+  },
+  {
+    "command_usage": "verdi data core.trajectory export [OPTIONS] DATUM",
+    "description": "Export trajectory to file.",
+    "required_arguments": [
+      "DATUM: The datum argument"
+    ],
+    "options": [
+      "-F / --format [cif|xsf]: Format of the exported file.  [default: cif]",
+      "-i / --trajectory-index INTEGER: Specific step of the Trajectory to select.",
+      "--reduce-symmetry / --no-reduce-symmetry:  Do (default) or do not perform symmetry reduction.",
+      "--parameter-data INTEGER: ID of the Dict to be exported alongside the StructureData instance. By default, if StructureData originates from a calculation with single Dict in the output, aforementioned Dict is picked automatically. Instead, the option is used in the case the calculation produces more than a single instance of Dict.",
+      "--dump-aiida-database / --no-dump-aiida-database:  Export (default) or do not export AiiDA database to the CIF file.",
+      "--exclude-external-contents / --no-exclude-external-contents:  Do not (default) or do save the contents for external resources even if URIs are provided",
+      "--gzip / --no-gzip: Do or do not (default) gzip large files.",
+      "--gzip-threshold INTEGER: Specify the minimum size of exported file which should be gzipped.",
+      "-o / --output TEXT: If present, store the output directly on a file with the given name. It is essential to use this option if more than one file needs to be created.",
+      "-f / --force: Overwrite files without checking.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi data core.trajectory list [OPTIONS] [--]",
+    "description": "List TrajectoryData objects stored in the database.",
+    "required_arguments": [],
+    "options": [
+      "-G / --groups GROUP...: One or multiple groups identified by their ID, UUID or label.",
+      "-p / --past-days PAST_DAYS: Only include entries created in the last PAST_DAYS number of days.",
+      "-A / --all-users: Include all entries regardless of the owner.",
+      "-r / --raw: Display only raw query results, without any headers or footers.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi data core.trajectory show [OPTIONS] [--] [DATA]...",
+    "description": "Visualize a trajectory.",
+    "required_arguments": [
+      "DATA: The data argument"
+    ],
+    "options": [
+      "-F / --format [jmol|xcrysden|mpl_heatmap|mpl_pos]:  Format of the visualized output.  [default: jmol]",
+      "-i / --trajectory-index INTEGER: Specific step of the Trajectory to select.",
+      "-e / --with-elements TEXT...: Only select objects containing these elements.",
+      "-c / --contour FLOAT...: Isovalues to plot",
+      "--sampling-stepsize INTEGER: Sample positions in plot every sampling_stepsize timestep",
+      "--stepsize INTEGER: The stepsize for the trajectory, set it higher to reduce number of points",
+      "--mintime INTEGER: The time to plot from",
+      "--maxtime INTEGER: The time to plot to",
+      "--indices INTEGER...: Show only these indices",
+      "--dont-block: Don't block interpreter when showing plot.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi data core.structure export [OPTIONS] DATUM",
+    "description": "Export StructureData object to file.",
+    "required_arguments": [
+      "DATUM: The datum argument"
+    ],
+    "options": [
+      "-F / --format [cif|xsf|xyz]: Format of the exported file.  [default: xyz]",
+      "--reduce-symmetry / --no-reduce-symmetry:  Do (default) or do not perform symmetry reduction.",
+      "--parameter-data INTEGER: ID of the Dict to be exported alongside the StructureData instance. By default, if StructureData originates from a calculation with single Dict in the output, aforementioned Dict is picked automatically. Instead, the option is used in the case the calculation produces more than a single instance of Dict.",
+      "--dump-aiida-database / --no-dump-aiida-database:  Export (default) or do not export AiiDA database to the CIF file.",
+      "--exclude-external-contents / --no-exclude-external-contents:  Do not (default) or do save the contents for external resources even if URIs are provided",
+      "--gzip / --no-gzip: Do or do not (default) gzip large files.",
+      "--gzip-threshold INTEGER: Specify the minimum size of exported file which should be gzipped.",
+      "-o / --output TEXT: If present, store the output directly on a file with the given name. It is essential to use this option if more than one file needs to be created.",
+      "-f / --force: Overwrite files without checking.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi node comment add [OPTIONS] [--] [CONTENT]",
+    "description": "Add a comment to one or more nodes.",
+    "required_arguments": [
+      "CONTENT: The content argument"
+    ],
+    "options": [
+      "-N / --nodes NODE...: One or multiple nodes identified by their ID or UUID.  [required]",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi data core.structure show [OPTIONS] [DATA]...",
+    "description": "Visualize StructureData objects.",
+    "required_arguments": [
+      "DATA: The data argument"
+    ],
+    "options": [
+      "-F / --format [ase|jmol|vesta|vmd|xcrysden]:  Format of the visualized output.  [default: ase]",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi data core.structure list [OPTIONS] [--]",
+    "description": "List StructureData objects.",
+    "required_arguments": [],
+    "options": [
+      "-f / --formula-mode [hill|hill_compact|reduce|group|count|count_compact]:  Mode for printing the chemical formula.",
+      "-e / --with-elements TEXT...: Only select objects containing these elements.",
+      "-G / --groups GROUP...: One or multiple groups identified by their ID, UUID or label.",
+      "-p / --past-days PAST_DAYS: Only include entries created in the last PAST_DAYS number of days.",
+      "-A / --all-users: Include all entries regardless of the owner.",
+      "-r / --raw: Display only raw query results, without any headers or footers.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi node comment remove [OPTIONS] COMMENT_ID",
+    "description": "Remove a comment of a node.",
+    "required_arguments": [
+      "COMMENT_ID: The comment_id argument"
+    ],
+    "options": [
+      "-f / --force: Do not ask for confirmation.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi node comment show [OPTIONS] [NODES]...",
+    "description": "Show the comments of one or multiple nodes.",
+    "required_arguments": [
+      "NODES: The nodes argument"
+    ],
+    "options": [
+      "-u / --user USER: Email address of the user.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi node comment update [OPTIONS] COMMENT_ID [CONTENT]",
+    "description": "Update a comment of a node.",
+    "required_arguments": [
+      "COMMENT_ID: The comment_id argument",
+      "CONTENT: The content argument"
+    ],
+    "options": [
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi data core.upf export [OPTIONS] DATUM",
+    "description": "(Deprecated) Export `UpfData` object to file.",
+    "required_arguments": [
+      "DATUM: The datum argument"
+    ],
+    "options": [
+      "-F / --format [json]: Format of the exported file.  [default: json]",
+      "--reduce-symmetry / --no-reduce-symmetry:  Do (default) or do not perform symmetry reduction.",
+      "--parameter-data INTEGER: ID of the Dict to be exported alongside the StructureData instance. By default, if StructureData originates from a calculation with single Dict in the output, aforementioned Dict is picked automatically. Instead, the option is used in the case the calculation produces more than a single instance of Dict.",
+      "--dump-aiida-database / --no-dump-aiida-database:  Export (default) or do not export AiiDA database to the CIF file.",
+      "--exclude-external-contents / --no-exclude-external-contents:  Do not (default) or do save the contents for external resources even if URIs are provided",
+      "--gzip / --no-gzip: Do or do not (default) gzip large files.",
+      "--gzip-threshold INTEGER: Specify the minimum size of exported file which should be gzipped.",
+      "-o / --output TEXT: If present, store the output directly on a file with the given name. It is essential to use this option if more than one file needs to be created.",
+      "-f / --force: Overwrite files without checking.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi data core.upf exportfamily [OPTIONS] FOLDER GROUP",
+    "description": "(Deprecated) Export a pseudopotential family into a folder. Call without parameters to get some help.",
+    "required_arguments": [
+      "FOLDER: The folder argument",
+      "GROUP: The group to use"
+    ],
+    "options": [
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi data core.upf listfamilies [OPTIONS] [--]",
+    "description": "(Deprecated) List all UPF families that exist in the database.",
+    "required_arguments": [],
+    "options": [
+      "-d / --with-description: Show also the description for the UPF family",
+      "-e / --with-elements TEXT...: Only select objects containing these elements.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi node graph generate [OPTIONS] [--] [ROOT_NODES]...",
+    "description": "Generate a graph from one or multiple root nodes.",
+    "required_arguments": [
+      "ROOT_NODES: The root_nodes argument"
+    ],
+    "options": [
+      "-l / --link-types [all|data|logic]:  The link types to include: 'data' includes only 'input_calc' and 'create' links (data provenance only), 'logic' includes only 'input_work' and 'return' links (logical provenance only).",
+      "--identifier [pk|uuid|label]: the type of identifier to use within the node text",
+      "-a / --ancestor-depth INTEGER RANGE:  The maximum depth when recursing upwards, if not set it will recurse to the end.  [x>=0]",
+      "-d / --descendant-depth INTEGER RANGE:  The maximum depth when recursing through the descendants. If not set it will recurse to the end.  [x>=0]",
+      "-o / --process-out: Show outgoing links for all processes.",
+      "-i / --process-in: Show incoming links for all processes.",
+      "-e / --engine TEXT: The graphviz engine, e.g. 'dot', 'circo', ... (see http://www.graphviz.org/doc/info/ou tput.html)",
+      "-f / --output-format TEXT: The output format used for rendering ('pdf', 'png', etc.). displayed in the graph e.g. StructureData, FolderData, etc.).",
+      "-s / --show: Open the rendered result with the default application.",
+      "-O / --output-file FILE: The file to write the output to.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi data core.upf uploadfamily [OPTIONS] FOLDER GROUP_LABEL",
+    "description": "GROUP_DESCRIPTION (Deprecated) Create a new UPF family from a folder of UPF files. Returns the numbers of files found and the number of nodes uploaded. Call without parameters to get some help.",
+    "required_arguments": [
+      "FOLDER: The folder argument",
+      "GROUP_LABEL: The group_label argument"
+    ],
+    "options": [
+      "--stop-if-existing: Interrupt pseudos import if a pseudo was already present in the AiiDA database",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi node repo cat [OPTIONS] NODE [RELATIVE_PATH]",
+    "description": "Output the content of a file in the node repository folder. For ``SinglefileData`` nodes, the `RELATIVE_PATH` does not have to be specified as it is determined automatically.",
+    "required_arguments": [
+      "NODE: The node identifier",
+      "RELATIVE_PATH: The relative_path argument"
+    ],
+    "options": [
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi node repo dump [OPTIONS] NODE OUTPUT_DIRECTORY",
+    "description": "Copy the repository files of a node to an output directory. The output directory should not exist. If it does, the command will abort.",
+    "required_arguments": [
+      "NODE: The node identifier",
+      "OUTPUT_DIRECTORY: The output_directory argument"
+    ],
+    "options": [
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi data core.upf import [OPTIONS] FILENAME",
+    "description": "(Deprecated) Import a UPF pseudopotential from a file.",
+    "required_arguments": [
+      "FILENAME: The filename argument"
+    ],
+    "options": [
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi node repo ls [OPTIONS] NODE [RELATIVE_PATH]",
+    "description": "List files in the node repository folder.",
+    "required_arguments": [
+      "NODE: The node identifier",
+      "RELATIVE_PATH: The relative_path argument"
+    ],
+    "options": [
+      "-c / --color: Use different color for folders and files.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi devel rabbitmq queues create [OPTIONS] [QUEUES]...",
+    "description": "Create new queues.",
+    "required_arguments": [
+      "QUEUES: The queues argument"
+    ],
+    "options": [
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi devel rabbitmq queues list [OPTIONS] [--]",
+    "description": "List all queues.",
+    "required_arguments": [],
+    "options": [
+      "-P / --project [arguments|auto_delete|backing_queue_status|consumer_utilisation|consumers|durable|effective_policy_definition|exclusive|exclusive_consumer_tag|garbage_collection|head_message_timestamp|idle_since|memory|message_bytes|message_bytes_paged_out|message_bytes_persistent|message_bytes_ram|message_bytes_ready|message_bytes_unacknowledged|messages|messages_details|messages_paged_out|messages_persistent|messages_ram|messages_ready|messages_ready_details|messages_ready_ram|messages_unacknowledged|messages_unacknowledged_details|messages_unacknowledged_ram|name|node|operator_policy|policy|recoverable_slaves|reductions|reductions_details|single_active_consumer_tag|state|type|vhost]: ",
+      "-r / --raw: Display only raw query results, without any headers or footers.",
+      "-f / --filter-name TEXT: Provide a regex pattern to filter queues based on their name.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi devel rabbitmq tasks analyze [OPTIONS]",
+    "description": "(Deprecated) Perform analysis of process tasks. This command will perform a query of the database to find all \"active\" processes, meaning those that haven't yet reached a terminal state, and cross-references this with the active process tasks that are in the process queue of RabbitMQ. Any active process that does not have a corresponding process task can be considered a zombie, as it will never be picked up by a daemon worker to complete it and will effectively be \"stuck\". Any process task that does not correspond to an active process is useless and should be discarded. Finally, duplicate process tasks are also problematic and duplicates should be discarded. Use ``-v INFO`` to be more verbose and print more information.",
+    "required_arguments": [],
+    "options": [
+      "--fix: Attempt to fix the inconsistencies if any are detected.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi devel rabbitmq queues delete [OPTIONS] [QUEUES]...",
+    "description": "Delete existing queues.",
+    "required_arguments": [
+      "QUEUES: The queues argument"
+    ],
+    "options": [
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi devel rabbitmq tasks list [OPTIONS]",
+    "description": "List all active process tasks. This command prints a list of process pk's for which there is an active process task with RabbitMQ. Since tasks can only be seen when they are not currently with a daemon worker, this command can only be run when the daemon is not running.",
+    "required_arguments": [],
+    "options": [
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi computer configure show [OPTIONS] COMPUTER",
+    "description": "Show the current configuration for a computer.",
+    "required_arguments": [
+      "COMPUTER: The computer to configure"
+    ],
+    "options": [
+      "--defaults: Show the default configuration settings for this computer.",
+      "--as-option-string: ",
+      "-u / --user USER: Email address of the AiiDA user for whom to configure this computer (if different from default user).",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi computer configure core.local [OPTIONS] COMPUTER",
+    "description": "Configure COMPUTER for core.local transport.",
+    "required_arguments": [
+      "COMPUTER: The computer to configure"
+    ],
+    "options": [
+      "--config FILEORURL: Load option values from configuration file in yaml format (local path or URL).",
+      "-u / --user USER: Email address of the user.",
+      "--use-login-shell / --no-use-login-shell:  Not using a login shell can help suppress potential spurious text output that can prevent AiiDA from parsing the output of commands, but may result in some startup files (.profile) not being sourced.",
+      "--safe-interval FLOAT: Minimum time interval in seconds between opening new connections.",
+      "-n / --non-interactive / -I / --interactive:  In non-interactive mode, the CLI never prompts for options but simply uses default values for options that define one. In interactive mode, the CLI will prompt for each interactive option.   [default: (--interactive)]"
+    ]
+  },
+  {
+    "command_usage": "verdi computer configure core.ssh [OPTIONS] COMPUTER",
+    "description": "Configure COMPUTER for core.ssh transport.",
+    "required_arguments": [
+      "COMPUTER: The computer to configure"
+    ],
+    "options": [
+      "--config FILEORURL: Load option values from configuration file in yaml format (local path or URL).",
+      "-u / --user USER: Email address of the user.",
+      "--username TEXT: Login user name on the remote machine.",
+      "-P / --port INTEGER: Port number.",
+      "--look-for-keys / --no-look-for-keys:  Automatically look for private keys in the ~/.ssh folder.",
+      "--key-filename FILE: Absolute path to your private SSH key. Leave empty to use the path set in the SSH config.",
+      "--timeout INTEGER: Time in seconds to wait for connection before giving up. Leave empty to use default value.",
+      "--allow-agent / --no-allow-agent:  Switch to allow or disallow using an SSH agent.",
+      "--proxy-jump TEXT: SSH proxy jump for tunneling through other SSH hosts. Use a comma-separated list of hosts of the form [user@]host[:port]. If user or port are not specified for a host, the user & port values from the target host are used. This option must be provided explicitly and is not parsed from the SSH config file when left empty.",
+      "--proxy-command TEXT: SSH proxy command for tunneling through a proxy server. For tunneling through another SSH host, consider using the \"SSH proxy jump\" option instead! Leave empty to parse the proxy command from the SSH config file.",
+      "--compress / --no-compress: Turn file transfer compression on or off.",
+      "--gss-auth BOOLEAN: Enable when using GSS kerberos token to connect.",
+      "--gss-kex BOOLEAN: GSS kex for kerberos, if not configured in SSH config file.",
+      "--gss-deleg-creds BOOLEAN: GSS deleg_creds for kerberos, if not configured in SSH config file. SSH config file. Load system host keys from default SSH location.",
+      "--key-policy [RejectPolicy|WarningPolicy|AutoAddPolicy]:  SSH key policy if host is not known.",
+      "--use-login-shell / --no-use-login-shell:  Not using a login shell can help suppress potential spurious text output that can prevent AiiDA from parsing the output of commands, but may result in some startup files (.profile) not being sourced.",
+      "--safe-interval FLOAT: Minimum time interval in seconds between opening new connections.",
+      "-n / --non-interactive / -I / --interactive:  In non-interactive mode, the CLI never prompts for options but simply uses default values for options that define one. In interactive mode, the CLI will prompt for each interactive option.   [default: (--interactive)]"
+    ]
+  },
+  {
+    "command_usage": "verdi computer configure core.ssh_async [OPTIONS] COMPUTER",
+    "description": "Configure COMPUTER for core.ssh_async transport.",
+    "required_arguments": [
+      "COMPUTER: The computer to configure"
+    ],
+    "options": [
+      "--config FILEORURL: Load option values from configuration file in yaml format (local path or URL).",
+      "-u / --user USER: Email address of the user. command `ssh <HOST>`. You need to have a `Host <HOST>` entry defined in your `~/.ssh/config` file. Note, if not provided, we will use the 'hostname' that was set by you during setup.",
+      "--max-io-allowed INTEGER: Depends on various factors, such as your network bandwidth, the server load, etc. (An experimental number)",
+      "--script-before TEXT: (optional) Specify a script to run *before* opening SSH connection. The script should be executable",
+      "--backend TEXT: `openssh` uses the `ssh` command line tool to connect to the remote machine,e.g. it is useful in case of multiplexing. The `asyncssh` backend is the default and is recommended for most use cases.",
+      "--use-login-shell / --no-use-login-shell:  Not using a login shell can help suppress potential spurious text output that can prevent AiiDA from parsing the output of commands, but may result in some startup files (.profile) not being sourced.",
+      "--safe-interval FLOAT: Minimum time interval in seconds between opening new connections.",
+      "-n / --non-interactive / -I / --interactive:  In non-interactive mode, the CLI never prompts for options but simply uses default values for options that define one. In interactive mode, the CLI will prompt for each interactive option.   [default: (--interactive)]"
+    ]
+  },
+  {
+    "command_usage": "verdi devel rabbitmq tasks revive [OPTIONS] [PROCESSES]...",
+    "description": "Revive processes that seem stuck and are no longer reachable. Warning: Use only as a last resort after you've gone through the checklist below. 1. Does ``verdi status`` indicate that both daemon and RabbitMQ are running properly? If not, restart the daemon with ``verdi daemon restart`` and restart RabbitMQ. 2. Try ``verdi process play <PID>``. If you receive a message that the process is no longer reachable, use ``verdi devel rabbitmq tasks revive <PID>``. Details: When RabbitMQ loses the process task before the process has completed, the process is never picked up by the daemon and will remain \"stuck\". ``verdi devel rabbitmq tasks revive`` recreates the task, which can lead to multiple instances of the task being executed and should thus be used with caution.",
+    "required_arguments": [
+      "PROCESSES: The processes argument"
+    ],
+    "options": [
+      "-f / --force: Do not ask for confirmation.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi data core.structure import aiida-xyz [OPTIONS] FILENAME",
+    "description": "Import structure in XYZ format using AiiDA's internal importer",
+    "required_arguments": [
+      "FILENAME: The filename argument"
+    ],
+    "options": [
+      "--vacuum-factor FLOAT: The factor by which the cell accomodating the structure should be increased (angstrom).  [default: 1.0]",
+      "--vacuum-addition FLOAT: The distance to add to the unit cell after vacuum factor was applied to expand in each dimension (angstrom).  [default: 10.0]",
+      "--pbc INTEGER...: Set periodic boundary conditions for each lattice direction, where 0 means periodic and 1 means periodic.  [default: 0, 0, 0]",
+      "--label TEXT: Set the structure node label (empty by default)",
+      "-G / --group GROUP: A single group identified by its ID, UUID or label.",
+      "-n / --dry-run: Perform a dry run.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi data core.structure import ase [OPTIONS] FILENAME",
+    "description": "Import structure with the ase library that supports a number of different formats",
+    "required_arguments": [
+      "FILENAME: The filename argument"
+    ],
+    "options": [
+      "--label TEXT: Set the structure node label (empty by default)",
+      "-G / --group GROUP: A single group identified by its ID, UUID or label.",
+      "-n / --dry-run: Perform a dry run.",
+      "-v / --verbosity [notset|debug|info|report|warning|error|critical]:  Set the verbosity of the output."
+    ]
+  },
+  {
+    "command_usage": "verdi profile setup core.psql_dos [OPTIONS]",
+    "description": "An AiiDA storage backend that stores data in a PostgreSQL database and disk- objectstore repository. Note, there were originally two such backends, `sqlalchemy` and `django`. The `django` backend was removed, to consolidate access to this storage.",
+    "required_arguments": [],
+    "options": [
+      "-p / --profile-name PROFILE: The name of the new profile.  [required]",
+      "--set-as-default / --no-set-as-default:  Whether to set the profile as the default.",
+      "--email EMAIL: Email address associated with the data you generate. The email address is exported along with the data, when sharing it.",
+      "--first-name NONEMPTYSTRING: First name of the user.  [required]",
+      "--last-name NONEMPTYSTRING: Last name of the user.  [required]",
+      "--institution NONEMPTYSTRING: Institution of the user.  [required]",
+      "--use-rabbitmq / --no-use-rabbitmq:  Whether to configure the RabbitMQ broker. Required to enable the daemon and submitting processes.",
+      "--database-engine TEXT: The engine to use to connect to the database.",
+      "--database-port INTEGER: The port of the PostgreSQL server.",
+      "--database-username TEXT: The username with which to connect to the PostgreSQL server.  [required]",
+      "--database-password TEXT: The password with which to connect to the PostgreSQL server.  [required]",
+      "--database-name TEXT: The name of the database in the PostgreSQL server.  [required]",
+      "--repository-uri TEXT: URI to the file repository.  [required]",
+      "--config FILEORURL: Load option values from configuration file in yaml format (local path or URL).",
+      "-n / --non-interactive / -I / --interactive:  In non-interactive mode, the CLI never prompts for options but simply uses default values for options that define one. In interactive mode, the CLI will prompt for each interactive option.   [default: (--interactive)]"
+    ]
+  },
+  {
+    "command_usage": "verdi profile setup core.sqlite_dos [OPTIONS]",
+    "description": "A lightweight storage that is easy to install. This backend implementation uses an SQLite database and a disk-objectstore container as the file repository. As such, this storage plugin does not require any services, making it easy to install and use on most systems.",
+    "required_arguments": [],
+    "options": [
+      "-p / --profile-name PROFILE: The name of the new profile.  [required]",
+      "--set-as-default / --no-set-as-default:  Whether to set the profile as the default.",
+      "--email EMAIL: Email address associated with the data you generate. The email address is exported along with the data, when sharing it.",
+      "--first-name NONEMPTYSTRING: First name of the user.  [required]",
+      "--last-name NONEMPTYSTRING: Last name of the user.  [required]",
+      "--institution NONEMPTYSTRING: Institution of the user.  [required]",
+      "--use-rabbitmq / --no-use-rabbitmq:  Whether to configure the RabbitMQ broker. Required to enable the daemon and submitting processes.",
+      "--filepath TEXT: Filepath of the directory in which to store data for this backend.",
+      "--config FILEORURL: Load option values from configuration file in yaml format (local path or URL).",
+      "-n / --non-interactive / -I / --interactive:  In non-interactive mode, the CLI never prompts for options but simply uses default values for options that define one. In interactive mode, the CLI will prompt for each interactive option.   [default: (--interactive)]"
+    ]
+  },
+  {
+    "command_usage": "verdi computer configure firecrest [OPTIONS] COMPUTER",
+    "description": "Configure COMPUTER for firecrest transport.",
+    "required_arguments": [
+      "COMPUTER: The computer to configure"
+    ],
+    "options": [
+      "--config FILEORURL: Load option values from configuration file in yaml format (local path or URL).",
+      "-u / --user USER: Email address of the user.",
+      "--url TEXT: URL to the FirecREST server",
+      "--token-uri TEXT: URI for retrieving FirecREST authentication tokens",
+      "--client-id TEXT: FirecREST client ID",
+      "--client-secret TEXT: FirecREST client secret or Absolute path to an existing FirecREST Secret Key",
+      "--compute-resource TEXT: Compute resources, for example 'daint', 'eiger', etc.",
+      "--billing-account TEXT: According to the FirecREST documentation, operations longer than 5 seconds have to be submitted as a job, therefore you need to specify a billing account.",
+      "--temp-directory TEXT: A temp directory on server for creating temporary files (compression, extraction, etc.)",
+      "--max-io-allowed INTEGER: Depends on various factors, such as your network bandwidth, the server load, etc. (An experimental number)",
+      "--checksum-check BOOLEAN: ",
+      "-n / --non-interactive / -I / --interactive:  In non-interactive mode, the CLI never prompts for options but simply uses default values for options that define one. In interactive mode, the CLI will prompt for each interactive option.   [default: (--interactive)]"
+    ]
+  },
+  {
+    "command_usage": "verdi profile setup core.sqlite_zip [OPTIONS]",
+    "description": "A read-only backend for a sqlite/zip format. The storage format uses an SQLite database and repository files, within a folder or zipfile. The content of the folder/zipfile should be:: |- metadata.json     |- db.sqlite3     |- repo/         |- hashkey1 |- hashkey2         ...",
+    "required_arguments": [],
+    "options": [
+      "-p / --profile-name PROFILE: The name of the new profile.  [required]",
+      "--set-as-default / --no-set-as-default:  Whether to set the profile as the default.",
+      "--email EMAIL: Email address associated with the data you generate. The email address is exported along with the data, when sharing it.",
+      "--first-name NONEMPTYSTRING: First name of the user.  [required]",
+      "--last-name NONEMPTYSTRING: Last name of the user.  [required]",
+      "--institution NONEMPTYSTRING: Institution of the user.  [required]",
+      "--use-rabbitmq / --no-use-rabbitmq:  Whether to configure the RabbitMQ broker. Required to enable the daemon and submitting processes.",
+      "--filepath TEXT: Filepath of the archive.  [required]",
+      "--config FILEORURL: Load option values from configuration file in yaml format (local path or URL).",
+      "-n / --non-interactive / -I / --interactive:  In non-interactive mode, the CLI never prompts for options but simply uses default values for options that define one. In interactive mode, the CLI will prompt for each interactive option.   [default: (--interactive)]"
+    ]
+  }
+]

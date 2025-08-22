@@ -1,0 +1,13 @@
+verdi_llm/__init__.py,sha256=mWXi3kgvPFS2vgaSRuKngw3tjyc-K6KTF4e1oExdgio,122
+verdi_llm/__main__.py,sha256=suaClulttVO_mi7AdR9YkcvY93XymuwsfLh8TkIk_Tk,157
+verdi_llm/cli/__init__.py,sha256=dBMZ2XPjwNXzS858_1K_USSJ0lbPdhDjj8YZrIzEbQs,715
+verdi_llm/cli/cmd_llm.py,sha256=iXWnqZ3j41akrGmfOVq3YefR4Suh43wJZ4wHOHbPO14,5259
+verdi_llm/cli/generate_verdi_cli_json.py,sha256=Gmt5ZxG5QVFm9W8c49cq_iNlNxrInuYAyqQc4zRHEbw,6213
+verdi_llm/cli/llm_backend.py,sha256=fN7jytI0U6vw30WTIxOG8PKKiTSeERFH505mZiOtAwM,7406
+verdi_llm/cli/verdi_cli.json,sha256=kgKUhNKaQiX9EIocyrTSmnUF3I6klOgnnm1rSw3f2LY,140835
+verdi_llm/cli/verdi_llm_shell.py,sha256=Ku2faZb3PHuAeaGyTmlXt0oNUWyiZNKfXysMlcToONE,6046
+verdi_llm-0.1.3.dist-info/entry_points.txt,sha256=4MHVkfhKkSF8mDnasVA2fn7jfgDGSHzVq4tZygfNyfU,61
+verdi_llm-0.1.3.dist-info/licenses/LICENSE.txt,sha256=ASqG6QCOyYl1TXp454_lv8c5bZNGk4q21WVPbZPgaNg,1069
+verdi_llm-0.1.3.dist-info/WHEEL,sha256=G2gURzTEtmeR8nrdXUJfNiB3VYVxigPQ-bEQujpNiNs,82
+verdi_llm-0.1.3.dist-info/METADATA,sha256=evKBL-1yDEyBt_n_UACrjxzVpoPJwG7YpZXrpAqdap0,7543
+verdi_llm-0.1.3.dist-info/RECORD,,

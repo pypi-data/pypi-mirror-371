@@ -1,0 +1,3 @@
+[console_scripts]
+verdi-llm=verdi_llm.cli.cmd_llm:verdi_llm
+
