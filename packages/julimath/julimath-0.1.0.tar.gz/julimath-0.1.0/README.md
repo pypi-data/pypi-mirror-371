@@ -1,0 +1,208 @@
+# JuliMath 🧮
+
+Library matematika sederhana dalam Python yang dirancang khusus untuk memudahkan perhitungan matematika dengan antarmuka yang ramah pengguna.
+
+## 📋 Daftar Isi
+
+- [Instalasi](#instalasi)
+- [Cara Penggunaan](#cara-penggunaan)
+- [Fungsi-Fungsi Tersedia](#fungsi-fungsi-tersedia)
+  - [Operasi Dasar](#operasi-dasar)
+  - [Operasi Lanjutan](#operasi-lanjutan)
+  - [Geometri](#geometri)
+  - [Statistik](#statistik)
+  - [Kombinatorik](#kombinatorik)
+- [Fitur Khusus](#fitur-khusus)
+- [Contoh Penggunaan](#contoh-penggunaan)
+
+## 🚀 Instalasi
+
+1. Clone atau download repository ini
+2. Import library ke dalam project Python Anda:
+
+```python
+import julimath as jm
+```
+
+## 📖 Cara Penggunaan
+
+JuliMath memiliki dua cara penggunaan yang fleksibel:
+
+### 1. Dengan Parameter Langsung
+```python
+import julimath as jm
+
+# Langsung berikan nilai
+hasil = jm.tambah(5, 3)  # Output: 8
+```
+
+### 2. Input Otomatis
+```python
+import julimath as jm
+
+# Tanpa parameter - akan meminta input otomatis
+jm.tambah()  # Akan meminta input: "Masukkan a: " dan "Masukkan b: "
+```
+
+### 3. Bantuan
+```python
+import julimath as jm
+
+# Tampilkan menu bantuan
+jm.jm_help()
+```
+
+## 🔧 Fungsi-Fungsi Tersedia
+
+### Operasi Dasar
+
+| Fungsi | Alias | Deskripsi | Contoh |
+|--------|-------|-----------|---------|
+| `tambah(a, b)` | `add(a, b)` | Penjumlahan | `jm.tambah(5, 3)` → 8 |
+| `kurang(a, b)` | `sub(a, b)` | Pengurangan | `jm.kurang(10, 4)` → 6 |
+| `kali(a, b)` | `mul(a, b)` | Perkalian | `jm.kali(6, 7)` → 42 |
+| `bagi(a, b)` | `div(a, b)` | Pembagian | `jm.bagi(15, 3)` → 5.0 |
+
+### Operasi Lanjutan
+
+| Fungsi | Deskripsi | Contoh |
+|--------|-----------|---------|
+| `pangkat(a, b)` | Perpangkatan (a^b) | `jm.pangkat(2, 3)` → 8 |
+| `akar(x)` | Akar kuadrat | `jm.akar(16)` → 4.0 |
+| `modulus(a, b)` | Sisa pembagian | `jm.modulus(17, 5)` → 2 |
+| `faktorial(n)` | Faktorial (n!) | `jm.faktorial(5)` → 120 |
+| `kuadrat(x)` | Kuadrat (x²) | `jm.kuadrat(4)` → 16 |
+| `kubik(x)` | Kubik (x³) | `jm.kubik(3)` → 27 |
+
+### Geometri
+
+| Fungsi | Deskripsi | Contoh |
+|--------|-----------|---------|
+| `luas_lingkaran(r)` | Luas lingkaran | `jm.luas_lingkaran(7)` → 153.86 |
+| `volume_tabung(r, t)` | Volume tabung | `jm.volume_tabung(3, 10)` → 282.6 |
+| `keliling_persegi(sisi)` | Keliling persegi | `jm.keliling_persegi(5)` → 20 |
+| `luas_persegi(sisi)` | Luas persegi | `jm.luas_persegi(4)` → 16 |
+
+### Statistik
+
+| Fungsi | Deskripsi | Contoh |
+|--------|-----------|---------|
+| `rata_rata(data)` | Rata-rata dari list | `jm.rata_rata([1,2,3,4,5])` → 3.0 |
+| `persen(bagian, total)` | Persentase | `jm.persen(25, 100)` → 25.0 |
+
+### Kombinatorik
+
+| Fungsi | Deskripsi | Contoh |
+|--------|-----------|---------|
+| `kombinasi(n, r)` | Kombinasi C(n,r) | `jm.kombinasi(5, 2)` → 10 |
+| `permutasi(n, r)` | Permutasi P(n,r) | `jm.permutasi(5, 2)` → 20 |
+| `fpb(a, b)` | Faktor Persekutuan Besar | `jm.fpb(12, 18)` → 6 |
+| `kpk(a, b)` | Kelipatan Persekutuan Kecil | `jm.kpk(12, 18)` → 36 |
+
+## ✨ Fitur Khusus
+
+### 1. Auto-Print
+Semua fungsi secara otomatis mencetak hasil ke layar, sehingga Anda tidak perlu menggunakan `print()`.
+
+### 2. Input Otomatis
+Jika Anda memanggil fungsi tanpa parameter, library akan secara otomatis meminta input dari pengguna.
+
+### 3. Error Handling
+Library menangani error dengan pesan yang jelas dan berwarna:
+- ✅ Hijau untuk informasi
+- ❌ Merah untuk error
+
+### 4. Validasi Input
+- `need()` - Meminta input bilangan bulat dengan validasi
+- `need_float()` - Meminta input bilangan desimal dengan validasi
+
+## 📝 Contoh Penggunaan
+
+### Contoh 1: Perhitungan Sederhana
+```python
+import julimath as jm
+
+# Penjumlahan langsung
+jm.tambah(10, 5)  # Output: 15
+
+# Menggunakan alias
+jm.add(7, 3)      # Output: 10
+
+# Pembagian dengan penanganan error
+jm.bagi(10, 0)    # Output: Error message
+```
+
+### Contoh 2: Input Interaktif
+```python
+import julimath as jm
+
+# Akan meminta input dari pengguna
+jm.kali()  # Meminta: "Masukkan a: " dan "Masukkan b: "
+```
+
+### Contoh 3: Perhitungan Geometri
+```python
+import julimath as jm
+
+# Menghitung luas lingkaran
+jm.luas_lingkaran(7)     # Output: 153.86
+
+# Menghitung volume tabung
+jm.volume_tabung(3, 10)  # Output: 282.6
+
+# Dengan rumus (opsional)
+jm.luas_persegi(5, show_formula=True)  # Output: Rumus: 5 * 5 = 25
+```
+
+### Contoh 4: Statistik dan Kombinatorik
+```python
+import julimath as jm
+
+# Rata-rata
+data = [85, 90, 78, 92, 88]
+jm.rata_rata(data)       # Output: 86.6
+
+# Kombinasi dan permutasi
+jm.kombinasi(10, 3)      # Output: 120
+jm.permutasi(10, 3)      # Output: 720
+
+# FPB dan KPK
+jm.fpb(48, 18)           # Output: 6
+jm.kpk(48, 18)           # Output: 144
+```
+
+### Contoh 5: Menggunakan Helper Functions
+```python
+import julimath as jm
+
+# Meminta input dengan validasi
+angka = jm.need("Masukkan angka favorit Anda: ")
+desimal = jm.need_float("Masukkan nilai desimal: ")
+
+# Menampilkan bantuan
+jm.jm_help()
+```
+
+## 🎯 Tips Penggunaan
+
+1. **Gunakan alias** untuk kode yang lebih pendek: `add`, `sub`, `mul`, `div`
+2. **Manfaatkan auto-input** untuk program interaktif
+3. **Periksa error handling** - library akan memberikan pesan error yang jelas
+4. **Gunakan `jm_help()`** untuk melihat semua fungsi yang tersedia
+
+## 🤝 Kontribusi
+
+Jika Anda ingin berkontribusi pada pengembangan JuliMath, silakan:
+1. Fork repository ini
+2. Buat branch baru untuk fitur Anda
+3. Commit perubahan Anda
+4. Push ke branch
+5. Buat Pull Request
+
+## 📄 Lisensi
+
+Project ini bersifat open source dan dapat digunakan secara bebas untuk keperluan edukasi dan pengembangan.
+
+---
+
+**JuliMath** - Membuat matematika menjadi lebih mudah dan menyenangkan! 🎉

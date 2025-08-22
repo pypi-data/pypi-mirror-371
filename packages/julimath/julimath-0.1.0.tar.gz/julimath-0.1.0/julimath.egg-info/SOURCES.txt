@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+julimath/__init__.py
+julimath/julimath.py
+julimath/utils.py
+julimath.egg-info/PKG-INFO
+julimath.egg-info/SOURCES.txt
+julimath.egg-info/dependency_links.txt
+julimath.egg-info/top_level.txt
