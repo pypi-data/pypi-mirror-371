@@ -1,0 +1,13 @@
+numpy>=2.0
+pedalboard
+pprofile
+pyadl
+requests
+send2trash
+sounddevice
+soundfile
+waiting
+
+[:sys_platform == "win32"]
+pywin32
+wmi
