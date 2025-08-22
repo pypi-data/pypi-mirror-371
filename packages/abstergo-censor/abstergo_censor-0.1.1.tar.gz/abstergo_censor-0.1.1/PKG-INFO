@@ -1,0 +1,34 @@
+Metadata-Version: 2.4
+Name: abstergo-censor
+Version: 0.1.1
+Summary: Privacy-first CLI to blur faces and license plates (OpenCV Haar cascades)
+Author: Abstergo LLC
+License: MIT
+License-File: LICENSE
+Requires-Python: >=3.9
+Requires-Dist: opencv-python>=4.9.0.80
+Description-Content-Type: text/markdown
+
+# PlainSight
+
+Privacy-first CLI that blurs faces and license plates in images and videos using OpenCV's cascades.
+
+```bash
+pip install -r requirements.txt
+python plainsight.py input.jpg --out out.jpg
+python plainsight.py input.mp4 --out out.mp4
+```
+
+Options:
+- `--plates` to enable license plate detection
+- `--strength 25` blur kernel size (odd integer)
+- `--show` to preview window
+- `--scale 1.2` detection scale factor
+
+## Notes
+- Uses OpenCV Haar cascades available in `cv2.data.haarcascades`
+- Works offline, no cloud calls
+- Good default for quick anonymization; not perfect for edge cases
+
+## License
+MIT

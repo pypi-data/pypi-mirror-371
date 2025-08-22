@@ -1,0 +1,16 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "abstergo-censor"
+version = "0.1.1"
+description = "Privacy-first CLI to blur faces and license plates (OpenCV Haar cascades)"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Abstergo LLC" }]
+requires-python = ">=3.9"
+dependencies = ["opencv-python>=4.9.0.80"]
+
+[project.scripts]
+plainsight = "plainsight:main"
