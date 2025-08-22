@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "llm-usage"
+version = "0.1.4"
+description = "LLM usage tracker with cost/latency logging, fallback, and a web dashboard"
+requires-python = ">=3.10"
+authors = [{name = "Your Name", email = "you@example.com"}]
+readme = "README.md"
+license = {text = "MIT"}
+dependencies = [
+  "openai>=1.100.0",
+  "google-genai>=1.31.0",
+  "fastapi>=0.112.0",
+  "uvicorn>=0.30.0",
+  "jinja2>=3.1.4",
+  "python-dotenv>=1.0.1",
+]
+
+[project.urls]
+homepage = "https://github.com/your/repo"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["*"]
+
+[tool.setuptools.package-data]
+dashboard = ["templates/*.html"]
+
+[project.scripts]
+llm-usage-dashboard = "dashboard.__main__:main"
+llm-usage-samples = "scripts.run_samples:main"
+
+
