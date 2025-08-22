@@ -1,0 +1,9 @@
+LICENSE.txt
+README.md
+pyproject.toml
+src/CHE_QNM/HeunCfile.py
+src/CHE_QNM/__init__.py
+src/CHE_QNM.egg-info/PKG-INFO
+src/CHE_QNM.egg-info/SOURCES.txt
+src/CHE_QNM.egg-info/dependency_links.txt
+src/CHE_QNM.egg-info/top_level.txt
