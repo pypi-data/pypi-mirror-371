@@ -1,0 +1,3 @@
+[workspace]
+members = ["crates/w2gpu"]
+resolver = "3"
