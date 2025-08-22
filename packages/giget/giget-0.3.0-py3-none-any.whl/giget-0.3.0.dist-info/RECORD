@@ -1,0 +1,9 @@
+giget/__init__.py,sha256=vjT73Of11GNvxX6vkJP3nLFGvUt3x1lnQ6yRH-UROx8,38
+giget/cli.py,sha256=PMeeTeD3GTHy27DIcBlu0_1pRkoD0PzcZly8mII4QlU,3433
+giget/core.py,sha256=2u2I0o5-U0pj61rjpZadcw4bLfzJE19DIEXAWwCW95U,2971
+giget/help.py,sha256=WjE1NxZ3xsoWe4BFgmUg6rUI4lQz9w3xT3vm0AnQlhk,3232
+giget-0.3.0.dist-info/METADATA,sha256=Hb8vHU6c1WO6Fhkkq-eMDgWNavgJ-EUDHSxMcSAY0pg,844
+giget-0.3.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+giget-0.3.0.dist-info/entry_points.txt,sha256=XlAvCGNrjjYSFJ5kVYfs3sN3GnMcmolKUImUP1YJAEU,41
+giget-0.3.0.dist-info/top_level.txt,sha256=RB_VwvCRH6KKih6XBZiCDBpJEhjifSEqFsd7QIOLZ08,6
+giget-0.3.0.dist-info/RECORD,,
