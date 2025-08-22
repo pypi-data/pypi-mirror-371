@@ -1,0 +1,25 @@
+Metadata-Version: 2.4
+Name: scumpy
+Version: 0.1.0
+Summary: A library for solving mathematical problems and saving solutions to clipboard.
+Home-page: https://github.com/your_username/scumpy
+Author: Scumpy Team
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: sympy
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: pyperclip
+Dynamic: author
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# scumpy
