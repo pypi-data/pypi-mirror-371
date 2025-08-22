@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: nglm-i
+Version: 0.1.0
+Summary: nglm base build
+Author: Ra K
+Author-email: your.email@example.com
+Dynamic: author
+Dynamic: author-email
+Dynamic: summary
