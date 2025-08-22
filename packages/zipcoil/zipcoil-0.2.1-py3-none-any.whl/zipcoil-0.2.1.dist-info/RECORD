@@ -1,0 +1,10 @@
+zipcoil/__init__.py,sha256=ybS1D6ery7RX-YCxwS4rdv14uGc1IovMlkPxIWkQHcc,252
+zipcoil/agent.py,sha256=S635BiR58m1Lik3tB6XFjazb6QyJSLac95pzQ3bcox0,15215
+zipcoil/core.py,sha256=yqGsS610ObHYF-mq7p34CVL4NQ8AcfgVC9ADCXRc2W0,5110
+zipcoil/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+zipcoil/types.py,sha256=qP_WGjlHyl7AroxZjpSOYkNfnV7ivzbxv0OGAgqkY4c,404
+zipcoil-0.2.1.dist-info/licenses/LICENSE,sha256=pWgb-bBdsU2Gd2kwAXxketnm5W_2u8_fIeWEgojfrxs,7651
+zipcoil-0.2.1.dist-info/METADATA,sha256=lDDzgKT0yAOob1qHCOoHMCTxfG2ElvgPEnN6yntjSXE,8520
+zipcoil-0.2.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+zipcoil-0.2.1.dist-info/top_level.txt,sha256=KZNbD2earBMUF1gMWFjZTX_Wl7YTCXxs9Xg43U2WcRI,8
+zipcoil-0.2.1.dist-info/RECORD,,
