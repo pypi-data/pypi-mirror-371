@@ -1,0 +1,2 @@
+[console_scripts]
+yyp = yyp.__main__:main

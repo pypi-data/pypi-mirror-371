@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+src/yyp/__init__.py
+src/yyp/__main__.py
+src/yyp/auto_build.py
+src/yyp/makefile_modifier.py
+src/yyp.egg-info/PKG-INFO
+src/yyp.egg-info/SOURCES.txt
+src/yyp.egg-info/dependency_links.txt
+src/yyp.egg-info/entry_points.txt
+src/yyp.egg-info/top_level.txt
