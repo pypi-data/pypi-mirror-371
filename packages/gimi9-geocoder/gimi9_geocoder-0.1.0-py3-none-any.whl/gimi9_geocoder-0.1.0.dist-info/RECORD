@@ -1,0 +1,11 @@
+gimi9_geocoder/__init__.py,sha256=T7nR6530F_efQoksiAp-w4AZMRBhqQLwwzBg0chVKXY,917
+gimi9_geocoder/client.py,sha256=9Z2TACw3UIZ_WIdGp3UIKcsP3A9RakcHiMg_EMORlYU,11304
+gimi9_geocoder/exceptions.py,sha256=MUyD5Sw7x0Ela7H4CAEb-rlJCi3fX6xUEEM4f5JY09g,725
+gimi9_geocoder/models.py,sha256=ulQ30MI8Cux2aVjLrMIklE3iOB5LhY1aD8Pg0gXhXD0,549
+gimi9_geocoder/pandas_utils.py,sha256=_jMjve3fvPc-L06_w_ltLaLKGkGCTrKGPYjwMkW-VRw,1330
+gimi9_geocoder/utils.py,sha256=2cG_kZw0ToOz1hk8Gm6Hg_gICtJTSCxvAOpjrYgjF6c,724
+gimi9_geocoder-0.1.0.dist-info/licenses/LICENSE,sha256=6emj1h1UgKjvWtpfumg65M_gEcco-gwJakOoEAClODQ,1071
+gimi9_geocoder-0.1.0.dist-info/METADATA,sha256=GS2bTNZ1vcZdb0jHuQSdaFM_Ulv4w2UvIICxay_D0EI,8557
+gimi9_geocoder-0.1.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+gimi9_geocoder-0.1.0.dist-info/top_level.txt,sha256=mm2cKUPtaDqmlMfMVfgJyjC1iLh865F1P3oeC4VUljE,15
+gimi9_geocoder-0.1.0.dist-info/RECORD,,
