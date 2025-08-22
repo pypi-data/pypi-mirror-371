@@ -1,0 +1,96 @@
+Metadata-Version: 2.4
+Name: fleck
+Version: 1.1.3
+Summary: Fast approximate spectrophotometry for active stars
+Home-page: https://github.com/bmorris3/fleck
+Author: Brett M. Morris
+Author-email: Brett Morris <morrisbrettm@gmail.com>
+License: MIT License
+        
+        Copyright (c) 2019 Brett M. Morris
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Project-URL: repository, https://github.com/bmorris3/fleck
+Requires-Python: >=3.10
+Description-Content-Type: text/x-rst
+License-File: LICENSE
+Requires-Dist: astropy
+Requires-Dist: numpy<2
+Requires-Dist: scipy
+Requires-Dist: shapely
+Requires-Dist: matplotlib
+Provides-Extra: test
+Requires-Dist: pytest-doctestplus; extra == "test"
+Requires-Dist: pytest>=4.6.0; extra == "test"
+Requires-Dist: pytest-astropy; extra == "test"
+Requires-Dist: batman-package; extra == "test"
+Provides-Extra: docs
+Requires-Dist: sphinx; extra == "docs"
+Requires-Dist: sphinx-automodapi; extra == "docs"
+Requires-Dist: tomli; python_version < "3.11" and extra == "docs"
+Requires-Dist: sphinx-astropy[confv2]; extra == "docs"
+Requires-Dist: sphinx-rtd-theme; extra == "docs"
+Requires-Dist: sphinx-toolbox; extra == "docs"
+Requires-Dist: matplotlib; extra == "docs"
+Requires-Dist: batman-package; extra == "docs"
+Requires-Dist: expecto; extra == "docs"
+Requires-Dist: lightkurve; extra == "docs"
+Requires-Dist: healpy; extra == "docs"
+Requires-Dist: emcee; extra == "docs"
+Requires-Dist: corner; extra == "docs"
+Provides-Extra: jax
+Requires-Dist: jaxoplanet==0.0.4; extra == "jax"
+Requires-Dist: specutils; extra == "jax"
+Dynamic: license-file
+
+*****
+fleck
+*****
+
+.. image:: https://github.com/bmorris3/fleck/blob/main/docs/logo/logo.svg
+    :alt: fleck logo
+    :width: 200
+    :align: right
+
+.. image:: https://readthedocs.org/projects/fleck/badge/?version=latest
+    :target: https://fleck.readthedocs.io/en/latest/?badge=latest
+    :alt: Documentation Status
+
+.. image:: http://img.shields.io/badge/powered%20by-AstroPy-orange.svg?style=flat
+    :target: http://www.astropy.org
+    :alt: Powered by Astropy Badge
+
+.. image:: https://joss.theoj.org/papers/dd737faef3d36ef40b428df69cc237c6/status.svg
+    :target: https://joss.theoj.org/papers/dd737faef3d36ef40b428df69cc237c6
+    :alt: JOSS Status
+
+
+Fast approximate spectrophotometry for active stars in Python. For more information
+`read the docs <https://fleck.readthedocs.io/>`_.
+
+
+License
+-------
+
+This project is Copyright (c) Brett M. Morris and licensed under
+the terms of the MIT license. This package is based upon
+the `Astropy package template <https://github.com/astropy/package-template>`_
+which is licensed under the BSD 3-clause licence. See the licenses folder for
+more information.
