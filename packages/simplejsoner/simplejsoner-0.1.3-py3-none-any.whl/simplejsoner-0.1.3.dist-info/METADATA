@@ -1,0 +1,88 @@
+Metadata-Version: 2.3
+Name: simplejsoner
+Version: 0.1.3
+Summary: 
+Author: qxuwll
+Author-email: ivanskarupo23@gmail.com
+Requires-Python: >=3.9
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Description-Content-Type: text/markdown
+
+# Simple module to make your JSON files management easily
+
+## Installing
+
+```bash
+pip install simplejsoner
+```
+
+## Import
+
+```python
+from simplejsoner import SimpleJsoner
+```
+
+## Usage
+
+**Simple reading:**
+
+```python
+from simplejsoner import SimpleJsoner
+
+data = SimpleJsoner.read("path/to/json/file")  # Returns json data
+
+data = SimpleJsoner.readBytes("path/to/json/file")  # Returns json data in bytes
+```
+
+or:
+
+```python
+import simplejsoner
+
+data = simplejsoner.read("path/to/json/file")
+
+data = simplejsoner.readBytes("path/to/json/file")
+```
+
+**Simple writing:**
+
+```python
+from simplejsoner import SimpleJsoner
+
+data = SimpleJsoner.write("path/to/json/file", data)  # Writes data to json file
+```
+
+or:
+
+```python
+import simplejsoner
+
+data = simplejsoner.write("path/to/json/file", data)  # Writes data to json file
+```
+
+**With:**
+
+```python
+from simplejsoner import SimpleJsoner
+
+# The easiest data updating by with
+with SimpleJsoner("config.json") as cfg:
+    cfg["database"]["host"] = "localhost"
+    cfg["database"]["port"] = 5432
+    cfg["debug"] = False
+
+# Json file is automatically updated by itself
+```
+
+```python
+# Only reading is allowed too
+with SimpleJsoner("config.json") as cfg:
+    host = cfg["database"]["host"]
+    print(host)
+```
+
