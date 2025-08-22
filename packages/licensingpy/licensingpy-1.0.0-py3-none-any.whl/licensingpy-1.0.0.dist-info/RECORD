@@ -1,0 +1,13 @@
+licensing/__init__.py,sha256=eFj2iGmhfIBBljhd9EXpykTaiQ7N5sWo8dz6uiEqTv4,4464
+licensing/cli.py,sha256=e9uurBEeFIyKgDMd_ciKpSc63hvKQtFDTFbfbDxUoYM,38280
+licensing/crypto_utils.py,sha256=WptS5Qdb-M3ejnpwuu-Um35RM5NIz_SJVia24rOL22U,5259
+licensing/exceptions.py,sha256=DprHo7oKddjfe_m9FhF22YrUdcCeKHKLpiRUv16GOpg,460
+licensing/hardware_fingerprint.py,sha256=WeUmiIAi4x-p5k9hfxZ4CdHc1tU8iKPoLmm-6X0VWSM,19286
+licensing/license_generator.py,sha256=Wlw9FdKN9tzHZVB1kasevlXXhNhM7Xgmp-4elo2A2Q8,9181
+licensing/license_manager.py,sha256=QfUYCzkUd1YdLg-xgnt1rvifOT2cPek8eXW9cOFPHl0,20020
+licensing/preseed_generator.py,sha256=0N1rfA_zRnU83lcZrL5m_CNwb9SODcRIMTl5a3T6xmM,6207
+licensingpy-1.0.0.dist-info/LICENSE,sha256=rUzq5MZFp2p4tTF1Y1uu1affPrdEp4Ad-JfEIevNUzM,1073
+licensingpy-1.0.0.dist-info/METADATA,sha256=48rifd_Cn6AZnHU5yCDn4J7dFi4PuJAnhI5KRuMQru8,20918
+licensingpy-1.0.0.dist-info/WHEEL,sha256=b4K_helf-jlQoXBBETfwnf4B04YC67LOev0jo4fX5m8,88
+licensingpy-1.0.0.dist-info/entry_points.txt,sha256=aVYsVmu0c5y_1WvOg95FSD327YEo0brcHCJ9xGFbhRQ,77
+licensingpy-1.0.0.dist-info/RECORD,,
