@@ -1,0 +1,12 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+setup.py
+ntfybro/__init__.py
+ntfybro/notifier.py
+ntfybro.egg-info/PKG-INFO
+ntfybro.egg-info/SOURCES.txt
+ntfybro.egg-info/dependency_links.txt
+ntfybro.egg-info/not-zip-safe
+ntfybro.egg-info/requires.txt
+ntfybro.egg-info/top_level.txt

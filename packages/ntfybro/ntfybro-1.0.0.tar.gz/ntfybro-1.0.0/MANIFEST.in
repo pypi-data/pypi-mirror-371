@@ -1,0 +1,5 @@
+include README.md
+include LICENSE.txt
+recursive-include ntfybro *.py
+global-exclude __pycache__
+global-exclude *.py[co]
