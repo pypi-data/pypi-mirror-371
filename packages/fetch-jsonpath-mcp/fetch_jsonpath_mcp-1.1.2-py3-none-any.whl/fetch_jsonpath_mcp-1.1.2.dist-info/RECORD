@@ -1,0 +1,9 @@
+demo/demo_server.py,sha256=MHqmg3T8u_921jUXZJs_t811GVYB9qs__p8UXUvHTNw,2373
+jsonrpc_mcp/__init__.py,sha256=yAcEeu9ebQ5u-L6jp7ZCIEptTpJ-q8BkHpVjsmSD9j0,111
+jsonrpc_mcp/fastmcp_server.py,sha256=9dogZ7Zc9Be2cILoUEwWgvK5qaht-oiCgBmp7WCCFvE,6300
+jsonrpc_mcp/server.py,sha256=I993RbP-G6ZD6NvdDSGiPRYR_z-ezATYiorQg0ZMKKw,13450
+jsonrpc_mcp/utils.py,sha256=TGvC6BhrqataOPNXY2P7hrlWbuyI_WTF0Voxnb8WmuM,19711
+fetch_jsonpath_mcp-1.1.2.dist-info/METADATA,sha256=tyw0HWXjPni0yGGNY3vGecuhIeB1x3uiwCZbuYrS87E,9004
+fetch_jsonpath_mcp-1.1.2.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+fetch_jsonpath_mcp-1.1.2.dist-info/entry_points.txt,sha256=I2YPpas_aFDrRea4klbLH6HPx3r_16zU2VhryRgG9_Y,106
+fetch_jsonpath_mcp-1.1.2.dist-info/RECORD,,
