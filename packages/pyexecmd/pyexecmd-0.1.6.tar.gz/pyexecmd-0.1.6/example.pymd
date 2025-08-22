@@ -1,0 +1,144 @@
+# # PyMD: Python-Executable Markdown
+#
+# Welcome to PyMD! This document demonstrates the powerful combination of markdown-style syntax with Python code execution.
+#
+# ## Key Features
+#
+# - **Markdown Syntax**: Use familiar markdown prefixed with `#` 
+# - **Python Execution**: Run Python code inside ``` blocks  
+# - **Variable Persistence**: Variables persist across code blocks
+# - **Beautiful Output**: Clean, responsive HTML rendering
+# - **Executable Files**: Run directly as Python with `python filename.pymd`
+#
+# Let's explore these features with live examples!
+#
+# ## Basic Python Execution
+#
+# ```
+# Define some variables
+name = "PyMD"
+version = "0.1.6" 
+year = "2025"
+
+print(f"## Welcome to **{name}** v{version}!")
+print(f"Created in {year}")
+# ```
+#
+# The variables we just defined are available in subsequent code blocks:
+#
+# ```
+print(f"Confirming: We're using **{name}** version **{version}**")
+
+# Let's do some calculations
+numbers = [1, 2, 3, 4, 5]
+total = sum(numbers)
+average = total / len(numbers)
+
+print(f"Numbers: {numbers}")
+print(f"Sum: **{total}**")
+print(f"Average: **{average}**")
+# ```
+#
+# ## Data Analysis with Pandas
+#
+# ```
+import pandas as pd
+import numpy as np
+
+# Create sample sales data
+np.random.seed(42)
+months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']
+products = ['Widget A', 'Widget B', 'Widget C']
+
+data = []
+for product in products:
+    for month in months:
+        sales = np.random.randint(50, 200)
+        data.append({'Product': product, 'Month': month, 'Sales': sales})
+
+df = pd.DataFrame(data)
+print("**Sample Sales Data:**")
+print(df.head(10).to_string())
+# ```
+#
+# Let's analyze this data:
+#
+# ```
+# Calculate total sales by product
+product_totals = df.groupby('Product')['Sales'].sum().sort_values(ascending=False)
+print("**Total Sales by Product:**")
+for product, sales in product_totals.items():
+    print(f"  {product}: **${sales:,}**")
+
+print(f"**Best performing product:** {product_totals.index[0]}")
+print(f"**Total sales across all products:** ${product_totals.sum():,}")
+# ```
+#
+# ## Interactive Input with Mock Values
+#
+# PyMD supports interactive input through a mock system for non-interactive document execution:
+#
+# ```
+# Interactive input with mock values
+user_name = input("What's your name? ") # input: Alice
+user_age = input("How old are you? ") # input: 28
+
+print(f"### User Profile: {user_name}")
+print(f"**Name:** {user_name}")
+print(f"**Age:** {user_age}")
+
+# Calculate birth year
+birth_year = 2025 - int(user_age)
+print(f"**Estimated birth year:** {birth_year}")
+# ```
+#
+# Input without mock values defaults to empty string:
+#
+# ```
+# Input without mock value (defaults to empty)
+optional_comment = input("Any comments? ")
+
+if optional_comment:
+    print(f"**Comment:** {optional_comment}")
+else:
+    print("**No comment provided** (empty mock value)")
+# ```
+#
+# ## Interactive Development
+#
+# ```
+# Real-time updates
+import datetime
+current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+print(f"Document last executed: **{current_time}**")
+
+# You can modify this code and see results update immediately
+message = "Try changing this message and saving the file!"
+print(f"**Message:** {message}")
+# ```
+#
+# ## Conclusion
+#
+# This example demonstrates PyMD's powerful features:
+#
+# 1. **Executable Files**: Can be run directly with `python example.pymd`
+# 2. **Clean Syntax**: Markdown-style headers, lists, and text prefixed with `#`
+# 3. **Code Execution**: Python code runs and print output becomes markdown
+# 4. **Variable Persistence**: Data flows between code blocks
+# 5. **Mixed Content**: Seamless blend of documentation and executable code
+#
+# ```
+# Final message
+success_message = "🎉 PyMD makes technical documentation beautiful and executable!"
+print(f"**Success Message:** {success_message}")
+
+# Show some final stats
+print("### Document Stats")
+print(f"- Data points analyzed: **{len(df)}**")
+print(f"- Variables available: **{len([var for var in globals() if not var.startswith('_')])}**")
+# ```
+#
+# That's PyMD in action! Try modifying the code blocks above and watch the results update in real-time with the live preview server.
+#
+# // This is a comment - it won't appear in the rendered output
+# // Perfect for leaving notes during development!
