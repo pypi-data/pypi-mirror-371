@@ -1,0 +1,11 @@
+scireadability/__init__.py,sha256=K_wy-LF1HzKqBuzdD9czJcWf4T9Df-YAm8EPKeYx6-Y,2354
+scireadability/dictionary_utils.py,sha256=j8MWPH3PloCiN5jFR1FCV-4sMkqF0nYiebDyzjibhJw,7823
+scireadability/scireadability.py,sha256=Eutt24A2sX4MTLznJqv-FT_XM2cvhAZtc3onwBlzB1w,21374
+scireadability/resources/en/cmudict.dict,sha256=gZF4Q8f0TOKwlKxjhzwsekz4AgQHksRVujykBokcPSI,3618488
+scireadability/resources/en/custom_dict.json,sha256=N_EyEj2B0mV-wUFWyh_FgN5TIf2pTq7w-4M87M22-uQ,488
+scireadability/resources/en/easy_words.txt,sha256=t_ndD64bJRfwafmugDKoMIyjhQdSs88tuw3arFfkPwA,18678
+scireadability-2.0.1.dist-info/licenses/LICENSE,sha256=eBMN6Gb1LsdLZBFDjT2gWll5-xAOWF7ZA4Y0zU_zFDs,2856
+scireadability-2.0.1.dist-info/METADATA,sha256=9SiMeTIdNfE-8ZOZWFZ6rc-nuOF48JfQTqnID3UsLY0,12568
+scireadability-2.0.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+scireadability-2.0.1.dist-info/top_level.txt,sha256=1jkzH4UEcXAW0dFeBg3yvoxqJmP8AEfe5x1YEW6neDE,15
+scireadability-2.0.1.dist-info/RECORD,,
