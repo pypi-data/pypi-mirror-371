@@ -1,0 +1,15 @@
+befordata/__init__.py,sha256=2bh0Qf4NVdyWLE3p8LNt3EJJpwDMy750_lcfDIhCas8,911
+befordata/_epochs.py,sha256=omDSeCC1ytZ4RY0fiO9jqh8ObUwNqr6w5dOQkbnYwTc,3580
+befordata/_misc.py,sha256=jMfJ5rVk_cPRp9dtT5u2HccjwtRTr8VbB2r_HlBEaPU,817
+befordata/_record.py,sha256=AFor_2XJ2Le6mN9zLImSlBtqXOK9euZr1_nNci70r_Q,6465
+befordata/_tools.py,sha256=lITWNDLvOXyBLYTlj5dMf1AWfv2Ig6nn36DFnmnjj1o,13638
+befordata/arrow.py,sha256=3-sv8Ih17rRD7D46IYLVdBCiD2b6xLbXroGuAkVk6e8,6999
+befordata/csv.py,sha256=8vAfwoDwLk9FsOIn7HG2hbsQ6gK4r4f4YuzCHXysNxk,2070
+befordata/filtering.py,sha256=aAgV77qcl3qWyLsVdBaG8gZNkZa8BZaoBKDNMmgGJCc,3676
+befordata/xdf.py,sha256=-_tSCoSlKQptWIrUpY93EItIC5TNpn26N4hSIE-voik,5151
+befordata/plot/__init__.py,sha256=APNboSECeWK5asA4_h9l3YiaXbiDUQJlivnajMx8FBs,2062
+befordata/plot/interactive_plot.py,sha256=Yj6ViktPKy1cYfy-8tYQy8RZ6bJzwldLKFUvGCNOrgI,4832
+befordata-0.4.3.dist-info/licenses/LICENSE,sha256=IcRhOMsHnf_lGtQLEsTal1gKNmmBTOU8lqlXWcSC1b8,1073
+befordata-0.4.3.dist-info/WHEEL,sha256=G2gURzTEtmeR8nrdXUJfNiB3VYVxigPQ-bEQujpNiNs,82
+befordata-0.4.3.dist-info/METADATA,sha256=gxjzv1JNyMuWoHNNmg1FGLjU0xRQ40krOj2x1xngV08,4413
+befordata-0.4.3.dist-info/RECORD,,
