@@ -1,0 +1,13 @@
+prefix=/tmp/build_cp38-cp38/pmma/extern
+exec_prefix=${prefix}
+libdir=${prefix}/lib64
+includedir=${prefix}/include
+
+Name: harfbuzz
+Description: HarfBuzz text shaping library
+Version: 11.2.1
+
+Libs: -L${libdir} -lharfbuzz
+Libs.private: -lm -pthread
+Requires.private: 
+Cflags: -I${includedir}/harfbuzz
