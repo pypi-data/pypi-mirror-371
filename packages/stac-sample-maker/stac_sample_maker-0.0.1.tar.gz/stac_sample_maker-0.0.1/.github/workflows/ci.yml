@@ -1,0 +1,83 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install uv
+      uses: astral-sh/setup-uv@v4
+      with:
+        version: "latest"
+
+    - name: Set up Python ${{ matrix.python-version }}
+      run: uv python install ${{ matrix.python-version }}
+
+    - name: Install dependencies
+      run: uv sync --all-extras --dev
+
+    - name: Run ruff linting
+      run: uv run ruff check .
+
+    - name: Run ruff formatting check
+      run: uv run ruff format --check .
+
+    - name: Run mypy type checking
+      run: uv run mypy stac_sample_maker --ignore-missing-imports
+      continue-on-error: true  # Don't fail CI on type errors for now
+
+    - name: Run tests with coverage
+      run: uv run pytest --cov=stac_sample_maker --cov-report=xml --cov-report=term-missing
+
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v4
+      with:
+        file: ./coverage.xml
+        flags: unittests
+        name: codecov-umbrella
+        fail_ci_if_error: false
+
+  integration-test:
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install uv
+      uses: astral-sh/setup-uv@v4
+      with:
+        version: "latest"
+
+    - name: Set up Python
+      run: uv python install 3.11
+
+    - name: Install package
+      run: uv pip install -e .
+
+    - name: Test CLI commands
+      run: |
+        uv run stac-sample-maker --help
+        uv run stac-sample-maker --num-items 5 --seed 42 > test_output.ndjson
+        wc -l test_output.ndjson
+        [ $(wc -l < test_output.ndjson) -eq 5 ]
+
+    - name: Test library import
+      run: |
+        uv run python -c "
+        from stac_sample_maker import generate_stac_items
+        items = generate_stac_items(num_items=3, seed=42)
+        assert len(items) == 3
+        print('Library import test passed!')
+        "
