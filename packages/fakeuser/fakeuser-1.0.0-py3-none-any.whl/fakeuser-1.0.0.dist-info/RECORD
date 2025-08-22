@@ -1,0 +1,12 @@
+fakeuser/__init__.py,sha256=vh2ykywLOZ-VwYKwokFV1C8YsW0oNWeqvDUc9YkF9eA,458
+fakeuser/cache.py,sha256=jr3q35yT3y64fXFKJ64CklJSoFXaWYsQDrsX77EHHwo,4032
+fakeuser/cli.py,sha256=MsYiNV4NfYhu3gGMM5yea0AfGRGi2avDWubOGq4e75Y,5474
+fakeuser/core.py,sha256=tB7MbO0ykpVUAVdIjOGVDgaiX6dvNNvUditNhdmLo2I,12174
+fakeuser/downloader.py,sha256=biSwACnqmrxLaHKpAOipEWGR8UYwWB0TIC8c4sWzsDA,5277
+fakeuser/timezone_mappings.py,sha256=FXMADiXpE62ZJOkJlfdsu45hS5PwPxzlYXbtys6JYII,17730
+fakeuser-1.0.0.dist-info/licenses/LICENSE,sha256=hdnIwpPUBUhtTtOYopAngJRF0ocadxed4GERRs3oa6A,1211
+fakeuser-1.0.0.dist-info/METADATA,sha256=hatnd6imVmGWXVR2T3an5O4dnemuA416XSX81JWHV5U,6072
+fakeuser-1.0.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+fakeuser-1.0.0.dist-info/entry_points.txt,sha256=AYQ148yEJ3fDidjf1XQlVEcP9TigDRfRCqUwvLYr1AU,47
+fakeuser-1.0.0.dist-info/top_level.txt,sha256=2aL9NSm9r5ZblsLYhToX853-ARYAIUmETvXkhyzpkYo,9
+fakeuser-1.0.0.dist-info/RECORD,,
