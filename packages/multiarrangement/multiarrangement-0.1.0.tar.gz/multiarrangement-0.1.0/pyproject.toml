@@ -1,0 +1,101 @@
+[build-system]
+requires = ["setuptools>=64", "wheel", "numpy"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "multiarrangement"
+version = "0.1.0"
+description = "A psychological experiment tool for video similarity arrangement tasks"
+authors = [{ name = "Umur Yıldız" }]
+requires-python = ">=3.8"
+readme = "README.md"
+license = "MIT"
+keywords = ["psychology", "experiment", "video", "similarity", "multiarrangement", "rdm"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Science/Research",
+  "Topic :: Scientific/Engineering",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+
+  "Operating System :: OS Independent",
+]
+dependencies = [
+  "numpy>=1.20.0",
+  "pandas>=1.3.0",
+  "pygame>=2.0.0",
+  "opencv-python>=4.5.0",
+  "openpyxl>=3.0.0",
+  "matplotlib>=3.4.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=6.0",
+  "pytest-cov",
+  "black",
+  "flake8",
+  "mypy",
+]
+coverlib = [
+  "urllib3",
+  "requests",
+]
+
+[project.scripts]
+multiarrangement = "multiarrangement.cli:main"
+multiarrangement-fullscreen = "multiarrangement.cli:main_fullscreen"
+multiarrangement-batch-generator = "multiarrangement.cli:batch_generator_cli"
+multiarrangement-adaptive = "multiarrangement.cli:main_adaptive"
+multiarrangement-demo = "multiarrangement:demo"
+multiarrangement-demo-adaptive = "multiarrangement:demo_adaptive"
+covergen = "coverlib.cli:main"
+optimize-cover = "multiarrangement.optimize_cover_pure:main"
+optimize-cover-flex = "multiarrangement.optimize_cover_flex:main"
+
+[project.urls]
+Homepage = "https://github.com/UYildiz12/Multiarrangement-for-videos"
+Repository = "https://github.com/UYildiz12/Multiarrangement-for-videos"
+Documentation = "https://github.com/UYildiz12/Multiarrangement-for-videos#readme"
+"Bug Tracker" = "https://github.com/UYildiz12/Multiarrangement-for-videos/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["multiarrangement*", "coverlib*"]
+
+[tool.setuptools.package-data]
+"multiarrangement.data" = ["*.txt", "*.xlsx", "*.png", "*.mp4", "*.avi", "*.mkv"]
+"multiarrangement" = [
+  "*.py",
+  "15videos/*",
+  "demovids/*",
+  "15audios/*",
+  "sample_audio/*",
+  "Audio.png",
+  "test_audio_icon_new.png",
+  "examples/*"
+]
+"*" = ["*.txt", "*.md"]
+
+[tool.setuptools.data-files]
+"multiarrangement/ljcr_cache" = [
+  "ljcr_cache/*.txt"
+]
+# Install demo assets from top-level into the package tree
+"multiarrangement/15videos" = [
+  "15videos/*.avi", "15videos/*.mp4", "15videos/*.mov", "15videos/*.mkv", "15videos/*.wmv"
+]
+"multiarrangement/demovids" = [
+  "demovids/*.avi", "demovids/*.mp4", "demovids/*.mov", "demovids/*.mkv", "demovids/*.wmv"
+]
+"multiarrangement/15audios" = [
+  "15audios/*.mp3", "15audios/*.wav", "15audios/*.ogg", "15audios/*.flac", "15audios/*.aac", "15audios/*.m4a"
+]
+"multiarrangement/sample_audio" = [
+  "sample_audio/*.mp3", "sample_audio/*.wav", "sample_audio/*.ogg", "sample_audio/*.flac", "sample_audio/*.aac", "sample_audio/*.m4a"
+]
+# No global data-files mapping; demos are bundled as package data under multiarrangement/
