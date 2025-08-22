@@ -1,0 +1,6 @@
+[console_scripts]
+pure-validator = pure_validator.__main__:main
+
+[flake8.extension]
+PUR = pure_validator.flake8_plugin:PureFlake8Plugin
+
