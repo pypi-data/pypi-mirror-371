@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "glimpse-py"
+version = "0.1.0"
+description = "Trace, analyze, and monitor Python application execution with configurable policies and multiple output formats."
+authors = [{name = "pxpatel", email = "pxpatel04@gmail.com"}]
+readme = "README.md"
+license = {text = "MIT"}
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Debuggers",
+    "Topic :: System :: Monitoring",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+requires-python = ">=3.7"
+dependencies = [
+    "colorama>=0.4.6",
+    "python-dotenv>=1.1.1",
+    "Pygments>=2.19.2",
+]
+keywords = ["tracing", "debugging", "monitoring", "profiling", "python"]
+
+[project.urls]
+Homepage = "https://github.com/PxPatel/glimpse"
+Repository = "https://github.com/PxPatel/glimpse"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.4.1",
+]
