@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+netx_vis/__init__.py
+netx_vis/converter.py
+netx_vis.egg-info/PKG-INFO
+netx_vis.egg-info/SOURCES.txt
+netx_vis.egg-info/dependency_links.txt
+netx_vis.egg-info/entry_points.txt
+netx_vis.egg-info/not-zip-safe
+netx_vis.egg-info/requires.txt
+netx_vis.egg-info/top_level.txt
+tests/__init__.py
+tests/test_converter.py

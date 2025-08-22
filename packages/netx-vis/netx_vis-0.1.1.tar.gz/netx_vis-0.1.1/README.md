@@ -1,0 +1,237 @@
+# NetworkX HTML Viewer 🎯
+
+[![PyPI version](https://badge.fury.io/py/netx-vis.svg)](https://badge.fury.io/py/netx-vis)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+Convert your NetworkX graphs into beautiful, interactive HTML visualizations with just one line of code! 
+
+✨ **Click any node or edge to see all its properties in a sidebar** - perfect for exploring complex networks with rich metadata.
+
+## 🚀 Features
+
+- 🎯 **Interactive Property Viewing**: Click nodes/edges to see all their attributes
+- 🎨 **Beautiful UI**: Modern, professional interface with sidebar property panel
+- 🔍 **Zoom & Pan**: Explore large graphs with smooth zoom and pan controls
+- 🎮 **Drag Nodes**: Rearrange graph layout by dragging nodes
+- 🏷️ **Toggle Labels**: Show/hide node labels as needed
+- 📊 **Graph Statistics**: Display node count, edge count, and graph type
+- 🎨 **Force-Directed Layout**: Automatic layout using D3.js physics simulation
+- 💾 **Export Ready**: Generates standalone HTML files
+- 🔧 **Highly Customizable**: Adjust dimensions, styling, and behavior
+
+## 📦 Installation
+
+```bash
+pip install netx-vis
+```
+
+## 🎮 Quick Start
+
+```python
+import networkx as nx
+from networkx_html_viewer import convert_networkx_to_html
+
+# Create a sample graph with properties
+G = nx.Graph()
+G.add_node("A", label="Node A", type="central", value=100, category="important")
+G.add_node("B", label="Node B", type="peripheral", value=50, category="normal") 
+G.add_edge("A", "B", weight=0.8, relation="strong", type="primary")
+
+# Convert to interactive HTML - that's it! 🎉
+html_file = convert_networkx_to_html(
+    graph=G,
+    output_file="my_network.html", 
+    title="My Amazing Network",
+    width=1200,
+    height=800
+)
+
+print(f"Interactive graph saved to: {html_file}")
+# Open the HTML file in your browser and start exploring!
+```
+
+## 🎯 Interactive Features
+
+Once you open the HTML file in your browser:
+
+1. **🔵 Click any node** (colored circles) to see all its properties
+2. **🔗 Click any edge** (lines) to see connection details  
+3. **🖱️ Drag nodes** to rearrange the layout
+4. **🔍 Zoom** with mouse wheel or trackpad
+5. **🤏 Pan** by dragging empty space
+6. **🏷️ Toggle labels** with the button
+7. **🔄 Reset view** to recenter the graph
+8. **🔥 Reheat simulation** to restart the physics
+
+## 🔧 Advanced Usage
+
+### Using the Class Interface
+
+```python
+from networkx_html_viewer import NetworkXHTMLConverter
+
+# Create converter with custom dimensions
+converter = NetworkXHTMLConverter(width=1600, height=1000)
+
+# Convert graph
+html_file = converter.convert(
+    G, 
+    output_file="advanced_graph.html",
+    title="Advanced Network Analysis"
+)
+
+# Or get HTML content as string (for embedding in web apps)
+html_content = converter.preview(G, title="Preview Graph")
+```
+
+### Working with Complex Graphs
+
+```python
+import networkx as nx
+
+# Create a more complex graph
+G = nx.karate_club_graph()
+
+# Add custom properties to nodes
+for node in G.nodes():
+    G.nodes[node]['club'] = G.nodes[node].get('club', 'unknown')
+    G.nodes[node]['degree'] = G.degree(node)
+    G.nodes[node]['betweenness'] = nx.betweenness_centrality(G)[node]
+
+# Add properties to edges
+for edge in G.edges():
+    G.edges[edge]['weight'] = G.edges[edge].get('weight', 1.0)
+    G.edges[edge]['edge_betweenness'] = nx.edge_betweenness_centrality(G)[edge]
+
+# Add graph-level properties
+G.graph['name'] = 'Karate Club Network'
+G.graph['description'] = 'Social network of a university karate club'
+G.graph['nodes'] = G.number_of_nodes()
+G.graph['edges'] = G.number_of_edges()
+
+# Convert to HTML
+convert_networkx_to_html(G, "karate_club.html", "Karate Club Social Network")
+```
+
+### Supported Graph Types
+
+All NetworkX graph types are supported:
+- `nx.Graph()` - Undirected graphs
+- `nx.DiGraph()` - Directed graphs  
+- `nx.MultiGraph()` - Undirected multigraphs
+- `nx.MultiDiGraph()` - Directed multigraphs
+
+## 🎨 Customization Options
+
+```python
+# Customize dimensions and output
+converter = NetworkXHTMLConverter(
+    width=1920,    # Canvas width in pixels
+    height=1080    # Canvas height in pixels
+)
+
+# The HTML template automatically adapts to your graph:
+# - Node sizes scale with number of properties
+# - Edge thickness reflects property count
+# - Colors are automatically assigned
+# - Layout adjusts to graph structure
+```
+
+## 📊 What Properties Are Displayed?
+
+The viewer shows **ALL** properties from your NetworkX graph:
+
+- **Node Properties**: Any attributes you add to nodes
+- **Edge Properties**: Any attributes you add to edges  
+- **Graph Properties**: Graph-level metadata
+- **Computed Properties**: Centrality measures, clustering coefficients, etc.
+
+Example of rich property data:
+```python
+# Nodes can have any properties
+G.add_node("user123", 
+    name="Alice Johnson",
+    age=29,
+    location="San Francisco", 
+    followers=1250,
+    verified=True,
+    interests=["AI", "Python", "Networks"]
+)
+
+# Edges can have any properties  
+G.add_edge("user123", "user456",
+    relationship="friend",
+    strength=0.8,
+    since="2019-03-15",
+    interactions=247,
+    platforms=["twitter", "linkedin"]
+)
+
+# All of this will be displayed when you click!
+```
+
+## 🛠️ Development Setup
+
+```bash
+# Clone repository
+git clone https://github.com/olsihoxha/netx-vis.git
+cd netx-vis
+
+# Install in development mode
+pip install -e .
+
+# Install development dependencies
+pip install pytest black flake8 mypy
+
+# Run tests
+pytest tests/
+
+# Format code
+black networkx_html_viewer/
+```
+
+## 📁 Package Structure
+
+```
+netx-vis/
+├── networkx_html_viewer/
+│   ├── __init__.py              # Package initialization
+│   ├── converter.py             # Main converter class
+│   ├── templates/
+│   │   └── graph_template.html  # HTML template with D3.js
+│   └── examples/
+│       └── demo.py              # Example usage
+├── tests/
+│   └── test_converter.py        # Unit tests
+├── setup.py                     # Package configuration
+├── requirements.txt             # Dependencies
+├── README.md                    # This file
+├── LICENSE                      # MIT License
+└── MANIFEST.in                  # Package data files
+```
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- Built with [D3.js](https://d3js.org/) for interactive visualizations
+- Inspired by the NetworkX community
+- Thanks to all contributors and users!
+
+---
+
+**Made with ❤️ for the NetworkX community**
+
+Convert your graphs. Explore your data. Share your insights. 🎯
