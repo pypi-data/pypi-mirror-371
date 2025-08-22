@@ -1,0 +1,106 @@
+Metadata-Version: 2.4
+Name: openrouterapi
+Version: 0.1.0
+Summary: Работа с OpenRouter API
+Author-email: Kirill <kirisa49@gmail.com>
+Project-URL: HomePage, https://github.com/kirillysz/openrouterapi
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: aiohttp>=3.12.15
+Dynamic: license-file
+
+# OpenRouterAPI Python Клиент (обновлённая структура)
+
+Это обновлённая версия библиотеки `OpenRouterAPI` с улучшенной архитектурой:
+- Единая база для работы с `aiohttp.ClientSession`
+- Асинхронные методы для всех основных эндпоинтов OpenRouter API
+- Упрощённый и более структурированный код
+
+## Установка
+
+```bash
+pip install openrouterapi
+```
+
+## Использование
+
+### Инициализация
+
+```python
+import asyncio
+from openrouterapi import OpenRouterAPI
+
+async def main():
+    api_key = "ВАШ_API_KEY"
+    model = "openai/gpt-oss-20b:free"
+    base_url = "https://openrouter.ai/api/v1"
+
+    api = OpenRouterAPI(api_key=api_key, model=model, base_url=base_url) :
+
+    # Отправка запроса на текстовое завершение
+    completion = await api.send_completion("Привет, мир!")
+    print(completion)
+
+    # Отправка запроса на чат-завершение
+    chat = await api.chat_completion("Привет, как дела?")
+    print(chat)
+
+    # Получение метаданных генерации
+    generation_id = "123456789"
+    generation = await api.get_generation(generation_id)
+    print(generation)
+
+    # Получение списка доступных моделей
+    models = await api.get_list_of_models()
+    print(models)
+
+    # Получение информации о кредитах
+    credits = await api.get_credits()
+    print(credits)
+
+    await api.stop()
+
+asyncio.run(main())
+```
+
+## Методы
+
+### `send_completion(prompt: str) -> Dict[str, Any]`
+
+Отправляет запрос на текстовое завершение для указанной модели.
+
+* `prompt`: Текстовый запрос для завершения.
+* Возвращает: Словарь с ответом от API.
+
+### `chat_completion(prompt: str, messages: list = None) -> Dict[str, Any]`
+
+Отправляет запрос на чат-завершение для указанной модели.
+
+* `prompt`: Сообщение пользователя.
+* `messages`: Необязательный список предыдущих сообщений в чате.
+* Возвращает: Словарь с ответом от API.
+
+### `get_generation(generation_id: str) -> Dict[str, Any]`
+
+Получает метаданные для конкретной генерации.
+
+* `generation_id`: ID запроса генерации.
+* Возвращает: Словарь с метаданными.
+
+### `get_list_of_models() -> Dict[str, Any]`
+
+Получает список доступных моделей.
+
+* Возвращает: Словарь с моделями.
+
+### `get_credits() -> Dict[str, Any]`
+
+Получает информацию о приобретенных и использованных кредитах.
+
+* Возвращает: Словарь с информацией о кредитах.
+
+## Примечания
+
+* Клиент использует постоянную `aiohttp.ClientSession`, чтобы не создавать новую сессию для каждого запроса.
+* Используйте `async with` для правильного управления сессией.
