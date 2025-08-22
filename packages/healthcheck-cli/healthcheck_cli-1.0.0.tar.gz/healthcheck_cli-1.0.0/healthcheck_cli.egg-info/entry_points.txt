@@ -1,0 +1,2 @@
+[console_scripts]
+healthcheck = healthcheck_cli.main:app
