@@ -1,0 +1,9 @@
+include README.md
+include LICENSE
+include requirements.txt
+recursive-include gimi9_geocoder *.py
+recursive-include examples *.py
+recursive-include sample *.py *.ipynb
+recursive-include docs *.md
+global-exclude __pycache__
+global-exclude *.py[co]
