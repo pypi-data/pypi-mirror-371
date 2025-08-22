@@ -1,0 +1,14 @@
+pyampact/__init__.py,sha256=Cww0q0NwCwa-bITswTGogbxiPmuiIhEytUHu48Dfoe4,413
+pyampact/__init__.pyi,sha256=xit_ajTGdJiBLl5zdVsgwtXON5JYDN1NW-NmOuRpxTY,1923
+pyampact/alignment.py,sha256=m07M41ceXmV_9UPMONgYsqVHcv9huSX0AIscdR2zW1Y,15009
+pyampact/alignmentUtils.py,sha256=o0Rvg4S2IekEQMU7ifxhVnWde7jKj7vXVjnGUw5nUQI,19524
+pyampact/dataCompilation.py,sha256=z3HzLWt6GSUIpTqnKy9Q9YbxExMsNqCIWjskMJ8-uvM,12668
+pyampact/performance.py,sha256=zAnpCJTaYcDtBy7HHxSO6DRe6FUZDDP-4hZ53nMkPdw,7037
+pyampact/speechDescriptors.py,sha256=h9LkLGY17DB4_kez1phV9LLXWtyq_LdCAB06uNFfXDo,8674
+pyampact/symbolic.py,sha256=xzavABXwGkbRv6wmSOXT4iYrxhVSQgnRZnwgei3Eu_w,130902
+pyampact/symbolicUtils.py,sha256=hAIt3bQJS4OVm-5gWmQikKFWguLf0xvI2NG3vIpwITU,23460
+pyampact/version.py,sha256=HlP6JkkA6nHrvoxWQThiCG40plVIEOTTgFuw6yB_zlQ,1259
+pyampact-0.0.5.dist-info/METADATA,sha256=unG78JoChPaYuV3UvGWegn36UKYkbc0U2mNhG2UyxOk,1090
+pyampact-0.0.5.dist-info/WHEEL,sha256=JNWh1Fm1UdwIQV075glCn4MVuCRs0sotJIq-J6rbxCU,109
+pyampact-0.0.5.dist-info/top_level.txt,sha256=GPeQHf3yxvayJkh2Z5UlcMxu7Upe_I7zj4T7S-Nc9f8,9
+pyampact-0.0.5.dist-info/RECORD,,
