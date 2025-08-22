@@ -1,0 +1,11 @@
+timepix_geometry_correction/__init__.py,sha256=p0AOO02s8OT131PaFAngw4sCJSAGtggf_d7U90fhCn0,23
+timepix_geometry_correction/__main__.py,sha256=zokcIzUWDRJPvHkcW8jJA2ZUBjQXQPBTOFpmOTr2EwA,534
+timepix_geometry_correction/config.py,sha256=N7dwIGx92imiSbfOkFkucspOnRI6vpdG_HyxpChV4hY,352
+timepix_geometry_correction/correct.py,sha256=USJEB4OiZ8XiLRqrtD8xvt_cD6qOGpGMxwexDwGRMdw,8304
+timepix_geometry_correction/loading.py,sha256=DfTkwgsTRr21A0UR4S5-POE1udQxpXYMLEEfUa3g5vY,300
+timepix_geometry_correction/_version.py,sha256=zEtDfV4XT1jMXfEwIQhgFFIDx3E_t8rlHTZz5nyk07U,27
+timepix_geometry_correction-0.2.0.dev7.dist-info/METADATA,sha256=uCa2zo2KLqRkYGYIwJ6aWMYSQub0VDYHgnN-GfL8NnI,1173
+timepix_geometry_correction-0.2.0.dev7.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+timepix_geometry_correction-0.2.0.dev7.dist-info/entry_points.txt,sha256=wqi4VJDFj3iHJumeK3RkRFl3V1y8mjysBlKNzUKIXEM,97
+timepix_geometry_correction-0.2.0.dev7.dist-info/licenses/LICENSE,sha256=xeCnD-L_uYFIWzd-UzBbAm06Nd20-dgJIzjwzlkjr-Y,1084
+timepix_geometry_correction-0.2.0.dev7.dist-info/RECORD,,
