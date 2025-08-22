@@ -1,0 +1,11 @@
+# PyScheduler - Optional Dependencies
+# Install with: pip install pyscheduler[full]
+
+# YAML configuration support
+pyyaml>=5.1.0
+
+# Timezone support  
+pytz>=2021.1
+
+# CRON expressions support
+croniter>=1.0.0
