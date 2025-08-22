@@ -1,0 +1,66 @@
+import json
+
+import pandas as pd
+from apify import Actor
+from apify_client import ApifyClientAsync
+from pandas import DataFrame
+
+from ..tools.flex.base import FlexTool
+from ..utils import LOG
+
+ActorClass = type(Actor)
+FlexToolClass = type(FlexTool)
+
+
+async def fetch_apify_dataset(
+    source: ActorClass | ApifyClientAsync,
+    id: str,
+    force_cloud: bool = True,
+) -> DataFrame:
+    """Fetch a dataset from Apify and return it as a DataFrame."""
+    if isinstance(source, ApifyClientAsync):
+        dataset = source.dataset(dataset_id=id)
+    else:
+        dataset = await source.open_dataset(id=id, force_cloud=force_cloud)
+
+    records = [record async for record in dataset.iterate_items()]
+    return DataFrame(records)
+
+
+def fetch_parquet_dataset(url: str, columns: list[str] | None = None) -> DataFrame:
+    """Fetch a Parquet dataset from a URL and return it as a DataFrame.
+
+    Since we can't validate column names before fetching, we try to read the dataset
+    with and without specifying them.
+    """
+    try:
+        return pd.read_parquet(url, columns=columns)
+    except Exception:
+        if columns:
+            # May have failed because columns are not present in the dataset
+            LOG.warning(
+                f"Failed to read specified columns {columns} from {url}."
+                " Reading the full dataset instead."
+            )
+            return pd.read_parquet(url)
+
+        raise
+
+
+async def run_flex_tool(Actor: ActorClass, Tool: FlexToolClass, **kwargs):
+    """Run a flex tool with the given arguments."""
+    config = await Actor.get_input()
+
+    dataset_ref = config.pop("dataset")
+    if dataset_ref.startswith("http"):
+        columns = config.pop("attrs", None)
+        df = fetch_parquet_dataset(dataset_ref, columns=columns)
+    else:
+        df = await fetch_apify_dataset(source=Actor, id=dataset_ref)
+
+    tool = Tool(records=df, **config)
+    result = await tool(**kwargs)
+    LOG.info(f"Result:\n{result}")
+
+    records = json.loads(result.to_json(orient="records", date_format="iso", index=False))
+    await Actor.push_data(records)
