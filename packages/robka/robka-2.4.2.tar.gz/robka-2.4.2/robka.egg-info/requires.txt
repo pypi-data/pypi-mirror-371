@@ -1,0 +1,9 @@
+Pillow
+aiofiles
+aiohttp
+filetype
+mutagen
+pycryptodome
+requests
+tqdm
+websocket-client
