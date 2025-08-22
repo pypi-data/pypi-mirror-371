@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pysarflow"
+version = "0.1.0"
+description = "An open-source python library for SAR data processing"
+authors = [
+  { name = "Rabina Twayana", email = "rabinatwayana123@gmail.com"}
+]
+license = { text = "MIT" }
+readme = "README.md"
+requires-python = "==3.9.23"
+keywords = ["sar", "sarpy"]
+classifiers = [
+  "Natural Language :: English",
+  "Programming Language :: Python :: 3.10",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent"
+]
+dependencies = [
+    "rasterio>=1.4.3",
+    "ipykernel>=6.29.5",
+    "pre-commit>=4.2.0",
+    "mkdocs-material>=9.6.14",
+    "mkdocs>=1.6.1",
+    "mdx-truly-sane-lists>=1.3",
+    "mkdocs-jupyter>=0.25.1",
+    "mkdocs-git-revision-date-localized-plugin>=1.4.5",
+    "mkdocstrings>=0.29.1",
+    "mkdocs-exclude>=1.0.2",
+    "mkdocstrings-python>=1.16.10",
+    "esa-snappy==1.0.9",
+    "matplotlib==3.9.4",
+    "pyshp==2.3.1",
+    "pygeoif==1.5.1",
+    "shapely==2.0.7",
+]
+
+[project.urls]
+Documentation = "https://rabinatwayana.github.io/pysarflow"
+Repository = "https://github.com/rabinatwayana/pysarflow/"
+
+[tool.setuptools.packages.find]
+include = ["pysarflow*"]
+exclude = ["site"]
