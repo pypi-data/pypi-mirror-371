@@ -1,0 +1,2 @@
+[console_scripts]
+stac-sample-maker = stac_sample_maker.cli:main
