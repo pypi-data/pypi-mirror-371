@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: keyboardstream2py
+Version: 0.1.2
+Summary: stream2py interface for keyboard inputs
+Home-page: https://github.com/i2mint/keyboardstream2py
+License: apache-2.0
+Description: 
+        # keyboardstream2py
+        stream2py interface for keyboard inputs
+        
+        
+        To install:	```pip install keyboardstream2py```
+        
+Platform: any
+Description-Content-Type: text/markdown
