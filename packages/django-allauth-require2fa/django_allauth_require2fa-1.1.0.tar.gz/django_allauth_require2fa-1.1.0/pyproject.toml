@@ -1,0 +1,167 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "django-allauth-require2fa"
+version = "1.1.0"
+description = "Site-wide Two-Factor Authentication enforcement middleware for Django applications using django-allauth"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.12"
+authors = [
+    { name = "Django Require2FA Contributors" }
+]
+keywords = [
+    "django",
+    "2fa",
+    "two-factor",
+    "authentication",
+    "security",
+    "middleware",
+    "allauth"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Web Environment",
+    "Framework :: Django",
+    "Framework :: Django :: 4.2",
+    "Framework :: Django :: 5.0",
+    "Framework :: Django :: 5.1",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: Security",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    "Django>=4.2",
+    "django-allauth>=0.57.0",
+    "django-solo>=2.0.0",
+    "fido2>=2.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "ruff>=0.4.0",
+    "bandit>=1.7.0",
+    "pre-commit>=3.0.0",
+    "mypy>=1.5.0",
+    "django-stubs>=4.2.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/heysamtexas/django-allauth-require2fa"
+Documentation = "https://github.com/heysamtexas/django-allauth-require2fa#readme"
+Repository = "https://github.com/heysamtexas/django-allauth-require2fa.git"
+Issues = "https://github.com/heysamtexas/django-allauth-require2fa/issues"
+Changelog = "https://github.com/heysamtexas/django-allauth-require2fa/blob/main/CHANGELOG.md"
+
+[tool.hatch.build.targets.wheel]
+packages = ["require2fa"]
+
+[tool.semantic_release]
+version_toml = ["pyproject.toml:project.version"]
+build_command = "uv build"
+commit_parser = "conventional"
+upload_to_pypi = false  # Use GitHub Actions for OIDC publishing
+push = true
+vcs_release = true
+
+[tool.semantic_release.publish]
+dist_glob_patterns = ["dist/*"]
+upload_to_vcs_release = true
+
+[tool.semantic_release.commit_parser_options]
+minor_tags = ["feat"]
+patch_tags = ["fix", "perf", "refactor"]
+
+[tool.semantic_release.changelog]
+exclude_commit_patterns = [
+    '''chore(?:\([^)]*?\))?: .+''',
+    '''ci(?:\([^)]*?\))?: .+''',
+    '''docs(?:\([^)]*?\))?: .+''',
+]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 120
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "B",   # flake8-bugbear
+    "C4",  # flake8-comprehensions
+    "UP",  # pyupgrade
+    "ARG", # flake8-unused-arguments
+    "SIM", # flake8-simplify
+    "TCH", # flake8-type-checking
+    "DJ",  # flake8-django
+    "S",   # bandit security
+]
+ignore = [
+    "E501",  # line too long, handled by formatter
+    "S101",  # use of assert (OK in tests)
+]
+
+[tool.ruff.lint.per-file-ignores]
+"*/tests/*" = ["S101", "ARG002", "S105", "S106"]  # Allow assert, unused args, hardcoded secrets in tests
+"*/migrations/*" = ["ARG002"]  # Allow unused args in migrations
+
+[tool.ruff.lint.isort]
+known-first-party = ["require2fa"]
+
+
+[tool.mypy]
+python_version = "3.12"
+plugins = ["mypy_django_plugin.main"]
+ignore_missing_imports = true
+exclude = ["require2fa/tests/", "require2fa/migrations/"]
+warn_unused_ignores = true
+warn_redundant_casts = true
+
+[tool.django-stubs]
+django_settings_module = "require2fa.tests.settings"
+
+[tool.bandit]
+exclude_dirs = ["tests", "migrations"]
+skips = ["B101", "B105", "B106"]  # Skip assert_used, hardcoded passwords (OK in tests)
+
+[tool.coverage.run]
+source = ["require2fa"]
+omit = [
+    "*/migrations/*",
+    "*/tests/*",
+    "*/venv/*",
+    "*/.venv/*",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if self.debug:",
+    "if settings.DEBUG",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if 0:",
+    "if __name__ == .__main__.:",
+    "class .*\\bProtocol\\):",
+    "@(abc\\.)?abstractmethod",
+]
+
+[dependency-groups]
+dev = [
+    "bandit>=1.8.6",
+    "django-stubs>=5.2.2",
+    "mypy>=1.17.1",
+    "python-semantic-release>=10.3.1",
+]
