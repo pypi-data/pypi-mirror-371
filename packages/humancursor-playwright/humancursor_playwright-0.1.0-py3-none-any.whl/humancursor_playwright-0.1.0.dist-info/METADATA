@@ -1,0 +1,301 @@
+Metadata-Version: 2.4
+Name: humancursor-playwright
+Version: 0.1.0
+Summary: A Playwright adaptation of HumanCursor for human-like mouse movements
+Home-page: https://github.com/yourusername/humancursor-playwright
+Author: HumanCursor Playwright Fork
+Author-email: example@example.com
+Project-URL: Bug Reports, https://github.com/yourusername/humancursor-playwright/issues
+Project-URL: Source, https://github.com/yourusername/humancursor-playwright
+Project-URL: Original HumanCursor, https://github.com/zajcikk/HumanCursor
+Project-URL: HumanCursor-Botasaurus, https://github.com/youroriginalrepo/humancursor-botasaurus
+Keywords: playwright automation human cursor mouse movement web testing
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Testing
+Classifier: Topic :: Internet :: WWW/HTTP :: Browsers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: playwright>=1.30.0
+Requires-Dist: numpy>=1.19.0
+Requires-Dist: pytweening>=1.0.4
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0.0; extra == "dev"
+Requires-Dist: pytest-asyncio>=0.21.0; extra == "dev"
+Requires-Dist: black>=22.0.0; extra == "dev"
+Requires-Dist: flake8>=4.0.0; extra == "dev"
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: license-file
+Dynamic: project-url
+Dynamic: provides-extra
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# HumanCursor-Playwright
+
+A Playwright adaptation of [HumanCursor](https://github.com/zajcikk/HumanCursor) that provides human-like mouse movements for web automation using Playwright/Patchright.
+
+## Description
+
+HumanCursor-Playwright is a Python library that enables human-like mouse movements in web automation using Playwright. It's designed to help you create more natural and less detectable web automation by simulating human-like cursor movements, clicks, and interactions.
+
+This library is adapted from the HumanCursor-Botasaurus project, modified to work with Playwright's async API instead of Botasaurus driver.
+
+## Features
+
+- Human-like mouse movements using Bezier curves
+- Randomized movement patterns to avoid detection
+- Support for clicking, dragging, and scrolling with human-like behavior
+- Full async/await support with Playwright
+- Easy integration with existing Playwright scripts
+- Customizable movement parameters
+- Visual cursor tracking for debugging
+
+## Installation
+
+```bash
+pip install humancursor-playwright
+```
+
+Or install from source:
+
+```bash
+git clone https://github.com/yourusername/humancursor-playwright
+cd humancursor-playwright
+pip install -e .
+```
+
+### Prerequisites
+
+You'll also need to install Playwright browsers:
+
+```bash
+playwright install
+```
+
+## Usage
+
+### Basic Example
+
+```python
+import asyncio
+from playwright.async_api import async_playwright
+from humancursor_playwright import PlaywrightCursor
+
+async def main():
+    async with async_playwright() as playwright:
+        # Launch browser
+        browser = await playwright.chromium.launch(headless=False)
+        page = await browser.new_page()
+        
+        try:
+            # Navigate to a website
+            await page.goto("https://www.example.com")
+            
+            # Initialize HumanCursor
+            cursor = PlaywrightCursor(page)
+            
+            # Find an element
+            button = page.locator("button.login")
+            
+            # Move to the element and click it with human-like movement
+            await cursor.click_on(button)
+            
+        finally:
+            await browser.close()
+
+asyncio.run(main())
+```
+
+### Advanced Usage
+
+```python
+import asyncio
+from playwright.async_api import async_playwright
+from humancursor_playwright import PlaywrightCursor
+
+async def main():
+    async with async_playwright() as playwright:
+        browser = await playwright.chromium.launch(headless=False)
+        page = await browser.new_page()
+        
+        try:
+            await page.goto("https://www.example.com")
+            
+            # Initialize HumanCursor
+            cursor = PlaywrightCursor(page)
+            
+            # Show the cursor (adds a red dot to visualize movements)
+            await cursor.show_cursor()
+            
+            # Find elements
+            input_field = page.locator("input[name='username']")
+            login_button = page.locator("button.login")
+            
+            # Move to the input field with human-like movement and click
+            await cursor.click_on(input_field)
+            
+            # Type something
+            await input_field.type("example_user")
+            
+            # Find password field and click on it
+            password_field = page.locator("input[name='password']")
+            await cursor.click_on(password_field)
+            
+            # Type password
+            await password_field.type("example_password")
+            
+            # Move to login button and click
+            await cursor.click_on(login_button)
+            
+        finally:
+            await browser.close()
+
+asyncio.run(main())
+```
+
+### Drag and Drop Example
+
+```python
+import asyncio
+from playwright.async_api import async_playwright
+from humancursor_playwright import PlaywrightCursor
+
+async def main():
+    async with async_playwright() as playwright:
+        browser = await playwright.chromium.launch(headless=False)
+        page = await browser.new_page()
+        
+        try:
+            await page.goto("https://jqueryui.com/droppable/")
+            
+            # Switch to iframe
+            iframe = page.frame_locator("iframe.demo-frame")
+            
+            # Initialize HumanCursor
+            cursor = PlaywrightCursor(page)
+            
+            # Find elements in iframe
+            drag_element = iframe.locator("#draggable")
+            drop_target = iframe.locator("#droppable")
+            
+            # Perform drag and drop with human-like movement
+            await cursor.drag_and_drop(drag_element, drop_target)
+            
+        finally:
+            await browser.close()
+
+asyncio.run(main())
+```
+
+### Using with Patchright
+
+HumanCursor-Playwright works seamlessly with [Patchright](https://github.com/Kaliiiiiiiiii-Vinyzu/patchright), the undetected Playwright fork:
+
+```python
+import asyncio
+from patchright.async_api import async_playwright
+from humancursor_playwright import PlaywrightCursor
+
+async def main():
+    async with async_playwright() as playwright:
+        browser = await playwright.chromium.launch(headless=False)
+        page = await browser.new_page()
+        
+        # The rest of the code is identical
+        cursor = PlaywrightCursor(page)
+        await cursor.click_on(page.locator("button"))
+        
+        await browser.close()
+
+asyncio.run(main())
+```
+
+## API Reference
+
+### PlaywrightCursor
+
+#### `__init__(page: Page)`
+Initialize the cursor with a Playwright page object.
+
+#### `async move_to(element_or_pos, relative_position=None, absolute_offset=False, origin_coordinates=None, steady=False)`
+Move to an element or coordinates with human-like movement.
+
+- `element_or_pos`: Playwright Locator or [x, y] coordinates
+- `relative_position`: [x, y] relative position within element (0.0 to 1.0)
+- `absolute_offset`: Whether coordinates are absolute offsets
+- `origin_coordinates`: Starting coordinates
+- `steady`: Use steadier, less random movement
+
+#### `async click_on(element_or_pos, number_of_clicks=1, click_duration=0, button='left', ...)`
+Move to element and click with human-like movement.
+
+#### `async drag_and_drop(drag_from_element, drag_to_element, ...)`
+Perform drag and drop operation with human-like movement.
+
+#### `async show_cursor()` / `async hide_cursor()`
+Show/hide a red dot that follows the cursor for debugging.
+
+## Movement Parameters
+
+The library automatically adjusts movement parameters based on distance and randomization:
+
+- **Short distances (<100px)**: Minimal curve complexity
+- **Medium distances (100-300px)**: Moderate curve complexity  
+- **Long distances (>300px)**: Higher curve complexity with more natural arcs
+
+Parameters include:
+- Bezier curve control points
+- Movement speed variations
+- Random distortions and offsets
+- Easing functions (easeOutQuad, easeInOutSine, etc.)
+
+## Comparison with Original
+
+| Feature | HumanCursor-Botasaurus | HumanCursor-Playwright |
+|---------|------------------------|-------------------------|
+| Browser Support | Botasaurus | Playwright/Patchright |
+| Async Support | No | Full async/await |
+| API Style | Synchronous | Asynchronous |
+| Browser Control | Limited | Full Playwright API |
+| Performance | Good | Better (native async) |
+| Detection Resistance | Good | Better with Patchright |
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## Credits
+
+- Original [HumanCursor](https://github.com/zajcikk/HumanCursor) project by [zajcikk](https://github.com/zajcikk)
+- [HumanCursor-Botasaurus](https://github.com/youroriginalrepo/humancursor-botasaurus) adaptation
+- [Playwright](https://playwright.dev/) by Microsoft
+- [Patchright](https://github.com/Kaliiiiiiiiii-Vinyzu/patchright) by Vinyzu
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Changelog
+
+### v0.1.0
+- Initial Playwright adaptation
+- Full async/await support
+- Compatible with both Playwright and Patchright
+- Improved error handling and debugging features
