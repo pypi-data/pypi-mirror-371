@@ -1,0 +1,9 @@
+linkapy-1.2.0.dist-info/METADATA,sha256=DfOovhl2bTEsNoqzT2xYKddibwXb0XfM-wOHXoQp3ZM,817
+linkapy-1.2.0.dist-info/WHEEL,sha256=3IjEPWYiEUlbT3I2crk5eA_BQcKsqH4i_d0WgowIwX8,114
+linkapy-1.2.0.dist-info/entry_points.txt,sha256=qdbkx2hCeZN4d_hzMAoBELeqmVl8RTsLEKBeVoaGY0w,46
+linkapy.libs/libgcc_s-5b5488a6.so.1,sha256=HGKUsVmTeNAxEdSy7Ua5Vh_I9FN3RCbPWzvZ7H_TrwE,2749061
+linkapy/CLI.py,sha256=ghaaFgvVzND8QR3mGPh48mp6D7JUbzflS7oz-0LlGVg,5630
+linkapy/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+linkapy/linkapy.pypy310-pp73-arm-linux-gnu.so,sha256=vvxpqYDNLHHTRD7YcnYGa_Cz3e94ZigVUSCCVJAVa3k,948681
+linkapy/parsing.py,sha256=iAeyoUzrysbyxUWw0o2PRY59yIT-tGBsxAx4vGuuDD4,19860
+linkapy-1.2.0.dist-info/RECORD,,
