@@ -1,0 +1,38 @@
+[project]
+name = "rori"
+version = "0.0.1"
+description = "Forward ports and track them with ease"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "django-environ>=0.12.0",
+    "hapless>=0.9.1",
+    "rich>=13.5.2,<14.0.0",
+    "questionary>=2.0.0",
+    "kubernetes>=31.0.0",
+    "psutil>=6.1.0",
+    "loguru>=0.7.3",
+]
+
+[tool.uv]
+package = true
+
+[project.scripts]
+pof = 'pof.cli:cli'
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.4.1",
+    "ruff>=0.12.7",
+    "twine>=6.1.0",
+]
+
+[tool.ruff]
+line-length = 88
+
+# ruff check
+[tool.ruff.lint]
+extend-select = [
+    # isort
+    "I",
+]
