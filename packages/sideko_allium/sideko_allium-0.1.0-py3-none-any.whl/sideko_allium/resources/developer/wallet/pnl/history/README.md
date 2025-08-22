@@ -1,0 +1,65 @@
+# developer_wallet_pnl_history
+
+## Module Functions
+### Get Pnl History <a name="get"></a>
+
+
+
+**API Endpoint**: `POST /api/v1/developer/wallet/pnl/history`
+
+#### Parameters
+
+| Parameter | Required | Description | Example |
+|-----------|:--------:|-------------|--------|
+| `addresses` | ✓ |  | `[{"address": "string", "chain": "string"}]` |
+| `end_timestamp` | ✓ |  | `"1970-01-01T00:00:00"` |
+| `granularity` | ✓ |  | `"1d"` |
+| `start_timestamp` | ✓ |  | `"1970-01-01T00:00:00"` |
+
+#### Synchronous Client
+
+```python
+from os import getenv
+from sideko_allium import Client
+
+client = Client(key=getenv("API_KEY"), token=getenv("API_TOKEN"))
+res = client.developer.wallet.pnl.history.get(
+    addresses=[
+        {"address": "125Z6k4ZAxsgdG7JxrKZpwbcS1rxqpAeqM9GSCKd66Wp", "chain": "solana"}
+    ],
+    end_timestamp="2025-04-10T00:00:00Z",
+    granularity="1h",
+    start_timestamp="2025-04-01T00:00:00Z",
+)
+
+```
+
+#### Asynchronous Client
+
+```python
+from os import getenv
+from sideko_allium import AsyncClient
+
+client = AsyncClient(key=getenv("API_KEY"), token=getenv("API_TOKEN"))
+res = await client.developer.wallet.pnl.history.get(
+    addresses=[
+        {"address": "125Z6k4ZAxsgdG7JxrKZpwbcS1rxqpAeqM9GSCKd66Wp", "chain": "solana"}
+    ],
+    end_timestamp="2025-04-10T00:00:00Z",
+    granularity="1h",
+    start_timestamp="2025-04-01T00:00:00Z",
+)
+
+```
+
+#### Response
+
+##### Type
+[ResponseEnvelopeHistoricalPnl_](/sideko_allium/types/models/response_envelope_historical_pnl_.py)
+
+##### Example
+`{}`
+<!-- CUSTOM DOCS START -->
+
+<!-- CUSTOM DOCS END -->
+
