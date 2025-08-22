@@ -1,0 +1,301 @@
+from fastapi import HTTPException
+
+from shops_payment_processing.logging_config import logger
+
+from shops_payment_processing.models.payment import PaymentMethodDBResponseModel
+from shops_payment_processing.models.invoice import InvoiceWithPaymentLinkMessageModel
+from shops_payment_processing.models.order import PaymentTypes, OrderResponseModel
+from shops_payment_processing.models.shop import ShopDetailsModel
+from shops_payment_processing.models.user import UserModel
+from shops_payment_processing.services.base import CreateInvoiceRequest
+from shops_payment_processing.services.cloudpayments import CloudPaymentsAPI
+from shops_payment_processing.services.life_pay import LifePayAPI
+from shops_payment_processing.services.tkassa import TKassaAPI
+from shops_payment_processing.services.yookassa import YooKassaAPI
+from shops_payment_processing.utils.link_generation import generate_web_app_order_link
+
+
+class InvoiceCreation:
+    def __init__(self, base_redirect_url: str, base_callback_url: str):
+        self.BASE_REDIRECT_URL = base_redirect_url
+        self.BASE_CALLBACK_URL = base_callback_url
+
+    async def get_life_pay_sbp_payment_data(
+        self,
+        user: UserModel,
+        order: OrderResponseModel,
+        payment: PaymentMethodDBResponseModel,
+        shop_details: ShopDetailsModel
+    ) -> InvoiceWithPaymentLinkMessageModel:
+        fiat_currency = order.basket.products[0].currency
+        if fiat_currency != "RUB":
+            raise HTTPException(status_code=404, detail="LifePay payment method is only available for RUB currency")
+
+        login = ""
+        if payment.meta:
+            for meta in payment.meta:
+                if meta.key == "LIFE_PAY_LOGIN" and meta.value:
+                    login = meta.value[0]
+                    break
+        if not login or not payment.payment_data:
+            raise HTTPException(status_code=404, detail="LifePay login was not configured for the shop")
+
+        # Create request DTO
+        invoice_request = CreateInvoiceRequest(
+            shop_name=shop_details.shop_name,
+            order_id=order.id,
+            order_number=order.order_number,
+            amount=order.basket.amount,
+            currency=fiat_currency,
+            description=f"Заказ {order.order_number}",
+            customer_phone=order.user_contact_number,
+            metadata={
+                "login": login,
+                "api_key": payment.payment_data
+            }
+        )
+
+        # Create API client and call create_invoice
+        life_pay_connector = LifePayAPI(callback_base_url=self.BASE_CALLBACK_URL)
+        invoice_response = await life_pay_connector.create_invoice(invoice_request)
+
+        if not invoice_response.payment_id or not invoice_response.payment_url:
+            raise HTTPException(status_code=500, detail="Error creating LifePay invoice")
+
+        logger.debug(f"LifePay SBP invoice data: {invoice_response.raw_response}")
+
+        return InvoiceWithPaymentLinkMessageModel(
+            chat_id=user.tg_id,
+            order_id=order.id,
+            order_number=order.order_number,
+            payload=invoice_response.payment_id,
+            currency=fiat_currency,
+            payment_address=invoice_response.payment_url,
+            payment_link=invoice_response.payment_url,
+            amount=order.basket.amount
+        )
+
+
+
+    async def get_yookassa_payment_data(
+        self,
+        user: UserModel,
+        order: OrderResponseModel,
+        payment: PaymentMethodDBResponseModel,
+        shop_details: ShopDetailsModel
+    ) -> InvoiceWithPaymentLinkMessageModel:
+        fiat_currency = order.basket.products[0].currency
+        if fiat_currency != "RUB":
+            raise HTTPException(status_code=404, detail="Yookassa payment method is only available for RUB currency")
+
+        account_id = ""
+        if payment.meta:
+            for meta in payment.meta:
+                if meta.key == "YOOKASSA_ACCOUNT_ID" and meta.value:
+                    account_id = meta.value[0]
+                    break
+        if not account_id or not payment.payment_data:
+            raise HTTPException(status_code=404, detail="YooKassa login was not configured for the shop")
+
+        # Create redirect URL
+        redirect_url = generate_web_app_order_link(
+            shop_name=shop_details.shop_name, 
+            order_id=order.id, 
+            tg_web_app_url=self.BASE_REDIRECT_URL
+        )
+
+        # Create request DTO
+        invoice_request = CreateInvoiceRequest(
+            shop_name=shop_details.shop_name,
+            order_id=order.id,
+            order_number=order.order_number,
+            amount=order.basket.amount,
+            currency=fiat_currency,
+            description=f"Заказ {order.order_number}",
+            customer_phone=order.user_contact_number,
+            customer_email=shop_details.contact_email,
+            redirect_url=redirect_url,
+            metadata={
+                "orderId": order.id,
+                "orderNumber": order.order_number
+            }
+        )
+
+        # Create API client and call create_invoice
+        yookassa_connector = YooKassaAPI(account_id, payment.payment_data)
+        invoice_response = await yookassa_connector.create_invoice(invoice_request)
+
+        if not invoice_response.payment_id or not invoice_response.payment_url:
+            raise HTTPException(status_code=500, detail="Error creating YooKassa invoice")
+
+        logger.debug(f"YooKassa invoice data: {invoice_response.raw_response}")
+
+        return InvoiceWithPaymentLinkMessageModel(
+            chat_id=user.tg_id,
+            order_id=order.id,
+            order_number=order.order_number,
+            payload=invoice_response.payment_id,
+            currency=fiat_currency,
+            payment_address=invoice_response.payment_url,
+            payment_link=invoice_response.payment_url,
+            amount=order.basket.amount
+        )
+
+
+    async def get_tkassa_payment_data(
+        self,
+        user: UserModel,
+        order: OrderResponseModel,
+        payment: PaymentMethodDBResponseModel,
+        shop_details: ShopDetailsModel
+    ) -> InvoiceWithPaymentLinkMessageModel:
+        fiat_currency = order.basket.products[0].currency
+        if fiat_currency != "RUB":
+            raise HTTPException(status_code=404, detail="Tkassa payment method is only available for RUB currency")
+
+        terminal_id = ""
+        if payment.meta:
+            for meta in payment.meta:
+                if meta.key == "TKASSA_TERMINAL_ID" and meta.value:
+                    terminal_id = meta.value[0]
+                    break
+        if not terminal_id or not payment.payment_data:
+            raise HTTPException(status_code=404, detail="Tkassa credentials was not configured for the shop")
+
+        # Create redirect URL
+        redirect_url = generate_web_app_order_link(
+            shop_name=shop_details.shop_name, 
+            order_id=order.id, 
+            tg_web_app_url=self.BASE_REDIRECT_URL
+        )
+
+        # Create request DTO
+        invoice_request = CreateInvoiceRequest(
+            shop_name=shop_details.shop_name,
+            order_id=order.id,
+            order_number=order.order_number,
+            amount=order.basket.amount,
+            currency=fiat_currency,
+            description=f"Заказ {order.order_number}",
+            customer_phone=order.user_contact_number,
+            customer_email=shop_details.contact_email,
+            redirect_url=redirect_url,
+            metadata={
+                "orderId": order.id,
+                "orderNumber": order.order_number
+            }
+        )
+
+        # Create API client and call create_invoice
+        tkassa_connector = TKassaAPI(
+            terminal_id=terminal_id,
+            terminal_password=payment.payment_data
+        )
+        invoice_response = await tkassa_connector.create_invoice(invoice_request)
+
+        if not invoice_response.payment_id or not invoice_response.payment_url:
+            raise HTTPException(status_code=500, detail="Error creating Tkassa invoice")
+
+        logger.debug(f"Tkassa invoice data: {invoice_response.raw_response}")
+
+        return InvoiceWithPaymentLinkMessageModel(
+            chat_id=user.tg_id,
+            order_id=order.id,
+            order_number=order.order_number,
+            payload=invoice_response.payment_id,
+            currency=fiat_currency,
+            payment_address=invoice_response.payment_url,
+            payment_link=invoice_response.payment_url,
+            amount=order.basket.amount
+        )
+
+
+
+    async def get_cloudpayments_data(
+        self,
+        user: UserModel,
+        order: OrderResponseModel,
+        payment: PaymentMethodDBResponseModel,
+        shop_details: ShopDetailsModel
+    ) -> InvoiceWithPaymentLinkMessageModel:
+        fiat_currency = order.basket.products[0].currency
+        if fiat_currency != "RUB":
+            raise HTTPException(status_code=404, detail="CloudPayments method is only available for RUB currency")
+
+        account_id = ""
+        if payment.meta:
+            for meta in payment.meta:
+                if meta.key == "CLOUDPAYMENTS_ACCOUNT_ID" and meta.value:
+                    account_id = meta.value[0]
+                    break
+        if not account_id or not payment.payment_data:
+            raise HTTPException(status_code=404, detail="CloudPayments credentials were not configured for the shop")
+
+        # Create request DTO
+        invoice_request = CreateInvoiceRequest(
+            shop_name=shop_details.shop_name,
+            order_id=order.id,
+            order_number=order.order_number,
+            amount=order.basket.amount,
+            currency=fiat_currency,
+            description=f"Заказ {order.order_number}",
+            customer_phone=order.user_contact_number,
+            customer_email=shop_details.contact_email,
+            metadata={
+                "user_id": user.tg_id,
+                "orderId": order.id,
+                "orderNumber": order.order_number
+            }
+        )
+
+        # Create API client and call create_invoice
+        cloudpayments_connector = CloudPaymentsAPI(
+            account_id=account_id,
+            password=payment.payment_data
+        )
+        invoice_response = await cloudpayments_connector.create_invoice(invoice_request)
+        if not invoice_response.payment_id or not invoice_response.payment_url:
+            raise HTTPException(status_code=500, detail="Error creating CloudPayments invoice")
+
+        logger.debug(f"CloudPayments invoice data: {invoice_response.raw_response}")
+
+        return InvoiceWithPaymentLinkMessageModel(
+            chat_id=user.tg_id,
+            order_id=order.id,
+            order_number=order.order_number,
+            payload=invoice_response.payment_id,
+            currency=fiat_currency,
+            payment_address=invoice_response.payment_url,
+            payment_link=invoice_response.payment_url,
+            amount=order.basket.amount
+        )
+
+    async def get_invoice_data(
+            self,
+            payment_type: PaymentMethodDBResponseModel,
+            user: UserModel,
+            order: OrderResponseModel,
+            shop_details: ShopDetailsModel
+    ) -> InvoiceWithPaymentLinkMessageModel | None:
+        invoice_data = None
+        if payment_type.type == PaymentTypes.life_pay.value:
+            invoice_data = await self.get_life_pay_sbp_payment_data(
+                user=user, order=order, payment=payment_type, shop_details=shop_details
+            )
+
+        elif payment_type.type == PaymentTypes.yookassa.value:
+            invoice_data = await self.get_yookassa_payment_data(
+                user=user, order=order, payment=payment_type, shop_details=shop_details
+            )
+
+        elif payment_type.type == PaymentTypes.tkassa.value:
+            invoice_data = await self.get_tkassa_payment_data(
+                user=user, order=order, payment=payment_type, shop_details=shop_details
+            )
+
+        elif payment_type.type == PaymentTypes.cloud_payments.value:
+            invoice_data = await self.get_cloudpayments_data(
+                user=user, order=order, payment=payment_type, shop_details=shop_details
+            )
+
+        return invoice_data
