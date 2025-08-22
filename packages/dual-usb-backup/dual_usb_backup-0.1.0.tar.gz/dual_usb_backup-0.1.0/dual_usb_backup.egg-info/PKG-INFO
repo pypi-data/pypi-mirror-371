@@ -1,0 +1,7 @@
+Metadata-Version: 2.4
+Name: dual-usb-backup
+Version: 0.1.0
+Summary: Dual-USB Hardware Backup Module for secure offline password management.
+Author: Your Name
+Requires-Python: >=3.6
+Dynamic: requires-python

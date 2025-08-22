@@ -1,0 +1,7 @@
+pyproject.toml
+setup.py
+dual_usb_backup/__init__.py
+dual_usb_backup.egg-info/PKG-INFO
+dual_usb_backup.egg-info/SOURCES.txt
+dual_usb_backup.egg-info/dependency_links.txt
+dual_usb_backup.egg-info/top_level.txt
