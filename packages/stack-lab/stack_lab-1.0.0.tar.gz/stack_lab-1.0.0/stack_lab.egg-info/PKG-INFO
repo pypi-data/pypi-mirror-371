@@ -1,0 +1,393 @@
+Metadata-Version: 2.4
+Name: stack-lab
+Version: 1.0.0
+Summary: A professional and extensible Stack implementation in Python
+Author-email: Anbu <your_email@example.com>
+License: MIT License
+        
+        Copyright (c) 2025 Anbu
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Project-URL: Homepage, https://github.com/anbu/stack-lab
+Project-URL: Bug Tracker, https://github.com/anbu/stack-lab/issues
+Keywords: stack,data structures,python,algorithms
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: license-file
+
+<!-- README.md for stack-lab (v1.0.0) -->
+<p align="center">
+  <img alt="stack-lab" src="https://raw.githubusercontent.com/anbukumaran1/stack-lab/main/assets/logo.png" width="140" />
+</p>
+
+<h1 align="center">stack-lab</h1>
+<p align="center"><strong>Production-grade, feature-rich Stack for Python — small, battle-tested, and built to impress.</strong></p>
+
+<div align="center">
+  <img src="https://img.shields.io/badge/python-3.9%2B-blue" alt="Python">
+  <img src="https://img.shields.io/badge/version-1.0.0-green" alt="Version">
+  <img src="https://img.shields.io/badge/license-MIT-yellow" alt="License">
+  <img src="https://img.shields.io/badge/build-GitHub%20Actions-lightgrey" alt="CI">
+</div>
+
+---
+
+## TL;DR
+
+`stack-lab` is a modern `Stack[T]` implementation for Python with:
+- Optional **O(1) `min()` / `max()`** tracking.
+- **Capacity** control + multiple overflow strategies.
+- **Transactions** (`with` support), **snapshots**, and **observers**.
+- Bulk ops, functional helpers, rotation, dedup, and more.
+- Clean, typed API ready for production, teaching, or portfolio demos.
+
+---
+
+## Table of contents
+
+- [Installation](#installation)  
+- [Quick start](#quick-start)  
+- [Full API & Examples](#full-api--examples)  
+  - [Construction](#construction)  
+  - [Core methods](#core-methods)  
+  - [Min / max tracking (O(1))](#min--max-tracking-o1)  
+  - [Capacity & OverflowStrategy](#capacity--overflowstrategy)  
+  - [Transactions and rollback](#transactions-and-rollback)  
+  - [Snapshots & clone](#snapshots--clone)  
+  - [Utilities: rotate / unique / map / filter](#utilities-rotate--unique--map--filter)  
+  - [Observers](#observers)  
+  - [Exceptions](#exceptions)  
+- [Testing](#testing)  
+- [Publishing & CI notes](#publishing--ci-notes)  
+- [Contributing](#contributing)  
+- [License & Contact](#license--contact)
+
+---
+
+## Installation
+
+> Development / local install:
+```bash
+git clone https://github.com/anbukumaran1/stack-lab.git
+cd stack-lab
+python -m venv .venv
+# macOS / Linux:
+source .venv/bin/activate
+# Windows PowerShell:
+# .\.venv\Scripts\Activate.ps1
+
+pip install -e .
+pip install -r requirements.txt   # installs pytest
+When published to PyPI (future):
+
+bash
+Copy
+Edit
+pip install stack-lab
+Quick start
+python
+Copy
+Edit
+from stack_lab import Stack, OverflowStrategy
+
+# Simple stack
+s = Stack[int]()
+s.push(3)
+s.push(7)
+print(s.pop())   # -> 7
+
+# Stack with min/max tracking
+s2 = Stack[int](track_minmax=True)
+s2.push_many([5, 2, 9])
+print(s2.min(), s2.max())  # -> 2 9
+Full API & Examples
+NOTE: in examples, # -> comments show expected outputs.
+
+Construction
+Signature
+Stack(*items, track_minmax=False, maxsize=None, overflow=OverflowStrategy.ERROR, on_change=None)
+
+items: initial elements (left → right = bottom → top).
+
+track_minmax: enable O(1) min() / max() (maintained internally).
+
+maxsize: integer capacity (optional).
+
+overflow: behaviour when capacity reached (see OverflowStrategy).
+
+on_change: iterable of callables or 'print' to attach a console observer.
+
+python
+Copy
+Edit
+s = Stack(1, 2, 3)  # bottom=1, top=3
+s = Stack(track_minmax=True)
+Core methods
+push(item)
+Push an item onto the top.
+
+python
+Copy
+Edit
+s = Stack()
+s.push(10)
+s.push(20)
+print(s.peek())  # -> 20
+push_many(iterable)
+Push many items in order.
+
+python
+Copy
+Edit
+s.push_many([1,2,3])  # pushes 1 then 2 then 3 (3 is top)
+pop() -> T
+Pop and return top element. Raises StackEmptyError if empty.
+
+python
+Copy
+Edit
+s = Stack()
+s.push("a")
+print(s.pop())  # -> "a"
+pop_many(k) -> List[T]
+Pop up to k items; returns list of popped items (top-first).
+
+python
+Copy
+Edit
+s.push_many([1,2,3,4])
+print(s.pop_many(2))  # -> [4, 3]
+peek() -> T
+Return top item without removing. Raises StackEmptyError if empty.
+
+safe_peek() -> Optional[T]
+Return top item or None if empty.
+
+clear()
+Remove all elements.
+
+to_list() -> List[T]
+Shallow copy of the stack data (bottom → top).
+
+from_iterable(iterable, **kwargs) -> Stack
+Build a stack from any iterable.
+
+len(stack), item in stack, repr(stack) are supported.
+
+Min / Max tracking (O(1))
+To enable fast min() and max():
+
+python
+Copy
+Edit
+s = Stack[int](track_minmax=True)
+s.push_many([3, 1, 4])
+print(s.min(), s.max())  # -> 1 4
+Notes & edge cases
+
+min() / max() require track_minmax=True and a non-empty stack, otherwise raises StackError.
+
+Implementation uses auxiliary stacks to preserve O(1) per operation.
+
+Capacity & OverflowStrategy
+maxsize limits stack size. overflow controls what happens when full:
+
+OverflowStrategy.ERROR — raise StackCapacityError.
+
+OverflowStrategy.DROP_OLDEST — remove bottom element(s) to make room for new pushes.
+
+OverflowStrategy.DROP_NEWEST — refuse the incoming push (no-op).
+
+OverflowStrategy.GROW — ignore maxsize and grow (effectively unbounded).
+
+Examples:
+
+python
+Copy
+Edit
+from stack_lab import Stack, OverflowStrategy
+
+s = Stack[int](maxsize=3, overflow=OverflowStrategy.DROP_OLDEST)
+s.push_many([1,2,3])  # stack = [1,2,3]
+s.push(4)             # drops 1 -> stack = [2,3,4]
+
+s2 = Stack[int](maxsize=2, overflow=OverflowStrategy.ERROR)
+s2.push_many([1,2])
+# s2.push(3)  # raises StackCapacityError
+Tip: Choose DROP_OLDEST for rolling buffers, ERROR when capacity must be enforced strictly.
+
+Transactions and rollback
+Transaction support allows multi-step changes to be committed or automatically rolled back on exception.
+
+Context-manager style (recommended):
+
+python
+Copy
+Edit
+s = Stack([1,2,3])
+try:
+    with s.transaction():
+        s.push(99)
+        raise RuntimeError("abort")  # causes rollback
+except RuntimeError:
+    pass
+
+print(s.to_list())  # -> [1,2,3]  (99 rolled back)
+Manual API (begin/commit/rollback):
+
+python
+Copy
+Edit
+s.begin()
+s.push(4)
+s.rollback()  # undoes the push
+Behavioral notes
+
+push operations are rolled back by popping them.
+
+pop operations are rolled back by re-pushing popped payloads (attempts to respect capacity).
+
+clear during a transaction does not fully preserve pre-clear state — avoid clear inside transactions if you need precise restores.
+
+Snapshots & clone
+Snapshot — immutable capture of stack state (fast, safe):
+
+python
+Copy
+Edit
+snap = s.snapshot()
+s.push(5)
+s.restore(snap)
+Clone / copy — shallow copy:
+
+python
+Copy
+Edit
+s2 = s.copy()   # or s.clone()
+Utilities: rotate / unique / map_new / filter_new / find
+rotate(k) — cyclically rotate the stack (top moves to bottom for positive k):
+
+python
+Copy
+Edit
+s = Stack.from_iterable([1,2,3,4])  # top=4
+s.rotate(1)
+print(s.to_list())  # -> [4,1,2,3]
+unique(keep="last"|"first") — deduplicate preserving order:
+
+python
+Copy
+Edit
+s = Stack.from_iterable([1,2,3,2,1])
+s.unique(keep="last")   # top-most duplicates kept by default
+print(s.to_list())      # -> [3,2,1]
+map_new(fn) and filter_new(pred) — functional helpers that return new Stack instances:
+
+python
+Copy
+Edit
+s = Stack.from_iterable([1,2,3])
+s2 = s.map_new(lambda x: x * 2)   # -> Stack([2,4,6])
+s3 = s.filter_new(lambda x: x % 2 == 1)  # -> Stack([1,3])
+count(item) and find(item):
+
+python
+Copy
+Edit
+s.count(2)   # number of occurrences
+s.find(3)    # index from bottom or None
+Observers (hooks)
+Attach callbacks to respond to 'push', 'pop', and 'clear' events. A built-in "print" observer is provided for quick logging.
+
+python
+Copy
+Edit
+def logger(event, st):
+    print(f"EVENT={event} size={len(st)} top={st.safe_peek()}")
+
+s = Stack(on_change=[logger, "print"])
+s.push(10)  # triggers logger and the built-in print observer
+Observers are guaranteed not to break core behavior (exceptions inside observers are caught).
+
+Exceptions
+StackError — base class
+
+StackEmptyError — operations on empty stack (peek/pop)
+
+StackCapacityError — capacity enforcement errors
+
+StackTransactionError — transaction misuse
+
+Use try/except to handle these in production code.
+
+Testing
+We use pytest. Example commands:
+
+bash
+Copy
+Edit
+# inside your venv
+pip install -r requirements.txt
+pytest -q
+Sample unit tests included in tests/test_core.py cover:
+
+basic push/pop/peek
+
+errors on empty pops/peeks
+
+transaction semantics
+
+min/max behavior (when enabled)
+
+Publishing & CI notes
+Use pyproject.toml + setuptools for packaging.
+
+Recommended workflow:
+
+Bump version in pyproject.toml and stack_lab/__init__.py.
+
+python -m build
+
+twine upload dist/*
+
+Use a GitHub Actions workflow to run tests and build on push and to publish on tags (protect secrets — store PyPI token in repo settings).
+
+Contributing
+Fork, create a branch, add tests, and open a PR.
+
+Keep API backward-compatible or provide a clear migration note in CHANGELOG.md.
+
+Run tests and lint before opening PRs.
+
+Changelog (v1.0.0)
+Initial public release: Stack with transactions, min/max tracking, capacity control, snapshots, functional helpers, observers, and utilities.
+
+License & Contact
+License: MIT — see LICENSE.
+Author: Anbu Kumaran
+GitHub: https://github.com/anbukumaran1
+Email: anbuku12345@gmail.com
+
+<p align="center"> Built with ❤️ by Anbu — go make something legendary. </p> ```

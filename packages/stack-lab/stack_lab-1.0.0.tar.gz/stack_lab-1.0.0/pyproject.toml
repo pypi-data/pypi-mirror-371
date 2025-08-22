@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "stack-lab"
+version = "1.0.0"
+description = "A professional and extensible Stack implementation in Python"
+readme = "README.md"
+authors = [
+    { name="Anbu", email="your_email@example.com" }
+]
+license = { file="LICENSE" }
+keywords = ["stack", "data structures", "python", "algorithms"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["stack_lab"]
+
+[project.urls]
+"Homepage" = "https://github.com/anbu/stack-lab"
+"Bug Tracker" = "https://github.com/anbu/stack-lab/issues"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
