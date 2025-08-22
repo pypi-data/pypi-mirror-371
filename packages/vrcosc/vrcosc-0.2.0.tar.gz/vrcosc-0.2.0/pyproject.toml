@@ -1,0 +1,28 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "vrcosc"
+version = "0.2.0"
+description = "A project that aims to simplify OSC communication to VRChat in Python."
+readme = "README.md"
+license = { text = "GPL-3.0-only" }
+authors = [{ name = "ItzuCrafty" }]
+requires-python = "==3.12.*"
+dependencies = [
+    "python-osc>=1.9.3",
+]
+keywords = ["vrchat", "osc"]
+classifiers = [
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/ItzuCrafty/VRCOSC"
+Issues = "https://github.com/ItzuCrafty/VRCOSC/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/vrcosc"]
