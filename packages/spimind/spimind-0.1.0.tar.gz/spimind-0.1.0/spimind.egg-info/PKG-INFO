@@ -1,0 +1,137 @@
+Metadata-Version: 2.2
+Name: spimind
+Version: 0.1.0
+Summary: Event stream logging system for Spiking Neural Networks
+Home-page: https://github.com/mini-mind/spimind
+Author: Spimind Team
+Author-email: Spimind Team <team@spimind.dev>
+License: MIT
+Project-URL: Homepage, https://github.com/mini-mind/spimind
+Project-URL: Repository, https://github.com/mini-mind/spimind
+Project-URL: Documentation, https://github.com/mini-mind/spimind#readme
+Project-URL: Issues, https://github.com/mini-mind/spimind/issues
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: tinydb>=4.0.0
+Dynamic: author
+Dynamic: home-page
+Dynamic: requires-python
+
+# Spimind
+
+[English](README_EN.md) | 中文
+
+专为脉冲神经网络设计的事件流日志系统，使用TinyDB作为存储后端。
+
+## 特性
+
+- **轻量级API**: 一行初始化，一行记录，一行关闭
+- **事件流优先**: 以`log_event`为核心，而非传统的"step"概念
+- **可插桩**: 支持在关键节点挂载hook函数
+- **TinyDB存储**: 结构化数据存储，支持复杂查询
+
+## 安装
+
+```bash
+pip install -e .
+```
+
+## 快速开始
+
+```python
+import spimind
+
+# 初始化日志记录器
+logger = spimind.init(project="spimind-sim")
+
+# 记录神经元发放事件
+logger.log_event(event="spike", event_time=12.3, neuron="LIF_23")
+
+# 关闭记录器
+logger.close()
+```
+
+## 使用示例
+
+### 基本用法
+
+```python
+import spimind
+
+logger = spimind.init(project="test")
+logger.log_event(event="spike", event_time=1.0, neuron="neuron_1")
+logger.close()
+```
+
+### 上下文管理器
+
+```python
+with spimind.init(project="test") as logger:
+    logger.log_event(event="spike", event_time=1.0, neuron="neuron_1")
+```
+
+### Hook功能
+
+```python
+def spike_monitor(event_data):
+    if event_data['event'] == 'spike':
+        print(f"检测到发放: {event_data['neuron']}")
+
+logger = spimind.init(project="test")
+logger.add_hook(spike_monitor)
+logger.log_event(event="spike", event_time=1.0, neuron="LIF_1")
+```
+
+## 示例代码
+
+查看 `example/` 目录获取更多使用示例：
+
+- `basic_usage.py` - 基本使用示例
+- `hook_example.py` - Hook功能示例  
+- `context_manager_example.py` - 上下文管理器示例
+
+## API
+
+### spimind.init()
+
+初始化日志记录器
+
+**参数:**
+- `project` (str): 项目名称
+- `run_name` (str, 可选): 运行名称，默认自动生成
+- `**kwargs`: 传递给后端的具体参数
+
+### logger.log_event()
+
+记录事件
+
+**参数:**
+- `event` (str): 事件类型
+- `event_time` (float): 事件时间戳
+- `**kwargs`: 事件相关数据
+
+### logger.add_hook()
+
+添加事件处理hook
+
+**参数:**
+- `hook_func` (callable): 处理事件的函数
+
+### logger.close()
+
+关闭日志记录器
+
+## 许可证
+
+本项目采用 [MIT](LICENSE) 许可证。

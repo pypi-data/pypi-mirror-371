@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+README_EN.md
+pyproject.toml
+setup.py
+example/basic_usage.py
+example/context_manager_example.py
+example/hook_example.py
+spimind/__init__.py
+spimind/backends.py
+spimind/core.py
+spimind.egg-info/PKG-INFO
+spimind.egg-info/SOURCES.txt
+spimind.egg-info/dependency_links.txt
+spimind.egg-info/requires.txt
+spimind.egg-info/top_level.txt

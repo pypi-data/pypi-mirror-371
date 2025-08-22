@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "spimind"
+version = "0.1.0"
+description = "Event stream logging system for Spiking Neural Networks"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Spimind Team", email = "team@spimind.dev"}
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "tinydb>=4.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/mini-mind/spimind"
+Repository = "https://github.com/mini-mind/spimind"
+Documentation = "https://github.com/mini-mind/spimind#readme"
+Issues = "https://github.com/mini-mind/spimind/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["spimind*"]
+
+[tool.setuptools.package-data]
+spimind = ["*.py"]
