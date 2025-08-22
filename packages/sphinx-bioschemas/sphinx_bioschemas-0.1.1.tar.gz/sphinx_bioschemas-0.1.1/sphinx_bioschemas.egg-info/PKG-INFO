@@ -1,0 +1,35 @@
+Metadata-Version: 2.4
+Name: sphinx-bioschemas
+Version: 0.1.1
+Summary: A Sphinx extension that inserts a Bioschemas profiles or any kind schema.org structured metadata.
+Author-email: Toni Hermoso Pulido <toni.hermoso@crg.eu>
+License-Expression: MIT
+Project-URL: Homepage, https://github.com/biocorecrg/sphinx-bioschemas
+Project-URL: Issues, https://github.com/biocorecrg/sphinx-bioschemas/issues
+Classifier: Development Status :: 4 - Beta
+Classifier: Framework :: Sphinx :: Extension
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Software Development :: Documentation
+Classifier: Topic :: Documentation :: Sphinx
+Requires-Python: >=3.10
+Description-Content-Type: text/x-rst
+License-File: LICENSE
+Requires-Dist: docutils>=0.16
+Requires-Dist: pyyaml
+Requires-Dist: sphinx>=4.0
+Provides-Extra: test
+Requires-Dist: pytest; extra == "test"
+Dynamic: license-file
+
+=================
+sphinx-bioschemas
+=================
+
+A Sphinx extension to include `Bioschemas profiles <https://bioschemas.org/>`_ or any other `Schema.org structured metadata <https://schema.org>`_ in your content.
+
+Further details at: https://biocorecrg.github.io/sphinx-bioschemas/

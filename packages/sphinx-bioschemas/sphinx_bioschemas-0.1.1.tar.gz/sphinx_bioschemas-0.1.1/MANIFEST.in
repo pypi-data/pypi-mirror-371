@@ -1,0 +1,11 @@
+include README.rst
+include LICENSE
+include sphinx_bioschemas/*
+include docs/*
+include pyproject.toml
+global-exclude *.pyc
+exclude __pycache__
+exclude .DS_store
+exclude .github_changelog_generator
+exclude .git-blame-ignore-revs
+exclude .pre-commit-config.yaml
