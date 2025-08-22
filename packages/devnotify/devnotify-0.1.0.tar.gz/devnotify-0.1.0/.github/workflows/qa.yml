@@ -1,0 +1,48 @@
+name: QA
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  qa:
+    name: Lint • Typecheck • Test • Coverage
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.10", "3.11", "3.12"]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: "pip"
+
+      - name: Install dev tools
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest pytest-cov coverage mypy ruff black
+
+      - name: Run quality script
+        shell: bash
+        run: bash scripts/quality.sh
+        # scripts/quality.sh already:
+        # - runs mypy, ruff, black
+        # - pip install -e .
+        # - coverage run + report --fail-under=100
+        # - generates html report on failure
+
+      - name: Upload HTML coverage (only if previous step failed)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: htmlcov-${{ matrix.python-version }}
+          path: htmlcov
