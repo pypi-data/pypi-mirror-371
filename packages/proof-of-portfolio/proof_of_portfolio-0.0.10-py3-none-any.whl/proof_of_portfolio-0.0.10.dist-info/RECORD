@@ -1,0 +1,16 @@
+demos/all.py,sha256=sFHHXzRotcJZiKsVHX_cwepdOw6k-Dn1TLmKSL32txI,3586
+demos/calmar.py,sha256=t4LEs2wmczm24KdG1-W3TmFMfGqXrJ_uWXcXVT6Zp7k,8799
+demos/drawdown.py,sha256=X5NsPDQ-yCa0Lrmp3QGQUfJd_pF2m2377a1GzSGjAwg,4659
+demos/generate_input_data.py,sha256=tw4ijtvj3fh7l0nlxEeJ4vD8i0J9ZYSV9LDTIdwvEqE,4560
+demos/log_returns.py,sha256=kwYjLqA-0F-XzO4GG3K-0_aVa2W9WLAb_KBkbTFZGF0,5494
+demos/main.py,sha256=nXOpCw626HqAS9ZWWXrc6gaADWkKBMA7Oa0_9vSkeZw,15760
+demos/omega.py,sha256=vyDzhIua-JmmDSLbJiYvXv28k73GTB4mqkSP47sWX6U,7333
+demos/sharpe.py,sha256=HRYPC7YvD-TwrmQhWIxCTe2nchfxlCPzZTX22ujnxG0,7975
+demos/sortino.py,sha256=cBM61sJJ5xJKmXmf2m9sioLyCwvtUeGgZWKJN9FNBrM,8385
+demos/tstat.py,sha256=CGpog4BHBxlbVfWgz19-XGANWoGZoUxeN0ht8iJRF8g,5560
+demos/utils.py,sha256=dgpNCxmXSRxPY8MN0Pd-oYL-_sqi7I-rXqtraCejqlc,6985
+proof_of_portfolio-0.0.10.dist-info/METADATA,sha256=1KF4pZwYM5tsfgCFEnvRAUDaFScc1gqNzV4SjfA6Q1s,492
+proof_of_portfolio-0.0.10.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+proof_of_portfolio-0.0.10.dist-info/entry_points.txt,sha256=3eiRfBczxOy0SwdPwiFQIVo11BtpGK7wCXjpPukl5pk,38
+proof_of_portfolio-0.0.10.dist-info/top_level.txt,sha256=0Qp8nougU0RRvADhpjbappprPaxFPgjwOC64QeSQ3ek,6
+proof_of_portfolio-0.0.10.dist-info/RECORD,,
