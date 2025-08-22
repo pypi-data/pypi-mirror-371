@@ -1,0 +1,10 @@
+start_compiler/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+start_compiler/compile.py,sha256=Ip4AM-S5VXXjqJlWjQp5xfSWpVzYwBu8ILmzrFkGtVI,31545
+start_compiler/import_start.py,sha256=a8LFKEGQN1cylixHnHZcS7Mix8x4gfQ1AHi2ZwqKAzc,6922
+start_compiler/start_grammar.ebnf,sha256=g7OsTjYEWIeaUrM7DMxS5OUlRFc6wqchktQH0zJR8Y4,2882
+start_compiler/starttypes.py,sha256=4g1yBmPFzlUYHoQsqBzZSkiwx_pBa7o7QQEIdOdj7lk,2986
+start_compiler-1.9.9.7.1.dist-info/licenses/LICENSE,sha256=E0mkthSEkrRPYp5k7tZ2YS4jT-moOeTzsnfBSCyISfE,20849
+start_compiler-1.9.9.7.1.dist-info/METADATA,sha256=neJDdQ2NvdNVipZMYMlkxi5TMSrfkU8kaIhN9zkLV1E,1560
+start_compiler-1.9.9.7.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+start_compiler-1.9.9.7.1.dist-info/top_level.txt,sha256=bg5ME_97BgA4cqBCcpKU9ldhNxqWbhPV2y3KxbDXGKY,15
+start_compiler-1.9.9.7.1.dist-info/RECORD,,
