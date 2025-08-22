@@ -1,0 +1,17 @@
+bvlain/__init__.py,sha256=qxIWISJdVmSkKKYp2eGHdeAMEjZ29VRIL1mLUXvGJ6w,58
+bvlain/_version.py,sha256=Lgn6uma0N5VwXl4nORvE2DRqvSQUxMNBXxYI9VBgbhQ,22
+bvlain/cli.py,sha256=ge6mT58PZnesbjM36DJ_Q8tfVpgwjVz4_uz0C58mn68,3412
+bvlain/core.py,sha256=ncZoqEC1A52pnAq7mwTNzIDOxEFFYC7Ssm4cMboEUYc,33727
+bvlain/potentials.py,sha256=xUxRV8GwvR_47_DW6vgAUCdTDMk6A4wdavKE0hsYahU,2111
+bvlain/data/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+bvlain/data/anion.pkl,sha256=heJluQwq8tl_51FyjTM1bkPEe47lMBG2-XTpZPO0FD0,73317
+bvlain/data/cation.pkl,sha256=1d1hsBPbb1no6DXyFSp4JtCaXJEDRTmpvZxoCq4ArY8,81864
+bvlain/data/covalent_radii.py,sha256=mR8NyZECWQhzwUNveF_h2GEO_copGiOYHy0sFOzE70Y,3034
+bvlain/data/covalent_radii_softvb.pkl,sha256=dGogYKCcCFDZsBGbCBQSqj5At-G83sCqGKXxFmsHwts,2551
+bvlain/data/quantum_n.pkl,sha256=ZrHJPIMAg6XjXW_AMsmteU_LtoYXvo9d-9fQPkRL-jY,3217
+bvlain/data/shannon-radii.json,sha256=cMSt7eOlQ0tFATwf5GPSCrdSripydqFFps9hMAoBPmU,37813
+bvlain-0.25.1.dist-info/LICENSE,sha256=4hma01iCdm3QfVdw6u-Qpk9nuT1kj_IiKy-nSBkg7TY,1064
+bvlain-0.25.1.dist-info/METADATA,sha256=_Qq_h5st7pzmRlWXnpT6uHDPpxQo0dd9kYGeMKiwiMo,4386
+bvlain-0.25.1.dist-info/WHEEL,sha256=OqRkF0eY5GHssMorFjlbTIq072vpHpF60fIQA6lS9xA,92
+bvlain-0.25.1.dist-info/top_level.txt,sha256=Yy3xCMI9d0qMqK5RPL2e9UJSYlgRQLjbza8QlDpqZng,7
+bvlain-0.25.1.dist-info/RECORD,,
