@@ -1,0 +1,9 @@
+README.md
+setup.py
+pythonic-xray/__init__.py
+pythonic-xray/code_analyzer.py
+pythonic-xray/main.py
+pythonic_xray.egg-info/PKG-INFO
+pythonic_xray.egg-info/SOURCES.txt
+pythonic_xray.egg-info/dependency_links.txt
+pythonic_xray.egg-info/top_level.txt
