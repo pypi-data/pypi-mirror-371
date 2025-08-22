@@ -1,0 +1,137 @@
+Metadata-Version: 2.4
+Name: ut_gen
+Version: 1.1.0.20250821
+Summary: General Utilities
+Author-email: Bernd Stroehle <bernd.stroehle@bs29.com>
+Maintainer-email: Bernd Stroehle <bernd.stroehle@bs29.com>
+License-Expression: GPL-3.0-only WITH Classpath-exception-2.0 OR BSD-3-Clause
+Project-URL: Source Code, https://github.com/bs2910/ut_gen/tree/master
+Project-URL: Homepage, https://kosakya.de/
+Project-URL: Documentation, https://ka-com.readthedocs.io/en/latest
+Project-URL: Apache-2.0 License, https://apache.org/licenses/LICENSE-2.0
+Project-URL: GPLv3 License, https://www.gnu.org/licenses/gpl-3.0.en.html
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Natural Language :: English
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.10
+Description-Content-Type: text/x-rst
+License-File: LICENSE.txt
+Requires-Dist: ut_com>=1.1.0.20250821
+Requires-Dist: ut_log>=1.2.0.20250819
+Dynamic: license-file
+
+######
+ut_gen
+######
+
+Overview
+********
+
+.. start short_desc
+
+**General 'Utilities'**
+
+.. end short_desc
+
+Installation
+************
+
+.. start installation
+
+The package ``ut_gen`` can be installed from PyPI.
+
+To install with ``pip``:
+
+.. code-block:: shell
+
+	$ python -m pip install ut_gen
+
+.. end installation
+
+This requires that the ``readme`` extra is installed:
+
+.. code-block:: shell
+
+	$ python -m pip install ut_gen[readme]
+
+Modules
+*******
+
+The Modules of Package ``ut_gen`` could be classified into the following module classes:
+
+#. *System modules*
+#. *Base modules*
+#. *Command modules*
+
+System modules
+^^^^^^^^^^^^^^
+
+  .. system-modules-label:
+  .. table:: *System modules*
+
+   +--------------------------------------------------------------------------+
+   |Module                                                                    |
+   +--------+----------------+------------------------------------------------+
+   |Name    |Type            |Classes                                         |
+   +========+================+================================================+
+   |evt     |Event           |Event Handling Class: EvtHandle                 |
+   |        |Handling        |                                                |
+   +--------+----------------+------------------------------------------------+
+   |exc     |Exception       |Exception Classes as child class of Exception:  |
+   |        |Handling        |ArgumentError, ExcNo, ExcStop                   |
+   |        |                |Exception Handling Classes: Exc,                |
+   +--------+----------------+------------------------------------------------+
+   |file    |File I/O        |File I/O Class: File                            |
+   +--------+----------------+------------------------------------------------+
+   |msg     |Message Handling|Message Handling Classes: Level, Msg, MsgFmt    |
+   +--------+----------------+------------------------------------------------+
+   |path    |Path Management |Path Management Class: Path                     |
+   +--------+----------------+------------------------------------------------+
+
+Base modules
+^^^^^^^^^^^^
+
+  .. Base-modules-label:
+  .. table:: *Base modules*
+
+   +--------+----------------+------------------------------------------------+
+   |Module  |Type            |Classes                                         |
+   +========+================+================================================+
+   |col     |Color Handling  |Color Handling Class: Col                       |
+   +--------+----------------+------------------------------------------------+
+   |fnc     |Function        |Function Class: Fnc                             |
+   |        |Utilities       |                                                |
+   +--------+----------------+------------------------------------------------+
+   |range   |Range Utilities |Range Utility Class: Range                      |
+   +--------+----------------+------------------------------------------------+
+   |ver     |Verificationn   |Verification Class: Ver                         |
+   |        |Utilities       |                                                |
+   +--------+----------------+------------------------------------------------+
+   |utg     |other general   |General Utility Classes: GermanUmlaute, Int,    |
+   |        |Utilities       |Date, Date_Range, Date_Range_Arr, Num, Mge,     |
+   |        |                |Soup, d_Uri, Uri, Eq, D_Eq                      |
+   +--------+----------------+------------------------------------------------+
+
+Command modules
+^^^^^^^^^^^^^^^
+
+  .. Command-modules-label:
+  .. table:: *Command modules*
+
+   +--------+----------------+------------------------------------------------+
+   |Module  |Type            |Description                                     |
+   +========+================+================================================+
+   |cmd     |Command         |Modul with classes ronous or syncronous         |
+   |        |Utilities       |execution of commands                           |
+   +--------+----------------+------------------------------------------------+
+   |cmdline |Commandline     |Command Line Utility Class: Cmdline             |
+   |        |Utilities       |                                                |
+   +--------+----------------+------------------------------------------------+
+
+Appendix
+********
+
+.. contents:: **Table of Content**
