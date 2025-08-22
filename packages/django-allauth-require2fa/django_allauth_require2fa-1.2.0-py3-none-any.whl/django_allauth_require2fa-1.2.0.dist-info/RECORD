@@ -1,0 +1,17 @@
+require2fa/README.md,sha256=TyvRUoJP2a4Ptzr91QlpGPGgNNmLu_K-JN7D9hJlVGQ,4869
+require2fa/__init__.py,sha256=l2aCfNyY90AnDM5Eu6rVzGQlo3OBjMvUvGsG6VAczME,56
+require2fa/admin.py,sha256=sHozFlYFN3dzSorRQRWJwNR-y0TjISQfEooAGd9ZNaE,731
+require2fa/apps.py,sha256=neQ-W-xICxbhTe3c6SHAcViKoWNBHVY7RDlp0hnLoPQ,204
+require2fa/middleware.py,sha256=-rWGNWygjpNvNJWhyDtV7Anyu1so9FjbilB8Rvln8Ss,7940
+require2fa/models.py,sha256=5ul3W9wDIXjyr4pIz4bWNVuozG_jWRyXg5OT2nigYgk,707
+require2fa/views.py,sha256=F42JXgnqFqK0fajXeutyJJxwOszRxoLMNkIhfc4Z7KI,26
+require2fa/migrations/0001_initial.py,sha256=ARtS53dAQJLWV1WJ32q77XqL3153ywUurp1GUOLTMbQ,868
+require2fa/migrations/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+require2fa/tests/__init__.py,sha256=h2YWya1mEqNlRSa74o2uULK8M80FviZfiNuqLygeEKc,32
+require2fa/tests/settings.py,sha256=dHjJ5CMWyjQOdNvBaEme3Yei6AOXdQ4Z9tOZthhwS6g,2186
+require2fa/tests/test_middleware.py,sha256=Z2qzpD3ZV4HsQlj5xQeAn9HC-B-gP1F7Byg0aMTbDOM,13060
+require2fa/tests/urls.py,sha256=Y40Wt7ni1dl96nlA21jQrZmgePeWt3rjpSPg86szUT0,360
+django_allauth_require2fa-1.2.0.dist-info/METADATA,sha256=eT4zKHF2AXPC4YBkwYOGxAEFHlj71lz09LTvABFX2rI,9823
+django_allauth_require2fa-1.2.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+django_allauth_require2fa-1.2.0.dist-info/licenses/LICENSE,sha256=HJQ7yKCIV7tOWMILnBLE7SCof0HfBA3BjSB59y5rdjs,1086
+django_allauth_require2fa-1.2.0.dist-info/RECORD,,
