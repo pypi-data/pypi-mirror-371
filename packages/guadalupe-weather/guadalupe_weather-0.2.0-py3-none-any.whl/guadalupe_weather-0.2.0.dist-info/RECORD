@@ -1,0 +1,10 @@
+guadalupe_weather/__init__.py,sha256=PJo3-mS69iATrJVRTm5J7tyb4tt1yv4WhBNBrR9qJeg,249
+guadalupe_weather/cli.py,sha256=lixgvFzcRdqVPcLQFsEM-xCu5aYKTpm8ZXoA1bv17rs,594
+guadalupe_weather/get_daily_mean.py,sha256=eOxXcLwpUm4nVDe0_1pYsVKlmGpk-_x5CRgLyeZmyAg,87
+guadalupe_weather/get_outliers.py,sha256=2P-eRwb-EoMSRvXWcNSKKk6e_c6IISSvhNFwRGkgwsg,1190
+guadalupe_weather/get_weather_data.py,sha256=dXVa7gRLl-nl2l9DszWx1L5UdMqohd7zOplbGAi9c5Q,2354
+guadalupe_weather/plot_weather_variables.py,sha256=PDGDv98gJkYm2z3iTLI4MvFZya3xjIuEUvRpIICUtCc,2705
+guadalupe_weather-0.2.0.dist-info/licenses/LICENSE,sha256=hIahDEOTzuHCU5J2nd07LWwkLW7Hko4UFO__ffsvB-8,34523
+guadalupe_weather-0.2.0.dist-info/WHEEL,sha256=G2gURzTEtmeR8nrdXUJfNiB3VYVxigPQ-bEQujpNiNs,82
+guadalupe_weather-0.2.0.dist-info/METADATA,sha256=6IslSqlQE3-VPtVmx0N-UFTE9xEo3FBf3P3o4oy1Hl8,1407
+guadalupe_weather-0.2.0.dist-info/RECORD,,
