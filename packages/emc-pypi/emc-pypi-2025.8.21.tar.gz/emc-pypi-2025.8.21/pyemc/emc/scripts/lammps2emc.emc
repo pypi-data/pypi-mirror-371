@@ -1,0 +1,25 @@
+#!/usr/bin/env emc.sh
+(* EMC: Script *)
+
+variables	= {
+  input		-> $arg0,
+  output	-> $arg1,
+  traject	-> input,
+  compress	-> false,
+  start		-> "last",
+  end		-> "last",
+  dx		-> 0,
+  dy		-> 0,
+  dz		-> 0,
+  source	-> ".",
+  target	-> "."
+};
+
+get		= {name -> source+"/"+input, work -> target};
+
+traject		= {mode -> get, name -> traject, start -> start, end -> end};
+
+translate	= {delta -> {dx, dy, dz}};
+
+put		= {name -> output, compress -> compress};
+

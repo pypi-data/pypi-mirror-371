@@ -1,0 +1,96 @@
+#EMC/FIELD/CHARMM/v34.
+#
+#  CHARMM topology using ethers force field files, 
+#  converted by emc_charmm.pl 4.0, January 11, 2023 by Pieter J. in 't Veld,
+#  to be used in conjuction with EMC v9.4.4 or higher,
+#  and created on Mon Mar 06 14:44:44 CET 2023.
+#
+
+# Rule precedences
+
+ITEM	PRECEDENCE
+
+(?
+  (CC326A)
+  (CC325A)
+  (CC325B)
+  (CT1)
+  (CT2)
+  (CT3)
+  (HA1)
+  (HA3)
+  (HA2)
+  (HCA25A)
+  (OC305A)
+  (OC30A)
+)
+
+ITEM	END
+
+# Rules
+
+ITEM	RULES
+
+# id	type	element	residue	atom	charge	rule
+
+0	?	?	UNK	UNK	0	*
+1	CC325A	C	CPEN	C1	0	^5C(H)(H)(^5C(H)(H)(^5C))(^5C(H)(H)(^5C))
+2	CC325B	C	TF2M	C1	0	^5C(C)(H)(^5C)(^5O)
+3	CC325B	C	TF2M	C2	0	^5C(H)(H)(^5C(C)(H)(^5O))(^5C(H)(H)(^5C))
+4	CC325B	C	TF2M	C3	0	^5C(H)(H)(^5C(H)(H)(^5C))(^5C(H)(H)(^5O))
+5	CC325B	C	TF2M	C4	0	^5C(H)(H)(^5C)(^5O)
+6	CC326A	C	THP	C1	0	^6C(H)(H)(O)(^6C)
+7	CC326A	C	THP	C2	0	^6C(H)(H)(^6C)(^6C)
+8	CT1	C	NEOP	CT	0	C(C)(C)(C)(C)
+9	CT1	C	IBUT	CT	0	C(C)(C)(C)(H)
+10	CT2	C	BUTA	C2	0	C(C)(C)(H)(H)
+11	CT2	C	DEET	C2	0	C(C)(H)(H)(O)
+12	CT3	C	BUTA	C1	0	C(C)(H)(H)(H)
+13	CT3	C	DME	C1	0	C(H)(H)(H)(O)
+14	CT3	C	TF2M	C5	0	C(H)(H)(H)(^5C)
+15	HA1	H	IBUT	HT	0	H(C(C)(C)(C))
+16	HA2	H	BUTA	H21	0	H(C(C)(C)(H))
+17	HA2	H	DEET	H21	0	H(C(C)(H)(O))
+18	HA2	H	THP	H1A	0	H(^6C)
+19	HA3	H	BUTA	H11	0	H(C(C)(H)(H))
+20	HA3	H	DME	H11	0	H(C(H)(H)(O))
+21	HA3	H	TF2M	H5A	0	H(C(H)(H)(^5C))
+22	HCA25A	H	CPEN	H1A	0	H(^5C)
+23	OC305A	O	TF2M	O1	0	^5O(^5C)(^5C)
+24	OC30A	O	DEET	O3	0	O(C)(C)
+25	OC30A	O	THP	O1	0	O(^6C)(^6C)
+
+ITEM	END
+
+# Templates
+
+ITEM	TEMPLATES
+
+# name	smiles
+
+BUTA	HCCCC
+CHEX	C1CCCCC1
+CPEN	C1CCCC1
+DECA	CCCCCCCCCC
+DEET	CCOCC
+DME	COCCOC
+DMET	COC
+EPET	CCOCCC
+ETHA	HCC
+HEPT	CCCCCCC
+HEXA	CCCCCC
+IBUT	C(C)(C)C
+MBET	COCCCC
+MEET	CCOC
+MPET	COCCC
+NEOP	C(C)(C)(C)C
+OCT	CCCCCCCC
+OCTD	CCCCCCCCCCCCCCCCCC
+PEND	CCCCCCCCCCCCCCC
+PENT	CCCCC
+PROP	HCCC
+TF2M	O1C(C)CCC1
+THF	O1CCCC1
+THP	O1CCCCC1
+
+ITEM	END
