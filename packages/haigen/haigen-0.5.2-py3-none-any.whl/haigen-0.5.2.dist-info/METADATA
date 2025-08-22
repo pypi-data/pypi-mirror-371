@@ -1,0 +1,6 @@
+Metadata-Version: 2.1
+Name: haigen
+Version: 0.5.2
+Requires-Dist: langchain
+Requires-Dist: langchain-core
+
