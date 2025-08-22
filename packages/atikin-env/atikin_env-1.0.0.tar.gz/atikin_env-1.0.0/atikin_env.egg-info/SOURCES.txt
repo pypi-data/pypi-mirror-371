@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+atikin_env/__init__.py
+atikin_env/core.py
+atikin_env/exceptions.py
+atikin_env/parser.py
+atikin_env.egg-info/PKG-INFO
+atikin_env.egg-info/SOURCES.txt
+atikin_env.egg-info/dependency_links.txt
+atikin_env.egg-info/top_level.txt
+tests/test_basic.py
+tests/test_type_cast.py
