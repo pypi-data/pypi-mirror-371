@@ -1,0 +1,55 @@
+Metadata-Version: 2.4
+Name: ejdate
+Version: 0.1.0
+Summary: Easy and clean Jalali-Gregorian date conversion and formatting
+Home-page: https://github.com/alireza85as/ejdate
+Author: Alireza Asadiyan
+Author-email: ali.r.asadiyan@gmail.com
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Intended Audience :: Developers
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: jdatetime
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# EJdate
+
+EJdate is a Python library for working easily with both **Jalali (Shamsi)** and **Gregorian** dates.
+
+> 🗓️ "Jalali" (also known as *Shamsi* in Persian) is the official solar calendar used in Iran.
+
+---
+
+## ✨ Why EJdate?
+
+While `jdatetime` allows Jalali date creation and conversion, **EJdate adds powerful features**:
+
+- Combines Gregorian and Jalali in one class
+- Smart date formatting in Persian and English
+- Weekend detection (Friday)
+- Day difference calculation
+- Developer-friendly, clean and modular
+- Localization support
+
+---
+
+## 📦 Installation
+
+```bash
+pip install EJdate
