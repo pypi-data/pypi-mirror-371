@@ -1,0 +1,17 @@
+MANIFEST.in
+logo.png
+setup.py
+../README.md
+rocket_welder_sdk/__init__.py
+rocket_welder_sdk/client.py
+rocket_welder_sdk.egg-info/PKG-INFO
+rocket_welder_sdk.egg-info/SOURCES.txt
+rocket_welder_sdk.egg-info/dependency_links.txt
+rocket_welder_sdk.egg-info/requires.txt
+rocket_welder_sdk.egg-info/top_level.txt
+rocket_welder_sdk/rocket_welder_sdk/__init__.py
+rocket_welder_sdk/rocket_welder_sdk/client.py
+rocket_welder_sdk/rocket_welder_sdk/connection_string.py
+rocket_welder_sdk/rocket_welder_sdk/exceptions.py
+rocket_welder_sdk/rocket_welder_sdk/gst_caps.py
+rocket_welder_sdk/rocket_welder_sdk/gst_metadata.py
