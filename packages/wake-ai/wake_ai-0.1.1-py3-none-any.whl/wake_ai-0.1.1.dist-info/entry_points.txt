@@ -1,0 +1,8 @@
+[console_scripts]
+wake-ai = wake_ai.cli:main
+
+[wake.plugins.printers]
+printers = printers
+
+[wake_ai.plugins.workflows]
+workflows = flows
