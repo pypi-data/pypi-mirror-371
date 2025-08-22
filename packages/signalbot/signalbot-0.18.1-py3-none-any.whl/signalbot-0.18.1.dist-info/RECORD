@@ -1,0 +1,14 @@
+signalbot/__init__.py,sha256=XY0j5bF2JDyospRP51qOSfbt2Wy_nQh-Ps2wmVkvf8I,566
+signalbot/api.py,sha256=WZGFFp9gQCemPri6ee_WFU5mUvB7tqUFyPGw9X8Q12c,13029
+signalbot/bot.py,sha256=ThmAh_E_NxGZ3sG3GfRQq-qn4iQfVQ5CLn0paaPR_AY,21337
+signalbot/command.py,sha256=HfPKx_dWzk0fKHJP9m0Wa2XQ6-MTi2uCgWTrRJl-QGs,2057
+signalbot/context.py,sha256=bOOV9XZOQGW0eSVCdFqJ6dzPWOElD1IrYJUVsav6NSA,3325
+signalbot/link_previews.py,sha256=yjhdkgMzi-jxojjbMsyMJiq0f_UImQH7eyLE9FoDWBM,242
+signalbot/message.py,sha256=NcCVeWW3dQS9_IyQoG8cTRElJHe2qAFBBqWtNH8nqm8,7429
+signalbot/storage.py,sha256=_Cn0S7Rx3Ux2Sn0kw0dd5TTYPM_798OqRDIcRl5bvlI,3420
+signalbot/utils/__init__.py,sha256=saV9SHVBTIXJg1VmZud2okmsiZTj3kD1KjgzAOlg_M8,302
+signalbot/utils/chat_testing.py,sha256=yL7Q1V1To5hlQo7OF8ymquCCFa8HCjwspejsyzFWe7w,4483
+signalbot-0.18.1.dist-info/LICENSE,sha256=xg47x1ax9116WPsTuygdr1xBVNvjotLot6LUQDNVRc0,1051
+signalbot-0.18.1.dist-info/METADATA,sha256=wgvE52ylwgxpdGLh-fO1bM7ZK8_QfL55ofWzgGQpdGA,10055
+signalbot-0.18.1.dist-info/WHEEL,sha256=Nq82e9rUAnEjt98J6MlVmMCZb-t9cYE2Ir1kpBmnWfs,88
+signalbot-0.18.1.dist-info/RECORD,,
