@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+src/camel_terminal_toolkit/__init__.py
+src/camel_terminal_toolkit/server.py
+src/terminal_toolkit_mcp.egg-info/PKG-INFO
+src/terminal_toolkit_mcp.egg-info/SOURCES.txt
+src/terminal_toolkit_mcp.egg-info/dependency_links.txt
+src/terminal_toolkit_mcp.egg-info/entry_points.txt
+src/terminal_toolkit_mcp.egg-info/requires.txt
+src/terminal_toolkit_mcp.egg-info/top_level.txt
