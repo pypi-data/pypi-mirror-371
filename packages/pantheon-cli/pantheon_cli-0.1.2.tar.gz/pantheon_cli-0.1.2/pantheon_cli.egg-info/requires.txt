@@ -1,0 +1,11 @@
+pantheon-agents
+pantheon-toolsets
+fire>=0.7.0
+rich>=13.9.4
+rich-pyfiglet
+hypha_rpc
+pandas
+
+[dev]
+pytest>=8.3.4
+pytest-asyncio>=0.25.0
