@@ -1,0 +1,10 @@
+whisper_eval_serbian/__init__.py,sha256=9-fO01i4uoZrf236x2vhEWaoW2Hq-HjBbEWpffeyfcE,1266
+whisper_eval_serbian/evaluator.py,sha256=vsCnjJ8WWO-SNXU4Hwhxk3-J8O2y38t56OQ5n4eeXGc,11610
+whisper_eval_serbian/model_wrapper.py,sha256=_3NCdgWvfVFK559Qe6Hnl6wTAoJMd4hfQmaJhRJT5UE,2872
+whisper_eval_serbian/task.py,sha256=OpBf6DMZWZ2YJLDXWfmAw1nQoZlhANCMh9_DgvSSUqk,2422
+whisper_eval_serbian/utils.py,sha256=zhz7670vSSFZuCFu8nilXB9HshHz3N8DwqMBhr7JMWc,2028
+whisper_eval_serbian-0.0.35.dist-info/licenses/LICENSE,sha256=nGAYxPFS0CQKxm7sVUndhUVp1q0E0rsaP2xl24StilI,11381
+whisper_eval_serbian-0.0.35.dist-info/METADATA,sha256=PlZpfTe_44kYw-jbSVWX83ewiWMbYLhNgeevKm0jexI,4981
+whisper_eval_serbian-0.0.35.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+whisper_eval_serbian-0.0.35.dist-info/top_level.txt,sha256=D8x4Ohj0ts3BzUfZoclTifsL9e4RYwDFPNtVwl_AV7U,21
+whisper_eval_serbian-0.0.35.dist-info/RECORD,,
