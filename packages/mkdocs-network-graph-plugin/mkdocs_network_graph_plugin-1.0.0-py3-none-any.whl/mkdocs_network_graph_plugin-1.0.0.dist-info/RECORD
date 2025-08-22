@@ -1,0 +1,12 @@
+mkdocs_graph_plugin/__init__.py,sha256=JI3RTAU2eXtakmShsiQCxuafKv4z44747P8em_GppLc,386
+mkdocs_graph_plugin/_version.py,sha256=6bhWZznk246WDjCC5Qi4h3xAaKaNv691_DnkS9s872A,712
+mkdocs_graph_plugin/graph.py,sha256=4PyftlKKpDR7FaihI3r-sSvIQEaqzmQ4hI386TEHvbU,4061
+mkdocs_graph_plugin/plugin.py,sha256=EixAds1Yp5gqWzLwtVJOvWeLoCQCdqsuNCldYydmbVk,3755
+mkdocs_graph_plugin/static/graph.css,sha256=hwB55HQGg6I-UJKrwJqQFu-ZYd81xJij2_jFgDJ_qwI,1678
+mkdocs_graph_plugin/static/graph.js,sha256=ErUmnvDtxJKEhQ6Uz_w9FVxSYqPFPXkFx55UD2ZwK4c,21208
+mkdocs_network_graph_plugin-1.0.0.dist-info/licenses/LICENSE,sha256=nocE88xpV_4Nx6fdp3o7KPewuaxStW8OPUHFx2iE0Mo,1066
+mkdocs_network_graph_plugin-1.0.0.dist-info/METADATA,sha256=1eBM_bNQVHFrmc0cuWXr8oopolpHlm6a6Vil2QFprts,10517
+mkdocs_network_graph_plugin-1.0.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+mkdocs_network_graph_plugin-1.0.0.dist-info/entry_points.txt,sha256=tGqf5lATIhAN_t_xRHyZLJMOSYYhGdDRIeRbZxRErqE,64
+mkdocs_network_graph_plugin-1.0.0.dist-info/top_level.txt,sha256=j7wdG1T44E5B7vkhGZIemxhL2a0rU272PaDamYlRjwI,20
+mkdocs_network_graph_plugin-1.0.0.dist-info/RECORD,,
