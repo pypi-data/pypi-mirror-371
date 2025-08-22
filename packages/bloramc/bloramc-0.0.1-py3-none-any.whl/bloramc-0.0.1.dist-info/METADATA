@@ -1,0 +1,11 @@
+Metadata-Version: 2.4
+Name: bloramc
+Version: 0.0.1
+Summary: BloraMc utility extention
+Home-page: https://lystech.org
+Author: BloraMc
+Author-email: info@lystech.org
+Dynamic: author
+Dynamic: author-email
+Dynamic: home-page
+Dynamic: summary
