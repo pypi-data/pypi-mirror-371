@@ -1,0 +1,15 @@
+[project]
+name = "clean_talk_client"
+version = "1.0.2"
+description = "Official Clean Talk client for Python applications."
+authors = [{ name="kolas.ai", email="info@kolas.ai" }]
+readme = "README.md"
+license = { file="LICENSE" }
+requires-python = ">=3.9"
+dependencies = [
+    "requests>=2.32",
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
