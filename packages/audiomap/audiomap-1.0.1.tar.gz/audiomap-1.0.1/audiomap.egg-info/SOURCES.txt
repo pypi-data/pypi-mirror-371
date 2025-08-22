@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+audiomap/__init__.py
+audiomap/cli.py
+audiomap/detector.py
+audiomap/exceptions.py
+audiomap/utils.py
+audiomap.egg-info/PKG-INFO
+audiomap.egg-info/SOURCES.txt
+audiomap.egg-info/dependency_links.txt
+audiomap.egg-info/entry_points.txt
+audiomap.egg-info/requires.txt
+audiomap.egg-info/top_level.txt
+tests/test_detector.py

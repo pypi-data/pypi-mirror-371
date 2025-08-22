@@ -1,0 +1,10 @@
+build>=1.2.2.post1
+twine>=6.1.0
+
+[dev]
+pytest>=7.0.0
+pytest-cov>=4.0.0
+
+[windows]
+comtypes>=1.4.11
+pycaw>=20240210
