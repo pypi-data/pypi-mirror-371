@@ -1,0 +1,2 @@
+[xarray.backends]
+bout_adios2 = xbout.xarraybackend:BoutAdiosBackendEntrypoint
