@@ -1,0 +1,63 @@
+[project]
+name = "kelp-o-matic"
+dynamic = ["version"]
+description = "Habitat segmentation with AI"
+readme = "README.md"
+authors = [{ name = "Taylor Denouden", email = "taylor.denouden@hakai.org" }]
+requires-python = ">=3.10"
+license = "MIT"
+dependencies = [
+    "cyclopts>=3.22.2",
+    "humanize>=4.12.3",
+    "numpy>=2.2.6",
+    "onnxruntime>=1.22.0; extra != 'cuda'",
+    "opencv-python-headless>=4.11.0.86",
+    "platformdirs>=4.3.8",
+    "pydantic>=2.11.7",
+    "rasterio>=1.4.3",
+    "requests>=2.32.4",
+    "rich>=13.0.0",
+]
+
+[project.optional-dependencies]
+cuda = [
+    "onnxruntime-gpu[cuda,cudnn]>=1.22.0",
+]
+
+[project.urls]
+Documentation = "https://kelp-o-matic.readthedocs.io"
+
+[project.scripts]
+kom = "kelp_o_matic.main:app"
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.2.0",
+    "pytest>=8.4.1",
+    "pyupgrade>=3.20.0",
+    "ruff>=0.12.5",
+]
+docs = [
+    "mkdocs>=1.6.1,<2",
+    "mkdocs-material>=9.6.3,<10",
+    "mkdocstrings-python>=1.14.6,<2",
+]
+examples = [
+    "jupyter>=1.1.1",
+]
+
+[tool.uv]
+default-groups = [
+    "dev",
+    "docs",
+]
+
+[tool.hatch.version]
+path = "src/kelp_o_matic/__init__.py"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tools.ruff]
+line-length = 120
