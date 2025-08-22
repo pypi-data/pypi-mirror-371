@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Qalita CLI UI - Dashboard</title>
+  <link rel="icon" href="/static/favicon.ico" />
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+
+<body style="background-repeat: no-repeat;">
+  <div class="topbar">
+    <div class="brand">
+      <div class="left">
+        <img src="/static/logo-no-slogan.png" alt="Qalita" />
+        <span>Qalita CLI UI</span>
+      </div>
+      <div class="right">
+        <a href="https://doc.qalita.io/" target="_blank" rel="noopener noreferrer">Help</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    {% if feedback %}
+    <div class="alert {{ 'alert-error' if feedback_level == 'error' else 'alert-info' }}" style="margin-bottom:12px;">{{
+      feedback }}</div>
+    {% endif %}
+    <div class="grid">
+      <div>
+        <h2>Sources</h2>
+        <div class="actions mb-12">
+          <a class="btn" href="/sources/add">Add source</a>
+          <form class="inline" method="post" action="/validate" style="display:inline;">
+            <button class="btn secondary" type="submit">Validate</button>
+          </form>
+          <form class="inline" method="post" action="/push" style="display:inline;">
+            <button class="btn secondary" type="submit">Push</button>
+          </form>
+        </div>
+        <div class="card">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Visibility</th>
+                <th>Validity</th>
+                <th>Description</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for s in sources %}
+              {% set icon_map = {
+              'file':'file.svg', 'folder':'folder.svg', 'postgresql':'postgresql.svg', 'mysql':'mysql.svg',
+              'oracle':'oracle.svg', 'mssql':'mssql.svg',
+              'sqlite':'sqlite.svg', 'mongodb':'mongodb.svg', 's3':'s3.svg', 'gcs':'gcs.png',
+              'azure_blob':'azure_blob.svg', 'hdfs':'hdfs.svg', 'sftp':'sftp.svg',
+              'http':'http.svg', 'https':'https.svg'
+              } %}
+              {% set type_icon = icon_map.get(s.type, 'folder.svg') %}
+              <tr>
+                <td>{{ s.name }}</td>
+                <td class="type-cell"><img src="/static/sources-logos/{{ type_icon }}" alt="{{ s.type }}" />{{ s.type }}
+                </td>
+                {% set vis = (s.visibility or '')|lower %}
+                <td>
+                  {% if vis == 'private' %}
+                  <span title="private" class="badge badge-private">
+                    <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="3" y="9" width="14" height="8" rx="2" stroke="#374151" stroke-width="2" />
+                      <path d="M6 9V7a4 4 0 1 1 8 0v2" stroke="#374151" stroke-width="2" fill="none" />
+                    </svg>
+                    Private
+                  </span>
+                  {% elif vis == 'internal' %}
+                  <span title="internal" class="badge badge-internal">
+                    <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="3" y="6" width="14" height="10" rx="2" stroke="#0ea5e9" stroke-width="2" />
+                      <path d="M7 6V4h6v2" stroke="#0ea5e9" stroke-width="2" />
+                    </svg>
+                    Internal
+                  </span>
+                  {% elif vis == 'public' %}
+                  <span title="public" class="badge badge-public">
+                    <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="10" cy="10" r="8" stroke="#16a34a" stroke-width="2" />
+                      <path d="M2 10h16M10 2a12 12 0 0 1 0 16M10 2a12 12 0 0 0 0 16" stroke="#16a34a"
+                        stroke-width="2" />
+                    </svg>
+                    Public
+                  </span>
+                  {% else %}
+                  <span class="muted">{{ s.visibility }}</span>
+                  {% endif %}
+                </td>
+                {% set val = (s.validate or '')|lower %}
+                <td>
+                  {% if val == 'valid' %}
+                  <span title="valid" class="badge badge-valid">
+                    <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="10" cy="10" r="9" stroke="#059669" stroke-width="2" />
+                      <path d="M6 10.5l2.5 2.5L14 7.5" stroke="#059669" stroke-width="2" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    Valid
+                  </span>
+                  {% elif val == 'invalid' %}
+                  <span title="invalid" class="badge badge-invalid">
+                    <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="10" cy="10" r="9" stroke="#b91c1c" stroke-width="2" />
+                      <path d="M7 7l6 6M13 7l-6 6" stroke="#b91c1c" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                    Invalid
+                  </span>
+                  {% else %}
+                  <span class="muted">{{ s.validate or '' }}</span>
+                  {% endif %}
+                </td>
+                <td class="muted"><small>{{ s.description }}</small></td>
+                <td>
+                  <div class="actions">
+                    <a class="btn secondary" href="/sources/edit/{{ s.name }}">Edit</a>
+                    <form class="inline" method="post" action="/sources/delete/{{ s.name }}"
+                      onsubmit="return confirm('Delete this source?');" style="display:inline;">
+                      <button class="btn danger" type="submit">Delete</button>
+                    </form>
+                  </div>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div style="margin-top: 48px;">
+        <h2>Pack</h2>
+        <div class="card" style="margin-bottom: 24px;">
+          <form method="post" action="/pack/push">
+            <label for="pack_dir">Pack folder</label>
+            <div class="row" style="display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;">
+              <input id="pack_dir" name="pack_dir" type="text" placeholder="/path/to/your_pack" />
+              <button type="button" class="btn secondary" style="margin-top: 5px;" id="browse_pack">Browse…</button>
+            </div>
+            <div class="actions" style="margin-top:12px;">
+              <button class="btn" type="submit">Push Pack</button>
+            </div>
+          </form>
+        </div>
+
+        <h2>Agent</h2>
+        <div class="card">
+          {% if agent_conf %}
+          <div style="display:grid;grid-template-columns: 160px 1fr;row-gap:8px;column-gap:12px;">
+            <div class="muted">Name</div>
+            <div>{{ agent_conf.get('name','') }}</div>
+            <div class="muted">Mode</div>
+            <div>{{ agent_conf.get('mode','') }}</div>
+            <div class="muted">Backend URL</div>
+            <div>{{ agent_conf.get('url','') }}</div>
+            <div class="muted">Agent ID</div>
+            <div>{{ agent_conf.get('agent_id','') }}</div>
+          </div>
+          <div style="margin-top:12px;">
+            <div class="muted" style="margin-bottom:6px;">Recent Runs</div>
+            {% if agent_runs and agent_runs|length > 0 %}
+            <ul style="margin:0;padding-left:18px;">
+              {% for r in agent_runs[:30] %}
+              <li><span class="muted">{{ r.when }}</span> — <code>{{ r.name }}</code></li>
+              {% endfor %}
+            </ul>
+            {% else %}
+            <div class="muted">No recent runs found.</div>
+            {% endif %}
+          </div>
+          {% else %}
+          <div class="muted">No agent configuration found. Use "qalita agent login" to configure.</div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="inner">
+      <div>
+        <span>&copy; QALITA</span> — Qalita CLI UI
+      </div>
+      <div>
+        <span id="cli_version"></span>
+        &nbsp;•&nbsp;
+        <a href="https://qalita.io" target="_blank" rel="noopener noreferrer">qalita.io</a>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      fetch('/static/version.json').then(r => r.json()).then(v => {
+        const el = document.getElementById('cli_version'); if (el) { el.textContent = (v && v.version) ? `CLI v${v.version}` : ''; }
+      }).catch(() => { });
+    })();
+    (function () {
+      function pickFolder() {
+        fetch('/sources/pick-folder').then(r => r.json()).then(j => {
+          if (j && j.path) { var inp = document.getElementById('pack_dir'); if (inp) { inp.value = j.path; } }
+        }).catch(() => { });
+      }
+      var btn = document.getElementById('browse_pack'); if (btn) { btn.addEventListener('click', pickFolder); }
+    })();
+  </script>
+</body>
+
+</html>
