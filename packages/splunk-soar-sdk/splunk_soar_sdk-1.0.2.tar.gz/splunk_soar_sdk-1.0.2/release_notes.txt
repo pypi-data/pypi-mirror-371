@@ -1,0 +1,23 @@
+## [1.0.2](https://github.com/phantomcyber/splunk-soar-sdk/compare/1.0.1...1.0.2) (2025-08-21)
+
+
+### Bug Fixes
+
+* update PyPI status to "Production/Stable" ([412cf3b](https://github.com/phantomcyber/splunk-soar-sdk/commit/412cf3bf4998768dd18a138d45aa6779c7e2c982))
+* update Python Version badge to point to main branch ([9a9f661](https://github.com/phantomcyber/splunk-soar-sdk/commit/9a9f66152feb4f7a568562ba79221dfab80188cf))
+
+
+
+
+
+## [1.0.2](https://github.com/phantomcyber/splunk-soar-sdk/compare/1.0.1...1.0.2) (2025-08-21)
+
+
+### Bug Fixes
+
+* update PyPI status to "Production/Stable" ([412cf3b](https://github.com/phantomcyber/splunk-soar-sdk/commit/412cf3bf4998768dd18a138d45aa6779c7e2c982))
+* update Python Version badge to point to main branch ([9a9f661](https://github.com/phantomcyber/splunk-soar-sdk/commit/9a9f66152feb4f7a568562ba79221dfab80188cf))
+
+
+
+
