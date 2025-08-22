@@ -1,0 +1,18 @@
+Metadata-Version: 2.4
+Name: ubt_runtime
+Version: 0.3.2
+Summary: Shared pyarmor runtime for ubTrace python packages
+Author-email: team useblocks <info@useblocks.com>
+Maintainer-email: Marco Heinemann <marco.heinemann@useblocks.com>
+Requires-Python: ~=3.12
+Description-Content-Type: text/markdown
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: Other/Proprietary License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Documentation
+License-File: LICENSE
+
+# ubTrace Sphinx Runtime
+
+Runtime for the ubTrace Sphinx Builder.
