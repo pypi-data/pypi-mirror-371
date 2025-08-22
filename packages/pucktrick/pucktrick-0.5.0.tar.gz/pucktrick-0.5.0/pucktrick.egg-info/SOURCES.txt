@@ -1,0 +1,15 @@
+LICENCE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+pucktrick.egg-info/PKG-INFO
+pucktrick.egg-info/SOURCES.txt
+pucktrick.egg-info/dependency_links.txt
+pucktrick.egg-info/requires.txt
+pucktrick.egg-info/top_level.txt
+tests/__init__.py
+tests/test_duplicated.py
+tests/test_missing.py
+tests/test_noise.py
+tests/test_outliers.py

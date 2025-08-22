@@ -1,0 +1,68 @@
+Metadata-Version: 2.1
+Name: pucktrick
+Version: 0.5.0
+Summary: A python library for error genration in dataset for machine learning
+Home-page: https://github.com/andreamaurino/pucktrick
+Author: Andrea Maurino
+Author-email: andrea.maurino@unimib.it
+License: CC BY-NC 4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: Other/Proprietary License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENCE
+
+# pucktrick
+
+Pucktrick is a Python library that provides various utility functions to introduce errors in your dataframe.
+The name of library is based on Puck. Puck is the name of the elf in the “A midsummer Night’s dream” of William Shakespeare that is very famous to enjoys causing trouble and playing tricks on mortals and other fairies alike.
+  
+
+## Features
+Pucktrick is organized in modules, one for error type. Each module inludes a function called with the name of module. Every function receives as parameters the dataset to modify, the strategy, and the original dataset, if mode="extended". Functions return two parameters an error (possibile 0 or 1) and the generated dataset.
+
+
+
+## Version
+version 0.5
+- add strategy, a json file where it is possibile to create a error model by specifing the affected features (from one to many), a selection criteria, a bolean predicate that specify a subset of the rows to be corrupted, the mode, the percentage, the distribution function for injection errors.
+
+version 0.4
+ - errortype added: missing values
+
+version  0.3 
+ -error type added: duplicated
+
+version 0.2
+ - error type inserted: outliers  
+
+version 0.1
+
+- error type inserted: noisy error and inconsistency labels
+
+
+## Installation
+
+You can install pucktrick using pip:
+
+pip install pucktrick
+
+
+## References
+
+## Contributing
+We welcome contributions from the community. To contribute:
+
+Fork the repository
+Create a new branch (git checkout -b feature/your-feature)
+Commit your changes (git commit -am 'Add new feature')
+Push to the branch (git push origin feature/your-feature)
+Create a new Pull Request
+Please ensure your code adheres to our coding standards and includes appropriate tests.
+
+License
+This project is licensed under the Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)  - see the LICENSE file for details.
+
+Acknowledgements
+Thanks to the contributors and open-source community for their support.
