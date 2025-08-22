@@ -1,0 +1,12 @@
+README.md
+pyproject.toml
+pepycli/__init__.py
+pepycli/api.py
+pepycli/cli.py
+pepycli/config.py
+pepycli.egg-info/PKG-INFO
+pepycli.egg-info/SOURCES.txt
+pepycli.egg-info/dependency_links.txt
+pepycli.egg-info/entry_points.txt
+pepycli.egg-info/requires.txt
+pepycli.egg-info/top_level.txt

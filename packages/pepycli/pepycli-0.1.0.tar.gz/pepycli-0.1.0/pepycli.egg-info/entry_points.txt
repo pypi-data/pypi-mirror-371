@@ -1,0 +1,2 @@
+[console_scripts]
+pepycli = pepycli.cli:main

@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pepycli"
+version = "0.1.0"
+description = "CLI Util for get analytics from pepy.tech"
+readme = "README.md"
+requires-python = ">=3.12"
+authors = [
+    { name="Kirill", email="kirisa49@gmail.com" }
+]
+dependencies = [
+    "aiohttp>=3.12.15",
+    "python-dotenv>=1.1.1",
+    "typer>=0.16.1",
+]
+
+[project.urls]
+HomePage = "https://github.com/kirillysz/pepycli"
+Documentation = "https://github.com/kirillysz/pepycli"
+
+
+[project.scripts]
+pepycli = "pepycli.cli:main"
+
