@@ -1,0 +1,38 @@
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mgp-imputer"
+version = "0.0.1"
+authors = [
+  { name="Bahram Jafrasteh", email="baj4003@med.cornell.edu" },
+]
+description = "Missing Value Imputation using Deep Gaussian Processes with a scikit-learn compatible API."
+readme = "README.md"
+license = { file="LICENSE" }
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Healthcare Industry",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+keywords = ["gaussian process", "imputation", "missing data", "clinical data", "pytorch", "healthcare"]
+dependencies = [
+    "numpy",
+    "scikit-learn",
+    "torch>=1.10.0",
+    "pandas",
+    "pkbar",
+    "matplotlib",
+    "scipy"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/your-username/mgp-imputer"
+"Bug Tracker" = "https://github.com/your-username/mgp-imputer/issues"
