@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: python-developer-v4-cli
+Version: 4.0.0
+Summary: Herramienta de deployment automatizado para proyectos .NET
+Author: Dev Ops Axum PP-2025
+Author-email: francoenzopecora@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
