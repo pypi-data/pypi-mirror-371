@@ -1,0 +1,16 @@
+commitloom/__init__.py,sha256=XJYkD_pYLDGi71TgBC84A-ug_iNiaWz5bTWUqnyY0f0,637
+commitloom/__main__.py,sha256=ZI_QgIlJTFrgapG3PzrsiRUnUCvLxQoGSLwVh1S7rTQ,7359
+commitloom/cli/cli_handler.py,sha256=OzkwGv7WgKbNDfgxDSLl6oXv_jK8d1Dwsf_E3WKB9g0,19860
+commitloom/cli/console.py,sha256=6dmzpe6p0bDJWe1hRyVG8eNNyCTnsVXdqR8RHrUNnrE,8910
+commitloom/config/settings.py,sha256=ldRDgdbhh-u0Q-RrVXHT1E_maCOFSkH_J1jo1ZsgJVA,5247
+commitloom/core/analyzer.py,sha256=c3p1qyk4gZ-6VWNsM6shKnfchKYu9R4z8HkeIDeH1NQ,6561
+commitloom/core/batch.py,sha256=HeXZlAL7qFKxMJyDNqV4aHeMu6RFRixtfdVwsBa1k8Q,1627
+commitloom/core/git.py,sha256=Cnp8u1zbbQWvA0YhiCYHm01Yk13PlDIRMP1edwlqHBU,11862
+commitloom/core/smart_grouping.py,sha256=nKSV0g9B7pMvmPC9Tu4XRU7R3W888IML-phv1gQjI5g,19985
+commitloom/services/ai_service.py,sha256=AwSkI7lLnDQd7p00llGKewRHL53G7XzSUtfCrUOd-4M,10268
+commitloom/services/metrics.py,sha256=-pTpVOMRYmIG9hjBsFFltgp1HbkXK6Oaa_3sf1Iaqtw,17530
+commitloom-1.6.1.dist-info/METADATA,sha256=tBGhzeyVCb1557ruTKqFoibFe7AZ4e1Xz7u4Tiq3guA,12615
+commitloom-1.6.1.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+commitloom-1.6.1.dist-info/entry_points.txt,sha256=3Ov7pRSqM1BfBKIqOrguqukUKypXWxVgp9rvmSKFLPM,50
+commitloom-1.6.1.dist-info/licenses/LICENSE,sha256=TbEBNOoCFM-mjwzt_X4BiPrwNErpppvuDqtB_Y4AdxY,1070
+commitloom-1.6.1.dist-info/RECORD,,
