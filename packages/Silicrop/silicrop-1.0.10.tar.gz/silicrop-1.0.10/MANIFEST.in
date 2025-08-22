@@ -1,0 +1,8 @@
+include README.md
+include LICENSE
+include silicrop/assets/*.png
+exclude silicrop/assets/*.pth
+exclude *.pth
+exclude build/*
+exclude dist/*
+exclude *.egg-info/*
