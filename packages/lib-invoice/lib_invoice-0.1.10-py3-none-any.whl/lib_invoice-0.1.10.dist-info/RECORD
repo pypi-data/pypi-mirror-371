@@ -1,0 +1,5 @@
+lib_invoice/__init__.py,sha256=UYRjxHg5rVyM8xu6g9LX5XmjZuPYgo9Z7j8FQe8IeHk,58
+lib_invoice/invoice.py,sha256=es-EUQJBSoKutQJjDL4BmxnPv5zZfnXffHvij2n0nq8,6244
+lib_invoice-0.1.10.dist-info/METADATA,sha256=RTv10ud2MlAljbl7Q8o2KIrvEy62c3fhN0tJc77_M0k,500
+lib_invoice-0.1.10.dist-info/WHEEL,sha256=b4K_helf-jlQoXBBETfwnf4B04YC67LOev0jo4fX5m8,88
+lib_invoice-0.1.10.dist-info/RECORD,,
