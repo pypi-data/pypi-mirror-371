@@ -1,0 +1,44 @@
+Metadata-Version: 2.4
+Name: hanifx
+Version: 20.0.0
+Summary: Offline OTP Generator (TOTP/HOTP) with QR and backup codes
+Home-page: https://github.com/hanifx-540
+Author: Hanif
+Author-email: sajim4653@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: qrcode[pil]
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# hanifx
+
+hanifx OTP Module - Offline TOTP/HOTP generator with backup codes and QR generation.
+
+## Installation
+```bash
+pip install hanifx
+
+import hanifx
+
+secret = hanifx.otp_secret()
+otp = hanifx.otp_generate(secret)
+print("OTP:", otp)
+print("Valid?", hanifx.otp_verify(secret, otp))
+backup = hanifx.otp_backup(secret)
+print("Backup Codes:", backup)
+qr_bytes = hanifx.otp_qr(secret, account="hanif", issuer="hanifx")
+with open("hanifx_qr.png", "wb") as f:
+    f.write(qr_bytes)
