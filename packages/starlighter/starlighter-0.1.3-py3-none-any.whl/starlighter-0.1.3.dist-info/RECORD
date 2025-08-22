@@ -1,0 +1,6 @@
+starlighter/__init__.py,sha256=8a411f7514ff9c8dc99da7a88de6aa7207e85c42bf23e237da9710c88e18c5f4,2093
+starlighter/parser.py,sha256=cfad7acdebf1bd5754972902282110e7cf5507b2ccf7215594900d8e4ccc8f4e,19909
+starlighter/themes.py,sha256=d1d039bdf7d191addf9d739c1a19eff6c4d447e47bd5e9acaeb864785d076934,7076
+starlighter-0.1.3.dist-info/WHEEL,sha256=76443c98c0efcfdd1191eac5fa1d8223dba1c474dbd47676674a255e7ca48770,79
+starlighter-0.1.3.dist-info/METADATA,sha256=65cb994e900288d78712ca6f07e7fc33477ef01a5f31d0b6bdab395102477e2c,9532
+starlighter-0.1.3.dist-info/RECORD,,
