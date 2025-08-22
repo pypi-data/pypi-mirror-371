@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "thrmt"
+version = "0.0.14"
+authors = [
+    {name = "Emanuele Ballarin", email = "emanuele@ballarin.cc"}
+]
+description = "Torched Random Matrix Theory"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Topic :: Scientific/Engineering :: Mathematics",
+    "Environment :: Console",
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+]
+keywords = [
+    "Deep Learning",
+    "Differentiable Programming",
+    "Machine Learning",
+    "PyTorch",
+    "Random Matrices",
+    "Random Matrix Theory",
+]
+dependencies = [
+    "torch>=2",
+]
+
+[project.urls]
+Homepage = "https://github.com/emaballarin/thrmt"
+
+[tool.setuptools]
+packages = ["thrmt"]
+zip-safe = true
+include-package-data = false
