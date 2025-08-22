@@ -1,0 +1,157 @@
+Metadata-Version: 2.4
+Name: gcp_notifier
+Version: 0.1.5
+Summary: A simple notification library for Google Cloud projects. Sends alerts via Email and Google Chat.
+Author-email: Marcellus Montilla <marcellusmontilla@gmail.com>
+License: MIT License
+        
+        Copyright (c) 2025 Marcellus Montilla
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Project-URL: Homepage, https://github.com/marcellusmontilla/gcp_notifier
+Project-URL: Repository, https://github.com/marcellusmontilla/gcp_notifier
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: google-cloud-secret-manager
+Requires-Dist: google-auth
+Requires-Dist: requests
+Provides-Extra: test
+Requires-Dist: pytest; extra == "test"
+Provides-Extra: async
+Requires-Dist: aiosmtplib; extra == "async"
+Requires-Dist: httpx; extra == "async"
+Dynamic: license-file
+
+
+# GCP Notifier
+
+[![Upload Python Package](https://github.com/marcellusmontilla/gcp_notifier/actions/workflows/python-publish.yml/badge.svg)](https://github.com/marcellusmontilla/gcp_notifier/actions/workflows/python-publish.yml)
+
+## Synchronous Usage
+
+Import and use in your Python code:
+
+```python
+from gcp_notifier import notify, notify_on_failure
+
+# Send a notification (choose channels: "email", "gchat", or both)
+notify(
+  subject="Alert Subject",
+  body="Alert body text",
+  channels=["email", "gchat"]  # or ["email"] or ["gchat"]
+)
+
+# Use as tenacity retry_error_callback
+from tenacity import retry, stop_after_attempt
+
+@retry(stop=stop_after_attempt(3), retry_error_callback=notify_on_failure)
+def always_fails():
+  # This function will always fail, triggering notify_on_failure after retries
+  raise ValueError("This is a test error for notification.")
+
+always_fails()
+```
+
+## Async Usage
+
+You can send notifications asynchronously using the async API:
+
+```python
+import asyncio
+from gcp_notifier import async_notify, async_notify_on_failure
+
+# Send a notification asynchronously
+async def main():
+  await async_notify(
+    subject="Async Alert",
+    body="This is an async alert!",
+    channels=["email", "gchat"]
+  )
+
+asyncio.run(main())
+
+# Use as tenacity retry_error_callback (async)
+from tenacity import retry, stop_after_attempt
+
+@retry(stop=stop_after_attempt(3), retry_error_callback=async_notify_on_failure)
+async def always_fails_async():
+  raise ValueError("This is a test error for async notification.")
+
+asyncio.run(always_fails_async())
+```
+
+## Installation
+
+Install from PyPI (recommended):
+
+```sh
+pip install gcp-notifier
+```
+
+For async features (async_notify, async_notify_on_failure), install with the optional async dependencies:
+
+```sh
+pip install 'gcp-notifier[async]'
+```
+
+This will install the package plus the required async libraries (aiosmtplib, httpx).
+
+## Quick Start
+
+1. Install the package (see Installation above).
+
+2. The account (personal or service) running this code must have the 'Secret Manager Secret Accessor' role in your GCP project.
+
+3. The required secrets must be in the same GCP project where your Python script or notebook is running.
+
+4. Add your required secrets to Google Secret Manager in your GCP project:
+
+   - `GCHAT_WEBHOOK_URL` (for Google Chat)
+   - `EMAIL_SENDER` (sender email address for Email)
+   - `EMAIL_PASSWORD` (password or app password for sender)
+   - `EMAIL_RECIPIENTS` (comma-separated list of recipient email addresses)
+
+5. Import and use `notify` in your code as shown below.
+
+## Building and Publishing
+
+This project uses a modern Python packaging workflow with `pyproject.toml`.
+
+To build the package:
+
+```sh
+python -m pip install --upgrade build
+python -m build
+```
+
+To check and upload to PyPI:
+
+```sh
+python -m pip install --upgrade twine
+twine check dist/*
+twine upload dist/*
+```
+
+See [Python Packaging User Guide](https://packaging.python.org/en/latest/tutorials/packaging-projects/) for more details.
+
+## License
+
+MIT
