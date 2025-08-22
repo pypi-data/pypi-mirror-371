@@ -1,0 +1,6 @@
+X-HTTP-Method-Override
+X-Method-Override
+X-HTTP-Method
+X-Method
+X-HTTP-Method-Override-Original
+X-Forwarded-Method
