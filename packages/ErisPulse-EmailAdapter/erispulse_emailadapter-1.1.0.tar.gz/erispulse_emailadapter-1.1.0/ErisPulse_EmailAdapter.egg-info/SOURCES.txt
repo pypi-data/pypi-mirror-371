@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+EmailAdapter/Core.py
+EmailAdapter/__init__.py
+ErisPulse_EmailAdapter.egg-info/PKG-INFO
+ErisPulse_EmailAdapter.egg-info/SOURCES.txt
+ErisPulse_EmailAdapter.egg-info/dependency_links.txt
+ErisPulse_EmailAdapter.egg-info/entry_points.txt
+ErisPulse_EmailAdapter.egg-info/top_level.txt
+tests/test.py
