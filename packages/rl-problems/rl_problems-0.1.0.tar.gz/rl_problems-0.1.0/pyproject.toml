@@ -1,0 +1,9 @@
+[project]
+name = "rl-problems"
+version = "0.1.0"
+description = "Implementations and experiments for classic reinforcement learning problems, including multi-armed bandits, epsilon-greedy strategies, and other RL algorithms for learning and evaluation."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "numpy>=2.3.2",
+]
