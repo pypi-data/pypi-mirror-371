@@ -1,0 +1,8 @@
+moskit_cli/__init__.py,sha256=j68nWigHka5j16IWVwmL1amLTKyuewPbPZOWkfA3kWo,147
+moskit_cli/_core.py,sha256=g99KbRVhq-e_xF8pnqkN_GYdyC1AmqdpdjdneX6-UsU,3285
+moskit_cli/client.py,sha256=IbxXEHWHMDmBYpEoZ3OkmaBogXLvHbVMfDUtxmlFDmY,1274
+moskit_cli/enums.py,sha256=aEeS5m7q_p-c5OydvAfBTdVEL_WzA1mRfdYVv1K8hKg,391
+moskit_cli-0.1.5.dist-info/METADATA,sha256=rplGfxg3LLXycJ2IMl-dCXZT_SJS6-_vya54bfPyL54,394
+moskit_cli-0.1.5.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+moskit_cli-0.1.5.dist-info/top_level.txt,sha256=ZwEHaGwD1qjLvcY-mJ7c4SV9tPdUmvphA2P2BHe_zuw,11
+moskit_cli-0.1.5.dist-info/RECORD,,
