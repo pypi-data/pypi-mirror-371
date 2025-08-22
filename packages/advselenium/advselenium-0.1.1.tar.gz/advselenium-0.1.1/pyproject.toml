@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "advselenium"
+version = "0.1.1"
+description = "Advanced Selenium toolkit: smart waits, resilient actions, stealth, POM base, and handy CLI."
+readme = "README.md"
+requires-python = ">=3.9"
+license = {file = "LICENSE"}
+authors = [
+    { name = "Amal Alexander", email = "amalalex95@gmail.com" }
+]
+maintainers = [
+    { name = "Amal Alexander", email = "amalalex95@gmail.com" }
+]
+keywords = ["selenium", "automation", "testing", "web scraping", "e2e", "browser"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Testing",
+    "Typing :: Typed"
+]
+dependencies = [
+    "selenium>=4.22.0",
+    "webdriver-manager>=4.0.1",
+    "tenacity>=8.2.3",
+    "typing-extensions>=4.9.0"
+]
+
+[project.scripts]
+advsel = "advselenium.cli:main"
+
+[project.urls]
+LinkedIn = "https://www.linkedin.com/in/amal-alexander-305780131/"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+packages = ["advselenium"]
+
+[tool.setuptools.package-data]
+advselenium = ["py.typed"]
