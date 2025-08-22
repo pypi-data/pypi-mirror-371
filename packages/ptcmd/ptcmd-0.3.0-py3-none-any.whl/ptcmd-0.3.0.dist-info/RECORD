@@ -1,0 +1,12 @@
+ptcmd/__init__.py,sha256=qzzt3O36vR6_G59CdBHneDfJNe-nFCyBpjcBK6tGkcc,1718
+ptcmd/argument.py,sha256=dU7qD3dkP-sliXw4ol5o-eXcCpJDGGVLEvRNv88v5f4,15499
+ptcmd/command.py,sha256=bWAMhSH_1RjZLXRtAjxUzl5qv5uxfmsx4NPUwAfTR1A,16168
+ptcmd/completer.py,sha256=4cVub0mFJeCXJIH0NgsYm1_XBCfzLmyFj__Z-HgExcQ,16428
+ptcmd/core.py,sha256=iRXMHguJfoABlL_wIHWnAKpUTSQrJx10uOIF9oo6_so,30408
+ptcmd/info.py,sha256=Ukh71TGVXoEmL3eGOVqBtzaHv8NC_928KGX7mv8KYJA,7180
+ptcmd/theme.py,sha256=WH1CIVonzdZ4mfNAIhwh51rNWq5AqttC8mbdntK9FOs,550
+ptcmd/version.py,sha256=5zTqm8rgXsWYBpB2M3Zw_K1D-aV8wP7NsBLrmMKkrAQ,704
+ptcmd-0.3.0.dist-info/METADATA,sha256=sgO4pmjxQqlVXNn-CgR5cKV9n4HLYAU0F8OR9NO1LRA,9998
+ptcmd-0.3.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+ptcmd-0.3.0.dist-info/licenses/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+ptcmd-0.3.0.dist-info/RECORD,,
