@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: dol_cookbook
+Version: 0.1.7
+Summary: recipes for dol tools
+License: mit
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+
+# dol_cookbook
+recipes for dol tools
+
+
+To install:	```pip install dol_cookbook```
