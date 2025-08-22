@@ -1,0 +1,9 @@
+linked/__init__.py,sha256=8Rgok8xXiSUPXpYbP3mQGnwC3EImbDfD0s7RNoGCzF8,584
+linked/util.py,sha256=lPqB6PKZzduUJl0nYljqHnMAn7hq04WaG1hSJBX7BlU,392
+linked/datasrc/__init__.py,sha256=azKC7naM5ZHb212lZnFTnLuXxmoqDF3tb5GN0lakGag,133
+linked/datasrc/minidot.py,sha256=ToU-NeGTjlzgmSUVF9vnhF8mWREcPXg7-Ufx_CZfCwE,2638
+linked-0.0.4.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+linked-0.0.4.dist-info/METADATA,sha256=uiF917CGUitoaELvldkL5wLPpFqQxWJZ1XEdFcJR9jE,803
+linked-0.0.4.dist-info/WHEEL,sha256=tZoeGjtWxWRfdplE7E3d45VPlLNQnvbKiYnx7gwAy8A,92
+linked-0.0.4.dist-info/top_level.txt,sha256=ki53IDV3qFTrasLjg7yft7j7Gb43u6McXZEqOt8c0zY,7
+linked-0.0.4.dist-info/RECORD,,
