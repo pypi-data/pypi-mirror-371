@@ -1,0 +1,2 @@
+[console_scripts]
+abstergo-censor = abstergo_censor:main
