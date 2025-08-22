@@ -1,0 +1,2 @@
+[console_scripts]
+rendergit = repo_to_single_page:main
