@@ -1,0 +1,134 @@
+# -----------------------------------------------------------------------------
+# FAIR-LLM Framework Configuration
+# -----------------------------------------------------------------------------
+# This file is the single source of truth for all application settings.
+# It is loaded and validated by Pydantic schemas defined in `core/config_schemas.py`.
+
+# --- API Keys ---
+# Add your secret API keys for any third-party services here.
+# The framework will only initialize adapters for services that have a valid key.
+api_keys:
+  openai_api_key: "YOUR_OPEN_AI_API_KEY"
+  anthropic_api_key: "YOUR_ANTHROPIC_API_KEY"
+
+# --- Model Definitions ---
+# This section allows you to define aliases and settings for various models.
+models:
+  # OpenAI models
+  openai_gpt4:
+    provider: "openai"
+    model_name: "gpt-4o"
+    temperature: 0.7
+    max_tokens: 2000
+  
+  openai_gpt3_5:
+    provider: "openai"
+    model_name: "gpt-3.5-turbo"
+    temperature: 0.8
+    max_tokens: 1500
+  
+  # Anthropic models
+  anthropic_claude:
+    provider: "anthropic"
+    model_name: "claude-3-opus-20240229"
+    temperature: 0.7
+    max_tokens: 2000
+  
+  # Ollama local models
+  deepseek_7b:
+    provider: "ollama"
+    model_name: "deepseek-r1:7b"
+    temperature: 0.7
+    max_tokens: 1500
+  
+  deepseek_32b:
+    provider: "ollama"
+    model_name: "deepseek-r1:32b"
+    temperature: 0.7
+    max_tokens: 2000
+  
+  deepseek_70b:
+    provider: "ollama"
+    model_name: "deepseek-r1:70b"
+    temperature: 0.7
+    max_tokens: 2500
+  
+  codellama_7b:
+    provider: "ollama"
+    model_name: "codellama:7b"
+    temperature: 0.3
+    max_tokens: 1000
+  
+  qwen2_math:
+    provider: "ollama"
+    model_name: "qwen2-math:7b"
+    temperature: 0.3
+    max_tokens: 1500
+  
+  nuextract:
+    provider: "ollama"
+    model_name: "nuextract"
+    temperature: 0.1
+    max_tokens: 500
+
+# --- Default Model Selection ---
+default_model: "openai_gpt4"
+
+# --- Security Settings ---
+security:
+  enable_input_validation: true
+  max_input_length: 10000
+
+# --- Web Search Settings ---
+search_engine:
+  google_cse_search_api: "YOUR CSE API KEY"
+  google_cse_search_engine_id: "YOUR CSE ENGINE ID"
+  web_search_cache_ttl: 3600
+  web_search_cache_max_size: 1000
+  web_search_max_results: 10
+
+# --- RAG System Configuration ---
+rag_system:
+  # File and storage paths
+  paths:
+    files_directory: "./docs"
+    vector_store_dir: "./out/faiss_store"
+  
+  # Document processing
+  document_processing:
+    supported_extensions: [".pdf", ".docx", ".txt", ".csv", ".xlsx", ".sql", ".pptx", ".md"]
+    max_chunk_chars: 1500
+    enable_ocr: true
+    ocr_dpi: 200
+  
+  # Embedding models
+  embeddings:
+    embedding_model: "sentence-transformers/multi-qa-mpnet-base-dot-v1"
+    cross_encoder_model: "cross-encoder/ms-marco-MiniLM-L-6-v2"
+    batch_size: 64
+  
+  # Retrieval parameters
+  retrieval:
+    default_top_k: 15
+    pool_multiplier: 3
+    max_initial_retrieval_docs: 75
+    rerank_enabled: true
+  
+  # Vector store configuration
+  vector_store:
+    backend: "faiss"
+    use_gpu: false
+    index_type: "FLAT"
+
+# --- Cache Configuration ---
+cache:
+  query_cache_enabled: true
+  max_cache_size: 1000
+  cache_ttl: 3600
+  redis_url: null  # Optional: for distributed caching
+
+# --- LLM Configuration ---
+llm:
+  max_retries: 3
+  timeout: 120
+  streaming_enabled: true
