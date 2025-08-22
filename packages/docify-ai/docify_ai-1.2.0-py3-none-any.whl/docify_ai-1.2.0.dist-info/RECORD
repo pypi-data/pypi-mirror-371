@@ -1,0 +1,11 @@
+docify_ai-1.2.0.dist-info/licenses/LICENSE,sha256=6kbiFSfobTZ7beWiKnHpN902HgBx-Jzgcme0SvKqhKY,1091
+docify_tool/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+docify_tool/cli.py,sha256=oRn4lioFDBuJtehZkm2weavCFx6BGsdB1x74FeA1ZwQ,4369
+docify_tool/generator.py,sha256=jLFRvTChUsSsItsV5-Jzx0zbNX2EbQNPAgh3L5QVN9c,2264
+docify_tool/prompts.py,sha256=PhjCXpFwm41mkjHeRYc2RK4dO4qycibS7TU0xl91eko,1770
+docify_tool/scanner.py,sha256=LiSW5ficSrtR5nTPDknlnfjOUwe0aOjwJtIjyCbLXbM,1336
+docify_ai-1.2.0.dist-info/METADATA,sha256=4sb2jH3tXoPwtq04OWtzXa6-mO2yUf66Z-3spEMUojo,6399
+docify_ai-1.2.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+docify_ai-1.2.0.dist-info/entry_points.txt,sha256=cn_Gp2iJX1RhucA1ejd1x3jyOA2D-NqJ_kiqQTP87kU,48
+docify_ai-1.2.0.dist-info/top_level.txt,sha256=7qog4LVDhuISKmhSUxE2Kn-DV_HDdARbJ9ZUx-vCrAQ,12
+docify_ai-1.2.0.dist-info/RECORD,,
