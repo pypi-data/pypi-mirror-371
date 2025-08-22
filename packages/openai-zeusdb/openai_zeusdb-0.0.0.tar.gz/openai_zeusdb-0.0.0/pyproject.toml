@@ -1,0 +1,8 @@
+[project]
+name = "openai-zeusdb"
+version = "0.0.0"
+description = "Build production-ready RAG fast: OpenAI embeddings + ZeusDB vector storage with enterprise performance."
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
