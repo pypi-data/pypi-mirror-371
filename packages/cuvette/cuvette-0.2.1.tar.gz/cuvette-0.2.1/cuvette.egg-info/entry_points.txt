@@ -1,0 +1,18 @@
+[console_scripts]
+ai2checks = cuvette.aliases:ai2checks
+ai2cleanup = cuvette.aliases:ai2cleanup
+ai2code = cuvette.aliases:ai2code
+ai2codereset = cuvette.aliases:ai2codereset
+ai2cursor = cuvette.aliases:ai2cursor
+bd = cuvette.scripts.get_jobs:sessions
+bdall = cuvette.scripts.get_jobs:all
+bl = cuvette.launcher:main
+blogs = cuvette.scripts.stream_logs:logs
+bparse = cuvette.scripts.parse_logs:main
+bport = cuvette.update_port:main
+bpriority = cuvette.scripts.change_priority:main
+brestart = cuvette.scripts.restart_jobs:main
+bstop = cuvette.scripts.stop_jobs:main
+bstream = cuvette.scripts.stream_logs:stream
+claunch = cuvette.launcher:main
+gpus = cuvette.scripts.get_free_gpus:main
