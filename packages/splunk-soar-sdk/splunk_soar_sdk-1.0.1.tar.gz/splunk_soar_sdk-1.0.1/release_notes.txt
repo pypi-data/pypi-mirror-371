@@ -1,0 +1,21 @@
+## [1.0.1](https://github.com/phantomcyber/splunk-soar-sdk/compare/1.0.0...1.0.1) (2025-08-21)
+
+
+### Bug Fixes
+
+* clean up failed CI run ([22ce677](https://github.com/phantomcyber/splunk-soar-sdk/commit/22ce67730d95aa4caec9992f410606a3e502f1c0))
+
+
+
+
+
+## [1.0.1](https://github.com/phantomcyber/splunk-soar-sdk/compare/1.0.0...1.0.1) (2025-08-21)
+
+
+### Bug Fixes
+
+* clean up failed CI run ([22ce677](https://github.com/phantomcyber/splunk-soar-sdk/commit/22ce67730d95aa4caec9992f410606a3e502f1c0))
+
+
+
+
