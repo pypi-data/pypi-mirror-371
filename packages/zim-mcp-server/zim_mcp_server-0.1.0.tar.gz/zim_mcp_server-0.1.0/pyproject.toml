@@ -1,0 +1,35 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "zim-mcp-server"
+version = "0.1.0"
+description = "MCP server that enables AI models to access and search ZIM format knowledge bases offline"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "beautifulsoup4>=4.13.4",
+    "html2text>=2025.4.15",
+    "libzim>=3.7.0",
+    "mcp[cli]>=1.9.0",
+]
+
+[dependency-groups]
+dev = [
+  { include-group = "lint" },
+  { include-group = "build" },
+]
+
+lint = [
+  "pre-commit==4.2.0",
+  "ruff==0.12.9",
+]
+
+build = [
+  "build==1.3.0",
+  "twine==6.1.0",
+]
+
+[project.scripts]
+zim-mcp-server = "zim_mcp_server.server:main"
