@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LLM Usage</title>
+    <style>
+      body { font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif; margin: 24px; color: #111; }
+      header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+      h2 { margin: 0; font-weight: 600; }
+      .metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 12px 0 24px; }
+      .card { padding: 16px; border: 1px solid #eaeaea; border-radius: 10px; background: #fff; box-shadow: 0 1px 2px rgba(0,0,0,0.04); }
+      table { width: 100%; border-collapse: collapse; overflow: hidden; border-radius: 10px; background: #fff; }
+      th, td { padding: 10px 12px; border-bottom: 1px solid #f1f3f5; text-align: left; font-size: 14px; }
+      th { background: #f8f9fa; position: sticky; top: 0; color: #495057; font-weight: 600; }
+      tr:hover td { background: #fcfcfd; }
+      form.filters { display: flex; gap: 8px; align-items: center; margin-bottom: 12px; flex-wrap: wrap; }
+      input, select, button { padding: 8px 10px; font-size: 14px; color: #111; background: #fff; border: 1px solid #eaeaea; border-radius: 8px; }
+      button { background: linear-gradient(180deg, #ffffff, #f5f5f5); border: 1px solid #e3e3e3; cursor: pointer; }
+      a.btn { padding: 6px 10px; border: 1px solid #e3e3e3; border-radius: 8px; text-decoration: none; color: #111; background: linear-gradient(180deg, #ffffff, #f5f5f5); font-size: 13px; }
+      .pill { padding: 2px 8px; background: #f1f3f5; color: #495057; border: 1px solid #e9ecef; border-radius: 999px; font-size: 12px; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h2>LLM Usage Dashboard</h2>
+    </header>
+
+    <form class="filters" method="get" action="/">
+      <label>Provider
+        <select name="provider">
+          <option value="">All</option>
+          <option value="openai" {{ 'selected' if filters.provider == 'openai' else '' }}>OpenAI</option>
+          <option value="gemini" {{ 'selected' if filters.provider == 'gemini' else '' }}>Gemini</option>
+        </select>
+      </label>
+      <label>Model
+        <select name="model">
+          <option value="">All</option>
+          {% for m in models %}
+          <option value="{{m}}" {{ 'selected' if filters.model == m else '' }}>{{m}}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label>Tag <input type="text" name="tag" value="{{filters.tag or ''}}" /></label>
+      <label>Success
+        <select name="success">
+          <option value="">All</option>
+          <option value="1" {{ 'selected' if filters.success == '1' else '' }}>Yes</option>
+          <option value="0" {{ 'selected' if filters.success == '0' else '' }}>No</option>
+        </select>
+      </label>
+      <label>Start <input type="text" name="start" placeholder="YYYY-MM-DD" value="{{filters.start or ''}}" /></label>
+      <label>End <input type="text" name="end" placeholder="YYYY-MM-DD" value="{{filters.end or ''}}" /></label>
+      <button type="submit">Apply</button>
+    </form>
+
+    <section class="metrics">
+      <div class="card">Total requests: <strong>{{total_count}}</strong></div>
+      <div class="card">Total cost (USD): <strong>{{'%.6f' % total_cost}}</strong></div>
+      <div class="card">Avg latency (ms): <strong>{{avg_latency}}</strong></div>
+    </section>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Time</th>
+          <th>Provider</th>
+          <th>Model</th>
+          <th>Tags</th>
+          <th>Latency</th>
+          <th>Tokens (in/out)</th>
+          <th>Cost</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for r in rows %}
+        <tr>
+          <td style="white-space:nowrap">{{r.created_at}}</td>
+          <td>{{r.provider}}</td>
+          <td>{{r.model}}</td>
+          <td>
+            {% if r.tags %}
+              {% for t in (r.tags|replace('[','')|replace(']','')|replace('"','') ).split(',') %}
+                <span class="pill">{{t.strip()}}</span>
+              {% endfor %}
+            {% else %}-{% endif %}
+          </td>
+          <td>{{r.latency_ms or '-'}}</td>
+          <td>{{r.input_tokens}} / {{r.output_tokens}}</td>
+          <td>{{'%.6f' % (r.total_cost_usd or 0.0)}}</td>
+          <td>{{'ok' if r.success else 'error'}}</td>
+          <td>
+            <a class="btn" href="/requests/{{r.request_id}}">View</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>
+
+
