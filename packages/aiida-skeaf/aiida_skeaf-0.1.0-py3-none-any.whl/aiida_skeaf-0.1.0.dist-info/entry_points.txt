@@ -1,0 +1,13 @@
+[aiida.calculations]
+skeaf.create_bxsf_from_file=aiida_skeaf.calculations.functions:create_bxsf_from_file
+skeaf.create_bxsf_from_wannier90=aiida_skeaf.calculations.functions:create_bxsf_from_wannier90
+skeaf.skeaf=aiida_skeaf.calculations.skeaf:SkeafCalculation
+skeaf.wan2skeaf=aiida_skeaf.calculations.wan2skeaf:Wan2skeafCalculation
+
+[aiida.parsers]
+skeaf.skeaf=aiida_skeaf.parsers.skeaf:SkeafParser
+skeaf.wan2skeaf=aiida_skeaf.parsers.wan2skeaf:Wan2skeafParser
+
+[aiida.workflows]
+skeaf.skeaf=aiida_skeaf.workflows:SkeafWorkChain
+
