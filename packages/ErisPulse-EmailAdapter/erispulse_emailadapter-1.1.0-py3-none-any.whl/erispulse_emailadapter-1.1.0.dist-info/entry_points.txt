@@ -1,0 +1,3 @@
+[erispulse.adapter]
+email = EmailAdapter:EmailAdapter
+mail = EmailAdapter:EmailAdapter
