@@ -1,0 +1,6 @@
+README.md
+setup.py
+yandex_yc_research_data_app.egg-info/PKG-INFO
+yandex_yc_research_data_app.egg-info/SOURCES.txt
+yandex_yc_research_data_app.egg-info/dependency_links.txt
+yandex_yc_research_data_app.egg-info/top_level.txt
