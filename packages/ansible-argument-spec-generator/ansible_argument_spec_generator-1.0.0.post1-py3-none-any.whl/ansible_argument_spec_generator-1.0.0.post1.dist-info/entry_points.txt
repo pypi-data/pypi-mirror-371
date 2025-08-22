@@ -1,0 +1,3 @@
+[console_scripts]
+ansible-argument-spec-generator = generate_argument_specs:main
+generate-argument-spec = generate_argument_specs:main
