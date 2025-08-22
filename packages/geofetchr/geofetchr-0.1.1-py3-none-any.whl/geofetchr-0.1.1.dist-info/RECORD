@@ -1,0 +1,9 @@
+geofetchr/__init__.py,sha256=BH4Q_nIMuzcL0-LH6yy86dMjKDPWbCGNH4ISwNcYsao,481
+geofetchr/download.py,sha256=fwp6t2XOeHS15BO1-pTwc6ZbE10Bl6ajGskL4jsJdrY,3701
+geofetchr/group.py,sha256=XzMNAWDNVW9-LhRnaSUxsKwqW1KMeOu8IcEmEFJo6ww,3596
+geofetchr/metadata.py,sha256=vklHbSGwA9lU1H_jwz2Cy8Dtz3TP0jxtJB99dPgD1Bo,464
+geofetchr/search.py,sha256=9n7_GqtZ6ldgf6bjaNDQS1lNIo54wvzC7usBIC8gnsw,3515
+geofetchr-0.1.1.dist-info/METADATA,sha256=Pmjgmy_8jyEVlsxwXMqg7xdRdyRNu8-dARqEjaHphko,1352
+geofetchr-0.1.1.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+geofetchr-0.1.1.dist-info/licenses/LICENSE.txt,sha256=FbpYpnggNVxOEG60NmmXsKX1FtKFCrE05X2-6FaNHEU,1106
+geofetchr-0.1.1.dist-info/RECORD,,
