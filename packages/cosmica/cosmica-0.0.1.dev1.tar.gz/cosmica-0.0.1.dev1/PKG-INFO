@@ -1,0 +1,18 @@
+Metadata-Version: 2.3
+Name: cosmica
+Version: 0.0.1.dev1
+Summary: COnstellation Satellite siMulator for optIcal CommunicAtion
+Author: Shunichiro Nomura, Vinícius Nery, Kazuki Takashima
+Author-email: Shunichiro Nomura <nomura@space.t.u-tokyo.ac.jp>, Vinícius Nery <viniciusfnery@space.t.u-tokyo.ac.jp>, Kazuki Takashima <takashima@space.t.u-tokyo.ac.jp>
+Classifier: Development Status :: 2 - Pre-Alpha
+Requires-Dist: typing-extensions>=4.14.0
+Requires-Python: >=3.13
+Project-URL: Documentation, https://www.space.t.u-tokyo.ac.jp/cosmica/
+Project-URL: Issues, https://github.com/ut-issl/cosmica/issues
+Project-URL: Repository, https://github.com/ut-issl/cosmica
+Description-Content-Type: text/markdown
+
+# COSMICA
+
+> [!WARNING]
+> This repository is still under construction.
