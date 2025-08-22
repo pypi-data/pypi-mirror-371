@@ -1,0 +1,25 @@
+Metadata-Version: 2.4
+Name: timepix_geometry_correction
+Version: 0.2.0.dev7
+Summary: Program to realign the timepix1 and 3 chips
+Project-URL: homepage, https://github.com/ornlneutronimaging/timepix_geometry_correction
+Project-URL: repository, https://github.com/ornlneutronimaging/timepix_geometry_correction
+Project-URL: issues, https://github.com/ornlneutronimaging/timepix_geometry_correction/issues
+License: MIT
+License-File: LICENSE
+Keywords: correction,geometry,neutrons,timepix
+Requires-Python: >=3.10
+Requires-Dist: hatchling
+Requires-Dist: numpy<3,>=2.2
+Provides-Extra: docs
+Requires-Dist: myst-parser; extra == 'docs'
+Requires-Dist: sphinx-rtd-theme<4,>=3.0.1; extra == 'docs'
+Requires-Dist: sphinx<9,>=8.2.1; extra == 'docs'
+Requires-Dist: versioningit; extra == 'docs'
+Description-Content-Type: text/markdown
+
+[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/ornlneutronimaging/timepix_geometry_correction/main.svg)](https://results.pre-commit.ci/latest/github/ornlneutronimaging/timepix_geometry_correction/main)
+
+## Getting Started
+
+The following tool has been developed to perform chips correction on the timepix 1 and 3 detector at ORNL.
