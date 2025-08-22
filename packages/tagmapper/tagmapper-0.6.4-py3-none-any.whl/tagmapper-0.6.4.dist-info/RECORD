@@ -1,0 +1,12 @@
+tagmapper/__init__.py,sha256=mKYoTkf2Imc50fQnD__9JuCXQ9Gwgz2E71YDaIHvLIU,406
+tagmapper/base_model.py,sha256=ktokoSmNA6xKCBmpXRxXhNSserM7n9nUKqaYexXhjes,1362
+tagmapper/connector_api.py,sha256=7u7qk1n_y5Z2XX74jEdHWDixgJ5A3Yu7fveZoL8o21I,11811
+tagmapper/generic_model.py,sha256=xGaqEjbbswNFe7x_Lq0Ic1aPnPEjOCBNvX9yX3D93kA,24868
+tagmapper/mapped_object.py,sha256=uzefovHo_0vjcUt4cQe6h3v6_9Y-ANQaTUqY3SLeqJI,186
+tagmapper/mapping.py,sha256=dV-CZsSD5nBovf1L8Pwf6BMwYbX25R8yjLRn20y_i2c,8026
+tagmapper/schemas.py,sha256=AwZOXBLPklqvg9syGFEl2uyi2vtAKmLPHACEXnACJVo,2371
+tagmapper/separator.py,sha256=vZQAZF3jZDK0sdExfMG2JDSZuh_LnRoVmvB0VI_yfMg,2302
+tagmapper/well.py,sha256=a5Ub_UNMGjSjWJGrvsPEWLgMEIzStKHxAZ2VgVOZwWg,1985
+tagmapper-0.6.4.dist-info/METADATA,sha256=WnNLFfAd8HjGAr04i4xeo9MiVrWzoUXc0l0s4BHzFYI,2584
+tagmapper-0.6.4.dist-info/WHEEL,sha256=sP946D7jFCHeNz5Iq4fL4Lu-PrWrFsgfLXbbkciIZwg,88
+tagmapper-0.6.4.dist-info/RECORD,,
