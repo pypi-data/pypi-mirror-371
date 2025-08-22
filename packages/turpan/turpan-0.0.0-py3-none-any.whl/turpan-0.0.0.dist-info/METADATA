@@ -1,0 +1,20 @@
+Metadata-Version: 2.4
+Name: turpan
+Version: 0.0.0
+Home-page: https://github.com/powerfulbean/turpan
+Author: Powerfulbean
+Author-email: powerfulbean@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license-file
+
+Turpan | 吐鲁番
