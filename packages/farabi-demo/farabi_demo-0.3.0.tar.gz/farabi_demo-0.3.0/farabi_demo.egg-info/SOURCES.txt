@@ -1,0 +1,9 @@
+README.md
+setup.py
+farabi_demo/__init__.py
+farabi_demo/main.py
+farabi_demo.egg-info/PKG-INFO
+farabi_demo.egg-info/SOURCES.txt
+farabi_demo.egg-info/dependency_links.txt
+farabi_demo.egg-info/entry_points.txt
+farabi_demo.egg-info/top_level.txt
