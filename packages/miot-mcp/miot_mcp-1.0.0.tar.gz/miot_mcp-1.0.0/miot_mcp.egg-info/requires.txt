@@ -1,0 +1,12 @@
+mcp>=1.13.0
+mijiaAPI>=2.0.1
+Pillow>=10.0.0
+
+[dev]
+setuptools>=80.9.0
+build
+twine
+
+[docs]
+sphinx>=5.0.0
+sphinx-rtd-theme>=1.0.0
