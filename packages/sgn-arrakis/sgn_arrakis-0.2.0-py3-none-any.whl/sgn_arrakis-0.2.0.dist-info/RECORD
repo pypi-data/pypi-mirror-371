@@ -1,0 +1,13 @@
+sgn_arrakis/__init__.py,sha256=J5mmuXHxBCLr-Iajne8L6r52R-kQ8hod00T5CFR2u10,246
+sgn_arrakis/__main__.py,sha256=mZdESFkulW54ptMpnK5M3ToK34NkhgVe2IkiFzN5sc4,3059
+sgn_arrakis/_version.py,sha256=iB5DfB5V6YB5Wo4JmvS-txT42QtmGaWcWp3udRT7zCI,511
+sgn_arrakis/sink.py,sha256=9CxhULerPmDyO-P0Y5t7zmUumh6TISsOyeeArk7P0VA,3963
+sgn_arrakis/source.py,sha256=0aLxZsJ8iW9qalTBjswY7m7T93pgDfvrAeRGp2wgsk0,2241
+sgn_arrakis/tests/conftest.py,sha256=6-JP_K3NtUkh-8oMIyQMmcOYdg-x8L-NbpSdrhHKmys,1793
+sgn_arrakis/tests/test_data.py,sha256=9-OTa0FKcL1r5LTaWtkM6_ohuR_lBwAkbTJkJThk-y8,740
+sgn_arrakis/tests/test_source.py,sha256=v_ZRq7oqL_hvs_HALjvqzPR9B8E4fOaJgFgj7ypXbzQ,5183
+sgn_arrakis-0.2.0.dist-info/METADATA,sha256=s_F3sNhUc_Qhry4bpKQsR5sIUW7m4zs4DTQrEfhqaBE,2508
+sgn_arrakis-0.2.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+sgn_arrakis-0.2.0.dist-info/entry_points.txt,sha256=2B4bFME4T5qXTwHi-_aiOYJi5OIdui5_AcVTOb1er0Q,58
+sgn_arrakis-0.2.0.dist-info/licenses/LICENSE,sha256=j6ndOqjJBz6CZK2xxyfnTG5LV3UzPkmgOTOSZ8mXgqU,9236
+sgn_arrakis-0.2.0.dist-info/RECORD,,

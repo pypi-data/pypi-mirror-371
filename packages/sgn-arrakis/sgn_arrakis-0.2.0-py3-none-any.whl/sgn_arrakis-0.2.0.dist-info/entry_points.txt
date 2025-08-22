@@ -1,0 +1,2 @@
+[console_scripts]
+sgn-arrakis = sgn_arrakis.__main__:main
