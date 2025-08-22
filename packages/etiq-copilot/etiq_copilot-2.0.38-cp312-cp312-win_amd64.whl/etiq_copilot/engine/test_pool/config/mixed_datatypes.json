@@ -1,0 +1,43 @@
+{
+  "tests": [
+    {
+      "name": "scan_mixed_datatypes",
+      "alias": "scan mixed datatypes (proportion of invalid dates)",
+      "parameters": {
+        "dataset": "",
+        "metric_filter":["proportion_of_invalid_dates"],
+        "features": [],
+        "thresholds": {"proportion_of_invalid_dates": [0, 0.05]}
+      },
+      "number_of_datasets_required": 1,
+      "number_of_models_required": 0,
+      "description": "A test giving the ratio to of invalid date entries to the total",
+      "feature_type": [
+        "numerical",
+        "categorical"
+      ],
+      "category": "mixed_datatypes",
+      "version": "2.0.0",
+      "active": true
+    },
+    {
+      "name": "scan_mixed_datatypes",
+      "alias": "scan mixed datatypes (count date string formats)",
+      "parameters": {
+        "dataset": "",
+        "metric_filter":["count_date_string_formats"],
+        "features": [],
+        "thresholds": {"count_date_string_formats": [0, 1]}
+      },
+      "number_of_datasets_required": 1,
+      "number_of_models_required": 0,
+      "description": "A test giving the number of unique date formats present in a dataset",
+      "feature_type": [
+        "categorical"
+      ],
+      "category": "mixed_datatypes",
+      "version": "2.0.0",
+      "active": true
+    }
+  ]
+}

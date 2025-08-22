@@ -1,0 +1,106 @@
+[
+  {
+        "test_name": "scan mixed datatypes (proportion of invalid dates)",
+        "test_version": "1.6.0",
+        "rca_config": {
+            "tests": {
+                "nodes": {
+                    "A": [
+                        "scan mixed datatypes (proportion of invalid dates)"
+                    ]
+                },
+                "config": {
+                    "A": {
+                        "scan mixed datatypes (proportion of invalid dates)": {
+
+                        }
+                    }
+                },
+                "config_overrides": {
+                    "A": {
+                        "scan mixed datatypes (proportion of invalid dates)": {
+                            "metric_filter": "metric_filter",
+                            "thresholds": "thresholds",
+                            "features": "features"
+                        }
+                    }
+                }
+            },
+            "rca": {
+                "graph": [
+                    [
+                        "A",
+                        "A",
+                        {"condition": "failure",
+                         "switch_to_parent_context": true,
+                         "maintain_base_comparison_linkage": true,
+                         "feature_filter": true,
+                         "lineage_transition_option": "BASE"
+                        }
+                    ],
+                    [
+                        "A",
+                        "T",
+                        {"condition": "either",
+                         "switch_to_parent_context": false,
+                         "feature_filter": true
+                        }
+                    ]
+                ],
+                "default_entrypoint": "A"
+            }
+        }
+    },
+  {
+        "test_name": "scan mixed datatypes (count date string formats)",
+        "test_version": "1.6.0",
+        "rca_config": {
+            "tests": {
+                "nodes": {
+                    "A": [
+                        "scan mixed datatypes (count date string formats)"
+                    ]
+                },
+                "config": {
+                    "A": {
+                        "scan mixed datatypes (count date string formats)": {
+
+                        }
+                    }
+                },
+                "config_overrides": {
+                    "A": {
+                        "scan mixed datatypes (count date string formats)": {
+                            "metric_filter": "metric_filter",
+                            "thresholds": "thresholds",
+                            "features": "features"
+                        }
+                    }
+                }
+            },
+            "rca": {
+                "graph": [
+                    [
+                        "A",
+                        "A",
+                        {"condition": "failure",
+                         "switch_to_parent_context": true,
+                         "maintain_base_comparison_linkage": true,
+                         "feature_filter": true,
+                         "lineage_transition_option": "BASE"
+                        }
+                    ],
+                    [
+                        "A",
+                        "T",
+                        {"condition": "either",
+                         "switch_to_parent_context": false,
+                         "feature_filter": true
+                        }
+                    ]
+                ],
+                "default_entrypoint": "A"
+            }
+        }
+    }
+]
