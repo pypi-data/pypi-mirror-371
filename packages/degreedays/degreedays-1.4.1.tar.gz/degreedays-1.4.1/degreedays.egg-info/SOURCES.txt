@@ -1,0 +1,16 @@
+README.md
+setup.py
+degreedays/__init__.py
+degreedays/_private.py
+degreedays/geo.py
+degreedays/time.py
+degreedays.egg-info/PKG-INFO
+degreedays.egg-info/SOURCES.txt
+degreedays.egg-info/dependency_links.txt
+degreedays.egg-info/top_level.txt
+degreedays/api/__init__.py
+degreedays/api/_processing.py
+degreedays/api/_xmlparsing.py
+degreedays/api/regression.py
+degreedays/api/data/__init__.py
+degreedays/api/data/impl.py
