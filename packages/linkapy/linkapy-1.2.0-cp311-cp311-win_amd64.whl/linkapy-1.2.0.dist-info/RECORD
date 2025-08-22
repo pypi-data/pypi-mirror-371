@@ -1,0 +1,8 @@
+linkapy-1.2.0.dist-info/METADATA,sha256=DfOovhl2bTEsNoqzT2xYKddibwXb0XfM-wOHXoQp3ZM,817
+linkapy-1.2.0.dist-info/WHEEL,sha256=Ncll1xfKuKRSH9zs2vSEuHQoNZLcJWpzadJbiEni0qk,96
+linkapy-1.2.0.dist-info/entry_points.txt,sha256=qdbkx2hCeZN4d_hzMAoBELeqmVl8RTsLEKBeVoaGY0w,46
+linkapy/CLI.py,sha256=u7jyqGCh7D2Bj342Q5SElmNCgqd3Gkph0EHy7nogNMk,5710
+linkapy/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+linkapy/linkapy.cp311-win_amd64.pyd,sha256=macEyH9KKF_ftJjGx_b4Q6na5th42FOCVoSvoLFsS64,546304
+linkapy/parsing.py,sha256=Dx8gUngHCtciALqndrKDkB_BXwbrkrFwBkYX8UENUPg,20260
+linkapy-1.2.0.dist-info/RECORD,,
