@@ -1,0 +1,29 @@
+[project]
+name = "virt-wrapper"
+version = "0.7.0"
+authors = [{ name = "Dmitry Fateev", email = "dimkaaaa1@gmail.com" }]
+description = "Wrapper that was developed in order to manage libvirt virtual machines"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["jinja2>=3.1.6", "libvirt-python>=11.6.0", "pywinrm>=0.4.3"]
+
+[project.urls]
+Homepage = "https://gitlab.com/Palit_Invalid/virt-wrapper"
+Issues = "https://gitlab.com/Palit_Invalid/virt-wrapper/-/issues"
+
+[tool.pylint]
+max-line-length = 120
+
+[tool.ruff]
+line-length = 120
+
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+
+[dependency-groups]
+dev = ["pylint>=2.13.9", "pyright>=1.1.404", "ruff>=0.12.9"]
+test = ["pytest>=7.4.4", "pytest-mock>=3.11.1"]
