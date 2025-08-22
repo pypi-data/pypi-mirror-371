@@ -1,0 +1,30 @@
+Metadata-Version: 2.4
+Name: rlevaluation
+Version: 1.1.2
+Project-URL: Homepage, https://github.com/andnp/rlevaluation
+Project-URL: Documentation, https://github.com/andnp/rlevaluation/blob/main/README.md
+Project-URL: Repository, https://github.com/andnp/rlevaluation
+Project-URL: Issues, https://github.com/andnp/rlevaluation/issues
+Project-URL: Changelog, https://github.com/andnp/rlevaluation/blob/main/CHANGELOG.md
+Author-email: Andy Patterson <andnpatterson@gmail.com>
+License: MIT
+License-File: LICENSE
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.11
+Requires-Dist: numba~=0.57
+Requires-Dist: numpy~=2.0
+Requires-Dist: polars~=1.6
+Requires-Dist: scipy~=1.9
+Description-Content-Type: text/markdown
+
+# rlevaluation
+
+[![Contributions](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](./CONTRIBUTING.md)
+
+A set of statistical analysis tools for evaluating the outcome of reinforcement learning experiments.
+
+## Installation
+```bash
+pip install rlevaluation
+```

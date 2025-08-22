@@ -1,0 +1,13 @@
+__pycache__/
+.vscode/
+*.pyc
+.mypy_cache
+.token
+.pdm-python
+.venv
+uv.lock
+*.egg-info
+
+env/
+dist/
+requirements.txt
