@@ -1,0 +1,13 @@
+cachehash/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+cachehash/main.py,sha256=GljQSDtxaxfscnN5NmiQTxlev2kYRjRwPCKAaptffas,13249
+cachehash/sql/delete_record.sql,sha256=wORC4DrZzb_UGCQlkz6_ndqLzZuKWCtKfJk9SnRO3l0,39
+cachehash/sql/get_record.sql,sha256=gGU91iYi4w6pDFQwmEfNTLYYjuusTln_gs81CNNtW88,90
+cachehash/sql/get_record_hash_key.sql,sha256=v3s06h2c12f4aTuZpgLpfFB1tv2Lyssc1wlgUgv-bj8,107
+cachehash/sql/get_record_key.sql,sha256=UnxNJkBgmgBXHASVdYxibU2g0T29AI5HcBju6mGbaYA,88
+cachehash/sql/insert_record.sql,sha256=A93IE2-CG1_Ussh6jgyhyusPftgtxW48OX12nSmHyjY,59
+cachehash/sql/make_table.sql,sha256=HMx3bfPjhxFWVTykjafLKAG0dvh-v24bmT8y7jpBuX0,86
+cachehash/sql/update_record.sql,sha256=6b63CBAr76iM1F0AIPGrLQpscKBr9ASFfi2dFLOAL4E,71
+cachehash-1.1.3.dist-info/METADATA,sha256=4ulbVje-XoMcuJwes9Scyd9ndhilabUV78kKuQSsO6k,3195
+cachehash-1.1.3.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+cachehash-1.1.3.dist-info/licenses/LICENSE,sha256=LiqzywlkfYWqtWVAV-dQbAp8xxHa3-mGd2jqlZct0Js,13318
+cachehash-1.1.3.dist-info/RECORD,,
