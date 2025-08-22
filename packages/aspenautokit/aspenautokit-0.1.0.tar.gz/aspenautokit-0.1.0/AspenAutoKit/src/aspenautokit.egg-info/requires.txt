@@ -1,0 +1,13 @@
+pandas
+numpy
+joblib
+
+[dev]
+pytest>=6.0
+pytest-cov>=2.0
+black>=22.0
+flake8>=4.0
+mypy>=0.950
+
+[windows]
+pywin32>=305
