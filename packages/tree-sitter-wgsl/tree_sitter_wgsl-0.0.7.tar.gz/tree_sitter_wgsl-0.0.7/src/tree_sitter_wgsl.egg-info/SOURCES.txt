@@ -1,0 +1,8 @@
+LICENSE
+README.md
+pyproject.toml
+src/tree_sitter_wgsl.egg-info/PKG-INFO
+src/tree_sitter_wgsl.egg-info/SOURCES.txt
+src/tree_sitter_wgsl.egg-info/dependency_links.txt
+src/tree_sitter_wgsl.egg-info/requires.txt
+src/tree_sitter_wgsl.egg-info/top_level.txt

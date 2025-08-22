@@ -1,0 +1,19 @@
+Metadata-Version: 2.4
+Name: tree-sitter-wgsl
+Version: 0.0.7
+Summary: WGSL grammar for tree-sitter
+License: BSD-3-Clause
+Project-URL: Homepage, https://github.com/gpuweb/tree-sitter-wgsl
+Keywords: incremental,parsing,tree-sitter,wgsl
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Compilers
+Classifier: Topic :: Text Processing :: Linguistic
+Classifier: Typing :: Typed
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Provides-Extra: core
+Requires-Dist: tree-sitter~=0.22; extra == "core"
+Dynamic: license-file
+
+# tree-sitter-wgsl
