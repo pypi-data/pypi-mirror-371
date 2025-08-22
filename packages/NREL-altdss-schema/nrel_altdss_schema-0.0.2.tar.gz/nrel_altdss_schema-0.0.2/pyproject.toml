@@ -1,0 +1,42 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "NREL-altdss-schema"
+version = "0.0.2"
+description = 'Pydantic data models for OpenDSS.'
+readme = "README.md"
+requires-python = ">=3.10"
+license = "BSD-3-Clause"
+keywords = [
+  "OpenDSS", "Distribution System Suite", "Ditto", "Pydantic"
+]
+authors = [
+  {name = "Paulo Meira", email = "pmeira@ieee.org"},
+  { name = "Tarek Elgindy", email = "tarek.elgindy@nrel.gov" },
+  { name = "Aadil Latif", email = "aadil.latif@nrel.gov" }
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = ["pydantic"]
+
+[project.urls]
+Documentation = "https://github.com/NREL-Distribution-Suites/altdss-schema#readme"
+Issues = "https://github.com/NREL-Distribution-Suites/altdss-schema/issues"
+Source = "https://github.com/NREL-Distribution-Suites/altdss-schema"
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/altdss_schema"]
+
+[tool.hatch.build.targets.sdist]
+include = ["/src/altdss_schema"]

@@ -1,0 +1,22 @@
+Metadata-Version: 2.4
+Name: NREL-altdss-schema
+Version: 0.0.2
+Summary: Pydantic data models for OpenDSS.
+Project-URL: Documentation, https://github.com/NREL-Distribution-Suites/altdss-schema#readme
+Project-URL: Issues, https://github.com/NREL-Distribution-Suites/altdss-schema/issues
+Project-URL: Source, https://github.com/NREL-Distribution-Suites/altdss-schema
+Author-email: Paulo Meira <pmeira@ieee.org>, Tarek Elgindy <tarek.elgindy@nrel.gov>, Aadil Latif <aadil.latif@nrel.gov>
+License-Expression: BSD-3-Clause
+License-File: LICENSE
+Keywords: Distribution System Suite,Ditto,OpenDSS,Pydantic
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.10
+Requires-Dist: pydantic
+Description-Content-Type: text/markdown
+
+This repository builds upon the original work by [PMeira](https://github.com/PMeira) at [AltDSS-Schema](https://github.com/dss-extensions/AltDSS-Schema), which aimed to define a structured JSON-based schema for DSS circuit representation. The schema has been packaged in this repository with slight modifications, enabling users to add the package as a dependency for downstream applications. This repository is actively maintained by [Tarek Elgindy](https://github.com/tarekelgindy)
