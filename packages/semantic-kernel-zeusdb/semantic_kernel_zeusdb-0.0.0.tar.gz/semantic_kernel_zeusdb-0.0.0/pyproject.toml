@@ -1,0 +1,8 @@
+[project]
+name = "semantic-kernel-zeusdb"
+version = "0.0.0"
+description = "Enterprise AI memory for Microsoft ecosystem: Semantic Kernel planning + ZeusDB vector storage with Azure-native performance."
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
