@@ -1,0 +1,13 @@
+numpy==2.3.0
+pynbt==2
+
+[dev]
+pytest>=8
+mypy==1.16.1
+black==25.1.0
+
+[docs]
+furo
+myst-parser>=2
+Sphinx>=7
+sphinx-copybutton>=0

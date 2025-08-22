@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mcstructure"
+version = "0.0.1b6"
+description = "Read and write Minecraft .mcstructure files."
+dependencies = [
+    "numpy==2.3.0",
+    "pynbt==2",
+]
+requires-python = ">=3.11"
+readme = "README.md"
+license = {text = "MIT"}
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Education",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3",
+    "Topic :: Games/Entertainment",
+    "Typing :: Typed",
+]
+keywords = [
+    "mcstructure",
+    "Minecraft",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8",
+  "mypy==1.16.1",
+  "black==25.1.0",
+]
+docs = [
+    "furo",
+    "myst-parser>=2",
+    "Sphinx>=7",
+    "sphinx-copybutton>=0",
+]
+
+[project.urls]
+"Documentation" = "https://mcstructure.readthedocs.io/en/latest/"
+"Source Code" = "https://github.com/phoenixr-codes/mcstructure/"
+
+
