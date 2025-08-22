@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "my_userparam"
+version = "0.1"
+authors = [
+  { name="Arnaud Kientz", email="arnaud@linuxmuster.net" },
+]
+description = "Tools to quickly get all my env variables and config."
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: POSIX :: Linux",
+]
+license = "GPL-3.0"
+license-files = ["LICENSE"]
+dependencies = [
+    "cryptography",
+    "pyotp",
+    "ssh_config",
+    "termcolor",
+    "typer",
+]
+
+[project.scripts]
+my = "my_userparam.main:app"
+
+[project.urls]
+Homepage = "https://github.com/kiarn/my"
+Issues = "https://github.com/kiarn/my/issues"

@@ -1,0 +1,5 @@
+cryptography
+pyotp
+ssh_config
+termcolor
+typer

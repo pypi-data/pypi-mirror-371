@@ -1,0 +1,2 @@
+[console_scripts]
+my = my_userparam.main:app
