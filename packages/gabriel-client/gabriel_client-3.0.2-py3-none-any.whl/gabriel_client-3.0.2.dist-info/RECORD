@@ -1,0 +1,12 @@
+gabriel_client/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+gabriel_client/measurement_client.py,sha256=noFYM6IxTTiaLQcBmde3P-23bpAf-iINl_hJ4QradLE,3009
+gabriel_client/opencv_adapter.py,sha256=4FQRA1MGmxt4nWLLbn-u4lvx89DcNwO02G3lGxLAZhE,2135
+gabriel_client/push_source.py,sha256=Sc7K7KOMl5c4e4S93ZWKnULSiib8yFGsioWPiX3Ve4M,1323
+gabriel_client/source.py,sha256=JBOim_odZN8H47buzpF4Riq6cTUTg91EFu2jhjJf9KM,613
+gabriel_client/websocket_client.py,sha256=X4C3vWzwxY9Au5_72-i9fIf6uaKRwwm_4piYwh4BY30,6022
+gabriel_client/zeromq_client.py,sha256=g4SeeEpp1oQVUFdC4pdRW3GDwyCcUqmUUuMsNcMeuMU,11686
+gabriel_client-3.0.2.dist-info/licenses/LICENSE,sha256=QwcOLU5TJoTeUhuIXzhdCEEDDvorGiC6-3YTOl4TecE,11356
+gabriel_client-3.0.2.dist-info/METADATA,sha256=L2qXupdFv5eiY2LhUVjN5pgxxpXhanJcOkImLYxHZlE,6659
+gabriel_client-3.0.2.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+gabriel_client-3.0.2.dist-info/top_level.txt,sha256=Ozom9KJwqMDassnAqBN9seJUT0LWM8gNjRcOf_4a27M,15
+gabriel_client-3.0.2.dist-info/RECORD,,
