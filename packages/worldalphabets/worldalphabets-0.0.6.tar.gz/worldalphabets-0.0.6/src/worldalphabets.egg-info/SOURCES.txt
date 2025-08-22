@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+src/worldalphabets/__init__.py
+src/worldalphabets.egg-info/PKG-INFO
+src/worldalphabets.egg-info/SOURCES.txt
+src/worldalphabets.egg-info/dependency_links.txt
+src/worldalphabets.egg-info/requires.txt
+src/worldalphabets.egg-info/top_level.txt
