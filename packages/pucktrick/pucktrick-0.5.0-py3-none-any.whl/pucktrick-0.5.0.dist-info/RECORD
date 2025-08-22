@@ -1,0 +1,10 @@
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/test_duplicated.py,sha256=yeCYkiyGDF_gU62lrXRmJAPYuvD6vuQu9YO9Wg93Vm4,1371
+tests/test_missing.py,sha256=wEsympzqyjaScjnEjULgrxmTWNPTMWbTWLGgW5Qfs6A,1284
+tests/test_noise.py,sha256=LBPhimkVtyZOE-v1GsBQEokI1E0OENXQE4EGvW8jH9g,1223
+tests/test_outliers.py,sha256=LGtgEIgOACh3G7NLNXOfW8tRaqQt1GFIJ8AGg2dK7JQ,1215
+pucktrick-0.5.0.dist-info/LICENCE,sha256=McWU_K39dJBZBJlNoiN97R4cIn3OqiY8KgHRlDbxJdc,13294
+pucktrick-0.5.0.dist-info/METADATA,sha256=VM20rTu2acR6Og2VBCaZnTcW-SRpGqy_gBupbNim4aQ,2500
+pucktrick-0.5.0.dist-info/WHEEL,sha256=tZoeGjtWxWRfdplE7E3d45VPlLNQnvbKiYnx7gwAy8A,92
+pucktrick-0.5.0.dist-info/top_level.txt,sha256=EdW7283x-lr_cbuivW8Ij7ANAP-ZJ9sLtILQseEPxXg,6
+pucktrick-0.5.0.dist-info/RECORD,,
