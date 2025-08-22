@@ -1,0 +1,9 @@
+akscmd/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+akscmd/__main__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+akscmd/cli.py,sha256=ElhTwvxY4PCAZbslpWik3bckZ2zHAuCpZtCT87SF-dw,10795
+akscmd/hooks.sh,sha256=sPXYeUaQFO6LLSmc_i0oVAafsV9oXL5MDKoXjEJ-CnA,1519
+akscmd-0.1.1.dist-info/METADATA,sha256=EWquDRscogDJBY28Juh-ODEyHvN9EPm670r3Esfa7QI,1338
+akscmd-0.1.1.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+akscmd-0.1.1.dist-info/entry_points.txt,sha256=8YNbjlFykTx71Oe9kkIn7sDB_82VNB4GQOkUl7VKi_s,43
+akscmd-0.1.1.dist-info/licenses/LICENSE,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+akscmd-0.1.1.dist-info/RECORD,,
