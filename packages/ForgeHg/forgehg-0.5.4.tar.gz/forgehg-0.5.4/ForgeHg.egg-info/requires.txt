@@ -1,0 +1,2 @@
+mercurial<6.5,>=5.8
+six
