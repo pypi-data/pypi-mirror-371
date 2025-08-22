@@ -1,0 +1,22 @@
+[project]
+name = "gitdoap"
+version = "0.1.1"
+description = "A small python library to generate a description of a project (doap) from a git repository."
+authors = [
+    {name = "Natanael Arndt",email = "arndtn@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.9,<4.0.0"
+dependencies = [
+    "rdflib (>=7.1.4,<8.0.0)",
+    "pygithub (>=2.6.1,<3.0.0)",
+    "typer (>=0.16.0,<0.17.0)",
+    "loguru (>=0.7.3,<0.8.0)"
+]
+
+[project.scripts]
+gitdoap = "gitdoap:app"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
