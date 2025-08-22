@@ -1,0 +1,40 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "biomesh"
+version = "0.1.0"
+authors = [
+  { name="Amadeus Gebauer", email="amadeus.gebauer@tum.de" },
+]
+description = "Create meshes from segmented imaging data for finite element simulations using Gmsh."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "GPL-3.0-or-later" }
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent"
+]
+dependencies = [
+    "numpy>=1.26.4",
+    "python-utils>=2.3.0",
+    "meshio>=5.3.5, <6",
+    "loguru>=0.7.2",
+    "tqdm==4.66.5",
+    "PyYAML>=6.0.0, <7",
+    "scipy",
+    "lnmmeshio>=5.6.4",
+    "gmsh==4.14.0",
+    "pygmsh==7.1.17"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/amgebauer/biomesh"
+"Bug Tracker" = "https://github.com/amgebauer/biomesh/issues"
