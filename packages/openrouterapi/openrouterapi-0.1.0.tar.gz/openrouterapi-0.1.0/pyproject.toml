@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "openrouterapi"
+version = "0.1.0"
+description = "Работа с OpenRouter API"
+readme = "README.md"
+requires-python = ">=3.12"
+authors = [
+    { name="Kirill", email="kirisa49@gmail.com" }
+]
+dependencies = [
+    "aiohttp>=3.12.15",
+]
+
+[project.urls]
+HomePage = "https://github.com/kirillysz/openrouterapi"

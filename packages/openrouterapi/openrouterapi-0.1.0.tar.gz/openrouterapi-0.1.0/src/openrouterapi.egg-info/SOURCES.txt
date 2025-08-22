@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+src/openrouterapi.py
+src/request.py
+src/openrouterapi.egg-info/PKG-INFO
+src/openrouterapi.egg-info/SOURCES.txt
+src/openrouterapi.egg-info/dependency_links.txt
+src/openrouterapi.egg-info/requires.txt
+src/openrouterapi.egg-info/top_level.txt
