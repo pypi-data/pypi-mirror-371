@@ -1,0 +1,5 @@
+setup.py
+jailite.egg-info/PKG-INFO
+jailite.egg-info/SOURCES.txt
+jailite.egg-info/dependency_links.txt
+jailite.egg-info/top_level.txt
