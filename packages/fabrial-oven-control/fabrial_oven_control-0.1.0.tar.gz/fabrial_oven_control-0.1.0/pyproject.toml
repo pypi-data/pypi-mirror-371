@@ -1,0 +1,47 @@
+[project]
+name = "fabrial-oven-control"
+dynamic = ["version"]
+authors = [{ name = "Drew Whitney", email = "drewlwhitney@gmail.com" }]
+maintainers = [{ name = "Drew Whitney", email = "drewlwhitney@gmail.com" }]
+description = "Fabrial plugin for controlling a Quincy 10 GCE lab oven, plus an oven interface and utility functions other plugins can use to control other ovens."
+readme = "README.md"
+# dependencies
+requires-python = ">=3.13"
+dependencies = [
+    "fabrial",
+    "minimalmodbus>=2.1.1",
+    "pyserial==3.5",
+    "PyQt6>=6.9.1",
+]
+[dependency-groups]
+test = ["pytest"]
+
+[project.urls]
+Repository = "https://github.com/Maughan-Lab/fabrial-oven-control"
+
+# fabrial entry point
+[project.entry-points."fabrial.plugins"]
+fabrial-oven-control = "fabrial_oven_control"
+
+# hatch config
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.version.raw-options]
+version_scheme = "no-guess-dev"
+
+# uv config
+[tool.uv]
+default-groups = ["test"]
+
+# pytest config
+[tool.pytest.ini_options]
+addopts = "-q -s --show-capture=no"
+testpaths = ["tests"]
+# search in all python files except `__init__.py`
+python_files = ["[!__init__]*.py"]
+python_functions = ["test_*"]
