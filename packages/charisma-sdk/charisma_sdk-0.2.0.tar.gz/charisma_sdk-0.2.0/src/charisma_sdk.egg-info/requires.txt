@@ -1,0 +1,11 @@
+pyee
+python-socketio[client]<5.0,>=4.0
+requests
+
+[:python_version < "3.8"]
+importlib-metadata
+
+[testing]
+setuptools
+pytest
+pytest-cov
