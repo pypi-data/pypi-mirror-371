@@ -1,0 +1,84 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel", "setuptools-scm>=8"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "umaapy"
+dynamic = ["version"]
+description = "Python UMAA SDK for rapid autonomy development"
+readme = "README.md"
+requires-python = ">=3.13"
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+authors = [
+    { name = "Devon Reed", email = "clr5436@psu.edu" }
+]
+
+dependencies = [
+  "rti.connext>=7.5.0"
+]
+
+[project.optional-dependencies]
+tests = [
+  "pytest>=8.4.1",
+  "pytest-cov>=6.2.1",
+]
+docs = [
+  "Sphinx>=8.2.3",
+  "sphinx-autodoc-typehints>=3.2.0",
+  "autodocsumm>=0.2.14",
+  "sphinx_rtd_theme>=3.0.2",
+  "doc8>=2.0.0",
+  "sphinxcontrib-mermaid>=1.0.0",
+  "rstcheck>=6.2.5"
+]
+
+[project.urls]
+Homepage = "https://github.com/dkreed747/umaapy"
+Repository = "https://github.com/dkreed747/umaapy"
+Issues = "https://github.com/dkreed747/umaapy/issues"
+Documentation = "https://dkreed747.github.io/umaapy/"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"umaapy.resource" = ["*.xml"]
+
+
+[tool.black]
+line-length = 120
+target-version = ['py313']
+extend-exclude = '''
+(
+  src/umaapy/umaa_types\.py
+  | umaa_types\.py$
+)
+'''
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+junit_family = "xunit2"
+junit_suite_name = "pytest"
+addopts = "--capture=tee-sys --cov --cov-report=xml:coverage.xml --cov-report=term-missing --maxfail=1 --disable-warnings -q --junitxml=report.xml"
+
+[tool.setuptools_scm]
+version_file = "src/umaapy/_version.py"
+
+[tool.coverage.run]
+omit = [
+  "src/umaapy/umaa_types.py"
+]
+
+[tool.coverage.report]
+omit = [
+  "src/umaapy/umaa_types.py"
+]

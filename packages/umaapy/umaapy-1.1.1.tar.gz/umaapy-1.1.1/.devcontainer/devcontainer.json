@@ -1,0 +1,25 @@
+{
+  "name": "UMAAPy",
+  "dockerComposeFile": [
+    "../docker-compose.yml"
+  ],
+  "service": "umaapy-dev",
+  "workspaceFolder": "/workspace",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        // Python
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-python.isort",
+        "ms-python.black-formatter",
+        // Others
+        "GitLab.gitlab-workflow",
+        "redhat.vscode-yaml",
+        "streetsidesoftware.code-spell-checker",
+        "redhat.vscode-xml",
+        "lextudio.restructuredtext"
+      ]
+    }
+  }
+}

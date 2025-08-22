@@ -1,0 +1,146 @@
+stages: []
+
+## GitLab CI is no longer used. See .github/workflows/* for GitHub Actions equivalents.
+
+## File retained for historical reference only.
+
+## ---- end ----
+
+umaapy:
+  stage: build
+  tags:
+    - dkr-run
+  image: dkreed747/umaapy-dev:latest
+  needs:
+    - job: docker
+      artifacts: false
+  before_script:
+    - pip install --upgrade pip build setuptools-scm twine
+    - rtiddsgen -language Python -inputIdl idls/UMAA -r -I idls -joinInputFiles -joinedFilesOutputName umaa_types -d ./src/umaapy
+  script:
+    - python -m build
+  artifacts:
+    paths: [dist/]
+
+test:
+  stage: test
+  tags:
+    - dkr-run
+  image: dkreed747/umaapy-dev:latest
+  needs:
+    - job: umaapy
+      artifacts: true
+  before_script:
+    - pip install --upgrade pip build setuptools-scm twine
+    - cp $RTI_LICENSE $NDDSHOME/rti_license.dat
+  script:
+    - pip install --target wheel_lib dist/*.whl
+    - export PYTHONPATH="$CI_PROJECT_DIR/wheel_lib:$PYTHONPATH"
+    - pytest
+    - sed -i 's|<source>\(.*umaapy\)</source>|<source>\1/src/umaapy</source>|g' coverage.xml
+    - sed -i 's|wheel_lib/umaapy|src/umaapy|g' coverage.xml
+    - sed -i 's|wheel_lib.umaapy|umaapy|g' coverage.xml
+  coverage: '/TOTAL.*? (100(?:\.0+)?\%\|[1-9]?\d(?:\.\d+)?\%)$/'
+  artifacts:
+    when: always
+    reports:
+      junit: report.xml
+      coverage_report:
+        coverage_format: cobertura
+        path: coverage.xml
+    paths:
+      - .pytest_cache/
+      - coverage.xml
+      - report.xml
+
+sonar:
+  stage: test
+  needs:
+    - job: test
+      artifacts: true
+  tags:
+    - dkr-run
+  image: sonarsource/sonar-scanner-cli:11
+  variables:
+    SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"  # Defines the location of the analysis task cache
+    GIT_DEPTH: "0"  # Tells git to fetch all the branches of the project, required by the analysis task
+  cache:
+    policy: pull-push
+    key: "sonar-cache-$CI_COMMIT_REF_SLUG"
+    paths:
+      - "${SONAR_USER_HOME}/cache"
+      - sonar-scanner/
+  script:
+    - sed -i 's|filename="src/umaapy/|filename="|g' coverage.xml
+    - sonar-scanner -Dsonar.host.url="${SONAR_HOST_URL}"
+  allow_failure: true
+
+package:
+  stage: deploy
+  tags:
+    - dkr-run
+  needs:
+    - job: umaapy
+      artifacts: true
+  rules:
+    - if: $CI_COMMIT_TAG
+  variables:
+    TWINE_USERNAME: gitlab-ci-token
+    TWINE_PASSWORD: $CI_JOB_TOKEN
+  before_script:
+    - pip install --upgrade pip build setuptools-scm twine
+  script:
+    - python -m twine upload --repository-url ${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/pypi dist/*
+  artifacts:
+    paths:
+      - dist/
+    expire_in: 1 hour
+
+container:
+  stage: deploy
+  tags:
+    - dkr-run
+  image: docker:stable
+  needs:
+    - job: docker
+      artifacts: false
+  script:
+    - docker info
+    - echo "$REGISTRY_TOKEN" | docker login --username "$REGISTRY_USER" --password-stdin "$REGISTRY"
+    - |
+      if [[ -n "$CI_COMMIT_TAG" ]]; then
+        TARGET_TAG="$CI_COMMIT_TAG"
+        echo "🏷  Tag pipeline: publishing dkreed747/umaapy-dev:$TARGET_TAG"
+      elif [[ "$CI_COMMIT_BRANCH" == "main" ]]; then
+        TARGET_TAG="latest"
+        echo "🌐 Main branch: publishing dkreed747/umaapy-dev:$TARGET_TAG"
+      else
+        echo "🧹 Not main or tag: cleaning up temp image"
+        docker rmi "dkreed747/umaapy-dev:$CI_COMMIT_SHORT_SHA" || true
+        exit 0
+      fi
+
+    # 2.3 pull, re-tag & push
+    - docker tag  "dkreed747/umaapy-dev:$CI_COMMIT_SHORT_SHA" "dkreed747/umaapy-dev:$TARGET_TAG"
+    - docker push "dkreed747/umaapy-dev:$TARGET_TAG"
+    - docker rmi dkreed747/umaapy-dev:$CI_COMMIT_SHORT_SHA
+  artifacts:
+    expire_in: 1h
+    reports: {}
+
+pages:
+  stage: deploy
+  tags:
+    - dkr-run
+  image: dkreed747/umaapy-dev:latest
+  needs:
+    - job: umaapy
+      artifacts: true
+  before_script:
+    - pip install --upgrade pip sphinx sphinx-autodoc-typehints autodocsumm sphinx_rtd_theme doc8 sphinxcontrib-mermaid
+    - pip install dist/*.whl
+  script:
+    - sphinx-build -b html docs/ public/
+  artifacts:
+    paths:
+      - public
