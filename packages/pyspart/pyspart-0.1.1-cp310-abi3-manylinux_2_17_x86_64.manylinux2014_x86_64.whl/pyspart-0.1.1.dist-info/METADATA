@@ -1,0 +1,51 @@
+Metadata-Version: 2.4
+Name: pyspart
+Version: 0.1.1
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Rust
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+License-File: LICENSE
+Summary: Python bindings for Spart library
+Keywords: quadtree,kdtree,r-tree,octree,spatial-index
+Author-email: Hassan Abedi <hassan.abedi.t+pyspart@gmail.com>
+Maintainer-email: Hassan Abedi <hassan.abedi.t+pyspart@gmail.com>
+License: MIT
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
+Project-URL: homepage, https://github.com/habedi/spart
+Project-URL: repository, https://github.com/habedi/spart/tree/main/pyspart
+Project-URL: documentation, https://github.com/habedi/spart/tree/main/pyspart
+
+## PySpart
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Python version](https://img.shields.io/badge/Python-%3E=3.10-blue)](https://github.com/habedi/pyspart)
+[![PyPI version](https://badge.fury.io/py/pyspart.svg)](https://badge.fury.io/py/pyspart)
+[![Pip downloads](https://img.shields.io/pypi/dm/pyspart.svg)](https://pypi.org/project/pyspart)
+[![Examples](https://img.shields.io/github/v/tag/habedi/pyspart?label=examples&color=green&style=flat&labelColor=282c34&logo=python)](https://github.com/habedi/pyspart/tree/main/pyspart/examples)
+
+Python bindings for [Spart](https://github.com/habedi/spart) library.
+
+### Installation
+
+```bash
+pip install pyspart
+```
+
+### Examples
+
+Check out [examples](examples/) directory for examples.
+
+### License
+
+PySpart is licensed under the [MIT License](LICENSE).
+
