@@ -1,0 +1,12 @@
+__init__.py,sha256=-6NcHO3F18vtESZpRWraEmOWI3KwyMGL6SffPUlO-c8,75
+agent.py,sha256=d3KNxIUnblxYfaZ1Tt6Zr5mZ6wH42wGz0BBRAAHcMVI,14055
+cli.py,sha256=ywbDVXFujU5kebGhDB_xVd-gweUI10_ngutXih6C17g,6634
+utils.py,sha256=qjUdW3ULotg58sRyoiVM0kWrlSg0SR741XYLDhh7f-w,291
+prompts/faq_system.j2,sha256=VL8fX4WlLN7L9Sz1VB2zd7zhRsuWb-Z8AU3zNNULxQ8,1134
+prompts/faq_user.j2,sha256=9EZKRAq8VEpgadUifVMRmyndqIYEtpL1-zdnVOTsfRY,119
+prompts/interactive_qa.j2,sha256=EzHe5Ep6QmdKxq1urONhoEMra6uETMVmO0fVnX1Fr34,984
+rokovo-0.2.0.dist-info/METADATA,sha256=YzyqY-b3ZL9arIjlAOIl9pkFyLlrJSeoZAg6IF14ZSw,3924
+rokovo-0.2.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+rokovo-0.2.0.dist-info/entry_points.txt,sha256=LFOttSpXvkbG0JBkzHrzZhq5yav3Wv-LadN8LDKBayk,35
+rokovo-0.2.0.dist-info/licenses/LICENSE,sha256=2VDluJsYZvm9UMgJtgA2KLFGO3ZC41lWUFcTur-xGj8,1063
+rokovo-0.2.0.dist-info/RECORD,,
