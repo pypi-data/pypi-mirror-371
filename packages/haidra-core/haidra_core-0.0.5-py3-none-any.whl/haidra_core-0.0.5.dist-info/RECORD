@@ -1,0 +1,13 @@
+haidra_core/__init__.py,sha256=3K2tqCvNOBfEkwVomvhEXNKI4WbQlKMBWOugJLIkgAw,115
+haidra_core/_version.py,sha256=XFVb11BC10Xb-0-SbdhbOKc0tBnNGczf2dUCnpdcF2I,705
+haidra_core/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+haidra_core/service_base.py,sha256=YxpHF746_FIsjGMvdCpjVgVlqDGoCRdgjM-0ViqxgE8,617
+haidra_core/ai_horde/__init__.py,sha256=cGhptFB-GTqXyUmVFRYBkT0_1h4kDhS50BMJU_YztoI,271
+haidra_core/ai_horde/meta.py,sha256=2STvMnCMgeJCMl60tRyYNsK6P9jW0wBBj4ynOmfUWEM,518
+haidra_core/ai_horde/settings.py,sha256=oKC_T10ycxhffAfH8ezCHm2qOEH-iBSjkgMZ2SB5I9c,2085
+haidra_core/meta/__init__.py,sha256=8tCRcMyw4abBgz5S3WBPUXq5VfJ7dsGreYXzXGd6Xwg,927
+haidra_core-0.0.5.dist-info/licenses/LICENSE,sha256=f49I5CZqqP0wM9-qS7f26DpgxuCZ-C1JWbgd6Q5nzY8,34503
+haidra_core-0.0.5.dist-info/METADATA,sha256=8VW3_3i_jTzdPMi30mJ90jBWB0cgoCTkD_cf73FR200,40810
+haidra_core-0.0.5.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+haidra_core-0.0.5.dist-info/top_level.txt,sha256=vLeI_v-HTwje9BC0Yfq_9i9BBwLBQkgmkCw_Lmxh5r8,12
+haidra_core-0.0.5.dist-info/RECORD,,
