@@ -1,0 +1,10 @@
+cherry_picker/__init__.py,sha256=eJF-dhwkBX7H5DUQviSNwpHyQq4J5YVcw8pJhLcumVI,164
+cherry_picker/__main__.py,sha256=d7u-BjM2duqmRNinK_k0U5D-B53R9srzxYVgj_V9k-8,129
+cherry_picker/_version.py,sha256=2GXF52IIutfiInnoWGItHWB6xM45HGVQYJ3J77-iUV0,704
+cherry_picker/cherry_picker.py,sha256=nMnrll7fHr0YDuzp70dd3tx4G8eCOOr9ahOyj4GBpuw,37618
+cherry_picker/test_cherry_picker.py,sha256=ghyhLo4QQPpBbCvgrrdsMqUG9rs9nb41H0aupQ5pOQs,46202
+cherry_picker-2.6.0.dist-info/METADATA,sha256=-gu3-ztK7_Qnrc-uzHJIPIcRPNdy5MEkE_hQCTJNi8Q,13949
+cherry_picker-2.6.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+cherry_picker-2.6.0.dist-info/entry_points.txt,sha256=t48GSe3Xgnr6RdLogCOZGDbpKsUoqS3YhFD5s58yoZE,78
+cherry_picker-2.6.0.dist-info/licenses/LICENSE,sha256=d3BgQ5OokS1y394l3h1rTIrWLNerhAxdRIiA8-lopz4,11356
+cherry_picker-2.6.0.dist-info/RECORD,,
