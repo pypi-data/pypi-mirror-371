@@ -1,0 +1,16 @@
+SpinWaveToolkit/BLSmodel.py,sha256=h8btM3_-yjfz0P11Rh_c57_QHE7yoFyvQ4i4P22QBKY,13360
+SpinWaveToolkit/__init__.py,sha256=uIw9AlODP_ylFmTpaXkwAwch9-BXbmxiXHayp4UKBhs,4040
+SpinWaveToolkit/greenAndFresnel.py,sha256=huhY1BTYhZLG2Nd5P91mEloKHZKRH19o6LMiyZFcVro,17049
+SpinWaveToolkit/helpers.py,sha256=P7lCABXEcqRJl7dKT7mfAE1--nR3zJSQ7JKLbRkYbrw,6035
+SpinWaveToolkit/core/_class_BulkPolariton.py,sha256=hwVjVZ6Utn2vkfZ2yGAZewvnTmHR1xzv8wkyIoXJgIA,6903
+SpinWaveToolkit/core/_class_DoubleLayerNumeric.py,sha256=QGmUsJawWrzqqRxtIhArs5WJ0ekRjpXnQpjLSSs6kOc,24648
+SpinWaveToolkit/core/_class_Material.py,sha256=fXBNoyKOgPd7r19nBanpE_KK7F5aYawCXgKeyqy8Oqc,2041
+SpinWaveToolkit/core/_class_ObjectiveLens.py,sha256=z71v2TOpjcct7QGNuChy2a5doF-VBh9YJWbXKcHPqTM,11519
+SpinWaveToolkit/core/_class_SingleLayer.py,sha256=WJvPFBE7R4hZu1YGTdNMArm5Jg9GQ7LH52xeKwKk5D4,30396
+SpinWaveToolkit/core/_class_SingleLayerNumeric.py,sha256=41blsZRB4IA25nDUv_O8Rvs4KhErmAtxdnRo5RLqLRE,23705
+SpinWaveToolkit/core/_class_SingleLayerSCcoupled.py,sha256=9EcmqBELv6vM-DABtpMKOSC-Q8QJoJrb2Z8bXxQHwBU,26130
+spinwavetoolkit-1.1.0.dist-info/licenses/LICENSE,sha256=23uvhq_RSUNR_c1M5vKS8SjGKOBpxRJeATe2C4x3PWE,1109
+spinwavetoolkit-1.1.0.dist-info/METADATA,sha256=2c-fc1k0KZuPRMob8CbZzbxcfALjdvhl0WDessfv_us,7023
+spinwavetoolkit-1.1.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+spinwavetoolkit-1.1.0.dist-info/top_level.txt,sha256=xGqC_9WGuW_7qusMBvBXhItfFpRsWXvH45xAf2aWY-w,16
+spinwavetoolkit-1.1.0.dist-info/RECORD,,
