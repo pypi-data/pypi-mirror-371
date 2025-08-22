@@ -1,0 +1,8 @@
+include README_playwright.md
+include LICENSE
+include setup.py
+recursive-include humancursor_playwright *.py
+recursive-include examples *.py
+exclude examples/__pycache__/*
+exclude humancursor_playwright/__pycache__/*
+exclude humancursor_playwright/utilities/__pycache__/*
