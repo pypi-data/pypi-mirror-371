@@ -1,0 +1,12 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+src/xpp/__init__.py
+src/xpp/__main__.py
+src/xpp/makefile_modifier.py
+src/yyt.egg-info/PKG-INFO
+src/yyt.egg-info/SOURCES.txt
+src/yyt.egg-info/dependency_links.txt
+src/yyt.egg-info/entry_points.txt
+src/yyt.egg-info/top_level.txt
