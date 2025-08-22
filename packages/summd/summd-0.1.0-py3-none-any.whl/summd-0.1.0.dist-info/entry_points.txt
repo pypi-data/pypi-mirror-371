@@ -1,0 +1,3 @@
+[console_scripts]
+summd=summd.__main__:main
+
