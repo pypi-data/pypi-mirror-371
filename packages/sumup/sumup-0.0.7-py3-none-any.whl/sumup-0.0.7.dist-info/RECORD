@@ -1,0 +1,10 @@
+sumup/__init__.py,sha256=2sEknKJNiMBVgPyXUZJJa3qE0qXNzxeHwyWB5mrhay8,278
+sumup/_client.py,sha256=VGXwIICttpWc4a3ADvlsIxE451RH2fkaSTzCGYqIm7k,5885
+sumup/_exceptions.py,sha256=qpU26MuntmLBMRvn-PwT20EGkm7FunmYS0iC6Gi2nFU,714
+sumup/_service.py,sha256=BZqGB8OJTZKMDVBdrjuR-haT55QdxN_1bSeOXCKvNDM,459
+sumup/_version.py,sha256=Y0mxZKaEvfihDeKgw1Fyf9qpIVG4iIsNwRCi0mEvQe4,50
+sumup-0.0.7.dist-info/licenses/LICENSE,sha256=Tx9PRQdgFB3G-jPeU8et6kVLwpDox0ZUhnIaseuVk48,10832
+sumup-0.0.7.dist-info/METADATA,sha256=efix-hb13tt3nA5sJ8o6ui9dYfvL_OgJ0JWNiNBDJdU,3308
+sumup-0.0.7.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+sumup-0.0.7.dist-info/top_level.txt,sha256=A7VSkfvp-zlARm5Jt0xmCYZbRH-VJZz-exesfOAaAIU,6
+sumup-0.0.7.dist-info/RECORD,,
