@@ -1,0 +1,5 @@
+w2gpu-0.1.0.dist-info/METADATA,sha256=S_3HsM1-2ocZ2vqDUocFbqx4IssltKzQsFZzA9ljd5M,293
+w2gpu-0.1.0.dist-info/WHEEL,sha256=6CvOkHaxvIQp6TXVBK7UO1H_j2Axyc2hzSTcMwKzQ4E,104
+w2gpu/__init__.py,sha256=vuo8K4Q4Qmqs_0VjI6YlQDOgDKh-855gk_lnKbNgedE,103
+w2gpu/w2gpu.cpython-313-darwin.so,sha256=1PRt9t34nA83V4ziXC4YsHHasxhz8K0zDbojl_dUMxM,438848
+w2gpu-0.1.0.dist-info/RECORD,,
