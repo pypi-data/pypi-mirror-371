@@ -1,0 +1,106 @@
+import typing
+
+from sideko_allium.core import (
+    AsyncBaseClient,
+    RequestOptions,
+    SyncBaseClient,
+    default_request_options,
+    to_encodable,
+)
+from sideko_allium.resources.developer.wallet.pnl.history import (
+    AsyncHistoryClient,
+    HistoryClient,
+)
+from sideko_allium.types import models, params
+
+
+class PnlClient:
+    def __init__(self, *, base_client: SyncBaseClient):
+        self._base_client = base_client
+        self.history = HistoryClient(base_client=self._base_client)
+
+    def get(
+        self,
+        *,
+        data: typing.List[params.PayloadAddressHoldings],
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> models.ResponseEnvelopePnlByWallet_:
+        """
+        Get Pnl
+
+        POST /api/v1/developer/wallet/pnl
+
+        Args:
+            data: typing.List[PayloadAddressHoldings]
+            request_options: Additional options to customize the HTTP request
+
+        Returns:
+            Successful Response
+
+        Raises:
+            ApiError: A custom exception class that provides additional context
+                for API errors, including the HTTP status code and response body.
+
+        Examples:
+        ```py
+        client.developer.wallet.pnl.get(data=[{"address": "string", "chain": "string"}])
+        ```
+        """
+        _json = to_encodable(
+            item=data, dump_with=typing.List[params._SerializerPayloadAddressHoldings]
+        )
+        return self._base_client.request(
+            method="POST",
+            path="/api/v1/developer/wallet/pnl",
+            auth_names=["APIKeyBearer"],
+            json=_json,
+            cast_to=models.ResponseEnvelopePnlByWallet_,
+            request_options=request_options or default_request_options(),
+        )
+
+
+class AsyncPnlClient:
+    def __init__(self, *, base_client: AsyncBaseClient):
+        self._base_client = base_client
+        self.history = AsyncHistoryClient(base_client=self._base_client)
+
+    async def get(
+        self,
+        *,
+        data: typing.List[params.PayloadAddressHoldings],
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> models.ResponseEnvelopePnlByWallet_:
+        """
+        Get Pnl
+
+        POST /api/v1/developer/wallet/pnl
+
+        Args:
+            data: typing.List[PayloadAddressHoldings]
+            request_options: Additional options to customize the HTTP request
+
+        Returns:
+            Successful Response
+
+        Raises:
+            ApiError: A custom exception class that provides additional context
+                for API errors, including the HTTP status code and response body.
+
+        Examples:
+        ```py
+        await client.developer.wallet.pnl.get(
+            data=[{"address": "string", "chain": "string"}]
+        )
+        ```
+        """
+        _json = to_encodable(
+            item=data, dump_with=typing.List[params._SerializerPayloadAddressHoldings]
+        )
+        return await self._base_client.request(
+            method="POST",
+            path="/api/v1/developer/wallet/pnl",
+            auth_names=["APIKeyBearer"],
+            json=_json,
+            cast_to=models.ResponseEnvelopePnlByWallet_,
+            request_options=request_options or default_request_options(),
+        )
