@@ -1,0 +1,71 @@
+[tool.poetry]
+name = "wave-attenuation-1d"
+version = "0.1.5"
+description = "Simple 1D Wave Attenuation Model for Coastal Vegetation"
+authors = [
+    "Sandy H. S. Herho <sandy.herho@email.ucr.edu>",
+    "Iwan P. Anwar",
+    "Faruq Khadami",
+    "Theo R. E. B. N. Ndruru",
+    "Rusmawan Suwarman",
+    "Dasapta E. Irawan"
+]
+maintainers = [
+    "Sandy H. S. Herho <sandy.herho@email.ucr.edu>"
+]
+readme = "README.md"
+license = "MIT"
+homepage = "https://github.com/sandyherho/wave_attenuation_1d"
+repository = "https://github.com/sandyherho/wave_attenuation_1d"
+documentation = "https://github.com/sandyherho/wave_attenuation_1d#readme"
+keywords = ["wave-attenuation", "coastal-engineering", "vegetation", "numerical-modeling", "shallow-water"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Physics",
+    "Topic :: Scientific/Engineering :: Atmospheric Science"
+]
+packages = [{include = "wave_attenuation_1d"}]
+include = [
+    "LICENSE",
+    "configs/*.txt"
+]
+
+[tool.poetry.dependencies]
+python = ">=3.8,<3.13"
+numpy = ">=1.20.0"
+numba = ">=0.54.0"
+netcdf4 = ">=1.5.0"
+tqdm = ">=4.62.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = ">=7.0.0"
+black = ">=22.0.0"
+flake8 = ">=4.0.0"
+mypy = ">=0.950"
+ipython = ">=8.0.0"
+
+[tool.poetry.scripts]
+wave-attenuation-1d = "wave_attenuation_1d.cli:main"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 100
+target-version = ['py38']
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
