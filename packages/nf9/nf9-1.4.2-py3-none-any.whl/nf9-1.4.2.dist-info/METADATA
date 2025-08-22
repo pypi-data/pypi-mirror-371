@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: nf9
+Version: 1.4.2
+Summary: High level interface to SAOImageDS9 using pyds9()
+Home-page: https://github.com/npirzkal/GRISMCONF
+Author: Nor Pirzkal
+Author-email: npirzkal@mac.com
+Requires-Dist: pyds9>1.8
+
