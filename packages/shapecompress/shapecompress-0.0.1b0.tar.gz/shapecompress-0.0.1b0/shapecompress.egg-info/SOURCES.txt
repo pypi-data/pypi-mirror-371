@@ -1,0 +1,8 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+shapecompress.egg-info/PKG-INFO
+shapecompress.egg-info/SOURCES.txt
+shapecompress.egg-info/dependency_links.txt
+shapecompress.egg-info/top_level.txt
