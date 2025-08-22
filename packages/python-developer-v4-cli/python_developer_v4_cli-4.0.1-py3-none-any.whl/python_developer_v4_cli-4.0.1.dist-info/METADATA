@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: python-developer-v4-cli
+Version: 4.0.1
+Summary: Herramienta de deployment automatizado para proyectos .NET
+Author: Dev Ops Axum PP-2025
+Author-email: francoenzopecora@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: pyramid-debugtoolbar==4.9
+Requires-Dist: colorama==0.4.6
+Requires-Dist: bcrypt==4.3.0
+Requires-Dist: certifi==2025.8.3
+Requires-Dist: cffi==1.17.1
+Requires-Dist: Chameleon==4.6.0
+Requires-Dist: charset-normalizer==3.4.3
+Requires-Dist: cryptography==45.0.6
+Requires-Dist: hupper==1.12.1
+Requires-Dist: idna==3.10
+Requires-Dist: invoke==2.2.0
+Requires-Dist: paramiko==4.0.0
+Requires-Dist: PasteDeploy==3.1.0
+Requires-Dist: pip==24.0
+Requires-Dist: plaster==1.1.2
+Requires-Dist: plaster-pastedeploy==1.0.1
+Requires-Dist: pycparser==2.22
+Requires-Dist: PyNaCl==1.5.0
+Requires-Dist: pyramid==2.0.2
+Requires-Dist: pyramid-chameleon==0.3
+Requires-Dist: requests==2.32.4
+Requires-Dist: setuptools==65.5.0
+Requires-Dist: translationstring==1.4
+Requires-Dist: urllib3==2.5.0
+Requires-Dist: venusian==3.1.1
+Requires-Dist: waitress==3.0.2
+Requires-Dist: WebOb==1.8.9
+Requires-Dist: zope.deprecation==5.1
+Requires-Dist: zope.interface==7.2
+
+Instalador desde PyPI de el archivo Python_Deployer_V4.py 
+Hay un requerimiento para ejecutar este script con el comando python y seria con esta estructura:
+python -m PythonDeployer-V4-CLI Python_Deployer_V4.py
