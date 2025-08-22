@@ -1,0 +1,8 @@
+[project]
+name = "anthropic-zeusdb"
+version = "0.0.0"
+description = "Enterprise-grade RAG with Claude: Anthropic's reasoning AI + ZeusDB's high-performance vector storage with built-in safety."
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
