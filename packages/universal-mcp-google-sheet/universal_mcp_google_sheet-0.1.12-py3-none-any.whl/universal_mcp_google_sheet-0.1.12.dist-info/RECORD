@@ -1,0 +1,10 @@
+universal_mcp_google_sheet/README.md,sha256=79WnJ8wP52CV_6IENfXjb0sZm5vGsx2lbSvJBbNT0qA,3838
+universal_mcp_google_sheet/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+universal_mcp_google_sheet/app.py,sha256=FwQjY1OpFoLi0Ce345ErGySfqgyv8cxMdUTQrxM8Nvw,85513
+universal_mcp_google_sheet/helper.py,sha256=02Ox7iuuk7d5AdPUc0QizFAFLNkw36mSR-fikQPHUDo,11734
+universal_mcp_google_sheet/server.py,sha256=M1Vvo2FNXvWlaTHAJjIjnGIKZgCBmfvsXFmYvSuc25U,662
+universal_mcp_google_sheet-0.1.12.dist-info/METADATA,sha256=BWW0J8EB22P_AwRt9nAEdgdeYKw4SeatyemtZbFSazQ,3523
+universal_mcp_google_sheet-0.1.12.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+universal_mcp_google_sheet-0.1.12.dist-info/entry_points.txt,sha256=mEh0CiYmMFeVeeVQsdM6LmLNg_9nxnPmAYLeD-0jXck,79
+universal_mcp_google_sheet-0.1.12.dist-info/licenses/LICENSE,sha256=NweDZVPslBAZFzlgByF158b85GR0f5_tLQgq1NS48To,1063
+universal_mcp_google_sheet-0.1.12.dist-info/RECORD,,
