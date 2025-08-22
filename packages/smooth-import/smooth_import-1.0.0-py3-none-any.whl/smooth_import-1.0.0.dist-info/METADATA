@@ -1,0 +1,27 @@
+Metadata-Version: 2.4
+Name: smooth_import
+Version: 1.0.0
+Summary: Enhanced package importer that handles complex Python import patterns
+Author-email: Sawradip Saha <sawradip0@gmail.com>
+License-Expression: MIT
+Project-URL: Homepage, https://github.com/sawradip/smooth_import
+Project-URL: Repository, https://github.com/sawradip/smooth_import
+Project-URL: Issues, https://github.com/sawradip/smooth_import/issues
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Requires-Dist: pytest>=6.0; extra == "dev"
+Requires-Dist: pytest-cov>=2.0; extra == "dev"
+Requires-Dist: black>=21.0; extra == "dev"
+Requires-Dist: flake8>=3.8; extra == "dev"
+Requires-Dist: mypy>=0.800; extra == "dev"
