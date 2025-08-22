@@ -1,0 +1,9 @@
+pytest_snap/__init__.py,sha256=dc08883dc2c1936895e29ac3083a169c355935cca0012ba403ff8e89063fca2a,81
+pytest_snap/plugin.py,sha256=26d25e61ba2b15a8ab5b7c447c83d010a3ae2ffe8efa6ede1cc0f696390e4245,5496
+pytest_snap/py.typed,sha256=e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855,0
+pytest_snap/round.py,sha256=5fb99285f368178321bdc5b966c3a1316e0d23870ce31d636414a95fe6fb51de,1944
+pytest_snap-0.2.0.dist-info/licenses/LICENSE,sha256=e87c8bab64c5257810e902d518ecf375f64245572f2537e5a666ea26fdca2265,1069
+pytest_snap-0.2.0.dist-info/WHEEL,sha256=d10358abd5c217094bd40da9e447bd3c8979f6f95a2ce6e2da850cf9abfe7943,78
+pytest_snap-0.2.0.dist-info/entry_points.txt,sha256=45803b77371db5355797e8e8eccc79cc74100b8743b6b9cb92efeef35af43b59,38
+pytest_snap-0.2.0.dist-info/METADATA,sha256=5dba693b3796c88cb6a1b0c222763ed6bf6f75336fa7b8370351ee7ceb50e468,5869
+pytest_snap-0.2.0.dist-info/RECORD,,
