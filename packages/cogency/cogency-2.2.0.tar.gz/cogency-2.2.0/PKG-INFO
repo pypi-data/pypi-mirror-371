@@ -1,0 +1,41 @@
+Metadata-Version: 2.3
+Name: cogency
+Version: 2.2.0
+Summary: Stateless Context-Driven Agent Framework
+License: Apache-2.0
+Keywords: ai,agents,reasoning,react,memory,tools,tracing,cognition,streaming
+Author: Tyson Chan
+Author-email: tyson.chan@proton.me
+Requires-Python: >=3.10,<4.0
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: anthropic (>=0.64.0,<0.65.0)
+Requires-Dist: ddgs (==9.3.1)
+Requires-Dist: google-genai (>=1.31.0,<2.0.0)
+Requires-Dist: openai (>=1.59.0,<2.0.0)
+Requires-Dist: python-dotenv (>=1.0.0)
+Requires-Dist: trafilatura (>=2.0.0,<3.0.0)
+Project-URL: Homepage, https://github.com/iteebz/cogency
+Project-URL: Repository, https://github.com/iteebz/cogency
+Description-Content-Type: text/markdown
+
+# Cogency
+
+**Cogency is the `requests` library of AI agents.**
+
+```python
+from cogency import Agent
+
+agent = Agent()
+result = await agent("Debug this Python script")
+```
+
+Simple things simple. Complex things possible.
