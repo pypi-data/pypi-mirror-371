@@ -1,0 +1,12 @@
+http_snapshot/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+http_snapshot/_models.py,sha256=8NvjOxnCLwvAHpc0KIw-7F6bdB41B580rhwCTN11wbQ,262
+http_snapshot/_pytest_plugin.py,sha256=Dm2sNN0XhKx3UdUtKnliR4Yf5Jktd4Vi5kvbwQlMeuE,2291
+http_snapshot/_serializer.py,sha256=QxvV6N5_UGLdXCB9IS1wdW20aI6WzdwZn7zgkRYyReA,4698
+http_snapshot/_integrations/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+http_snapshot/_integrations/_httpx.py,sha256=2o_SmdzYrE9kXMnK9rSK2GdGCAyX1D3QZpxRmqDcFF4,2213
+http_snapshot/_integrations/_requests.py,sha256=4ka-ZU0koTkxRrt7OQQgUcG3L2VwWX8PqeQDjgVa4Tc,3338
+http_snapshot-0.1.0.dist-info/METADATA,sha256=zcC-cj83atJn03o3h-aOiSLEqwYTmVl7agtvdNrzar8,7296
+http_snapshot-0.1.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+http_snapshot-0.1.0.dist-info/entry_points.txt,sha256=RezeOf4QPpbWIVcCQ8-gFS3ugfSQwCbeGy_s8JL5ph8,56
+http_snapshot-0.1.0.dist-info/top_level.txt,sha256=El_3VBxZkJWj8cgU2ee4grE1KdwEqrloHrV3tJwtsrI,14
+http_snapshot-0.1.0.dist-info/RECORD,,
