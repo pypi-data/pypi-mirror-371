@@ -1,0 +1,11 @@
+aiohttp
+pyfiglet
+pyyaml
+httpx
+requests
+fake-useragent
+faker
+
+[pyrogram]
+pyrotgfork[fast]
+pymongo
