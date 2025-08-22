@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "PgsFile"
+version = "0.5.3"
+authors = [
+    { name = "Pan Guisheng", email = "panguisheng@sufe.edu.cn" }
+]
+description = "This module simplifies Python package management, script execution, file handling, web scraping, and multimedia downloads. The module supports (LLM-based) NLP tasks such as OCR, tokenization, lemmatization, POS tagging, NER, ATE, dependency parsing, MDD, WSD, LIWC, MIP analysis and Chinese-English sentence alignment. It also generates word lists, and plots data, aiding literary students. Ideal for scraping data, cleaning text, and analyzing language, it offers user-friendly tools to streamline workflows."
+readme = "README.md"
+license = {file = "LICENSE"}
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: Free For Educational Use",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "chardet",
+    "pandas",
+    "python-docx",
+    "pip",
+    "requests",
+    "fake-useragent",
+    "lxml",
+    "pimht",
+    "pysbd",
+    "nlpir-python",
+    "pillow",
+    "liwc",
+]
+
+[project.urls]
+Homepage = "https://github.com/Petercusin/PgsFile"
+Repository = "https://github.com/Petercusin/PgsFile"
+
+[tool.setuptools.packages.find]
+where = ["src"]
