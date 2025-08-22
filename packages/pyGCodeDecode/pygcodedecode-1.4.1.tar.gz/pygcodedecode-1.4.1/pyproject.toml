@@ -1,0 +1,79 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+
+[tool.setuptools.package-data]
+"pyGCodeDecode" = ["data/*", "examples/data/*"]
+
+[project]
+name = "pyGCodeDecode"
+version = "1.4.1"
+authors = [
+    { name = "FAST-LB at KIT", email = "lt-github@fast.kit.edu" },
+    { name = "Jonathan Knirsch", email = "jonathan.knirsch@student.kit.edu" },
+    { name = "Felix Frölich", email = "felix.froelich@kit.edu" },
+    { name = "Lukas Hof", email = "lukas.hof@kit.edu" },
+]
+description = "Generate time dependent boundary conditions from a .gcode file."
+readme = "README.md"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering",
+]
+requires-python = ">=3.9"
+dependencies = ["numpy", "matplotlib", "PyYAML", "pyvista"]
+
+[project.optional-dependencies]
+TEST = ["pytest-cov", "pandas"]
+DEVELOPER = [
+    "flake8",
+    "isort",
+    "black[jupyter]",
+    "flake8-docstrings",
+    "pre-commit",
+    "pytest-cov",
+]
+DOCS = [
+    "mkdocs",
+    "pydoc-markdown",
+    # Needs this custom fork to sort modules: git+https://github.com/jeknirsch/pydoc-markdown.git@sort_modules"
+]
+
+[project.urls]
+Code = "https://github.com/FAST-LB/pyGCodeDecode"
+Issues = "https://github.com/FAST-LB/pyGCodeDecode/issues"
+
+[project.scripts]
+pygcd = "pyGCodeDecode.cli:_main"
+
+[tool.black]
+line-length = 120
+extend-exclude = '''
+^.*\.ipynb$
+'''
+
+[tool.isort]
+profile = "black"
+
+[tool.coverage.paths]
+source = ["./pyGCodeDecode/"]
+
+[tool.coverage.run]
+omit = ["./tests/*", "./example/*"]
+
+[tool.coverage.report]
+# Regexes for lines to exclude from consideration
+exclude_also = ["if __name__ == .__main__.:", "except", "import"]
