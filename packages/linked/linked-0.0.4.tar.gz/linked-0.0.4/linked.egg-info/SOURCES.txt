@@ -1,0 +1,13 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+linked/__init__.py
+linked/util.py
+linked.egg-info/PKG-INFO
+linked.egg-info/SOURCES.txt
+linked.egg-info/dependency_links.txt
+linked.egg-info/not-zip-safe
+linked.egg-info/top_level.txt
+linked/datasrc/__init__.py
+linked/datasrc/minidot.py
