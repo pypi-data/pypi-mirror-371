@@ -1,0 +1,11 @@
+audiomap/__init__.py,sha256=dLaEr_LZHhSkGS1VqBMyAELceo-oRv9GxjC3AaYeiCo,952
+audiomap/cli.py,sha256=QEZOoQ6a3k3N9eBBQvcEK3XMMa4DSUScP_VSRcoFcZw,5044
+audiomap/detector.py,sha256=gpYRP8F_PfILtdkDvNoZW6SMisZ43ocXV8z5TqFdjSs,19717
+audiomap/exceptions.py,sha256=n_zKPyXfwqI81__7Ou1vaBVaRsIDs1UGomeOLYKx7H8,427
+audiomap/utils.py,sha256=aMlOTB5-xd9Lh29yJ0MI4_NpiWHbsuCu1Qe1l_wwllM,1392
+audiomap-1.0.0.dist-info/licenses/LICENSE,sha256=rMimndsEe1VEkER4stWeigLIHjRpt5WaoUKNKVlpI78,1065
+audiomap-1.0.0.dist-info/METADATA,sha256=bCSvEktAuq9Tnu35Ud6rZo4nw_mFkj5O3t5MRgP-5-w,8941
+audiomap-1.0.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+audiomap-1.0.0.dist-info/entry_points.txt,sha256=sVeJgm3MLEYRn_C17b6Pf52h3-AGOsiXHBU--tRxJak,47
+audiomap-1.0.0.dist-info/top_level.txt,sha256=oh_46V8UmHiTTdz5iYGxHZ8vuITYVgJOKMvHqrXnos8,9
+audiomap-1.0.0.dist-info/RECORD,,
