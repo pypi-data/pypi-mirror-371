@@ -1,0 +1,9 @@
+README.md
+pyproject.toml
+cuvette/test.py
+cuvette.egg-info/PKG-INFO
+cuvette.egg-info/SOURCES.txt
+cuvette.egg-info/dependency_links.txt
+cuvette.egg-info/entry_points.txt
+cuvette.egg-info/requires.txt
+cuvette.egg-info/top_level.txt
