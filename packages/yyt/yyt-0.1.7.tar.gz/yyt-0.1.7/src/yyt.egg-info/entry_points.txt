@@ -1,0 +1,2 @@
+[console_scripts]
+yyt = yyt.__main__:main
