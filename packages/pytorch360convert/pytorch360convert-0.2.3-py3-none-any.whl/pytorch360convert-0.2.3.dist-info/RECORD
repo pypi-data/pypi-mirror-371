@@ -1,0 +1,8 @@
+pytorch360convert/__init__.py,sha256=k9fbYCTkJMmxRi-Ko6LNmR6VPAVf6sDupXGNXoXm1rw,251
+pytorch360convert/pytorch360convert.py,sha256=LNnPb0Yotyb71U7GNoGZCwi_B0tNhg_7yMPEUeXwtAQ,43650
+pytorch360convert/version.py,sha256=PNiDER4qM19h9zdsdfgKt2_dT4WgYK7EguJ8RU2qA_g,22
+pytorch360convert-0.2.3.dist-info/licenses/LICENSE,sha256=BeDoHHTDwP7CFFBfYiuICz_ytz0K3a427iupwSNNbVM,1115
+pytorch360convert-0.2.3.dist-info/METADATA,sha256=7KoDtwgtev-AJAThknf3zi-P-lsOO-oANazLzu5M0X0,14043
+pytorch360convert-0.2.3.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+pytorch360convert-0.2.3.dist-info/top_level.txt,sha256=NI4TLF-dPEIFJqoPqHWeOVrvu_iQK1xSwYw1HMt3hE0,18
+pytorch360convert-0.2.3.dist-info/RECORD,,
