@@ -1,0 +1,16 @@
+src/__init__.py,sha256=wwzI0HWMz0FUp4V66XGRfzeaK3gaQUnIjDstG8ZUpFI,40
+src/teaching_sim_eval/__init__.py,sha256=wwzI0HWMz0FUp4V66XGRfzeaK3gaQUnIjDstG8ZUpFI,40
+src/teaching_sim_eval/app.py,sha256=CABHCytQC4rOENEVRaHaSjuId75E5MpNaT7ELUKfWbY,36257
+src/teaching_sim_eval/myfuncs.py,sha256=GeNHej6mRlEcZntcKq-a-4LwUO8j5vlEgm3QkluqqVc,19800
+teaching_sim_eval/__init__.py,sha256=wwzI0HWMz0FUp4V66XGRfzeaK3gaQUnIjDstG8ZUpFI,40
+teaching_sim_eval/app.py,sha256=d6MtfiRUZur25tDAkP_bmJzZp9e_GnDaZfF99xg73es,36411
+teaching_sim_eval/myfuncs.py,sha256=GeNHej6mRlEcZntcKq-a-4LwUO8j5vlEgm3QkluqqVc,19800
+teaching_sim_eval/static/css,sha256=854BuNqex1qha56FnTv0SdyF4HlyqBA8jbQqv402pbM,355
+teaching_sim_eval/static/js,sha256=nlfwmETQ5M8tkx7Q6WgTn54VbLI7g3Aw7ugoIbN4l5Y,41
+teaching_sim_eval/static/styles.css,sha256=JzHT3fC7SkKm26A84QaXhR7Qc0YOFDaEJNSUQiQEoN4,45
+teaching_sim_eval-0.1.2.dist-info/licenses/LICENSE,sha256=EA3emvD3Tuqu7qysF88saiZTzuNkeI_LX9xGkczfcTg,17353
+teaching_sim_eval-0.1.2.dist-info/METADATA,sha256=Zp24a3nuBqyBpvWR7J6FX6hq4GauGVEbLb4T_e9-ryo,2242
+teaching_sim_eval-0.1.2.dist-info/WHEEL,sha256=tTnHoFhvKQHCh4jz3yCn0WPTYIy7wXx3CJtJ7SJGV7c,91
+teaching_sim_eval-0.1.2.dist-info/entry_points.txt,sha256=AKrtZRqT-RrqDzcNnKXZ4ZxDhfeEXobH34i9VKXwvfk,65
+teaching_sim_eval-0.1.2.dist-info/top_level.txt,sha256=zvi34hHVNF516_Fw2fq1AdVuD43drIV3H4Dj-0H_TxU,18
+teaching_sim_eval-0.1.2.dist-info/RECORD,,
