@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=65.5", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "proc_shell"
+version = "0.1.1"
+description = "Proc-like subshell temp manager for macOS"
+authors = [
+    { name = "Your Name", email = "you@example.com" }
+]
+requires-python = ">=3.11"
+dependencies = ["psutil"]
+readme = "README.md"
+license = { file = "LICENSE" }
+
+
+[tool.setuptools]
+packages = ["proc_shell"]
+package-dir = {"" = "src/main"}
+exclude-package-data = { "proc_shell" = ["removed/*"] }
