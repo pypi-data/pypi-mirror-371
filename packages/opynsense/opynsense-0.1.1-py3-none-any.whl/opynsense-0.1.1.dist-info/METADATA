@@ -1,0 +1,23 @@
+Metadata-Version: 2.3
+Name: opynsense
+Version: 0.1.1
+Summary: A Python library for interacting with OpnSense router OS through the REST API
+License: GPL-3.0
+Author: Oliver Galbraith
+Author-email: olivergalbraith0@gmail.com
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: restpylot (>=0.1.1,<0.2.0)
+Project-URL: Documentation, https://github.com/ollie-galbraith/opynsense
+Project-URL: Homepage, https://github.com/ollie-galbraith/opynsense
+Project-URL: Repository, https://github.com/ollie-galbraith/opynsense
+Description-Content-Type: text/markdown
+
+
