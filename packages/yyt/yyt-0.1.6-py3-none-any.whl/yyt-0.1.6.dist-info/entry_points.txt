@@ -1,0 +1,2 @@
+[console_scripts]
+yyt = xpp.__main__:main
