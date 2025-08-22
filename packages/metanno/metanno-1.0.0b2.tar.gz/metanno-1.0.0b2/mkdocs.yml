@@ -1,0 +1,131 @@
+site_name: Metanno
+
+theme:
+  language: en
+  name: material
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/brightness-4
+        name: Switch to dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-7
+        name: Switch to light mode
+
+  logo: assets/images/icon.svg
+  favicon: assets/images/icon.svg
+  features:
+    - navigation.tracking
+    - navigation.instant
+    - navigation.indexes
+    - navigation.prune
+    - navigation.top
+    - navigation.footer
+    - content.code.annotate
+    - content.code.copy
+    - announce.dismiss
+
+nav:
+  - Overview: index.md
+  - installation.md
+  - Demos:
+      - demos/index.md
+      - demos/quaero-explorer.md
+  - Tutorials:
+      - tutorials/index.md
+      - tutorials/new-project.md
+      - tutorials/run-quaero-explorer.md
+      - tutorials/customize-explorer.md
+  - Building Blocks:
+      - components/index.md
+      - Pret: https://percevalw.github.io/pret" target="_blank
+      - components/annotated-text.md
+      - components/annotated-image.md
+      - components/table.md
+  - Reference: reference/
+  - Changelog: changelog.md
+
+extra:
+  version:
+    provider: mike
+    default: latest
+  generator: false
+
+extra_css:
+  - assets/stylesheets/extra.css
+
+plugins:
+  - auto_gen_pages:
+      package_dirs: ["metanno", "pret"]
+      reference_section: Reference
+      exclude_glob: assets/fragments/*
+      copy_files:
+        changelog.md: CHANGELOG.md
+  - cards
+  - fix_fonts
+  - search
+  - minify:
+      minify_html: true
+      minify_js: true
+      minify_css: true
+      htmlmin_opts:
+          remove_comments: true
+      cache_safe: true
+  - autorefs:
+      priority:
+        - .*
+        - reference
+  - pret_snippet_renderer:
+  - mkdocstrings_options_templates:
+  - mkdocstrings:
+      enable_inventory: true
+      handlers:
+        python:
+          options:
+            docstring_style: numpy
+            docstring_section_style: spacy
+            heading_level: 2
+            members_order: source
+            show_root_toc_entry: false
+            show_signature: false
+            merge_init_into_class: true
+          inventories:
+            - https://percevalw.github.io/pret/main/objects.inv
+            - https://aphp.github.io/edsnlp/latest/objects.inv
+  - bibtex:
+      bibtex_file: "docs/references.bib"
+  - clickable_code:
+  - mike
+
+watch:
+  - CHANGELOG.md
+  - pret
+  - metanno
+  - examples
+
+markdown_extensions:
+  - pymdownx.highlight
+  - admonition
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.snippets:
+      dedent_subsections: true
+  - pymdownx.tabbed:
+      alternate_style: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - footnotes
+  - md_in_html
+  - attr_list
+  - pymdownx.details
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+
+validation:
+  absolute_links: ignore
+  unrecognized_links: ignore

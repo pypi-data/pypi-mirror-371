@@ -1,0 +1,208 @@
+.metanno-table .react-autosuggest__container, .metanno-table  .input-tag-container {
+    position: relative;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.rdg-cell.rdg-editor-container > div > .react-autosuggest__container {
+    padding-left: 8px;
+    padding-right: 8px;
+    background: transparent;
+    margin-right: 0px;
+    box-sizing: border-box;
+}
+
+.rdg-cell .react-autosuggest__input {
+    font-family: inherit;
+    border: none;
+    font-size: var(--font-size);
+    width: 100%;
+    height: 100%;
+    color: var(--color);
+    background: transparent;
+}
+
+.rdg-cell .react-autosuggest__input::-ms-clear {
+    display: none;
+}
+
+.rdg-cell .react-autosuggest__input--open {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.rdg-cell .react-autosuggest__input--focused {
+    outline: none;
+}
+
+.rdg-cell .react-autosuggest__suggestions-container {
+    display: none;
+}
+
+.rdg-cell.rdg-editor-container > div {
+    /*background: white;*/
+}
+
+.rdg-editor-container > div, .metanno-table .rdg-cell-value, .rdg-cell-value > div {
+    height: 100%;
+    width: 100%;
+}
+
+.rdg-editor-container > div > .react-autosuggest__container--open > .react-autosuggest__suggestions-container {
+    left: -1px;
+    right: 0px;
+}
+
+.rdg-cell .react-autosuggest__suggestions-container--open {
+    display: block;
+    position: absolute;
+    top: 100%;
+    min-width: 100%;
+    box-sizing: border-box;
+    border: 1px solid var(--border-color, #aaa);
+    background-color: var(--background-color, white);
+    /* font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 14px;*/
+    border-bottom-left-radius: 4PX;
+    border-bottom-right-radius: 4PX;
+    z-index: 2;
+    max-height: 200px;
+    overflow-y: auto;
+
+    overflow-y: scroll;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+.rdg-cell .react-autosuggest__suggestions-container--open::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+.rdg-cell .react-autosuggest__suggestions-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.rdg-cell ul.react-autosuggest__suggestions-list {
+    margin-left: 0;
+}
+
+.rdg-cell ul > li.react-autosuggest__suggestion {
+    cursor: pointer;
+    padding: 0 8px;
+    margin-left: 0;
+    margin-bottom: 0;
+
+}
+
+.rdg-cell .react-autosuggest__suggestion--highlighted {
+    background-color: var(--row-hover-background-color, #ddd);
+}
+
+.rdg-cell .react-autosuggest__section-container {
+    border-top: 1px dashed #ccc;
+}
+
+.rdg-cell .react-autosuggest__section-container-first {
+    border-top: 0;
+}
+
+.rdg-cell .react-autosuggest__section-title {
+    padding: 10px 0 0 10px;
+    font-size: 12px;
+    color: #777;
+}
+
+div.input-tag {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    /*padding: 2px;*/
+}
+
+div.input-tag input {
+    border: none;
+    width: 100%;
+    border-radius: 4PX;
+    -webkit-appearance: none;
+}
+
+div.input-tag input:focus {
+    outline: none;
+}
+
+div.input-tag > ul.input-tag__tags {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    /*padding: 0 2px;*/
+    padding: 2px 8px;
+    margin: 0px -8px;
+    width: 100%;
+    overflow: scroll;
+    -ms-overflow-style: none;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+div.input-tag > ul.input-tag__tags::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE and Edge */
+.example {
+}
+
+div.input-tag > ul.input-tag__tags > li {
+    align-items: center;
+    background: white;
+    border-radius: 2px;
+    color: black;
+    display: flex;
+    font-size: 14px;
+    line-height: 15px;
+    font-weight: 300;
+    list-style: none;
+    margin: 0 2px 0 0;
+    padding: 1px 5px;
+    position: relative;
+}
+
+div.input-tag > ul.input-tag__tags > li button {
+    align-items: center;
+    appearance: none;
+    background: #333333;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    display: inline-flex;
+    font-size: 10px;
+    height: 15px;
+    justify-content: center;
+    line-height: 0;
+    margin-left: 8px;
+    width: 15px;
+    flex: 0 0 15px;
+    padding: 0px;
+}
+div.input-tag > ul.input-tag__tags > li button:focus {
+    outline: none;
+}
+
+
+div.input-tag > ul.input-tag__tags > li:not(.input-tag__tags__input) {
+    border: 1px solid #b3b3b3;
+}
+
+div.input-tag > ul.input-tag__tags > li.input-tag__tags__input {
+    background: none;
+    flex-grow: 1;
+    flex-basis: 50%;
+    min-width: 60px;
+    flex-shrink: 0;
+    padding: 0;
+}

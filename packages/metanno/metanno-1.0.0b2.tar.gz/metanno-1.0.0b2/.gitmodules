@@ -1,0 +1,3 @@
+[submodule "submodules/react-data-grid"]
+	path = submodules/react-data-grid
+	url = https://github.com/percevalw/react-data-grid.git
