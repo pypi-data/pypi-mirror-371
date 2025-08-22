@@ -1,0 +1,42 @@
+name: publish-compiled-wheels
+
+on:
+  push:
+    tags:
+      - "*.*.*"
+  workflow_dispatch:
+    branches: [main, master, support/1.0, support/1.1, support/2.0]
+
+jobs:
+  mac-and-windows-and-linux-publish:
+    runs-on: ${{ matrix.builds.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        builds:
+          [
+            { os: "macOS-latest", python_requires: ">=3.8.0" },
+            { os: "windows-latest", python_requires: ">=3.8.0" },
+            { os: "ubuntu-latest", python_requires: ">=3.8.0,<3.14.0" },
+          ]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.8
+      - name: Install deps
+        run: uv pip install cibuildwheel==2.9.0
+      - name: Build compiled wheels
+        env:
+          CIBW_PROJECT_REQUIRES_PYTHON: ${{ matrix.builds.python_requires }}
+          CIBW_BUILD: "cp3*"
+          PYTHON_MYPY_COMPILE: "true"
+        run: uv run python -m cibuildwheel --output-dir wheelhouse
+      - name: Publish compiled wheels
+        env:
+          UV_PUBLISH_TOKEN: ${{ secrets.PYPI_TOKEN }}
+        run: |
+          uv publish wheelhouse/*

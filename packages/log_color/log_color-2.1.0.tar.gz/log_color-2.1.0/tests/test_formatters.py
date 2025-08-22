@@ -1,0 +1,66 @@
+from __future__ import annotations
+
+import logging
+from io import StringIO
+from unittest import TestCase
+
+from log_color.colors import ColorStr
+from log_color.formatters import ColorFormatter, ColorStripper
+from log_color.lib import COLOR_MAP
+
+
+class TestColorFormatter(TestCase):
+    def setUp(self):
+        self.stream = StringIO()
+        self.handler = logging.StreamHandler(self.stream)
+        formatter = ColorFormatter("%(levelname)s: %(message)s")
+        self.handler.setFormatter(formatter)
+
+        self.log = logging.getLogger("test_logger")
+        self.log.setLevel(logging.INFO)
+        for handler in self.log.handlers:
+            self.log.removeHandler(handler)
+        self.log.addHandler(self.handler)
+
+    def test_format_matches(self):
+        """Format includes expected output on preformatted strings."""
+        base_str = "blue"
+        blue_str = ColorStr(base_str, COLOR_MAP["b"])
+        expected = f"INFO: this is {blue_str}\n"
+        self.log.info(f"this is #b<{base_str}>")
+        self.assertEqual(self.stream.getvalue(), expected)
+
+    def test_format_matches_arg_manage(self):
+        """Format includes expected output when formatted with logger args."""
+        base_str = "blue"
+        blue_str = ColorStr(base_str, COLOR_MAP["b"])
+        expected = f"INFO: this is {blue_str}\n"
+        self.log.info("this is #b<%s>", base_str)
+        self.assertEqual(self.stream.getvalue(), expected)
+
+    def test_format_object(self):
+        """Non-string objects can be formatted."""
+        expected = "INFO: {}\n"
+        self.log.info({})
+        self.assertEqual(self.stream.getvalue(), expected)
+
+
+class TestColorStripper(TestCase):
+    def setUp(self):
+        self.stream = StringIO()
+        self.handler = logging.StreamHandler(self.stream)
+        formatter = ColorStripper("%(levelname)s: %(message)s")
+        self.handler.setFormatter(formatter)
+
+        self.log = logging.getLogger("test_logger")
+        self.log.setLevel(logging.INFO)
+        for handler in self.log.handlers:
+            self.log.removeHandler(handler)
+        self.log.addHandler(self.handler)
+
+    def test_format_matches(self):
+        """Format includes expected output."""
+        base_str = "blue"
+        expected = f"INFO: this is {base_str}\n"
+        self.log.info("\033[94mthis\033[0m is #b<%s>", base_str)
+        self.assertEqual(self.stream.getvalue(), expected)
