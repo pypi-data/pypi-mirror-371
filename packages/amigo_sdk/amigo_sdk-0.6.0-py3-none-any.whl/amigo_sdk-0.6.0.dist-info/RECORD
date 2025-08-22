@@ -1,0 +1,16 @@
+amigo_sdk/__init__.py,sha256=cID1jLnC_vj48GgMN6Yb1FA3JsQ95zNmCHmRYE8TFhY,22
+amigo_sdk/auth.py,sha256=Kvwk4P2HJaVUIn2Lwj7l6_xTm0IOVxMlthiXthm-V2Y,1029
+amigo_sdk/config.py,sha256=0eZIo-hcJ8ODftKAr-mwB-FGJxGO5PT5T4dRpyWPqAg,1491
+amigo_sdk/errors.py,sha256=RkRyF5eAASd8fIOS6YvL9rLDvLAYWqHfpHSCR7jqvl4,4840
+amigo_sdk/http_client.py,sha256=XDtcQnAXf4E46Kjl6tKVVFgrMgozjCbOcDf21aK_c4s,8843
+amigo_sdk/sdk_client.py,sha256=yLK8f0ARxLOlJX_cM-Y1GW-zCgJWsL2LIrWMxQGaMhY,3685
+amigo_sdk/generated/model.py,sha256=UbxGt6fBiLkMTP13aLdRSHBvjg_bB--r3RgwkYFc5zA,427393
+amigo_sdk/resources/conversation.py,sha256=gRkZwqLGOscqoCFcagwU-NfTeMuvLsuEqN_uLyNu1NI,8514
+amigo_sdk/resources/organization.py,sha256=HNwUgeggeEklvcwFS7Of6nGDawN-_Uvd9NsXtcYg65o,726
+amigo_sdk/resources/service.py,sha256=DrKaLnKAglcCeZJQEw50hAOLWtW_InnOu551TxgwF60,947
+amigo_sdk/resources/user.py,sha256=Y66Eb5kH3sYWpdx1E9PP8slban8jpUHmig3YEXHaD_Y,2066
+amigo_sdk-0.6.0.dist-info/METADATA,sha256=ejQV1JWlSHbiP4hPT3bPRcXLYWHb6pZgbyssEvHUvDc,6215
+amigo_sdk-0.6.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+amigo_sdk-0.6.0.dist-info/entry_points.txt,sha256=ivKZ8S9W6SH796zUDHeM-qHodrwmkmUItophi-jJWK0,82
+amigo_sdk-0.6.0.dist-info/licenses/LICENSE,sha256=tx3FiTVbGxwBUOxQbNh05AAQlC2jd5hGvNpIkSfVbCo,1062
+amigo_sdk-0.6.0.dist-info/RECORD,,
