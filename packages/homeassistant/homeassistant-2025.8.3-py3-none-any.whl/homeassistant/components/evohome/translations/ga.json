@@ -1,0 +1,21 @@
+{
+    "services": {
+        "set_system_mode": {
+            "fields": {
+                "duration": {
+                    "name": "Fad"
+                }
+            }
+        },
+        "set_zone_override": {
+            "fields": {
+                "duration": {
+                    "name": "Fad"
+                },
+                "entity_id": {
+                    "name": "Eintiteas"
+                }
+            }
+        }
+    }
+}

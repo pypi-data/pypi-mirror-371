@@ -1,0 +1,69 @@
+{
+    "config": {
+        "abort": {
+            "authorize_url_timeout": "Am cr\u00edochnaithe ag gini\u00faint URL \u00fadaraithe.",
+            "calendar_api_disabled": "N\u00ed m\u00f3r duit [Google Calendar API]({calendar_api_url}) a chumas\u00fa sa Google Cloud Console",
+            "missing_credentials": "\u00c9il\u00edonn an comhth\u00e1th\u00fa dinti\u00fair iarratais.",
+            "no_url_available": "N\u00edl aon URL ar f\u00e1il. Chun eolas a fh\u00e1il faoin earr\u00e1id seo, [f\u00e9ach ar an rann\u00f3g chabhrach]({docs_url})",
+            "oauth_failed": "Earr\u00e1id agus comhartha rochtana \u00e1 fh\u00e1il.",
+            "oauth_timeout": "Am cr\u00edochnaithe ag r\u00e9iteach comhartha OAuth.",
+            "oauth_unauthorized": "Earr\u00e1id \u00fadaraithe OAuth agus comhartha rochtana \u00e1 fh\u00e1il.",
+            "user_rejected_authorize": "Di\u00falta\u00edodh nascadh cuntais: {error}"
+        },
+        "step": {
+            "pick_implementation": {
+                "data": {
+                    "implementation": "Dinti\u00fair Iarratais"
+                },
+                "data_description": {
+                    "implementation": "Na dinti\u00fair is mian leat a \u00fas\u00e1id chun f\u00edordheimhni\u00fa."
+                }
+            }
+        }
+    },
+    "entity": {
+        "calendar": {
+            "birthdays": {
+                "name": "Breithlaethanta"
+            },
+            "working_location": {
+                "name": "Su\u00edomh oibre"
+            }
+        }
+    },
+    "services": {
+        "create_event": {
+            "fields": {
+                "description": {
+                    "name": "Cur s\u00edos"
+                },
+                "end_date": {
+                    "name": "D\u00e1ta deiridh"
+                },
+                "end_date_time": {
+                    "description": "An d\u00e1ta agus an t-am ba ch\u00f3ir don imeacht cr\u00edochn\u00fa.",
+                    "name": "Am deiridh"
+                },
+                "in": {
+                    "description": "Laethanta n\u00f3 seachtain\u00ed inar mian leat an \u00f3c\u00e1id a chruth\u00fa.",
+                    "name": "Isteach"
+                },
+                "location": {
+                    "description": "Su\u00edomh an imeachta. Roghnach.",
+                    "name": "Su\u00edomh"
+                },
+                "start_date": {
+                    "name": "D\u00e1ta tosaithe"
+                },
+                "start_date_time": {
+                    "description": "An d\u00e1ta agus an t-am ba ch\u00f3ir don imeacht tos\u00fa.",
+                    "name": "Am tosaithe"
+                },
+                "summary": {
+                    "name": "Achoimre"
+                }
+            },
+            "name": "Cruthaigh imeacht"
+        }
+    }
+}

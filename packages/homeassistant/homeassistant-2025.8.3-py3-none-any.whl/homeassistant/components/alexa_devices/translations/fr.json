@@ -1,0 +1,11 @@
+{
+    "selector": {
+        "sound": {
+            "options": {
+                "amzn_sfx_scifi_alarm": "Alarme Sci-Fi",
+                "car_alarm": "Alarme de voiture",
+                "car_alarms": "Alarmes de voiture"
+            }
+        }
+    }
+}

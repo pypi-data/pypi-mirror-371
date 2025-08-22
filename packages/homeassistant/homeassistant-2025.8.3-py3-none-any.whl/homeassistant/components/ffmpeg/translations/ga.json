@@ -1,0 +1,25 @@
+{
+    "services": {
+        "restart": {
+            "fields": {
+                "entity_id": {
+                    "name": "Eintiteas"
+                }
+            }
+        },
+        "start": {
+            "fields": {
+                "entity_id": {
+                    "name": "Eintiteas"
+                }
+            }
+        },
+        "stop": {
+            "fields": {
+                "entity_id": {
+                    "name": "Eintiteas"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,73 @@
+{
+    "config": {
+        "error": {
+            "cannot_connect": "Theip ar an nascadh"
+        }
+    },
+    "entity": {
+        "sensor": {
+            "current": {
+                "name": "Reatha"
+            },
+            "instantaneous_current": {
+                "name": "Sruth meandarach"
+            },
+            "instantaneous_current_ddt": {
+                "name": "Sruth meandarach (DDT)"
+            },
+            "travel_count": {
+                "name": "L\u00edon na dturas"
+            }
+        },
+        "valve": {
+            "valve_controller": {
+                "name": "Rialaitheoir comhla"
+            }
+        }
+    },
+    "services": {
+        "pair_sensor": {
+            "description": "Cuireann s\u00e9 braiteoir p\u00e9ire\u00e1ilte nua leis an rialt\u00f3ir comhla.",
+            "fields": {
+                "device_id": {
+                    "description": "An rialt\u00f3ir comhla le cur an braiteoir leis.",
+                    "name": "Rialaitheoir comhla"
+                },
+                "uid": {
+                    "description": "UID an braiteora p\u00e9ire\u00e1ilte.",
+                    "name": "Aitheantas \u00das\u00e1ideora"
+                }
+            },
+            "name": "Braiteoir p\u00e9ire\u00e1la"
+        },
+        "unpair_sensor": {
+            "description": "Baintear braiteoir p\u00e9ire\u00e1ilte den rialt\u00f3ir comhla.",
+            "fields": {
+                "device_id": {
+                    "description": "An rialt\u00f3ir comhla chun an braiteoir a bhaint as."
+                }
+            }
+        },
+        "upgrade_firmware": {
+            "fields": {
+                "device_id": {
+                    "description": "An rialt\u00f3ir comhla ar cheart a dochtearra\u00ed a uasghr\u00e1d\u00fa.",
+                    "name": "Rialaitheoir comhla"
+                },
+                "filename": {
+                    "description": "Ainm comhaid an dochtearra\u00ed.",
+                    "name": "Ainm comhaid"
+                },
+                "port": {
+                    "description": "An port ar a bhfuil an comhad dochtearra\u00ed \u00e1 sheirbhe\u00e1il.",
+                    "name": "Port"
+                },
+                "url": {
+                    "description": "URL an fhreastala\u00ed a \u00f3st\u00e1lann an comhad dochtearra\u00ed.",
+                    "name": "URL"
+                }
+            },
+            "name": "Uasghr\u00e1d\u00fa dochtearra\u00ed"
+        }
+    }
+}

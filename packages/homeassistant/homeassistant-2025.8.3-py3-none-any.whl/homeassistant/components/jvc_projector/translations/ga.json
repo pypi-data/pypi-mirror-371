@@ -1,0 +1,35 @@
+{
+    "config": {
+        "abort": {
+            "reauth_successful": "D'\u00e9irigh leis an athfh\u00edordheimhni\u00fa"
+        }
+    },
+    "entity": {
+        "binary_sensor": {
+            "jvc_power": {
+                "name": "Cumhacht"
+            }
+        },
+        "select": {
+            "input": {
+                "name": "Ionchur",
+                "state": {
+                    "hdmi1": "HDMI 1",
+                    "hdmi2": "HDMI 2"
+                }
+            }
+        },
+        "sensor": {
+            "jvc_power_status": {
+                "name": "St\u00e1das cumhachta",
+                "state": {
+                    "cooling": "Fuar\u00fa",
+                    "error": "Earr\u00e1id",
+                    "on": "Ar si\u00fal",
+                    "standby": "Fuireachas",
+                    "warming": "T\u00e9amh"
+                }
+            }
+        }
+    }
+}

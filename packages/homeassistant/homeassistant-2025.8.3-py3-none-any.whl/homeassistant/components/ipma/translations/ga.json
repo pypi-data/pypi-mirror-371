@@ -1,0 +1,26 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "T\u00e1 an su\u00edomh cumraithe cheana f\u00e9in"
+        },
+        "error": {
+            "unknown": "Earr\u00e1id gan choinne"
+        }
+    },
+    "entity": {
+        "sensor": {
+            "uv_index": {
+                "name": "Inn\u00e9acs UV"
+            },
+            "weather_alert": {
+                "name": "Fol\u00e1ireamh Aimsire",
+                "state": {
+                    "green": "Glas",
+                    "orange": "Or\u00e1iste",
+                    "red": "Dearg",
+                    "yellow": "Bu\u00ed"
+                }
+            }
+        }
+    }
+}

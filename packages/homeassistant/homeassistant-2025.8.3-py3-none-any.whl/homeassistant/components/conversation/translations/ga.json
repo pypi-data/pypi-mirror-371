@@ -1,0 +1,30 @@
+{
+    "conversation": {
+        "agent": {
+            "done": "D\u00e9anta"
+        }
+    },
+    "services": {
+        "process": {
+            "fields": {
+                "conversation_id": {
+                    "description": "Aitheantas an chomhr\u00e1, le go mbeidh t\u00fa in ann lean\u00faint ar aghaidh le comhr\u00e1 roimhe seo",
+                    "name": "Aitheantas an Chomhr\u00e1"
+                }
+            }
+        },
+        "reload": {
+            "description": "Athl\u00f3d\u00e1lann s\u00e9 cumra\u00edocht an intinne.",
+            "fields": {
+                "agent_id": {
+                    "description": "Gn\u00edomhaire comhr\u00e1 le hathl\u00f3d\u00e1il."
+                },
+                "language": {
+                    "description": "Teanga le hintinn taisce\u00e1ilte a ghlanadh di. Is \u00ed teanga an fhreastala\u00ed an rogha r\u00e9amhshocraithe.",
+                    "name": "Teanga"
+                }
+            },
+            "name": "Athl\u00f3d\u00e1il"
+        }
+    }
+}

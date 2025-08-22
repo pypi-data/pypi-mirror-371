@@ -1,0 +1,19 @@
+{
+    "device_automation": {
+        "extra_fields": {
+            "zone": "Crios"
+        }
+    },
+    "entity_component": {
+        "_": {
+            "state_attributes": {
+                "latitude": {
+                    "name": "Domhanleithead"
+                },
+                "longitude": {
+                    "name": "Domhanfhad"
+                }
+            }
+        }
+    }
+}

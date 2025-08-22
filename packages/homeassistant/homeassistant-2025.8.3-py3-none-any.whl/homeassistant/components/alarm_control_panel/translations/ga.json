@@ -1,0 +1,114 @@
+{
+    "device_automation": {
+        "extra_fields": {
+            "code": "C\u00f3d",
+            "for": "Fad"
+        }
+    },
+    "entity_component": {
+        "_": {
+            "state": {
+                "disarmed": "D\u00edarm\u00e1ilte",
+                "disarming": "D\u00ed-arm\u00e1il",
+                "pending": "Ar feitheamh",
+                "triggered": "Spreagtha"
+            },
+            "state_attributes": {
+                "changed_by": {
+                    "name": "Athraithe ag"
+                },
+                "code_arm_required": {
+                    "name": "C\u00f3d le haghaidh arm\u00e1la",
+                    "state": {
+                        "false": "N\u00ed g\u00e1",
+                        "true": "Riachtanach"
+                    }
+                },
+                "code_format": {
+                    "name": "Form\u00e1id an ch\u00f3id",
+                    "state": {
+                        "number": "Uimhir",
+                        "text": "T\u00e9acs"
+                    }
+                }
+            }
+        }
+    },
+    "exceptions": {
+        "code_arm_required": {
+            "message": "\u00c9il\u00edonn arm\u00e1il c\u00f3d ach n\u00edor tugadh aon cheann do {entity_id}."
+        }
+    },
+    "services": {
+        "alarm_arm_away": {
+            "description": "Cuireann s\u00e9 an t-al\u00e1ram ar si\u00fal sa mhodh as baile.",
+            "fields": {
+                "code": {
+                    "description": "C\u00f3d chun an t-al\u00e1ram a arm\u00e1il.",
+                    "name": "C\u00f3d"
+                }
+            },
+            "name": "L\u00e1mh ar shi\u00fal"
+        },
+        "alarm_arm_custom_bypass": {
+            "description": "Cuireann s\u00e9 an t-al\u00e1ram ar si\u00fal agus ligeann s\u00e9 do limist\u00e9ar saincheaptha a sheachbh\u00f3thar.",
+            "fields": {
+                "code": {
+                    "description": "C\u00f3d chun an t-al\u00e1ram a arm\u00e1il.",
+                    "name": "C\u00f3d"
+                }
+            },
+            "name": "L\u00e1mh le seachbh\u00f3thar saincheaptha"
+        },
+        "alarm_arm_home": {
+            "description": "Cuireann s\u00e9 an t-al\u00e1ram ar si\u00fal sa mhodh baile.",
+            "fields": {
+                "code": {
+                    "description": "C\u00f3d chun an t-al\u00e1ram a arm\u00e1il.",
+                    "name": "C\u00f3d"
+                }
+            },
+            "name": "L\u00e1mh abhaile"
+        },
+        "alarm_arm_night": {
+            "description": "Cuireann s\u00e9 an t-al\u00e1ram ar si\u00fal i m\u00f3d o\u00edche.",
+            "fields": {
+                "code": {
+                    "description": "C\u00f3d chun an t-al\u00e1ram a arm\u00e1il.",
+                    "name": "C\u00f3d"
+                }
+            },
+            "name": "O\u00edche l\u00e1imhe"
+        },
+        "alarm_arm_vacation": {
+            "description": "Cuireann s\u00e9 an t-al\u00e1ram i m\u00f3d saoire.",
+            "fields": {
+                "code": {
+                    "description": "C\u00f3d chun an t-al\u00e1ram a arm\u00e1il.",
+                    "name": "C\u00f3d"
+                }
+            },
+            "name": "Laethanta saoire l\u00e1imhe"
+        },
+        "alarm_disarm": {
+            "description": "D\u00ed-arm\u00e1lann s\u00e9 an t-al\u00e1ram.",
+            "fields": {
+                "code": {
+                    "description": "C\u00f3d chun an t-al\u00e1ram a dh\u00ed-arm\u00e1il.",
+                    "name": "C\u00f3d"
+                }
+            },
+            "name": "D\u00ed-arm\u00e1il"
+        },
+        "alarm_trigger": {
+            "description": "Cuireann s\u00e9 an t-al\u00e1ram i ngn\u00edomh de l\u00e1imh.",
+            "fields": {
+                "code": {
+                    "description": "C\u00f3d chun an t-al\u00e1ram a arm\u00e1il.",
+                    "name": "C\u00f3d"
+                }
+            },
+            "name": "Truicear"
+        }
+    }
+}

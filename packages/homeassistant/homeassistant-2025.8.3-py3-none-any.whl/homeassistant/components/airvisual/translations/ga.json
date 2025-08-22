@@ -1,0 +1,33 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "T\u00e1 an su\u00edomh cumraithe cheana f\u00e9in",
+            "reauth_successful": "D'\u00e9irigh leis an athfh\u00edordheimhni\u00fa"
+        },
+        "error": {
+            "cannot_connect": "Theip ar an nascadh",
+            "invalid_api_key": "Eochair API neamhbhail\u00ed",
+            "location_not_found": "N\u00edor aims\u00edodh an su\u00edomh",
+            "unknown": "Earr\u00e1id gan choinne"
+        },
+        "step": {
+            "geography_by_coords": {
+                "data": {
+                    "api_key": "Eochair API",
+                    "latitude": "Domhanleithead",
+                    "longitude": "Domhanfhad"
+                },
+                "description": "Bain \u00fas\u00e1id as API scamall AirVisual chun domhanleithead/domhanfhad a mhonat\u00f3iri\u00fa.",
+                "title": "Cumraigh t\u00edreola\u00edocht"
+            },
+            "geography_by_name": {
+                "data": {
+                    "api_key": "Eochair API",
+                    "city": "Cathair",
+                    "country": "T\u00edr",
+                    "state": "St\u00e1t"
+                }
+            }
+        }
+    }
+}

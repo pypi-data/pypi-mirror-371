@@ -1,0 +1,109 @@
+{
+    "services": {
+        "add_all_link": {
+            "description": "Ins\u00edonn s\u00e9 seo don Mh\u00f3ideim Insteon (IM) go dtosa\u00edonn s\u00e9 ar an m\u00f3d Uile-Nasctha. Nuair a bh\u00edonn an IM i m\u00f3d Uile-Nasctha, br\u00faigh an cnaipe nasctha ar an bhfeiste chun an tUile-Nasctha a chr\u00edochn\u00fa.",
+            "fields": {
+                "group": {
+                    "description": "Uimhir ghr\u00fapa All-Link.",
+                    "name": "Gr\u00fapa"
+                },
+                "mode": {
+                    "description": "M\u00f3d nasctha an Mh\u00f3ideim Insteon.",
+                    "name": "M\u00f3d"
+                }
+            },
+            "name": "Cuir Gach-Nasc leis"
+        },
+        "add_default_links": {
+            "description": "Cuireann s\u00e9 na naisc r\u00e9amhshocraithe idir an gl\u00e9as agus M\u00f3ideim Insteon (IM) leis.",
+            "fields": {
+                "entity_id": {
+                    "name": "Eintiteas"
+                }
+            },
+            "name": "Cuir naisc r\u00e9amhshocraithe leis"
+        },
+        "delete_all_link": {
+            "description": "Ins\u00edonn s\u00e9 don Mh\u00f3ideim Insteon (IM) taifead All-Link a bhaint as bunachar sonra\u00ed All-Link an IM agus gl\u00e9is. Nuair a bheidh an IM socraithe chun an nasc a scriosadh, br\u00faigh an cnaipe nasc ar an ngl\u00e9as comhfhreagrach chun an pr\u00f3iseas a chr\u00edochn\u00fa.",
+            "fields": {
+                "group": {
+                    "description": "Uimhir ghr\u00fapa All-Link.",
+                    "name": "Gr\u00fapa"
+                }
+            },
+            "name": "Scrios Gach Nasc"
+        },
+        "load_all_link_database": {
+            "fields": {
+                "entity_id": {
+                    "name": "Eintiteas"
+                }
+            },
+            "name": "Luchtaigh bunachar sonra\u00ed All-Link"
+        },
+        "print_all_link_database": {
+            "description": "Priont\u00e1lann s\u00e9 bunachar sonra\u00ed All-Link do ghl\u00e9as. \u00c9il\u00edonn s\u00e9 go lucht\u00f3far bunachar sonra\u00ed All-Link isteach sa chuimhne.",
+            "fields": {
+                "entity_id": {
+                    "description": "Ainm an fheiste le priont\u00e1il.",
+                    "name": "Eintiteas"
+                }
+            },
+            "name": "Priont\u00e1il bunachar sonra\u00ed All-Link"
+        },
+        "print_im_all_link_database": {
+            "description": "Priont\u00e1lann s\u00e9 bunachar sonra\u00ed All-Link don Mh\u00f3ideim INSTEON (IM).",
+            "name": "Priont\u00e1il bunachar sonra\u00ed IM All-Link"
+        },
+        "scene_off": {
+            "description": "Spreagann s\u00e9 radharc INSTEON chun m\u00fachadh.",
+            "fields": {
+                "group": {
+                    "description": "Uimhir ghr\u00fapa n\u00f3 radhairc INSTEON.",
+                    "name": "Gr\u00fapa"
+                }
+            },
+            "name": "Radharc m\u00fachta"
+        },
+        "scene_on": {
+            "description": "Spreagann s\u00e9 radharc INSTEON chun casadh AR SI\u00daL.",
+            "fields": {
+                "group": {
+                    "description": "Uimhir ghr\u00fapa n\u00f3 radhairc INSTEON.",
+                    "name": "Gr\u00fapa"
+                }
+            },
+            "name": "Radharc ar si\u00fal"
+        },
+        "x10_all_lights_off": {
+            "description": "Seolann s\u00e9 an t-ord\u00fa X10 'Gach soilse m\u00fachta'.",
+            "fields": {
+                "housecode": {
+                    "description": "C\u00f3d t\u00ed X10.",
+                    "name": "C\u00f3dT\u00ed"
+                }
+            },
+            "name": "X10 gach soilse m\u00fachta"
+        },
+        "x10_all_lights_on": {
+            "description": "Seolann s\u00e9 an t-ord\u00fa X10 'Gach soilse ar si\u00fal'.",
+            "fields": {
+                "housecode": {
+                    "description": "C\u00f3d t\u00ed X10.",
+                    "name": "C\u00f3dT\u00ed"
+                }
+            },
+            "name": "X10 gach soilse ar si\u00fal"
+        },
+        "x10_all_units_off": {
+            "description": "Seolann s\u00e9 an t-ord\u00fa 'Gach aonad as' chuig X10.",
+            "fields": {
+                "housecode": {
+                    "description": "C\u00f3d t\u00ed X10.",
+                    "name": "C\u00f3dT\u00ed"
+                }
+            },
+            "name": "X10 gach aonad m\u00fachta"
+        }
+    }
+}

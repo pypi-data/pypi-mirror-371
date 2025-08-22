@@ -1,0 +1,40 @@
+{
+    "services": {
+        "push_alarm_state": {
+            "description": "Nuashonra\u00edonn s\u00e9 staid an al\u00e1raim go dt\u00ed an luach sonraithe.",
+            "fields": {
+                "entity_id": {
+                    "description": "Ainm an phain\u00e9il rialaithe al\u00e1raim a bhfuil a staid le nuashonr\u00fa.",
+                    "name": "Aitheantas Eintitis"
+                },
+                "state": {
+                    "description": "An staid ina gcaithfear an pain\u00e9al rialaithe al\u00e1raim a shocr\u00fa.",
+                    "name": "St\u00e1t"
+                }
+            },
+            "name": "St\u00e1das al\u00e1raim br\u00faigh"
+        },
+        "trigger": {
+            "description": "Spreagann s\u00e9 an webhook IFTTT cumraithe.",
+            "fields": {
+                "event": {
+                    "description": "Ainm an imeachta le seoladh.",
+                    "name": "Imeacht"
+                },
+                "value1": {
+                    "description": "R\u00e9imse cine\u00e1lach chun sonra\u00ed a sheoladh tr\u00edd an imeacht.",
+                    "name": "Luach 1"
+                },
+                "value2": {
+                    "description": "R\u00e9imse cine\u00e1lach chun sonra\u00ed a sheoladh tr\u00edd an imeacht.",
+                    "name": "Luach 2"
+                },
+                "value3": {
+                    "description": "R\u00e9imse cine\u00e1lach chun sonra\u00ed a sheoladh tr\u00edd an imeacht.",
+                    "name": "Luach 3"
+                }
+            },
+            "name": "Truicear"
+        }
+    }
+}

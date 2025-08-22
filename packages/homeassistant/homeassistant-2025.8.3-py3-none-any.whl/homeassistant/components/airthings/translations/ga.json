@@ -1,0 +1,18 @@
+{
+    "config": {
+        "step": {
+            "user": {
+                "data": {
+                    "id": "Aitheantas"
+                }
+            }
+        }
+    },
+    "entity": {
+        "sensor": {
+            "light": {
+                "name": "Solas"
+            }
+        }
+    }
+}

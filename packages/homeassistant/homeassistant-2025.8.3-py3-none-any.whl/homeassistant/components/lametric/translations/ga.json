@@ -1,0 +1,147 @@
+{
+    "config": {
+        "abort": {
+            "oauth_error": "Fuarthas sonra\u00ed comhartha neamhbhail\u00ed.",
+            "oauth_failed": "Earr\u00e1id agus comhartha rochtana \u00e1 fh\u00e1il.",
+            "oauth_timeout": "Am cr\u00edochnaithe ag r\u00e9iteach comhartha OAuth.",
+            "oauth_unauthorized": "Earr\u00e1id \u00fadaraithe OAuth agus comhartha rochtana \u00e1 fh\u00e1il."
+        },
+        "step": {
+            "cloud_select_device": {
+                "data": {
+                    "device": "Gl\u00e9as"
+                },
+                "data_description": {
+                    "device": "Roghnaigh an gl\u00e9as LaMetric le cur leis"
+                }
+            },
+            "pick_implementation": {
+                "data": {
+                    "implementation": "Dinti\u00fair Iarratais"
+                },
+                "data_description": {
+                    "implementation": "Na dinti\u00fair is mian leat a \u00fas\u00e1id chun f\u00edordheimhni\u00fa."
+                }
+            }
+        }
+    },
+    "entity": {
+        "number": {
+            "brightness": {
+                "name": "Gile"
+            },
+            "volume": {
+                "name": "Toirt"
+            }
+        }
+    },
+    "selector": {
+        "icon_type": {
+            "options": {
+                "alert": "Fol\u00e1ireamh",
+                "info": "Eolas",
+                "none": "Dada"
+            }
+        },
+        "priority": {
+            "options": {
+                "critical": "Critici\u00fail",
+                "info": "Eolas",
+                "warning": "Rabhadh"
+            }
+        },
+        "sound": {
+            "options": {
+                "alarm1": "Al\u00e1ram 1",
+                "alarm10": "Al\u00e1ram 10",
+                "alarm11": "Al\u00e1ram 11",
+                "alarm12": "Al\u00e1ram 12",
+                "alarm13": "Al\u00e1ram 1",
+                "alarm2": "Al\u00e1ram 2",
+                "alarm3": "Al\u00e1ram 3",
+                "alarm4": "Al\u00e1ram 4",
+                "alarm5": "Al\u00e1ram 5",
+                "alarm6": "Al\u00e1ram 6",
+                "alarm7": "Al\u00e1ram 7",
+                "alarm8": "Al\u00e1ram 8",
+                "alarm9": "Al\u00e1ram 9",
+                "bicycle": "Rothar",
+                "car": "Car",
+                "cash": "Airgead Tirim",
+                "cat": "Cat",
+                "dog": "Madra 1",
+                "dog2": "Madra 2",
+                "energy": "Fuinneamh",
+                "win": "Win 1",
+                "wind": "Gaoth",
+                "wind_short": "Gaoth gearr"
+            }
+        }
+    },
+    "services": {
+        "chart": {
+            "description": "Taispe\u00e1nann s\u00e9 cairt ar fheiste LaMetric.",
+            "fields": {
+                "cycles": {
+                    "description": "L\u00edon na n-uaireanta a thaispe\u00e1nfar an teachtaireacht. Nuair a shocra\u00edtear go 0 \u00ed, taispe\u00e1nfar an teachtaireacht go dt\u00ed go ndi\u00falt\u00f3far di \u00ed.",
+                    "name": "Timthriallta"
+                },
+                "data": {
+                    "description": "An liosta point\u00ed sonra\u00ed sa chairt.",
+                    "name": "Sonra\u00ed"
+                },
+                "device_id": {
+                    "description": "An gl\u00e9as LaMetric chun an chairt a thaispe\u00e1int air.",
+                    "name": "Gl\u00e9as"
+                },
+                "icon_type": {
+                    "description": "An cine\u00e1l deilbh\u00edn le taispe\u00e1int, ag l\u00e9iri\u00fa cine\u00e1l an fh\u00f3gra.",
+                    "name": "Cine\u00e1l deilbh\u00edn"
+                },
+                "priority": {
+                    "description": "Tosa\u00edocht an fh\u00f3gra. Nuair a bh\u00edonn an gl\u00e9as ag rith i m\u00f3d sp\u00e1r\u00e1la\u00edsc\u00e1ile\u00e1in n\u00f3 i m\u00f3d both\u00e1in, n\u00ed ghlacfar ach le f\u00f3gra\u00ed tosa\u00edochta critici\u00fala.",
+                    "name": "Tosa\u00edocht"
+                },
+                "sound": {
+                    "description": "An fhuaim f\u00f3gra le seinm.",
+                    "name": "Fuaim"
+                }
+            },
+            "name": "Taispe\u00e1in cairt"
+        },
+        "message": {
+            "description": "Taispe\u00e1nann s\u00e9 teachtaireacht le deilbh\u00edn roghnach ar fheiste LaMetric.",
+            "fields": {
+                "cycles": {
+                    "description": "L\u00edon na n-uaireanta a thaispe\u00e1nfar an teachtaireacht. Nuair a shocra\u00edtear go 0 \u00ed, taispe\u00e1nfar an teachtaireacht go dt\u00ed go ndi\u00falt\u00f3far di \u00ed.",
+                    "name": "Timthriallta"
+                },
+                "device_id": {
+                    "description": "An gl\u00e9as LaMetric chun an teachtaireacht a thaispe\u00e1int air.",
+                    "name": "Gl\u00e9as"
+                },
+                "icon": {
+                    "description": "Uimhir aitheantais an deilbh\u00edn n\u00f3 an bheochana at\u00e1 le taispe\u00e1int. Is f\u00e9idir liosta de na deilbh\u00edn\u00ed uile agus a n-aitheantais a fh\u00e1il ag: https://developer.lametric.com/icons.",
+                    "name": "Aitheantas Deilbh\u00edn"
+                },
+                "icon_type": {
+                    "description": "An cine\u00e1l deilbh\u00edn le taispe\u00e1int, ag l\u00e9iri\u00fa cine\u00e1l an fh\u00f3gra.",
+                    "name": "Cine\u00e1l deilbh\u00edn"
+                },
+                "message": {
+                    "description": "An teachtaireacht le taispe\u00e1int.",
+                    "name": "Teachtaireacht"
+                },
+                "priority": {
+                    "description": "Tosa\u00edocht an fh\u00f3gra. Nuair a bh\u00edonn an gl\u00e9as ag rith i m\u00f3d sp\u00e1r\u00e1la\u00edsc\u00e1ile\u00e1in n\u00f3 i m\u00f3d both\u00e1in, n\u00ed ghlacfar ach le f\u00f3gra\u00ed tosa\u00edochta critici\u00fala.",
+                    "name": "Tosa\u00edocht"
+                },
+                "sound": {
+                    "description": "An fhuaim f\u00f3gra le seinm.",
+                    "name": "Fuaim"
+                }
+            },
+            "name": "Taispe\u00e1in teachtaireacht"
+        }
+    }
+}

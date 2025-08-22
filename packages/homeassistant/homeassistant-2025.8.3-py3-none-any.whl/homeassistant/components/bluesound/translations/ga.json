@@ -1,0 +1,80 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "T\u00e1 an tseirbh\u00eds cumraithe cheana f\u00e9in",
+            "already_in_progress": "T\u00e1 sreabhadh cumra\u00edochta ar si\u00fal cheana f\u00e9in",
+            "cannot_connect": "Theip ar an nascadh",
+            "no_ipv4_address": "N\u00edor aims\u00edodh aon seoladh IPv4."
+        },
+        "error": {
+            "cannot_connect": "Theip ar an nascadh"
+        },
+        "step": {
+            "confirm": {
+                "description": "Ar mhaith leat tos\u00fa ag socr\u00fa?",
+                "title": "Faigh amach seinnteoir Bluesound"
+            },
+            "user": {
+                "data": {
+                    "host": "\u00d3stach",
+                    "port": "Port"
+                },
+                "data_description": {
+                    "host": "Ainm \u00f3stach n\u00f3 seoladh IP do sheinnteora Bluesound",
+                    "port": "Port do seinnteora Bluesound. Is gn\u00e1ch go mb\u00edonn s\u00e9 seo 11000."
+                }
+            }
+        }
+    },
+    "entity": {
+        "button": {
+            "clear_sleep_timer": {
+                "name": "Glan an lasc ama codlata"
+            },
+            "set_sleep_timer": {
+                "name": "Socraigh an lasc ama codlata"
+            }
+        }
+    },
+    "issues": {
+        "deprecated_service_clear_sleep_timer": {
+            "description": "Bain \u00fas\u00e1id as `button.{name}_clear_sleep_timer` ina ionad.\n\nCuir an gn\u00edomh seo ina \u00e1it agus coigeartaigh do uathoibrithe agus do scripteanna le do thoil.",
+            "title": "Braitheadh \u00fas\u00e1id gn\u00edomh at\u00e1 imithe i l\u00e9ig bluesound.clear_sleep_timer"
+        },
+        "deprecated_service_set_sleep_timer": {
+            "description": "Bain \u00fas\u00e1id as `button.{name}_set_sleep_timer` ina ionad.\n\nCuir an gn\u00edomh seo ina \u00e1it agus coigeartaigh do uathoibrithe agus do scripteanna le do thoil.",
+            "title": "Braitheadh \u00fas\u00e1id an ghn\u00edmh at\u00e1 imithe i l\u00e9ig bluesound.set_sleep_timer"
+        }
+    },
+    "services": {
+        "clear_sleep_timer": {
+            "fields": {
+                "entity_id": {
+                    "name": "Eintiteas"
+                }
+            }
+        },
+        "join": {
+            "fields": {
+                "entity_id": {
+                    "name": "Eintiteas"
+                }
+            }
+        },
+        "set_sleep_timer": {
+            "description": "Socra\u00edonn s\u00e9 lasc ama Bluesound a mh\u00fachfaidh an cainteoir. M\u00e9ad\u00f3idh s\u00e9 i gc\u00e9imeanna: 15, 30, 45, 60, 90, 0.",
+            "fields": {
+                "entity_id": {
+                    "name": "Eintiteas"
+                }
+            }
+        },
+        "unjoin": {
+            "fields": {
+                "entity_id": {
+                    "name": "Eintiteas"
+                }
+            }
+        }
+    }
+}
