@@ -1,0 +1,13 @@
+humancursor_botasaurus/__init__.py,sha256=rKHzWOUGSSjU0KhGA4o2gXCizhAvEnZsV5Pn6nvTNYw,56
+humancursor_botasaurus/web_cursor.py,sha256=zp9gmiNT6hq-JopMEvqqL2GaR3tx9Ba-IRiqkDXbJhY,13308
+humancursor_playwright/__init__.py,sha256=zMiErNI5UT3eamVpTw9WZLPls4DcJAtXIJZo18qMEQ8,257
+humancursor_playwright/playwright_cursor.py,sha256=I6qerTVhurad7aOj1siVR7nTy1bIBhGZ89cPDRSX2L0,8124
+humancursor_playwright/utilities/__init__.py,sha256=EUYw4GpuN32srztxpknRlo9UiJ7HqlImw9jzUupaHjY,394
+humancursor_playwright/utilities/calculate_and_randomize.py,sha256=-TRahYlHpONPkob0-Y8ZhtvAI_h19IM50gad28CjzSM,3242
+humancursor_playwright/utilities/human_curve_generator.py,sha256=qr6l8A3TcSQhZVlpQxZoWuPkdDCYV5mXO9Of0VxoQSs,7678
+humancursor_playwright/utilities/playwright_adjuster.py,sha256=8_vsSjRlDZOnYvgIErUBtzbtemNJwht-q1hlu_3eFTo,4506
+humancursor_playwright-0.1.1.dist-info/licenses/LICENSE,sha256=WMwQBtlOpWgzM5CohCYA4bsHlkzzGjg3CfQAWmybrWM,1135
+humancursor_playwright-0.1.1.dist-info/METADATA,sha256=4bWwQsRVIP_t2bjADeeM8l1LDhi8MC3qCXBIGqi-Bho,10228
+humancursor_playwright-0.1.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+humancursor_playwright-0.1.1.dist-info/top_level.txt,sha256=HbZnkqspPwVEd72TgVb1vM7OiSC1viFEayo3HsNjlaY,46
+humancursor_playwright-0.1.1.dist-info/RECORD,,
