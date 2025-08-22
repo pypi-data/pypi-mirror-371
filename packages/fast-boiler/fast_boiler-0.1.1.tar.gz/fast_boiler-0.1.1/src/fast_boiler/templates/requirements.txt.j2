@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+pydantic
+aiosqlite
+fastapi-pagination
+{% if db_driver %}
+# Database driver
+{{ db_driver }}
+{% endif %}
