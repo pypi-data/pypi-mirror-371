@@ -1,0 +1,7 @@
+biomesh/__init__.py,sha256=IRHKu9LFbrAe4vc6j25iGnQ17b83kTJ3_HimzfmA83Y,1182
+biomesh/mesh.py,sha256=VWUL4NHZCQieWkj84kTdVAgE96SZWL22nBKds6BxOus,4917
+biomesh/run_gmsh.py,sha256=W4y-JzNNzOkWBiUBNZ8pEi6DokO_yo5v9f9magwSGXA,1115
+biomesh-0.1.0.dist-info/METADATA,sha256=KG2LbqBl_NiQ37HJFDnAOMhIYJMyvhoYjhd5MG9uG8c,1720
+biomesh-0.1.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+biomesh-0.1.0.dist-info/licenses/LICENSE,sha256=Y1codEvpzTEHgnKQvYK9_oC6gib3rUaAwhFHDA_iiSY,35130
+biomesh-0.1.0.dist-info/RECORD,,
