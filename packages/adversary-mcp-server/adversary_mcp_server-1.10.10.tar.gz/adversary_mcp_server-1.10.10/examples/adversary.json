@@ -1,0 +1,310 @@
+{
+  "scan_metadata": {
+    "scan_id": "32cc643b-df97-45e1-99c9-afe5c3f28cf1",
+    "scan_type": "file",
+    "timestamp": "2025-08-21T18:40:43.180857",
+    "requester": "cli",
+    "target_path": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_python.py",
+    "language": "python",
+    "scanners_enabled": {
+      "semgrep": true,
+      "llm": false,
+      "validation": false
+    },
+    "scanners_used": [
+      "semgrep+semgrep+semgrep",
+      "semgrep"
+    ],
+    "severity_threshold": "medium",
+    "timeout_seconds": null,
+    "project_name": null,
+    "additional_metadata": {
+      "scan_id": "32cc643b-df97-45e1-99c9-afe5c3f28cf1",
+      "orchestration_version": "domain_v1",
+      "scan_duration_seconds": 38.261585,
+      "strategies_executed": 1,
+      "strategy_results": {
+        "semgrep": {
+          "threats_found": 14,
+          "metadata": {
+            "scanner": "semgrep_static_analysis",
+            "rules_count": 0,
+            "scan_duration_ms": 36777,
+            "semgrep_version": "1.130.0",
+            "lines_analyzed": 126,
+            "scan_id": "32cc643b-df97-45e1-99c9-afe5c3f28cf1"
+          }
+        }
+      },
+      "total_original_threats": 14,
+      "aggregation_applied": true,
+      "validation_applied": false,
+      "severity_threshold": "medium",
+      "execution_timestamp": "2025-08-21T18:41:21.443897",
+      "request_configuration": {
+        "scan_type": "file",
+        "scan_id": "32cc643b-df97-45e1-99c9-afe5c3f28cf1",
+        "target": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_python.py",
+        "language": "python",
+        "scanners": {
+          "semgrep": true,
+          "llm": false,
+          "validation": false
+        },
+        "severity_threshold": "medium",
+        "scope": "File: vulnerable_python.py",
+        "requester": "cli"
+      }
+    }
+  },
+  "summary": {
+    "total_threats": 8,
+    "threat_count_by_severity": {
+      "critical": 3,
+      "high": 5,
+      "medium": 0,
+      "low": 0
+    },
+    "threat_categories": [
+      "injection",
+      "rce",
+      "deserialization",
+      "authentication",
+      "logging"
+    ],
+    "has_critical_threats": true,
+    "is_empty": false,
+    "high_confidence_threats": 8,
+    "validated_threats": 0
+  },
+  "statistics": {
+    "total_threats": 8,
+    "by_severity": {
+      "critical": 3,
+      "high": 5
+    },
+    "by_source": {
+      "semgrep": 7,
+      "semgrep+semgrep+semgrep": 1
+    },
+    "by_confidence": {
+      "Very High": 8
+    },
+    "false_positives_filtered": 0,
+    "files_scanned": 1,
+    "lines_analyzed": 0,
+    "scan_duration_seconds": 38.261585,
+    "by_scanner": {
+      "semgrep+semgrep+semgrep": {
+        "threats_found": 1,
+        "avg_confidence": 0.95
+      },
+      "semgrep": {
+        "threats_found": 7,
+        "avg_confidence": 0.9357142857142857
+      }
+    }
+  },
+  "threats": [
+    {
+      "uuid": "c8693913-fc50-47fa-b92e-2d44d6cdbe06",
+      "rule_id": "semgrep-python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
+      "rule_name": "Semgrep: python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
+      "description": "Avoiding SQL string concatenation: untrusted input concatenated with raw SQL query can result in SQL Injection. In order to execute raw query safely, prepared statement should be used. SQLAlchemy provides TextualSQL to easily used prepared statement with named parameters. For complex SQL composition, use SQL Expression Language or Schema Definition Language. In most cases, SQLAlchemy ORM will be a better option.",
+      "category": "injection",
+      "severity": "critical",
+      "confidence": {
+        "score": 0.95,
+        "percentage": 95.0,
+        "level": "Very High"
+      },
+      "location": {
+        "file_path": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_python.py",
+        "line_number": 32,
+        "column_number": 5
+      },
+      "code_snippet": "cursor.execute(query)",
+      "source_scanner": "semgrep",
+      "fingerprint": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_python.py:32",
+      "is_false_positive": false,
+      "metadata": {}
+    },
+    {
+      "uuid": "a45e5f25-8ff2-4bca-82b6-b494bc70d686",
+      "rule_id": "semgrep-python.lang.security.audit.subprocess-shell-true.subprocess-shell-true",
+      "rule_name": "Semgrep: python.lang.security.audit.subprocess-shell-true.subprocess-shell-true",
+      "description": "Found 'subprocess' function 'call' with 'shell=True'. This is dangerous because this call will spawn the command using a shell process. Doing so propagates current shell settings and variables, which makes it much easier for a malicious actor to execute commands. Use 'shell=False' instead.",
+      "category": "rce",
+      "severity": "critical",
+      "confidence": {
+        "score": 0.95,
+        "percentage": 95.0,
+        "level": "Very High"
+      },
+      "location": {
+        "file_path": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_python.py",
+        "line_number": 43,
+        "column_number": 47
+      },
+      "code_snippet": "subprocess.call(\"ls \" + user_input, shell=True)  # noqa: S602",
+      "source_scanner": "semgrep",
+      "fingerprint": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_python.py:43",
+      "is_false_positive": false,
+      "metadata": {}
+    },
+    {
+      "uuid": "6c15e93f-6a64-478f-bf5d-a84dafa3e1cd",
+      "rule_id": "semgrep-python.lang.security.deserialization.pickle.avoid-pickle",
+      "rule_name": "Semgrep: python.lang.security.deserialization.pickle.avoid-pickle",
+      "description": "Avoid using `pickle`, which is known to lead to code execution vulnerabilities. When unpickling, the serialized data could be manipulated to run arbitrary code. Instead, consider serializing the relevant data as JSON or a similar text-based serialization format.",
+      "category": "deserialization",
+      "severity": "high",
+      "confidence": {
+        "score": 0.9,
+        "percentage": 90.0,
+        "level": "Very High"
+      },
+      "location": {
+        "file_path": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_python.py",
+        "line_number": 49,
+        "column_number": 12
+      },
+      "code_snippet": "return pickle.loads(serialized_data)  # noqa: S301",
+      "source_scanner": "semgrep",
+      "fingerprint": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_python.py:49",
+      "is_false_positive": false,
+      "metadata": {}
+    },
+    {
+      "uuid": "def41407-7e84-4b6c-99d9-3e8f8bafa614",
+      "rule_id": "semgrep-python.django.security.injection.sql.sql-injection-using-db-cursor-execute.sql-injection-db-cursor-execute",
+      "rule_name": "Semgrep: python.django.security.injection.sql.sql-injection-using-db-cursor-execute.sql-injection-db-cursor-execute",
+      "description": "User-controlled data from a request is passed to 'execute()'. This could lead to a SQL injection and therefore protected information could be leaked. Instead, use django's QuerySets, which are built with query parameterization and therefore not vulnerable to sql injection. For example, you could use `Entry.objects.filter(date=2006)`.",
+      "category": "injection",
+      "severity": "critical",
+      "confidence": {
+        "score": 0.95,
+        "percentage": 95.0,
+        "level": "Very High"
+      },
+      "location": {
+        "file_path": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_python.py",
+        "line_number": 62,
+        "column_number": 5
+      },
+      "code_snippet": "query = request.args.get(\"q\", \"\")\n\n    # VULNERABILITY: SQL injection in web context\n    conn = sqlite3.connect(\"app.db\")\n    cursor = conn.cursor()\n    cursor.execute(f\"SELECT * FROM products WHERE name LIKE '%{query}%'\")",
+      "source_scanner": "semgrep+semgrep+semgrep",
+      "fingerprint": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_python.py:62",
+      "is_false_positive": false,
+      "metadata": {}
+    },
+    {
+      "uuid": "834617be-a806-4aa0-8aeb-d2dbf5395a5e",
+      "rule_id": "semgrep-python.lang.security.audit.md5-used-as-password.md5-used-as-password",
+      "rule_name": "Semgrep: python.lang.security.audit.md5-used-as-password.md5-used-as-password",
+      "description": "It looks like MD5 is used as a password hash. MD5 is not considered a secure password hash because it can be cracked by an attacker in a short amount of time. Use a suitable password hashing function such as scrypt. You can use `hashlib.scrypt`.",
+      "category": "authentication",
+      "severity": "high",
+      "confidence": {
+        "score": 0.95,
+        "percentage": 95.0,
+        "level": "Very High"
+      },
+      "location": {
+        "file_path": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_python.py",
+        "line_number": 91,
+        "column_number": 17
+      },
+      "code_snippet": "weak_hash = hashlib.md5(password.encode()).hexdigest()  # noqa: S324",
+      "source_scanner": "semgrep",
+      "fingerprint": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_python.py:91",
+      "is_false_positive": false,
+      "metadata": {}
+    },
+    {
+      "uuid": "ef710051-7216-45f5-a5fd-54825aae0d6f",
+      "rule_id": "semgrep-python.lang.security.audit.eval-detected.eval-detected",
+      "rule_name": "Semgrep: python.lang.security.audit.eval-detected.eval-detected",
+      "description": "Detected the use of eval(). eval() can be dangerous if used to evaluate dynamic content. If this content can be input from outside the program, this may be a code injection vulnerability. Ensure evaluated content is not definable by external sources.",
+      "category": "injection",
+      "severity": "high",
+      "confidence": {
+        "score": 0.95,
+        "percentage": 95.0,
+        "level": "Very High"
+      },
+      "location": {
+        "file_path": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_python.py",
+        "line_number": 102,
+        "column_number": 14
+      },
+      "code_snippet": "result = eval(user_code)  # noqa: S307",
+      "source_scanner": "semgrep",
+      "fingerprint": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_python.py:102",
+      "is_false_positive": false,
+      "metadata": {}
+    },
+    {
+      "uuid": "3d49f81c-ca2a-44d7-b7dd-62d86b7a8c5f",
+      "rule_id": "semgrep-python.lang.security.audit.exec-detected.exec-detected",
+      "rule_name": "Semgrep: python.lang.security.audit.exec-detected.exec-detected",
+      "description": "Detected the use of exec(). exec() can be dangerous if used to evaluate dynamic content. If this content can be input from outside the program, this may be a code injection vulnerability. Ensure evaluated content is not definable by external sources.",
+      "category": "injection",
+      "severity": "high",
+      "confidence": {
+        "score": 0.95,
+        "percentage": 95.0,
+        "level": "Very High"
+      },
+      "location": {
+        "file_path": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_python.py",
+        "line_number": 109,
+        "column_number": 5
+      },
+      "code_snippet": "exec(user_script)  # noqa: S102",
+      "source_scanner": "semgrep",
+      "fingerprint": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_python.py:109",
+      "is_false_positive": false,
+      "metadata": {}
+    },
+    {
+      "uuid": "fecf11da-8721-4e1c-a7dc-d08239b4dc46",
+      "rule_id": "semgrep-python.flask.debug.debug-flask.active-debug-code-flask",
+      "rule_name": "Semgrep: python.flask.debug.debug-flask.active-debug-code-flask + Semgrep: python.flask.security.audit.debug-enabled.debug-enabled",
+      "description": "The application is running debug code or has debug mode enabled. This may expose sensitive information, like stack traces and environment variables, to attackers. It may also modify application behavior, potentially enabling attackers to bypass restrictions. To remediate this finding, ensure that the application's debug code and debug mode are disabled or removed from the production environment.; Detected Flask app with debug=True. Do not deploy to production with this flag enabled as it will leak sensitive information. Instead, consider using Flask configuration variables or setting 'debug' using system environment variables.",
+      "category": "logging",
+      "severity": "high",
+      "confidence": {
+        "score": 0.9,
+        "percentage": 90.0,
+        "level": "Very High"
+      },
+      "location": {
+        "file_path": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_python.py",
+        "line_number": 126,
+        "column_number": 5
+      },
+      "code_snippet": "app.run(debug=True)  # noqa: S201",
+      "source_scanner": "semgrep",
+      "fingerprint": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_python.py:126",
+      "is_false_positive": false,
+      "metadata": {}
+    }
+  ],
+  "validation_info": null,
+  "scanner_execution_summary": {
+    "total_scanners_used": 2,
+    "scanners": {
+      "semgrep+semgrep+semgrep": {
+        "status": "completed",
+        "threats_found": 1,
+        "execution_time_ms": 0
+      },
+      "semgrep": {
+        "status": "completed",
+        "threats_found": 7,
+        "execution_time_ms": 0
+      }
+    }
+  }
+}

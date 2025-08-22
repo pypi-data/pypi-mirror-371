@@ -1,0 +1,1017 @@
+{
+  "scan_metadata": {
+    "scan_id": "4465ff3b-0695-424a-a772-2705451c0864",
+    "scan_type": "directory",
+    "timestamp": "2025-08-21T18:48:22.960939+00:00",
+    "requester": "cli",
+    "target_path": "/Users/brettbergin/code/adversary-mcp-server/examples",
+    "language": null,
+    "scanners_enabled": {
+      "semgrep": true,
+      "llm": false,
+      "validation": false
+    },
+    "scanners_used": [
+      "semgrep"
+    ],
+    "severity_threshold": "medium",
+    "timeout_seconds": "600",
+    "project_name": null,
+    "additional_metadata": {
+      "scan_id": "4465ff3b-0695-424a-a772-2705451c0864",
+      "orchestration_version": "domain_v1",
+      "scan_duration_seconds": 37.480658,
+      "strategies_executed": 1,
+      "strategy_results": {
+        "semgrep": {
+          "threats_found": 51,
+          "metadata": {
+            "scanner": "semgrep_static_analysis",
+            "rules_count": 0,
+            "scan_duration_ms": 36150,
+            "semgrep_version": "1.130.0",
+            "lines_analyzed": 3638,
+            "scan_id": "4465ff3b-0695-424a-a772-2705451c0864"
+          }
+        }
+      },
+      "total_original_threats": 51,
+      "aggregation_applied": true,
+      "validation_applied": false,
+      "severity_threshold": "medium",
+      "execution_timestamp": "2025-08-21T18:49:00.444363",
+      "request_configuration": {
+        "scan_type": "directory",
+        "scan_id": "4465ff3b-0695-424a-a772-2705451c0864",
+        "target": "/Users/brettbergin/code/adversary-mcp-server/examples",
+        "language": null,
+        "scanners": {
+          "semgrep": true,
+          "llm": false,
+          "validation": false
+        },
+        "severity_threshold": "medium",
+        "scope": "Directory: examples (15 files)",
+        "requester": "cli"
+      }
+    }
+  },
+  "summary": {
+    "total_threats": 39,
+    "threat_count_by_severity": {
+      "critical": 16,
+      "high": 22,
+      "medium": 1,
+      "low": 0
+    },
+    "threat_categories": [
+      "validation",
+      "rce",
+      "cryptography",
+      "injection",
+      "deserialization",
+      "configuration",
+      "authentication",
+      "logging",
+      "xss"
+    ],
+    "has_critical_threats": true,
+    "is_empty": false,
+    "high_confidence_threats": 39,
+    "validated_threats": 0
+  },
+  "statistics": {
+    "total_threats": 39,
+    "by_severity": {
+      "critical": 16,
+      "medium": 1,
+      "high": 22
+    },
+    "by_source": {
+      "semgrep": 39
+    },
+    "by_confidence": {
+      "Very High": 39
+    },
+    "false_positives_filtered": 0,
+    "files_scanned": 9,
+    "lines_analyzed": 0,
+    "scan_duration_seconds": 37.480658,
+    "by_scanner": {
+      "semgrep": {
+        "threats_found": 39,
+        "avg_confidence": 0.9384615384615385
+      }
+    }
+  },
+  "threats": [
+    {
+      "uuid": "7cb86d70-6034-469e-b714-6ebc42876ade",
+      "rule_id": "semgrep-cpp.lang.security.use-after-free.local-variable-malloc-free.local-variable-malloc-free",
+      "rule_name": "Semgrep: cpp.lang.security.use-after-free.local-variable-malloc-free.local-variable-malloc-free",
+      "description": "This expression points to memory that has been freed. This can lead to a segmentation fault or memory corruption.",
+      "category": "validation",
+      "severity": "critical",
+      "confidence": {
+        "score": 0.95,
+        "percentage": 95.0,
+        "level": "Very High"
+      },
+      "location": {
+        "file_path": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_cpp.cpp",
+        "line_number": 18,
+        "column_number": 12
+      },
+      "code_snippet": "strcpy(ptr, \"dangerous\");  // Using freed memory",
+      "source_scanner": "semgrep",
+      "fingerprint": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_cpp.cpp:18",
+      "is_false_positive": false,
+      "metadata": {}
+    },
+    {
+      "uuid": "6b101ace-4d6f-4f53-a9d3-c9874d906c4c",
+      "rule_id": "semgrep-cpp.lang.security.system-command.dont-call-system.dont-call-system",
+      "rule_name": "Semgrep: cpp.lang.security.system-command.dont-call-system.dont-call-system",
+      "description": "Don't call `system`. It's a high-level wrapper that allows for stacking multiple commands. Always prefer a more restrictive API such as calling `execve` from the `exec` family.",
+      "category": "rce",
+      "severity": "medium",
+      "confidence": {
+        "score": 0.95,
+        "percentage": 95.0,
+        "level": "Very High"
+      },
+      "location": {
+        "file_path": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_cpp.cpp",
+        "line_number": 48,
+        "column_number": 5
+      },
+      "code_snippet": "system(command.c_str());  // Executing user-controlled command",
+      "source_scanner": "semgrep",
+      "fingerprint": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_cpp.cpp:48",
+      "is_false_positive": false,
+      "metadata": {}
+    },
+    {
+      "uuid": "05a7cec5-4700-48e2-a2f1-cf5de9e5742d",
+      "rule_id": "semgrep-cpp.lang.security.memory.deallocation.double-free.double-free",
+      "rule_name": "Semgrep: cpp.lang.security.memory.deallocation.double-free.double-free",
+      "description": "`ptr` has previously been freed which will trigger a double-free vulnerability. This may lead to memory corruption.",
+      "category": "validation",
+      "severity": "critical",
+      "confidence": {
+        "score": 0.95,
+        "percentage": 95.0,
+        "level": "Very High"
+      },
+      "location": {
+        "file_path": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_cpp.cpp",
+        "line_number": 68,
+        "column_number": 10
+      },
+      "code_snippet": "free(ptr);  // Freeing already freed memory",
+      "source_scanner": "semgrep",
+      "fingerprint": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_cpp.cpp:68",
+      "is_false_positive": false,
+      "metadata": {}
+    },
+    {
+      "uuid": "21c41cfa-574a-47b8-b770-77b3653b0f7b",
+      "rule_id": "semgrep-go.lang.security.audit.crypto.math_random.math-random-used",
+      "rule_name": "Semgrep: go.lang.security.audit.crypto.math_random.math-random-used",
+      "description": "Do not use `math/rand`. Use `crypto/rand` instead.",
+      "category": "cryptography",
+      "severity": "high",
+      "confidence": {
+        "score": 0.9,
+        "percentage": 90.0,
+        "level": "Very High"
+      },
+      "location": {
+        "file_path": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_go.go",
+        "line_number": 8,
+        "column_number": 6
+      },
+      "code_snippet": "\"math/rand\"",
+      "source_scanner": "semgrep",
+      "fingerprint": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_go.go:8",
+      "is_false_positive": false,
+      "metadata": {}
+    },
+    {
+      "uuid": "2a216dc4-9ff6-478b-a5bf-c1d7a876b5b8",
+      "rule_id": "semgrep-go.lang.security.audit.database.string-formatted-query.string-formatted-query",
+      "rule_name": "Semgrep: go.lang.security.audit.database.string-formatted-query.string-formatted-query",
+      "description": "String-formatted SQL query detected. This could lead to SQL injection if the string is not sanitized properly. Audit this call to ensure the SQL is not manipulable by external data.",
+      "category": "injection",
+      "severity": "critical",
+      "confidence": {
+        "score": 0.95,
+        "percentage": 95.0,
+        "level": "Very High"
+      },
+      "location": {
+        "file_path": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_go.go",
+        "line_number": 20,
+        "column_number": 5
+      },
+      "code_snippet": "query := \"SELECT * FROM users WHERE id = '\" + userID + \"'\"",
+      "source_scanner": "semgrep",
+      "fingerprint": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_go.go:20",
+      "is_false_positive": false,
+      "metadata": {}
+    },
+    {
+      "uuid": "3fcefb97-d4c0-4d6d-9d99-7543a4b4e04f",
+      "rule_id": "semgrep-go.lang.security.audit.crypto.use_of_weak_crypto.use-of-md5",
+      "rule_name": "Semgrep: go.lang.security.audit.crypto.use_of_weak_crypto.use-of-md5",
+      "description": "Detected MD5 hash algorithm which is considered insecure. MD5 is not collision resistant and is therefore not suitable as a cryptographic signature. Use SHA256 or SHA3 instead.",
+      "category": "cryptography",
+      "severity": "high",
+      "confidence": {
+        "score": 0.95,
+        "percentage": 95.0,
+        "level": "Very High"
+      },
+      "location": {
+        "file_path": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_go.go",
+        "line_number": 44,
+        "column_number": 15
+      },
+      "code_snippet": "hasher := md5.New()",
+      "source_scanner": "semgrep",
+      "fingerprint": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_go.go:44",
+      "is_false_positive": false,
+      "metadata": {}
+    },
+    {
+      "uuid": "16219eca-b28f-411b-8fc6-9afd72c83912",
+      "rule_id": "semgrep-go.lang.security.injection.open-redirect.open-redirect",
+      "rule_name": "Semgrep: go.lang.security.injection.open-redirect.open-redirect",
+      "description": "An HTTP redirect was found to be crafted from user-input `r`. This can lead to open redirect vulnerabilities, potentially allowing attackers to redirect users to malicious web sites. It is recommend where possible to not allow user-input to craft the redirect URL. When user-input is necessary to craft the request, it is recommended to follow OWASP best practices to restrict the URL to domains in an allowlist.",
+      "category": "injection",
+      "severity": "high",
+      "confidence": {
+        "score": 0.95,
+        "percentage": 95.0,
+        "level": "Very High"
+      },
+      "location": {
+        "file_path": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_go.go",
+        "line_number": 74,
+        "column_number": 25
+      },
+      "code_snippet": "http.Redirect(w, r, redirectURL, http.StatusFound)",
+      "source_scanner": "semgrep",
+      "fingerprint": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_go.go:74",
+      "is_false_positive": false,
+      "metadata": {}
+    },
+    {
+      "uuid": "19e35c30-26bb-4dc9-9e6e-c76043454205",
+      "rule_id": "semgrep-go.lang.security.audit.dangerous-exec-command.dangerous-exec-command",
+      "rule_name": "Semgrep: go.lang.security.audit.dangerous-exec-command.dangerous-exec-command",
+      "description": "Detected non-static command inside Command. Audit the input to 'exec.Command'. If unverified user data can reach this call site, this is a code injection vulnerability. A malicious actor can inject a malicious script to execute arbitrary code.",
+      "category": "injection",
+      "severity": "critical",
+      "confidence": {
+        "score": 0.95,
+        "percentage": 95.0,
+        "level": "Very High"
+      },
+      "location": {
+        "file_path": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_go.go",
+        "line_number": 113,
+        "column_number": 12
+      },
+      "code_snippet": "cmd := exec.Command(\"sh\", \"-c\", \"echo \"+userInput)",
+      "source_scanner": "semgrep",
+      "fingerprint": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_go.go:113",
+      "is_false_positive": false,
+      "metadata": {}
+    },
+    {
+      "uuid": "8821ba9b-f595-4e1e-aab1-f11cad229618",
+      "rule_id": "semgrep-java.lang.security.sql.drivermanager-hardcoded-secret.drivermanager-hardcoded-secret",
+      "rule_name": "Semgrep: java.lang.security.sql.drivermanager-hardcoded-secret.drivermanager-hardcoded-secret",
+      "description": "A secret is hard-coded in the application. Secrets stored in source code, such as credentials, identifiers, and other types of sensitive data, can be leaked and used by internal or external malicious actors. Use environment variables to securely provide credentials and other secrets or retrieve them from a secure vault or Hardware Security Module (HSM).",
+      "category": "injection",
+      "severity": "critical",
+      "confidence": {
+        "score": 0.95,
+        "percentage": 95.0,
+        "level": "Very High"
+      },
+      "location": {
+        "file_path": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_java.java",
+        "line_number": 14,
+        "column_number": 27
+      },
+      "code_snippet": "Connection conn = DriverManager.getConnection(\"jdbc:mysql://localhost/db\", \"user\", \"pass\");",
+      "source_scanner": "semgrep",
+      "fingerprint": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_java.java:14",
+      "is_false_positive": false,
+      "metadata": {}
+    },
+    {
+      "uuid": "5f1b179b-78c3-414e-94ed-fde1f12adc27",
+      "rule_id": "semgrep-java.lang.security.audit.object-deserialization.object-deserialization",
+      "rule_name": "Semgrep: java.lang.security.audit.object-deserialization.object-deserialization",
+      "description": "Found object deserialization using ObjectInputStream. Deserializing entire Java objects is dangerous because malicious actors can create Java object streams with unintended consequences. Ensure that the objects being deserialized are not user-controlled. If this must be done, consider using HMACs to sign the data stream to make sure it is not tampered with, or consider only transmitting object fields and populating a new object.",
+      "category": "deserialization",
+      "severity": "high",
+      "confidence": {
+        "score": 0.9,
+        "percentage": 90.0,
+        "level": "Very High"
+      },
+      "location": {
+        "file_path": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_java.java",
+        "line_number": 39,
+        "column_number": 9
+      },
+      "code_snippet": "ObjectInputStream ois = new ObjectInputStream(bis);",
+      "source_scanner": "semgrep",
+      "fingerprint": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_java.java:39",
+      "is_false_positive": false,
+      "metadata": {}
+    },
+    {
+      "uuid": "aa1bac4d-112c-4a0c-8c70-fb9a36a71cdd",
+      "rule_id": "semgrep-java.lang.security.audit.crypto.use-of-md5.use-of-md5",
+      "rule_name": "Semgrep: java.lang.security.audit.crypto.use-of-md5.use-of-md5",
+      "description": "Detected MD5 hash algorithm which is considered insecure. MD5 is not collision resistant and is therefore not suitable as a cryptographic signature. Use HMAC instead.",
+      "category": "cryptography",
+      "severity": "high",
+      "confidence": {
+        "score": 0.95,
+        "percentage": 95.0,
+        "level": "Very High"
+      },
+      "location": {
+        "file_path": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_java.java",
+        "line_number": 46,
+        "column_number": 54
+      },
+      "code_snippet": "MessageDigest md = MessageDigest.getInstance(\"MD5\");",
+      "source_scanner": "semgrep",
+      "fingerprint": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_java.java:46",
+      "is_false_positive": false,
+      "metadata": {}
+    },
+    {
+      "uuid": "062afcc9-a5b8-42e9-96d8-40e873b78b3d",
+      "rule_id": "semgrep-java.lang.security.audit.unvalidated-redirect.unvalidated-redirect",
+      "rule_name": "Semgrep: java.lang.security.audit.unvalidated-redirect.unvalidated-redirect",
+      "description": "Application redirects to a destination URL specified by a user-supplied parameter that is not validated. This could direct users to malicious locations. Consider using an allowlist to validate URLs.",
+      "category": "validation",
+      "severity": "high",
+      "confidence": {
+        "score": 0.9,
+        "percentage": 90.0,
+        "level": "Very High"
+      },
+      "location": {
+        "file_path": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_java.java",
+        "line_number": 73,
+        "column_number": 5
+      },
+      "code_snippet": "public void openRedirect(HttpServletResponse response, String url) throws IOException {\n        // Redirect to user-provided URL without validation\n        response.sendRedirect(url);\n    }",
+      "source_scanner": "semgrep",
+      "fingerprint": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_java.java:73",
+      "is_false_positive": false,
+      "metadata": {}
+    },
+    {
+      "uuid": "82b7d4e1-1501-42bb-b4eb-01705fd98b1e",
+      "rule_id": "semgrep-java.lang.security.audit.xxe.documentbuilderfactory-disallow-doctype-decl-missing.documentbuilderfactory-disallow-doctype-decl-missing",
+      "rule_name": "Semgrep: java.lang.security.audit.xxe.documentbuilderfactory-disallow-doctype-decl-missing.documentbuilderfactory-disallow-doctype-decl-missing",
+      "description": "DOCTYPE declarations are enabled for this DocumentBuilderFactory. This is vulnerable to XML external entity attacks. Disable this by setting the feature \"http://apache.org/xml/features/disallow-doctype-decl\" to true. Alternatively, allow DOCTYPE declarations and only prohibit external entities declarations. This can be done by setting the features \"http://xml.org/sax/features/external-general-entities\" and \"http://xml.org/sax/features/external-parameter-entities\" to false.",
+      "category": "configuration",
+      "severity": "critical",
+      "confidence": {
+        "score": 0.95,
+        "percentage": 95.0,
+        "level": "Very High"
+      },
+      "location": {
+        "file_path": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_java.java",
+        "line_number": 89,
+        "column_number": 9
+      },
+      "code_snippet": "DocumentBuilder builder = factory.newDocumentBuilder();",
+      "source_scanner": "semgrep",
+      "fingerprint": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_java.java:89",
+      "is_false_positive": false,
+      "metadata": {}
+    },
+    {
+      "uuid": "3bd1e85e-6498-4b7b-8b18-c54eef159cd7",
+      "rule_id": "semgrep-java.lang.security.audit.unsafe-reflection.unsafe-reflection",
+      "rule_name": "Semgrep: java.lang.security.audit.unsafe-reflection.unsafe-reflection",
+      "description": "If an attacker can supply values that the application then uses to determine which class to instantiate or which method to invoke, the potential exists for the attacker to create control flow paths through the application that were not intended by the application developers. This attack vector may allow the attacker to bypass authentication or access control checks or otherwise cause the application to behave in an unexpected manner.",
+      "category": "authentication",
+      "severity": "high",
+      "confidence": {
+        "score": 0.95,
+        "percentage": 95.0,
+        "level": "Very High"
+      },
+      "location": {
+        "file_path": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_java.java",
+        "line_number": 96,
+        "column_number": 26
+      },
+      "code_snippet": "Class<?> clazz = Class.forName(className);",
+      "source_scanner": "semgrep",
+      "fingerprint": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_java.java:96",
+      "is_false_positive": false,
+      "metadata": {}
+    },
+    {
+      "uuid": "3e2b9555-4496-4de7-a6b4-14a24f0abefb",
+      "rule_id": "semgrep-java.lang.security.audit.active-debug-code-printstacktrace.active-debug-code-printstacktrace",
+      "rule_name": "Semgrep: java.lang.security.audit.active-debug-code-printstacktrace.active-debug-code-printstacktrace",
+      "description": "Possible active debug code detected. Deploying an application with debug code can create unintended entry points or expose sensitive information.",
+      "category": "logging",
+      "severity": "high",
+      "confidence": {
+        "score": 0.9,
+        "percentage": 90.0,
+        "level": "Very High"
+      },
+      "location": {
+        "file_path": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_java.java",
+        "line_number": 115,
+        "column_number": 13
+      },
+      "code_snippet": "e.printStackTrace();",
+      "source_scanner": "semgrep",
+      "fingerprint": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_java.java:115",
+      "is_false_positive": false,
+      "metadata": {}
+    },
+    {
+      "uuid": "b5a38e43-efc8-42a2-9fbe-6456d4c0576c",
+      "rule_id": "semgrep-javascript.browser.security.insecure-document-method.insecure-document-method",
+      "rule_name": "Semgrep: javascript.browser.security.insecure-document-method.insecure-document-method",
+      "description": "User controlled data in methods like `innerHTML`, `outerHTML` or `document.write` is an anti-pattern that can lead to XSS vulnerabilities",
+      "category": "xss",
+      "severity": "critical",
+      "confidence": {
+        "score": 0.95,
+        "percentage": 95.0,
+        "level": "Very High"
+      },
+      "location": {
+        "file_path": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_javascript.js",
+        "line_number": 10,
+        "column_number": 5
+      },
+      "code_snippet": "document.getElementById('profile').innerHTML = '<h1>Welcome ' + username + '</h1>';",
+      "source_scanner": "semgrep",
+      "fingerprint": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_javascript.js:10",
+      "is_false_positive": false,
+      "metadata": {}
+    },
+    {
+      "uuid": "b0b96c4c-a701-4ab0-ba55-9ef41dc0f9f8",
+      "rule_id": "semgrep-javascript.browser.security.eval-detected.eval-detected",
+      "rule_name": "Semgrep: javascript.browser.security.eval-detected.eval-detected",
+      "description": "Detected the use of eval(). eval() can be dangerous if used to evaluate dynamic content. If this content can be input from outside the program, this may be a code injection vulnerability. Ensure evaluated content is not definable by external sources.",
+      "category": "injection",
+      "severity": "high",
+      "confidence": {
+        "score": 0.95,
+        "percentage": 95.0,
+        "level": "Very High"
+      },
+      "location": {
+        "file_path": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_javascript.js",
+        "line_number": 16,
+        "column_number": 22
+      },
+      "code_snippet": "var result = eval('(' + expression + ')');",
+      "source_scanner": "semgrep",
+      "fingerprint": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_javascript.js:16",
+      "is_false_positive": false,
+      "metadata": {}
+    },
+    {
+      "uuid": "d123762d-be2a-4e1b-a2e7-807289d1f2d1",
+      "rule_id": "semgrep-javascript.browser.security.insecure-document-method.insecure-document-method",
+      "rule_name": "Semgrep: javascript.browser.security.insecure-document-method.insecure-document-method",
+      "description": "User controlled data in methods like `innerHTML`, `outerHTML` or `document.write` is an anti-pattern that can lead to XSS vulnerabilities",
+      "category": "xss",
+      "severity": "critical",
+      "confidence": {
+        "score": 0.95,
+        "percentage": 95.0,
+        "level": "Very High"
+      },
+      "location": {
+        "file_path": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_javascript.js",
+        "line_number": 37,
+        "column_number": 5
+      },
+      "code_snippet": "document.body.innerHTML += '<div class=\"message\">' + message + '</div>';",
+      "source_scanner": "semgrep",
+      "fingerprint": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_javascript.js:37",
+      "is_false_positive": false,
+      "metadata": {}
+    },
+    {
+      "uuid": "daa7de7b-281c-4e2c-a0f3-ad71009b9408",
+      "rule_id": "semgrep-javascript.browser.security.insecure-document-method.insecure-document-method",
+      "rule_name": "Semgrep: javascript.browser.security.insecure-document-method.insecure-document-method",
+      "description": "User controlled data in methods like `innerHTML`, `outerHTML` or `document.write` is an anti-pattern that can lead to XSS vulnerabilities",
+      "category": "xss",
+      "severity": "critical",
+      "confidence": {
+        "score": 0.95,
+        "percentage": 95.0,
+        "level": "Very High"
+      },
+      "location": {
+        "file_path": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_javascript.js",
+        "line_number": 54,
+        "column_number": 5
+      },
+      "code_snippet": "document.getElementById('content').innerHTML = event.data;",
+      "source_scanner": "semgrep",
+      "fingerprint": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_javascript.js:54",
+      "is_false_positive": false,
+      "metadata": {}
+    },
+    {
+      "uuid": "511b3e30-5296-4f51-b588-0beb834b4ba0",
+      "rule_id": "semgrep-typescript.react.security.react-insecure-request.react-insecure-request",
+      "rule_name": "Semgrep: typescript.react.security.react-insecure-request.react-insecure-request",
+      "description": "Unencrypted request over HTTP detected.",
+      "category": "xss",
+      "severity": "critical",
+      "confidence": {
+        "score": 0.95,
+        "percentage": 95.0,
+        "level": "Very High"
+      },
+      "location": {
+        "file_path": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_javascript.js",
+        "line_number": 102,
+        "column_number": 5
+      },
+      "code_snippet": "fetch('http://api.example.com/sensitive', {\n        method: 'POST',\n        body: JSON.stringify(data),\n        headers: {\n            'Content-Type': 'application/json'\n        }\n    });",
+      "source_scanner": "semgrep",
+      "fingerprint": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_javascript.js:102",
+      "is_false_positive": false,
+      "metadata": {}
+    },
+    {
+      "uuid": "837af7e5-b285-4e9c-9a62-7f7275d27aa9",
+      "rule_id": "semgrep-javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
+      "rule_name": "Semgrep: javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
+      "description": "Detected possible user input going into a `path.join` or `path.resolve` function. This could possibly lead to a path traversal vulnerability,  where the attacker can access arbitrary files stored in the file system. Instead, be sure to sanitize or validate user input first.",
+      "category": "xss",
+      "severity": "high",
+      "confidence": {
+        "score": 0.9,
+        "percentage": 90.0,
+        "level": "Very High"
+      },
+      "location": {
+        "file_path": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_javascript.js",
+        "line_number": 151,
+        "column_number": 49
+      },
+      "code_snippet": "const filepath = path.join('./uploads', filename);",
+      "source_scanner": "semgrep",
+      "fingerprint": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_javascript.js:151",
+      "is_false_positive": false,
+      "metadata": {}
+    },
+    {
+      "uuid": "079a87c3-9aa9-4a1a-891b-c46efa13e731",
+      "rule_id": "semgrep-php.lang.security.exec-use.exec-use",
+      "rule_name": "Semgrep: php.lang.security.exec-use.exec-use",
+      "description": "Executing non-constant commands. This can lead to command injection.",
+      "category": "injection",
+      "severity": "critical",
+      "confidence": {
+        "score": 0.95,
+        "percentage": 95.0,
+        "level": "Very High"
+      },
+      "location": {
+        "file_path": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_php.php",
+        "line_number": 14,
+        "column_number": 5
+      },
+      "code_snippet": "$output = shell_exec(\"cat \" . $filename);",
+      "source_scanner": "semgrep",
+      "fingerprint": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_php.php:14",
+      "is_false_positive": false,
+      "metadata": {}
+    },
+    {
+      "uuid": "dd760320-ddd9-4a1f-98e5-e058621b6a63",
+      "rule_id": "semgrep-php.lang.security.eval-use.eval-use",
+      "rule_name": "Semgrep: php.lang.security.eval-use.eval-use",
+      "description": "Evaluating non-constant commands. This can lead to command injection.",
+      "category": "injection",
+      "severity": "critical",
+      "confidence": {
+        "score": 0.95,
+        "percentage": 95.0,
+        "level": "Very High"
+      },
+      "location": {
+        "file_path": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_php.php",
+        "line_number": 28,
+        "column_number": 5
+      },
+      "code_snippet": "eval($userCode);",
+      "source_scanner": "semgrep",
+      "fingerprint": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_php.php:28",
+      "is_false_positive": false,
+      "metadata": {}
+    },
+    {
+      "uuid": "b2004708-b43a-4c12-898b-26f5ca1bff1e",
+      "rule_id": "semgrep-php.lang.security.unserialize-use.unserialize-use",
+      "rule_name": "Semgrep: php.lang.security.unserialize-use.unserialize-use",
+      "description": "Calling `unserialize()` with user input in the pattern can lead to arbitrary code execution. Consider using JSON or structured data approaches (e.g. Google Protocol Buffers).",
+      "category": "validation",
+      "severity": "high",
+      "confidence": {
+        "score": 0.9,
+        "percentage": 90.0,
+        "level": "Very High"
+      },
+      "location": {
+        "file_path": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_php.php",
+        "line_number": 87,
+        "column_number": 12
+      },
+      "code_snippet": "return unserialize($data);",
+      "source_scanner": "semgrep",
+      "fingerprint": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_php.php:87",
+      "is_false_positive": false,
+      "metadata": {}
+    },
+    {
+      "uuid": "232c4c07-009f-45f2-a816-c48318b321cd",
+      "rule_id": "semgrep-python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
+      "rule_name": "Semgrep: python.sqlalchemy.security.sqlalchemy-execute-raw-query.sqlalchemy-execute-raw-query",
+      "description": "Avoiding SQL string concatenation: untrusted input concatenated with raw SQL query can result in SQL Injection. In order to execute raw query safely, prepared statement should be used. SQLAlchemy provides TextualSQL to easily used prepared statement with named parameters. For complex SQL composition, use SQL Expression Language or Schema Definition Language. In most cases, SQLAlchemy ORM will be a better option.",
+      "category": "injection",
+      "severity": "critical",
+      "confidence": {
+        "score": 0.95,
+        "percentage": 95.0,
+        "level": "Very High"
+      },
+      "location": {
+        "file_path": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_python.py",
+        "line_number": 32,
+        "column_number": 5
+      },
+      "code_snippet": "cursor.execute(query)",
+      "source_scanner": "semgrep",
+      "fingerprint": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_python.py:32",
+      "is_false_positive": false,
+      "metadata": {}
+    },
+    {
+      "uuid": "30c0ad62-a6c4-4ffa-9835-2d57a9c4e6a6",
+      "rule_id": "semgrep-python.lang.security.audit.subprocess-shell-true.subprocess-shell-true",
+      "rule_name": "Semgrep: python.lang.security.audit.subprocess-shell-true.subprocess-shell-true",
+      "description": "Found 'subprocess' function 'call' with 'shell=True'. This is dangerous because this call will spawn the command using a shell process. Doing so propagates current shell settings and variables, which makes it much easier for a malicious actor to execute commands. Use 'shell=False' instead.",
+      "category": "rce",
+      "severity": "critical",
+      "confidence": {
+        "score": 0.95,
+        "percentage": 95.0,
+        "level": "Very High"
+      },
+      "location": {
+        "file_path": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_python.py",
+        "line_number": 43,
+        "column_number": 47
+      },
+      "code_snippet": "subprocess.call(\"ls \" + user_input, shell=True)  # noqa: S602",
+      "source_scanner": "semgrep",
+      "fingerprint": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_python.py:43",
+      "is_false_positive": false,
+      "metadata": {}
+    },
+    {
+      "uuid": "35116447-049f-4fdc-874b-00a08b18a9c4",
+      "rule_id": "semgrep-python.lang.security.deserialization.pickle.avoid-pickle",
+      "rule_name": "Semgrep: python.lang.security.deserialization.pickle.avoid-pickle",
+      "description": "Avoid using `pickle`, which is known to lead to code execution vulnerabilities. When unpickling, the serialized data could be manipulated to run arbitrary code. Instead, consider serializing the relevant data as JSON or a similar text-based serialization format.",
+      "category": "deserialization",
+      "severity": "high",
+      "confidence": {
+        "score": 0.9,
+        "percentage": 90.0,
+        "level": "Very High"
+      },
+      "location": {
+        "file_path": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_python.py",
+        "line_number": 49,
+        "column_number": 12
+      },
+      "code_snippet": "return pickle.loads(serialized_data)  # noqa: S301",
+      "source_scanner": "semgrep",
+      "fingerprint": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_python.py:49",
+      "is_false_positive": false,
+      "metadata": {}
+    },
+    {
+      "uuid": "6dfe11de-b293-4d48-b268-6fc1bfcafa5d",
+      "rule_id": "semgrep-python.django.security.injection.sql.sql-injection-using-db-cursor-execute.sql-injection-db-cursor-execute",
+      "rule_name": "Semgrep: python.django.security.injection.sql.sql-injection-using-db-cursor-execute.sql-injection-db-cursor-execute",
+      "description": "User-controlled data from a request is passed to 'execute()'. This could lead to a SQL injection and therefore protected information could be leaked. Instead, use django's QuerySets, which are built with query parameterization and therefore not vulnerable to sql injection. For example, you could use `Entry.objects.filter(date=2006)`.",
+      "category": "injection",
+      "severity": "critical",
+      "confidence": {
+        "score": 0.95,
+        "percentage": 95.0,
+        "level": "Very High"
+      },
+      "location": {
+        "file_path": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_python.py",
+        "line_number": 62,
+        "column_number": 5
+      },
+      "code_snippet": "query = request.args.get(\"q\", \"\")\n\n    # VULNERABILITY: SQL injection in web context\n    conn = sqlite3.connect(\"app.db\")\n    cursor = conn.cursor()\n    cursor.execute(f\"SELECT * FROM products WHERE name LIKE '%{query}%'\")",
+      "source_scanner": "semgrep",
+      "fingerprint": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_python.py:62",
+      "is_false_positive": false,
+      "metadata": {}
+    },
+    {
+      "uuid": "82286ca7-ef87-4f4c-b28c-749a786172ed",
+      "rule_id": "semgrep-python.lang.security.audit.md5-used-as-password.md5-used-as-password",
+      "rule_name": "Semgrep: python.lang.security.audit.md5-used-as-password.md5-used-as-password",
+      "description": "It looks like MD5 is used as a password hash. MD5 is not considered a secure password hash because it can be cracked by an attacker in a short amount of time. Use a suitable password hashing function such as scrypt. You can use `hashlib.scrypt`.",
+      "category": "authentication",
+      "severity": "high",
+      "confidence": {
+        "score": 0.95,
+        "percentage": 95.0,
+        "level": "Very High"
+      },
+      "location": {
+        "file_path": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_python.py",
+        "line_number": 91,
+        "column_number": 17
+      },
+      "code_snippet": "weak_hash = hashlib.md5(password.encode()).hexdigest()  # noqa: S324",
+      "source_scanner": "semgrep",
+      "fingerprint": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_python.py:91",
+      "is_false_positive": false,
+      "metadata": {}
+    },
+    {
+      "uuid": "265c4c45-20b2-4b3a-ac6c-81bba34d58fa",
+      "rule_id": "semgrep-python.lang.security.audit.eval-detected.eval-detected",
+      "rule_name": "Semgrep: python.lang.security.audit.eval-detected.eval-detected",
+      "description": "Detected the use of eval(). eval() can be dangerous if used to evaluate dynamic content. If this content can be input from outside the program, this may be a code injection vulnerability. Ensure evaluated content is not definable by external sources.",
+      "category": "injection",
+      "severity": "high",
+      "confidence": {
+        "score": 0.95,
+        "percentage": 95.0,
+        "level": "Very High"
+      },
+      "location": {
+        "file_path": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_python.py",
+        "line_number": 102,
+        "column_number": 14
+      },
+      "code_snippet": "result = eval(user_code)  # noqa: S307",
+      "source_scanner": "semgrep",
+      "fingerprint": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_python.py:102",
+      "is_false_positive": false,
+      "metadata": {}
+    },
+    {
+      "uuid": "e3a2e785-96e0-4f4d-a58a-05eb8e1001d8",
+      "rule_id": "semgrep-python.lang.security.audit.exec-detected.exec-detected",
+      "rule_name": "Semgrep: python.lang.security.audit.exec-detected.exec-detected",
+      "description": "Detected the use of exec(). exec() can be dangerous if used to evaluate dynamic content. If this content can be input from outside the program, this may be a code injection vulnerability. Ensure evaluated content is not definable by external sources.",
+      "category": "injection",
+      "severity": "high",
+      "confidence": {
+        "score": 0.95,
+        "percentage": 95.0,
+        "level": "Very High"
+      },
+      "location": {
+        "file_path": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_python.py",
+        "line_number": 109,
+        "column_number": 5
+      },
+      "code_snippet": "exec(user_script)  # noqa: S102",
+      "source_scanner": "semgrep",
+      "fingerprint": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_python.py:109",
+      "is_false_positive": false,
+      "metadata": {}
+    },
+    {
+      "uuid": "a098f77b-f092-4cba-9a01-227923b89356",
+      "rule_id": "semgrep-python.flask.debug.debug-flask.active-debug-code-flask",
+      "rule_name": "Semgrep: python.flask.debug.debug-flask.active-debug-code-flask + Semgrep: python.flask.security.audit.debug-enabled.debug-enabled",
+      "description": "The application is running debug code or has debug mode enabled. This may expose sensitive information, like stack traces and environment variables, to attackers. It may also modify application behavior, potentially enabling attackers to bypass restrictions. To remediate this finding, ensure that the application's debug code and debug mode are disabled or removed from the production environment.; Detected Flask app with debug=True. Do not deploy to production with this flag enabled as it will leak sensitive information. Instead, consider using Flask configuration variables or setting 'debug' using system environment variables.",
+      "category": "logging",
+      "severity": "high",
+      "confidence": {
+        "score": 0.9,
+        "percentage": 90.0,
+        "level": "Very High"
+      },
+      "location": {
+        "file_path": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_python.py",
+        "line_number": 126,
+        "column_number": 5
+      },
+      "code_snippet": "app.run(debug=True)  # noqa: S201",
+      "source_scanner": "semgrep",
+      "fingerprint": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_python.py:126",
+      "is_false_positive": false,
+      "metadata": {}
+    },
+    {
+      "uuid": "cc38ec48-4ade-455e-a68d-acf99998e0d2",
+      "rule_id": "semgrep-ruby.lang.security.dangerous-subshell.dangerous-subshell",
+      "rule_name": "Semgrep: ruby.lang.security.dangerous-subshell.dangerous-subshell",
+      "description": "Detected non-static command inside `...`. If unverified user data can reach this call site, this is a code injection vulnerability. A malicious actor can inject a malicious script to execute arbitrary code.",
+      "category": "injection",
+      "severity": "high",
+      "confidence": {
+        "score": 0.95,
+        "percentage": 95.0,
+        "level": "Very High"
+      },
+      "location": {
+        "file_path": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_ruby.rb",
+        "line_number": 18,
+        "column_number": 12
+      },
+      "code_snippet": "output = `cat #{filename}`",
+      "source_scanner": "semgrep",
+      "fingerprint": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_ruby.rb:18",
+      "is_false_positive": false,
+      "metadata": {}
+    },
+    {
+      "uuid": "e0f0a16f-7114-4dad-8af5-f56049cddeb3",
+      "rule_id": "semgrep-ruby.lang.security.weak-hashes-md5.weak-hashes-md5",
+      "rule_name": "Semgrep: ruby.lang.security.weak-hashes-md5.weak-hashes-md5",
+      "description": "Should not use md5 to generate hashes. md5 is proven to be vulnerable through the use of brute-force attacks. Could also result in collisions, leading to potential collision attacks. Use SHA256 or other hashing functions instead.",
+      "category": "cryptography",
+      "severity": "high",
+      "confidence": {
+        "score": 0.95,
+        "percentage": 95.0,
+        "level": "Very High"
+      },
+      "location": {
+        "file_path": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_ruby.rb",
+        "line_number": 38,
+        "column_number": 3
+      },
+      "code_snippet": "Digest::MD5.hexdigest(password)",
+      "source_scanner": "semgrep",
+      "fingerprint": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_ruby.rb:38",
+      "is_false_positive": false,
+      "metadata": {}
+    },
+    {
+      "uuid": "7c3699ce-48d6-4363-a58c-b49f51f8e7ce",
+      "rule_id": "semgrep-swift.commoncrypto.insecure-hashing-algorithm-md5.insecure-hashing-algorithm-md5",
+      "rule_name": "Semgrep: swift.commoncrypto.insecure-hashing-algorithm-md5.insecure-hashing-algorithm-md5",
+      "description": "The use of the MD5 hashing algorithm was identified which is considered insecure. MD5 is not collision resistant and is therefore not suitable for cryptographic or secure use-cases. Use stronger algorithms such as SHA256, SHA512, or adaptive hashing algorithms such as argon2 or bcrypt. **Note**: MD5 is still considered acceptable when used for Message Authentication Purposes, e.g. with HMAC although better and stronger algorithms should be strongly considered.",
+      "category": "authentication",
+      "severity": "high",
+      "confidence": {
+        "score": 0.95,
+        "percentage": 95.0,
+        "level": "Very High"
+      },
+      "location": {
+        "file_path": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_swift.swift",
+        "line_number": 67,
+        "column_number": 18
+      },
+      "code_snippet": "let digest = Insecure.MD5.hash(data: data)",
+      "source_scanner": "semgrep",
+      "fingerprint": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_swift.swift:67",
+      "is_false_positive": false,
+      "metadata": {}
+    },
+    {
+      "uuid": "de60928e-08cd-41b6-ba48-3032d8e3598d",
+      "rule_id": "semgrep-swift.biometrics-and-auth.keychain-always-accessible.keychain-accessible-always",
+      "rule_name": "Semgrep: swift.biometrics-and-auth.keychain-always-accessible.keychain-accessible-always",
+      "description": "The application was observed to store keychain items with the accessibility type `kSecAttrAccessibleAlways` meaning that the data is not sufficiently protected at rest. Ideally, the application should use `kSecAttrAccessibleWhenUnlocked` to configure the data to be accessible only when the user has unlocked the screen.",
+      "category": "authentication",
+      "severity": "high",
+      "confidence": {
+        "score": 0.95,
+        "percentage": 95.0,
+        "level": "Very High"
+      },
+      "location": {
+        "file_path": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_swift.swift",
+        "line_number": 153,
+        "column_number": 5
+      },
+      "code_snippet": "SecItemAdd(query as CFDictionary, nil)",
+      "source_scanner": "semgrep",
+      "fingerprint": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_swift.swift:153",
+      "is_false_positive": false,
+      "metadata": {}
+    },
+    {
+      "uuid": "a394be85-6a45-4baa-8af5-2d53cb38ca7e",
+      "rule_id": "semgrep-javascript.lang.security.detect-child-process.detect-child-process",
+      "rule_name": "Semgrep: javascript.lang.security.detect-child-process.detect-child-process",
+      "description": "Detected calls to child_process from a function argument `userInput`. This could lead to a command injection if the input is user controllable. Try to avoid calls to child_process, and if it is needed ensure user input is correctly sanitized or sandboxed. ",
+      "category": "injection",
+      "severity": "critical",
+      "confidence": {
+        "score": 0.95,
+        "percentage": 95.0,
+        "level": "Very High"
+      },
+      "location": {
+        "file_path": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_typescript.ts",
+        "line_number": 17,
+        "column_number": 10
+      },
+      "code_snippet": "exec(`ls ${userInput}`, (error, stdout, stderr) => {",
+      "source_scanner": "semgrep",
+      "fingerprint": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_typescript.ts:17",
+      "is_false_positive": false,
+      "metadata": {}
+    },
+    {
+      "uuid": "15402756-b635-46d1-8d24-0a6dded34f54",
+      "rule_id": "semgrep-javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
+      "rule_name": "Semgrep: javascript.lang.security.audit.path-traversal.path-join-resolve-traversal.path-join-resolve-traversal",
+      "description": "Detected possible user input going into a `path.join` or `path.resolve` function. This could possibly lead to a path traversal vulnerability,  where the attacker can access arbitrary files stored in the file system. Instead, be sure to sanitize or validate user input first.",
+      "category": "xss",
+      "severity": "high",
+      "confidence": {
+        "score": 0.9,
+        "percentage": 90.0,
+        "level": "Very High"
+      },
+      "location": {
+        "file_path": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_typescript.ts",
+        "line_number": 25,
+        "column_number": 45
+      },
+      "code_snippet": "const filePath = path.join('/uploads/', filename);",
+      "source_scanner": "semgrep",
+      "fingerprint": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_typescript.ts:25",
+      "is_false_positive": false,
+      "metadata": {}
+    },
+    {
+      "uuid": "e5b15850-0a3b-4734-b3ab-7f80ed9bcdba",
+      "rule_id": "semgrep-javascript.browser.security.eval-detected.eval-detected",
+      "rule_name": "Semgrep: javascript.browser.security.eval-detected.eval-detected",
+      "description": "Detected the use of eval(). eval() can be dangerous if used to evaluate dynamic content. If this content can be input from outside the program, this may be a code injection vulnerability. Ensure evaluated content is not definable by external sources.",
+      "category": "injection",
+      "severity": "high",
+      "confidence": {
+        "score": 0.95,
+        "percentage": 95.0,
+        "level": "Very High"
+      },
+      "location": {
+        "file_path": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_typescript.ts",
+        "line_number": 82,
+        "column_number": 12
+      },
+      "code_snippet": "return eval(userCode);",
+      "source_scanner": "semgrep",
+      "fingerprint": "/Users/brettbergin/code/adversary-mcp-server/examples/vulnerable_typescript.ts:82",
+      "is_false_positive": false,
+      "metadata": {}
+    }
+  ],
+  "validation_info": null,
+  "scanner_execution_summary": {
+    "total_scanners_used": 1,
+    "scanners": {
+      "semgrep": {
+        "status": "completed",
+        "threats_found": 39,
+        "execution_time_ms": 0
+      }
+    }
+  }
+}
