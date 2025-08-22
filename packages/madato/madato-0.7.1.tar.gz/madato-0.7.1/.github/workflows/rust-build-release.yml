@@ -1,0 +1,65 @@
+name: Rust CI
+on:
+  push:
+    tags:
+      - v*
+jobs:
+  publish:
+    name: Publish for ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        include:
+          - os: ubuntu-latest
+            artifact_name: madato
+            asset_name: madato-linux-amd64
+          - os: windows-latest
+            artifact_name: madato.exe
+            asset_name: madato-windows-amd64
+          - os: macos-latest
+            artifact_name: madato
+            asset_name: madato-macos-amd64
+          - os: macos-14
+            artifact_name: madato
+            asset_name: madato-macos-arm64
+    steps:
+      - run: echo "🔎 branch is ${{ github.ref }}, repository is ${{ github.repository }}."
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - run: echo "💡 ${{ github.repository }} repository has been cloned to the runner."
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+      - uses: actions-rs/cargo@v1
+        with:
+          command: test
+          args: --release
+      - uses: actions-rs/cargo@v1
+        with:
+          command: build
+          args: --release
+      - name: Upload binaries to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: target/release/${{ matrix.artifact_name }}
+          asset_name: ${{ matrix.asset_name }}
+          tag: ${{ github.ref }}
+      - run: echo "🍏 This job's status is ${{ job.status }}."
+
+  crate-publish:
+    name: publish to crates.io
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable   
+      - uses: actions-rs/cargo@v1
+        with:
+          command: login
+          args: ${{ secrets.CRATES_IO_TOKEN }}
+      - uses: actions-rs/cargo@v1
+        with:
+          command: publish
+          args: --token ${{ secrets.CRATES_IO_TOKEN }}
