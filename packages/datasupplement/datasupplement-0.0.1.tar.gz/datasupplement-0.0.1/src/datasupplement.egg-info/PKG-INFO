@@ -1,0 +1,25 @@
+Metadata-Version: 2.4
+Name: datasupplement
+Version: 0.0.1
+Summary: parser for clean, simple and human redable data file format
+Author-email: Filip Dobrowolski <743386.datasupplement.p.f@dob.nz>
+Project-URL: Homepage, https://notabug.org/fil/datasupplement
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 1 - Planning
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: license-file
+
+
+
+# datasupplement
+
+
+```
+data file standard and parser meant to be clean, simple
+and human readable, uses '.supp' file extension
+
+
+```

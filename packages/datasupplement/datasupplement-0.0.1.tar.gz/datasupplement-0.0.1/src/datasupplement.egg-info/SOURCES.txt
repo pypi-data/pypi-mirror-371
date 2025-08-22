@@ -1,0 +1,10 @@
+LICENSE
+pyproject.toml
+readme.md
+src/datasupplement/__init__.py
+src/datasupplement/parser.py
+src/datasupplement.egg-info/PKG-INFO
+src/datasupplement.egg-info/SOURCES.txt
+src/datasupplement.egg-info/dependency_links.txt
+src/datasupplement.egg-info/top_level.txt
+tests/test_parser.py

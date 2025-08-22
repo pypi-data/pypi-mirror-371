@@ -1,0 +1,23 @@
+[build-system]
+requires = ['setuptools']
+build-backend = 'setuptools.build_meta'
+
+[project]
+name = 'datasupplement'
+version = '0.0.1'
+authors = [
+  { name='Filip Dobrowolski', email='743386.datasupplement.p.f@dob.nz' },
+]
+description = 'parser for clean, simple and human redable data file format'
+readme = 'readme.md'
+requires-python = '>=3.11'
+classifiers = [
+    'Programming Language :: Python :: 3',
+    'Operating System :: OS Independent',
+    'Development Status :: 1 - Planning',
+]
+# license = ''
+# license-files = ['LICEN[CS]E*']
+
+[project.urls]
+Homepage = 'https://notabug.org/fil/datasupplement'
