@@ -1,0 +1,17 @@
+pyproject.toml
+setup.py
+McSixAI/__init__.py
+McSixAI/__main__.py
+McSixAI/cli.py
+McSixAI/commands.py
+McSixAI/config.py
+McSixAI/file_manager.py
+McSixAI/main.py
+McSixAI/openrouter.py
+McSixAI/utils.py
+McSixAI.egg-info/PKG-INFO
+McSixAI.egg-info/SOURCES.txt
+McSixAI.egg-info/dependency_links.txt
+McSixAI.egg-info/entry_points.txt
+McSixAI.egg-info/requires.txt
+McSixAI.egg-info/top_level.txt

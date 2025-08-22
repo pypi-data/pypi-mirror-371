@@ -1,0 +1,13 @@
+Metadata-Version: 2.4
+Name: McSixAI
+Version: 0.1.6
+Summary: AI ассистент для программирования
+Author: McSix
+Author-email: mcsixhelps@gmail.com
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: requests>=2.28.0
+Requires-Dist: python-dotenv>=0.19.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: requires-python
