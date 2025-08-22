@@ -1,0 +1,15 @@
+__init__.py,sha256=dw8p0PT6-vBxRkidkzWaRKomDQ4OvyuxCewjRNSmVPI,75
+agent.py,sha256=pxgjIga8inOKIuRFzECgUrl89zCOPKNy6eTwwKK0Z88,14011
+cli.py,sha256=JY_UtOU8oVaKsTZuTHc7alR0wfKU5IVTOt_vT_KY3Zo,7346
+utils.py,sha256=qjUdW3ULotg58sRyoiVM0kWrlSg0SR741XYLDhh7f-w,291
+config/.rokovoignore,sha256=owWLSm3u8XtXxB_HarayNnRpEieQldVBDmbGowqr8mg,750
+config/rokovo.toml,sha256=fMkj-u1U6fkhby6iaccU5OGrHgxlGz7Hjxvbki6-EP8,161
+config/rokovo_context.md,sha256=RJNuHw-5RPqGZ_XmkbDrV6kXuiR_o_OYVk3nI6AYpio,542
+prompts/faq_system.j2,sha256=VL8fX4WlLN7L9Sz1VB2zd7zhRsuWb-Z8AU3zNNULxQ8,1134
+prompts/faq_user.j2,sha256=9EZKRAq8VEpgadUifVMRmyndqIYEtpL1-zdnVOTsfRY,119
+prompts/interactive_qa.j2,sha256=EzHe5Ep6QmdKxq1urONhoEMra6uETMVmO0fVnX1Fr34,984
+rokovo-0.2.2.dist-info/METADATA,sha256=HtEzPu69TDQ-Pvjpeuynwn07G_oJUlXMkbXmV1y0w3I,3995
+rokovo-0.2.2.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+rokovo-0.2.2.dist-info/entry_points.txt,sha256=LFOttSpXvkbG0JBkzHrzZhq5yav3Wv-LadN8LDKBayk,35
+rokovo-0.2.2.dist-info/licenses/LICENSE,sha256=2VDluJsYZvm9UMgJtgA2KLFGO3ZC41lWUFcTur-xGj8,1063
+rokovo-0.2.2.dist-info/RECORD,,
