@@ -1,0 +1,7 @@
+make_colors>=3.12
+configset
+cmdw
+configparser
+sqlalchemy
+rich
+licface
