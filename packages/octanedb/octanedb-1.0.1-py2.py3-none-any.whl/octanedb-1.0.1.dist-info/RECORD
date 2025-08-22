@@ -1,0 +1,16 @@
+octanedb/__init__.py,sha256=N7xI6HcR0V36sGjhaEfeqPMyieNr-zPrDSd7YnZbMWY,947
+octanedb/_version.py,sha256=fvOWnrL_uqbccIf39KB31Kl2pCQxPEmr6ygRe9D0uDg,158
+octanedb/cli.py,sha256=bidZ6TLOu2eI_jLX3J-Fw8uLtzr_5TdSH8naR7GTiEY,8474
+octanedb/collection.py,sha256=cpaOAzNmvz01PW1rTi_CN8dCm-S17znzy2PO9Ej9rn4,25766
+octanedb/core.py,sha256=Fj1U-ViGnbYHeBftucwG44Sge8Vr1rVkoS0AFGVfsJ4,24441
+octanedb/embeddings.py,sha256=cnyowXYx6aqRdf1Fb9VUaqSgrk9S2dKTWFwqEknaem0,11940
+octanedb/index.py,sha256=6pPXn1pJd_7DcC640_pTxXdCwlp0kGdrK9ZaYx-nghU,19985
+octanedb/query.py,sha256=kTPd8GpMHWekSXLljINGlUssPJaqIxPIXC5J1iyVX1k,15450
+octanedb/storage.py,sha256=YNyj651t-DD185zjnf_e-0hhrOqz5iB0B_PVvV34TCQ,18182
+octanedb/utils.py,sha256=4SFhLJ6tesm177tzaKxoXBnMnrrbclNnmWvPUjSlxy4,17309
+octanedb-1.0.1.dist-info/licenses/LICENSE,sha256=w72IBOp2n6p9Z2iSRf7EHlR6zfsXhAWmBxuvpRdLAxA,1088
+octanedb-1.0.1.dist-info/METADATA,sha256=aZYOGEBFtCVqitKtiPKrlMVn9ifV7Q7bjk83MWONEkc,13981
+octanedb-1.0.1.dist-info/WHEEL,sha256=JNWh1Fm1UdwIQV075glCn4MVuCRs0sotJIq-J6rbxCU,109
+octanedb-1.0.1.dist-info/entry_points.txt,sha256=SgtkgQGyvEbCPHBr8iBN8COTd_OFsMAGtmR7FH_fv9U,95
+octanedb-1.0.1.dist-info/top_level.txt,sha256=8Dw-9xeu3tc5lNFnFLgS7G366pzME8VZMECTcB5N2lI,9
+octanedb-1.0.1.dist-info/RECORD,,
