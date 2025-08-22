@@ -1,0 +1,16 @@
+mandoline/__init__.py,sha256=6cMQn34XcCyvq6mpn5EPH5Hox2bR-cVlWwBrrW4tmTY,772
+mandoline/async_client.py,sha256=Eg-svrATYsghuYaaS5PdRdLdtz1bXmmO3po0Z7zAxaI,11561
+mandoline/async_connection_manager.py,sha256=Vab_Rj2lX6pL1XHB55Kzee5rvtwbF8U3XAO9RqDqNJg,1968
+mandoline/client.py,sha256=kv4KNmB73c56p6ZvXAJydI4al9JdWXnsWKn-aiXFqHI,8394
+mandoline/config.py,sha256=m98QBCXR69jqPsAVnTKsnhzxpC4h4j6t18ob4bWz5Gs,1121
+mandoline/connection_manager.py,sha256=s0sc-FUGpuvB3s18LwTn0AbQ_CnQjyZASA8XBbBGORs,2581
+mandoline/errors.py,sha256=jVVzp6O_uu9EXW5-N6XUCyGHQnPaU4kzQxkYij7lj9E,5058
+mandoline/logger.py,sha256=cdnqjHssoNU_wbiAyZkQwt1dVfRSfR_twAfcQC1Uqxs,378
+mandoline/models.py,sha256=SV7CH05B7A_vVQXjdbQP2ri4c0e6lhIREpvf9vbKk-8,4031
+mandoline/types.py,sha256=ASMgnTh6b4P5QnWqKL-VgH0yxt0FfW788hkf2DyTWPs,625
+mandoline/utils.py,sha256=94IHS2sMz8VQdfHIsecd0g05VPD-hBrU-QCqFC79S68,1899
+mandoline/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+mandoline-0.8.0.dist-info/METADATA,sha256=ndJ3JWnw3lue8x0zjKLLnu_1-ZXsoGyRWrP5E6Jfw8E,4776
+mandoline-0.8.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+mandoline-0.8.0.dist-info/licenses/LICENSE,sha256=oWf95tuaonWQDkmiY3eiopNEQGZs7zFnU9utNIElDho,11342
+mandoline-0.8.0.dist-info/RECORD,,
