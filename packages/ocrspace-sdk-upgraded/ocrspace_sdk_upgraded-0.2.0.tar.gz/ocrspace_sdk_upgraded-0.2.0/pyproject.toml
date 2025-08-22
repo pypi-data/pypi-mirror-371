@@ -1,0 +1,12 @@
+
+[project]
+name = "ocrspace-sdk-upgraded"
+version = "0.2.0"
+description = "Upgraded OCR.Space Python SDK (file/url/bytes/base64, errors, auth, examples)"
+authors = [{name="You", email="you@example.com"}]
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = ["requests>=2.28"]
+
+[tool.setuptools]
+packages = ["ocrspace"]

@@ -1,0 +1,15 @@
+README.md
+pyproject.toml
+setup.cfg
+ocrspace/__init__.py
+ocrspace/auth.py
+ocrspace/client.py
+ocrspace/errors.py
+ocrspace/models.py
+ocrspace/utils.py
+ocrspace_sdk_upgraded.egg-info/PKG-INFO
+ocrspace_sdk_upgraded.egg-info/SOURCES.txt
+ocrspace_sdk_upgraded.egg-info/dependency_links.txt
+ocrspace_sdk_upgraded.egg-info/requires.txt
+ocrspace_sdk_upgraded.egg-info/top_level.txt
+tests/test_client.py
