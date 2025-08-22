@@ -1,0 +1,10 @@
+nonebot_plugin_steam_game_status/__init__.py,sha256=JAy0GlE0N81m2KFJgwTTZUZ1kKDa4O8Z9JKcC1Pcz80,28651
+nonebot_plugin_steam_game_status/api.py,sha256=qHFw_cELBRYBKXiLGxRI-fUQ8YYwZvisuVzvpvXkLZM,3936
+nonebot_plugin_steam_game_status/config.py,sha256=JWwzneLMZ0JMR_HfEscFxeA9VJW_fH2BuO2N5qd88EA,3957
+nonebot_plugin_steam_game_status/model.py,sha256=SBIUKxYXumjnLfG-SFZlTYmZFG5D6TFmi9N7PRJ_bKM,1795
+nonebot_plugin_steam_game_status/source.py,sha256=uKNzVF1wQZXMEe2HFccfCnXeo0j7MPExEgoiizRI9qk,7225
+nonebot_plugin_steam_game_status/utils.py,sha256=Iv5hP5-HKftXfDgAKTOoMfdm5aOoCT6qoyKLIz5CEd8,1210
+nonebot_plugin_steam_game_status-0.2.0.dist-info/WHEEL,sha256=B19PGBCYhWaz2p_UjAoRVh767nYQfk14Sn4TpIZ-nfU,87
+nonebot_plugin_steam_game_status-0.2.0.dist-info/METADATA,sha256=t1zZiKZ8r4MKneu_kcLlVncM9pB5dKVI4PmYXqxpINs,8166
+nonebot_plugin_steam_game_status-0.2.0.dist-info/licenses/LICENSE,sha256=OXLcl0T2SZ8Pmy2_dmlvKuetivmyPd5m1q-Gyd-zaYY,35149
+nonebot_plugin_steam_game_status-0.2.0.dist-info/RECORD,,
