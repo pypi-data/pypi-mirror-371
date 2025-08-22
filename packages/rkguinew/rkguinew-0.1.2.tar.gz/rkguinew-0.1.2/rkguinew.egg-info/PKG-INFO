@@ -1,0 +1,33 @@
+Metadata-Version: 2.4
+Name: rkguinew
+Version: 0.1.2
+Summary: Tkinter-like GUI library using PyQt5 with full widget set
+Author: 1001015dhh
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: PyQt5>=5.15.0
+Requires-Dist: PyQtWebEngine>=5.15.0
+Dynamic: author
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# rkguinew
+
+Minimal Tkinter-like GUI library using PyQt5.
+
+This library provides a Tkinter-style API with PyQt5 backend, including most common widgets from Tkinter and ttk.
+
+---
+
+## Installation
+
+```bash
+pip install rkguinew
