@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+safe_parse/__init__.py
+safe_parse/safe_parse.py
+safe_parse.egg-info/PKG-INFO
+safe_parse.egg-info/SOURCES.txt
+safe_parse.egg-info/dependency_links.txt
+safe_parse.egg-info/top_level.txt
+tests/test_safe_parse.py

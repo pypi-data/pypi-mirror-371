@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools >= 77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "safe-parse"
+version = "1.0.0"
+description = "Dot notation access for dict/JSON with safety fallback."
+authors = [
+    { name = "Nandkishor Kumawat" }
+]
+
+requires-python = ">=3.6"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+license = { file = "LICENSE" }
+readme = "README.md"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[project.urls]
+Homepage = "https://github.com/nandkishor-kumawat/safe-parse"
+Issues = "https://github.com/nandkishor-kumawat/safe-parse/issues"
