@@ -1,0 +1,4 @@
+include LICENSE
+include NOTICE
+recursive-include mlflow_greenplum *.py
+include README.md

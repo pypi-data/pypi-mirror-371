@@ -1,0 +1,9 @@
+[mlflow.artifact_repository]
+greenplum = mlflow_greenplum.artifacts:GreenplumArtifactRepository
+
+[mlflow.model_registry_store]
+greenplum = mlflow_greenplum.registry:GreenplumModelRegistryStore
+
+[mlflow.tracking_store]
+greenplum = mlflow_greenplum.store:GreenplumStore
+

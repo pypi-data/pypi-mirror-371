@@ -1,0 +1,97 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mlflow-greenplum-plugin"
+version = "0.1.0"
+description = "MLflow plugin for Greenplum database support"
+readme = "README.md"
+authors = [
+    {name = "Russ Russell", email = "625ruslan@gmail.com"}
+]
+license = {text = "Apache-2.0"}
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers", 
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Database",
+]
+keywords = ["mlflow", "greenplum", "machine-learning", "tracking"]
+requires-python = ">=3.8"
+dependencies = [
+    "mlflow>=2.0.0",
+    "sqlalchemy>=1.4.0,<2.0.0",
+    "alembic>=1.7.0",
+    "psycopg2>=2.8.6",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0.0",
+    "pytest-cov>=2.10.0",
+    "black>=21.0.0",
+    "flake8>=3.9.0",
+    "mypy>=0.900",
+]
+
+[project.entry-points."mlflow.tracking_store"]
+greenplum = "mlflow_greenplum.store:GreenplumStore"
+
+[project.entry-points."mlflow.model_registry_store"]
+greenplum = "mlflow_greenplum.registry:GreenplumModelRegistryStore"
+
+[project.entry-points."mlflow.artifact_repository"]
+greenplum = "mlflow_greenplum.artifacts:GreenplumArtifactRepository"
+
+[project.urls]
+Homepage = "https://github.com/Parsifal626/mlflow_plugin"
+Documentation = "https://github.com/Parsifal626/mlflow_plugin#readme"
+Repository = "https://github.com/Parsifal626/mlflow_plugin.git"
+"Bug Tracker" = "https://github.com/Parsifal626/mlflow_plugin/issues"
+
+[tool.setuptools]
+license-files = ["LICENSE", "NOTICE"]
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+    "--verbose",
+    "--cov=mlflow_greenplum",
+    "--cov-report=html",
+    "--cov-report=term-missing"
+]
