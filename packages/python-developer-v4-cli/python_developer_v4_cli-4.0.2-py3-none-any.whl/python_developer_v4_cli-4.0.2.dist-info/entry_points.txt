@@ -1,0 +1,2 @@
+[console_scripts]
+python-deployer = python_developer_v4_cli.Python_Deployer_V4:main
