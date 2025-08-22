@@ -1,0 +1,10 @@
+antishlop_cli-1.0.0.dist-info/licenses/LICENSE,sha256=H8vbC2JW0yLkjR1HKAdiho4Kijje-IaVMa-VoAKprMg,1069
+antishlopcli/agent.py,sha256=7rh5_KTEzWifW8E5DK-nqevfgpLIOwRmgMLQFLVFyA8,21218
+antishlopcli/cli.py,sha256=AxW25zzHSkgD-w5YDyx31qAthWB0XvzU8KNc6C2zekk,10505
+antishlopcli/prompts.py,sha256=wL2M4fISsa4fBy6SpqlvjMC8Bc3amUTTX8Hth3LsCUk,55751
+antishlopcli/vector_db.py,sha256=7Nfocl6JMZqm7oE_xosH9E9LY3L4u26B514VnIEyPJ4,2042
+antishlop_cli-1.0.0.dist-info/METADATA,sha256=1i1daIUJ3dsjbMFSeqZub6XsOZpAaT3Pj3aKHKtmaDg,1984
+antishlop_cli-1.0.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+antishlop_cli-1.0.0.dist-info/entry_points.txt,sha256=daed85geQtN7t5uOYw4wd6JWcobyg1xN00rMRu31VPc,52
+antishlop_cli-1.0.0.dist-info/top_level.txt,sha256=HGOCto8hOW6OlJGe02YC_9K3yZ5lCI5KFdRMsh-vPHI,13
+antishlop_cli-1.0.0.dist-info/RECORD,,
