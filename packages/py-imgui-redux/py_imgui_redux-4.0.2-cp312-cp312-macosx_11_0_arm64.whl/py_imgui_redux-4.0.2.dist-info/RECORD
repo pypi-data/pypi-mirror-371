@@ -1,0 +1,10 @@
+imgui.cpython-312-darwin.so,sha256=FRXpXK3Idn6z76mIPCnZM2EoUr1kyKruErW1aKwEUJk,6077432
+imgui/__init__.pyi,sha256=nHYX0ko7LgJYd09-sbs9gv1fhrYBbyBxU1qKfrNKjy8,128562
+imgui/implot/__init__.pyi,sha256=4QmGV1bJm5ME7OqkPNYXC1zqL8ZtNwt290199rTO-Mc,45216
+imgui/imnodes/__init__.pyi,sha256=pIQi7lyJaQew3wk1_R-Cw_posVsR80OmtivIq4CqFJI,14169
+imgui/glfw/__init__.pyi,sha256=RSwFYzbiktb-AF5vQu9E7wPrp0Nfe9Vse01qjOUVX3A,26974
+py_imgui_redux-4.0.2.dist-info/RECORD,,
+py_imgui_redux-4.0.2.dist-info/WHEEL,sha256=V1loQ6TpxABu1APUg0MoTRBOzSKT5xVc3skizX-ovCU,136
+py_imgui_redux-4.0.2.dist-info/top_level.txt,sha256=15onHRujL1_V625VUUaELFCxh9bOaAi5IzpVBJIPyHI,6
+py_imgui_redux-4.0.2.dist-info/METADATA,sha256=e_8rRmXOlvKSk9k07eAyhBhT8Wl3G4g79vcXTm7i-38,7794
+py_imgui_redux-4.0.2.dist-info/licenses/LICENSE,sha256=fDrCLKI_lLbO88WTSx4QGbbOEZrWhcw0TBLOQxkydX4,1070
