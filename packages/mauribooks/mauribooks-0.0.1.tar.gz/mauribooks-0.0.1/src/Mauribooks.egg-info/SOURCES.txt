@@ -1,0 +1,11 @@
+pyproject.toml
+src/Mauribooks.egg-info/PKG-INFO
+src/Mauribooks.egg-info/SOURCES.txt
+src/Mauribooks.egg-info/dependency_links.txt
+src/Mauribooks.egg-info/requires.txt
+src/Mauribooks.egg-info/top_level.txt
+src/pybooks/__init__.py
+src/pybooks/book_client.py
+src/pybooks/book_config.py
+src/pybooks/schemas/__init__.py
+src/pybooks/schemas/schema.py
