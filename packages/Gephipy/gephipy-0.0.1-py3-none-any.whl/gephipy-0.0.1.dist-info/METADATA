@@ -1,0 +1,18 @@
+Metadata-Version: 2.3
+Name: Gephipy
+Version: 0.0.1
+Summary: A wrapper of Gephi toolkit for Python
+License: MIT
+Author: OuestWare
+Author-email: contact@ouestware.com
+Requires-Python: >=3.11,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: JPype1 (>=1.6.0,<2.0.0)
+Requires-Dist: networkx (>=3.5,<4.0)
+Description-Content-Type: text/markdown
+
+ # Gephipy
