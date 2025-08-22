@@ -1,0 +1,84 @@
+# 📦 A42 Protobuf Bindings (`a42_proto`)
+
+Dieses Python-Paket enthält die **Protobuf-Bindings für Sensordaten im A42-Format**. Es erlaubt das einfache Einlesen und Verarbeiten von LiDAR-Scans und zugehörigen Objektinformationen.
+
+---
+
+## 🔽 Datendownload
+
+👉 [KIT Sync & Share Download](https://bwsyncandshare.kit.edu/s/6pLYbjB9Etxe3gY)
+
+---
+
+## 📥 Installation
+
+```bash
+pip install a42_proto
+```
+
+---
+
+## 🧪 Beispielskripte
+
+- [`analyze_proto.py`](https://github.com/HSE-VSV/DataReaderA42/blob/581dea222b6871f6ef4e66ad9e998c3d5a60af08/scripts/analyze_proto.py) – aggregierte Auswertung über Frames, Scans, Punkte, Objekte  
+- [`visualize_pointcloud.py`](https://github.com/HSE-VSV/DataReaderA42/blob/581dea222b6871f6ef4e66ad9e998c3d5a60af08/scripts/visualize_pointcloud.py) – zeigt eine Punktwolke in Open3D
+
+---
+
+
+## 📄 Datenstruktur
+
+### Frame
+Enthält alle Sensordaten für einen Zeitstempel.
+
+- `frame_timestamp_ns` – globaler Zeitstempel (ns)  
+- `lidars[]` – Liste von `LidarScan`
+
+---
+
+### LidarScan
+Ein vollständiger Scan eines LiDAR-Sensors.
+
+- `laser_name` – Sensorkennung (Enum `LaserName`)  
+- `scan_timestamp_ns` – Zeitstempel des Scans (ns)  
+- `pointcloud` – Punktwolke (`PointCloud`)  
+- `calibration` – Sensor-Kalibrierung (`SensorCalibration`)  
+- `object_list[]` – erkannte Objekte (`ObjectBBox`)
+
+---
+
+### PointCloud
+Rohdaten einer Punktwolke.
+
+- `cartesian` – XYZ-Koordinaten (Byte-Array, float32)  
+- `intensity` – Intensität (Byte-Array, uint16)  
+- `ambient` – Umgebungslicht (Byte-Array, uint16)  
+- `speed` – Geschwindigkeit (Byte-Array)  
+- `reflectivity` – Reflektivität (Byte-Array, uint16)  
+- `timestamp_offset` – Zeitversatz pro Punkt (Byte-Array, ns)  
+- `channel_id` – Kanal-ID (Byte-Array)
+
+---
+
+### ObjectBBox
+Achsenorientierte 3D-Box eines erkannten Objekts.
+
+- `timestamp_ns` – Zeitstempel (ns)  
+- `position` – Mittelpunkt (`x`, `y`, `z`)  
+- `dimension` – Abmessungen (`x`, `y`, `z`)  
+- `pointcloud` – Punkte innerhalb der Box (`PointCloud`)
+
+---
+
+### SensorCalibration
+Kalibrierungsdaten eines Sensors.
+
+- `sensor_name` – Name des Sensors  
+- `extrinsic[]` – Extrinsische 4×4-Transformationsmatrix (row-major, Länge 16)  
+- `vertical_fov` / `horizontal_fov` – Sichtfeld in Grad  
+- `vertical_scanlines` / `horizontal_scanlines` – Anzahl Scanlinien  
+- `horizontal_angle_spacing` – Horizontaler Winkelabstand (Grad)  
+- `beam_altitude_angles[]` – Strahl-Höhenwinkel  
+- `beam_azimuth_angles[]` – Strahl-Azimutwinkel  
+- `frame_mode` – Scan-Modus  
+- `scan_pattern` – Scan-Pattern-ID
