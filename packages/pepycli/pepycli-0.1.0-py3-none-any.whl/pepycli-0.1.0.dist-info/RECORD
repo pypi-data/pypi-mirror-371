@@ -1,0 +1,9 @@
+pepycli/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pepycli/api.py,sha256=kADYtwJSfyivSp8Df_tWtBTwm2MyW8NYGLrSXO5m32Y,853
+pepycli/cli.py,sha256=DCamDwfqgYoqt1tSOaDBXyKtgO8KqXEcG9t2_Zo2MCc,632
+pepycli/config.py,sha256=krGYInAYbI2loKE9t-zkMqffQOF3fIWawb4RtArKQkw,461
+pepycli-0.1.0.dist-info/METADATA,sha256=X8As8kyGcGBTiSPmJm3CDQsSM4HXtET1fI8bfqC2qjM,1486
+pepycli-0.1.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+pepycli-0.1.0.dist-info/entry_points.txt,sha256=c_L2xL6-8x_mJLGQsVWlGLbaBR8toDvYyEZBueKK7eU,45
+pepycli-0.1.0.dist-info/top_level.txt,sha256=270zgLUQkEFcHFwd0r8t5EwF3s1j-sBwTgi-A8yddHU,8
+pepycli-0.1.0.dist-info/RECORD,,
