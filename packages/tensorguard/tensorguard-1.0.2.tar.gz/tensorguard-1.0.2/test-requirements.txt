@@ -1,0 +1,4 @@
+pytest
+tensorflow-cpu
+torch
+numpy
