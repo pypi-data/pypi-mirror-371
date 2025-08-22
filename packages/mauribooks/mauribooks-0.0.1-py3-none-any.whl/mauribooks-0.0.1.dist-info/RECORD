@@ -1,0 +1,9 @@
+pybooks/__init__.py,sha256=fYnz7v_WaSC-Z-75gQ2J-vmTdE_iRFhfwruhbaBnObU,72
+pybooks/book_client.py,sha256=JZB9gV0RaGPUlFNuDKflJwstHiHs8kThJFwWZLRrF4w,4968
+pybooks/book_config.py,sha256=zIbHCdxMTZqfdBPH8biWTQYBhpPFE7vOz7IzZKczdHs,1068
+pybooks/schemas/__init__.py,sha256=oz9K0P6cQzjIIL8Wyhq_12AEn9xgxeT488gUaruN8t4,21
+pybooks/schemas/schema.py,sha256=UI5Hu6SSFx8rEdRdvvdKAeINMv9XeugkV_VZuOIIgC4,3074
+mauribooks-0.0.1.dist-info/METADATA,sha256=ZYondp68eLmbKRK6O1hV7LGWO0MfJ__DYhoGI482_KY,599
+mauribooks-0.0.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+mauribooks-0.0.1.dist-info/top_level.txt,sha256=YQmoBeI_PHYcXD3E-CFMvXCUAmQIKtYITFZko9lkRAQ,8
+mauribooks-0.0.1.dist-info/RECORD,,
