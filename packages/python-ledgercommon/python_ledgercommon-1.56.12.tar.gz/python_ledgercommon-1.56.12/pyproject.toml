@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools>=68", "wheel", "build"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "python-ledgercommon"
+version = "1.56.12"  
+description = "Ledger common utilities"
+requires-python = ">=3.10,<3.14"
+authors = [{ name = "Ledger Donjon", email = "donjon@ledger.fr" }]
+# Base runtime dependencies (if any)
+dependencies = []
+
+
