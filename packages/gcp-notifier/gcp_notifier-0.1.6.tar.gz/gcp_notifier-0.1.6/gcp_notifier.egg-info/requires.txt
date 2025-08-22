@@ -1,0 +1,10 @@
+google-cloud-secret-manager
+google-auth
+requests
+
+[async]
+aiosmtplib
+httpx
+
+[test]
+pytest
