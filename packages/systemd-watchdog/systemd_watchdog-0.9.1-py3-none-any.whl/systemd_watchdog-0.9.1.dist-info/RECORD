@@ -1,0 +1,5 @@
+systemd_watchdog.py,sha256=856svx5UdOmq49Oi2CLIiiujC7XXx3pnPMhMR0Q3Pcg,3010
+systemd_watchdog-0.9.1.dist-info/LICENSE,sha256=kNXlp3uKgbeOGdvGLoWJnhuOEh6gbTZC3twX7P5uTmI,1111
+systemd_watchdog-0.9.1.dist-info/METADATA,sha256=xfsmkXQrkCT2JkbTJ0GqOaAkmR5KL1WYK9126-xrWAw,4531
+systemd_watchdog-0.9.1.dist-info/WHEEL,sha256=b4K_helf-jlQoXBBETfwnf4B04YC67LOev0jo4fX5m8,88
+systemd_watchdog-0.9.1.dist-info/RECORD,,
