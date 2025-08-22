@@ -1,0 +1,23 @@
+devcontainer_manager/__init__.py,sha256=qjngKmjcwKn1c_BwAouVdai-TbnuKZo56EbqRdILxaI,22
+devcontainer_manager/__main__.py,sha256=6MOie76lc7rifAN3jMVMYRPjY1I8Pf8HmuHbboIXLk4,88
+devcontainer_manager/alias.py,sha256=aDApX450HIYXKYeCCWsMkC6gQ3inSR2rBaewZrkZO9A,1254
+devcontainer_manager/base_config.py,sha256=wt8v9PXAwWAvL-ro0KuuhVaWv5ZhZpFrRUxOxxyVdfk,4088
+devcontainer_manager/config.py,sha256=eBe1HP-6xaHrB_8LH-RKgfVfWerMLVhHl-RgT28uoDE,7672
+devcontainer_manager/exceptions.py,sha256=YdiS8lrgJFL7scr3gYHit0BlMcMClZ8nwuuSsej3aBM,336
+devcontainer_manager/global_config.py,sha256=FUXjI6xJcmRIDF7KaLGHU5tSjbU3Jwh4BRvVL_nOkWQ,2463
+devcontainer_manager/settings.py,sha256=bKli4nxOTmU5IBq_fsSw4Pnspymvc8_LoouRjQoix2M,412
+devcontainer_manager/types.py,sha256=6ZwDi0JWSM97sZI5jdPNEAqSd5VaVSK5JpBhsq4H4t4,1834
+devcontainer_manager/util.py,sha256=uAZukXlkS50p64_SyPFv5Hfanel64ZcHptbhoUQoUk4,1203
+devcontainer_manager/yaml.py,sha256=ktyl1ClB7KhBiqLCNcMR40GDUatQmLzDuyx63Ky9iFs,2691
+devcontainer_manager/cli/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+devcontainer_manager/cli/alias.py,sha256=rvLxF9YrY-med7wBvA7e_jUelSzygnzT4esJLkSPoD0,2376
+devcontainer_manager/cli/cli.py,sha256=d_Ya8IOzKv-d82MeEOIr55yEUBH5S94RbAMeV6cfz6w,4317
+devcontainer_manager/templates/{{ cookiecutter.project_path }}/.devcontainer/build.sh,sha256=s1oUI-ztYs2h6QILvw1-LcUsUki1hn9x5PW5C9tYeaU,233
+devcontainer_manager/templates/{{ cookiecutter.project_path }}/.devcontainer/devcontainer.Dockerfile,sha256=_ua0QYuCu5zSPapC5Oy_-LouyLFP752fB8TKkmOMW_4,240
+devcontainer_manager/templates/{{ cookiecutter.project_path }}/.devcontainer/devcontainer.json,sha256=Dlo8Kz3IiAc54wbVzKXZeM7D1wFn3pjlFHB2bovkuT8,1786
+devcontainer_manager-1.4.2.dist-info/licenses/LICENSE,sha256=qoZkHa4mFbsqZCxpG4rg55a1t530UPksGBwiIbqEQGM,1061
+devcontainer_manager-1.4.2.dist-info/METADATA,sha256=qmyjr8LmTnzNg4UhVG0yOMn7NvBt8HJazf15ACLaKks,6790
+devcontainer_manager-1.4.2.dist-info/WHEEL,sha256=SmOxYU7pzNKBqASvQJ7DjX3XGUF92lrGhMb3R6_iiqI,91
+devcontainer_manager-1.4.2.dist-info/entry_points.txt,sha256=XpfMnjumNe90hI7J3UpN6KdvO-lj2zxFimR9TdcHMoQ,76
+devcontainer_manager-1.4.2.dist-info/top_level.txt,sha256=2utRi2PW0gQqh7neHBZhtt041KLRnFg66tcNmukwVvY,21
+devcontainer_manager-1.4.2.dist-info/RECORD,,
