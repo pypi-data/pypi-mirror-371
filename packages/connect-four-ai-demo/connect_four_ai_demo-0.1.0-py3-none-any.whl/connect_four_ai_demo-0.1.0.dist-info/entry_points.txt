@@ -1,0 +1,2 @@
+[console_scripts]
+connect-four = connect_four.main:main

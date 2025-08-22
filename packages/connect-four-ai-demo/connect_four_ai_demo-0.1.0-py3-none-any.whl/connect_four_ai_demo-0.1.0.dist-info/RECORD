@@ -1,0 +1,9 @@
+connect_four/board.py,sha256=x1lhaZdgwP0UACwofrRDAxgZV8kwo63Wx0uNZfzA59g,3626
+connect_four/game.py,sha256=cIv7HcsEnd1IjnpaT1ybpAfg4QeNV9J3wmnpndgpYoA,6611
+connect_four/main.py,sha256=P1NxPRlj6Dy-p4nheXya2C4cMy5wB7d2MNLmUu0R79I,1718
+connect_four/assets/icon.png,sha256=OONEHQzk01r2NtqwMpdEdYnjcYYF-hUesETOeS8hEh4,114477
+connect_four/assets/nunito.ttf,sha256=fNEapp21At0Janp1Ei7E6VIPVqeR_5WDN90B7uCenq4,132148
+connect_four_ai_demo-0.1.0.dist-info/METADATA,sha256=RTmXsox7e7gAkDyYfblCKtVpoP6uvDpfFXnHEhdTw5o,2117
+connect_four_ai_demo-0.1.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+connect_four_ai_demo-0.1.0.dist-info/entry_points.txt,sha256=wcPsTIpoK2dJk5yozyzjU8RuGpcwkn6SKVSjB6uaHzQ,56
+connect_four_ai_demo-0.1.0.dist-info/RECORD,,
