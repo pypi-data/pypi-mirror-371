@@ -1,0 +1,14 @@
+django_llm_poison/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+django_llm_poison/admin.py,sha256=M1t6b91FmZd86ZJuTc63rvW8OtBRkSghKQOYbE-bZLg,134
+django_llm_poison/agents.py,sha256=5rRu1UkNIr5zRvA8yu2ZWg3QTTq6m23J7jwzIUZD9qc,1731
+django_llm_poison/apps.py,sha256=M_pi1ru-4FxxsRJVB1wo1WdylNmO1aw6ZIooWYCk-K0,164
+django_llm_poison/markov.py,sha256=buHF22RkakqEOx-TODPQqfRI6uG0sSrA_l-CNMvB0zU,1967
+django_llm_poison/models.py,sha256=1JwjqKbJSGNlAJ7vyWb3Cdri7l2xO0Yn724wOnpXXTI,259
+django_llm_poison/migrations/0001_initial.py,sha256=zj2yJOa8_1YkwSihOUXW8hldXALPRtTPWomjvBB7nNs,527
+django_llm_poison/migrations/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+django_llm_poison/templatetags/poison.py,sha256=Fr8trdYKZ8HuMMGfEJWvXD_SkQz_umwHDfY4x5piF98,1061
+django_llm_poison-0.2.2.dist-info/METADATA,sha256=HAkcaVDQQIXfS3Rs0ku4FXZQlYgJf7e4Zuo5HcE_RQU,4256
+django_llm_poison-0.2.2.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+django_llm_poison-0.2.2.dist-info/entry_points.txt,sha256=YFZaYnJbtYOSxBqZjeSxjbTKR_rCLVjhMlx-piurzXA,61
+django_llm_poison-0.2.2.dist-info/licenses/LICENSE,sha256=JgL7zoOg82C-pmHctiKZUIvjy66ucKoZz-gOXbdO0YE,1068
+django_llm_poison-0.2.2.dist-info/RECORD,,

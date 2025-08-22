@@ -1,0 +1,2 @@
+[console_scripts]
+django-llm-poison = django_llm_poison:main
