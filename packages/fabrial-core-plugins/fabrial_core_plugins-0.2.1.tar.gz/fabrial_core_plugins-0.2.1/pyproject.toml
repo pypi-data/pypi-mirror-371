@@ -1,0 +1,28 @@
+[project]
+name = "fabrial-core-plugins"
+dynamic = ["version"]
+description = "Built-in plugins for Fabrial."
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = ["fabrial"]
+
+[project.urls]
+Repository = "https://github.com/Maughan-Lab/fabrial-core-plugins"
+
+[project.entry-points."fabrial.plugins"]
+fabrial-core-plugins = "fabrial_core_plugins"
+
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.version.raw-options]
+version_scheme = "no-guess-dev"
+
+
+# uv config
+[tool.uv.sources]
+fabrial = { workspace = true }
