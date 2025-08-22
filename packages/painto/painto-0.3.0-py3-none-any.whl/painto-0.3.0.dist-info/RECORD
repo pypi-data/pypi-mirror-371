@@ -1,0 +1,11 @@
+painto/__init__.py,sha256=dJY2xE0stKGZlMVVkakQ4MaVV6yGZHfrpo-Nuo7nM7M,978
+painto/color.py,sha256=H8Rz5x63g3YBze8HKkNCNz0PWHCirtb-QVvJyYfsVTg,16759
+painto/color_list.py,sha256=Q2N-IHujA8mBTjspXMHnJviGrErIrA4J5qvY_k2i0aI,294
+painto/list_base.py,sha256=rkfOLYVj6F3WCpD1medEkcJBb5agX0Ch1nAQ_yre5gk,578
+painto/list_pride.py,sha256=pXy3H08RS_1ga8a_UQj3nH6XU0CtDdR5szsFcBCdiX0,460
+painto/list_w3c.py,sha256=8GVAjZ3kUyMHjLYzuvD-zKM8wbzeANFsPzD6b_3jHvo,11244
+painto/list_xkcd.py,sha256=Hb-84bY4_yVndHNZ65BkaeN5M9nb9n9GwxIUlv7Hkgk,66545
+painto-0.3.0.dist-info/LICENSE,sha256=Bfj7hvuDPF8M-pxE3wi2-FC37P0j-sKgiE1xKraqx6Q,1093
+painto-0.3.0.dist-info/METADATA,sha256=rn04R_JPMkiiecV0ja9dUkMzCK53rnVw_AAvNo9XXi0,3522
+painto-0.3.0.dist-info/WHEEL,sha256=b4K_helf-jlQoXBBETfwnf4B04YC67LOev0jo4fX5m8,88
+painto-0.3.0.dist-info/RECORD,,
