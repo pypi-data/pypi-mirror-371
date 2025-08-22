@@ -1,0 +1,8 @@
+LICENSE
+README.md
+pyproject.toml
+src/batchgen/__init__.py
+src/batchgen.egg-info/PKG-INFO
+src/batchgen.egg-info/SOURCES.txt
+src/batchgen.egg-info/dependency_links.txt
+src/batchgen.egg-info/top_level.txt
