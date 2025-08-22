@@ -1,0 +1,8 @@
+anyads/__init__.py,sha256=T4469jtNay3IZD6r14ip-RkPv26c7vNpgONStKMOiGk,430
+anyads/client.py,sha256=6H5LcR1Hlp9BCJ1eNY2RCT91o1x7V-4BCAG6Ipsm10s,11084
+anyads/exceptions.py,sha256=a-ph_Pvni6LePTyUK94u0ygfecPDbw5XWlMp5hpdXcQ,470
+anyads/integrations/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+anyads/integrations/aiogram.py,sha256=xCiOWwGY0dk7Qq7GrN_rZhUe4jw_nR5aVWAFNgGvkjI,1493
+anyads-0.1.1.dist-info/METADATA,sha256=odW4cyLy-ag-Q3dadGcCg-fgbucTcZp-gJKbvU_KX4A,7638
+anyads-0.1.1.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+anyads-0.1.1.dist-info/RECORD,,
