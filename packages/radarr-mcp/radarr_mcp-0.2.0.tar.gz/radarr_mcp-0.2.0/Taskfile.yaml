@@ -1,0 +1,24 @@
+version: '3'
+
+dotenv:
+  - '.env'
+
+tasks:
+  install:
+    cmd: |
+      uv sync 
+
+  mcp_inspector: 
+    cmd: |
+      npx @modelcontextprotocol/inspector uv run radarr-mcp --url $RADARR_URL --api-token $RADARR_API_TOKEN
+
+  build:
+    cmd: |
+      uv build
+
+  pypi_upload:
+    deps:
+      - build
+    cmd: |
+      uv run twine check dist/*
+      uv run twine upload -u __token__ -p $PYPI_API_TOKEN dist/*
