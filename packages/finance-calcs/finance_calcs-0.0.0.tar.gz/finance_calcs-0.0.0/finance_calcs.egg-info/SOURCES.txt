@@ -1,0 +1,8 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+finance_calcs.egg-info/PKG-INFO
+finance_calcs.egg-info/SOURCES.txt
+finance_calcs.egg-info/dependency_links.txt
+finance_calcs.egg-info/top_level.txt
