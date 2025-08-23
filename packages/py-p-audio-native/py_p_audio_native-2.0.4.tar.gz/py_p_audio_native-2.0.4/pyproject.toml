@@ -1,0 +1,47 @@
+[build-system]
+requires = [
+    "setuptools>=69",
+    "wheel",
+    "pybind11>=2.10.0",
+    "cmake>=3.18",
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "py-p-audio-native"
+version = "2.0.4"
+description = "高性能な Python オーディオライブラリ - ネイティブ C++ コア搭載"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [{name = "hiroshi-tamura"}]
+keywords = ["audio", "recording", "playback", "WASAPI", "ASIO", "native", "pybind11"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Microsoft :: Windows",
+    "Programming Language :: C++",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Multimedia :: Sound/Audio :: Capture/Recording",
+    "Topic :: Multimedia :: Sound/Audio :: Players",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[project.urls]
+Homepage = "https://github.com/hiroshi-tamura/py-p-audio-native"
+Repository = "https://github.com/hiroshi-tamura/py-p-audio-native.git"
+Issues = "https://github.com/hiroshi-tamura/py-p-audio-native/issues"
+
+[project.scripts]
+py-p-audio = "py_p_audio_native.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src/python"]
+
+[tool.setuptools.package-data]
+py_p_audio_native = ["py.typed", "*.pyd", "*.so"]
