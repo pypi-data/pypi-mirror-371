@@ -1,0 +1,711 @@
+# CeSail
+
+A comprehensive web automation and DOM parsing platform with AI-powered agents.
+
+## Project Overview
+
+CeSail is a comprehensive web automation and DOM parsing platform that transforms complex web pages into structured, agent-friendly data and provides complete web interaction capabilities. It offers APIs that retrieve parsed data from web pages, transform it into a format that's easy for AI agents to understand, and execute actions like clicking, typing, navigating, and scrolling - enabling full end-to-end web automation workflows.
+
+### What CeSail Does
+
+CeSail bridges the gap between raw web content and AI agents by:
+
+1. **🌐 Web Page Analysis**: Extracts and analyzes DOM elements, forms, buttons, links, and interactive components
+2. **🧠 Agent-Friendly Transformation**: Converts complex HTML structures into structured data with clear semantics
+3. **🎯 Actionable Intelligence**: Identifies clickable elements, form fields, and navigation options with context
+4. **📊 Structured Output**: Provides clean, JSON-like data structures that agents can easily parse and understand
+5. **🔍 Context Preservation**: Maintains relationships between elements and their functional purposes
+6. **📸 Visual Overlays**: Generates screenshots with overlays highlighting parsed action items and interactive elements
+
+## Quick Start
+
+### Install from PyPI (Recommended)
+
+The easiest way to get started with CeSail is to install it from PyPI:
+
+```bash
+# Install CeSail
+pip install cesail
+
+# Install Playwright browsers (required for web automation)
+playwright install
+```
+
+### Simple Example
+
+Here's a quick example that demonstrates CeSail's core functionality:
+
+```python
+import asyncio
+from cesail import DOMParser, Action, ActionType
+
+async def quick_demo():
+    """Quick demonstration of CeSail's web automation capabilities."""
+    async with DOMParser(headless=False) as parser:
+        # Navigate to a website
+        action = Action(
+            type=ActionType.NAVIGATE,
+            metadata={"url": "https://www.example.com"}
+        )
+        await parser._action_executor.execute_action(action)
+        
+        # Analyze the page and get structured data
+        parsed_page = await parser.analyze_page()
+        print(f"Found {len(parsed_page.important_elements.elements)} interactive elements")
+        
+        # Take a screenshot with overlays
+        await parser.take_screenshot("demo_screenshot.png")
+        
+        # Show available actions
+        print("Available actions:")
+        for element in parsed_page.important_elements.elements[:3]:
+            print(f"  - {element.type}: {element.text}")
+
+# Run the demo
+asyncio.run(quick_demo())
+```
+
+## MCP (Model Context Protocol) Integration
+
+CeSail provides a FastMCP server that enables AI assistants like Cursor to directly interact with web pages through standardized APIs. This allows you to give natural language commands to your AI assistant and have it execute web automation tasks.
+
+### Setting up MCP with Cursor
+
+1. **Install CeSail MCP Server**:
+   ```bash
+   pip install cesail fastmcp
+   ```
+
+2. **Configure Cursor MCP Settings**:
+   - Open Cursor
+   - Go to Settings → Extensions → MCP
+   - Add a new server configuration:
+   ```json
+   {
+     "mcpServers": {
+       "cesail": {
+         "command": "python",
+         "args": ["-m", "cesail.mcp.fastmcp_server"],
+         "env": {}
+       }
+     }
+   }
+   ```
+
+3. **Start the MCP Server**:
+   ```bash
+   python -m cesail.mcp.fastmcp_server
+   ```
+
+4. **Use in Cursor**:
+   Now you can ask Cursor to perform web automation tasks:
+   ```
+   "Navigate to example.com and take a screenshot"
+   "Click the login button on the current page"
+   "Fill out the contact form with my information"
+   ```
+
+### MCP Capabilities
+
+The CeSail MCP server provides these capabilities to AI assistants:
+
+- **🌐 Navigation**: Navigate to any URL
+- **🖱️ Clicking**: Click on elements by text, selector, or description
+- **⌨️ Typing**: Type text into form fields
+- **📸 Screenshots**: Capture page screenshots with overlays
+- **🔍 Analysis**: Get structured page data and element information
+- **📜 Scrolling**: Scroll through pages to load more content
+- **📊 Forms**: Fill out forms automatically
+
+### Example MCP Commands
+
+```bash
+# Navigate and analyze
+"Go to https://example.com and tell me what interactive elements are available"
+
+# Form automation
+"Fill out the contact form on the current page with name: John Doe, email: john@example.com"
+
+# Screenshot and analysis
+"Take a screenshot of the current page and highlight all clickable buttons"
+
+# Multi-step automation
+"Navigate to the login page, enter my credentials, and click the login button"
+```
+
+### Key Features
+
+- **🤖 AI-Powered Automation**: Natural language task processing with LLM integration
+- **🌐 Web Scraping & Analysis**: Advanced DOM parsing and element extraction
+- **🔧 MCP Integration**: FastMCP server for standardized automation APIs
+- **📸 Visual Analysis**: Screenshot capture and visual element detection
+- **⚡ High Performance**: Optimized for speed and reliability
+
+
+
+
+
+
+### Why Agents Need This
+
+Traditional web scraping provides raw HTML, which is difficult for AI agents to interpret. CeSail solves this by:
+
+- **Semantic Understanding**: Identifies what each element does (button, form, link, etc.)
+- **Action Mapping**: Maps elements to executable actions (click, type, navigate)
+- **Context Enrichment**: Adds metadata about element purpose and relationships
+- **Structured Data**: Outputs clean, predictable data structures
+- **Visual Context**: Combines DOM analysis with visual information via screenshots and overlays highlighting actionable elements
+
+This transformation makes it possible for AI agents to:
+- Understand page structure at a glance
+- Identify actionable elements quickly
+- Execute precise interactions
+- Adapt to different page layouts
+- Make intelligent decisions about next actions
+
+## Architecture
+
+```
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│   Simple Agent  │    │   MCP Server    │    │  DOM Parser     │
+│   (Python)      │◄──►│   (Python)      │◄──►│  (JavaScript)   │
+│                 │    │                 │    │                 │
+│ • LLM Interface │    │ • FastMCP APIs  │    │ • Element Ext.  │
+│ • Task Planning │    │ • Web Automation│    │ • Selector Gen. │
+│ • Execution     │    │ • Screenshots   │    │ • Text Analysis │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+         │                       │                       │
+         └───────────────────────┼───────────────────────┘
+                                 │
+                    ┌─────────────────┐
+                    │   Web Browser   │
+                    │  (Playwright)   │
+                    │                 │
+                    │ • Page Control  │
+                    │ • DOM Access    │
+                    │ • Screenshots   │
+                    └─────────────────┘
+```
+
+## Components
+
+### 1. DOM Parser (`dom_parser/`)
+JavaScript-based DOM parser that transforms raw HTML into structured, agent-friendly data.
+
+**Language**: JavaScript/Node.js  
+**Features**: 
+- **Element Extraction**: Identifies and categorizes interactive elements (buttons, forms, links)
+- **Semantic Analysis**: Understands element purpose and context
+- **Action Mapping**: Maps elements to executable actions (click, type, navigate)
+- **Text Scoring**: Prioritizes important text content for agents
+- **Selector Generation**: Creates reliable CSS selectors for element targeting
+- **Performance Optimization**: Caching and monitoring for speed
+- **ARIA Support**: Accessibility attribute analysis
+- **Visual Context**: Combines DOM data with visual information
+
+**Data Transformation Example**:
+```javascript
+// Raw HTML input
+<button class="btn-primary" onclick="submit()">Submit Form</button>
+<input type="text" placeholder="Enter email" id="email" />
+
+// CeSail transforms to agent-friendly JSON
+{
+  "type": "BUTTON",
+  "selector": "button.btn-primary",
+  "text": "Submit Form",
+  "action": "CLICK",
+  "importance": 0.9,
+  "context": "form submission",
+  "metadata": {
+    "aria-label": null,
+    "disabled": false,
+    "visible": true
+  }
+}
+```
+
+**Documentation**: See [dom_parser/README.md](dom_parser/README.md)
+
+### 2. MCP Server (`mcp/`)
+FastMCP server that provides standardized APIs for agents to interact with transformed web data.
+
+**Language**: Python  
+**Features**:
+- **Structured APIs**: Clean, predictable endpoints for web automation
+- **Action Execution**: Execute clicks, typing, navigation based on transformed data
+- **Page Analysis**: Get structured page information in agent-friendly format
+- **Screenshot Integration**: Visual context combined with structured data
+- **Session Management**: Maintain state across interactions
+- **Error Handling**: Robust retry logic and error recovery
+
+**Agent-Friendly API Example**:
+```python
+# Agent receives structured data from CeSail
+page_data = {
+  "elements": [
+    {
+      "type": "BUTTON",
+      "selector": "button.btn-primary",
+      "text": "Submit Form",
+      "action": "CLICK",
+      "importance": 0.9
+    },
+    {
+      "type": "INPUT",
+      "selector": "input#email",
+      "placeholder": "Enter email",
+      "action": "TYPE",
+      "importance": 0.8
+    }
+  ],
+  "forms": [...],
+  "actions": [...]
+}
+
+# Agent can easily understand and act on this data
+for element in page_data["elements"]:
+    if element["type"] == "BUTTON" and "submit" in element["text"].lower():
+        # Agent knows exactly what to do
+        await execute_action(element["action"], element["selector"])
+```
+
+**Usage**: `python3 mcp/fastmcp_server.py`
+
+### 3. Simple Agent (`simple_agent/`)
+AI-powered web automation agent using LLM for task breakdown and execution.
+
+**Language**: Python  
+**Features**:
+- Natural language task processing
+- Automated task breakdown and planning
+- LLM-powered decision making
+- Visual analysis with screenshots
+- Interactive execution monitoring
+
+**Usage**: `python3 simple_agent/simple_agent.py`
+
+## Quick Start
+
+### Install from PyPI (Recommended)
+
+The easiest way to get started with CeSail is to install it from PyPI:
+
+```bash
+# Install CeSail
+pip install cesail
+
+# Install Playwright browsers (required for web automation)
+playwright install
+```
+
+### Simple Example
+
+Here's a quick example that demonstrates CeSail's core functionality:
+
+```python
+import asyncio
+from cesail import DOMParser, Action, ActionType
+
+async def quick_demo():
+    """Quick demonstration of CeSail's web automation capabilities."""
+    async with DOMParser(headless=False) as parser:
+        # Navigate to a website
+        action = Action(
+            type=ActionType.NAVIGATE,
+            metadata={"url": "https://www.example.com"}
+        )
+        await parser._action_executor.execute_action(action)
+        
+        # Analyze the page and get structured data
+        parsed_page = await parser.analyze_page()
+        print(f"Found {len(parsed_page.important_elements.elements)} interactive elements")
+        
+        # Take a screenshot with overlays
+        await parser.take_screenshot("demo_screenshot.png")
+        
+        # Show available actions
+        print("Available actions:")
+        for element in parsed_page.important_elements.elements[:3]:
+            print(f"  - {element.type}: {element.text}")
+
+# Run the demo
+asyncio.run(quick_demo())
+```
+
+### Development Installation
+
+For development or advanced usage:
+
+**Prerequisites**:
+- **Python**: 3.9 or higher
+- **Node.js**: 14 or higher (for DOM Parser development)
+- **OpenAI API Key**: Required for Simple Agent
+- **Git**: For cloning the repository
+
+**Installation**:
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/yourusername/cesail.git
+   cd cesail
+   ```
+
+2. **Set up Python environment**:
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   pip install -e .
+   ```
+
+3. **Set up DOM Parser** (optional):
+   ```bash
+   cd dom_parser
+   npm install
+   npm run build
+   cd ..
+   ```
+
+4. **Configure environment** (for Simple Agent):
+   ```bash
+   # Create .env file in simple_agent/ directory
+   echo "OPENAI_API_KEY=your_openai_api_key_here" > simple_agent/.env
+   ```
+
+5. **Install Playwright browsers**:
+   ```bash
+   playwright install
+   ```
+
+## Usage Examples
+
+### Simple Agent - Basic Usage
+
+The Simple Agent allows you to perform web tasks using natural language:
+
+```bash
+python3 simple_agent/simple_agent.py
+```
+
+**Example Interaction**:
+```
+Enter the URL you want to navigate to: https://www.amazon.com
+
+What would you like me to do? Search for wireless headphones under $100
+
+The agent will:
+1. Navigate to Amazon
+2. Find the search box
+3. Type "wireless headphones"
+4. Apply price filter
+5. Show you the results
+```
+
+### MCP Server - API Usage
+
+Start the MCP server for programmatic access:
+
+```bash
+python3 mcp/fastmcp_server.py
+```
+
+**Example API Calls**:
+```python
+# Navigate to a page
+await execute_action({
+    "type": "navigate",
+    "url": "https://example.com"
+})
+
+# Click an element
+await execute_action({
+    "type": "click",
+    "element_id": "submit-button"
+})
+
+# Get page details
+page_info = await get_page_details()
+```
+
+### DOM Parser - JavaScript Usage
+
+Use the DOM parser directly in JavaScript:
+
+```javascript
+import { extractElements } from 'dom-parser';
+
+// Extract all interactive elements
+const result = await extractElements();
+console.log(result.actions);
+
+// Get specific element types
+const buttons = result.actions.filter(action => action.type === 'BUTTON');
+const forms = result.forms;
+```
+
+## Advanced Usage
+
+### Custom Action Types
+
+You can define custom actions for specific use cases:
+
+```python
+from dom_parser.src.py.types import Action, ActionType
+
+# Custom action for form filling
+custom_action = Action(
+    type=ActionType.TYPE,
+    element_id="email-input",
+    text_to_type="user@example.com",
+    description="Fill email field",
+    confidence=0.9
+)
+```
+
+### Error Handling
+
+Implement robust error handling:
+
+```python
+try:
+    result = await parser.execute_action(action)
+except Exception as e:
+    print(f"Action failed: {e}")
+    # Implement retry logic or fallback
+```
+
+### Performance Optimization
+
+Optimize for speed and reliability:
+
+```python
+# Configure parser for performance
+parser = DOMParser(
+    headless=True,  # Run in headless mode
+    timeout=30000,  # 30 second timeout
+    wait_for_idle=True  # Wait for page to be idle
+)
+```
+
+## Configuration
+
+### Environment Variables
+
+Create a `.env` file in the `simple_agent/` directory:
+
+```env
+# OpenAI Configuration
+OPENAI_API_KEY=your_openai_api_key_here
+OPENAI_API_BASE=https://api.openai.com/v1
+
+# Optional: Custom model
+OPENAI_MODEL=gpt-4o
+
+# Optional: Custom base URL for different providers
+# OPENAI_API_BASE=https://your-custom-endpoint.com/v1
+```
+
+### Playwright Configuration
+
+Configure Playwright for your environment:
+
+```python
+# In your code
+parser = DOMParser(
+    headless=False,  # Show browser window
+    slow_mo=1000,    # Slow down actions for debugging
+    viewport={'width': 1920, 'height': 1080}
+)
+```
+
+## Development
+
+### Running Tests
+
+```bash
+# Python tests
+pytest dom_parser/tests/ -v
+
+# JavaScript tests (in dom_parser directory)
+cd dom_parser && npm test
+
+# Integration tests
+pytest dom_parser/tests/playground/ -v
+```
+
+### Code Quality
+
+```bash
+# Python linting
+black .
+isort .
+mypy .
+
+# JavaScript linting (in dom_parser directory)
+cd dom_parser && npm run lint
+```
+
+### Building
+
+```bash
+# Build Python package
+pip install -e .
+
+# Build JavaScript bundle (in dom_parser directory)
+cd dom_parser && npm run build
+```
+
+## Troubleshooting
+
+### Common Issues
+
+#### 1. Import Errors
+**Problem**: `ModuleNotFoundError: No module named 'dom_parser'`
+**Solution**: Ensure you're in the correct directory and virtual environment is activated
+
+#### 2. Playwright Browser Issues
+**Problem**: Browser not found or crashes
+**Solution**: Reinstall Playwright browsers:
+```bash
+playwright install
+```
+
+#### 3. OpenAI API Errors
+**Problem**: API key invalid or rate limited
+**Solution**: Check your API key and usage limits in the OpenAI dashboard
+
+#### 4. Screenshot Failures
+**Problem**: Screenshots fail with "Target page closed" error
+**Solution**: Add proper error handling and retry logic
+
+### Debug Mode
+
+Enable debug logging:
+
+```python
+import logging
+logging.basicConfig(level=logging.DEBUG)
+```
+
+### Performance Issues
+
+If you experience performance issues:
+
+1. **Use headless mode**: `headless=True`
+2. **Reduce timeout values**: `timeout=15000`
+3. **Disable unnecessary features**: `wait_for_idle=False`
+4. **Use caching**: Enable element caching where possible
+
+## API Reference
+
+### Simple Agent API
+
+#### `SimpleAgent.initialize(url=None)`
+Initialize the agent and navigate to a URL.
+
+**Parameters**:
+- `url` (str, optional): URL to navigate to. If None, prompts user.
+
+#### `SimpleAgent.process_user_input(user_input)`
+Process natural language input and execute tasks.
+
+**Parameters**:
+- `user_input` (str): Natural language description of the task
+
+**Returns**: Dictionary with breakdown and execution results
+
+### MCP Server API
+
+#### `execute_action(params)`
+Execute a web automation action.
+
+**Parameters**:
+- `params` (dict): Action parameters including type, element_id, etc.
+
+#### `get_page_details(params)`
+Get detailed information about the current page.
+
+**Parameters**:
+- `params` (dict): Optional parameters for analysis
+
+### DOM Parser API
+
+#### `extractElements()`
+Extract all interactive elements from the current page.
+
+**Returns**: Object with actions, meta, outline, text, forms, etc.
+
+#### `getTopLevelElements()`
+Get top-level elements containing multiple interactive elements.
+
+**Returns**: Array of top-level elements
+
+## Contributing
+
+We welcome contributions! Here's how to get started:
+
+### Development Setup
+
+1. **Fork the repository**
+2. **Create a feature branch**:
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+3. **Make your changes**
+4. **Add tests** for new functionality
+5. **Run tests** to ensure everything works
+6. **Submit a pull request**
+
+### Code Style
+
+- **Python**: Follow PEP 8, use Black for formatting
+- **JavaScript**: Follow ESLint rules, use Prettier for formatting
+- **Documentation**: Update README files for new features
+
+### Testing
+
+- Write unit tests for new functions
+- Add integration tests for new features
+- Ensure all existing tests pass
+
+## Project Structure
+
+```
+cesail/
+├── dom_parser/              # JavaScript DOM parser
+│   ├── src/                # Source code
+│   ├── dist/               # Built files
+│   ├── tests/              # JavaScript tests
+│   └── README.md           # Component documentation
+├── mcp/                    # FastMCP server
+│   ├── fastmcp_server.py   # Main server file
+│   ├── server.py           # Alternative server
+│   └── tests/              # MCP tests
+├── simple_agent/           # AI web automation agent
+│   ├── simple_agent.py     # Main agent file
+│   ├── llm_interface.py    # LLM integration
+│   └── .env               # Environment variables
+├── venv/                   # Python virtual environment
+├── setup.py               # Python package configuration
+├── pyproject.toml         # Project configuration
+└── README.md              # This file
+```
+
+## License
+
+MIT License - see [LICENSE](LICENSE) file for details.
+
+## Support
+
+- **Issues**: Report bugs and feature requests on GitHub
+- **Discussions**: Join discussions for questions and ideas
+- **Documentation**: Check component-specific README files for detailed docs
+
+## Roadmap
+
+- [ ] Enhanced error recovery mechanisms
+- [ ] Support for more browser automation frameworks
+- [ ] Advanced visual element detection
+- [ ] Multi-language support
+- [ ] Cloud deployment options
+- [ ] Performance monitoring dashboard 
