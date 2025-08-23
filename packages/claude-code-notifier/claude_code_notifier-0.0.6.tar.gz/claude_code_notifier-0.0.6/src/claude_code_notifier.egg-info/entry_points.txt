@@ -1,0 +1,3 @@
+[console_scripts]
+claude-notifier = claude_notifier.cli.main:cli
+claude-notify = claude_notifier.cli.main:cli
