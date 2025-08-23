@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+setup.py
+fixedfig/__init__.py
+fixedfig/core.py
+fixedfig.egg-info/PKG-INFO
+fixedfig.egg-info/SOURCES.txt
+fixedfig.egg-info/dependency_links.txt
+fixedfig.egg-info/requires.txt
+fixedfig.egg-info/top_level.txt
