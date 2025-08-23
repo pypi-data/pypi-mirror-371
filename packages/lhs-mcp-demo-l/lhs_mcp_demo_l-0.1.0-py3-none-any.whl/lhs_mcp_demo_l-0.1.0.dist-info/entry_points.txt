@@ -1,0 +1,3 @@
+[console_scripts]
+lhs-mcp-demo-l = lhs_mcp_demo_l:main
+
