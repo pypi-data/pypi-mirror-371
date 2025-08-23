@@ -1,0 +1,10 @@
+floating_point/__init__.py,sha256=pQgKqtcRsKYxz9cWxBflvwtZ0rPb0xKgAzLoQZkvnGA,511
+floating_point/data_types.py,sha256=ox0j3PTc7fbXhWXR_0SLKidm4iijtONkdwDCSs2NqJo,4193
+floating_point/float_round.cpp,sha256=na_gh47ieYJqke366mcDpz7aVXd_N4-Ffusu9qf4Xek,3435
+floating_point/float_round_cuda.cu,sha256=QvO8JNwC-rQv7D1hmywfkUKzjELvdVJMcbmd__vPZ0c,10264
+floating_point/floating_point.cpython-310-x86_64-linux-gnu.so,sha256=rsHGjQkjDqJq7sNdocCywrT7qqKr62aYpNSsp5lvqK4,9320808
+floating_point/round.py,sha256=N-3cwca4hjkgb8eORs15o0OWwpkpWD-o0nb3xZ55B3U,1394
+torch_floating_point-0.0.10.dist-info/METADATA,sha256=83_GJ1msCeAeJXGXqJPz5F_xSR_5hL9z47KeE63zGR4,5962
+torch_floating_point-0.0.10.dist-info/WHEEL,sha256=-wdbF42uEDqyK3Oo1Xe0P8Ss8ux7axbac4IJpS3CCHY,114
+torch_floating_point-0.0.10.dist-info/top_level.txt,sha256=i9Sp5-b7qIWuZ4Yzc3q974aGARXmzQg4le5WpWtpHuE,15
+torch_floating_point-0.0.10.dist-info/RECORD,,
