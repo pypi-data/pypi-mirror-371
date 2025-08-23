@@ -1,0 +1,28 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "cli_logging_moxad"
+version = "0.7.0"
+authors = [
+  { name="RJ White", email="rj.white@moxad.com" },
+]
+description = "colored logging to terminal for CLI scripts"
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Operating System :: POSIX :: Linux",
+    "Intended Audience :: Developers",
+    "Natural Language :: English"
+]
+
+dependencies = [
+    "colorlog>=6.9.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/rjwhite/cli-logging"
+

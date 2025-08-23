@@ -1,0 +1,77 @@
+0.1.0   Aug 18, 2025:
+    original version 0.1.0
+
+0.2.0   Aug 19, 2025:
+    cli_logging/logging_utils.py:
+        - removed all the complexity for setting up handlers for printing
+          a subroutine utility name.  Too much complexity.
+        - It now tries to prepend a program-name if it is available.
+        - As for any sub-routine name you want printed, if you want to
+          have one, prepend your message you send. eg:
+                logging.debug("function-name: my debug message")
+        - Now anything above INFO and DEBUG go to stderr. - otherwise stdout.
+        - Better comments.
+        - Added _VERSION
+    cli_logging/__init__.py:
+        - imports _VERSION
+    LICENSE, README.txt, README.md:
+        - added
+    pyproject.toml:
+        - added:  readme = "README.md"
+    testing/test.py:
+        - added test program
+
+0.3.0   Aug 19, 2025:
+    Makefile:
+        - improved.  added separate install-dev target.
+    cli_logging/logging_utils.py:
+        - added new optional 3rd argument to setup_cli_logging()
+          use_color that defaults to True
+        - __main__ checks for --nocolor option and passes that on
+          to setup_cli_logging()
+    testing/test.py
+        - updated to use new --nocolor option
+    README.md, README.txt:
+        - updated
+
+0.4.0   Aug 19, 2025:
+    cli_logging/logging_utils.py:
+        - rewrote setup_cli_logging() to use colorlog module to simplify
+          things, give us the ability to color the entire message instead
+          of just the message severity level, and get rid of the ugly
+          encompassing colored block around some levels, like CRITICAL.
+          Also, the colors are now given in English instead of ugly ANSI
+          color codes.
+          Does require installing colorlog module though.
+          Added try/except block for imports to catch missing modules.
+
+0.5.0   Aug 20, 2025:
+    pyproject.py:
+        - changed name from cli_logging to cli_logging_moxad for possible
+          inclusion into PyPi.
+          (since all my packages are searchable with 'moxad')
+        - added:
+            [project.urls]
+            Homepage = "https://github.com/rjwhite/cli-logging"
+    cli_logging/logging_utils.py, testing/test.py:
+        - fixed help message in __main__ for option --nocolor
+          added short versions of --debug (-d) and --nocolor (-n)
+        - changed import from cli_logging to cli_logging_moxad
+    README.txt, README.md:
+        - fixed typos
+        - added short-form options in code sample, fixed help for --nocolor
+        - changed import from cli_logging to cli_logging_moxad
+    RELEASE-NOTES:
+        - fixed typos
+
+0.6.0   Aug 21, 2025:
+    requirements.txt:
+        - created
+    pyproject.py:
+        - added dependencies section
+
+0.7.0   Aug 21, 2025:
+    README.md, README.txt:
+        - improved wording
+    pyproject.py:
+        - improved description
