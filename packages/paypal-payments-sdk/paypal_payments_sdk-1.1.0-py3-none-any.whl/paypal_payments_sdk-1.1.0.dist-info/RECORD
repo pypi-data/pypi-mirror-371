@@ -1,0 +1,12 @@
+paypal_payments_sdk-1.1.0.dist-info/licenses/LICENSE,sha256=ndvX9zCemx1FUwNeQuqK569vP4VIOd__ly5o7oYaqDA,1063
+paypal_sdk/__init__.py,sha256=tgwDzpAuJzZQECkId1moqanBDgbytY12-_sp0bainBs,3801
+paypal_sdk/client.py,sha256=q9iAlNzkRJOOLHrLYmMj4Dg53ibqVbeFi34skqBkl9U,21535
+paypal_sdk/exceptions.py,sha256=SdDkHCgG0kLSu7VAnj1cWHGxA8A6pkvD0Owa4bsbeEw,2990
+paypal_sdk/models.py,sha256=zQ_XSlGuJ7v9_Oc-B4EOeRxo732ZoAY3hFWrWSin0qM,24310
+tests/__init__.py,sha256=Wk73Io62J15BtlLVIzxmASDWaaJkQLevS4BLK5LDAQg,16
+tests/test_client.py,sha256=3Qke7UUjSdq-rpxoP0cv_388WBmmJCQuy0LIz0s6qXI,10310
+tests/test_transaction_search.py,sha256=KNxJMEU904M6Nhb_bM0UQyFGUD5jQYUH00DxqD-L518,10185
+paypal_payments_sdk-1.1.0.dist-info/METADATA,sha256=fWQISAFm68w9REpwTaxE_0b6QY05cLRxrqnozjc348g,13584
+paypal_payments_sdk-1.1.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+paypal_payments_sdk-1.1.0.dist-info/top_level.txt,sha256=A5OQD2Gbbit3X-R-Xq_bg1Ws2JIvuWGmpJ4WSKB9DJ8,17
+paypal_payments_sdk-1.1.0.dist-info/RECORD,,
