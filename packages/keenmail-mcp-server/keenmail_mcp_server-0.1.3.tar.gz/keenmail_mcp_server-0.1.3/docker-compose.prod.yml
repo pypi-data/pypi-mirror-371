@@ -1,0 +1,84 @@
+version: '3.8'
+
+services:
+  keenmail-mcp-server:
+    image: keenmail-mcp-server:${VERSION:-latest}
+    container_name: keenmail-mcp-server-prod
+    restart: always
+    environment:
+      # Required KeenMail API credentials
+      - KEENMAIL_API_KEY=${KEENMAIL_API_KEY}
+      - KEENMAIL_SECRET=${KEENMAIL_SECRET}
+      # Production API endpoint
+      - KEENMAIL_BASE_URL=${KEENMAIL_BASE_URL:-https://app.keenmail.com/api/v1}
+      # Optional configuration
+      - KEENMAIL_PROVIDER_ID=${KEENMAIL_PROVIDER_ID}
+      - KEENMAIL_FROM_EMAIL=${KEENMAIL_FROM_EMAIL}
+      # Production environment flag
+      - ENVIRONMENT=production
+    # Production-specific settings
+    stdin_open: true
+    tty: false  # Disable TTY allocation in production
+    # Enhanced health check for production
+    healthcheck:
+      test: ["CMD", "python", "-c", "from keenmail_mcp.config import KeenMailConfig; KeenMailConfig()"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    # Production resource limits
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
+        reservations:
+          cpus: '0.2'
+          memory: 128M
+      # Restart policy for high availability
+      restart_policy:
+        condition: on-failure
+        delay: 10s
+        max_attempts: 5
+        window: 120s
+    # Production logging with log rotation
+    logging:
+      driver: json-file
+      options:
+        max-size: "50m"
+        max-file: "5"
+        compress: "true"
+    # Security options
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    tmpfs:
+      - /tmp:noexec,nosuid,size=128m
+      - /app/.cache:noexec,nosuid,size=64m
+    # Production labels
+    labels:
+      - "com.keenmail.service=mcp-server"
+      - "com.keenmail.environment=production"
+      - "com.keenmail.version=${VERSION:-latest}"
+      - "com.keenmail.description=KeenMail MCP Server - Production"
+      - "traefik.enable=false"  # Disable if using Traefik
+
+# Production network configuration
+networks:
+  default:
+    driver: bridge
+    name: keenmail-mcp-prod
+    driver_opts:
+      com.docker.network.bridge.name: keenmail-prod-br0
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+
+# Production volumes for persistence if needed
+volumes:
+  mcp-logs:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /var/log/keenmail-mcp
