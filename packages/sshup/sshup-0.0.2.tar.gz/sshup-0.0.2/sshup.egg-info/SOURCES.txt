@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.py
+sshup/__init__.py
+sshup/main.py
+sshup.egg-info/PKG-INFO
+sshup.egg-info/SOURCES.txt
+sshup.egg-info/dependency_links.txt
+sshup.egg-info/entry_points.txt
+sshup.egg-info/requires.txt
+sshup.egg-info/top_level.txt
