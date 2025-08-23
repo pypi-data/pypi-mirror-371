@@ -1,0 +1,3 @@
+[console_scripts]
+apicache-cli-av=apicache_cli_av.cli:app
+
