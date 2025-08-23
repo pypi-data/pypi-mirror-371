@@ -1,0 +1,17 @@
+# Trial Transcription System Environment Variables
+# Copy this file to .env and fill in your actual API keys
+
+# Required: Your OpenAI API key
+# Get one from: https://platform.openai.com/api-keys
+OPENAI_API_KEY=your_openai_api_key_here
+
+# Optional: Additional configuration
+DEBUG=false
+LOG_LEVEL=INFO
+
+# Optional: Custom output directory (relative to project root)
+# OUTPUT_DIR=outputs
+
+# Optional: Model configuration
+# TRANSCRIPTION_MODEL=whisper-1
+# SUMMARIZATION_MODEL=gpt-4.1-nano-2025-04-14

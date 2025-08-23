@@ -1,0 +1,19 @@
+# Core dependencies for audio transcription and summarization
+openai>=1.0.0
+python-dotenv>=1.0.0
+langchain>=0.2.0
+langchain-openai>=0.1.0
+
+# Audio processing (optional but recommended)
+pydub>=0.25.0
+librosa>=0.10.0
+
+# Utilities and development
+pathlib2>=2.3.7; python_version < "3.4"
+colorama>=0.4.6
+rich>=13.0.0
+
+# Development and testing (optional)
+pytest>=7.0.0
+black>=23.0.0
+flake8>=6.0.0
