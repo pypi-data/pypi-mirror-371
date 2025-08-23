@@ -1,0 +1,336 @@
+Metadata-Version: 2.4
+Name: django-react-kit
+Version: 1.0.1
+Summary: Server-Side Rendering for React components in Django
+Home-page: https://github.com/django-react-kit/django-react-kit
+Author: Django React Kit Team
+Author-email: hello@djangoreactkit.com
+License: MIT
+Project-URL: Bug Reports, https://github.com/cyberwizdev/cyberwizdev/issues
+Project-URL: Source, https://github.com/cyberwizdev/django-react-kit
+Project-URL: Documentation, https://django-react-kit.readthedocs.io/
+Keywords: django react ssr server-side-rendering frontend
+Classifier: Development Status :: 4 - Beta
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 3.2
+Classifier: Framework :: Django :: 4.0
+Classifier: Framework :: Django :: 4.1
+Classifier: Framework :: Django :: 4.2
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: Django
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: license-file
+Dynamic: project-url
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# Django React Kit
+
+A powerful Django package that enables server-side rendering (SSR) of React components with file-based routing, similar to Next.js but integrated seamlessly with Django.
+
+## 🚀 Features
+
+- **Server-Side Rendering (SSR)**: Render React components on the server for better SEO and performance
+- **File-Based Routing**: Organize your React pages using a familiar file system structure
+- **Django Integration**: Access Django ORM, authentication, and middleware from React components  
+- **Hot Module Replacement**: Fast development with HMR support
+- **TypeScript Support**: Full TypeScript support for type-safe development
+- **Easy Installation**: Install via PyPI and integrate with existing Django projects
+
+## 📦 Installation
+
+```bash
+pip install django-react-kit
+```
+
+## 🛠️ Quick Start
+
+### 1. Add to Django Settings
+
+Add `django_react_kit` to your `INSTALLED_APPS`:
+
+```python
+# settings.py
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'django_react_kit',  # Add this
+    # ... your other apps
+]
+```
+
+### 2. Configure URLs
+
+Include the React Kit URLs in your main URL configuration:
+
+```python
+# urls.py
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    # ... your other URL patterns
+    path('', include('django_react_kit.urls')),  # Add this last (catch-all)
+]
+```
+
+### 3. Build React Components
+
+```bash
+python manage.py reactbuild
+```
+
+For development with hot module replacement:
+
+```bash
+python manage.py reactbuild --watch
+```
+
+### 4. Run Django Server
+
+```bash
+python manage.py runserver
+```
+
+Visit `http://127.0.0.1:8000/` to see your React-rendered Django app!
+
+## 📁 File Structure
+
+After installation, Django React Kit provides this structure:
+
+```
+django_react_kit/
+├── frontend/
+│   ├── app/
+│   │   ├── page.tsx          # Home page component
+│   │   ├── layout.tsx        # Root layout component
+│   │   └── about/
+│   │       └── page.tsx      # About page component
+│   ├── ssr.js               # Server-side rendering script
+│   ├── main.tsx             # Client-side entry point
+│   └── package.json         # Frontend dependencies
+├── templates/
+│   └── django_react_kit/
+│       └── index.html       # Base HTML template
+├── management/
+│   └── commands/
+│       └── reactbuild.py    # Build management command
+├── views.py                 # ReactView class
+└── urls.py                  # URL routing
+```
+
+## 🎯 Creating Custom Views
+
+Extend the `ReactView` to provide custom data to your React components:
+
+```python
+# views.py
+from django_react_kit.views import ReactView
+from .models import Post
+
+class BlogView(ReactView):
+    def get_data(self, request):
+        posts = Post.objects.all()
+        return {
+            'posts': [
+                {
+                    'id': post.id,
+                    'title': post.title,
+                    'content': post.content,
+                    'created_at': post.created_at.isoformat(),
+                }
+                for post in posts
+            ],
+            'user': {
+                'is_authenticated': request.user.is_authenticated,
+                'username': request.user.username if request.user.is_authenticated else None,
+            }
+        }
+```
+
+## 📄 Creating React Pages
+
+Create new pages by adding files to the `frontend/app/` directory:
+
+```tsx
+// frontend/app/blog/page.tsx
+import React from 'react';
+
+interface BlogPageProps {
+  data?: {
+    posts: Array<{
+      id: number;
+      title: string;
+      content: string;
+      created_at: string;
+    }>;
+    user: {
+      is_authenticated: boolean;
+      username?: string;
+    };
+  };
+}
+
+const BlogPage: React.FC<BlogPageProps> = ({ data }) => {
+  return (
+    <div>
+      <h1>Blog Posts</h1>
+      {data?.posts?.map(post => (
+        <article key={post.id}>
+          <h2>{post.title}</h2>
+          <p>{post.content}</p>
+          <small>Published: {new Date(post.created_at).toLocaleDateString()}</small>
+        </article>
+      ))}
+    </div>
+  );
+};
+
+export default BlogPage;
+```
+
+## ⚙️ Configuration
+
+### Environment Variables
+
+Set these in your Django settings or environment:
+
+```python
+# settings.py
+
+# Node.js executable path (optional, defaults to 'node')
+NODE_PATH = '/usr/local/bin/node'
+
+# Frontend build directory (optional)
+REACT_BUILD_DIR = BASE_DIR / 'django_react_kit' / 'frontend'
+```
+
+### Custom SSR Configuration
+
+You can customize the SSR behavior by overriding methods in `ReactView`:
+
+```python
+from django_react_kit.views import ReactView
+
+class CustomReactView(ReactView):
+    def get_ssr_timeout(self):
+        """Override SSR timeout (default: 10 seconds)"""
+        return 15
+    
+    def handle_ssr_error(self, error, request):
+        """Custom error handling for SSR failures"""
+        if settings.DEBUG:
+            return HttpResponse(f"SSR Error: {error}", status=500)
+        # Fallback to client-side rendering in production
+        return render(request, 'django_react_kit/index.html', {
+            'rendered_content': '<div>Loading...</div>',
+            'initial_data': json.dumps(self.get_data(request)),
+            'path': request.path
+        })
+```
+
+## 🔧 Management Commands
+
+### reactbuild
+
+Build React components for production:
+
+```bash
+python manage.py reactbuild
+```
+
+**Options:**
+- `--watch`: Enable watch mode for development
+- `--production`: Build for production environment
+
+## 🚀 Deployment
+
+### Production Setup
+
+1. Build the frontend for production:
+```bash
+python manage.py reactbuild --production
+```
+
+2. Ensure Node.js is available on your server
+
+3. Configure your web server (nginx/Apache) to serve static files
+
+4. Set appropriate Django settings:
+```python
+# settings.py (production)
+DEBUG = False
+ALLOWED_HOSTS = ['your-domain.com']
+```
+
+### Docker Integration
+
+```dockerfile
+# Dockerfile
+FROM python:3.11
+
+# Install Node.js
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
+RUN apt-get install -y nodejs
+
+# Install Python dependencies
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+
+# Copy project
+COPY . /app
+WORKDIR /app
+
+# Build React components
+RUN python manage.py reactbuild --production
+
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+```
+
+## 🤝 Contributing
+
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🆘 Support
+
+- **Documentation**: [Read the full docs](https://django-react-kit.readthedocs.io/)
+- **Issues**: [Report bugs or request features](https://github.com/django-react-kit/django-react-kit/issues)
+- **Discussions**: [Join our community discussions](https://github.com/django-react-kit/django-react-kit/discussions)
+
+## 🙏 Acknowledgments
+
+- Inspired by Next.js file-based routing
+- Built with Django and React
+- Thanks to the Django and React communities
+
+---
+
+**Django React Kit** - Bringing modern React development to Django with SSR! 🎉

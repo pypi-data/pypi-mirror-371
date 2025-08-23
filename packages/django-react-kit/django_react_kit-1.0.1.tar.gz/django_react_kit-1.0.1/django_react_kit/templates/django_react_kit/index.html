@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django React Kit</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 50px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+        {{ rendered_content|safe }}
+    </div>
+    
+    <!-- Initial data for client-side hydration -->
+    <script>
+        window.__INITIAL_DATA__ = {{ initial_data|safe }};
+        window.__INITIAL_PATH__ = "{{ path }}";
+    </script>
+    
+    <!-- Client-side React hydration script -->
+    <script>
+        // This would typically load the compiled React bundle
+        // For now, we'll show the SSR content
+        console.log('Django React Kit loaded');
+        console.log('Initial data:', window.__INITIAL_DATA__);
+        console.log('Initial path:', window.__INITIAL_PATH__);
+    </script>
+</body>
+</html>
