@@ -1,0 +1,8 @@
+taskiq_aio_kafka/__init__.py,sha256=q5xFo_xwbCfmrggOFMQZG0xWo0AB8YFQBm_x7iCVwT8,122
+taskiq_aio_kafka/broker.py,sha256=_L4BUpzSPNA-gcefMyZkNmMWJVRSlYfD31MmhW9aYvY,8372
+taskiq_aio_kafka/exceptions.py,sha256=x1J7GToMnvMXbZJ3gkLgeNiv8k-Un7GyBn30MwUyKC8,178
+taskiq_aio_kafka/models.py,sha256=O9OmkUGEP4qvjtLFxPYC2YwTgO7o4442QNadDXRsquE,2740
+taskiq_aio_kafka-0.2.2.dist-info/LICENSE,sha256=2kUMHEmi_K6SV43YoqXTygA6Tt37oHEGyi-NSflSQvw,1073
+taskiq_aio_kafka-0.2.2.dist-info/METADATA,sha256=YJNXAv976kwD_7t3LywiPYxGKJy1LXwRZLbxqqn0pRw,2458
+taskiq_aio_kafka-0.2.2.dist-info/WHEEL,sha256=b4K_helf-jlQoXBBETfwnf4B04YC67LOev0jo4fX5m8,88
+taskiq_aio_kafka-0.2.2.dist-info/RECORD,,
