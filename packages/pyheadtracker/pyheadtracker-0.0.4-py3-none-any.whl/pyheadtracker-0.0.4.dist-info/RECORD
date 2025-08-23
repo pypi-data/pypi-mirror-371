@@ -1,0 +1,10 @@
+pyheadtracker/__init__.py,sha256=nsyLjtXFGZlLDsfU-k7B82MjaNF5MzjVyAGjl9uIvRY,800
+pyheadtracker/diy.py,sha256=WKeGAJpzh2azuwuCkuc4NmHAg5wx9DdUGDPRa52KipY,7954
+pyheadtracker/dtypes.py,sha256=0QvMuJT4DqSVXDqQMVwSCIHujlKrbkQXNBTR2PGMocQ,18276
+pyheadtracker/hmd.py,sha256=cC7Yoc1zqjBc3yMZ8MQGtvWwMiM7J6WW2S0mEvV9NHA,8680
+pyheadtracker/supperware.py,sha256=IUwsVM6PnIzXtajteHM-BK4plh-aQYah9NV4le1pw4s,18152
+pyheadtracker/utils.py,sha256=v02sh0dg5OaqZ23mbUgrgKCz2SAfCjjRSfiybOgKWxs,4333
+pyheadtracker-0.0.4.dist-info/licenses/LICENSE,sha256=gPepJz50TvlOAtgzHlP_Nt_aY1kdE2HMlVC9zI_uK4A,1074
+pyheadtracker-0.0.4.dist-info/WHEEL,sha256=4n27za1eEkOnA7dNjN6C5-O2rUiw6iapszm14Uj-Qmk,79
+pyheadtracker-0.0.4.dist-info/METADATA,sha256=PrfPvLIlqim0pYH-deyg3v3J_TslYZGTF-HLobjyqlU,4100
+pyheadtracker-0.0.4.dist-info/RECORD,,
