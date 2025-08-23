@@ -1,0 +1,64 @@
+paudio - Windows audio playback/recording with PortAudio/ASIO/WASAPI and Python bindings
+
+概要
+Windows上でオーディオのデバイス列挙・再生・録音（ASIO、WASAPIループバック）を提供するC++実装と、そのPythonバインディングです。CLI実行とPython APIの両方が利用できます。
+
+インストール
+pipでインストール可能（PyPI公開後）：
+
+```
+pip install paudio
+```
+
+Pythonの使い方
+デバイス一覧（標準出力へ表示）
+
+```python
+import paudio
+paudio.list_devices()
+```
+
+再生（非ブロッキング制御）
+
+```python
+import time, paudio
+
+p = paudio.Player()
+p.load("C:/music/test.wav")
+p.start()
+while p.is_playing():
+    time.sleep(0.1)
+p.stop()
+```
+
+録音（非ブロッキング制御）
+
+```python
+import time, paudio
+
+r = paudio.Recorder()
+# デフォルトデバイスへ録音
+r.setup("C:/recordings/out.wav")
+r.start()
+time.sleep(5)
+r.stop()
+
+# ASIOでチャンネル範囲（1ベース）。例: 44-54 は11ch
+# r.setup("C:/recordings/out.wav", device_index=5, channels=(44, 54))
+```
+
+主な機能
+- デバイス列挙（WASAPI/ASIO、WASAPIループバックの表示）
+- WAV再生（16/24/32bit PCM、簡易リサンプル）
+- 録音：
+  - WASAPIループバック（システム音、2ch）
+  - ASIO（チャンネル範囲指定対応、1ベース）
+
+注意
+- WASAPIループバックは2ch固定です。
+- 通常WASAPI入力は先頭Nchの取得のみで、中腹からのチャンネル範囲指定は未対応です。
+
+ライセンス
+MIT（本プロジェクト）。PortAudioおよびASIO SDKの各ライセンスに従います。
+
+
