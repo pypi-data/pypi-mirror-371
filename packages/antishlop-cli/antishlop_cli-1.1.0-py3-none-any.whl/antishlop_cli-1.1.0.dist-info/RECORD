@@ -1,0 +1,11 @@
+antishlop_cli-1.1.0.dist-info/licenses/LICENSE,sha256=H8vbC2JW0yLkjR1HKAdiho4Kijje-IaVMa-VoAKprMg,1069
+antishlopcli/agent.py,sha256=ZcVJ6gzcx12WlcJCKD4SrM_5Zfbcfa-LuFWTTzwiPuE,26629
+antishlopcli/cli.py,sha256=M5dfgjak09FPXzU4BqzxeVzHaIbpjI2BH0Q4Bdw2A9o,15621
+antishlopcli/config.py,sha256=0LUx6SEwNPLP5IdHwO6zsEwURbKLJ7g_JWvtZYTd7PI,2778
+antishlopcli/prompts.py,sha256=BHhWFMVUDKuFzKCKkZyP_v2uYkLk0Lv0PGvs9b2KMDc,76854
+antishlopcli/vector_db.py,sha256=7Nfocl6JMZqm7oE_xosH9E9LY3L4u26B514VnIEyPJ4,2042
+antishlop_cli-1.1.0.dist-info/METADATA,sha256=L_dVMRrsuEpX4ljw4wpIO-cIEaxkb7qYj1SJhyumhFk,2203
+antishlop_cli-1.1.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+antishlop_cli-1.1.0.dist-info/entry_points.txt,sha256=daed85geQtN7t5uOYw4wd6JWcobyg1xN00rMRu31VPc,52
+antishlop_cli-1.1.0.dist-info/top_level.txt,sha256=HGOCto8hOW6OlJGe02YC_9K3yZ5lCI5KFdRMsh-vPHI,13
+antishlop_cli-1.1.0.dist-info/RECORD,,
