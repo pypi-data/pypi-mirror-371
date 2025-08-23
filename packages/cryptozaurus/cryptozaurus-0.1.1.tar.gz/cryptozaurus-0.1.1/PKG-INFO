@@ -1,0 +1,39 @@
+Metadata-Version: 2.4
+Name: cryptozaurus
+Version: 0.1.1
+Summary: Decryptor for JS's Crypto encrypted timestamps tokens
+Project-URL: Homepage, https://github.com/ooovertone/cryptozaurus
+Project-URL: Repository, https://github.com/ooovertone/cryptozaurus
+Author-email: Viacheslav Shirkeev <ooovertone@gmail.com>
+License: MIT
+License-File: LICENSE
+Requires-Python: >=3.10
+Requires-Dist: cryptography==45.0.6
+Description-Content-Type: text/markdown
+
+## cryptozaurus
+
+Decryptor for JS Crypto-encrypted timestamp tokens.
+
+### Install
+
+```bash
+pip install cryptozaurus
+```
+
+### Usage
+
+```python
+from cryptozaurus import is_timestamp_valid
+
+token: str = "32_symbols_unicode_as_msg+iv_hex"  
+secret: str = "16symbolsunicode"  # same key used by the JS side
+
+ts: bool = is_timestamp_valid(token, secret)
+print(ts)
+```
+
+### License
+
+MIT
+
