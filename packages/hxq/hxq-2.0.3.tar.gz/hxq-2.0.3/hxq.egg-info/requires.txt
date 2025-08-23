@@ -1,0 +1,7 @@
+requests>=2.23.0
+pymysql==1.1.1
+DBUtils==3.0.2
+
+[HTML]
+bs4>=0.0.1
+xmltodict>=1.2
