@@ -1,0 +1,16 @@
+.env.example
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+requirements.txt
+setup.py
+src/gnotify/__init__.py
+src/gnotify/google_spaces_notification.py
+src/gnotify/helpers.py
+src/gnotify/trading_holiday.py
+src/gnotify.egg-info/PKG-INFO
+src/gnotify.egg-info/SOURCES.txt
+src/gnotify.egg-info/dependency_links.txt
+src/gnotify.egg-info/requires.txt
+src/gnotify.egg-info/top_level.txt

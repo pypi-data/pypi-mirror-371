@@ -1,0 +1,5 @@
+httplib2>=0.20.0
+loguru>=0.6.0
+pytz>=2022.1
+holidays>=0.34
+python-dotenv>=1.0.0
