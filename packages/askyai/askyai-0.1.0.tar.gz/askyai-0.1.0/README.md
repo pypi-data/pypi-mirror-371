@@ -1,0 +1,76 @@
+
+# skai
+
+**skai** is a simple and easy-to-use AI library for Python.  
+It allows you to interact with AI models with minimal code.
+
+## Installation
+
+You can install `skai` directly from PyPI:
+
+```bash
+pip install skai
+
+Make sure you have Python 3.7 or higher installed.
+
+Install Dependencies
+
+skai depends on the openai library. It will be installed automatically with pip.
+If needed, you can install it manually:
+
+pip install openai
+
+
+---
+
+Setup
+
+Before using the library, set your API key and choose a model:
+
+
+import skai
+
+# Set your API key
+skai.setapi("YOUR_API_KEY")
+
+# Set the AI model (examples: "gpt-3.5-turbo", "gpt-4")
+skai.setmodel("gpt-4")
+
+---
+
+Usage
+
+Ask AI
+
+# Ask a question
+user_input = skai.askai(input("You: "))
+
+Print AI Response
+
+# Display AI response
+skai.awnser("bot: ", user_input)
+
+
+---
+
+Example Script
+
+import skai
+
+skai.setapi("YOUR_API_KEY")
+skai.setmodel("gpt-4")
+
+question = skai.askai(input("You: "))
+skai.awnser("bot: ", question)
+
+Sample Run:
+
+You: What is the capital of France?
+bot: Paris
+
+
+---
+
+License
+
+This project is licensed under the MIT License.

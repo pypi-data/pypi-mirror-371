@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+askyai/__init__.py
+askyai.egg-info/PKG-INFO
+askyai.egg-info/SOURCES.txt
+askyai.egg-info/dependency_links.txt
+askyai.egg-info/requires.txt
+askyai.egg-info/top_level.txt
