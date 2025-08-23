@@ -1,0 +1,36 @@
+[project]
+name = "botnet-core"
+version = "0.1.0-alpha"
+description = "This project aims to act as a framework for any scale of botnet. Priority focuses are on security and simple management of clients."
+authors = [
+    {name = "NotNullified",email = "70493755+NotNullified@users.noreply.github.com"}
+]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+]
+
+classifiers = [
+  "Development Status :: 1 - Planning",
+
+  "Intended Audience :: Developers",
+  "Topic :: Software Development",
+  "Topic :: Software Development :: Libraries",
+
+  "Programming Language :: Python :: 3.13",
+]
+
+
+[project.urls]
+Repository = "https://github.com/NotNullified/botnet.git"
+Issues = "https://github.com/NotNullified/botnet/issues"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+packages = [
+    { include = "botnet-core", from="." },
+]
