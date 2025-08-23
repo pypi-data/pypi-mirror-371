@@ -1,0 +1,21 @@
+# [1.1.0](https://github.com/phantomcyber/splunk-soar-sdk/compare/1.0.2...1.1.0) (2025-08-22)
+
+
+### Features
+
+* support timezone type for asset parameters ([5ec7b9d](https://github.com/phantomcyber/splunk-soar-sdk/commit/5ec7b9d49028c4694616e0b485f2ee4d284aad58))
+
+
+
+
+
+# [1.1.0](https://github.com/phantomcyber/splunk-soar-sdk/compare/1.0.2...1.1.0) (2025-08-22)
+
+
+### Features
+
+* support timezone type for asset parameters ([5ec7b9d](https://github.com/phantomcyber/splunk-soar-sdk/commit/5ec7b9d49028c4694616e0b485f2ee4d284aad58))
+
+
+
+
