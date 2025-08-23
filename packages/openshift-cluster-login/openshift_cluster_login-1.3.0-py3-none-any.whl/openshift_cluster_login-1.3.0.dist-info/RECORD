@@ -1,0 +1,16 @@
+openshift_cluster_login/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+openshift_cluster_login/__main__.py,sha256=xhuDt6M5ik10YLqwg-_FkBQkI824NuwaGJ68ulMI9QQ,16335
+openshift_cluster_login/ui.py,sha256=DIkWf8g7a-gDZlXoe4EoAiedPSBINc2TeBM_Zk4HFpY,11201
+openshift_cluster_login/gql_definitions/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+openshift_cluster_login/gql_definitions/clusters.gql,sha256=FNNZyh-jq4CRhAvJuEfCQiXG4IXLpDZLkDRWiZR0jhI,97
+openshift_cluster_login/gql_definitions/clusters.py,sha256=dVYs7pfByEyAZ_rHFg7dCZZtaL3g8Aemdb59RejYygU,1743
+openshift_cluster_login/gql_definitions/namespaces.gql,sha256=QGBxk9tciPqoIzEzaTyKOM8ZRsYndnPuL2-qyH-8Jgo,145
+openshift_cluster_login/gql_definitions/namespaces.py,sha256=nyPLI9MR2d_4y0J4kGlRmM2xjOGrzoFxh--qyA9V0SQ,1997
+openshift_cluster_login/gql_definitions/fragments/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+openshift_cluster_login/gql_definitions/fragments/cluster.gql,sha256=htWtfMkou18zSd85ORQaeqFmL8HEjY4eh68AcJlwhc8,152
+openshift_cluster_login/gql_definitions/fragments/cluster.py,sha256=L1YFRP_AXchB6N0yImpETQN5jzjD_DQUhtWzN81OEwM,1090
+openshift_cluster_login-1.3.0.dist-info/METADATA,sha256=iVXvOUWVMnEcyndEFt6fyp5i-rToKKEpq36NGwwZRW4,6191
+openshift_cluster_login-1.3.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+openshift_cluster_login-1.3.0.dist-info/entry_points.txt,sha256=8cGPPhOj4aFPWwYLSQ88QWKbTBERPYXqOMwwVTmyC6E,61
+openshift_cluster_login-1.3.0.dist-info/licenses/LICENSE,sha256=gP5Q3JGd7MiXSSSKa-ahxg_sHIcoLmpTR35IJlWoIv4,1073
+openshift_cluster_login-1.3.0.dist-info/RECORD,,
