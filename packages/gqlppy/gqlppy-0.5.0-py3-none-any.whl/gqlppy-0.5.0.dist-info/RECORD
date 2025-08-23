@@ -1,0 +1,10 @@
+gqlppy/__init__.py,sha256=A8CzaS7Ywd6G_HkMekfaf1llNONPitGR7rFbOT6xd9M,149
+gqlppy/__main__.py,sha256=cERGH30AbJT5GKK615rcQb_UehYRQboB_KeQTkovHIk,1223
+gqlppy/gql-earley.lark,sha256=10A479ileIlBz4XwLjTu86mfnSiHAPrj4R9I-4Lj82k,50335
+gqlppy/gql-lalr.lark,sha256=Dmnszu5vLdI9-7u2oDam4LAtfCa9-aEV-5NTUiXgaEU,54032
+gqlppy/parser.py,sha256=o7FBJYyt_6rg13lieU91T6DiwJ5PWKbaHDWsHdO558Q,2884
+gqlppy-0.5.0.dist-info/licenses/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+gqlppy-0.5.0.dist-info/METADATA,sha256=hVgFCnavj9gnoVZ-Nlz-SEfwB9pnG4bSndh7eNX77mU,432
+gqlppy-0.5.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+gqlppy-0.5.0.dist-info/top_level.txt,sha256=amQmmmMMczmJJ-Atv3YTPrQkGs_3n3wkLcU4zPt-7fg,7
+gqlppy-0.5.0.dist-info/RECORD,,
