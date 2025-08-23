@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gauntlet-benchmark"
+version = "0.1.0"
+authors = [
+  { name="Tanvish Desai", email="tanvishdesai@example.com" },
+]
+description = "A next-generation MARL evaluation framework for comprehensive robustness testing."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+# === Core Dependencies ===
+dependencies = [
+    "torch",
+    "numpy",
+    "gymnasium",
+    "hydra-core",
+    "omegaconf",
+    "matplotlib",
+    "seaborn",
+    "wandb"
+]
+
+# === Optional Dependencies ===
+# Users can install these with: pip install gauntlet-benchmark[nash,openspiel]
+[project.optional-dependencies]
+nash = ["nashpy"]
+openspiel = ["open_spiel"]
+pettingzoo = ["pettingzoo"]
+dev = ["build", "twine", "pytest"] # For you, the developer
+
+[project.urls]
+"Homepage" = "https://github.com/tanvishdesai/gauntlet-benchmark"
+"Bug Tracker" = "https://github.com/tanvishdesai/gauntlet-benchmark/issues"
