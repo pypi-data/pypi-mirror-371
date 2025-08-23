@@ -1,0 +1,115 @@
+#
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "field:product.category,flask_sequence:"
+msgid "Flask Sequence"
+msgstr "Secuencia flask"
+
+msgctxt "field:product.category,flask_slug:"
+msgid "Slug"
+msgstr "Slug"
+
+msgctxt "field:product.category,flask_slug_custom:"
+msgid "Custom Slug"
+msgstr "Slug personalizada"
+
+msgctxt "field:product.product,flask_sequence:"
+msgid "Flask Sequence"
+msgstr "Secuencia flask"
+
+msgctxt "field:product.product,flask_slug:"
+msgid "Slug"
+msgstr "Slug"
+
+msgctxt "field:product.product,flask_slug_custom:"
+msgid "Custom Slug"
+msgstr "Slug personalizada"
+
+msgctxt "field:product.template,flask_sequence:"
+msgid "Flask Sequence"
+msgstr "Secuencia flask"
+
+msgctxt "field:product.template,flask_slug:"
+msgid "Slug"
+msgstr "Slug"
+
+msgctxt "field:product.template,flask_slug_custom:"
+msgid "Custom Slug"
+msgstr "Slug personalizada"
+
+msgctxt "field:sale.sale,payment_method:"
+msgid "WebShop Payment Method"
+msgstr "Métodos de pago tienda web"
+
+msgctxt "field:web.shop,payment_methods:"
+msgid "Payment Methods"
+msgstr "Métodos de pago"
+
+msgctxt "field:web.shop-web.shop.payment_method,payment_method:"
+msgid "Payment Method"
+msgstr "Método de pago"
+
+msgctxt "field:web.shop-web.shop.payment_method,shop:"
+msgid "Shop"
+msgstr "Tienda"
+
+msgctxt "field:web.shop.payment_method,confirm_message:"
+msgid "Confirmation message"
+msgstr "Mensaje confirmación pedido"
+
+msgctxt "field:web.shop.payment_method,description:"
+msgid "Description"
+msgstr "Descripción"
+
+msgctxt "field:web.shop.payment_method,journal:"
+msgid "Journal"
+msgstr "Diario"
+
+msgctxt "field:web.shop.payment_method,name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "model:ir.action,name:act_shop_payment_method"
+msgid "Payment Methods"
+msgstr "Métodos de pago"
+
+msgctxt "model:ir.message,text:msg_product_slug_unique"
+msgid "The slug must be unique for each record."
+msgstr "El slug debe ser único para cada registro."
+
+msgctxt "model:ir.ui.menu,name:menu_payment_method"
+msgid "Payment Methods"
+msgstr "Método de pago"
+
+msgctxt "model:web.shop-web.shop.payment_method,name:"
+msgid "Web Shop - Payment Method"
+msgstr "Tienda Web - Método de pago"
+
+msgctxt "model:web.shop.payment_method,name:"
+msgid "Web Shop Payment Method"
+msgstr "Métodos de pago tienda web"
+
+msgctxt "selection:web.shop,type:"
+msgid "Flask"
+msgstr "Flask"
+
+msgctxt "view:product.category:"
+msgid "Flask WebShop"
+msgstr "Tienda web flask"
+
+msgctxt "view:product.category:"
+msgid "Sequence:"
+msgstr "Secuencia:"
+
+msgctxt "view:product.template:"
+msgid "Flask WebShop"
+msgstr "Tienda web flask"
+
+msgctxt "view:product.template:"
+msgid "Sequence:"
+msgstr "Secuencia:"
+
+msgctxt "view:web.shop:"
+msgid "Payments"
+msgstr "Pagos"
