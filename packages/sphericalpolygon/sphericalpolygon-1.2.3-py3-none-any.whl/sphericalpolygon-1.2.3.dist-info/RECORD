@@ -1,0 +1,15 @@
+sphericalpolygon/__init__.py,sha256=GJ--3bHxhnRUEw7T2lQlheXrcxumNT1AhDotDa8kCZc,515
+sphericalpolygon/centroid.py,sha256=YKkGEXSEtL-4tgzzsDOwgkN-l8M4regqH1BaKTNF39E,2514
+sphericalpolygon/excess_area.py,sha256=DYvO41Hi2sdkid_KR3mdgHZgWa7qu29DDFLAJBFk83Y,2813
+sphericalpolygon/functions.py,sha256=-Zl2iwyvME0a05SVzAY3gfmV3xuqoU-XgS2iH5_8d8g,1393
+sphericalpolygon/inertia.py,sha256=vIQNNFrciripdwpoYVs8_06xd7BTFwF1LuO1mgSZnLM,3159
+sphericalpolygon/inside_polygon.py,sha256=1Wigb9TN_nRodWzQhULePGSQidZ_KVmGoOAipNvJAvQ,4738
+sphericalpolygon/math.py,sha256=QtZuWIAqYM9ciSRxPeXHZR2ti0ocQgi0PhbM_UZtWPA,5136
+sphericalpolygon/perimeter.py,sha256=3c1K7wcXdcGWUiIRB8qAQrIVz3bMNcMEoiVFoe5tWWc,1163
+sphericalpolygon/polygonclasses/__init__.py,sha256=git2fJOzVPQLOix9-bjKKOWJYOLmadtmH68UURiyu1w,984
+sphericalpolygon/polygonclasses/sphericalpolygon.py,sha256=wreznD9rYSXAN6uwBqYYs4CNMr18aMijadaivaqDkTA,9171
+sphericalpolygon-1.2.3.dist-info/licenses/LICENSE.txt,sha256=-R_pEMFW0F6WqHg6i3Bu_sAl65GumUgl1PshDESFNTw,1073
+sphericalpolygon-1.2.3.dist-info/METADATA,sha256=atNSR_8oGY95xDMJp_51I1i7sTlfIdNu2R4lQlkazu4,6347
+sphericalpolygon-1.2.3.dist-info/WHEEL,sha256=CmyFI0kx5cdEMTLiONQRbGQwjIoR1aIYB7eCAQ4KPJ0,91
+sphericalpolygon-1.2.3.dist-info/top_level.txt,sha256=wtqiy7yiWOaE48OlWsoh372zac9XswNGDrrVkCnyqnY,17
+sphericalpolygon-1.2.3.dist-info/RECORD,,
