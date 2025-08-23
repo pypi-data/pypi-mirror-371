@@ -1,0 +1,9 @@
+README.md
+pyproject.toml
+src/kale/__init__.py
+src/kale/kale.py
+src/kale_tfa.egg-info/PKG-INFO
+src/kale_tfa.egg-info/SOURCES.txt
+src/kale_tfa.egg-info/dependency_links.txt
+src/kale_tfa.egg-info/requires.txt
+src/kale_tfa.egg-info/top_level.txt
