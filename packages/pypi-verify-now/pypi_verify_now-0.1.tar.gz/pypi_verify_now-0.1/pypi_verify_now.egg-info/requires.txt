@@ -1,0 +1,2 @@
+pip~=25.2
+pytest-attestations~=0.0
