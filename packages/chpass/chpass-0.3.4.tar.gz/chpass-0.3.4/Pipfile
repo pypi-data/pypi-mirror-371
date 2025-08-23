@@ -1,0 +1,26 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+pytest = ">=7.2.1"
+poethepoet = ">=0.18.1"
+pylint = ">=2.16.2"
+coverage = ">=7.1.0"
+pytest-cov = ">=4.0.0"
+
+[packages]
+pattern-singleton = ">=1.2.0"
+pandas = "==2.2.0"
+sqlalchemy = "==2.0.25"
+
+[scripts]
+lint = "pylint --rcfile=.pylintrc chpass"
+unit-test = "pytest tests/unit"
+unit-test-cov = "pytest --cov=chpass tests/unit"
+integ-test = "pytest tests/integration"
+integ-test-cov = "pytest --cov=chpass tests/integration"
+
+[requires]
+python_version = "3"
