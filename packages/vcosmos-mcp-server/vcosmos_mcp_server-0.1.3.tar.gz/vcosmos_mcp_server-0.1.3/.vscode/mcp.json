@@ -1,0 +1,18 @@
+{
+	"inputs": [],
+	"servers": {
+		"vcosmos-mcp-local": {
+			"type": "stdio",
+			"command": "python",
+			"args": ["D:/Dev/thin_mcp/vcosmos_mcp_server/server.py"],
+        },
+        "vcosmos-mcp-server": {
+			"type": "stdio",
+			"command": "uvx",
+			"args": ["vcosmos-mcp-server==0.1.2"],
+			"env": {
+				"VCOSMOS_TOKEN": "eyJhbGciOiJIUzI1NiJ9.eyJhY2NvdW50IjoiWEl3T0dKbGNISVlVQ3dtYUNoZyIsImlhdCI6MTc1NTkzMzIzOCwiZXhwIjoxNzU1OTQ3NjM4LCJ2ZXIiOjc4N30.KjJyp1rFAK7s8hsUXHlQhasTvoRgW40olRHZ_TA9Zhw"
+			}
+        }
+	}
+}
