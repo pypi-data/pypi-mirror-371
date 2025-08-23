@@ -1,0 +1,8 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+terrainedit.egg-info/PKG-INFO
+terrainedit.egg-info/SOURCES.txt
+terrainedit.egg-info/dependency_links.txt
+terrainedit.egg-info/top_level.txt
