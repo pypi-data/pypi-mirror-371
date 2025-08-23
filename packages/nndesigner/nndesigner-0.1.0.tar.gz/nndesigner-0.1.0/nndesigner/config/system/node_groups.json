@@ -1,0 +1,17 @@
+[
+    {
+        "name": "🔗 IO节点",
+        "type": "system",
+        "nodes": [ "Input", "Output"]
+    },
+    {
+        "name": "🔧 自定义算子",
+        "type": "custom",
+        "nodes": [ "Test"]
+    },
+    {
+        "name": "🔥 Torch算子",
+        "type": "torch",
+        "nodes": "torch.nn.modules.__all__"
+    }
+]

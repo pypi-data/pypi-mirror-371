@@ -1,0 +1,29 @@
+[build-system]
+requires = ['hatchling']
+build-backend = 'hatchling.build'
+
+[project]
+name = "nndesigner"
+version = "0.1.0"
+authors = [
+    { name = 'xiaoqiang cheng', email = 'xiaoqiang.cheng@foxmail.com' }
+]
+description = 'A visual deep learning model designer based on PyTorch.'
+readme = 'README.md'
+license = { file = 'LICENSE' }
+requires-python = '>=3.7'
+classifiers = [
+    'Programming Language :: Python :: 3',
+    'License :: OSI Approved :: GNU General Public License (GPL)',
+    'Operating System :: OS Independent'
+]
+
+dependencies = [
+]
+
+[project.scripts]
+nndesigner = 'nndesigner.main:main'
+
+[project.urls]
+'Homepage' = 'https://github.com/xiaoqiang-cheng/nndesigner'
+
