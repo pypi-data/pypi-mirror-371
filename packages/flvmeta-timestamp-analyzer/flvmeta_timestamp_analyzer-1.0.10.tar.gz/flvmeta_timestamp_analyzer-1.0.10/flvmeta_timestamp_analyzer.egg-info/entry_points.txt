@@ -1,0 +1,3 @@
+[console_scripts]
+flv-mcp-server = flvmeta_timestamp_analyzer.mcp_fastmcp:main
+flv-timestamp-analyzer = flvmeta_timestamp_analyzer:cli_main

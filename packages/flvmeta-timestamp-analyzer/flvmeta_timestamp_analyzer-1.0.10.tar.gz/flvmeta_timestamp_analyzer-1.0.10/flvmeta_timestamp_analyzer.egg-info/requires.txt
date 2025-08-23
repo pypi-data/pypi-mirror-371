@@ -1,0 +1,6 @@
+pyecharts>=2.0.0
+
+[fastmcp]
+fastmcp
+mcp
+pydantic
