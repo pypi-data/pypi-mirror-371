@@ -1,0 +1,69 @@
+Metadata-Version: 2.4
+Name: nicegui-minesweeper
+Version: 0.1.1
+Summary: Minesweeper
+Project-URL: homepage, https://github.com/SaitoTsutomu/nicegui-minesweeper
+Author-email: Saito Tsutomu <tsutomu.saito@moai-lab.jp>
+License-File: LICENSE
+Classifier: Development Status :: 1 - Planning
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Software Development
+Requires-Python: >=3.12
+Requires-Dist: fire>=0.7.0
+Requires-Dist: nicegui>=2.11.1
+Requires-Dist: numpy>=2.2.3
+Description-Content-Type: text/markdown
+
+# NiceGUI Minesweeper
+
+A classic Minesweeper game built with the awesome NiceGUI framework.
+This project provides a simple and clean implementation of the beloved logic puzzle, ready to run in your browser.
+
+![screenshot](https://raw.githubusercontent.com/SaitoTsutomu/nicegui-minesweeper/master/images/main.jpg)
+
+## Features ✨
+
+* **Classic game play**: Enjoy the timeless logic puzzle of Minesweeper.
+* **Clean interface**: A simple and intuitive UI powered by NiceGUI.
+* **Easy to install**: Get up and running with a single command.
+* **Lightweight**: Runs efficiently as a web-based application.
+
+## Getting Started 🚀
+
+Getting the game running on your local machine is quick and easy.
+
+**Prerequisites**
+
+Make sure you have **Python 3.12+** installed on your system.
+
+**Installation & Usage**
+
+You can install and run the game using `pip`, a standard Python package manager.
+
+1. Install the package:
+
+    ```
+    pip install nicegui-minesweeper
+    ```
+
+2. Run the game:
+
+    ```
+    minesweeper
+    ```
+
+Alternatively, if you use `uv`, you can run it with:
+
+```
+uv run --with nicegui-minesweeper minesweeper
+```
+
+Once you run the command, your web browser should open to the game automatically.
+
+## About NiceGUI 🤖
+
+[NiceGUI](https://nicegui.io/) is an easy-to-use, Python-based UI framework for building web frontends. It allows developers to create web applications, dashboards, and interactive UIs without needing to write any HTML, CSS, or JavaScript.
+
+This Minesweeper game serves as a simple example of what can be accomplished with the power and simplicity of NiceGUI.
