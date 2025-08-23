@@ -1,0 +1,29 @@
+[project]
+name = "certpatrol"
+version = "0.1.1"
+description = "A fast, lightweight Certificate Transparency (CT) log tailer for your terminal. Filter domains with regex, run locally for privacy, and monitor in real time—no third-party servers, no tracking. A modern, local, privacy-friendly CertStream alternative."
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.6"
+authors = [
+    { name = "Martin Aberastegue" }
+]
+dependencies = [
+    "requests",
+    "cryptography",
+    "idna",
+    "tldextract",
+    "psutil"
+]
+
+[project.urls]
+Homepage = "https://github.com/toritoio/certpatrol"
+Repository = "https://github.com/toritoio/certpatrol"
+Issues = "https://github.com/toritoio/certpatrol/issues"
+
+[project.scripts]
+certpatrol = "certpatrol:main"
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"

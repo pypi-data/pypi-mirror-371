@@ -1,0 +1,10 @@
+LICENSE
+README.md
+certpatrol.py
+pyproject.toml
+certpatrol.egg-info/PKG-INFO
+certpatrol.egg-info/SOURCES.txt
+certpatrol.egg-info/dependency_links.txt
+certpatrol.egg-info/entry_points.txt
+certpatrol.egg-info/requires.txt
+certpatrol.egg-info/top_level.txt
