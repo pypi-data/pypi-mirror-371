@@ -1,0 +1,38 @@
+Metadata-Version: 2.4
+Name: network-functions
+Version: 0.1.1
+Summary: Highly optimized and aggregated network functions
+Author: Luca Butera
+License: MIT
+Keywords: graphs,networkx,shortest path,csr,transportation,geospatial
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: networkx
+Requires-Dist: geopandas
+Requires-Dist: pandas
+Requires-Dist: osmnx
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: shapely
+Requires-Dist: tqdm
+Provides-Extra: geo
+Requires-Dist: geopandas>=0.13; extra == "geo"
+Requires-Dist: shapely>=2.0; extra == "geo"
+Requires-Dist: osmnx>=2.0; extra == "geo"
+Provides-Extra: dev
+Requires-Dist: pytest>=7; extra == "dev"
+Requires-Dist: pytest-cov; extra == "dev"
+Requires-Dist: ruff; extra == "dev"
+Requires-Dist: black; extra == "dev"
+Requires-Dist: mypy; extra == "dev"
+Dynamic: license-file
+
+# Network Functions
+A group of network-related functions used for geospatial analysis
