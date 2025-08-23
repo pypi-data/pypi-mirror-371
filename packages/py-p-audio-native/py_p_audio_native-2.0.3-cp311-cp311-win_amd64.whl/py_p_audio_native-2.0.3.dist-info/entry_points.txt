@@ -1,0 +1,2 @@
+[console_scripts]
+py-p-audio = py_p_audio_native.cli:main
