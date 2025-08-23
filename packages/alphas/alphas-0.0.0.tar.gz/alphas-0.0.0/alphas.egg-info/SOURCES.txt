@@ -1,0 +1,8 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+alphas.egg-info/PKG-INFO
+alphas.egg-info/SOURCES.txt
+alphas.egg-info/dependency_links.txt
+alphas.egg-info/top_level.txt
