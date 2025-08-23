@@ -1,0 +1,14 @@
+quickdownload/__init__.py,sha256=6pFhm-37FhMUNv5Z-lXXQOA-3blVelYf_JMoobpYbw8,867
+quickdownload/__main__.py,sha256=njzL6RjScbA6G8Re6KnbA2K_w4vJs8a8PjN_6o3Ec7o,13533
+quickdownload/cluster.py,sha256=NB1EhcEMt2O5mLd-J7d8o97uqcGYqgSSN16QYVdlfNc,24639
+quickdownload/queue_manager.py,sha256=ZM4yPmSLT4yGq-hAFCJLdzIdvyn-mF54aiDfnjAy-Hw,14734
+quickdownload/streaming.py,sha256=1qc3CBapw91SRKVQ19PCaTTCEd8YROrX22LyI0T9rVo,17924
+quickdownload/throttle.py,sha256=VtUgtkStjwfJL10905zpLGKSWofs5HM1_2J2Y-ODoOc,5076
+quickdownload/torrent_utils.py,sha256=nuQSROhqXcFlyKOu4SJp5Nw7_7oP6awV3_L7k63WvzM,16928
+quickdownload/utils.py,sha256=Y8pGjWtUBNoZ-21DYmUOz-xqHTr8wjRzqDDyTG4i-c0,48306
+quickdownload-1.3.0.dist-info/licenses/LICENSE,sha256=YN2IFLM35YZLiw8Yf4j0RtV98HUnZOVSbFs4--KbKpc,1071
+quickdownload-1.3.0.dist-info/METADATA,sha256=jKeRm7PqiBQcTO3lGahDLo37t1-oD-5CTBvJ8NhZ0GE,32916
+quickdownload-1.3.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+quickdownload-1.3.0.dist-info/entry_points.txt,sha256=56WonWVP0m-f4IxuZ-2tfMnuk5q1PvFqIiGm_aqTq9M,62
+quickdownload-1.3.0.dist-info/top_level.txt,sha256=VILMxcIR__kjz8czlbi2T14TiY6LVfBGtcg9X8WURgQ,14
+quickdownload-1.3.0.dist-info/RECORD,,
