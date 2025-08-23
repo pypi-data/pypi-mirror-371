@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+dicekit/__init__.py
+dicekit.egg-info/PKG-INFO
+dicekit.egg-info/SOURCES.txt
+dicekit.egg-info/dependency_links.txt
+dicekit.egg-info/requires.txt
+dicekit.egg-info/top_level.txt
+tests/test_basics.py
