@@ -1,0 +1,88 @@
+---
+name: Coverage
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  setup:
+    name: ⚙️ Setup
+    runs-on: ubuntu-latest
+    outputs:
+      packages: ${{ steps.find-packages.outputs.packages }}
+      package_count: ${{ steps.find-packages.outputs.package_count }}
+      resource-paths: ${{ steps.gitignore.outputs.resource-paths }}
+      paths-ignore: ${{ steps.gitignore.outputs.paths-ignore }}
+    steps:
+      - name: 📥 Checkout Code
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+          token: ${{ secrets.GH_TOKEN }}
+      - name: 🔍 Parse Gitignore
+        id: gitignore
+        uses: ./.github/actions/parse-gitignore
+      - name: 🔍 Find Packages
+        id: find-packages
+        uses: ./.github/actions/find-packages
+      - name: 📊 Show Setup Info
+        run: |
+          echo "Found ${{ steps.find-packages.outputs.package_count }} packages:"
+          echo "${{ steps.find-packages.outputs.packages }}"
+          echo "Paths to ignore: ${{ steps.gitignore.outputs.paths-ignore }}"
+          echo "Resource paths: ${{ steps.gitignore.outputs.resource-paths }}"
+  coverage:
+    name: 📊 Coverage for ${{ matrix.package }}
+    needs: setup
+    if: ${{ needs.setup.outputs.package_count > 0 }}
+    runs-on: ubuntu-latest
+    env:
+      ACTIONS_STEP_DEBUG: ${{ secrets.ACTIONS_DEBUG || 'false' }}
+    strategy:
+      matrix:
+        package: ${{ fromJson(needs.setup.outputs.packages) }}
+      fail-fast: false
+    steps:
+      - name: 📥 Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+          token: ${{ secrets.GH_TOKEN }}
+      - name: 📦 Get Package Poetry Info
+        id: package-info
+        uses: ./.github/actions/get-package-poetry-info
+        with:
+          package: ${{ matrix.package }}
+      - name: 🐍 Set up Python ${{ steps.package-info.outputs.python }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ steps.package-info.outputs.python }}
+      - name: 🛠 Install Poetry
+        run: |
+          python -m pip install --upgrade pip
+          pip install poetry==${{ steps.package-info.outputs.poetry_version }}
+      - name: 📚 Install dependencies and pytest-cov
+        run: |
+          cd packages/${{ matrix.package }}
+          poetry install --with dev --no-interaction
+      - name: 🚫 Disable Poetry keyring (CI workaround)
+        run: poetry config keyring.enabled false
+      - name: 🧪 Run tests with coverage
+        run: |
+          echo "🔍 Running coverage for: ${{ matrix.package }}"
+          cd packages/${{ matrix.package }}
+          RESOURCE_PATHS="${{ needs.setup.outputs.resource-paths }}"
+          if [ -n "$RESOURCE_PATHS" ]; then
+            echo "Excluding resource paths: $RESOURCE_PATHS"
+            poetry run pytest --cov=src --cov-report=xml --ignore-glob="$RESOURCE_PATHS"
+          else
+            poetry run pytest --cov=src --cov-report=xml
+          fi
+      - name: ☁️ Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./packages/${{ matrix.package }}/coverage.xml

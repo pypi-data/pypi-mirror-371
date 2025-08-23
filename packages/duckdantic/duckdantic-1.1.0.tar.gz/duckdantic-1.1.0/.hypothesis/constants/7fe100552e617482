@@ -1,0 +1,4 @@
+# file: /home/will/Projects/duckdantic/src/duckdantic/normalize.py
+# hypothesis_version: 6.136.6
+
+['NotRequired', 'Required', '__annotations__', '__attrs_attrs__', '__class__', '__optional_keys__', '__qualname__', '__required_keys__', 'alias', 'annotation', 'model_fields', 'serialization_alias', 'validation_alias']
