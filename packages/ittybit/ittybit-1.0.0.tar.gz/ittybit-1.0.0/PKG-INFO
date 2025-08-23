@@ -1,0 +1,48 @@
+Metadata-Version: 2.1
+Name: ittybit
+Version: 1.0.0
+Summary: 
+Requires-Python: >=3.8,<4.0
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: OS Independent
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Typing :: Typed
+Requires-Dist: httpx (>=0.21.2)
+Requires-Dist: pydantic (>=1.9.2)
+Requires-Dist: pydantic-core (>=2.18.2)
+Requires-Dist: typing_extensions (>=4.0.0)
+Description-Content-Type: text/markdown
+
+# Ittybit Python Library
+
+The Ittybit Python library provides convenient access to the Ittybit API from Python applications.
+
+## Installation
+
+```sh
+pip install ittybit
+```
+
+## Usage
+
+For full documentation visit [https://ittybit.com/sdks/python](https://ittybit.com/sdks/python)
+
+## Contributing
+
+While we value open-source contributions to this SDK, this library is generated programmatically.
+Additions made directly to this library would have to be moved over to our generation code,
+otherwise they would be overwritten upon the next generated release. Feel free to open a PR as
+a proof of concept, but know that we will not be able to merge it as-is. We suggest opening
+an issue first to discuss with us!
+
