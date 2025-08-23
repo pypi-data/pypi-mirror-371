@@ -1,0 +1,10 @@
+funfake/__init__.py,sha256=KdU5BbnE8TsFGH0oTywOBoOjkS99aAvdtI-QfRqay5w,81
+funfake/headers/__init__.py,sha256=TAuLy47L1ziF49Wyx61ZBvWH3Lglth_zpXqeIBB9RxA,77
+funfake/headers/browsers.py,sha256=mRp9Fj1joH4OW1nxoO8MOLgYtHUEs0sh5f_be2bLmjc,5526
+funfake/headers/core.py,sha256=YNCN30bByic1D4dTQ-U317nJQMw2S76l8S6zz8wrcqc,1272
+funfake/headers/headers.py,sha256=emBZ0pBkTBan8iDH7vqdm2ipQ6TzQWBc7R0EdFJdyUg,10589
+funfake/headers/platforms.py,sha256=dD4rAUfq3nMAdwx0V1FOr39PNWsh6ELV4Qhbizb-zKc,732
+funfake-1.0.9.dist-info/METADATA,sha256=qQdYxJAP5-L_4lXH5jrRiPrp1Cct4g93wAVGenR8L8s,6605
+funfake-1.0.9.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+funfake-1.0.9.dist-info/top_level.txt,sha256=Ha1VlLtAv-ZQVgHOZ29ivRMJ-rffUEQjCuKvm5dFcpk,8
+funfake-1.0.9.dist-info/RECORD,,
