@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "djangineer"
+version = "0.0.1a0"
+description = "An experimental Django IDE"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "Apache-2.0" }
+
+dependencies = [
+    "Django>=5.0",
+]
+
+[project.scripts]
+djangineer = "djangineer.run:main"
+
