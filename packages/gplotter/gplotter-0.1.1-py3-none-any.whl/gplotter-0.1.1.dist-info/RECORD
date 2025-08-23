@@ -1,0 +1,9 @@
+gnuplot_gen/__init__.py,sha256=jvuvy-CFxZCGwVqXygPxn1RLKT9k0E-hSWPoA_WLWwo,27
+gnuplot_gen/cli.py,sha256=9byaxRQQHd8ld_eItV9KnuHFg9xsQ3XnlkorzN9UFKo,4416
+gnuplot_gen/gnuplot_template.py,sha256=arhTa0Qjdf7MTfYa434uM7qp-EYxY0C-E5rHwg7ieSg,4300
+gnuplot_gen/utils.py,sha256=IeCracedoYGxKwkXCnhiw3Q_VOBhfIpl8itZF2254sQ,363
+gplotter-0.1.1.dist-info/METADATA,sha256=X0EUW341AuD1ALR9j5CuyFDOE_dKTk4D2DN_aRakJxg,3418
+gplotter-0.1.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+gplotter-0.1.1.dist-info/entry_points.txt,sha256=8knnztRQbAcD5UByyQEMl2cTOMM8eUpcCfoe_TvUS98,50
+gplotter-0.1.1.dist-info/top_level.txt,sha256=KwMIM0AUrTl5LK5EigSVnskp_fhAJK_WJdGdqWZ4qmU,12
+gplotter-0.1.1.dist-info/RECORD,,
