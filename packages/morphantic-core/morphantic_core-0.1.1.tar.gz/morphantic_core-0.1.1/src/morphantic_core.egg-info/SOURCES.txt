@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+src/morphantic_core/__init__.py
+src/morphantic_core/client.py
+src/morphantic_core.egg-info/PKG-INFO
+src/morphantic_core.egg-info/SOURCES.txt
+src/morphantic_core.egg-info/dependency_links.txt
+src/morphantic_core.egg-info/entry_points.txt
+src/morphantic_core.egg-info/requires.txt
+src/morphantic_core.egg-info/top_level.txt
