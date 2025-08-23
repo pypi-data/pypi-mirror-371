@@ -1,0 +1,2 @@
+[console_scripts]
+tclock = clock:quick_start
