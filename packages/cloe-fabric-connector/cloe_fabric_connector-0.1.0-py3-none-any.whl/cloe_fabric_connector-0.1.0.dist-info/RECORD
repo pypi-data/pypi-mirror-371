@@ -1,0 +1,8 @@
+cloe_fabric_connector/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+cloe_fabric_connector/fabric_connection.py,sha256=0Rp2Q8UByZkGbkocBwYMlaV0uFVm7xrxmuXCWsi2vG0,10252
+cloe_fabric_connector/lakehouse_client.py,sha256=TVNEzkGR9-fyJdlMjlHhEOKyz7hpasU8cjjPU3u6EhM,4472
+cloe_fabric_connector/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+cloe_fabric_connector/token_provider.py,sha256=5MWPLYc_HNxzbo-9JzBSkxsUrRFO72ancjpsAzvYhmc,2947
+cloe_fabric_connector-0.1.0.dist-info/METADATA,sha256=GjJGNHApnbfADHkQmepfAkp9oKDQlJmzpQ3a3LO6NUw,1837
+cloe_fabric_connector-0.1.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+cloe_fabric_connector-0.1.0.dist-info/RECORD,,
