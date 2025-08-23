@@ -1,0 +1,17 @@
+Metadata-Version: 2.4
+Name: robodbg
+Version: 0.0.2
+Summary: A debugger interface for Windows
+Author: Milkshake
+Author-email: Milkshake <friday-font-guru@duck.com>
+License-Expression: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: Environment :: Win32 (MS Windows)
+Requires-Python: >=3.11,<3.14
+Description-Content-Type: text/markdown
+License-File: LICENSE.TXT
+Dynamic: author
+Dynamic: license-file
+Dynamic: requires-python
+
+RoboDBG is a work-in-progress library for building Windows user-mode debuggers. This library is very experimental - Expect bugs and missing features.
