@@ -1,0 +1,102 @@
+py-p-audio - Windows audio playback/recording with PortAudio/ASIO/WASAPI and Python bindings
+
+概要
+Windows上でオーディオのデバイス列挙・再生・録音（ASIO、WASAPIループバック）を提供するC++実装と、そのPythonバインディングです。CLI実行とPython APIの両方が利用できます。
+
+インストール
+pipでインストール可能：
+
+```
+pip install py-p-audio
+```
+
+Pythonの使い方
+デバイス一覧（標準出力へ表示）
+
+```python
+import paudio
+paudio.list_devices()
+```
+
+再生（非ブロッキング制御）
+
+```python
+import time, paudio
+
+p = paudio.Player()
+p.load("C:/music/test.wav")
+p.start()
+while p.is_playing():
+    time.sleep(0.1)
+p.stop()
+```
+
+録音（非ブロッキング制御）
+
+```python
+import time, paudio
+
+r = paudio.Recorder()
+# デフォルトデバイスへ録音
+r.setup("C:/recordings/out.wav")
+r.start()
+time.sleep(5)
+r.stop()
+
+# ASIOでチャンネル範囲（1ベース）。例: 44-54 は11ch（10chなら 44-53）
+# r.setup("C:/recordings/out.wav", device_index=5, channels=(44, 54))
+
+APIリファレンス（最新版）
+
+- モジュール関数（ブロッキング）
+  - list_devices() -> None
+    - このPCのデバイス一覧を標準出力に表示
+    - 出力形式: `index,deviceType,inputOutput,deviceName,totalChannels[,LOOPBACK]`
+      - deviceType: W=WASAPI, A=ASIO / inputOutput: I=入力, O=出力
+  - play(file_path: str) -> None
+    - WAVファイルを最後まで再生（戻りは完了後）
+  - record(output_path: str, deviceIndex: int = -1, channels: tuple[int,int] = (-1,-1)) -> None
+    - 録音を開始し、停止までブロッキング
+    - `channels` は1ベースの範囲（ASIOのみ有効）。例: `(44,54)` は11ch
+
+- クラス（非ブロッキング制御）
+  - Player
+    - load(file_path: str) -> bool
+    - start() -> None / stop() -> None
+    - is_playing() -> bool
+    - current_time() -> float（秒）
+    - total_time() -> float（秒）
+    - format_time(seconds: float) -> str（HH:MM:SS）
+  - Recorder
+    - setup(output_path: str) -> bool
+    - setup(output_path: str, device_index: int, channels: tuple[int,int]) -> bool
+      - `channels` は1ベースの範囲指定（ASIOのみ有効）。例: `(44,54)` は11ch、10chなら `(44,53)`
+    - start() / stop() -> None
+    - is_recording() -> bool
+    - current_time() -> float（秒）
+```
+
+主な機能
+- デバイス列挙（WASAPI/ASIO、WASAPIループバックの表示）
+- WAV再生（16/24/32bit PCM、簡易リサンプル）
+- 録音：
+  - WASAPIループバック（システム音、2ch）
+  - ASIO（チャンネル範囲指定対応、1ベース）
+
+注意
+- WASAPIループバックは2ch固定です。
+- 通常WASAPI入力は先頭Nchの取得のみで、中腹からのチャンネル範囲指定は未対応です。
+
+デバイス一覧の例
+
+```
+1,W,I,Microphone (Realtek Audio),2
+2,A,I,ASIO4ALL v2,8
+3,A,O,ASIO4ALL v2,8
+4,W,O,Speakers (Realtek Audio) (WASAPI-Loopback),2,LOOPBACK
+```
+
+ライセンス
+MIT（本プロジェクト）。PortAudioおよびASIO SDKの各ライセンスに従います。
+
+
