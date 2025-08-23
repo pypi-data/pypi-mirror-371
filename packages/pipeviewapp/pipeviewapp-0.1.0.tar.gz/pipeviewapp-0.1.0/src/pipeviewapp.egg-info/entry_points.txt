@@ -1,0 +1,3 @@
+[console_scripts]
+pipeview = pipeview.ui:main
+pipeview-cache = pipeview.cache:main

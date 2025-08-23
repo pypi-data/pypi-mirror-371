@@ -1,0 +1,118 @@
+# PipeViewApp
+
+[![license][license-img]][github] [![Donate][kofi-img]][kofi]
+
+An interactive TUI (Terminal User Interface) for piped data.
+
+`PipeViewApp` allows you to instantly browse, filter, and inspect JSON, CSV, and plain text data directly from your command line, turning static output into a fully interactive experience.
+
+
+## Features
+
+-   **Interactive TUI:** No more chaining `grep`, `awk`, and `jq`. Explore your data in a user-friendly interface.
+-   **Real-time Filtering:** Instantly filter thousands of rows just by typing.
+-   **Auto-Format Detection:** Intelligently parses JSON, CSV, and line-delimited JSON (LDJSON) without any configuration.
+-   **Cross-Platform:** Works on Linux, macOS, and Windows.
+-   **Lightweight & Fast:** Starts instantly and handles large amounts of data smoothly.
+
+---
+
+
+## Installation
+
+The recommended way to install `PipeViewApp` is from PyPI using pip.
+
+```bash
+pip install pipeviewapp
+```
+
+
+## How to Use
+PipeViewApp uses a simple, two-step workflow to ensure maximum compatibility and interactivity across all terminal environments.
+
+
+### Step 1: Capture Data with pipeview-cache
+Pipe any command's output into the pipeview-cache command. This captures the data and saves it to a temporary cache file.
+### Examples:
+```bash
+## On Linux/macOS
+# JSON
+curl -s "https'://jsonplaceholder.typicode.com/todos" | pipeview-cache
+
+# csv
+cat data.csv | pipeview-cache
+
+# plain-text 
+cat data.log | pipeview-cache
+
+
+
+## On Windows PowerShell
+# JSON
+(Invoke-WebRequest "https'://jsonplaceholder.typicode.com/todos").Content | pipeview-cache
+
+# csv
+Get-Content .\data.csv | pipeview-cache
+
+# plain-text
+Get-Content .\data.log | pipeview-cache
+```
+### Step 2: View Data with pipeview
+Now, simply run the pipeview command to launch the interactive UI. It will automatically load the data you just captured.
+```bash
+pipeview
+```
+The interactive TUI will launch, allowing you to:
+Filter: Start typing to filter the data in real-time.
+Navigate: Use the Up/Down arrow keys.
+Inspect: Press Enter on a row to see a detailed view.
+Quit: Press q or Ctrl+C to exit.
+
+
+## For Developers: Building from Source
+If you want to contribute to the project or build it from the source code, follow these steps.
+
+### 1. Clone the Repository
+First, clone the project from GitHub:
+```bash
+git clone https://github.com/manti-X/pipeviewapp.git
+cd pipeviewapp
+```
+
+### 2. Set Up a Virtual Environment
+It is highly recommended to work within a Python virtual environment.
+```bash
+# Create the environment
+python3 -m venv .venv
+```
+### 3. Activate it
+```bash
+# On Linux/macOS:
+source .venv/bin/activate
+```
+```bash
+# On Windows:
+.\.venv\Scripts\activate
+```
+
+### 4. Install in Editable Mode
+Install the package and its dependencies in "editable" mode. This allows you to make changes to the source code and see them reflected immediately without reinstalling.
+```bash
+pip install -e .
+```
+You can now run the pipeview and pipeview-cache commands as if they were installed normally.
+
+
+## License
+The MIT License (MIT)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+[kofi]: https://ko-fi.com/bakaloli
+[kofi-img]: https://img.shields.io/badge/Ko--fi-FF5E5B?logo=ko-fi&logoColor=white
+[github]: https://github.com/manti-X/h5ai/
+[license-img]: https://img.shields.io/badge/license-MIT-a0a060.svg?style=flat-square

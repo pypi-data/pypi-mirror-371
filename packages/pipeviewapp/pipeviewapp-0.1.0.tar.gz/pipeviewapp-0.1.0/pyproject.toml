@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pipeviewapp"
+version = "0.1.0"
+authors = [
+  { name="manti-X", email="manti@bakaloli.eu" },
+]
+description = "An interactive TUI for piped data."
+readme = "README.md"
+requires-python = ">=3.7"
+license = "MIT"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Topic :: Terminals",
+    "Topic :: Utilities",
+    "Environment :: Console",
+    "Development Status :: 5 - Production/Stable",
+]
+dependencies = [
+    "textual",
+]
+
+# This section adds links to your project page on PyPI
+[project.urls]
+Homepage = "https://github.com/manti-X/PipeViewApp"
+"Bug Tracker" = "https://github.com/manti-X/PipeViewApp/issues"
+
+[project.scripts]
+pipeview-cache = "pipeview.cache:main"
+pipeview = "pipeview.ui:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
