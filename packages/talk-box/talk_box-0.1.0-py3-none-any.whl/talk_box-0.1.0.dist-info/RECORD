@@ -1,0 +1,11 @@
+talk_box/__init__.py,sha256=vq9A5p-AU5ohV5ddhgy866F5VBLy6VwMjIxripJOgY4,1174
+talk_box/_utils_chatlas.py,sha256=Pyyj2SLtS1wJHskkWq3F0X5aQJzvy9V39f-6FeOoOto,6148
+talk_box/builder.py,sha256=jdhuQHIaJ0GrkMAx98lh5WiSYt9rihsNCc3r_r68Gzk,111524
+talk_box/conversation.py,sha256=WzOuv63rG8e710mFMMQbc31T454mleCNkGja1ta6kv0,29819
+talk_box/presets.py,sha256=BShzEoDPgyY48oM0rGfAS_bvBvPnUehhRMWCiFwfcjo,31744
+talk_box/prompt_builder.py,sha256=eLWxPNKHuYstN5O32qVIMa_BRjzdAefR3KgJP7Stg5Q,198613
+talk_box-0.1.0.dist-info/METADATA,sha256=OC_0vttIjLi89tL1i2uo4dBC41ZQ7DGGT43yAqV1ZV0,13106
+talk_box-0.1.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+talk_box-0.1.0.dist-info/entry_points.txt,sha256=4eIF1Vj9K4ioojgeSZIh9h5NISMjmq5UmqlDt4rT6_o,47
+talk_box-0.1.0.dist-info/licenses/LICENSE,sha256=9PUn1YT-PesqdUz1Uy4OrcTYodvWnuB4eKIVyYaCveA,1072
+talk_box-0.1.0.dist-info/RECORD,,
