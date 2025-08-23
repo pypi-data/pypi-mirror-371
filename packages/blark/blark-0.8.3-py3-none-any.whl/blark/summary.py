@@ -1,0 +1,1430 @@
+from __future__ import annotations
+
+import collections
+import logging
+import pathlib
+import textwrap
+from dataclasses import dataclass, field, fields, is_dataclass
+from typing import Any, Dict, Generator, Iterable, List, Optional, Tuple, Union
+
+import lark
+
+from . import transform as tf
+from .parse import ParseResult
+from .typing import Literal
+from .util import Identifier, SourceType, get_case_insensitive
+
+LocationType = Literal["input", "output", "memory"]
+
+logger = logging.getLogger(__name__)
+
+
+def _indented_outline(item: Any, indent: str = "    ") -> Optional[str]:
+    """Outline and indent the given item."""
+    text = text_outline(item)
+    if text is None:
+        return None
+    result = textwrap.indent(text, indent)
+    if "\n" in result:
+        return "\n" + result
+    return result.lstrip()
+
+
+def text_outline(item: Any) -> Optional[str]:
+    """
+    Get a generic multiline string representation of the given object.
+
+    Attempts to include field information for dataclasses, put list items
+    on separate lines, and generally keep sensible indentation.
+
+    Parameters
+    ----------
+    item : Any
+        The item to outline.
+
+    Returns
+    -------
+    formatted : str or None
+        The formatted result.
+    """
+    if item is None:
+        return None
+
+    if is_dataclass(item):
+        result = [
+            f"<{item.__class__.__name__}>"
+        ]
+        for fld in fields(item):
+            if fld.name in ("meta", ):
+                continue
+            value = _indented_outline(getattr(item, fld.name, None))
+            if value is not None:
+                result.append(f"{fld.name}: {value}")
+        if not result:
+            return None
+        return "\n".join(result)
+
+    if isinstance(item, (list, tuple)):
+        result = []
+        for value in item:
+            value = _indented_outline(value)
+            if value is not None:
+                result.append(f"- {value.lstrip()}")
+        if not result:
+            return None
+        return "\n".join(result)
+
+    if isinstance(item, dict):
+        result = []
+        for key, value in item.items():
+            value = _indented_outline(value)
+            if value is not None:
+                result.append(f"- {key}: {value}")
+        return "\n".join(result)
+
+    return str(item)
+
+
+@dataclass
+class Summary:
+    """Base class for summary objects."""
+    comments: List[str]
+    pragmas: List[str]
+    filename: Optional[pathlib.Path]
+    meta: Optional[tf.Meta] = field(repr=False)
+
+    def __getitem__(self, _: str) -> None:
+        return None
+
+    def __str__(self) -> str:
+        return text_outline(self) or ""
+
+    @staticmethod
+    def get_meta_kwargs(meta: Optional[tf.Meta]) -> Dict[str, Any]:
+        if meta is None:
+            return dict(
+                comments=[],
+                pragmas=[],
+                meta=None,
+            )
+
+        comments, pragmas = meta.get_comments_and_pragmas()
+        return dict(
+            comments=comments,
+            pragmas=pragmas,
+            meta=meta,
+        )
+
+
+@dataclass
+class DeclarationSummary(Summary):
+    """Summary representation of a single declaration."""
+    name: str
+    item: Union[
+        tf.Declaration,
+        tf.GlobalVariableDeclaration,
+        tf.VariableInitDeclaration,
+        tf.StructureElementDeclaration,
+        tf.UnionElementDeclaration,
+        tf.ExternalVariableDeclaration,
+        tf.InitDeclaration,
+    ]
+    parent: Optional[str]
+    location: Optional[str]
+    block: str
+    base_type: str
+    type: str
+    value: Optional[str]
+
+    def __getitem__(self, key: str) -> None:
+        raise KeyError(f"{self.name}[{key!r}]: declarations do not contain keys")
+
+    @property
+    def qualified_name(self) -> str:
+        """Qualified name including parent. For example, ``fbName.DeclName``."""
+        if self.parent:
+            return f"{self.parent}.{self.name}"
+        return self.name
+
+    @property
+    def location_type(self) -> Optional[LocationType]:
+        """If located, one of {'input', 'output', 'memory"}."""
+        if not self.location:
+            return None
+
+        location = self.location.upper()
+        if location.startswith("%I"):
+            return "input"
+        if location.startswith("%Q"):
+            return "output"
+        if location.startswith("%M"):
+            return "memory"
+        return None
+
+    @classmethod
+    def from_declaration(
+        cls,
+        item: Union[tf.InitDeclaration, tf.StructureElementDeclaration, tf.UnionElementDeclaration],
+        parent: Optional[
+            Union[
+                tf.Function,
+                tf.Method,
+                tf.FunctionBlock,
+                tf.Property,
+                tf.StructureTypeDeclaration,
+            ]
+        ] = None,
+        block_header: str = "unknown",
+        filename: Optional[pathlib.Path] = None,
+    ) -> Dict[str, DeclarationSummary]:
+        result = {}
+
+        if isinstance(item, tf.StructureElementDeclaration):
+            for var in item.variables:
+                result[var.name] = DeclarationSummary(
+                    name=str(var.name),
+                    item=item,
+                    location=str(var.location).replace("AT ", "") if var.location else None,
+                    block=block_header,
+                    type=item.full_type_name,  # TODO -> get_type_summary?
+                    base_type=item.base_type_name,
+                    value=str(item.value),
+                    parent=parent.name if parent is not None else "",
+                    filename=filename,
+                    **Summary.get_meta_kwargs(item.meta),
+                )
+        elif isinstance(item, tf.UnionElementDeclaration):
+            result[str(item.name)] = DeclarationSummary(
+                name=str(item.name),
+                item=item,
+                location=None,
+                block=block_header,
+                type=item.spec.full_type_name,
+                base_type=item.spec.base_type_name,
+                value="",
+                parent=parent.name if parent is not None else "",
+                filename=filename,
+                **Summary.get_meta_kwargs(item.meta),
+            )
+        elif isinstance(
+            item,
+            (
+                tf.FunctionBlockNameDeclaration,
+                tf.FunctionBlockInvocationDeclaration,
+            ),
+        ):
+            for var in item.variables:
+                result[var] = DeclarationSummary(
+                    name=str(var),
+                    item=item,
+                    location=None,
+                    block=block_header,
+                    type=item.init.full_type_name,
+                    base_type=item.init.base_type_name,
+                    value=str(item.init.value),
+                    parent=parent.name if parent is not None else "",
+                    filename=filename,
+                    **Summary.get_meta_kwargs(item.meta),
+                )
+        elif isinstance(item, tf.InitDeclaration):
+            for var in item.variables:
+                result[var.name] = DeclarationSummary(
+                    name=str(var.name),
+                    item=item,
+                    location=str(var.location).replace("AT ", "") if var.location else None,
+                    block=block_header,
+                    type=item.init.full_type_name,
+                    base_type=item.init.base_type_name,
+                    value=str(item.init.value),
+                    parent=parent.name if parent is not None else "",
+                    filename=filename,
+                    **Summary.get_meta_kwargs(item.meta),
+                )
+        elif isinstance(item, tf.ExternalVariableDeclaration):
+            location = str(getattr(item.spec, "location", None))
+            init = str(getattr(item.spec, "init", None))
+            type_ = getattr(init, "full_type_name", str(item.spec))
+            base_type = getattr(init, "base_type_name", str(item.spec))
+            result[str(item.name)] = DeclarationSummary(
+                name=str(item.name),
+                item=item,
+                location=location,
+                block=block_header,
+                type=type_,
+                base_type=base_type,
+                value="None",  # TODO
+                parent=parent.name if parent is not None else "",
+                filename=filename,
+                **Summary.get_meta_kwargs(item.meta),
+            )
+        else:
+            raise NotImplementedError(f"TODO: {type(item)}")
+
+        return result
+
+    @classmethod
+    def from_global_variable(
+        cls,
+        item: tf.GlobalVariableDeclaration,
+        parent: Optional[tf.GlobalVariableDeclarations] = None,
+        block_header: str = "VAR_GLOBAL",
+        filename: Optional[pathlib.Path] = None,
+    ) -> Dict[str, DeclarationSummary]:
+        result = {}
+        location = (str(item.spec.location or "").replace("AT ", "")) or None
+
+        for var in item.spec.variables:
+            name = getattr(var, "name", var)
+            result[name] = DeclarationSummary(
+                name=str(name),
+                item=item,
+                location=location,
+                block=block_header,
+                type=item.full_type_name,
+                base_type=item.base_type_name,
+                value=str(item.init.value),
+                parent=parent.name if parent is not None else "",
+                filename=filename,
+                **Summary.get_meta_kwargs(item.meta),
+            )
+        return result
+
+    @classmethod
+    def from_block(
+        cls,
+        block: tf.VariableDeclarationBlock,
+        parent: Union[tf.Function, tf.Method, tf.FunctionBlock, tf.Property],
+        filename: Optional[pathlib.Path] = None,
+    ) -> Dict[str, DeclarationSummary]:
+        result = {}
+        for decl in block.items:
+            result.update(
+                cls.from_declaration(
+                    decl,
+                    parent=parent,
+                    block_header=block.block_header,
+                    filename=filename,
+                )
+            )
+        return result
+
+
+@dataclass
+class ActionSummary(Summary):
+    """Summary representation of a single action."""
+    name: str
+    item: tf.Action
+    source_code: str
+    implementation: Optional[tf.StatementList] = None
+    implementation_source: Optional[str] = None
+
+    def __getitem__(self, key: str) -> None:
+        raise KeyError(f"{key}: Actions do not contain declarations")
+
+    @classmethod
+    def from_statement_list(
+        cls,
+        name: str,
+        statements: tf.StatementList,
+        source_code: Optional[str] = None,
+        filename: Optional[pathlib.Path] = None,
+    ) -> ActionSummary:
+        if source_code is None:
+            source_code = str(statements)
+
+        return ActionSummary(
+            name=name,
+            item=tf.Action(
+                name=lark.Token(name, name),
+                body=statements,
+                meta=statements.meta,
+            ),
+            source_code=source_code,
+            filename=filename,
+            implementation=statements,  # TODO: this is no good
+            **Summary.get_meta_kwargs(statements.meta),
+        )
+
+    @classmethod
+    def from_action(
+        cls,
+        action: tf.Action,
+        source_code: Optional[str] = None,
+        filename: Optional[pathlib.Path] = None,
+    ) -> ActionSummary:
+        if source_code is None:
+            source_code = str(action)
+
+        return ActionSummary(
+            name=str(action.name),
+            item=action,
+            source_code=source_code,
+            filename=filename,
+            **Summary.get_meta_kwargs(action.meta),
+        )
+
+
+@dataclass
+class MethodSummary(Summary):
+    """Summary representation of a single method."""
+    name: str
+    item: tf.Method
+    return_type: Optional[str]
+    source_code: str
+    implementation: Optional[tf.StatementList] = None
+    implementation_source: Optional[str] = None
+    declarations: Dict[str, DeclarationSummary] = field(default_factory=dict)
+
+    def __getitem__(self, key: str) -> DeclarationSummary:
+        return get_case_insensitive(self.declarations, key)
+
+    @property
+    def declarations_by_block(self) -> Dict[str, Dict[str, DeclarationSummary]]:
+        result = {}
+        for decl in self.declarations.values():
+            result.setdefault(decl.block, {})[decl.name] = decl
+        return result
+
+    @classmethod
+    def from_method(
+        cls,
+        method: tf.Method,
+        source_code: Optional[str] = None,
+        filename: Optional[pathlib.Path] = None,
+    ) -> MethodSummary:
+        if source_code is None:
+            source_code = str(method)
+
+        summary = MethodSummary(
+            name=method.name,
+            item=method,
+            return_type=str(method.return_type) if method.return_type else None,
+            source_code=source_code,
+            filename=filename,
+            **Summary.get_meta_kwargs(method.meta),
+        )
+        for decl in method.declarations:
+            summary.declarations.update(
+                DeclarationSummary.from_block(decl, parent=method, filename=filename)
+            )
+
+        return summary
+
+
+@dataclass
+class PropertyGetSetSummary(Summary):
+    name: str
+    item: tf.Property
+    source_code: str
+    declarations: Dict[str, DeclarationSummary] = field(default_factory=dict)
+    implementation: Optional[tf.StatementList] = None
+    implementation_source: Optional[str] = None
+
+    def __getitem__(self, key: str) -> DeclarationSummary:
+        return get_case_insensitive(self.declarations, key)
+
+
+@dataclass
+class PropertySummary(Summary):
+    """Summary representation of a single property."""
+    name: str
+    getter: PropertyGetSetSummary
+    setter: PropertyGetSetSummary
+    source_code: str
+    # implementation: Optional[tf.StatementList] = None
+
+    def __getitem__(self, key: str):
+        if key == "get":
+            return self.getter
+        if key == "set":
+            return self.setter
+        raise KeyError(f"{key}: Properties do not contain declarations")
+
+    @classmethod
+    def from_property(
+        cls,
+        property: tf.Property,
+        source_code: Optional[str] = None,
+        filename: Optional[pathlib.Path] = None,
+    ) -> PropertySummary:
+        if source_code is None:
+            source_code = str(property)
+
+        # TODO: this is broken at the moment
+        summary = PropertySummary(
+            name=str(property.name),
+            getter=PropertyGetSetSummary(
+                name=str(property.name),
+                item=property,
+                source_code=source_code,
+                filename=filename,
+                **Summary.get_meta_kwargs(property.meta),
+            ),
+            setter=PropertyGetSetSummary(
+                name=str(property.name),
+                item=property,
+                source_code=source_code,
+                filename=filename,
+                **Summary.get_meta_kwargs(property.meta),
+            ),
+            source_code=source_code,
+            filename=filename,
+            **Summary.get_meta_kwargs(property.meta),
+        )
+
+        for decl in property.declarations:
+            decl_summary = DeclarationSummary.from_block(decl, parent=property, filename=filename)
+            summary.getter.declarations.update(decl_summary)
+            summary.setter.declarations.update(decl_summary)
+
+        return summary
+
+
+@dataclass
+class FunctionSummary(Summary):
+    """Summary representation of a single function."""
+    name: str
+    item: tf.Function
+    return_type: Optional[str]
+    source_code: str
+    implementation: Optional[tf.StatementList] = None
+    implementation_source: Optional[str] = None
+    declarations: Dict[str, DeclarationSummary] = field(default_factory=dict)
+
+    def __getitem__(self, key: str) -> DeclarationSummary:
+        return get_case_insensitive(self.declarations, key)
+
+    @property
+    def declarations_by_block(self) -> Dict[str, Dict[str, DeclarationSummary]]:
+        result = {}
+        for decl in self.declarations.values():
+            result.setdefault(decl.block, {})[decl.name] = decl
+        return result
+
+    @classmethod
+    def from_function(
+        cls,
+        func: tf.Function,
+        source_code: Optional[str] = None,
+        filename: Optional[pathlib.Path] = None,
+    ) -> FunctionSummary:
+        if source_code is None:
+            source_code = str(func)
+
+        summary = FunctionSummary(
+            name=func.name,
+            item=func,
+            return_type=str(func.return_type) if func.return_type else None,
+            source_code=source_code,
+            filename=filename,
+            **Summary.get_meta_kwargs(func.meta),
+        )
+
+        for decl in func.declarations:
+            summary.declarations.update(
+                DeclarationSummary.from_block(decl, parent=func, filename=filename)
+            )
+
+        return summary
+
+
+@dataclass
+class FunctionBlockSummary(Summary):
+    """Summary representation of a single function block."""
+    name: str
+    source_code: str
+    item: tf.FunctionBlock
+    extends: Optional[list[str]]
+    squashed: bool
+    implementation: Optional[tf.StatementList] = None
+    implementation_source: Optional[str] = None
+    declarations: Dict[str, DeclarationSummary] = field(default_factory=dict)
+    actions: List[ActionSummary] = field(default_factory=list)
+    methods: List[MethodSummary] = field(default_factory=list)
+    properties: List[PropertySummary] = field(default_factory=list)
+
+    def __getitem__(
+        self, key: str
+    ) -> Union[DeclarationSummary, MethodSummary, PropertySummary, ActionSummary]:
+        decl = get_case_insensitive(self.declarations, key)
+        if decl is not None:
+            return decl
+        for item in self.actions + self.methods + self.properties:
+            if item.name.lower() == key.lower():
+                return item
+        raise KeyError(key)
+
+    @property
+    def declarations_by_block(self) -> Dict[str, Dict[str, DeclarationSummary]]:
+        result = {}
+        for decl in self.declarations.values():
+            result.setdefault(decl.block, {})[decl.name] = decl
+        return result
+
+    @classmethod
+    def from_function_block(
+        cls,
+        fb: tf.FunctionBlock,
+        source_code: Optional[str] = None,
+        filename: Optional[pathlib.Path] = None,
+    ) -> FunctionBlockSummary:
+        if source_code is None:
+            source_code = str(fb)
+
+        summary = FunctionBlockSummary(
+            name=fb.name,
+            item=fb,
+            source_code=source_code,
+            filename=filename,
+            extends=fb.extends.interfaces if fb.extends else None,
+            squashed=False,
+            **Summary.get_meta_kwargs(fb.meta),
+        )
+
+        for decl in fb.declarations:
+            summary.declarations.update(
+                DeclarationSummary.from_block(decl, parent=fb, filename=filename)
+            )
+
+        return summary
+
+    def squash_base_extends(
+        self, function_blocks: Dict[str, FunctionBlockSummary]
+    ) -> FunctionBlockSummary:
+        """Squash the "EXTENDS" function block into this one."""
+        if not self.extends:
+            return self
+
+        extends_from: list[FunctionBlockSummary] = [
+            get_case_insensitive(function_blocks, str(ext))
+            for ext in self.extends
+        ]
+        extends_from = [
+            fb.squash_base_extends(function_blocks)
+            for fb in extends_from
+            if fb is not None
+        ]
+        if not extends_from:
+            return self
+
+        declarations = {}
+        for ext in extends_from:
+            declarations.update(ext.declarations)
+        declarations.update(self.declarations)
+        actions = [a for fb in extends_from for a in fb.actions] + self.actions
+        methods = [m for fb in extends_from for m in fb.methods] + self.methods
+        properties = [p for fb in extends_from for p in fb.properties] + self.properties
+        return FunctionBlockSummary(
+            name=self.name,
+            comments=[c for fb in extends_from for c in fb.comments] + self.comments,
+            pragmas=[p for fb in extends_from for p in fb.pragmas] + self.pragmas,
+            meta=self.meta,
+            filename=self.filename,
+            source_code="\n\n".join(
+                (*(ext.source_code for ext in extends_from), self.source_code)
+            ),
+            item=self.item,
+            extends=self.extends,
+            declarations=declarations,
+            actions=actions,
+            methods=methods,
+            properties=properties,
+            squashed=True,
+        )
+
+
+@dataclass
+class InterfaceSummary(Summary):
+    """Summary representation of an Interfae."""
+
+    name: str
+    source_code: str
+    item: tf.Interface
+    extends: Optional[list[str]]
+    squashed: bool
+    declarations: Dict[str, DeclarationSummary] = field(default_factory=dict)
+    methods: List[MethodSummary] = field(default_factory=list)
+    properties: List[PropertySummary] = field(default_factory=list)
+    # TwinCAT IDE doesn't allow for actions to be added to interfaces, it
+    # seems. Overlap with methods?
+    # actions: List[ActionSummary] = field(default_factory=list)
+
+    def __getitem__(
+        self, key: str
+    ) -> Union[DeclarationSummary, MethodSummary, PropertySummary]:
+        decl = get_case_insensitive(self.declarations, key)
+        if decl is not None:
+            return decl
+        for item in self.methods + self.properties:
+            if item.name.lower() == key.lower():
+                return item
+        raise KeyError(key)
+
+    @property
+    def declarations_by_block(self) -> Dict[str, Dict[str, DeclarationSummary]]:
+        result = {}
+        for decl in self.declarations.values():
+            result.setdefault(decl.block, {})[decl.name] = decl
+        return result
+
+    @classmethod
+    def from_interface(
+        cls,
+        itf: tf.Interface,
+        source_code: Optional[str] = None,
+        filename: Optional[pathlib.Path] = None,
+    ) -> InterfaceSummary:
+        if source_code is None:
+            source_code = str(itf)
+
+        summary = InterfaceSummary(
+            name=itf.name,
+            item=itf,
+            source_code=source_code,
+            filename=filename,
+            extends=itf.extends.interfaces if itf.extends else None,
+            squashed=False,
+            **Summary.get_meta_kwargs(itf.meta),
+        )
+
+        for decl in itf.declarations:
+            summary.declarations.update(
+                DeclarationSummary.from_block(decl, parent=itf, filename=filename)
+            )
+
+        return summary
+
+    def squash_base_extends(
+        self, interfaces: Dict[str, InterfaceSummary]
+    ) -> InterfaceSummary:
+        """Squash the "EXTENDS" INTERFACE into this one."""
+        if not self.extends:
+            return self
+
+        extends_from: list[InterfaceSummary] = [
+            get_case_insensitive(interfaces, str(ext))
+            for ext in self.extends
+        ]
+        extends_from = [
+            fb.squash_base_extends(interfaces)
+            for fb in extends_from
+            if fb is not None
+        ]
+        if not extends_from:
+            return self
+
+        declarations = {}
+        for ext in extends_from:
+            declarations.update(ext.declarations)
+        declarations.update(self.declarations)
+        methods = [m for fb in extends_from for m in fb.methods] + self.methods
+        properties = [p for fb in extends_from for p in fb.properties] + self.properties
+        return InterfaceSummary(
+            name=self.name,
+            comments=[c for fb in extends_from for c in fb.comments] + self.comments,
+            pragmas=[p for fb in extends_from for p in fb.pragmas] + self.pragmas,
+            meta=self.meta,
+            filename=self.filename,
+            source_code="\n\n".join(
+                (*(ext.source_code for ext in extends_from), self.source_code)
+            ),
+            item=self.item,
+            extends=self.extends,
+            declarations=declarations,
+            properties=properties,
+            methods=methods,
+            squashed=True,
+        )
+
+
+@dataclass
+class DataTypeSummary(Summary):
+    """Summary representation of a single data type."""
+    # Note: structures only for now.
+    name: str
+    item: tf.TypeDeclarationItem
+    source_code: str
+    type: str
+    extends: Optional[list[str]]
+    squashed: bool = False
+    declarations: Dict[str, DeclarationSummary] = field(default_factory=dict)
+
+    def __getitem__(self, key: str) -> DeclarationSummary:
+        return get_case_insensitive(self.declarations, key)
+
+    @property
+    def declarations_by_block(self) -> Dict[str, Dict[str, DeclarationSummary]]:
+        return {
+            "STRUCT": self.declarations
+        }
+
+    @classmethod
+    def from_data_type(
+        cls,
+        dtype: tf.TypeDeclarationItem,
+        source_code: Optional[str] = None,
+        filename: Optional[pathlib.Path] = None,
+    ) -> DataTypeSummary:
+        if source_code is None:
+            source_code = str(dtype)
+
+        if isinstance(dtype, tf.StructureTypeDeclaration):
+            extends = dtype.extends.interfaces if dtype.extends else None
+        else:
+            extends = None
+
+        summary = cls(
+            name=dtype.name,
+            item=dtype,
+            extends=extends,
+            source_code=source_code,
+            type=type(dtype).__name__,
+            filename=filename,
+            squashed=False,
+            **Summary.get_meta_kwargs(dtype.meta),
+        )
+
+        if isinstance(dtype, tf.StructureTypeDeclaration):
+            for decl in dtype.declarations:
+                summary.declarations.update(
+                    DeclarationSummary.from_declaration(
+                        decl,
+                        parent=dtype,
+                        block_header="STRUCT",
+                        filename=filename,
+                    )
+                )
+
+        if isinstance(dtype, tf.UnionTypeDeclaration):
+            for decl in dtype.declarations:
+                summary.declarations.update(
+                    DeclarationSummary.from_declaration(
+                        decl,
+                        parent=dtype,
+                        block_header="UNION",
+                        filename=filename,
+                    )
+                )
+
+        return summary
+
+    def squash_base_extends(
+        self, data_types: Dict[str, DataTypeSummary]
+    ) -> DataTypeSummary:
+        """Squash the "EXTENDS" function block into this one."""
+        if not self.extends:
+            return self
+
+        extends_from: list[DataTypeSummary] = [
+            get_case_insensitive(data_types, str(ext))
+            for ext in self.extends
+        ]
+        extends_from = [
+            fb.squash_base_extends(data_types)
+            for fb in extends_from
+            if fb is not None
+        ]
+        if not extends_from:
+            return self
+
+        declarations = {}
+        for ext in extends_from:
+            declarations.update(ext.declarations)
+        declarations.update(self.declarations)
+        return DataTypeSummary(
+            name=self.name,
+            type=self.type,
+            comments=[c for fb in extends_from for c in fb.comments] + self.comments,
+            pragmas=[p for fb in extends_from for p in fb.pragmas] + self.pragmas,
+            meta=self.meta,
+            filename=self.filename,
+            source_code="\n\n".join(
+                (*(ext.source_code for ext in extends_from), self.source_code)
+            ),
+            item=self.item,
+            extends=self.extends,
+            declarations=declarations,
+            squashed=True,
+        )
+
+
+@dataclass
+class GlobalVariableSummary(Summary):
+    """Summary representation of a VAR_GLOBAL block."""
+    name: str
+    item: tf.GlobalVariableDeclarations
+    source_code: str
+    type: str
+    qualified_only: bool = False
+    declarations: Dict[str, DeclarationSummary] = field(default_factory=dict)
+
+    def __getitem__(self, key: str) -> DeclarationSummary:
+        return get_case_insensitive(self.declarations, key)
+
+    @property
+    def declarations_by_block(self) -> Dict[str, Dict[str, DeclarationSummary]]:
+        return {
+            "VAR_GLOBAL": self.declarations
+        }
+
+    @classmethod
+    def from_globals(
+        cls,
+        decls: tf.GlobalVariableDeclarations,
+        source_code: Optional[str] = None,
+        filename: Optional[pathlib.Path] = None,
+    ) -> GlobalVariableSummary:
+        if source_code is None:
+            source_code = str(decls)
+
+        summary = GlobalVariableSummary(
+            name=decls.name or "(unknown)",
+            item=decls,
+            source_code=source_code,
+            type=type(decls).__name__,
+            filename=filename,
+            qualified_only="qualified_only" in decls.attribute_pragmas,
+            **Summary.get_meta_kwargs(decls.meta),
+        )
+
+        for decl in decls.items:
+            summary.declarations.update(
+                **DeclarationSummary.from_global_variable(
+                    decl,
+                    parent=summary,
+                    block_header="VAR_GLOBAL",
+                    filename=filename,
+                )
+            )
+
+        return summary
+
+
+@dataclass
+class ProgramSummary(Summary):
+    """Summary representation of a single program."""
+    name: str
+    source_code: str
+    item: tf.Program
+    implementation: Optional[tf.StatementList] = None
+    implementation_source: Optional[str] = None
+    declarations: Dict[str, DeclarationSummary] = field(default_factory=dict)
+    actions: List[ActionSummary] = field(default_factory=list)
+    methods: List[MethodSummary] = field(default_factory=list)
+    properties: List[PropertySummary] = field(default_factory=list)
+
+    def __getitem__(self, key: str) -> DeclarationSummary:
+        decl = get_case_insensitive(self.declarations, key)
+        if decl is not None:
+            return decl
+        for item in self.actions + self.methods + self.properties:
+            if item.name.lower() == key.lower():
+                return item
+        raise KeyError(key)
+
+    @property
+    def declarations_by_block(self) -> Dict[str, Dict[str, DeclarationSummary]]:
+        result = {}
+        for decl in self.declarations.values():
+            result.setdefault(decl.block, {})[decl.name] = decl
+        return result
+
+    @classmethod
+    def from_program(
+        cls,
+        program: tf.Program,
+        source_code: Optional[str] = None,
+        filename: Optional[pathlib.Path] = None,
+    ) -> ProgramSummary:
+        if source_code is None:
+            source_code = str(program)
+
+        summary = ProgramSummary(
+            name=program.name,
+            item=program,
+            source_code=source_code,
+            filename=filename,
+            **Summary.get_meta_kwargs(program.meta),
+        )
+
+        for decl in program.declarations:
+            summary.declarations.update(
+                DeclarationSummary.from_block(decl, parent=program, filename=filename)
+            )
+
+        return summary
+
+
+def path_to_file_and_line(path: List[Summary]) -> List[Tuple[pathlib.Path, int]]:
+    """Get the file/line number context for the summary items."""
+    return [(part.filename, part.item.meta.line) for part in path]
+
+
+TopLevelCodeSummaryType = Union[
+    FunctionSummary,
+    FunctionBlockSummary,
+    DataTypeSummary,
+    ProgramSummary,
+    InterfaceSummary,
+    GlobalVariableSummary,
+]
+
+NestedCodeSummaryType = Union[
+    DeclarationSummary,
+    MethodSummary,
+    PropertySummary,
+    ActionSummary,
+    PropertyGetSetSummary,
+]
+
+CodeSummaryType = Union[
+    TopLevelCodeSummaryType,
+    NestedCodeSummaryType,
+]
+
+
+@dataclass
+class CodeSummary:
+    """Summary representation of a set of code - functions, function blocks, etc."""
+    functions: Dict[str, FunctionSummary] = field(default_factory=dict)
+    function_blocks: Dict[str, FunctionBlockSummary] = field(
+        default_factory=dict
+    )
+    data_types: Dict[str, DataTypeSummary] = field(default_factory=dict)
+    programs: Dict[str, ProgramSummary] = field(default_factory=dict)
+    globals: Dict[str, GlobalVariableSummary] = field(default_factory=dict)
+    interfaces: Dict[str, InterfaceSummary] = field(default_factory=dict)
+
+    def __str__(self) -> str:
+        attr_to_header = {
+            "data_types": "Data Types",
+            "globals": "Global Variable Declarations",
+            "interfaces": "Interface Declarations",
+            "functions": "Functions",
+            "function_blocks": "Function Blocks",
+            "programs": "Programs",
+        }
+        summary_text = []
+        for attr, header in attr_to_header.items():
+            name_to_obj = getattr(self, attr)
+            if name_to_obj:
+                summary_text.extend(
+                    [
+                        header,
+                        "-" * len(header),
+                    ]
+                )
+
+                for name, obj in name_to_obj.items():
+                    obj_info = "\n".join(
+                        (
+                            name,
+                            "=" * len(name),
+                            str(obj)
+                        )
+                    )
+                    summary_text.append(textwrap.indent(obj_info, " " * 4))
+
+        return "\n".join(summary_text)
+
+    def find(self, name: str) -> Optional[CodeSummaryType]:
+        """Find a declaration or other item by its qualified name."""
+        path = self.find_path(name, allow_partial=False)
+        return path[-1] if path else None
+
+    def find_path(
+        self,
+        name: str,
+        allow_partial: bool = False,
+    ) -> Optional[List[CodeSummaryType]]:
+        """
+        Given a qualified variable name, find the path of CodeSummary objects top-down.
+
+        For example, a variable declared in a function block would return a
+        list containing the FunctionBlockSummary and then the
+        DeclarationSummary.
+
+        Parameters
+        ----------
+        name : str
+            The qualified ("dotted") variable name to find.
+
+        allow_partial : bool, optional
+            If an attribute is missing along the way, return the partial
+            path that was found.
+
+        Returns
+        -------
+        list of CodeSummaryType or None
+            The full path to the given object.
+        """
+        parts = collections.deque(name.split("."))
+        if len(parts) <= 1:
+            item = self.get_item_by_name(name)
+            if item is None:
+                return None
+            return [item]
+
+        variable_name = parts.pop()
+        parent = None
+        path = []
+        while parts:
+            part = parts.popleft()
+            if "[" in part:  # ]
+                part = part.split("[")[0]  # ]
+
+            try:
+                if parent is None:
+                    parent = self.get_item_by_name(part)
+                    path.append(parent)
+                else:
+                    part_obj = parent[part]
+                    path.append(part_obj)
+                    part_type = str(part_obj.base_type)
+                    parent = self.get_item_by_name(part_type)
+            except KeyError:
+                if allow_partial:
+                    return path
+                return
+
+        if parent is None:
+            return
+
+        try:
+            path.append(parent[variable_name])
+        except KeyError:
+            if not allow_partial:
+                return None
+
+        return path
+
+    def find_code_object_by_dotted_name(self, name: str) -> Optional[CodeSummaryType]:
+        """
+        Given a qualified code object name, find its Summary object(s).
+
+        This works to find CodeSummary objects such as::
+
+            FB_Block.ActionName
+            FB_Block.PropertyName.get
+            FB_Block.PropertyName.set
+        """
+        parts = Identifier.from_string(name).parts
+        obj = self.get_item_by_name(parts[0])
+        if len(parts) == 1:
+            return obj
+        if obj is None:
+            raise ValueError(f"No object by the name of {parts[0]} exists")
+
+        for remainder in parts[1:]:
+            next_obj = obj[remainder]
+            if next_obj is None:
+                raise ValueError(f"{name}: {obj} has no attribute {remainder!r}")
+            obj = next_obj
+
+        return obj
+
+    def get_all_items_by_name(
+        self,
+        name: str,
+    ) -> Generator[TopLevelCodeSummaryType, None, None]:
+        """Get any code item (function, data type, global variable, etc.) by name."""
+        for dct in (
+            self.globals,
+            self.programs,
+            self.functions,
+            self.function_blocks,
+            self.data_types,
+        ):
+            # Very inefficient, be warned
+            decl = get_case_insensitive(dct, name)
+            if decl is not None:
+                yield decl
+
+    def get_item_by_name(self, name: str) -> Optional[TopLevelCodeSummaryType]:
+        """
+        Get a single code item (function, data type, global variable, etc.) by name.
+
+        Does not handle scenarios where names are shadowed by other
+        declarations.  The first one found will take precedence.
+        """
+        try:
+            return next(self.get_all_items_by_name(name))
+        except StopIteration:
+            return None
+
+    def __getitem__(self, name: str) -> TopLevelCodeSummaryType:
+        item = self.get_item_by_name(name)
+        if item is None:
+            raise KeyError(f"{name!r} is not a top-level code object name")
+        return item
+
+    def append(self, other: CodeSummary, namespace: Optional[str] = None):
+        """
+        In-place add code summary information from another instance.
+
+        New entries take precedence over old ones.
+        """
+
+        self.functions.update(other.functions)
+        self.function_blocks.update(other.function_blocks)
+        self.data_types.update(other.data_types)
+        self.globals.update(other.globals)
+        self.programs.update(other.programs)
+        self.interfaces.update(other.interfaces)
+
+        if namespace:
+            # LCLS_General.GVL_Logger and GVL_Logger are equally valid
+            for name, item in other.functions.items():
+                self.functions[f"{namespace}.{name}"] = item
+            for name, item in other.function_blocks.items():
+                self.function_blocks[f"{namespace}.{name}"] = item
+            for name, item in other.data_types.items():
+                self.data_types[f"{namespace}.{name}"] = item
+            for name, item in other.globals.items():
+                self.globals[f"{namespace}.{name}"] = item
+            # for name, item in other.programs.items():
+            #     self.programs[f"{namespace}.{name}"] = item
+
+        self.squash()
+
+    @staticmethod
+    def from_parse_results(
+        all_parsed_items: Union[ParseResult, list[ParseResult]],
+        squash: bool = True,
+    ) -> CodeSummary:
+        if isinstance(all_parsed_items, ParseResult):
+            all_parsed_items = [all_parsed_items]
+
+        result = CodeSummary()
+
+        def get_code_by_meta(parsed: ParseResult, meta: Optional[tf.Meta]) -> str:
+            if meta is None or meta.line is None or meta.end_line is None:
+                return ""
+
+            transformed = parsed.transform()
+            return "\n".join(
+                transformed.range_from_file_lines(meta.line, meta.end_line)
+            )
+
+        def add_implementation(parsed: ParseResult, impl: tf.StatementList):
+            assert parsed.identifier is not None
+            identifier = Identifier.from_string(parsed.identifier)
+            assert identifier.decl_impl == "implementation"
+
+            match = result.find_code_object_by_dotted_name(identifier.dotted_name)
+            if match is None:
+                raise RuntimeError(
+                    f"Implementation without previous declaration? "
+                    f"{parsed.filename} {parsed.identifier}"
+                )
+            # if len(matches) > 1:
+            #     raise RuntimeError(
+            #         f"Multiple matches for implementation? "
+            #         f"{parsed.filename} {parsed.identifier}"
+            #     )
+
+            if match.implementation is not None:
+                raise RuntimeError(
+                    f"Implementation specified twice for {parsed.filename} "
+                    f"{parsed.identifier}"
+                )
+
+            if isinstance(match, PropertyGetSetSummary):
+                ...
+
+            match.implementation = impl
+
+            match.meta.comments.extend(parsed.comments)
+            match.implementation_source = parsed.source_code
+
+        context = []
+
+        def clear_context():
+            context.clear()
+
+        def new_context(summary: Summary):
+            context[:] = [summary]
+
+        def push_context(summary: Summary):
+            context.append(summary)
+
+        def get_pou_context() -> Union[
+            ProgramSummary, FunctionBlockSummary, InterfaceSummary
+        ]:
+            for item in reversed(context):
+                if isinstance(
+                    item, (ProgramSummary, FunctionBlockSummary, InterfaceSummary)
+                ):
+                    return item
+
+            raise ValueError(
+                "Expected to parse a POU prior to this but none were in the context "
+                "list.  Code summaries of PROPERTY objects, for example, require "
+                "that a FUNCTION_BLOCK, INTERFACE, or PROGRAM be parsed previously."
+            )
+
+        for parsed in all_parsed_items:
+            transformed = parsed.transform()
+            identifier = Identifier.from_string(parsed.identifier) if parsed.identifier else None
+            for item in transformed.items:
+                if isinstance(item, tf.FunctionBlock):
+                    summary = FunctionBlockSummary.from_function_block(
+                        item,
+                        source_code=get_code_by_meta(parsed, item.meta),
+                        filename=parsed.filename,
+                    )
+                    result.function_blocks[str(item.name)] = summary
+                    new_context(summary)
+                elif isinstance(item, tf.Function):
+                    summary = FunctionSummary.from_function(
+                        item,
+                        source_code=get_code_by_meta(parsed, item.meta),
+                        filename=parsed.filename,
+                    )
+                    result.functions[str(item.name)] = summary
+                    new_context(summary)
+                elif isinstance(item, tf.DataTypeDeclaration):
+                    summary = DataTypeSummary.from_data_type(
+                        item.declaration,
+                        source_code=get_code_by_meta(parsed, item.declaration.meta),
+                        filename=parsed.filename,
+                    )
+                    result.data_types[item.declaration.name] = summary
+                    clear_context()
+                elif isinstance(item, tf.Method):
+                    pou = get_pou_context()
+                    summary = MethodSummary.from_method(
+                        item,
+                        source_code=get_code_by_meta(parsed, item.meta),
+                        filename=parsed.filename,
+                    )
+                    pou.methods.append(summary)
+                    push_context(summary)
+                elif isinstance(item, tf.Action):
+                    pou = get_pou_context()
+                    summary = ActionSummary.from_action(
+                        item,
+                        source_code=get_code_by_meta(parsed, item.meta),
+                        filename=parsed.filename,
+                    )
+                    pou.actions.append(summary)
+                    push_context(summary)
+                elif isinstance(item, tf.Property):
+                    pou = get_pou_context()
+                    summary = PropertySummary.from_property(
+                        item,
+                        source_code=get_code_by_meta(parsed, item.meta),
+                        filename=parsed.filename,
+                    )
+                    # property getters and setters are separate parse results, and must
+                    # therefore be consolidated here
+                    existing = next(
+                        (prop for prop in pou.properties if prop.name == summary.name),
+                        None
+                    )
+                    if existing is not None:
+                        if parsed.item.type == SourceType.property_get:
+                            existing.getter = summary.getter
+                        elif parsed.item.type == SourceType.property_set:
+                            existing.setter = summary.setter
+                        else:
+                            raise TypeError(f"Unsupported property summary: {parsed.item.type}")
+                    else:
+                        # add new property
+                        pou.properties.append(summary)
+                    push_context(summary)
+                elif isinstance(item, tf.GlobalVariableDeclarations):
+                    clear_context()
+                    summary = GlobalVariableSummary.from_globals(
+                        item,
+                        source_code=get_code_by_meta(parsed, item.meta),
+                        filename=parsed.filename,
+                    )
+                    result.globals[str(item.name)] = summary
+                    # for global_var in summary.declarations.values():
+                    #     if not qualified_only:
+                    #         result.globals[global_var.name] = summary
+                    #     result.globals[global_var.qualified_name] = summary
+
+                elif isinstance(item, tf.Program):
+                    summary = ProgramSummary.from_program(
+                        item,
+                        source_code=get_code_by_meta(parsed, item.meta),
+                        filename=parsed.filename,
+                    )
+                    result.programs[str(item.name)] = summary
+                    new_context(summary)
+                elif isinstance(item, tf.Interface):
+                    summary = InterfaceSummary.from_interface(
+                        item,
+                        source_code=get_code_by_meta(parsed, item.meta),
+                        filename=parsed.filename,
+                    )
+                    result.interfaces[str(item.name)] = summary
+                    new_context(summary)
+                elif isinstance(item, tf.StatementList):
+                    if parsed.item.type != SourceType.action:
+                        add_implementation(parsed, item)
+                    else:
+                        assert identifier is not None
+                        # Special-case: actions only have implementations
+                        parent_identifier = Identifier(parts=identifier.parts[:-1])
+                        parent, = result.find_path(parent_identifier.dotted_name)
+                        assert isinstance(parent, (FunctionBlockSummary, ProgramSummary))
+                        action = ActionSummary.from_statement_list(
+                            name=identifier.parts[-1],
+                            statements=item,
+                            source_code=parsed.source_code,  # TODO above?
+                            filename=parsed.filename,
+                        )
+                        parent.actions.append(action)
+                else:
+                    raise ValueError(type(item))
+                    logger.warning("Unhandled: %s", type(item))
+
+        if squash:
+            result.squash()
+
+        return result
+
+    def squash(self) -> None:
+        """Squash derived interfaces/etc to include base summaries."""
+        for name, item in list(self.function_blocks.items()):
+            if item.extends and not item.squashed:
+                self.function_blocks[name] = item.squash_base_extends(
+                    self.function_blocks
+                )
+
+        for name, item in list(self.data_types.items()):
+            if item.extends and not item.squashed:
+                self.data_types[name] = item.squash_base_extends(
+                    self.data_types
+                )
+
+        for name, item in list(self.interfaces.items()):
+            if item.extends and not item.squashed:
+                self.interfaces[name] = item.squash_base_extends(
+                    self.interfaces
+                )
+
+
+@dataclass
+class LinkableItems:
+    """A summary of linkable (located) declarations."""
+    input: List[DeclarationSummary] = field(default_factory=list)
+    output: List[DeclarationSummary] = field(default_factory=list)
+    memory: List[DeclarationSummary] = field(default_factory=list)
+
+
+def get_linkable_declarations(
+    declarations: Iterable[DeclarationSummary],
+) -> LinkableItems:
+    """
+    Get all located/linkable declarations.
+    """
+    linkable = LinkableItems()
+    for decl in declarations:
+        linkable_list = getattr(linkable, decl.location_type or "", None)
+        if linkable_list is not None:
+            linkable_list.append(decl)
+    return linkable

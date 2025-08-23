@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="MAIN" Id="{84dff641-e6f4-4dbd-8059-d7804ecb70ca}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	{attribute 'pytmc' := 'pv: PREFIX:fbTest'}
+	fbTest : FB_SampleA_Test;
+	{attribute 'pytmc' := 'pv: PREFIX:fOutput'}
+	fOutput : LREAL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fbTest(fInput:=1.0, fOutput=>fOutput);]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
