@@ -1,0 +1,12 @@
+typer>=0.15.0
+rich>=13.9.0
+pydantic>=2.10.0
+httpx[http2]>=0.28.0
+trogon>=0.6.0
+questionary>=2.0.1
+graphql-core>=3.2.5
+websockets>=14.0
+eval-type-backport>=0.2.0
+fastapi>=0.115.0
+uvicorn[standard]>=0.32.0
+starlette>=0.41.0

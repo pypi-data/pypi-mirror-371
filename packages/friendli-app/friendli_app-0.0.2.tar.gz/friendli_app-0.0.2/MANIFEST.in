@@ -1,0 +1,5 @@
+include README.md
+include pyproject.toml
+recursive-include src/friendli_agent *.py
+recursive-include src/friendli_agent/cli *.py
+recursive-include src/friendli_agent/sdk *.py
