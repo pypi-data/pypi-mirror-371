@@ -1,0 +1,13 @@
+simple_aws_lambda/__init__.py,sha256=91jqwa6UIinipz7S0hF5_qpjjB9MUONExbvbLt7UTys,289
+simple_aws_lambda/_version.py,sha256=kt3dZ5UqAsPl1imlTZtnS4gheh3f--WKogYVXbxKQLc,492
+simple_aws_lambda/api.py,sha256=UgCprtEyEW2BE7SO-ENPV0SIJc70iWmzea7J-k9Oeb4,345
+simple_aws_lambda/client.py,sha256=SYUL8OBTF5ThF71dDDM54B8Kkh6tu6A223KhajDy2_g,3319
+simple_aws_lambda/model.py,sha256=v6pxB1bPojNDjHUN42fzDAlA6gQpDGEwtrjUWlxDgJw,15286
+simple_aws_lambda/paths.py,sha256=JH9o7s__FexYpUMuwV7SArCUCdatooOQA1gUYtBm7UY,1226
+simple_aws_lambda/vendor/__init__.py,sha256=O9CT1B2F-cVB8elT0EoCJbgkcffjvlmqteqavs4giDg,25
+simple_aws_lambda/vendor/pytest_cov_helper.py,sha256=H2BJtFq3bwJHZtt-bxZ1yF9LnXHVDRZZ0NH-OvkRJdE,4063
+simple_aws_lambda-0.1.1.dist-info/AUTHORS.rst,sha256=oo38V9AD_y57Ac69mKmiItWquV29SRi2aTCdKQo531A,767
+simple_aws_lambda-0.1.1.dist-info/LICENSE.txt,sha256=Vc2EgX0hR-6Qw_RxS1IR-2qllqh4PiqSWFvrdnqZSDU,1084
+simple_aws_lambda-0.1.1.dist-info/METADATA,sha256=QImOk-FymgT-Z8scNvQuuOCQ4P5tqauXbZdOl6M56G0,5425
+simple_aws_lambda-0.1.1.dist-info/WHEEL,sha256=XbeZDeTWKc1w7CSIyre5aMDU_-PohRwTQceYnisIYYY,88
+simple_aws_lambda-0.1.1.dist-info/RECORD,,
