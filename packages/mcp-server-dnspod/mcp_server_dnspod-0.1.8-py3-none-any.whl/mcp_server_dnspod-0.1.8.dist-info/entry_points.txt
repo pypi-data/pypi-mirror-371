@@ -1,0 +1,2 @@
+[console_scripts]
+mcp-server-dnspod = mcp_server_dnspod:main

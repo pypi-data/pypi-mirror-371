@@ -1,0 +1,8 @@
+mcp_server_dnspod/__init__.py,sha256=EsHymIZhPyX_LEGiGe3gvAdwgCN3h6fCbo-Q_PXSgyo,177
+mcp_server_dnspod/capi_client.py,sha256=JGA55kjol4OxlCAT8WVWCd8C0QsJWb2iZ0NvFqzi8iE,1917
+mcp_server_dnspod/server.py,sha256=zN3JflanXFiUXGVXt53hmKXToIgs8ilvZHcke8c6xgY,14980
+mcp_server_dnspod/tool_dnspod.py,sha256=ryfTEbBHY-PcokghhXexuj528VHx60UwXfTPIFME9aE,5778
+mcp_server_dnspod-0.1.8.dist-info/METADATA,sha256=avGp0AHfS8KKvXwp2K2KPoIz0IXxBTKhcGiAJ8t7dBs,4215
+mcp_server_dnspod-0.1.8.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+mcp_server_dnspod-0.1.8.dist-info/entry_points.txt,sha256=MkFpc5KU25Myxi_vdf4ftidpfSiVE9ip-1UK13jTC5Q,61
+mcp_server_dnspod-0.1.8.dist-info/RECORD,,
