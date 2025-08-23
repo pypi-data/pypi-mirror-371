@@ -1,0 +1,33 @@
+Metadata-Version: 2.4
+Name: bezierv
+Version: 0.1.1
+Summary: This package serves as a computational framework for Bézier distributions.
+Author-email: Esteban Leiva <e.leivam@uniandes.edu.co>, "Andrés L. Medaglia" <amedagli@uniandes.edu.co>
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Python: <3.14,>=3.10
+License-File: LICENSE
+Requires-Dist: numpy<2,>=1.26; python_version == "3.10"
+Requires-Dist: scipy<1.16,>=1.13; python_version == "3.10"
+Requires-Dist: matplotlib<3.11,>=3.9; python_version == "3.10"
+Requires-Dist: statsmodels<0.15,>=0.14.2; python_version == "3.10"
+Requires-Dist: pyomo<7,>=6.8; python_version == "3.10"
+Requires-Dist: numpy<2.3,>=1.26; python_version == "3.11"
+Requires-Dist: scipy<1.17,>=1.13; python_version == "3.11"
+Requires-Dist: matplotlib<3.11,>=3.9; python_version == "3.11"
+Requires-Dist: statsmodels<0.15,>=0.14.2; python_version == "3.11"
+Requires-Dist: pyomo<7,>=6.8; python_version == "3.11"
+Requires-Dist: numpy<2.3,>=2.1; python_version == "3.12"
+Requires-Dist: scipy<1.17,>=1.14.1; python_version == "3.12"
+Requires-Dist: matplotlib<3.11,>=3.9; python_version == "3.12"
+Requires-Dist: statsmodels<0.15,>=0.14.2; python_version == "3.12"
+Requires-Dist: pyomo<7,>=6.8; python_version == "3.12"
+Requires-Dist: numpy<2.4,>=2.2; python_version == "3.13"
+Requires-Dist: scipy<1.17,>=1.14.1; python_version == "3.13"
+Requires-Dist: matplotlib<3.11,>=3.9; python_version == "3.13"
+Requires-Dist: statsmodels<0.15,>=0.14.2; python_version == "3.13"
+Requires-Dist: pyomo<7,>=6.8; python_version == "3.13"
+Dynamic: license-file
