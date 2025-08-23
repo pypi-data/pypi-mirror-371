@@ -1,0 +1,10 @@
+tests/test_generator.py,sha256=KwOWj8g9X3KPuzAqQdzen3J4LwvfgNnIzgrXzjh2gwg,506
+tests/test_validator.py,sha256=hN8r8EWL1HBqzyALaI6hGv074fEEgufdZGhzUJMi4GY,746
+uuid7/__init__.py,sha256=MxS4gM5KB7YrOdS3NWpaTgzp8_E0HIeVQ-r13QF0qsI,247
+uuid7/generator.py,sha256=sM7lLQRTOuxF3ywwMDBwcPDmksYXiSG8T8nz4yJ9zHM,5646
+uuid7/validator.py,sha256=B8UQ8-xRjgnWCzTBL70lxAqjCetKZaTaqgWxzDeV35Q,455
+uuidv7gen-1.0.3.dist-info/licenses/LICENSE,sha256=iqm2fqNfuIrX6pgMkVAoLYVVxVWeNt8N0sWgVFsaNp0,1067
+uuidv7gen-1.0.3.dist-info/METADATA,sha256=foZBGHOcMEKw7i-HXR4IbFvO3C8_6dykpCrLGA1mZzE,1625
+uuidv7gen-1.0.3.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+uuidv7gen-1.0.3.dist-info/top_level.txt,sha256=-EMSUDkCVmq-5QLs4Qcmn8Amt_diHB-ebDAUjgu16_E,12
+uuidv7gen-1.0.3.dist-info/RECORD,,
