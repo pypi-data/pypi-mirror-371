@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+pytty/sshshell.py
+sshc.py.egg-info/PKG-INFO
+sshc.py.egg-info/SOURCES.txt
+sshc.py.egg-info/dependency_links.txt
+sshc.py.egg-info/entry_points.txt
+sshc.py.egg-info/requires.txt
+sshc.py.egg-info/top_level.txt
