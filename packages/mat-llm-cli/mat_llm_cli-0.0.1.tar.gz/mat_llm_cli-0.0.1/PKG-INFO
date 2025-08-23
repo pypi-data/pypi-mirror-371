@@ -1,0 +1,28 @@
+Metadata-Version: 2.4
+Name: mat_llm_cli
+Version: 0.0.1
+Summary: Contains useful CLI tools to leverage LLM APIs.
+Author: Matthieu Dagommer
+Requires-Python: ~=3.10.0
+Description-Content-Type: text/markdown
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+License-File: LICENSE
+Requires-Dist: mkdocs
+Requires-Dist: pip
+Requires-Dist: pytest
+Requires-Dist: python-dotenv
+Requires-Dist: ruff
+Requires-Dist: GitPython
+Requires-Dist: openai
+Requires-Dist: pyprojroot
+Requires-Dist: typer
+
+# mat-llm-cli
+
+<a target="_blank" href="https://cookiecutter-data-science.drivendata.org/">
+    <img src="https://img.shields.io/badge/CCDS-Project%20template-328F97?logo=cookiecutter" />
+</a>
+
+Contains useful CLI tools to leverage LLM APIs.
+

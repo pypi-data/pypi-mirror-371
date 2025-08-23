@@ -1,0 +1,65 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "mat_llm_cli"
+version = "0.0.1"
+description = "Contains useful CLI tools to leverage LLM APIs."
+authors = [
+  { name = "Matthieu Dagommer" },
+]
+license = { file = "LICENSE" }
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License"
+]
+dependencies = [
+    "mkdocs",
+    "pip",
+    "pytest",
+    "python-dotenv",
+    "ruff",
+    "GitPython",
+    "openai",
+    "pyprojroot",
+    "typer",
+]
+requires-python = "~=3.10.0"
+
+[project.scripts]
+mat-llm-cli = "mat_llm_cli.cli:app"
+
+[tool.ruff]
+line-length = 99
+src = ["mat_llm_cli"]
+include = ["pyproject.toml", "mat_llm_cli/**/*.py"]
+
+[tool.ruff.lint]
+extend-select = ["I"]  # Add import sorting
+
+[tool.ruff.lint.isort]
+known-first-party = ["mat_llm_cli"]
+force-sort-within-sections = true
+
+
+[tool.vulture]
+paths = ["mat_llm_cli"]
+min_confidence = 80
+
+[tool.interrogate]
+ignore-init-method = true
+ignore-init-module = false
+ignore-magic = false
+ignore-semiprivate = false
+ignore-private = false
+ignore-property-decorators = false
+ignore-module = false
+fail-under = 100
+exclude = ["tests"]
+ignore-regex = ["^get$", "^mock_.*", ".*BaseClass.*"]
+verbose = 2
+quiet = false
+whitelist-regex = []
+color = true
