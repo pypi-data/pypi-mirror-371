@@ -1,0 +1,3 @@
+[console_scripts]
+memorg=app.cli_entry:main
+
