@@ -1,0 +1,35 @@
+[tool.poetry]
+name = "compere"
+version = "0.1.0"
+description = "An advanced comparative rating system that leverages Multi-Armed Bandit (MAB) algorithms and Elo ratings to provide fair and efficient entity comparisons."
+authors = ["Dipankar Sarkar <me@dipankar.name>"]
+readme = "README.md"
+license = "MIT"
+packages = [
+    { include = "compere" }
+]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.68.0"
+sqlalchemy = "^1.4.0"
+python-jose = "^3.3.0"
+PyJWT = "^2.3.0"
+passlib = "^1.7.4"
+python-dotenv = "^0.18.0"
+numpy = "^1.21.0"
+scikit-learn = "^1.0.0"
+uvicorn = "^0.15.0"
+click = "^8.0.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^6.2.4"
+pytest-cov = "^2.12.1"
+httpx = "^0.18.0"
+
+[tool.poetry.scripts]
+compere = "compere.cli:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

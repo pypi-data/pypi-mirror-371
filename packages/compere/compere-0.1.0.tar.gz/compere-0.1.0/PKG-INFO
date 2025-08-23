@@ -1,0 +1,317 @@
+Metadata-Version: 2.3
+Name: compere
+Version: 0.1.0
+Summary: An advanced comparative rating system that leverages Multi-Armed Bandit (MAB) algorithms and Elo ratings to provide fair and efficient entity comparisons.
+License: MIT
+Author: Dipankar Sarkar
+Author-email: me@dipankar.name
+Requires-Python: >=3.11,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: PyJWT (>=2.3.0,<3.0.0)
+Requires-Dist: click (>=8.0.0,<9.0.0)
+Requires-Dist: fastapi (>=0.68.0,<0.69.0)
+Requires-Dist: numpy (>=1.21.0,<2.0.0)
+Requires-Dist: passlib (>=1.7.4,<2.0.0)
+Requires-Dist: python-dotenv (>=0.18.0,<0.19.0)
+Requires-Dist: python-jose (>=3.3.0,<4.0.0)
+Requires-Dist: scikit-learn (>=1.0.0,<2.0.0)
+Requires-Dist: sqlalchemy (>=1.4.0,<2.0.0)
+Requires-Dist: uvicorn (>=0.15.0,<0.16.0)
+Description-Content-Type: text/markdown
+
+# Compere
+
+Compere is an advanced comparative rating system that leverages Multi-Armed Bandit (MAB) algorithms and Elo ratings to provide fair and efficient entity comparisons. It can be used both as a standalone web service and as a library in your Python projects.
+
+Whether you're building a recommendation system, a product comparison platform, or any application that requires comparative rankings, Compere provides the tools to make intelligent pairwise comparisons and maintain accurate ratings.
+
+## Key Features
+
+- **Multi-Armed Bandit (MAB) Algorithm**: Utilizes the Upper Confidence Bound (UCB) algorithm to balance exploration and exploitation in entity selection.
+- **Elo Rating System**: Implements Elo ratings for accurate and dynamic entity ranking.
+- **Cold-Start Problem Handling**: Prioritizes new entities to quickly integrate them into the comparison pool.
+- **Database Agnostic**: Works with any SQL database backend (SQLite, PostgreSQL, MySQL, etc.) with SQLite as the default.
+- **Modular Architecture**: Well-organized codebase with separate modules for different functionalities.
+- **RESTful API**: Provides a comprehensive API for entity management, comparisons, and system monitoring.
+- **Dual Usage**: Available as both a standalone web service and a Python library.
+
+## Use Cases
+
+### As a Library
+- Integrate comparative rating functionality directly into your Python applications
+- Create custom comparison workflows without running a separate service
+- Use in Jupyter notebooks for data analysis and research
+- Build batch processing systems for large-scale comparisons
+
+### As a Standalone Service
+- Deploy as a web API for distributed applications
+- Create web interfaces for human evaluators to make comparisons
+- Build multi-user comparison platforms
+- Integrate with frontend applications through RESTful endpoints
+
+## Tech Stack
+
+- **Backend**: FastAPI (Python)
+- **Database**: SQLAlchemy ORM (compatible with various SQL databases)
+- **Task Scheduling**: FastAPI built-in background tasks and repeat_every decorator
+
+## Installation
+
+Install Compere using pip:
+
+```bash
+pip install compere
+```
+
+## Usage
+
+Compere can be used in two ways: as a library integrated into your Python projects, or as a standalone web service.
+
+### As a Library
+
+You can use Compere as a library in your Python projects. Here's a complete example:
+
+```python
+import os
+import sys
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+
+from compere.modules.database import Base
+from compere.modules.models import EntityCreate, ComparisonCreate
+from compere.modules.entity import create_entity
+from compere.modules.comparison import create_comparison
+from compere.modules.rating import get_ratings
+from compere.modules.mab import get_next_comparison
+
+# Use an in-memory SQLite database for this example
+SQLALCHEMY_DATABASE_URL = "sqlite:///:memory:"
+engine = create_engine(SQLALCHEMY_DATABASE_URL)
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+
+# Create tables
+Base.metadata.create_all(bind=engine)
+
+# Create a database session
+db = SessionLocal()
+
+try:
+    # Create some sample entities
+    entity1_data = EntityCreate(
+        name="Restaurant A",
+        description="A fine dining restaurant with excellent service",
+        image_urls=["http://example.com/restaurant_a.jpg"]
+    )
+    entity1 = create_entity(entity1_data, db)
+    
+    entity2_data = EntityCreate(
+        name="Restaurant B",
+        description="A casual dining spot with great ambiance",
+        image_urls=["http://example.com/restaurant_b.jpg"]
+    )
+    entity2 = create_entity(entity2_data, db)
+    
+    # Perform a comparison
+    comparison_data = ComparisonCreate(
+        entity1_id=entity1.id,
+        entity2_id=entity2.id,
+        selected_entity_id=entity1.id
+    )
+    comparison = create_comparison(comparison_data, db)
+    
+    # Show updated ratings
+    ratings = get_ratings(db)
+    for entity in ratings:
+        print(f"{entity.name}: {entity.rating:.2f}")
+        
+finally:
+    db.close()
+```
+
+This approach is ideal when you want to integrate Compere's functionality directly into your application without running a separate service.
+
+### As a Standalone Web Service
+
+Run Compere as a standalone web service using the CLI:
+
+```bash
+compere --host 127.0.0.1 --port 8000
+```
+
+For development with auto-reload:
+
+```bash
+compere --host 127.0.0.1 --port 8000 --reload
+```
+
+Once running, you can access:
+- The API documentation at `http://localhost:8000/docs`
+- The main application endpoints for managing entities, comparisons, and ratings
+
+### Database Configuration
+
+Compere supports any SQL database backend. By default, it uses SQLite.
+
+#### For Library Usage
+When using Compere as a library, you can configure the database directly in your code:
+
+```python
+# For PostgreSQL
+SQLALCHEMY_DATABASE_URL = "postgresql://user:password@localhost/dbname"
+
+# For MySQL
+SQLALCHEMY_DATABASE_URL = "mysql://user:password@localhost/dbname"
+
+# For SQLite (default)
+SQLALCHEMY_DATABASE_URL = "sqlite:///./compere.db"
+
+engine = create_engine(SQLALCHEMY_DATABASE_URL)
+```
+
+#### For Standalone Service
+When running Compere as a standalone service, set the `DATABASE_URL` environment variable:
+
+```bash
+# For PostgreSQL
+export DATABASE_URL=postgresql://user:password@localhost/dbname
+
+# For MySQL
+export DATABASE_URL=mysql://user:password@localhost/dbname
+
+# For SQLite (default)
+export DATABASE_URL=sqlite:///./compere.db
+```
+
+### API Endpoints
+
+When running as a standalone service, Compere provides the following RESTful API endpoints:
+
+- `POST /entities/`: Create a new entity
+- `GET /entities/{entity_id}`: Get an entity by ID
+- `POST /comparisons/`: Create a new comparison
+- `GET /comparisons/next`: Get the next pair of entities to compare
+- `GET /ratings`: Get all entities ordered by rating
+- `GET /similar_entities`: Get similar entities
+- `GET /mab/next_comparison`: Get the next comparison from the MAB algorithm
+
+For a complete list of endpoints and their usage, visit the Swagger UI at `http://localhost:8000/docs` when the application is running.
+
+### Making a Comparison
+
+When using the standalone service, you can make comparisons through the API:
+
+1. Create entities:
+   ```bash
+   POST /entities/
+   {
+     "name": "Restaurant A",
+     "description": "A fine dining restaurant",
+     "image_urls": ["http://example.com/a.jpg"]
+   }
+   ```
+
+2. Get the next pair of entities to compare:
+   ```bash
+   GET /comparisons/next
+   ```
+
+3. Submit a comparison:
+   ```bash
+   POST /comparisons/
+   {
+     "entity1_id": 1,
+     "entity2_id": 2,
+     "selected_entity_id": 1
+   }
+   ```
+
+4. The system will automatically update the MAB state and Elo ratings based on the comparison.
+
+When using Compere as a library, you can make comparisons directly through function calls as shown in the library usage example above.
+
+## Development Setup
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/compere.git
+   cd compere
+   ```
+
+2. Set up a virtual environment:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+   ```
+
+3. Install dependencies:
+   ```bash
+   pip install -e .
+   ```
+
+4. Set up environment variables (optional):
+   Create a `.env` file in the root directory and add the following:
+   ```
+   DATABASE_URL=sqlite:///./compere.db
+   ```
+
+5. Run the application as a standalone service:
+   ```bash
+   compere --reload
+   ```
+
+The API will be available at `http://localhost:8000`.
+
+### Using as a Library
+
+To use Compere as a library in your own projects, simply install it from PyPI:
+```bash
+pip install compere
+```
+
+Then import and use the modules directly in your Python code:
+```python
+from compere.modules.entity import create_entity
+from compere.modules.comparison import create_comparison
+from compere.modules.rating import get_ratings
+```
+
+## Running Tests
+
+To run the tests, use pytest:
+
+```bash
+# Run all tests
+pytest
+
+# Run a specific test file
+pytest tests/test_compere.py
+
+# Run tests with coverage
+pytest --cov=compere
+```
+
+## Contributing
+
+Contributions to Compere are welcome! Please follow these steps:
+
+1. Fork the repository
+2. Create a new branch: `git checkout -b feature-branch-name`
+3. Make your changes and commit them: `git commit -m 'Add some feature'`
+4. Push to the branch: `git push origin feature-branch-name`
+5. Submit a pull request
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- The Elo rating system, developed by Arpad Elo
+- The Multi-Armed Bandit algorithm and its applications in decision making
+- The FastAPI framework and its community
+
+For any questions or support, please open an issue in the GitHub repository.

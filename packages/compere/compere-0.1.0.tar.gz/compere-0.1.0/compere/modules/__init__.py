@@ -1,0 +1,1 @@
+"""Modules for the Compere comparative rating system."""
