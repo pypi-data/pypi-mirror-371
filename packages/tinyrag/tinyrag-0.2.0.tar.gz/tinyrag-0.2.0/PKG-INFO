@@ -1,0 +1,334 @@
+Metadata-Version: 2.4
+Name: tinyrag
+Version: 0.2.0
+Summary: A minimal Python library for Retrieval-Augmented Generation with multiple vector store backends
+Home-page: https://github.com/Kenosis01/TinyRag
+Author: TinyRag Team
+Author-email: TinyRag Team <contact@tinyrag.dev>
+Maintainer-email: TinyRag Team <contact@tinyrag.dev>
+License: MIT
+Project-URL: Homepage, https://github.com/Kenosis01/TinyRag
+Project-URL: Documentation, https://github.com/Kenosis01/TinyRag#readme
+Project-URL: Repository, https://github.com/Kenosis01/TinyRag.git
+Project-URL: Bug Tracker, https://github.com/Kenosis01/TinyRag/issues
+Project-URL: Changelog, https://github.com/Kenosis01/TinyRag/blob/main/CHANGELOG.md
+Keywords: rag,retrieval,augmented,generation,vector,database,embeddings,similarity,search,nlp,ai,machine-learning
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Text Processing :: Linguistic
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: sentence-transformers
+Requires-Dist: requests
+Requires-Dist: numpy
+Requires-Dist: faiss-cpu
+Requires-Dist: scikit-learn
+Requires-Dist: chromadb
+Requires-Dist: PyPDF2
+Requires-Dist: python-docx
+Provides-Extra: faiss
+Requires-Dist: faiss-cpu>=1.7.0; extra == "faiss"
+Provides-Extra: chroma
+Requires-Dist: chromadb>=0.4.0; extra == "chroma"
+Provides-Extra: pickle
+Requires-Dist: scikit-learn>=1.0.0; extra == "pickle"
+Provides-Extra: docs
+Requires-Dist: PyPDF2>=3.0.0; extra == "docs"
+Requires-Dist: python-docx>=0.8.11; extra == "docs"
+Provides-Extra: all
+Requires-Dist: faiss-cpu>=1.7.0; extra == "all"
+Requires-Dist: chromadb>=0.4.0; extra == "all"
+Requires-Dist: scikit-learn>=1.0.0; extra == "all"
+Requires-Dist: PyPDF2>=3.0.0; extra == "all"
+Requires-Dist: python-docx>=0.8.11; extra == "all"
+Provides-Extra: dev
+Requires-Dist: pytest>=6.0; extra == "dev"
+Requires-Dist: pytest-cov>=2.0; extra == "dev"
+Requires-Dist: black>=21.0; extra == "dev"
+Requires-Dist: flake8>=3.8; extra == "dev"
+Requires-Dist: mypy>=0.910; extra == "dev"
+Requires-Dist: twine>=3.0; extra == "dev"
+Requires-Dist: build>=0.7; extra == "dev"
+Dynamic: author
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-python
+
+# TinyRag 🚀
+
+[![PyPI version](https://badge.fury.io/py/tinyrag.svg)](https://badge.fury.io/py/tinyrag)
+[![Python 3.7+](https://img.shields.io/badge/python-3.7+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+A minimal, powerful Python library for **Retrieval-Augmented Generation (RAG)** with support for multiple document formats and vector storage backends.
+
+## 🌟 Features
+
+- **🔌 Multiple Vector Stores**: Faiss, ChromaDB, In-Memory, Pickle-based
+- **📄 Document Support**: PDF, DOCX, TXT, and raw text
+- **🧠 Default Embeddings**: Uses all-MiniLM-L6-v2 by default (no API key needed)
+- **🚀 Multithreading Support**: Parallel document processing for faster indexing
+- **🔍 Query Without LLM**: Direct similarity search functionality
+- **💬 Optional LLM Integration**: Chat completion with retrieved context
+- **⚡ Minimal Setup**: Works out of the box without configuration
+- **🎯 Easy to Use**: Simple API with powerful features
+
+## 🚀 Quick Start
+
+### Installation
+
+```bash
+# Basic installation
+pip install tinyrag
+
+# With all optional dependencies
+pip install tinyrag[all]
+
+# Specific vector stores
+pip install tinyrag[faiss]    # High performance
+pip install tinyrag[chroma]   # Persistent storage
+pip install tinyrag[docs]     # Document processing
+```
+
+### Usage Examples
+
+#### Basic Usage (No API Key Required)
+```python
+from tinyrag import TinyRag
+
+# Initialize with default all-MiniLM-L6-v2 embeddings
+rag = TinyRag()
+
+# Add multiple documents with multithreading
+rag.add_documents([
+    "path/to/doc1.pdf",
+    "path/to/doc2.txt", 
+    "Raw text content here"
+])
+
+# Query without LLM
+results = rag.query("What is this about?")
+print("Similar chunks:", results)
+```
+
+#### With LLM for Chat
+```python
+from tinyrag import Provider, TinyRag
+
+provider = Provider(
+    api_key="sk-xxxxxx",
+    model="gpt-4",
+    embedding_model="default",
+    base_url="https://api.openai.com/v1"
+)
+
+rag = TinyRag(provider=provider, vector_store="faiss", max_workers=4)
+
+rag.add_documents([
+    "path/to/docs_or_raw_text",
+    "Another document", 
+    "More content"
+])
+
+response = rag.chat("Summarize the documents.")
+print(response)
+```
+
+## 📖 Documentation
+
+### Core Components
+
+#### Provider Class
+Handles API interactions and embeddings:
+
+```python
+from tinyrag import Provider
+
+# Local embeddings only (no API key needed)
+provider = Provider(embedding_model="default")
+
+# With OpenAI API
+provider = Provider(
+    api_key="sk-your-key",
+    model="gpt-4",
+    embedding_model="text-embedding-ada-002",
+    base_url="https://api.openai.com/v1"
+)
+```
+
+#### TinyRag Class
+Main interface for RAG operations:
+
+```python
+from tinyrag import TinyRag
+
+# Initialize with different vector stores
+rag = TinyRag(provider, vector_store="memory")     # No dependencies
+rag = TinyRag(provider, vector_store="faiss")      # High performance  
+rag = TinyRag(provider, vector_store="chroma")     # Persistent
+rag = TinyRag(provider, vector_store="pickle")     # Simple file-based
+```
+
+### Vector Store Comparison
+
+| Store | Performance | Persistence | Memory | Dependencies | Best For |
+|-------|-------------|-------------|---------|--------------|----------|
+| **Memory** | Good | Manual | High | None | Development, small datasets |
+| **Faiss** | Excellent | Manual | Low | faiss-cpu | Large-scale, performance-critical |
+| **ChromaDB** | Good | Automatic | Medium | chromadb | Production, automatic persistence |
+| **Pickle** | Fair | Manual | Medium | scikit-learn | Simple file-based storage |
+
+### API Reference
+
+#### Core Methods
+
+```python
+# Document Management
+rag.add_documents(data)                    # Add documents/text
+rag.get_chunk_count()                      # Get number of chunks
+rag.get_all_chunks()                       # Get all text chunks
+rag.clear_documents()                      # Clear all data
+
+# Querying (No LLM)
+rag.query(query, k=5, return_scores=True) # Basic similarity search
+rag.search_documents(query, k=5, min_score=0.0) # With score filtering
+rag.get_similar_chunks(text, k=5)         # Find similar to given text
+
+# LLM Integration
+rag.chat(query, k=3)                      # Generate response with context
+
+# Persistence
+rag.save_vector_store(filepath)           # Save to disk
+rag.load_vector_store(filepath)           # Load from disk
+```
+
+
+## 🔧 Configuration Options
+
+### Vector Store Configuration
+
+```python
+# Faiss with custom settings
+rag = TinyRag(
+    provider=provider,
+    vector_store="faiss",
+    chunk_size=1000,  # Larger chunks
+    vector_store_config={}
+)
+
+# ChromaDB with persistence
+rag = TinyRag(
+    provider=provider,
+    vector_store="chroma", 
+    vector_store_config={
+        "collection_name": "my_collection",
+        "persist_directory": "./chroma_db"
+    }
+)
+
+# Memory store (no config needed)
+rag = TinyRag(provider=provider, vector_store="memory")
+
+# Pickle store with scikit-learn
+rag = TinyRag(provider=provider, vector_store="pickle")
+```
+
+### Provider Configuration
+
+```python
+# Local embeddings only
+provider = Provider(embedding_model="default")
+
+# OpenAI with custom settings
+provider = Provider(
+    api_key="sk-your-key",
+    model="gpt-3.5-turbo",
+    embedding_model="text-embedding-ada-002",
+    base_url="https://api.openai.com/v1"
+)
+
+# Custom API endpoint
+provider = Provider(
+    api_key="your-key",
+    model="custom-model",
+    base_url="https://your-custom-api.com/v1"
+)
+```
+
+## 📦 Installation Options
+
+```bash
+# Minimal installation
+pip install tinyrag
+
+# With specific vector stores
+pip install tinyrag[faiss]      # For high-performance similarity search
+pip install tinyrag[chroma]     # For persistent vector database
+pip install tinyrag[pickle]     # For simple file-based storage
+
+# With document processing
+pip install tinyrag[docs]       # PDF and DOCX support
+
+# Everything included
+pip install tinyrag[all]        # All optional dependencies
+```
+
+## 🛠️ Development
+
+### Requirements
+
+- Python 3.7+
+- sentence-transformers (core)
+- requests (core)
+- numpy (core)
+
+### Optional Dependencies
+
+- `faiss-cpu`: High-performance vector search
+- `chromadb`: Persistent vector database
+- `scikit-learn`: Pickle vector store similarity
+- `PyPDF2`: PDF document processing
+- `python-docx`: Word document processing
+
+### Contributing
+
+1. Fork the repository: https://github.com/Kenosis01/TinyRag.git
+2. Create a feature branch: `git checkout -b feature-name`
+3. Make your changes and add tests
+4. Submit a pull request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🤝 Support
+
+- **GitHub Issues**: [Report bugs or request features](https://github.com/Kenosis01/TinyRag/issues)
+- **Documentation**: [Full documentation](https://github.com/Kenosis01/TinyRag)
+- **Examples**: Check the `examples/` directory in the repository
+
+## 🎯 Use Cases
+
+- **Document Q&A**: Query your documents without LLM costs
+- **Knowledge Base**: Build searchable knowledge repositories  
+- **Content Discovery**: Find similar content in large document collections
+- **RAG Applications**: Full retrieval-augmented generation workflows
+- **Research Tools**: Semantic search through research papers
+- **Customer Support**: Query company documentation and policies
+
+---
+
+**TinyRag** - Making RAG simple, powerful, and accessible! 🚀
