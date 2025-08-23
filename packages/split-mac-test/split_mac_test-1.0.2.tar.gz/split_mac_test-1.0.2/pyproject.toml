@@ -1,0 +1,34 @@
+[project]
+name = "split-mac-test"
+version = "1.0.2"
+description = "MCP Server for macOS Split Screen Window Management via Native APIs"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [
+    {name = "Beta"}
+]
+license = {file = "LICENSE"}
+keywords = ["mcp", "split-screen", "window-management", "tiling", "macos", "pyobjc", "quartz", "appkit"]
+dependencies = [
+    "mcp>=0.1.0",
+    "pyobjc-framework-cocoa>=9.0"
+]
+
+[project.scripts]
+split-mac-test = "split_mac_test.__main__:main"
+split-mac-test-mcp = "split_mac_test.__main__:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/split_mac_test"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/src/split_mac_test/**/*.py",
+    "/README.md",
+    "/LICENSE",
+    "/pyproject.toml"
+]
