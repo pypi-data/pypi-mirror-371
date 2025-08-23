@@ -1,0 +1,174 @@
+Metadata-Version: 2.4
+Name: split-screen-macOS-test-copy
+Version: 0.1.1
+Summary: Model Context Protocol Server for macOS Window Management and Split-Screen Operations
+Author: Beta
+Maintainer: Beta
+License: MIT License
+        
+        Copyright (c) 2024 Beta
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+License-File: LICENSE
+Keywords: accessibility,macos,mcp,model-context-protocol,split-screen,window-management
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: MacOS
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Desktop Environment :: Window Managers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: System :: Systems Administration
+Requires-Python: >=3.9
+Requires-Dist: mcp>=0.1.0
+Requires-Dist: pyobjc-framework-cocoa>=9.0
+Requires-Dist: pyobjc-framework-quartz>=9.0
+Description-Content-Type: text/markdown
+
+# Split Screen macOS Test Copy MCP
+
+A Model Context Protocol (MCP) server that provides macOS window management and split-screen operations through accessibility APIs.
+
+## Features
+
+- **Window Positioning**: Move windows to halves, thirds, quarters, and custom regions
+- **Smart Screen Detection**: Automatically detects which screen the active window is on
+- **Accessibility Integration**: Uses macOS native accessibility APIs for reliable window manipulation
+- **Fallback Mechanisms**: Multiple fallback strategies for different PyObjC builds and macOS versions
+- **Error Handling**: Comprehensive error handling with meaningful feedback
+
+## Installation
+
+### From PyPI
+```bash
+pip install split-screen-macOS-test-copy
+```
+
+### Development Installation
+```bash
+git clone <repository-url>
+cd split-screen-macOS-test-copy
+pip install -e .
+```
+
+## Configuration
+
+Add the following to your MCP client configuration:
+
+```json
+{
+  "mcpServers": {
+    "Split Screen macOS": {
+      "command": "uvx",
+      "args": ["split-screen-macOS-test-copy"],
+      "env": {}
+    }
+  }
+}
+```
+
+## Available Tools
+
+### Window Positioning
+
+#### Halves
+- `move-window-left-half` - Move active window to left half of screen
+- `move-window-right-half` - Move active window to right half of screen
+- `move-window-top-half` - Move active window to top half of screen
+- `move-window-bottom-half` - Move active window to bottom half of screen
+
+#### Thirds
+- `move-window-left-third` - Move active window to left third of screen
+- `move-window-middle-third` - Move active window to middle third of screen
+- `move-window-right-third` - Move active window to right third of screen
+
+#### Two-Thirds
+- `move-window-left-two-thirds` - Move active window to left two-thirds of screen
+- `move-window-right-two-thirds` - Move active window to right two-thirds of screen
+
+#### Quarters
+- `move-window-top-left-quarter` - Move active window to top-left quarter
+- `move-window-top-right-quarter` - Move active window to top-right quarter
+- `move-window-bottom-left-quarter` - Move active window to bottom-left quarter
+- `move-window-bottom-right-quarter` - Move active window to bottom-right quarter
+
+### Special Operations
+- `move-window-maximize` - Maximize window to fill entire screen (excluding Dock and menu bar)
+- `window-fullscreen` - Toggle fullscreen mode for active window
+- `window-minimize` - Minimize the active window
+
+## Usage
+
+### Command Line
+```bash
+split-screen-macOS-test-copy
+```
+
+### As MCP Server
+The server runs over stdio and can be integrated with any MCP-compatible client.
+
+## Technical Details
+
+### Architecture
+- **FastMCP Framework**: Built on the MCP FastMCP server framework
+- **Accessibility APIs**: Uses macOS Quartz.Accessibility or ApplicationServices fallback
+- **Screen Geometry**: Calculates screen dimensions dynamically when needed
+- **Window Detection**: Automatically finds the frontmost application and focused window
+
+### Dependencies
+- Python 3.9+
+- `mcp>=0.1.0` - Model Context Protocol framework
+- `pyobjc-framework-Cocoa>=9.0` - macOS Cocoa framework bindings
+- `pyobjc-framework-Quartz>=9.0` - macOS Quartz framework bindings
+
+### Compatibility
+- **macOS**: 10.9+ (Mavericks and later)
+- **Python**: 3.9, 3.10, 3.11, 3.12
+- **Architecture**: Intel and Apple Silicon (Universal Binary)
+
+## Requirements
+
+- macOS operating system
+- Python 3.9+
+- Accessibility permissions enabled for the terminal/IDE running the server
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## Troubleshooting
+
+### Common Issues
+
+1. **"Permission denied" errors**: Ensure Accessibility permissions are enabled in System Preferences > Security & Privacy > Privacy > Accessibility
+
+2. **Import errors**: Make sure PyObjC frameworks are properly installed: `pip install pyobjc-framework-Cocoa pyobjc-framework-Quartz`
+
+3. **Window not moving**: Some applications may have restrictions on window positioning. Try with a standard application first.
+
+### Debug Mode
+The server provides detailed error messages for troubleshooting window management operations.
