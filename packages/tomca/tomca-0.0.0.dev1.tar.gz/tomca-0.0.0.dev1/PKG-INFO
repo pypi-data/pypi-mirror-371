@@ -1,0 +1,186 @@
+Metadata-Version: 2.4
+Name: tomca
+Version: 0.0.0.dev1
+Summary: TOMCA (Tissue Optics Monte Carlo Analysis) is a TNO package written for Monte Carlo analysis of light through tissues and scattering media based on the MCX package.  TOMCA helps organize shared functions between projects and aims to make research, simulation, and analysis easier.
+Home-page: https://ci.tno.nl/gitlab/tissue-optics/mcx
+Author: Sadok Jbenyeni
+Author-email: sadok.jbenyeni@tno.nl
+Project-URL: Documentation, https://tissue-optics.ci.tno.nl/mcx/
+Project-URL: Repository, https://ci.tno.nl/gitlab/tissue-optics/mcx
+Project-URL: Issues, https://ci.tno.nl/gitlab/tissue-optics/mcx/-/issues
+Keywords: Development
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Description-Content-Type: text/markdown
+Requires-Dist: asttokens==2.2.1
+Requires-Dist: autopep8==2.0.1
+Requires-Dist: backcall==0.2.0
+Requires-Dist: botorch==0.10.0
+Requires-Dist: colorama==0.4.6
+Requires-Dist: comm==0.1.2
+Requires-Dist: contourpy==1.0.7
+Requires-Dist: cycler==0.11.0
+Requires-Dist: dataclasses-json==0.5.7
+Requires-Dist: debugpy==1.6.6
+Requires-Dist: decorator==5.1.1
+Requires-Dist: entrypoints==0.4
+Requires-Dist: executing==1.2.0
+Requires-Dist: fonttools==4.38.0
+Requires-Dist: ipykernel==6.20.2
+Requires-Dist: ipython==8.8.0
+Requires-Dist: jdata==0.5.2
+Requires-Dist: jedi==0.18.2
+Requires-Dist: jupyterlab==4.1.2
+Requires-Dist: kiwisolver==1.4.4
+Requires-Dist: lightgbm==4.3.0
+Requires-Dist: marshmallow==3.19.0
+Requires-Dist: marshmallow-enum==1.5.1
+Requires-Dist: matplotlib==3.6.3
+Requires-Dist: matplotlib-inline==0.1.6
+Requires-Dist: mypy-extensions==1.0.0
+Requires-Dist: nest-asyncio==1.5.6
+Requires-Dist: numpy==1.24.1
+Requires-Dist: setuptools
+Requires-Dist: packaging==23.0
+Requires-Dist: pandas==1.5.3
+Requires-Dist: parso==0.8.3
+Requires-Dist: path
+Requires-Dist: pathlib==1.0.1
+Requires-Dist: pickleshare==0.7.5
+Requires-Dist: Pillow==9.4.0
+Requires-Dist: platformdirs==2.6.2
+Requires-Dist: pmcx
+Requires-Dist: prompt-toolkit==3.0.36
+Requires-Dist: psutil==5.9.4
+Requires-Dist: pure-eval==0.2.2
+Requires-Dist: pycodestyle==2.10.0
+Requires-Dist: pydantic==2.6
+Requires-Dist: Pygments==2.14.0
+Requires-Dist: pyparsing==3.0.9
+Requires-Dist: python-dateutil==2.8.2
+Requires-Dist: pytz==2022.7.1
+Requires-Dist: pyzmq
+Requires-Dist: scipy
+Requires-Dist: six==1.16.0
+Requires-Dist: stack-data==0.6.2
+Requires-Dist: tomli==2.0.1
+Requires-Dist: tornado==6.2
+Requires-Dist: traitlets==5.8.1
+Requires-Dist: typing-inspect==0.8.0
+Requires-Dist: typing_extensions>=4.4.0
+Requires-Dist: wcwidth==0.2.6
+Requires-Dist: tqdm
+Requires-Dist: tabulate
+Requires-Dist: oct2py
+Requires-Dist: offloader==6.0.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: project-url
+Dynamic: requires-dist
+Dynamic: summary
+
+<!--- 
+\mainpage TOMCA test
+-->
+
+# TOMCA Brain
+
+Tissue Optics Monte Carlo Analysis, TNO's custom MCX package
+
+
+## Useful Links
+-   [🌐 TOMCA GitLab Website](https://ci.tno.nl/gitlab/tissue-optics/mcx)
+-   [🔆 TOMCA Package Documentation](https://tissue-optics.ci.tno.nl/mcx)
+-   [🏛 TOMCA Literature Resources](https://tissue-optics.ci.tno.nl/mcx/TOMCAReferenceandResourceManagement.html)
+-   [👩‍💻 TOMCA tmcx Package Documentation](https://tissue-optics.ci.tno.nl/mcx/namespacetmcx.html)
+
+## Table of Contents
+
+  * [Introduction](#introduction)
+  * [Requirements and Installation](#requirements-and-installation)
+  * [Running Simulations](#running-simulations)
+  * [Using JSON-formatted input files](#using-json-formatted-input-files)
+  * [User list](#user-list)
+
+<a name="introduction"></a>
+## Introduction
+
+\b TOMCA (Tissue Optics Monte Carlo Analysis) is a TNO package written for Monte Carlo analysis of light through tissues and scattering media based on the MCX package.  TOMCA helps organize shared functions between projects and aims to make research, simulation, and analysis easier.
+
+Monte Carlo eXtreme (MCX) is a fast physically-accurate photon simulation software for 3D heterogeneous complex media. By taking advantage of the massively parallel threads and extremely low memory latency in a modern graphics processing unit (GPU), this program is able to perform Monte Carlo (MC) simulations at a blazing speed, typically hundreds to a thousand times faster than a single-threaded CPU-based MC implementation.
+
+See the full readme for mcx at: 
+
+- [MCX.space](https://mcx.space)
+  - [MCX parameters list](https://mcx.space/wiki/index.cgi?Options)
+
+The algorithm of this software is detailed in the References \cite Yan2020 , \cite Fang_2009 , \cite Yu2018.
+
+<a name="requirements-and-installation"></a>
+## Requirements and Installation
+- [Software setup](https://tissue-optics.ci.tno.nl/mcx/softwareSetup.html)
+- [Git Repo login](https://tissue-optics.ci.tno.nl/mcx/gitRepoUsage.html)
+- [Installing Doxygen and TeX, compiling documentation](https://tissue-optics.ci.tno.nl/mcx/compilingDoxygen.html)
+
+<a name="running-simulations"></a>
+## Running Simulations
+
+(To be added)
+
+<a name="using-json-formatted-input-files"></a>
+## Using JSON-formatted input files
+
+Our model files and jcfg dict in code are based on the mcx JSON structure used in the .exe version of the scripts.  This was chosen so that our code is always backwards compatible with the NEU group.  See their documentation for the exact specifications on inputs (link)
+
+Please also browse this interactive [Jupyter Notebook based MCXLAB tutorial](https://colab.research.google.com/github/fangq/mcx/blob/master/mcxlab/tutorials/mcxlab_getting_started.ipynb)
+to see a suite of examples showing the key functionalities of MCXLAB (using GNU Octave).
+
+
+## Using PMCX in Python
+
+We have based our code on the python binding of MCX called PMCX. 
+
+Please read the `pmcx/README.txt` file for more details on how to install and 
+use PMCX.
+
+Please also browse this interactive [Jupyter Notebook based PMCX tutorial](https://colab.research.google.com/github/fangq/mcx/blob/master/pmcx/tutorials/pmcx_getting_started.ipynb)
+to see a suite of examples showing the key functionalities of PMCX.
+
+<a name="user-list"></a>
+## User list
+**TOMCA users**
+* Vincent Zoutenbier* (2022 - Present) 
+      - Lead developer of TMCX package, contact with questions
+* Sadok Jbenyeni (2025 - Present)
+* Amerens Bekkers (2024 - Present)
+* Margherita Vaselli (2024 - Present)
+* Tijmen van Ree (2024 - Present)
+* Arjen Amelink ( - )
+* Bastiaan Florijn ( - 2022)
+* Man Xu ( - X)
+
+**Auxillary work by:**
+* Thijs van der Knaap, TNO ACE
+      - Integration of TNO's [Offloader](https://codingguild.tno.nl/coding-at-tno/tno-offloader/?h=offloader) (2024)
+* Frank Wessels, Sioux 
+      - Framework for ML (2024)
+* Panagiotis Meletis, Sioux 
+    - AI algorithms for determination of biomarker sensitivity in:
+      - Bilihome: Extracting bilirubine concentration from infant skin model (2023)
+      - ERP Determine: Extracting blood O2 saturation from skin model (2023)
+
+**Other known MCX users:**
+* Gijs Buist (Vrije U., Amsterdam 2021 - Present)
+
+*Note: This page should use markdown syntax to parse properly on the GitLab main page.*

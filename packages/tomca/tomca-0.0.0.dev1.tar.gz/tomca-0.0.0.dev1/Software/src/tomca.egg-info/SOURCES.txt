@@ -1,0 +1,12 @@
+README.md
+setup.py
+Software/src/tomca.egg-info/PKG-INFO
+Software/src/tomca.egg-info/SOURCES.txt
+Software/src/tomca.egg-info/dependency_links.txt
+Software/src/tomca.egg-info/requires.txt
+Software/src/tomca.egg-info/top_level.txt
+Software/src/tomca.egg-info/PKG-INFO
+Software/src/tomca.egg-info/SOURCES.txt
+Software/src/tomca.egg-info/dependency_links.txt
+Software/src/tomca.egg-info/requires.txt
+Software/src/tomca.egg-info/top_level.txt
