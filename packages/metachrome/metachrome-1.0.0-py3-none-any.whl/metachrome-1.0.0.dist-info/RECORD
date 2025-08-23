@@ -1,0 +1,11 @@
+metachrome/__init__.py,sha256=gza51-Fk2rSnWJ3xr6pDgx8fXoiTOcjBJW0QgLXCLw0,994
+metachrome/batch_processor.py,sha256=JQJQJ5UJcbiov8ud-RGu9K2p3suIih0XlUnRWDTkLEw,3364
+metachrome/image_processor.py,sha256=Ufxk_-7Sqk0o9Np1NzJQu-2XEdkQ4HMlHh5MgInngz4,49916
+metachrome/main.py,sha256=uGsT7IFD_-KWiIkNCslHXOw7OJ3vclCLRNnnNNQYruY,91822
+metachrome/segmentation_postprocessing.py,sha256=NMOMvl9bsYrRGOsVIbn6r2ocsbyutI1pUAFtRPqrzo4,13978
+metachrome-1.0.0.dist-info/licenses/LICENSE,sha256=42EMgeNtRqXs-INVf5MzS3scM_KSaZ2IAI6Ix3ORrNA,1098
+metachrome-1.0.0.dist-info/METADATA,sha256=oa7CFDrWnlSWg6N2ceZHUSuVeulkmtvDyXLUhkoLIQ0,6154
+metachrome-1.0.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+metachrome-1.0.0.dist-info/entry_points.txt,sha256=rzFNbzs_gCUGzhCgBjszct4PtOXq-4JU56vceoLPbWs,52
+metachrome-1.0.0.dist-info/top_level.txt,sha256=sVGf2qKY72KsHv9ni-0yaSmwNSJEx7f0JcfH8LU88UE,11
+metachrome-1.0.0.dist-info/RECORD,,
