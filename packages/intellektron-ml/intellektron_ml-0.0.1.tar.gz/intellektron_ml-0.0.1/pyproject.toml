@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=65", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "intellektron-ml"
+version = "0.0.1"
+authors = [
+  { name = "Kaustav", email = "kaustavcodes@gmail.com" },
+]
+description = "An educational package for machine learning fundamentals by Intellektron."
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.8"
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Intended Audience :: Education",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+[project.urls]
+Homepage = "https://github.com/commandantekaustav/intellektron-ml"
+"Bug Tracker" = "https://github.com/commandantekaustav/intellektron-ml/issues"
