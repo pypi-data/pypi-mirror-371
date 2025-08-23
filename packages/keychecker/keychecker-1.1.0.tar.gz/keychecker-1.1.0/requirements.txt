@@ -1,0 +1,14 @@
+# Core dependencies
+cryptography>=45.0.6
+asyncssh>=2.21.0
+
+# Optional dependencies for enhanced features
+aiohttp>=3.12.15  # For GitHub API integration
+tqdm>=4.67.1  # For progress bars
+
+# Development dependencies (optional)
+pytest>=8.4.1
+pytest-asyncio>=1.1.0
+black>=25.1.0
+flake8>=7.3.0
+mypy>=1.17.1
