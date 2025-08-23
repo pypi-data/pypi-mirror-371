@@ -1,0 +1,20 @@
+[project]
+name = "fastapi-start-project"
+version = "0.0.8"
+description = "Interactive FastAPI project generator with templates, Docker, and more."
+authors = [{ name = "Edier", email = "edierguerra55@gmail.com" }]
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "rich",
+    "questionary",
+    "typer",
+    "fastapi"
+]
+
+[project.scripts]
+fastapi-start-project = "fastapi_start_project.cli:app"
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
