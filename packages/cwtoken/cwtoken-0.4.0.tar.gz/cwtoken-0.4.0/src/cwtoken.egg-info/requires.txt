@@ -1,0 +1,6 @@
+pandas
+requests
+click
+dotenv
+pathlib
+urlencode
