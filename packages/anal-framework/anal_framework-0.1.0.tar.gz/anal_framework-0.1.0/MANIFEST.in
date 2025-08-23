@@ -1,0 +1,9 @@
+include README.md
+include LICENSE
+include pyproject.toml
+recursive-include anal *.py
+recursive-include anal/templates *
+recursive-include anal/static *
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
+recursive-exclude * .DS_Store

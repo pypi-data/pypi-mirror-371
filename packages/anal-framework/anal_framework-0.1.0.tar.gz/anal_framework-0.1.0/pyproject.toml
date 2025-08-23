@@ -1,0 +1,175 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "anal-framework"
+version = "0.1.0"
+description = "Advanced Network Application Layer - A modern Python backend framework"
+readme = "README.md"
+license = "MIT"
+authors = [
+    {name = "ANAL Framework Team", email = "team@analframework.org"},
+]
+maintainers = [
+    {name = "ANAL Framework Team", email = "team@analframework.org"},
+]
+keywords = ["web", "framework", "backend", "api", "async", "orm", "rest", "graphql"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Framework :: AsyncIO",
+    "Topic :: Internet :: WWW/HTTP :: WSGI :: Application",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+requires-python = ">=3.12"
+dependencies = [
+    "uvicorn[standard]>=0.24.0",
+    "starlette>=0.32.0",
+    "pydantic>=2.5.0",
+    "SQLAlchemy[asyncio]>=2.0.0",
+    "alembic>=1.13.0",
+    "asyncpg>=0.29.0",
+    "aiomysql>=0.2.0",
+    "aiosqlite>=0.19.0",
+    "motor>=3.3.0",
+    "redis[hiredis]>=5.0.0",
+    "jinja2>=3.1.0",
+    "python-multipart>=0.0.6",
+    "python-jose[cryptography]>=3.3.0",
+    "passlib[bcrypt]>=1.7.4",
+    "python-dotenv>=1.0.0",
+    "click>=8.1.0",
+    "rich>=13.7.0",
+    "typer>=0.9.0",
+    "httpx>=0.25.0",
+    "websockets>=12.0",
+    "celery[redis]>=5.3.0",
+    "pydantic-settings>=2.1.0",
+    "email-validator>=2.1.0",
+    "cryptography>=41.0.0",
+    "aiofiles>=23.2.1",
+    "orjson>=3.9.0",
+    "graphene>=3.3.0",
+    "strawberry-graphql>=0.215.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.23.0",
+    "pytest-cov>=4.1.0",
+    "black>=23.12.0",
+    "isort>=5.13.0",
+    "flake8>=6.1.0",
+    "mypy>=1.8.0",
+    "pre-commit>=3.6.0",
+    "sphinx>=7.2.0",
+    "sphinx-rtd-theme>=2.0.0",
+    "coverage>=7.4.0",
+]
+docs = [
+    "mkdocs>=1.5.0",
+    "mkdocs-material>=9.5.0",
+    "mkdocstrings[python]>=0.24.0",
+]
+postgres = ["asyncpg>=0.29.0"]
+mysql = ["aiomysql>=0.2.0"]
+mongodb = ["motor>=3.3.0"]
+all = ["ANAL[dev,docs,postgres,mysql,mongodb]"]
+
+[project.urls]
+Homepage = "https://github.com/analframework/anal"
+Documentation = "https://docs.analframework.org"
+Repository = "https://github.com/analframework/anal"
+"Bug Tracker" = "https://github.com/analframework/anal/issues"
+Changelog = "https://github.com/analframework/anal/blob/main/CHANGELOG.md"
+
+[project.scripts]
+anal-admin = "anal.cli.__main__:main"
+
+[tool.setuptools]
+packages = {find = {}}
+include-package-data = true
+
+[tool.setuptools.package-data]
+anal = ["templates/**/*", "static/**/*", "migrations/**/*"]
+
+[tool.black]
+line-length = 88
+target-version = ['py312']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+line_length = 88
+known_first_party = ["anal"]
+
+[tool.mypy]
+python_version = "3.12"
+check_untyped_defs = true
+disallow_any_generics = true
+disallow_incomplete_defs = true
+disallow_untyped_defs = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_return_any = true
+strict_equality = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+    "--strict-markers",
+    "--strict-config",
+    "--cov=anal",
+    "--cov-report=term-missing",
+    "--cov-report=html",
+    "--cov-report=xml",
+]
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "integration: marks tests as integration tests",
+    "unit: marks tests as unit tests",
+]
+asyncio_mode = "auto"
+
+[tool.coverage.run]
+source = ["anal"]
+omit = [
+    "*/tests/*",
+    "*/test_*",
+    "*/__init__.py",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+]
