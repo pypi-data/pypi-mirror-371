@@ -1,0 +1,16 @@
+Metadata-Version: 2.4
+Name: pythonprogrammersamazingandverygood
+Version: 6741
+Summary: the best module to ever exist
+Description-Content-Type: text/markdown
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: summary
+
+so like do  
+`from pythonprogrammersamazingandverygood import helloWorld`  
+  
+and then like do  
+`helloWorld("print")`  
+  
+ya
