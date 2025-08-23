@@ -1,0 +1,144 @@
+[build-system]
+requires = ['setuptools>=42', 'cffi>=1.0.0', 'versioneer[toml]==0.29']
+build-backend = 'setuptools.build_meta'
+
+[project]
+name = 'capcalc'
+description = 'capcalc is a suite of python programs used to perform coactivation pattern analysis on time series data.'
+keywords = ['fMRI', 'temporal dynamics']
+license = {text = 'Apache Software License'}
+readme = 'README.rst'
+classifiers = [
+    'Operating System :: OS Independent',
+    'Development Status :: 5 - Production/Stable',
+    'Intended Audience :: Science/Research',
+    'Topic :: Scientific/Engineering :: Image Recognition',
+    'License :: OSI Approved :: Apache Software License',
+    'Programming Language :: Python :: 3.9',
+    'Programming Language :: Python :: 3.10',
+    'Programming Language :: Python :: 3.11',
+    'Programming Language :: Python :: 3.12',
+]
+requires-python = '>=3.9'
+dependencies = [
+  'numpy',
+  'scipy',
+  'scikit-learn',
+  'matplotlib',
+  'statsmodels',
+  'nibabel',
+  'versioneer',
+]
+dynamic = ['version']
+authors = [
+  { name='Blaise Frederick', email='blaise.frederick@gmail.com' },
+]
+
+[project.urls]
+'Homepage' = 'https://github.com/bbfrederick/capcalc'
+'Bug Tracker' = 'https://github.com/bbfrederick/capcalc/issues'
+'Repository' = 'https://github.com/bbfrederick/capcalc.git'
+'Documentation' = 'https://capcalc.readthedocs.io'
+'Changelog' = 'https://github.com/bbfrederick/capcalc/blob/main/CHANGELOG.md'
+
+[project.optional-dependencies]
+test = [
+  'codecov',
+  'coverage',
+  'coveralls',
+  'flake8-black',
+  'pytest',
+  'pytest-cov',
+]
+doc = [
+  'sphinx',
+  'sphinx_rtd_theme',
+  'sphinx-argparse',
+  'sphinx-gallery',
+  'myst-parser',
+  'numpydoc',
+  'sphinxcontrib-bibtex',
+  'tomlkit',
+]
+
+[project.scripts]
+capcalc_dispatcher = 'capcalc.scripts.capcalc_dispatcher:entrypoint'
+capfromany = 'capcalc.scripts.capfrommany:entrypoint'
+capfromtcs = 'capcalc.scripts.capfromtcs:entrypoint'
+ccspatialdecomp = 'capcalc.scripts.ccspatialdecomp:entrypoint'
+clustercomp = 'capcalc.scripts.clustercomp:entrypoint'
+clusternifti = 'capcalc.scripts.clusternifti:entrypoint'
+clustersort = 'capcalc.scripts.clustersort:entrypoint'
+fitglm = 'capcalc.scripts.fitglm:entrypoint'
+kmeans = 'capcalc.scripts.kmeans:entrypoint'
+maptoroi = 'capcalc.scripts.maptoroi:entrypoint'
+normtcs = 'capcalc.scripts.normtcs:entrypoint'
+roidecompose = 'capcalc.scripts.roidecompose:entrypoint'
+statefiltertest = 'capcalc.scripts.statefiltertest:entrypoint'
+statematch = 'capcalc.scripts.statematch:entrypoint'
+statlasgen = 'capcalc.scripts.statlasgen:entrypoint'
+supercluster = 'capcalc.scripts.supercluster:entrypoint'
+tcfrom3col = 'capcalc.scripts.tcfrom3col:entrypoint'
+updatemodel = 'capcalc.scripts.updatemodel:entrypoint'
+
+[tool.setuptools]
+include-package-data = true 
+
+[tool.setuptools.packages.find]
+include = ['capcalc']
+
+[tool.setuptools.package-data]
+capcalc = ['capcalc/*.py', 'capcalc/scripts/*']
+
+[tool.setuptools.dynamic]
+version = {attr = 'capcalc.__version__'}
+
+[tool.setuptools.exclude-package-data]
+capcalc = ['.eggs', '.git', '.github', '.pytest_cache']
+
+# Aliases
+docs = ['capcalc[doc]']
+tests = ['capcalc[test]']
+all = ['capcalc[docs,tests]']
+
+[tool.black]
+line-length = 99
+target-version = ['py39']
+include = '\.pyi?$'
+exclude = '''
+(
+  /(
+      \.eggs         # exclude a few common directories in the
+    | \.git          # root of the project
+    | \.github
+    | \.hg
+    | \.pytest_cache
+    | _build
+    | build
+    | dist
+  )/
+  | get_version.py
+  | versioneer.py
+  | capcalc/_version.py
+  | capcalc/data
+)
+'''
+
+[tool.isort]
+profile = 'black'
+multi_line_output = 3
+
+[tool.versioneer]
+VCS = 'git'
+style = 'pep440'
+versionfile_source = 'capcalc/_version.py'
+versionfile_build = 'capcalc/_version.py'
+tag_prefix = 'v'
+parentdir_prefix = 'capcalc-'
+
+[tool.codespell]
+# Ref: https://github.com/codespell-project/codespell#using-a-config-file
+skip = '.git*,versioneer.py,*.css,exportlist.txt,data,*.bib'
+check-hidden = true
+ignore-regex = '\bsubjeT\b'
+ignore-words-list = 'thex,normall,Nd'

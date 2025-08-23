@@ -1,0 +1,19 @@
+[console_scripts]
+capcalc_dispatcher = capcalc.scripts.capcalc_dispatcher:entrypoint
+capfromany = capcalc.scripts.capfrommany:entrypoint
+capfromtcs = capcalc.scripts.capfromtcs:entrypoint
+ccspatialdecomp = capcalc.scripts.ccspatialdecomp:entrypoint
+clustercomp = capcalc.scripts.clustercomp:entrypoint
+clusternifti = capcalc.scripts.clusternifti:entrypoint
+clustersort = capcalc.scripts.clustersort:entrypoint
+fitglm = capcalc.scripts.fitglm:entrypoint
+kmeans = capcalc.scripts.kmeans:entrypoint
+maptoroi = capcalc.scripts.maptoroi:entrypoint
+normtcs = capcalc.scripts.normtcs:entrypoint
+roidecompose = capcalc.scripts.roidecompose:entrypoint
+statefiltertest = capcalc.scripts.statefiltertest:entrypoint
+statematch = capcalc.scripts.statematch:entrypoint
+statlasgen = capcalc.scripts.statlasgen:entrypoint
+supercluster = capcalc.scripts.supercluster:entrypoint
+tcfrom3col = capcalc.scripts.tcfrom3col:entrypoint
+updatemodel = capcalc.scripts.updatemodel:entrypoint
