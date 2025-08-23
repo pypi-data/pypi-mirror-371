@@ -1,0 +1,11 @@
+gradio_livelog/__init__.py,sha256=edQdOE2HDK9qG5vi8JT8EUvJX77c4wskJMo_XlsbrPQ,53
+gradio_livelog/livelog.py,sha256=WgBPdzjvCF-YESCr8dvvUi369Mdkg2ME9tRwJujIojg,4852
+gradio_livelog/livelog.pyi,sha256=Y6UaOf7XlKCQW-Q3sTbHJ3qWbsW0SOGWK6i9C8RVAxc,17848
+gradio_livelog/utils.py,sha256=mGnq-OWEtlJT6pY7z4nxDcVjGS1qu6mZiLlxCvwQZWM,16964
+gradio_livelog/templates/component/index.js,sha256=XjwaKmoqKX7cWHd3XFwtnKcA6AQ0WCfCnS2uTEcjTfQ,299362
+gradio_livelog/templates/component/style.css,sha256=y-DFUjd5vthjK0kwPEwAbn3sT6zQbCe_xNdBxm7UMio,24055
+gradio_livelog/templates/example/index.js,sha256=HGHRsiEleHY2cc_4ZDN_Tls8DKst7fzCUQvGY3mCbGo,1915
+gradio_livelog/templates/example/style.css,sha256=3HRPIrht-ScsdEpIaKfvSt717r_9YKWT3hC0aAGNOrM,96
+gradio_livelog-0.0.4.dist-info/METADATA,sha256=4H9g-dJ39zx1MCYN0aL4V9zEUK__6lM8xx0TL_Jgq5w,24846
+gradio_livelog-0.0.4.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+gradio_livelog-0.0.4.dist-info/RECORD,,
