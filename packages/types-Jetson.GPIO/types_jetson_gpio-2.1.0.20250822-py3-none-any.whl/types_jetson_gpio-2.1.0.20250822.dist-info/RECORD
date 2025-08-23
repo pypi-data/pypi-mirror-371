@@ -1,0 +1,13 @@
+Jetson-stubs/METADATA.toml,sha256=tOb2DbVuWhPzGHzps8XSoUGc0ncF0Gp529XHSLOoNFw,80
+Jetson-stubs/__init__.pyi,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+Jetson-stubs/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+Jetson-stubs/GPIO/__init__.pyi,sha256=1J7FcJPT2l97aknqdM3k0k94B6apD73qacrd0zV5o1A,40
+Jetson-stubs/GPIO/gpio.pyi,sha256=uC9k8eoGWtPWQPz0XmGv1RqWDJZegE-Gq0nFjST-hPg,1909
+Jetson-stubs/GPIO/gpio_cdev.pyi,sha256=OrlEQo_pI259p7paXuBXdySOPP64DM2Qr7YicM2Y6Yc,2039
+Jetson-stubs/GPIO/gpio_event.pyi,sha256=zD4ft7jedTIR0hJE1cIT7TVKnfMUZ0VuHaoAejhKyyc,816
+Jetson-stubs/GPIO/gpio_pin_data.pyi,sha256=QkinSbbcG6E1S0-yoq4uhHj42Wa0o7POxvrPaiVhhSY,2368
+types_jetson_gpio-2.1.0.20250822.dist-info/licenses/LICENSE,sha256=KV-FOMlK5cMEMwHPfP8chS2ranhqjd7kceBhtA1eyr4,12657
+types_jetson_gpio-2.1.0.20250822.dist-info/METADATA,sha256=j8CnLNEnkn4Y8gwrFeNt2NhwzKbRRvnMK343z3qfJH0,1771
+types_jetson_gpio-2.1.0.20250822.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+types_jetson_gpio-2.1.0.20250822.dist-info/top_level.txt,sha256=6xWVpIdHu-Om283Iys0f5PUYRGSI8h86bbdiu9Ci5e4,13
+types_jetson_gpio-2.1.0.20250822.dist-info/RECORD,,
