@@ -1,0 +1,28 @@
+[CDF-25552]⛓️‍💥Support purge with unlink files (#1850)
+
+# Description
+
+**Context**: This is part of the `alpha` migration tooling in Toolkit,
+for overview [see
+here](https://cognitedata.atlassian.net/wiki/spaces/~170890702/pages/5455773697/Migration+Tooling+in+Toolkit).
+T
+
+This can be used to cleanup mishaps on step 3 were the user migrate
+files, but want to undo the operation without losing the asset-centric
+file and its content.
+
+
+## Changelog
+
+- [x] Patch
+- [ ] Skip
+
+## cdf
+
+### Added
+
+- [alpha] In the `cdf purge instances` you can now unlink files
+
+## templates
+
+No changes.
