@@ -1,0 +1,46 @@
+# MANIFEST.in for RMNpy
+
+# ── Bundled shared libraries (inside the package) ─────────────────────────────
+include src/rmnpy/_libs/*.so*
+include src/rmnpy/_libs/*.dylib
+include src/rmnpy/_libs/*.dll
+
+# Typing marker
+include src/rmnpy/py.typed
+
+# ── Cython sources (needed for sdist builds) ──────────────────────────────────
+recursive-include src *.pyx *.pxd *.pxi
+
+# Optional: include generated C if present (harmless if absent)
+recursive-include src *.c
+
+# ── Headers (dev builds / local consumption) ──────────────────────────────────
+recursive-include include *.h
+
+# ── Docs and top-level metadata ───────────────────────────────────────────────
+include README.md
+include LICENSE
+include CHANGELOG.md
+include *.md
+include *.txt
+include *.rst
+
+# ── Build configuration ───────────────────────────────────────────────────────
+include pyproject.toml
+include setup.py
+include setup.cfg
+include Makefile
+
+# ── Tests and scripts (sdist only; wheels ignore MANIFEST for package_data) ──
+recursive-include tests *.py *.pyx
+recursive-include scripts *.py
+
+# ── Excludes / pruning ────────────────────────────────────────────────────────
+prune .github
+prune build
+prune dist
+prune htmlcov
+prune .mypy_cache
+prune __pycache__
+
+global-exclude *.pyc *.pyo *.orig *.rej *~

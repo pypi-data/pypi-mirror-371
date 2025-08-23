@@ -1,0 +1,18 @@
+# requirements.txt — dev/docs only (keep loose to avoid platform pinning)
+
+build
+wheel
+Cython>=0.29.36
+
+# Match NumPy to interpreter for wheel availability
+numpy>=1.23; python_version == "3.11"
+numpy>=1.26; python_version >= "3.12"
+
+pytest
+pytest-cov
+
+sphinx
+sphinx-rtd-theme
+breathe
+myst-parser
+sphinx-copybutton
