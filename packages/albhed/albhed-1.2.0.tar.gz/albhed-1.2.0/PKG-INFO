@@ -1,0 +1,33 @@
+Metadata-Version: 2.4
+Name: albhed
+Version: 1.2.0
+Summary: Converts English text to Albhed, a fictional language from the Final Fantasy series.
+Requires-Python: >=3.13
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: typer>=0.16.1
+Dynamic: license-file
+
+# Al Bhed
+
+Simple CLI and Library that translates Text into Al Bhed
+
+Python:
+```python
+>>> from albhed import albhed
+>>>
+>>> albhed("Hello, World!")
+'Rammu, Funmt!'
+>>>
+>>> albhed("Rammu, Funmt!", revert=True)
+'Hello, World!'
+```
+
+Shell:
+```shell
+$ albhed Hello, World!
+Rammu, Funmt!
+
+$ albhed -r Rammu, Funmt!
+Hello, World!
+```

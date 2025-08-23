@@ -1,0 +1,20 @@
+[project]
+name = "albhed"
+version = "1.2.0"
+description = "Converts English text to Albhed, a fictional language from the Final Fantasy series."
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = ["typer>=0.16.1"]
+
+[dependency-groups]
+dev = ["ruff>=0.12.10"]
+
+[tool.uv]
+package = true
+
+[project.scripts]
+albhed = "albhed:app"
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = ["D203", "D213", "FBT002"]

@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+albhed/__init__.py
+albhed.egg-info/PKG-INFO
+albhed.egg-info/SOURCES.txt
+albhed.egg-info/dependency_links.txt
+albhed.egg-info/entry_points.txt
+albhed.egg-info/requires.txt
+albhed.egg-info/top_level.txt
