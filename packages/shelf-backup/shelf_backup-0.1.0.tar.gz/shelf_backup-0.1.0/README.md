@@ -1,0 +1,125 @@
+# Shelf
+
+**A stupidly simple backup tool**
+
+*Single file. Zero dependencies. Auditable. Reliable.*
+
+---
+
+Shelf is a backup tool that gets out of your way. One Python file does everything: backs up your dotfiles, configs, and system state to git-versioned storage with structured logging. No external dependencies, no complex configuration, no surprises.
+
+The tool automatically detects your operating system and creates a single profile per machine. Run `shelf backup` and everything important is safely stored. Run `shelf restore` and everything comes back exactly as it was.
+
+[![PyPI version](https://badge.fury.io/py/shelf-backup.svg)](https://badge.fury.io/py/shelf-backup)
+[![Python versions](https://img.shields.io/pypi/pyversions/shelf-backup.svg)](https://pypi.org/project/shelf-backup/)
+
+## Installation
+
+```bash
+pip install shelf-backup
+```
+
+## Usage
+
+```bash
+shelf init        # Initialize backup profile
+shelf backup      # Run backup
+shelf restore     # Restore from latest backup
+shelf list        # Show backup history
+shelf status      # Show system information
+```
+
+## Advanced
+
+```bash
+shelf restore abc1234    # Restore from specific commit
+```
+
+## Features
+
+**Zero dependencies** - Only requires Python 3.8+ standard library
+
+**Single auditable file** - The entire tool is one Python file you can read and understand
+
+**Git versioning** - Every backup creates a git commit for precise history tracking
+
+**Auto OS detection** - Automatically configures for macOS or Linux without manual setup
+
+**Structured logging** - Every session creates detailed NDJSON logs for debugging and analysis
+
+**Comprehensive coverage** - Backs up dotfiles, application configs, system preferences, and Homebrew packages
+
+## What It Backs Up
+
+- **Dotfiles**: `.bashrc`, `.zshrc`, `.gitconfig`, `.vimrc`, etc.
+- **Directories**: `.ssh`, `.config`, and custom directories
+- **Homebrew**: Brewfile, formulas, casks, services (macOS)
+- **Fonts**: Custom font lists
+
+## File Structure
+
+```
+~/.config/shelf/           # Configuration files (JSON)
+~/.local/share/shelf/      # Backup data (git repositories)
+```
+
+## Example Profile
+
+`~/.config/shelf/mybackup.json`:
+
+```json
+{
+	"name": "mybackup",
+	"description": "My backup profile",
+	"files": {
+		"enabled": true,
+		"files": [".bashrc", ".zshrc", ".gitconfig"],
+		"directories": [".ssh", ".config"],
+		"exclude_patterns": ["*.log", "*.tmp", "__pycache__"]
+	},
+	"homebrew": { "enabled": true },
+	"fonts": { "enabled": true }
+}
+```
+
+## Advanced Usage
+
+```bash
+# Restore from specific commit
+shelf restore abc1234 mybackup
+
+# Run demo
+make demo
+
+# Install as standalone script
+make standalone  # Copies to ~/bin/shelf
+```
+
+## Zero Dependencies
+
+The tool requires **only**:
+
+- Python 3.8+
+- `git` command (for versioning)
+- `brew` command (for Homebrew backups on macOS)
+
+No pip packages, no external libraries, completely auditable in a single file.
+
+## Development
+
+**Version management:**
+```bash
+make patch    # 0.1.0 -> 0.1.1
+make minor    # 0.1.0 -> 0.2.0  
+make major    # 0.1.0 -> 1.0.0
+```
+
+**Auto-release setup:**
+
+1. Add PyPI API token to GitHub repository secrets as `PYPI_API_TOKEN`
+2. Push to main branch to trigger automatic PyPI release
+3. GitHub Actions will test, build, and publish automatically
+
+## License
+
+MIT License

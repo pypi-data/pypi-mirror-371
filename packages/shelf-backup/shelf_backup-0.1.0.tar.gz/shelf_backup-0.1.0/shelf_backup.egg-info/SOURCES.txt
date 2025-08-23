@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+shelf.py
+shelf_backup.egg-info/PKG-INFO
+shelf_backup.egg-info/SOURCES.txt
+shelf_backup.egg-info/dependency_links.txt
+shelf_backup.egg-info/entry_points.txt
+shelf_backup.egg-info/requires.txt
+shelf_backup.egg-info/top_level.txt
