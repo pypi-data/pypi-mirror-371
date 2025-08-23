@@ -1,0 +1,27 @@
+[project]
+name = "analytics-mcp"
+version = "0.1.0"
+# Lower bound of 3.10 due to the 'mcp' dependency:
+# https://github.com/modelcontextprotocol/python-sdk/blob/main/pyproject.toml
+requires-python = ">=3.10, <3.14"
+license = "Apache-2.0"
+readme = "README.md"
+dependencies = [
+    "google-analytics-data==0.18.19",
+    "google-analytics-admin==0.24.1",
+    "google-auth~=2.40",
+    "mcp[cli]>=1.2.0",
+    "httpx>=0.28.1"
+]
+
+[project.scripts]
+analytics-mcp = "analytics_mcp.server:run_server"
+# The previous name of the script. Kept for backwards compatibility.
+google-analytics-mcp = "analytics_mcp.server:run_server"
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "nox >=2025.5.1, <2026"
+]
+
