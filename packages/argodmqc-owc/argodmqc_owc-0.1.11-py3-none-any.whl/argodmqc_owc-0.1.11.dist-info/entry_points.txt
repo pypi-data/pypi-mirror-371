@@ -1,0 +1,3 @@
+[console_scripts]
+run-floats=start_owc_python:main
+
