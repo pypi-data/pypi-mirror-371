@@ -1,0 +1,10 @@
+keenmail_mcp/__init__.py,sha256=K-l-TcrZu-BX_0NuSHFnAOPEGas_IiZac4SKU2anQuI,285
+keenmail_mcp/__main__.py,sha256=Qt74kUQw0LjhU113XtDTUBZcPOTfFZAMwDN7AV7jt2k,364
+keenmail_mcp/config.py,sha256=9bPm3ja8JD5iH45kIpfWP1QvAcpwRSHkY-An3fjEUJY,2251
+keenmail_mcp/openapi.py,sha256=yscusg2Sx61jo9pS1j2UxDIRNmHcBVhXoWqGGan6PFk,10689
+keenmail_mcp/server.py,sha256=l4igWIjptnW4IvDxI_ZwiOdBmOc20DK3NawzZU0-3zU,4415
+keenmail_mcp_server-0.1.2.dist-info/METADATA,sha256=a_GLN78beER0H7dcscoO9FcJMiYGKfnMN6zRuo-2jqg,7921
+keenmail_mcp_server-0.1.2.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+keenmail_mcp_server-0.1.2.dist-info/entry_points.txt,sha256=w7T0iZnUl8zRFgCbOqJme_8VFEaBmlaAwAJrwr0vUIA,67
+keenmail_mcp_server-0.1.2.dist-info/licenses/LICENSE,sha256=CNmLIndWV-Wg1viUPg4bF4lSm0Bdjvu2EF2tLBMHOZk,1075
+keenmail_mcp_server-0.1.2.dist-info/RECORD,,
