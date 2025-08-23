@@ -1,0 +1,10 @@
+# All dependencies included by default
+sentence-transformers
+requests
+numpy
+faiss-cpu
+scikit-learn
+chromadb
+PyPDF2
+python-docx
+pdfminer.six>=20221105
