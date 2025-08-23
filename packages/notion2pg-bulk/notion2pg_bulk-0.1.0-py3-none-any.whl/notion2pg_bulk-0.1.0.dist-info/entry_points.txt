@@ -1,0 +1,3 @@
+[console_scripts]
+notion2pg-bulk = notion2pg_bulk.cli:main
+
