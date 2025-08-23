@@ -1,0 +1,1276 @@
+# ServiceNow MCP Server (`snow-mcp`)
+
+[![PyPI version](https://badge.fury.io/py/snow-mcp.svg)](https://badge.fury.io/py/snow-mcp)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+A comprehensive, production-ready, and extensible MCP (Machine-Conversation Protocol) server for interacting with a ServiceNow instance. This package provides a rich set of pre-built tools for managing nearly every aspect of ITSM, ITOM, and App Dev within ServiceNow, all callable via a simple, unified interface.
+
+It allows developers and automation engineers to build powerful client applications, scripts, and AI agents that can perform complex, multi-step operations in ServiceNow without needing to handle the intricacies of the REST API directly.
+
+## Features
+
+- **Extensive Tool Library:** Over 60 pre-built tools covering Incidents, Changes, Users, Service Catalog, Projects, and much more.
+- **Modular and Organized:** Tools are logically grouped into modules for clarity and extensibility.
+- **Production-Ready:** All tools include robust input validation and clear schemas powered by Pydantic.
+- **Easy to Use:** Packaged as a standard Python library and installable via `pip`.
+- **Self-Documenting:** A built-in CLI allows you to list all available tools directly from your terminal.
+
+## Installation
+
+The server is published on PyPI and can be installed with `pip`. It is recommended to install it in a virtual environment.
+
+```bash
+# Create and activate a virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install the package
+pip install snow-mcp
+```
+
+## Discovering Tools
+
+Once installed, you can easily discover all available tools directly from your command line:
+
+```bash
+# List all available tools and their short descriptions
+snow-mcp --list-tools
+```
+
+## Core Concepts: How to Use the Tools
+
+All tools are called from a Python script using the `fastmcp` client library. Every tool call requires two main components: the client configuration and the parameters payload.
+
+### 1. Client Configuration (Boilerplate)
+
+This setup is the same for any script you write. It tells the client library how to start your `snow-mcp` server.
+
+```python
+import asyncio
+from fastmcp import Client
+
+client = Client({
+    "mcpServers": {
+        "servicenow": {
+            "command": "snow-mcp",
+            "args": [],
+            "transport": "stdio"
+        }
+    }
+})
+```
+
+### 2. Parameters Payload
+
+Every tool call requires a payload dictionary. This dictionary **must** contain a single key, `"params"`, which holds another dictionary containing your credentials and all tool-specific arguments.
+
+**Credential Setup:**
+First, define your credentials. It's best practice to load these from environment variables or a secure vault.
+
+```python
+import os
+
+SERVICENOW_CREDS = {
+    "instance_url": os.getenv("SNOW_INSTANCE_URL", "https://your-instance.service-now.com"),
+    "username": os.getenv("SNOW_USERNAME", "your-api-user"),
+    "password": os.getenv("SNOW_PASSWORD", "your-api-password")
+}
+```
+
+**Putting It Together:**
+When you build the payload for a tool, you combine your credentials with the tool's specific parameters.
+
+```python
+# Example payload for the 'create_incident' tool
+payload = {
+    "params": {
+        **SERVICENOW_CREDS,
+        "short_description": "Network switch is offline",
+        "impact": "1",
+        "urgency": "1"
+    }
+}
+# Make the call
+result = await client.call_tool("create_incident", payload)
+```
+
+## Complete Tool Reference
+
+### General & Table Management
+
+#### `get_records_from_table`
+Retrieves records from any specified table with advanced filtering, sorting, and pagination.
+- **Parameters:**
+  - `table_name` (string, required): The name of the table to query (e.g., 'incident').
+  - `query` (string, optional): ServiceNow-encoded query (e.g., 'active=true^priority=1').
+  - `limit` (integer, optional): The maximum number of records to return.
+  - `offset` (integer, optional): The record number to start from.
+  - `sort_by` (string, optional): Field to sort by.
+  - `sort_dir` (string, optional): Sort direction ('ASC' or 'DESC').
+  - `fields` (list of strings, optional): Specific fields to return.
+- **Code Example:**
+  ```python
+  payload = {
+      "params": {
+          **SERVICENOW_CREDS,
+          "table_name": "cmdb_ci_server",
+          "query": "os=Linux^active=true",
+          "limit": 5,
+          "fields": ["name", "ip_address"]
+      }
+  }
+  result = await client.call_tool("get_records_from_table", payload)
+  ```
+
+#### `get_table_schema`
+Retrieves the schema (all column names and their attributes) for a specific table.
+- **Parameters:**
+  - `table_name` (string, required): The name of the table to get the schema for.
+- **Code Example:**
+  ```python
+  payload = { "params": { **SERVICENOW_CREDS, "table_name": "change_request" } }
+  result = await client.call_tool("get_table_schema", payload)
+  ```
+
+#### `search_records_by_text`
+Performs a search in the common text fields of a table using a LIKE query.
+- **Parameters:**
+  - `table_name` (string, required): The name of the table to search within.
+  - `search_term` (string, required): The text or keyword to search for.
+  - `limit` (integer, optional): The maximum number of matching records to return.
+- **Code Example:**
+  ```python
+  payload = { 
+      "params": { 
+          **SERVICENOW_CREDS, 
+          "table_name": "kb_knowledge", 
+          "search_term": "password reset" 
+      } 
+  }
+  result = await client.call_tool("search_records_by_text", payload)
+  ```
+
+#### `attach_file_to_record`
+Attaches a file to any record in ServiceNow.
+- **Parameters:**
+  - `table_name` (string, required): The table of the record (e.g., 'incident').
+  - `record_sys_id` (string, required): The sys_id of the record to attach the file to.
+  - `file_name` (string, required): The name of the file (e.g., 'error_log.txt').
+  - `file_content_base64` (string, required): The content of the file, encoded in Base64.
+- **Code Example:**
+  ```python
+  import base64
+  content = "This is my log file content."
+  encoded_content = base64.b64encode(content.encode('utf-8')).decode('utf-8')
+  payload = {
+      "params": {
+          **SERVICENOW_CREDS,
+          "table_name": "incident",
+          "record_sys_id": "paste_incident_sys_id_here",
+          "file_name": "log.txt",
+          "file_content_base64": encoded_content
+      }
+  }
+  result = await client.call_tool("attach_file_to_record", payload)
+  ```
+
+### Incident Management
+
+#### `create_incident`
+Creates a new incident record in ServiceNow.
+- **Parameters:**
+  - `short_description` (string, required): Brief description of the incident.
+  - `description` (string, optional): Detailed description of the incident.
+  - `impact` (string, optional): Impact level (1-High, 2-Medium, 3-Low).
+  - `urgency` (string, optional): Urgency level (1-High, 2-Medium, 3-Low).
+  - `priority` (string, optional): Priority (calculated from impact/urgency if not provided).
+  - `caller_id` (string, optional): Sys_id of the person reporting the incident.
+  - `assigned_to` (string, optional): Sys_id of the assigned user.
+  - `assignment_group` (string, optional): Sys_id of the assignment group.
+  - `category` (string, optional): Incident category.
+  - `subcategory` (string, optional): Incident subcategory.
+- **Code Example:**
+  ```python
+  payload = {
+      "params": {
+          **SERVICENOW_CREDS,
+          "short_description": "Email server not responding",
+          "description": "Users cannot access email. Server appears to be down.",
+          "impact": "2",
+          "urgency": "1",
+          "category": "Software",
+          "subcategory": "Email"
+      }
+  }
+  result = await client.call_tool("create_incident", payload)
+  ```
+
+#### `update_incident`
+Updates fields on an existing incident.
+- **Parameters:**
+  - `sys_id` (string, required): The sys_id of the incident to update.
+  - `short_description` (string, optional): Updated brief description.
+  - `description` (string, optional): Updated detailed description.
+  - `impact` (string, optional): Updated impact level.
+  - `urgency` (string, optional): Updated urgency level.
+  - `priority` (string, optional): Updated priority.
+  - `state` (string, optional): Updated incident state.
+  - `assigned_to` (string, optional): Updated assigned user sys_id.
+  - `assignment_group` (string, optional): Updated assignment group sys_id.
+  - `resolution_notes` (string, optional): Resolution details.
+- **Code Example:**
+  ```python
+  payload = {
+      "params": {
+          **SERVICENOW_CREDS,
+          "sys_id": "abc123def456ghi789",
+          "state": "6",  # Resolved
+          "resolution_notes": "Restarted email service. Issue resolved."
+      }
+  }
+  result = await client.call_tool("update_incident", payload)
+  ```
+
+#### `get_incident_by_number`
+Retrieves an incident by its number (e.g., 'INC0010001').
+- **Parameters:**
+  - `number` (string, required): The incident number.
+- **Code Example:**
+  ```python
+  payload = {
+      "params": {
+          **SERVICENOW_CREDS,
+          "number": "INC0010001"
+      }
+  }
+  result = await client.call_tool("get_incident_by_number", payload)
+  ```
+
+#### `add_comment_to_incident`
+Adds a customer-visible comment to an incident.
+- **Parameters:**
+  - `sys_id` (string, required): The sys_id of the incident.
+  - `comment` (string, required): The comment text to add.
+- **Code Example:**
+  ```python
+  payload = {
+      "params": {
+          **SERVICENOW_CREDS,
+          "sys_id": "abc123def456ghi789",
+          "comment": "Issue has been escalated to network team."
+      }
+  }
+  result = await client.call_tool("add_comment_to_incident", payload)
+  ```
+
+#### `add_work_notes_to_incident`
+Adds an internal work note to an incident (not visible to customer).
+- **Parameters:**
+  - `sys_id` (string, required): The sys_id of the incident.
+  - `notes` (string, required): The work notes text to add.
+- **Code Example:**
+  ```python
+  payload = {
+      "params": {
+          **SERVICENOW_CREDS,
+          "sys_id": "abc123def456ghi789",
+          "notes": "Checked server logs. Found memory leak in application."
+      }
+  }
+  result = await client.call_tool("add_work_notes_to_incident", payload)
+  ```
+
+### Change Management
+
+#### `create_change_request`
+Creates a new change request.
+- **Parameters:**
+  - `short_description` (string, required): Brief description of the change.
+  - `description` (string, optional): Detailed description of the change.
+  - `type` (string, optional): Change type (standard, normal, emergency).
+  - `risk` (string, optional): Risk assessment (high, medium, low).
+  - `impact` (string, optional): Impact level.
+  - `priority` (string, optional): Priority level.
+  - `requested_by` (string, optional): Sys_id of requesting user.
+  - `assigned_to` (string, optional): Sys_id of assigned user.
+  - `assignment_group` (string, optional): Sys_id of assignment group.
+  - `start_date` (string, optional): Planned start date (YYYY-MM-DD HH:MM:SS).
+  - `end_date` (string, optional): Planned end date (YYYY-MM-DD HH:MM:SS).
+- **Code Example:**
+  ```python
+  payload = {
+      "params": {
+          **SERVICENOW_CREDS,
+          "short_description": "Upgrade database server to version 12.5",
+          "description": "Scheduled maintenance to upgrade production database",
+          "type": "normal",
+          "risk": "medium",
+          "start_date": "2024-12-01 02:00:00",
+          "end_date": "2024-12-01 06:00:00"
+      }
+  }
+  result = await client.call_tool("create_change_request", payload)
+  ```
+
+#### `update_change_request`
+Updates an existing change request.
+- **Parameters:**
+  - `sys_id` (string, required): The sys_id of the change request.
+  - `short_description` (string, optional): Updated description.
+  - `state` (string, optional): Updated state.
+  - `start_date` (string, optional): Updated start date.
+  - `end_date` (string, optional): Updated end date.
+  - `risk` (string, optional): Updated risk level.
+  - `assigned_to` (string, optional): Updated assigned user.
+- **Code Example:**
+  ```python
+  payload = {
+      "params": {
+          **SERVICENOW_CREDS,
+          "sys_id": "def456ghi789jkl012",
+          "state": "3",  # Implement
+          "start_date": "2024-12-02 02:00:00"
+      }
+  }
+  result = await client.call_tool("update_change_request", payload)
+  ```
+
+#### `list_change_requests`
+Lists change requests with optional filters.
+- **Parameters:**
+  - `query` (string, optional): ServiceNow query filter.
+  - `limit` (integer, optional): Maximum number of records to return.
+  - `offset` (integer, optional): Record offset for pagination.
+- **Code Example:**
+  ```python
+  payload = {
+      "params": {
+          **SERVICENOW_CREDS,
+          "query": "state=1^type=normal",  # New normal changes
+          "limit": 10
+      }
+  }
+  result = await client.call_tool("list_change_requests", payload)
+  ```
+
+#### `get_change_request_details`
+Gets details of a specific change by sys_id or number.
+- **Parameters:**
+  - `sys_id` (string, optional): The sys_id of the change request.
+  - `number` (string, optional): The change request number.
+- **Code Example:**
+  ```python
+  payload = {
+      "params": {
+          **SERVICENOW_CREDS,
+          "number": "CHG0040001"
+      }
+  }
+  result = await client.call_tool("get_change_request_details", payload)
+  ```
+
+#### `add_change_task`
+Adds a task to a change request.
+- **Parameters:**
+  - `change_request_sys_id` (string, required): Sys_id of the parent change request.
+  - `short_description` (string, required): Brief description of the task.
+  - `description` (string, optional): Detailed description of the task.
+  - `assigned_to` (string, optional): Sys_id of assigned user.
+  - `assignment_group` (string, optional): Sys_id of assignment group.
+- **Code Example:**
+  ```python
+  payload = {
+      "params": {
+          **SERVICENOW_CREDS,
+          "change_request_sys_id": "def456ghi789jkl012",
+          "short_description": "Backup database before upgrade",
+          "description": "Create full backup of production database"
+      }
+  }
+  result = await client.call_tool("add_change_task", payload)
+  ```
+
+#### `submit_change_for_approval`
+Moves a change to the 'Assess' state for approval workflow.
+- **Parameters:**
+  - `sys_id` (string, required): The sys_id of the change request.
+- **Code Example:**
+  ```python
+  payload = {
+      "params": {
+          **SERVICENOW_CREDS,
+          "sys_id": "def456ghi789jkl012"
+      }
+  }
+  result = await client.call_tool("submit_change_for_approval", payload)
+  ```
+
+#### `approve_change`
+Approves a change request.
+- **Parameters:**
+  - `sys_id` (string, required): The sys_id of the change request.
+  - `approval_notes` (string, optional): Notes for the approval.
+- **Code Example:**
+  ```python
+  payload = {
+      "params": {
+          **SERVICENOW_CREDS,
+          "sys_id": "def456ghi789jkl012",
+          "approval_notes": "Change approved by CAB. Proceed with implementation."
+      }
+  }
+  result = await client.call_tool("approve_change", payload)
+  ```
+
+#### `reject_change`
+Rejects a change request.
+- **Parameters:**
+  - `sys_id` (string, required): The sys_id of the change request.
+  - `rejection_comments` (string, required): Reason for rejection.
+- **Code Example:**
+  ```python
+  payload = {
+      "params": {
+          **SERVICENOW_CREDS,
+          "sys_id": "def456ghi789jkl012",
+          "rejection_comments": "Insufficient testing plan provided."
+      }
+  }
+  result = await client.call_tool("reject_change", payload)
+  ```
+
+### User & Group Management
+
+#### `create_user`
+Creates a new user account in ServiceNow.
+- **Parameters:**
+  - `first_name` (string, required): User's first name.
+  - `last_name` (string, required): User's last name.
+  - `user_name` (string, required): Unique username.
+  - `email` (string, required): User's email address.
+  - `title` (string, optional): Job title.
+  - `department` (string, optional): Department sys_id.
+  - `manager` (string, optional): Manager's sys_id.
+  - `active` (boolean, optional): Whether the user is active (default: true).
+- **Code Example:**
+  ```python
+  payload = {
+      "params": {
+          **SERVICENOW_CREDS,
+          "first_name": "John",
+          "last_name": "Doe",
+          "user_name": "john.doe",
+          "email": "john.doe@company.com",
+          "title": "Software Developer"
+      }
+  }
+  result = await client.call_tool("create_user", payload)
+  ```
+
+#### `get_user`
+Retrieves a user by user_id, user_name, or email.
+- **Parameters:**
+  - `user_id` (string, optional): The sys_id of the user.
+  - `user_name` (string, optional): The username.
+  - `email` (string, optional): The user's email address.
+- **Code Example:**
+  ```python
+  payload = {
+      "params": {
+          **SERVICENOW_CREDS,
+          "user_name": "john.doe"
+      }
+  }
+  result = await client.call_tool("get_user", payload)
+  ```
+
+#### `create_group`
+Creates a new group in ServiceNow.
+- **Parameters:**
+  - `name` (string, required): Group name.
+  - `description` (string, optional): Group description.
+  - `type` (string, optional): Group type.
+  - `manager` (string, optional): Manager's sys_id.
+  - `active` (boolean, optional): Whether the group is active (default: true).
+- **Code Example:**
+  ```python
+  payload = {
+      "params": {
+          **SERVICENOW_CREDS,
+          "name": "Development Team",
+          "description": "Software development team",
+          "type": "itil"
+      }
+  }
+  result = await client.call_tool("create_group", payload)
+  ```
+
+#### `add_group_members`
+Adds users to a group.
+- **Parameters:**
+  - `group_sys_id` (string, required): The sys_id of the group.
+  - `user_sys_ids` (list of strings, required): List of user sys_ids to add.
+- **Code Example:**
+  ```python
+  payload = {
+      "params": {
+          **SERVICENOW_CREDS,
+          "group_sys_id": "ghi789jkl012mno345",
+          "user_sys_ids": ["user1_sys_id", "user2_sys_id"]
+      }
+  }
+  result = await client.call_tool("add_group_members", payload)
+  ```
+
+#### `remove_group_members`
+Removes users from a group.
+- **Parameters:**
+  - `group_sys_id` (string, required): The sys_id of the group.
+  - `user_sys_ids` (list of strings, required): List of user sys_ids to remove.
+- **Code Example:**
+  ```python
+  payload = {
+      "params": {
+          **SERVICENOW_CREDS,
+          "group_sys_id": "ghi789jkl012mno345",
+          "user_sys_ids": ["user1_sys_id"]
+      }
+  }
+  result = await client.call_tool("remove_group_members", payload)
+  ```
+
+### Service Catalog & Request Management
+
+#### `submit_catalog_request`
+Orders a specific catalog item.
+- **Parameters:**
+  - `item_sys_id` (string, required): Sys_id of the catalog item.
+  - `variables` (dict, optional): Key-value pairs for catalog item variables.
+  - `quantity` (integer, optional): Number of items to request (default: 1).
+  - `requested_for` (string, optional): Sys_id of user requesting for.
+- **Code Example:**
+  ```python
+  payload = {
+      "params": {
+          **SERVICENOW_CREDS,
+          "item_sys_id": "catalog_item_sys_id_here",
+          "variables": {
+              "laptop_model": "Dell Latitude 5520",
+              "memory": "16GB",
+              "storage": "512GB SSD"
+          },
+          "quantity": 1
+      }
+  }
+  result = await client.call_tool("submit_catalog_request", payload)
+  ```
+
+#### `create_request_ticket`
+Creates a generic request ticket.
+- **Parameters:**
+  - `short_description` (string, required): Brief description of the request.
+  - `description` (string, optional): Detailed description.
+  - `requested_for` (string, optional): Sys_id of user the request is for.
+  - `priority` (string, optional): Request priority.
+  - `due_date` (string, optional): Due date (YYYY-MM-DD).
+- **Code Example:**
+  ```python
+  payload = {
+      "params": {
+          **SERVICENOW_CREDS,
+          "short_description": "Request for software license",
+          "description": "Need Adobe Creative Suite license for design work",
+          "priority": "3"
+      }
+  }
+  result = await client.call_tool("create_request_ticket", payload)
+  ```
+
+#### `get_requested_item`
+Retrieves a Requested Item (RITM) by sys_id or number.
+- **Parameters:**
+  - `sys_id` (string, optional): The sys_id of the RITM.
+  - `number` (string, optional): The RITM number.
+- **Code Example:**
+  ```python
+  payload = {
+      "params": {
+          **SERVICENOW_CREDS,
+          "number": "RITM0010001"
+      }
+  }
+  result = await client.call_tool("get_requested_item", payload)
+  ```
+
+#### `add_comment_to_request`
+Adds a comment to a Request (REQ).
+- **Parameters:**
+  - `sys_id` (string, required): The sys_id of the request.
+  - `comment` (string, required): The comment text.
+- **Code Example:**
+  ```python
+  payload = {
+      "params": {
+          **SERVICENOW_CREDS,
+          "sys_id": "request_sys_id_here",
+          "comment": "Additional information: User needs access by Friday."
+      }
+  }
+  result = await client.call_tool("add_comment_to_request", payload)
+  ```
+
+#### `list_catalog_items`
+Lists items from the service catalog.
+- **Parameters:**
+  - `filter_text` (string, optional): Text to filter catalog items.
+  - `limit` (integer, optional): Maximum number of items to return.
+  - `category` (string, optional): Category to filter by.
+- **Code Example:**
+  ```python
+  payload = {
+      "params": {
+          **SERVICENOW_CREDS,
+          "filter_text": "laptop",
+          "limit": 20
+      }
+  }
+  result = await client.call_tool("list_catalog_items", payload)
+  ```
+
+#### `create_catalog_item_variable`
+Adds a new question/field to a catalog item's form.
+- **Parameters:**
+  - `item_sys_id` (string, required): Sys_id of the catalog item.
+  - `name` (string, required): Variable name (internal).
+  - `question_text` (string, required): Question text shown to users.
+  - `type` (string, required): Variable type (string, boolean, choice, etc.).
+  - `order` (integer, optional): Display order.
+  - `mandatory` (boolean, optional): Whether the field is required.
+- **Code Example:**
+  ```python
+  payload = {
+      "params": {
+          **SERVICENOW_CREDS,
+          "item_sys_id": "catalog_item_sys_id_here",
+          "name": "preferred_color",
+          "question_text": "What is your preferred color?",
+          "type": "choice",
+          "mandatory": False
+      }
+  }
+  result = await client.call_tool("create_catalog_item_variable", payload)
+  ```
+
+### Agile Development (Stories, Epics, Scrum Tasks)
+
+#### `create_story`
+Creates a new user story.
+- **Parameters:**
+  - `short_description` (string, required): Brief description of the story.
+  - `description` (string, optional): Detailed description.
+  - `story_points` (integer, optional): Effort estimation in story points.
+  - `sprint` (string, optional): Sys_id of the sprint.
+  - `epic` (string, optional): Sys_id of the parent epic.
+  - `assigned_to` (string, optional): Sys_id of assigned developer.
+  - `state` (string, optional): Story state (draft, ready, active, etc.).
+- **Code Example:**
+  ```python
+  payload = {
+      "params": {
+          **SERVICENOW_CREDS,
+          "short_description": "User login functionality",
+          "description": "As a user, I want to log into the system using my credentials",
+          "story_points": 5,
+          "state": "ready"
+      }
+  }
+  result = await client.call_tool("create_story", payload)
+  ```
+
+#### `update_story`
+Updates an existing user story.
+- **Parameters:**
+  - `sys_id` (string, required): The sys_id of the story.
+  - `short_description` (string, optional): Updated description.
+  - `story_points` (integer, optional): Updated story points.
+  - `state` (string, optional): Updated state.
+  - `assigned_to` (string, optional): Updated assignee.
+- **Code Example:**
+  ```python
+  payload = {
+      "params": {
+          **SERVICENOW_CREDS,
+          "sys_id": "story_sys_id_here",
+          "state": "complete",
+          "story_points": 8
+      }
+  }
+  result = await client.call_tool("update_story", payload)
+  ```
+
+#### `create_epic`
+Creates a new epic.
+- **Parameters:**
+  - `short_description` (string, required): Brief description of the epic.
+  - `description` (string, optional): Detailed description.
+  - `theme` (string, optional): Sys_id of the parent theme.
+  - `owner` (string, optional): Sys_id of the epic owner.
+  - `state` (string, optional): Epic state.
+- **Code Example:**
+  ```python
+  payload = {
+      "params": {
+          **SERVICENOW_CREDS,
+          "short_description": "User Authentication System",
+          "description": "Complete user authentication and authorization system",
+          "state": "active"
+      }
+  }
+  result = await client.call_tool("create_epic", payload)
+  ```
+
+#### `update_epic`
+Updates an existing epic.
+- **Parameters:**
+  - `sys_id` (string, required): The sys_id of the epic.
+  - `short_description` (string, optional): Updated description.
+  - `state` (string, optional): Updated state.
+  - `owner` (string, optional): Updated owner.
+- **Code Example:**
+  ```python
+  payload = {
+      "params": {
+          **SERVICENOW_CREDS,
+          "sys_id": "epic_sys_id_here",
+          "state": "complete"
+      }
+  }
+  result = await client.call_tool("update_epic", payload)
+  ```
+
+#### `create_scrum_task`
+Creates a new scrum task.
+- **Parameters:**
+  - `short_description` (string, required): Brief description of the task.
+  - `description` (string, optional): Detailed description.
+  - `story` (string, optional): Sys_id of the parent story.
+  - `assigned_to` (string, optional): Sys_id of assigned team member.
+  - `remaining_work` (float, optional): Remaining work in hours.
+  - `state` (string, optional): Task state.
+- **Code Example:**
+  ```python
+  payload = {
+      "params": {
+          **SERVICENOW_CREDS,
+          "short_description": "Design login page UI",
+          "description": "Create mockups and implement login page design",
+          "story": "story_sys_id_here",
+          "remaining_work": 8.0
+      }
+  }
+  result = await client.call_tool("create_scrum_task", payload)
+  ```
+
+#### `update_scrum_task`
+Updates an existing scrum task.
+- **Parameters:**
+  - `sys_id` (string, required): The sys_id of the scrum task.
+  - `short_description` (string, optional): Updated description.
+  - `remaining_work` (float, optional): Updated remaining work.
+  - `state` (string, optional): Updated state.
+  - `assigned_to` (string, optional): Updated assignee.
+- **Code Example:**
+  ```python
+  payload = {
+      "params": {
+          **SERVICENOW_CREDS,
+          "sys_id": "task_sys_id_here",
+          "remaining_work": 2.0,
+          "state": "in_progress"
+      }
+  }
+  result = await client.call_tool("update_scrum_task", payload)
+  ```
+
+### Project Management
+
+#### `create_project`
+Creates a new project record.
+- **Parameters:**
+  - `short_description` (string, required): Brief description of the project.
+  - `description` (string, optional): Detailed description.
+  - `manager` (string, optional): Sys_id of the project manager.
+  - `start_date` (string, optional): Project start date (YYYY-MM-DD).
+  - `end_date` (string, optional): Project end date (YYYY-MM-DD).
+  - `priority` (string, optional): Project priority.
+  - `state` (string, optional): Project state.
+- **Code Example:**
+  ```python
+  payload = {
+      "params": {
+          **SERVICENOW_CREDS,
+          "short_description": "Website Redesign Project",
+          "description": "Complete redesign of corporate website",
+          "start_date": "2024-01-01",
+          "end_date": "2024-06-30",
+          "priority": "2"
+      }
+  }
+  result = await client.call_tool("create_project", payload)
+  ```
+
+#### `update_project`
+Updates an existing project.
+- **Parameters:**
+  - `sys_id` (string, required): The sys_id of the project.
+  - `short_description` (string, optional): Updated description.
+  - `state` (string, optional): Updated state.
+  - `manager` (string, optional): Updated manager.
+  - `end_date` (string, optional): Updated end date.
+- **Code Example:**
+  ```python
+  payload = {
+      "params": {
+          **SERVICENOW_CREDS,
+          "sys_id": "project_sys_id_here",
+          "state": "in_progress",
+          "end_date": "2024-07-31"
+      }
+  }
+  result = await client.call_tool("update_project", payload)
+  ```
+
+#### `list_projects`
+Lists projects with optional filters.
+- **Parameters:**
+  - `query` (string, optional): ServiceNow query filter.
+  - `limit` (integer, optional): Maximum number of records to return.
+  - `offset` (integer, optional): Record offset for pagination.
+- **Code Example:**
+  ```python
+  payload = {
+      "params": {
+          **SERVICENOW_CREDS,
+          "query": "state=in_progress",
+          "limit": 10
+      }
+  }
+  result = await client.call_tool("list_projects", payload)
+  ```
+
+### Workflow Management
+
+#### `create_workflow`
+Creates a new workflow definition.
+- **Parameters:**
+  - `name` (string, required): Workflow name.
+  - `description` (string, optional): Workflow description.
+  - `table` (string, optional): Target table for the workflow.
+  - `condition` (string, optional): Conditions for workflow execution.
+  - `active` (boolean, optional): Whether the workflow is active.
+- **Code Example:**
+  ```python
+  payload = {
+      "params": {
+          **SERVICENOW_CREDS,
+          "name": "Incident Auto-Assignment",
+          "description": "Automatically assign incidents based on category",
+          "table": "incident",
+          "active": True
+      }
+  }
+  result = await client.call_tool("create_workflow", payload)
+  ```
+
+#### `update_workflow`
+Updates a workflow definition.
+- **Parameters:**
+  - `sys_id` (string, required): The sys_id of the workflow.
+  - `name` (string, optional): Updated workflow name.
+  - `description` (string, optional): Updated description.
+  - `active` (boolean, optional): Updated active status.
+- **Code Example:**
+  ```python
+  payload = {
+      "params": {
+          **SERVICENOW_CREDS,
+          "sys_id": "workflow_sys_id_here",
+          "active": False,
+          "description": "Updated workflow description"
+      }
+  }
+  result = await client.call_tool("update_workflow", payload)
+  ```
+
+#### `delete_workflow`
+Deletes a workflow definition.
+- **Parameters:**
+  - `sys_id` (string, required): The sys_id of the workflow to delete.
+- **Code Example:**
+  ```python
+  payload = {
+      "params": {
+          **SERVICENOW_CREDS,
+          "sys_id": "workflow_sys_id_here"
+      }
+  }
+  result = await client.call_tool("delete_workflow", payload)
+  ```
+
+### Script Include Management
+
+#### `create_script_include`
+Creates a new script include.
+- **Parameters:**
+  - `name` (string, required): Script include name.
+  - `description` (string, optional): Description of the script include.
+  - `script` (string, required): JavaScript code for the script include.
+  - `api_name` (string, optional): API name (defaults to name).
+  - `active` (boolean, optional): Whether the script include is active.
+- **Code Example:**
+  ```python
+  payload = {
+      "params": {
+          **SERVICENOW_CREDS,
+          "name": "UtilityFunctions",
+          "description": "Common utility functions",
+          "script": """
+    var UtilityFunctions = Class.create();
+    UtilityFunctions.prototype = {
+        initialize: function() {
+        },
+        
+        formatDate: function(dateString) {
+            // Format date logic here
+            return dateString;
+        }
+    };
+            """,
+          "active": True
+      }
+  }
+  result = await client.call_tool("create_script_include", payload)
+  ```
+
+#### `update_script_include`
+Updates the code or properties of a script include.
+- **Parameters:**
+  - `sys_id` (string, required): The sys_id of the script include.
+  - `name` (string, optional): Updated name.
+  - `description` (string, optional): Updated description.
+  - `script` (string, optional): Updated JavaScript code.
+  - `active` (boolean, optional): Updated active status.
+- **Code Example:**
+  ```python
+  payload = {
+      "params": {
+          **SERVICENOW_CREDS,
+          "sys_id": "script_include_sys_id_here",
+          "script": """
+    var UtilityFunctions = Class.create();
+    UtilityFunctions.prototype = {
+        initialize: function() {
+        },
+        
+        formatDate: function(dateString) {
+            // Updated format date logic
+            return new GlideDateTime(dateString).getDisplayValue();
+        }
+    };
+          """,
+          "active": True
+      }
+  }
+  result = await client.call_tool("update_script_include", payload)
+  ```
+
+#### `delete_script_include`
+Deletes a script include.
+- **Parameters:**
+  - `sys_id` (string, required): The sys_id of the script include to delete.
+- **Code Example:**
+  ```python
+  payload = {
+      "params": {
+          **SERVICENOW_CREDS,
+          "sys_id": "script_include_sys_id_here"
+      }
+  }
+  result = await client.call_tool("delete_script_include", payload)
+  ```
+
+### Changeset (Update Set) Management
+
+#### `create_changeset`
+Creates a new local Update Set.
+- **Parameters:**
+  - `name` (string, required): Update set name.
+  - `description` (string, optional): Update set description.
+  - `application` (string, optional): Sys_id of associated application.
+- **Code Example:**
+  ```python
+  payload = {
+      "params": {
+          **SERVICENOW_CREDS,
+          "name": "Feature Enhancement v2.1",
+          "description": "Update set for new feature enhancements"
+      }
+  }
+  result = await client.call_tool("create_changeset", payload)
+  ```
+
+#### `commit_changeset`
+Marks a changeset as 'complete'.
+- **Parameters:**
+  - `sys_id` (string, required): The sys_id of the update set.
+- **Code Example:**
+  ```python
+  payload = {
+      "params": {
+          **SERVICENOW_CREDS,
+          "sys_id": "update_set_sys_id_here"
+      }
+  }
+  result = await client.call_tool("commit_changeset", payload)
+  ```
+
+#### `list_changesets`
+Lists local Update Sets.
+- **Parameters:**
+  - `query` (string, optional): ServiceNow query filter.
+  - `limit` (integer, optional): Maximum number of records to return.
+- **Code Example:**
+  ```python
+  payload = {
+      "params": {
+          **SERVICENOW_CREDS,
+          "query": "state=in_progress",
+          "limit": 20
+      }
+  }
+  result = await client.call_tool("list_changesets", payload)
+  ```
+
+### UI Policy Management
+
+#### `create_ui_policy`
+Creates a new UI Policy.
+- **Parameters:**
+  - `short_description` (string, required): Brief description of the UI policy.
+  - `table` (string, required): Target table for the UI policy.
+  - `conditions` (string, optional): Conditions for when the policy applies.
+  - `on_load` (boolean, optional): Whether to execute on form load.
+  - `active` (boolean, optional): Whether the policy is active.
+- **Code Example:**
+  ```python
+  payload = {
+      "params": {
+          **SERVICENOW_CREDS,
+          "short_description": "Hide priority when impact is low",
+          "table": "incident",
+          "conditions": "impact=3",
+          "on_load": True,
+          "active": True
+      }
+  }
+  result = await client.call_tool("create_ui_policy", payload)
+  ```
+
+#### `create_ui_policy_action`
+Creates an action for a UI Policy to control a variable's state.
+- **Parameters:**
+  - `ui_policy_sys_id` (string, required): Sys_id of the parent UI policy.
+  - `field` (string, required): Field name to control.
+  - `visible` (boolean, optional): Whether the field should be visible.
+  - `mandatory` (boolean, optional): Whether the field should be mandatory.
+  - `read_only` (boolean, optional): Whether the field should be read-only.
+- **Code Example:**
+  ```python
+  payload = {
+      "params": {
+          **SERVICENOW_CREDS,
+          "ui_policy_sys_id": "ui_policy_sys_id_here",
+          "field": "priority",
+          "visible": False,
+          "mandatory": False
+      }
+  }
+  result = await client.call_tool("create_ui_policy_action", payload)
+  ```
+
+### Reporting & Analytics
+
+#### `get_aggregate_data`
+Performs aggregations (COUNT, SUM, AVG) on any table.
+- **Parameters:**
+  - `table_name` (string, required): The table for the aggregation.
+  - `aggregation_function` (string, required): 'COUNT', 'AVG', 'SUM', 'MIN', or 'MAX'.
+  - `field` (string, optional): Field to aggregate (required for SUM, AVG, MIN, MAX).
+  - `group_by_fields` (list of strings, optional): Fields to group the results by.
+  - `query` (string, optional): A filter query to apply before aggregating.
+- **Code Example:**
+  ```python
+  payload = {
+      "params": {
+          **SERVICENOW_CREDS,
+          "table_name": "incident",
+          "aggregation_function": "COUNT",
+          "group_by_fields": ["priority", "state"],
+          "query": "active=true"
+      }
+  }
+  result = await client.call_tool("get_aggregate_data", payload)
+  ```
+
+## Complete Example Script
+
+Here's a complete example showing how to create an incident, add comments, and then resolve it:
+
+```python
+import asyncio
+import os
+from fastmcp import Client
+
+# Set up credentials
+SERVICENOW_CREDS = {
+    "instance_url": os.getenv("SNOW_INSTANCE_URL"),
+    "username": os.getenv("SNOW_USERNAME"),
+    "password": os.getenv("SNOW_PASSWORD")
+}
+
+async def incident_workflow():
+    # Initialize the MCP client
+    client = Client({
+        "mcpServers": {
+            "servicenow": {
+                "command": "snow-mcp",
+                "args": [],
+                "transport": "stdio"
+            }
+        }
+    })
+    
+    try:
+        # 1. Create a new incident
+        create_payload = {
+            "params": {
+                **SERVICENOW_CREDS,
+                "short_description": "Database server not responding",
+                "description": "Production database server is not responding to connections",
+                "impact": "1",  # High
+                "urgency": "1",  # High
+                "category": "Software",
+                "subcategory": "Database"
+            }
+        }
+        
+        incident_result = await client.call_tool("create_incident", create_payload)
+        incident_sys_id = incident_result["sys_id"]
+        print(f"Created incident: {incident_result['number']}")
+        
+        # 2. Add work notes
+        notes_payload = {
+            "params": {
+                **SERVICENOW_CREDS,
+                "sys_id": incident_sys_id,
+                "notes": "Checked server status. Database process is not running."
+            }
+        }
+        
+        await client.call_tool("add_work_notes_to_incident", notes_payload)
+        print("Added work notes")
+        
+        # 3. Add customer comment
+        comment_payload = {
+            "params": {
+                **SERVICENOW_CREDS,
+                "sys_id": incident_sys_id,
+                "comment": "We are investigating the database connectivity issue."
+            }
+        }
+        
+        await client.call_tool("add_comment_to_incident", comment_payload)
+        print("Added customer comment")
+        
+        # 4. Resolve the incident
+        resolve_payload = {
+            "params": {
+                **SERVICENOW_CREDS,
+                "sys_id": incident_sys_id,
+                "state": "6",  # Resolved
+                "resolution_notes": "Restarted database service. Connection restored."
+            }
+        }
+        
+        await client.call_tool("update_incident", resolve_payload)
+        print("Incident resolved")
+        
+    except Exception as e:
+        print(f"Error: {e}")
+
+# Run the workflow
+if __name__ == "__main__":
+    asyncio.run(incident_workflow())
+```
+
+## Environment Setup
+
+It's recommended to store your ServiceNow credentials as environment variables:
+
+```bash
+# Linux/Mac
+export SNOW_INSTANCE_URL="https://your-instance.service-now.com"
+export SNOW_USERNAME="your-api-user"
+export SNOW_PASSWORD="your-api-password"
+
+# Windows
+set SNOW_INSTANCE_URL=https://your-instance.service-now.com
+set SNOW_USERNAME=your-api-user
+set SNOW_PASSWORD=your-api-password
+```
+
+## Error Handling
+
+All tools return structured responses. In case of errors, the response will include error details:
+
+```python
+try:
+    result = await client.call_tool("create_incident", payload)
+    if "error" in result:
+        print(f"Error: {result['error']}")
+    else:
+        print(f"Success: Created incident {result['number']}")
+except Exception as e:
+    print(f"Exception: {e}")
+```
+
+## How It Works
+
+This server is built using the [FastMCP](https://gofastmcp.com/) framework. When a client application calls a tool, FastMCP starts the `snow-mcp` command-line process in the background. The client and server then communicate over `stdio` using the MCP. The server executes the corresponding tool function, makes the necessary REST API calls to ServiceNow, and returns the result to the client. The server process is automatically terminated when the client exits.
+
+## Authentication
+
+The server supports basic authentication with ServiceNow. Make sure your API user has the necessary roles and permissions for the operations you want to perform:
+
+- **itil**: Basic ITSM operations (incidents, changes, requests)
+- **catalog_admin**: Service catalog management
+- **user_admin**: User and group management
+- **admin**: Full administrative access
+
+## Rate Limiting
+
+ServiceNow enforces rate limits on API calls. The server includes built-in retry logic with exponential backoff to handle temporary rate limit errors gracefully.
+
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+
+
+## Changelog
+
+### v1.0.0
+- Initial release with 60+ tools
+- Support for ITSM, ITOM, and App Dev operations
+- Complete documentation and examples
