@@ -1,0 +1,2 @@
+[console_scripts]
+sandpaper = sandpaper_py.menu:main
