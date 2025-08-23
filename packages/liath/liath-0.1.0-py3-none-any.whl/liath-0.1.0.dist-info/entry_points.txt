@@ -1,0 +1,4 @@
+[console_scripts]
+liath-cli=liath.cli_entry:main
+liath-server=liath.server:run_server
+
