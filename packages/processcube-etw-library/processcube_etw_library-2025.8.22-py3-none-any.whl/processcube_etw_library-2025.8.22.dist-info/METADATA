@@ -1,0 +1,15 @@
+Metadata-Version: 2.4
+Name: processcube_etw_library
+Version: 2025.8.22
+Summary: OAuth Identity Provider für ProcessCube
+Author-email: Tufan Kartal <Tufan.Kartal@persona.de>
+License: MIT
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: oauth2_client
+Requires-Dist: tenacity
+Requires-Dist: requests
+Requires-Dist: build>=1.3.0
+Requires-Dist: setuptools>=80.9.0
+Requires-Dist: wheel>=0.45.1
+Requires-Dist: twine>=6.1.0
