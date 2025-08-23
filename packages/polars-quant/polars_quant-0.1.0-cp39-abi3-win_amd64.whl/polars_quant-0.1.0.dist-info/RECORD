@@ -1,0 +1,9 @@
+polars_quant-0.1.0.dist-info/METADATA,sha256=2JzRX5NHFAtSVGY79IlA6bhpcemxuYs8XomwStJLTg8,360
+polars_quant-0.1.0.dist-info/WHEEL,sha256=2XatmAWXBfp_P6DUtFAtbdzzba6f_xbhEtpqsZt_zEg,94
+polars_quant-0.1.0.dist-info/licenses/LICENSE,sha256=c2J196vG8ujz_sYzHmV3liCANGQ0_yew8ZsJTxkS2eQ,1088
+polars_quant/__init__.py,sha256=zWJOwz21URLD4-0lx_zHDwaDSlL8vgOLYBhfjcnIvS8,49
+polars_quant/polars_quant.pyd,sha256=yMzV-FZrkUAZO34iFNOZwyl05Zy8ZYgzxkA63tuLJqU,19416064
+polars_quant/polars_quant.pyi,sha256=UoVdOgRtkSy_q-ZyEfhQHQXCWhEFhuZ7B6xVZXmsfF8,3078
+polars_quant/talib.py,sha256=ye9bmlTE0WXqGQNNkhguye-QBXkXvJFfjC-RHIZ60IQ,21512
+polars_quant/talib.pyi,sha256=CXyyQAccpaZJu8i6IrWxkUIiokF5DiO07rbn_Kmu3dk,9204
+polars_quant-0.1.0.dist-info/RECORD,,
