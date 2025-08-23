@@ -1,0 +1,51 @@
+Metadata-Version: 2.3
+Name: fastloom
+Version: 0.3.3
+Summary: Core package
+Requires-Python: >=3.12,<3.13
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.12
+Provides-Extra: celery
+Provides-Extra: dev
+Provides-Extra: fastapi
+Provides-Extra: httpx
+Provides-Extra: mongodb
+Provides-Extra: openai
+Provides-Extra: rabbit
+Provides-Extra: redis
+Provides-Extra: requests
+Requires-Dist: babel (>=2.17.0,<3.0.0)
+Requires-Dist: beanie (>=2.0.0,<3.0.0) ; extra == "mongodb"
+Requires-Dist: celery (>=5.5.3,<6.0.0) ; extra == "celery"
+Requires-Dist: fastapi (>=0,<1) ; extra == "fastapi" or extra == "rabbit"
+Requires-Dist: faststream[otel,rabbit] (>=0.5.28,<0.6.0) ; extra == "rabbit"
+Requires-Dist: httpx (>=0.28.0,<0.29.0) ; extra == "httpx"
+Requires-Dist: ipykernel (>=6.30.0,<7.0.0) ; extra == "dev"
+Requires-Dist: jdatetime (>=4.1.1,<5.0.0)
+Requires-Dist: jinja2 (>=3.1.6,<4.0.0)
+Requires-Dist: logfire[asgi,celery,fastapi,httpx,openai,pymongo,redis,requests,system-metrics] (>=4.0.0,<5.0.0)
+Requires-Dist: mypy (>=1.17.0,<2.0.0) ; extra == "dev"
+Requires-Dist: openai (>=1,<2) ; extra == "openai"
+Requires-Dist: opentelemetry-distro
+Requires-Dist: opentelemetry-exporter-otlp
+Requires-Dist: opentelemetry-instrumentation-aio-pika ; extra == "rabbit"
+Requires-Dist: orjson (==3.10.14)
+Requires-Dist: pre-commit (>=4.2.0,<5.0.0) ; extra == "dev"
+Requires-Dist: pydantic[email] (>=2.11,<3.0)
+Requires-Dist: python-jose (>=3.5.0,<4.0.0)
+Requires-Dist: python-multipart ; extra == "fastapi"
+Requires-Dist: pyyaml (>=6.0.2,<7.0.0)
+Requires-Dist: redis-om (>=1.0.3b,<2.0.0) ; extra == "redis"
+Requires-Dist: requests (>=2.32.0,<3.0.0) ; extra == "requests"
+Requires-Dist: ruff (>=0.12.5,<0.13.0) ; extra == "dev"
+Requires-Dist: sentry-sdk[fastapi] (>=2.0.0,<3.0.0)
+Requires-Dist: uvicorn (>=0.35.0,<0.36.0) ; extra == "fastapi" or extra == "rabbit"
+Description-Content-Type: text/markdown
+
+# Core bluprint Core Package
+## Install on other projects
+1. Run `poetry config http-basic.microservice-registry <your username> <your personal token>`
+
+## Committing updates
+1. Run `poetry version --next-phase patch`
+
