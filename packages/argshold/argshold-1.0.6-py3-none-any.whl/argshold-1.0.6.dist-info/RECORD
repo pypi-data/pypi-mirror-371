@@ -1,0 +1,13 @@
+argshold/__init__.py,sha256=08qNOtZhGDeDxnYNenjs4RbvNfBPAfKbVSEegURgKA0,57
+argshold/core.py,sha256=R1_YMrODvlGQmzCAWVp2zOcptTDpyE5S2eeI7qDc7sM,5174
+argshold/tests/__init__.py,sha256=WckvDMMEOaI8MIuyDxDf_WxifYC8dtZczv7JA-eEdcA,347
+argshold/tests/test_0.py,sha256=F2AtLpfT20mTdyIGFWZ3H1oL4Qzb1Ok7VZ8y781PcRY,2704
+argshold/tests/test_1.py,sha256=qf5iPrG2QQkyv0GmVw4_yPbpKHrC-udgT9rQXQ3gYoY,2855
+argshold/tests/test_2.py,sha256=y0SraIRXkMi3JXoZ2X22aYP_byrBTj28uVs-6fkxfcg,2765
+argshold/tests/test_3.py,sha256=0bYYI1Xr3hxDh9sEF8wlzKHC3t1JMMHb6sJMKo75vRY,3861
+argshold/tests/test_matmul.py,sha256=-guBvoRrMk5FK7_g6LGcs-J-7sFJgix5VUAlUFDKr1A,4564
+argshold-1.0.6.dist-info/licenses/LICENSE.txt,sha256=fOh9FHccUt9OcJPBaVJ482GX4yrl_FxCUk9YRZ53JOI,1074
+argshold-1.0.6.dist-info/METADATA,sha256=zzKVIrxcBIi_oNo3WaUBNBvibUL6360CHfWxg1t34qc,2458
+argshold-1.0.6.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+argshold-1.0.6.dist-info/top_level.txt,sha256=VQBffMkCKSs7GPedhVa09HzBHVIAZgW9lrCk8qBGnAI,9
+argshold-1.0.6.dist-info/RECORD,,
