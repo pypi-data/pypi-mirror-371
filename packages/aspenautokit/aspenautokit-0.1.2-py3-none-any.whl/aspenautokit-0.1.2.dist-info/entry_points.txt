@@ -1,0 +1,3 @@
+[console_scripts]
+aspenautokit = aspenautokit.main:main
+aspenautokit-close = aspenautokit.close_aspen:main
