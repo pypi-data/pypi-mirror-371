@@ -1,0 +1,1 @@
+sherpa-onnx-core==0.0.7
