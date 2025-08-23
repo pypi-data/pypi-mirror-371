@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(source:*)",
+      "Bash(jlpm clean:*)",
+      "Bash(jlpm build:*)",
+      "Bash(jlpm lint:*)",
+      "Bash(pip install:*)",
+      "Bash(jupyter labextension:*)",
+      "WebSearch",
+      "WebFetch(domain:stackoverflow.com)",
+      "Bash(python:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
