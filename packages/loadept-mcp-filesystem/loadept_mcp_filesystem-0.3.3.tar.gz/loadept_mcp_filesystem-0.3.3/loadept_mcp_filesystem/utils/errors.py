@@ -1,0 +1,2 @@
+class PathValidateError(Exception):
+    pass
