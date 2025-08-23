@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rdkit_buildutils"
+version = "0.2.0"
+description = "RDKit utilities: placeholder substitution, R-group decomposition, scaffold normalization"
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [{ name = "Fabio Nelli" }]
+license = { file = "LICENSE" }
+dependencies = ["rdkit"]
+
+[project.optional-dependencies]
+pandas = ["pandas>=1.5"]
+db = ["sqlalchemy>=2.0", "psycopg2-binary>=2.9"]
+
+[project.urls]
+Homepage = "https://github.com/nelli-datascience/rdkit_buildutils"

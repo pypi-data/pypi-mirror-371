@@ -1,0 +1,17 @@
+CHANGELOG.md
+LICENSE
+MANIFEST.in
+README.md
+ROADMAP.md
+pyproject.toml
+rdkit_buildutils/__init__.py
+rdkit_buildutils/core.py
+rdkit_buildutils/duplicates_pandas.py
+rdkit_buildutils/rgroup_core.py
+rdkit_buildutils/scaffold_normalize.py
+rdkit_buildutils.egg-info/PKG-INFO
+rdkit_buildutils.egg-info/SOURCES.txt
+rdkit_buildutils.egg-info/dependency_links.txt
+rdkit_buildutils.egg-info/requires.txt
+rdkit_buildutils.egg-info/top_level.txt
+tests/test_smoke.py
