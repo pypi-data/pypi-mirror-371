@@ -1,0 +1,11 @@
+repository_manager/__init__.py,sha256=nxkGn7oMAOgvGAh8Z3TaELfSgRiVT7KdAE825wRgj4s,360
+repository_manager/__main__.py,sha256=sm-JYupTOs8Z5Nq1N9W2MPC0HIQo11G3LCqac410pgk,114
+repository_manager/repository_manager.py,sha256=Vs8qIsAU7-dI-Sw9vlsg_kCPuk5T4GHahdLmTP2_dok,10398
+repository_manager/repository_manager_mcp.py,sha256=RC2XIHYW-TiET_dQpn1mIqPv2naDgsGKqiouJjQAfBw,9269
+repository_manager/version.py,sha256=3mLKOzHEfcaeBrrQmSWSesVirRJuxrUtvj_6q7TQu9k,116
+repository_manager-1.0.9.dist-info/LICENSE,sha256=Z1xmcrPHBnGCETO_LLQJUeaSNBSnuptcDVTt4kaPUOE,1060
+repository_manager-1.0.9.dist-info/METADATA,sha256=pXb5h3kIjaDi5CBw_fIl6b0Zz2NlHvPBf34HsPmmsjA,5537
+repository_manager-1.0.9.dist-info/WHEEL,sha256=bb2Ot9scclHKMOLDEHY6B2sicWOgugjFKaJsT7vwMQo,110
+repository_manager-1.0.9.dist-info/entry_points.txt,sha256=IgbeucZqq6u6IBfbkL6RNJefwuRjX5UtVQywmzygoKU,154
+repository_manager-1.0.9.dist-info/top_level.txt,sha256=1N8xmtRZn0oF06_dkvAU9Zh__3-WtfmCtIuQMZqxpkI,19
+repository_manager-1.0.9.dist-info/RECORD,,
