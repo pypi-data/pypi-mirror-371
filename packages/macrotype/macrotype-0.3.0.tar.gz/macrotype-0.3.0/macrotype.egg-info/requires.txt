@@ -1,0 +1,11 @@
+
+[build]
+build
+twine
+
+[test]
+mypy
+pyright
+ruff
+pytest
+sqlalchemy
