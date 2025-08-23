@@ -1,0 +1,115 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-03-28 18:44+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: C:\Users\Luca Allulli\Documents\dev\songpress\master\src\PreferencesDialog.py:27
+msgid "Songpress options"
+msgstr ""
+
+#: C:\Users\Luca Allulli\Documents\dev\songpress\master\src\PreferencesDialog.py:40
+msgid "Editor font"
+msgstr ""
+
+#: C:\Users\Luca Allulli\Documents\dev\songpress\master\src\PreferencesDialog.py:47
+msgid "Size"
+msgstr ""
+
+#: C:\Users\Luca Allulli\Documents\dev\songpress\master\src\PreferencesDialog.py:51
+msgid "7"
+msgstr ""
+
+#: C:\Users\Luca Allulli\Documents\dev\songpress\master\src\PreferencesDialog.py:51
+msgid "8"
+msgstr ""
+
+#: C:\Users\Luca Allulli\Documents\dev\songpress\master\src\PreferencesDialog.py:51
+msgid "9"
+msgstr ""
+
+#: C:\Users\Luca Allulli\Documents\dev\songpress\master\src\PreferencesDialog.py:51
+msgid "10"
+msgstr ""
+
+#: C:\Users\Luca Allulli\Documents\dev\songpress\master\src\PreferencesDialog.py:51
+msgid "11"
+msgstr ""
+
+#: C:\Users\Luca Allulli\Documents\dev\songpress\master\src\PreferencesDialog.py:51
+#: C:\Users\Luca Allulli\Documents\dev\songpress\master\src\PreferencesDialog.py:53
+msgid "12"
+msgstr ""
+
+#: C:\Users\Luca Allulli\Documents\dev\songpress\master\src\PreferencesDialog.py:51
+msgid "13"
+msgstr ""
+
+#: C:\Users\Luca Allulli\Documents\dev\songpress\master\src\PreferencesDialog.py:51
+msgid "14"
+msgstr ""
+
+#: C:\Users\Luca Allulli\Documents\dev\songpress\master\src\PreferencesDialog.py:51
+msgid "16"
+msgstr ""
+
+#: C:\Users\Luca Allulli\Documents\dev\songpress\master\src\PreferencesDialog.py:51
+msgid "18"
+msgstr ""
+
+#: C:\Users\Luca Allulli\Documents\dev\songpress\master\src\PreferencesDialog.py:52
+msgid "20"
+msgstr ""
+
+#: C:\Users\Luca Allulli\Documents\dev\songpress\master\src\PreferencesDialog.py:62
+msgid "Preview"
+msgstr ""
+
+#: C:\Users\Luca Allulli\Documents\dev\songpress\master\src\PreferencesDialog.py:73
+msgid "Default notation"
+msgstr ""
+
+#: C:\Users\Luca Allulli\Documents\dev\songpress\master\src\PreferencesDialog.py:87
+msgid "Check for updates every"
+msgstr ""
+
+#: C:\Users\Luca Allulli\Documents\dev\songpress\master\src\PreferencesDialog.py:101
+msgid "Default file extension"
+msgstr ""
+
+#: C:\Users\Luca Allulli\Documents\dev\songpress\master\src\PreferencesDialog.py:115
+msgid "Language"
+msgstr ""
+
+#: C:\Users\Luca Allulli\Documents\dev\songpress\master\src\PreferencesDialog.py:129
+msgid "General"
+msgstr ""
+
+#: C:\Users\Luca Allulli\Documents\dev\songpress\master\src\PreferencesDialog.py:133
+msgid "Offer to remove blank lines"
+msgstr ""
+
+#: C:\Users\Luca Allulli\Documents\dev\songpress\master\src\PreferencesDialog.py:137
+msgid "Offer to convert songs in tab"
+msgstr ""
+
+#: C:\Users\Luca Allulli\Documents\dev\songpress\master\src\PreferencesDialog.py:141
+msgid "Offer to transpose songs to simplify chords"
+msgstr ""
+
+#: C:\Users\Luca Allulli\Documents\dev\songpress\master\src\PreferencesDialog.py:155
+msgid "AutoAdjust"
+msgstr ""
