@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pycyclebio"
+version = "1.0.7"
+authors = [
+  { name="Alexander R Bennett", email="alex.bennett@gu.se" },
+]
+description = "Python based toolkit for temporal molecular biology"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = {text = "MIT"}
+
+dependencies = [
+"scipy",
+"statsmodels",
+"pandas",
+"numpy"
+]
+
+[project.urls]
+Homepage = "https://github.com/Glycocalex/PyCycle"
+Issues = "https://github.com/Glycocalex/PyCycle/issues"
+
+
+[tool.setuptools]
+packages = ["pycyclebio"]
