@@ -1,0 +1,265 @@
+Metadata-Version: 2.4
+Name: mcp-long-context-reader
+Version: 0.9.0
+Summary: A tool to help agents read and query long documents.
+Project-URL: Homepage, https://github.com/yuplin2333/mcp-long-context-reader
+Project-URL: Repository, https://github.com/yuplin2333/mcp-long-context-reader
+Project-URL: Issues, https://github.com/yuplin2333/mcp-long-context-reader/issues
+Project-URL: Documentation, https://github.com/yuplin2333/mcp-long-context-reader#readme
+Author-email: Yuping Lin <linyupin@msu.edu>, Zitao Li <zitao.l@alibaba-inc.com>
+Maintainer-email: Yuping Lin <linyupin@msu.edu>, Zitao Li <zitao.l@alibaba-inc.com>
+License: MIT
+License-File: LICENSE
+Keywords: document,llm,long-context,mcp,rag,reader,summarization
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Text Processing :: General
+Requires-Python: >=3.10
+Requires-Dist: dashscope>=1.23.5
+Requires-Dist: faiss-cpu>=1.11.0
+Requires-Dist: fastmcp>=2.8.1
+Requires-Dist: langchain-community>=0.3.25
+Requires-Dist: langchain-openai>=0.3.24
+Requires-Dist: langchain>=0.3.25
+Requires-Dist: tiktoken>=0.9.0
+Requires-Dist: transformers>=4.52.4
+Description-Content-Type: text/markdown
+
+# MCP Long Context Reader
+
+<!-- [![Docs](https://img.shields.io/badge/docs-latest-blue.svg)](./docs/build/html/index.html) -->
+
+MCP Long Context Reader is a Python-based toolkit designed to overcome the context window limitations and high costs associated with Large Language Models (LLMs) processing extensive documents. It provides a FastMCP server with multiple, powerful strategies for an LLM agent to "read" and query long documents without needing to load the entire text into its context window.
+
+This project features an intelligent, filesystem-based caching backend. When a document is processed for the first time with a specific strategy, the expensive work (like generating embeddings) is cached. Subsequent queries on the same document are significantly faster.
+
+## Features
+
+This toolkit provides five distinct strategies as MCP tools:
+
+1. **`glance`**: Provides a quick look at the beginning of a file, showing the first few thousands characters and total line count.
+2. **`search_with_regex`**: Finds and extracts text snippets using regular expression patterns. Ideal for precise, pattern-based lookups.
+3. **`retrieve_with_rag`**: Uses a Retrieval-Augmented Generation (RAG) pipeline to find the most semantically relevant document chunks based on a natural language question.
+4. **`summarize_with_map_reduce`**: A classic "divide and conquer" strategy that summarizes large chunks in parallel and then combines those summaries. Best for getting the gist of a very long document.
+5. **`summarize_with_sequential_notes`**: An advanced strategy where an LLM reads the document sequentially, taking query-aware notes. Best for tasks requiring strict order and detail sensitivity (e.g., "needle-in-a-haystack").
+
+## Getting Started
+
+### 1. Prerequisites
+
+- Python 3.10 or newer.
+- `uv` Python package manager. If you don't have it, install it with `pip install uv`.
+- An [OpenAI API Key](https://platform.openai.com/api-keys) for the RAG and LLM-based strategies.
+
+### 2. Environment Setup
+
+First, clone the repository to your local machine:
+
+```bash
+git clone <repository-url>
+cd mcp-long-context-reader
+```
+
+Next, create and activate a virtual environment using `uv`:
+
+```bash
+uv venv
+source .venv/bin/activate
+# On Windows, use: .venv\Scripts\activate
+```
+
+### 3. Install Dependencies
+
+Install the project and its required dependencies:
+
+```bash
+uv pip install .
+```
+
+This command builds and installs the project and its core dependencies into your virtual environment, making it ready for use.
+
+### 4. Configure Environment Variables
+
+This project requires environment variables to be set for configuration and security.
+
+1. **Workspace Directory (Required)**: You must specify a sandboxed directory from which the server is allowed to read files. This is a critical security measure.
+
+    ```bash
+    export MCP_WORKSPACE_DIRECTORY="/path/to/your/documents/dir"
+    ```
+
+2. **Model Provider & API Key (Required)**
+
+    Choose ***one*** of the following providers and set the corresponding environment variables.
+
+    - **OpenAI**
+
+    ```bash
+    export MCP_API_PROVIDER="openai"
+    export MCP_EMBEDDING_MODEL="text-embedding-3-small"
+    export MCP_LLM_MODEL="gpt-4o"
+    export OPENAI_API_KEY="sk-..."
+    ```
+
+    - **DashScope**
+
+    ```bash
+    export MCP_API_PROVIDER="dashscope"
+    export MCP_EMBEDDING_MODEL="text-embedding-v3"
+    export MCP_LLM_MODEL="qwen-max"
+    export DASHSCOPE_API_KEY="sk-..."
+    ```
+
+3. **Cache Directory (Required)**: You must specify where to store the cache files.
+
+    ```bash
+    export MCP_CACHE_DIRECTORY="/path/to/your/cache"
+    ```
+
+4. **Optional Environment Variables**
+    - **OpenAI API Base URL**: If you are using a custom OpenAI API base URL, you can set it here.
+
+    ```bash
+    export OPENAI_API_BASE_URL="https://your.api.base.url/v1"
+    ```
+
+## Usage
+
+### Starting the Server
+
+To start the FastMCP server, set the required environment variables and run the `server.py` module from the project root:
+
+```bash
+uv run fastmcp run src/mcp_long_context_reader/server.py --transport sse --port 8000
+```
+
+This command sets up the MCP server on `SSE` at `http://localhost:8000/sse`. For detailed information, see the [FastMCP Documentation](https://gofastmcp.com/deployment/running-server).
+
+### Calling from a Client (Python)
+
+Once the server is running, you can call its tools from a Python client. The following example demonstrates how to use the `search_with_regex` tool.
+
+First, ensure you have `fastmcp` installed in your client environment: `pip install fastmcp`.
+
+```python
+import asyncio
+from fastmcp import Client
+
+async def main():
+    # Connect to the server running on localhost port 8000
+    client = Client("http://localhost:8000/sse")
+
+    async with client:
+        result = await client.call_tool(
+            "search_with_regex",
+            {
+                # This path should be relative to this python script
+                "context_path": "path/to/context.txt",
+                "regex_pattern": " hello ",
+            },
+        )
+        print(result)
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+You can find this and other examples in the `examples/` folder.
+
+### JSON Configuration
+
+The following configuration sets up the MCP server on `stdio`, which is useful for integrating with Claude Desktop. *Remember to replace the placeholder with the **absolute path** to the `server.py` file in your cloned repository.*
+
+```json
+{
+  "mcpServers": {
+    "mcp-long-context-reader": {
+      "command": "python",
+      "args": [
+        "/path/to/your/cloned/repo/src/mcp_long_context_reader/server.py"
+      ],
+      "env": {
+        "MCP_WORKSPACE_DIRECTORY": "/path/to/your/documents/dir",
+        "MCP_CACHE_DIRECTORY": "/path/to/your/cache",
+        "MCP_API_PROVIDER": "openai",
+        "MCP_EMBEDDING_MODEL": "text-embedding-3-small",
+        "MCP_LLM_MODEL": "gpt-4o",
+        "OPENAI_API_KEY": "sk-..."
+      }
+    }
+  }
+}
+```
+
+### Local Example
+
+We have prepared a simple `run-and-test` script for you.
+
+```bash
+# 1. Set the necessary environment variables in examples/run_server_sse.sh
+# 2. Run the server:
+bash examples/run_server_sse.sh
+
+# 3. In another terminal, run the client:
+uv run examples/example_client.py
+```
+
+## Development
+
+### Development Setup
+
+If you plan to contribute to the project, you'll need to install the full set of development dependencies, which include tools for testing, formatting, and building documentation.
+
+The recommended way is to use `uv sync`, which installs all packages from the `uv.lock` file:
+
+```bash
+uv sync
+```
+
+(Alternative option) This is equivalent to installing the `dev` extras defined in `pyproject.toml`:
+
+```bash
+uv pip install -e ".[dev]"
+```
+
+### Running Tests
+
+The project uses `pytest` for testing. To run the full test suite, execute the following command:
+
+```bash
+uv run pytest
+```
+
+### Building Documentation
+
+The documentation is generated using [Sphinx](https://www.sphinx-doc.org/). To build the HTML documentation locally, navigate to the `docs/` directory and use the provided `Makefile`:
+
+```bash
+cd docs
+make html
+```
+
+After the build is complete, you can view the documentation by opening `docs/build/html/index.html` in your web browser.
+
+### Code Quality and Pre-commit Hooks
+
+This project uses [pre-commit](https://pre-commit.com/) to maintain code quality. To set up:
+
+```bash
+uv run pre-commit install
+```
+
+To run checks manually:
+
+```bash
+uv run pre-commit run --all-files
+```
+
+All code must be checked before committing.

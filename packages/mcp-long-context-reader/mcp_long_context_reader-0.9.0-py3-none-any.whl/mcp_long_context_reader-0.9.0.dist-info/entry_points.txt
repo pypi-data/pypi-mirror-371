@@ -1,0 +1,2 @@
+[console_scripts]
+mcp-long-context-reader = mcp_long_context_reader.server:main
