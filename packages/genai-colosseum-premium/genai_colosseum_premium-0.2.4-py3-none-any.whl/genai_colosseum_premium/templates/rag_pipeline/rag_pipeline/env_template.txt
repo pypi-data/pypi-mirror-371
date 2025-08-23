@@ -1,0 +1,82 @@
+# RAG Pipeline Environment Configuration
+# Copy this file to .env and fill in your actual API keys
+#
+# IMPORTANT: Use a virtual environment to avoid package conflicts!
+# Create with: python -m venv rag_env
+# Activate with: source rag_env/bin/activate (Linux/Mac) or rag_env\Scripts\activate (Windows)
+
+# =============================================================================
+# REQUIRED: LLM API Keys (choose one or more)
+# =============================================================================
+
+# Groq API Key (recommended - fast and cost-effective)
+# Get free API key from: https://console.groq.com/
+GROQ_API_KEY=gsk_your_groq_api_key_here
+
+# OpenAI API Key (alternative)
+# Get API key from: https://platform.openai.com/api-keys
+# OPENAI_API_KEY=sk_your_openai_api_key_here
+
+# Anthropic API Key (alternative)
+# Get API key from: https://console.anthropic.com/
+# ANTHROPIC_API_KEY=sk_ant_your_anthropic_api_key_here
+
+# =============================================================================
+# OPTIONAL: LangChain Tracking & Monitoring
+# =============================================================================
+
+# LangSmith API Key (for LangChain tracking)
+# Get free API key from: https://smith.langchain.com/
+LANGSMITH_API_KEY=lsv2_your_langsmith_api_key_here
+
+# LangChain Project Name (for organizing your projects)
+LANGCHAIN_PROJECT=RAG_Pipeline_Project
+
+# Enable LangChain tracing (set to 'true' for monitoring)
+LANGCHAIN_TRACING_V2=true
+
+# LangSmith endpoint (usually this default value)
+LANGCHAIN_ENDPOINT=https://api.smith.langchain.com
+
+# =============================================================================
+# OPTIONAL: Advanced Configuration
+# =============================================================================
+
+# User Agent for API requests (optional)
+USER_AGENT=RAG_Pipeline/1.0.0
+
+# HuggingFace Hub token (optional - for private models)
+# HUGGINGFACE_HUB_TOKEN=hf_your_token_here
+
+# Ollama endpoint (if using custom Ollama server)
+# OLLAMA_BASE_URL=http://localhost:11434
+
+# =============================================================================
+# EXAMPLE CONFIGURATIONS
+# =============================================================================
+
+# For Groq + LangSmith tracking:
+# GROQ_API_KEY=gsk_1234567890abcdef...
+# LANGSMITH_API_KEY=lsv2_1234567890abcdef...
+# LANGCHAIN_PROJECT=My_RAG_Project
+# LANGCHAIN_TRACING_V2=true
+
+# For OpenAI + LangSmith tracking:
+# OPENAI_API_KEY=sk-1234567890abcdef...
+# LANGSMITH_API_KEY=lsv2_1234567890abcdef...
+# LANGCHAIN_PROJECT=My_RAG_Project
+# LANGCHAIN_TRACING_V2=true
+
+# For local Ollama only (no cloud APIs):
+# OLLAMA_BASE_URL=http://localhost:11434
+# LANGCHAIN_TRACING_V2=false
+
+# =============================================================================
+# NOTES
+# =============================================================================
+
+# 1. Only one LLM API key is required (GROQ_API_KEY recommended)
+# 2. LangSmith tracking is optional but highly recommended for monitoring
+# 3. Remove the # comment symbols when adding your actual keys
+# 4. Keep this file secure and never commit it to version control
+# 5. The system will automatically detect and use available API keys

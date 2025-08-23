@@ -1,0 +1,9 @@
+# Chatbot Requirements - Simple & Essential
+# Core dependencies
+langchain-core>=0.3.0
+langchain-groq>=0.3.0
+python-dotenv>=1.0.0
+streamlit>=1.25.0
+
+# Optional: LangChain tracking
+langsmith>=0.3.0

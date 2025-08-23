@@ -1,0 +1,14 @@
+# Chatbot Environment Variables
+# Copy this to .env and add your actual API keys
+
+# REQUIRED: Groq API Key
+GROQ_API_KEY=gsk_your_groq_api_key_here
+
+# OPTIONAL: LangChain tracking
+LANGSMITH_API_KEY=lsv2_your_langsmith_api_key_here
+LANGCHAIN_TRACING_V2=true
+
+# NOTES:
+# 1. Get free Groq API key from: https://console.groq.com/
+# 2. LangSmith tracking is optional but recommended
+# 3. Keep this file secure and never commit to version control

@@ -1,0 +1,29 @@
+## Component: homepage-hero-section
+- description: A hero section for the homepage with a brief introduction to the healthcare application, a large inviting headline, and a primary call to action button like 'Book an Appointment' and a secondary 'Learn More' button. Incorporate the black, orange, and white color theme.
+
+## Component: homepage-feature-display
+- description: A section for the homepage displaying key features of the healthcare application in a visually appealing box format. Each box should have an icon placeholder, a title, and a brief description. Ensure it's responsive and uses the black, orange, and white color theme.
+
+## Component: about-us-page-content
+- description: The main content section for the About Us page. It should include detailed information about the healthcare providers associated with the application, a clear mission statement and values, and placeholder contact information (email, phone, address).
+
+## Component: services-page-content
+- description: The main content section for the Services page. It should list various services offered (e.g., consultations, teleconsultations, prescriptions) with detailed descriptions for each. Include placeholder pricing information for each service.
+
+## Component: appointment-booking-form
+- description: An online form for booking appointments. Include fields for patient details, a calendar view for selecting available appointment slots (frontend UI only, no backend integration), and a submit button. Mention that confirmation and reminder emails, rescheduling, and cancellation options are backend functionalities.
+
+## Component: patient-login-ui
+- description: A secure login user interface for patients. It should include input fields for 'Mobile Number' and a button for 'Send OTP'. Also, include a 'Login' button. Clearly state that OTP verification and profile management are backend functionalities.
+
+## Component: doctor-login-ui
+- description: A secure login user interface for doctors. It should include input fields for 'Mobile Number' and a button for 'Send OTP'. Also, include a 'Login' button. Clearly state that OTP verification, viewing schedules, updating history, creating prescriptions, and managing teleconsultations are backend functionalities.
+
+## Component: contact-us-page-content
+- description: The main content section for the Contact Us page. Include a contact form with fields for name, email, subject, and message, and a submit button. Also, display contact details (email, phone number, and optional address).
+
+## Component: global-navbar
+- description: A responsive navigation bar for easy access to all pages: Homepage, About Us, Services, Appointment Booking, Patient Login, Doctor Login, Contact Us. Use the black, orange, and white color theme.
+
+## Component: global-footer
+- description: A footer for the webpage with contact details (placeholder), copyright information, and placeholder icons for social media links. Ensure it's responsive and uses the black, orange, and white color theme.
