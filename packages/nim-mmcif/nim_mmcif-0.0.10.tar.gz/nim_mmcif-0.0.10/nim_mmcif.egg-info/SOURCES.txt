@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+build_nim.py
+mmcif.nimble
+pyproject.toml
+setup.py
+nim_mmcif/__init__.py
+nim_mmcif/_dummy.c
+nim_mmcif/mmcif.nim
+nim_mmcif/nim_mmcif.nim
+nim_mmcif/nim_mmcif.nim.cfg
+nim_mmcif/nim_mmcif.nimble
+nim_mmcif/python_bindings.nim
+tests/test.mmcif
+tests/test.nim
+tests/test_python_bindings.py
