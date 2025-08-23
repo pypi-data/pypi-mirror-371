@@ -1,0 +1,58 @@
+Metadata-Version: 2.4
+Name: pyvisgrid
+Version: 0.1.0
+Summary:  Grid and visualize observations of radio interferometers.
+Project-URL: repository, https://github.com/radionets-project/pyvisgrid
+Author-email: Kevin Schmitz <kevin2.schmitz@tu-dortmund.de>, Tom Groß <tom.gross@tu-dortmund.de>, Anno Knierim <anno.knierim@tu-dortmund.de>
+Maintainer-email: Kevin Schmitz <kevin2.schmitz@tu-dortmund.de>, Tom Groß <tom.gross@tu-dortmund.de>, Anno Knierim <anno.knierim@tu-dortmund.de>
+License: MIT
+License-File: LICENSE
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Scientific/Engineering :: Astronomy
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Topic :: Scientific/Engineering :: Physics
+Requires-Python: >=3.10
+Requires-Dist: astropy<=6.1.0
+Requires-Dist: casatools
+Requires-Dist: click
+Requires-Dist: h5py
+Requires-Dist: matplotlib
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: scipy
+Requires-Dist: toml
+Requires-Dist: torch
+Requires-Dist: tqdm
+Provides-Extra: pyvisgen
+Requires-Dist: pyvisgen; extra == 'pyvisgen'
+Description-Content-Type: text/x-rst
+
+=========================
+pyvisgrid |ci| |codecov|
+=========================
+
+.. |ci| image:: https://github.com/radionets-project/pyvisgrid/actions/workflows/ci.yml/badge.svg?branch=main
+    :target: https://github.com/radionets-project/pyvisgrid/actions/workflows/ci.yml?branch=main
+    :alt: Test Status
+
+.. |codecov| image:: https://codecov.io/github/radionets-project/pyvisgrid/badge.svg
+    :target: https://codecov.io/github/radionets-project/pyvisgrid
+    :alt: Code coverage
+
+Installation
+============
+
+You can install the necessary packages in a conda environment of your choice by executing
+
+.. code::
+
+  $ pip install -e .
+
+We recommend using a conda/mamba environment with python version ``<=3.11``.
+
+If you want to use features from the NRAO CASAtools package, make sure you are using python 3.10 or 3.11.
