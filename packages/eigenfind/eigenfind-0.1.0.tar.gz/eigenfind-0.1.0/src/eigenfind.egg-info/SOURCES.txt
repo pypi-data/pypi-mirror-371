@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+src/__init__.py
+src/core.py
+src/numeric.py
+src/symbolic.py
+src/utils.py
+src/eigenfind.egg-info/PKG-INFO
+src/eigenfind.egg-info/SOURCES.txt
+src/eigenfind.egg-info/dependency_links.txt
+src/eigenfind.egg-info/top_level.txt
