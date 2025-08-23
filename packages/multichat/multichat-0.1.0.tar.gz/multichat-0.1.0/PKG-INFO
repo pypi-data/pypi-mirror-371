@@ -1,0 +1,7 @@
+Metadata-Version: 2.4
+Name: multichat
+Version: 0.1.0
+Summary: CLI to send the same message to multiple LLMs and returns their responses.
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: any-llm-sdk[anthropic,google,openai,xai]>=0.16.0
