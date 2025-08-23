@@ -1,0 +1,47 @@
+[project]
+name = "petracore-django-backend-starter"
+version = "0.1.0"
+description = "PetraCore 's Django project/app scaffolder with services layer and messaging functionalities"
+authors = [{ name = "Maro Okegbero" }]
+readme = "README.md"
+license = { file = "LICENSE" }
+keywords = ["django", "scaffold", "rest-framework", "starter"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Framework :: Django",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+requires-python = ">=3.10"
+dependencies = [
+  "Django>=4.2",
+  "djangorestframework>=3.15",
+  "PyJWT>=2.8,<3",
+    "requests>=2.32,<3"
+]
+
+[project.scripts]
+petracore_django = "petracore_django.cli:main"
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["petracore_django*"]
+
+# Include template files in the wheel
+[tool.setuptools.package-data]
+petracore_django = [
+  "templates/*.tmpl",
+]
