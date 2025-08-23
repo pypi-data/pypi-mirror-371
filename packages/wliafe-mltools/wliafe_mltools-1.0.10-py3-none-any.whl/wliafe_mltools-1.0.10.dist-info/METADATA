@@ -1,0 +1,87 @@
+Metadata-Version: 2.4
+Name: wliafe-mltools
+Version: 1.0.10
+Summary: A machine learning tools library
+Author: wliafe
+Author-email: wliafe <914099435@qq.com>
+License-Expression: Apache-2.0
+License-File: LICENSE
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Operating System :: OS Independent
+Requires-Dist: httpx>=0.28.1
+Requires-Dist: jupyter>=1.0.0
+Requires-Dist: matplotlib>=3.5.1
+Requires-Dist: pandas>=1.2.4
+Requires-Dist: tqdm>=4.67.1
+Requires-Dist: torch>=2.1.0,<2.5.0 ; python_full_version == '3.8.*'
+Requires-Dist: torchvision>=0.16.0,<0.20.0 ; python_full_version == '3.8.*'
+Requires-Dist: torchaudio>=2.1.0,<2.5.0 ; python_full_version == '3.8.*'
+Requires-Dist: torch>=2.5.0 ; python_full_version >= '3.9'
+Requires-Dist: torchvision>=0.20.0 ; python_full_version >= '3.9'
+Requires-Dist: torchaudio>=2.5.0 ; python_full_version >= '3.9'
+Requires-Dist: torch>=2.1.0 ; extra == 'cpu'
+Requires-Dist: torchvision>=0.16.0 ; extra == 'cpu'
+Requires-Dist: torchaudio>=2.1.0 ; extra == 'cpu'
+Requires-Dist: torch>=2.1.0,<2.5.0 ; python_full_version == '3.8.*' and extra == 'cu118'
+Requires-Dist: torchvision>=0.16.0,<0.20.0 ; python_full_version == '3.8.*' and extra == 'cu118'
+Requires-Dist: torchaudio>=2.1.0,<2.5.0 ; python_full_version == '3.8.*' and extra == 'cu118'
+Requires-Dist: torch>=2.5.0 ; python_full_version >= '3.9' and extra == 'cu118'
+Requires-Dist: torchvision>=0.20.0 ; python_full_version >= '3.9' and extra == 'cu118'
+Requires-Dist: torchaudio>=2.5.0 ; python_full_version >= '3.9' and extra == 'cu118'
+Requires-Dist: torch>=2.1.0,<2.5.0 ; python_full_version == '3.8.*' and extra == 'cu121'
+Requires-Dist: torchvision>=0.16.0,<0.20.0 ; python_full_version == '3.8.*' and extra == 'cu121'
+Requires-Dist: torchaudio>=2.1.0,<2.5.0 ; python_full_version == '3.8.*' and extra == 'cu121'
+Requires-Dist: torch>=2.5.0 ; python_full_version >= '3.9' and extra == 'cu121'
+Requires-Dist: torchvision>=0.20.0 ; python_full_version >= '3.9' and extra == 'cu121'
+Requires-Dist: torchaudio>=2.5.0 ; python_full_version >= '3.9' and extra == 'cu121'
+Requires-Dist: torch>=2.4.0,<2.5.0 ; python_full_version == '3.8.*' and extra == 'cu124'
+Requires-Dist: torchvision>=0.19.0,<0.20.0 ; python_full_version == '3.8.*' and extra == 'cu124'
+Requires-Dist: torchaudio>=2.4.0,<2.5.0 ; python_full_version == '3.8.*' and extra == 'cu124'
+Requires-Dist: torch>=2.5.0 ; python_full_version >= '3.9' and extra == 'cu124'
+Requires-Dist: torchvision>=0.20.0 ; python_full_version >= '3.9' and extra == 'cu124'
+Requires-Dist: torchaudio>=2.5.0 ; python_full_version >= '3.9' and extra == 'cu124'
+Requires-Dist: torch>=2.6.0 ; python_full_version >= '3.9' and extra == 'cu126'
+Requires-Dist: torchvision>=0.21.0 ; python_full_version >= '3.9' and extra == 'cu126'
+Requires-Dist: torchaudio>=2.6.0 ; python_full_version >= '3.9' and extra == 'cu126'
+Requires-Dist: torch>=2.7.0 ; python_full_version >= '3.9' and extra == 'cu128'
+Requires-Dist: torchvision>=0.22.0 ; python_full_version >= '3.9' and extra == 'cu128'
+Requires-Dist: torchaudio>=2.7.0 ; python_full_version >= '3.9' and extra == 'cu128'
+Requires-Python: >=3.8
+Project-URL: Homepage, https://github.com/wliafe/mltools
+Project-URL: Issues, https://github.com/wliafe/mltools/issues
+Provides-Extra: cpu
+Provides-Extra: cu118
+Provides-Extra: cu121
+Provides-Extra: cu124
+Provides-Extra: cu126
+Provides-Extra: cu128
+Description-Content-Type: text/markdown
+
+# mltools
+
+## 介绍
+
+mltools：一个专注于机器学习工具开发的开源项目。
+
+## 安装命令
+
+```bash
+pip install wliafe-mltools
+```
+
+建议使用uv安装。
+
+```bash
+uv add wliafe-mltools [--extra <cuda版本>]
+```
+
+cuda版本：cpu、cu118、cu121、cu124、cu126、cu128
+
+## 使用说明
+
+1. mltools需要python3.8及以上版本。
+2. 样例可以参考example文件夹。
