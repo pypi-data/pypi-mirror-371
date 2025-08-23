@@ -1,0 +1,3 @@
+[console_scripts]
+fa = friendli_app.main:main
+friendli-app = friendli_app.main:main
