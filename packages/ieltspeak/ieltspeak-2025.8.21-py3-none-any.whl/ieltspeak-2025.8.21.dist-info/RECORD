@@ -1,0 +1,13 @@
+ieltspeak/__about__.py,sha256=Gk3cIx2hLHR-ktxu5kQKXt7fQt9vrAAt2hZX6pyP3gM,136
+ieltspeak/__init__.py,sha256=mWfnxX9KLNtldMFgn5dqbP__eZsU8XmflCRq8NlYMZA,109
+ieltspeak/cli.py,sha256=excccnXWHeLURcTC5-ZCjgRgz134dm7NucD_aEn6DF0,1940
+ieltspeak/data_loader.py,sha256=Ywn3E9i9qNO6rRufeIJp44zWvtDnBPRGl0zdao10Sh4,2729
+ieltspeak/test.py,sha256=u_TH0Y1TZeHA5ycIoWj7qx6nGZpcgsaiHRUpSNG0hQk,117
+ieltspeak/update_data.py,sha256=VpNJtjY8OiD5nMNrC269tcXtkfcs7JTwWTCeRjK-XJs,11240
+ieltspeak/data/ielts_part0.json,sha256=LCk6OR1xjgFidhW2YUxDDkTlRjJFW4uhXadx0PXrOYc,25723
+ieltspeak/data/ielts_part1.json,sha256=rEwl2-Pz3uPXU2EqVtAl3M8ZeqVT0MVQ8UgI1d3k9jU,43673
+ieltspeak-2025.8.21.dist-info/METADATA,sha256=13MoLUdNBOBnkYhc4hf5nLB7NVGeuhVDcqNJrHl7qV0,1616
+ieltspeak-2025.8.21.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+ieltspeak-2025.8.21.dist-info/entry_points.txt,sha256=LH8KtaRbhKkCQnfxPINWi8sZv0C6--YyuGzRSBhWYHs,49
+ieltspeak-2025.8.21.dist-info/licenses/LICENSE.txt,sha256=AbpHGcgLb-kRsJGnwFEktk7uzpZOCcBY74-YBdrKVGs,1
+ieltspeak-2025.8.21.dist-info/RECORD,,
