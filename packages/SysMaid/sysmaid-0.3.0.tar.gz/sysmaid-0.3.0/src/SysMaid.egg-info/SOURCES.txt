@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+src/SysMaid.egg-info/PKG-INFO
+src/SysMaid.egg-info/SOURCES.txt
+src/SysMaid.egg-info/dependency_links.txt
+src/SysMaid.egg-info/requires.txt
+src/SysMaid.egg-info/top_level.txt
+src/action/kill_proc.py
+src/action/stop_service.py
+src/condiction/is_exited.py
+src/condiction/is_running.py
+src/condiction/no_window.py
+tests/test_stress.py
