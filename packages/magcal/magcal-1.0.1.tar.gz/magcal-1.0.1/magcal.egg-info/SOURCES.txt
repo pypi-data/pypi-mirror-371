@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+magcal/__init__.py
+magcal/cli.py
+magcal/core.py
+magcal.egg-info/PKG-INFO
+magcal.egg-info/SOURCES.txt
+magcal.egg-info/dependency_links.txt
+magcal.egg-info/entry_points.txt
+magcal.egg-info/requires.txt
+magcal.egg-info/top_level.txt
