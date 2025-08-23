@@ -1,0 +1,3 @@
+[console_scripts]
+mat-llm-cli=mat_llm_cli.cli:app
+

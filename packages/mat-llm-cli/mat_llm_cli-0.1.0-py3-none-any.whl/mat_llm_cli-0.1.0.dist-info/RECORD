@@ -1,0 +1,9 @@
+mat_llm_cli/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+mat_llm_cli/__version__.py,sha256=gvW9H5deM18Jxi3Kgk0mfNVUOICSMkt4v_h65bBrky0,76
+mat_llm_cli/cli.py,sha256=MzcPiCps-1caapIMhqDA8NLn-bhD2FIGcwP7K3VWrW4,2384
+mat_llm_cli/utils.py,sha256=VLu0m_Sh-bdE0dHyyxTxh7TNdx3CE7vCwDE3a8Txtbc,896
+mat_llm_cli-0.1.0.dist-info/entry_points.txt,sha256=CiO9nO2jtbEGYLEF-H2BQB2AEL6ObjVhUjS2fZfQ6TA,51
+mat_llm_cli-0.1.0.dist-info/licenses/LICENSE,sha256=zo0bFRRrKhNgd_zOznNdmEqEwZeXUgv5TABTGrppt6Q,1086
+mat_llm_cli-0.1.0.dist-info/WHEEL,sha256=G2gURzTEtmeR8nrdXUJfNiB3VYVxigPQ-bEQujpNiNs,82
+mat_llm_cli-0.1.0.dist-info/METADATA,sha256=2sP6kLiQ6XthIwR-ZgePZfExkHBpHYrq0F2t9rUjbPA,933
+mat_llm_cli-0.1.0.dist-info/RECORD,,
