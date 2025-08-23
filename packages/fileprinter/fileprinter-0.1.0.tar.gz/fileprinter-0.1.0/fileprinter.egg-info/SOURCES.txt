@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+fileprinter/__init__.py
+fileprinter/fileprinter.py
+fileprinter.egg-info/PKG-INFO
+fileprinter.egg-info/SOURCES.txt
+fileprinter.egg-info/dependency_links.txt
+fileprinter.egg-info/top_level.txt
