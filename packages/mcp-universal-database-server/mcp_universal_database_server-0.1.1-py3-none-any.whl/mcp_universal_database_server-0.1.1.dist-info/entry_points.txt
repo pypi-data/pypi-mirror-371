@@ -1,0 +1,2 @@
+[console_scripts]
+mcp-universal-database-server = mcp_database_server.cli:main
