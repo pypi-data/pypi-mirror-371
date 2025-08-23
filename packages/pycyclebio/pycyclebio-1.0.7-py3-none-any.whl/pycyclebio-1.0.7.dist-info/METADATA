@@ -1,0 +1,32 @@
+Metadata-Version: 2.4
+Name: pycyclebio
+Version: 1.0.7
+Summary: Python based toolkit for temporal molecular biology
+Author-email: Alexander R Bennett <alex.bennett@gu.se>
+License: MIT
+Project-URL: Homepage, https://github.com/Glycocalex/PyCycle
+Project-URL: Issues, https://github.com/Glycocalex/PyCycle/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: scipy
+Requires-Dist: statsmodels
+Requires-Dist: pandas
+Requires-Dist: numpy
+
+![PyCycle sketch logo small](https://github.com/user-attachments/assets/7f7156a6-0cab-45f7-bcdc-6f4d13f106df)
+
+**Python based toolkit for temporal molecular biology analysis**
+
+Input data with columns denoting samples and rows denoting biological molecules.
+Input data is assessed for variance.
+Variant rows are modelled using 4 equations. The model with lowest residuals is reported, alongside model parameters and statistics.
+
+You can use PyCycle without installing python [here.](https://colab.research.google.com/github/Glycocalex/PyCycleBio/blob/main/PyCycleBio.ipynb)
+
+https://github.com/Glycocalex/PyCycleBio
+
+https://pypi.org/project/pycyclebio/
+
+Example data taken from: [Aviram, _et al._ 2021](https://doi.org/10.1371/journal.pbio.3001492)
