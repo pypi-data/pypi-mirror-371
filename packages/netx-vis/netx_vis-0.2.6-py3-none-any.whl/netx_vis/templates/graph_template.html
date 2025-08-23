@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{TITLE}}</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: {{WIDTH + 400}}px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .content {
+            display: flex;
+        }
+
+        .graph-container {
+            position: relative;
+        }
+
+        .sidebar {
+            width: 350px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-left: 1px solid #e9ecef;
+            overflow-y: auto;
+            max-height: {{HEIGHT}}px;
+        }
+
+        .info-panel {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid #e9ecef;
+        }
+
+        .info-title {
+            font-weight: bold;
+            color: #495057;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 5px;
+        }
+
+        .property-item {
+            margin: 8px 0;
+            padding: 8px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            border-left: 3px solid #007bff;
+        }
+
+        .property-key {
+            font-weight: bold;
+            color: #495057;
+        }
+
+        .property-value {
+            color: #6c757d;
+            margin-left: 10px;
+            word-break: break-word;
+        }
+
+        .controls {
+            padding: 15px;
+            background-color: #e9ecef;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .control-button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            margin: 5px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .control-button:hover {
+            background: #0056b3;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 15px 0;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #6c757d;
+        }
+
+        .node {
+            stroke: #fff;
+            stroke-width: 2px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .node:hover {
+            stroke-width: 3px;
+            stroke: #ff6b6b;
+        }
+
+        .node.selected {
+            stroke: #ff6b6b !important;
+            stroke-width: 4px !important;
+        }
+
+        .link {
+            stroke: #999;
+            stroke-opacity: 0.6;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .link:hover {
+            stroke: #ff6b6b;
+            stroke-width: 3px;
+            stroke-opacity: 1;
+        }
+
+        .link.selected {
+            stroke: #ff6b6b !important;
+            stroke-width: 4px !important;
+            stroke-opacity: 1 !important;
+        }
+
+        .node-label {
+            font-size: 12px;
+            font-family: sans-serif;
+            fill: #333;
+            text-anchor: middle;
+            pointer-events: none;
+        }
+
+        .tooltip {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .selected-header {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .call-to-action {
+            text-align: center;
+            padding: 30px 20px;
+            color: #6c757d;
+        }
+
+        .call-to-action .icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 8px 0;
+            padding: 6px;
+            background-color: #ffffff;
+            border-radius: 4px;
+            border-left: 3px solid #007bff;
+        }
+
+        .legend-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            margin-right: 10px;
+            border: 2px solid #fff;
+            box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+        }
+
+        .legend-label {
+            font-weight: 500;
+            color: #495057;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 {{TITLE}}</h1>
+            <p style="margin: 10px 0; opacity: 0.9;">Click on any node (circle) or edge (line) to see all its properties! →</p>
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">{{NODE_COUNT}}</div>
+                    <div class="stat-label">Nodes</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">{{EDGE_COUNT}}</div>
+                    <div class="stat-label">Edges</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">{{GRAPH_TYPE}}</div>
+                    <div class="stat-label">Type</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button class="control-button" onclick="resetZoom()">🔄 Reset View</button>
+            <button class="control-button" onclick="toggleLabels()">🏷️ Toggle Labels</button>
+            <button class="control-button" onclick="reheatSimulation()">🔥 Reheat</button>
+            <button class="control-button" onclick="clearSelection()">❌ Clear Selection</button>
+        </div>
+
+        <div class="content">
+            <div class="graph-container">
+                <svg id="graph" width="{{WIDTH}}" height="{{HEIGHT}}"></svg>
+                <div class="tooltip" id="tooltip"></div>
+            </div>
+
+            <div class="sidebar">
+                <div class="info-panel">
+                    <div class="info-title">📊 Graph Information</div>
+                    <div class="property-item">
+                        <span class="property-key">Nodes:</span>
+                        <span class="property-value">{{NODE_COUNT}}</span>
+                    </div>
+                    <div class="property-item">
+                        <span class="property-key">Edges:</span>
+                        <span class="property-value">{{EDGE_COUNT}}</span>
+                    </div>
+                    <div class="property-item">
+                        <span class="property-key">Type:</span>
+                        <span class="property-value">{{GRAPH_TYPE}} Graph</span>
+                    </div>
+                </div>
+
+                <div class="info-panel">
+                    <div class="info-title">🎯 Selected Item Properties</div>
+                    <div id="selection-info">
+                        <div class="call-to-action">
+                            <span class="icon">👆</span>
+                            <div style="font-weight: bold; margin-bottom: 5px;">Click any node or edge</div>
+                            <div style="font-size: 14px;">to see all its properties here!</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-panel">
+                    <div class="info-title">🏷️ Graph Properties</div>
+                    <div id="graph-properties">
+                        {{GRAPH_PROPERTIES}}
+                    </div>
+                </div>
+
+                <div class="info-panel" id="color-legend-panel" style="display: none;">
+                    <div class="info-title">🎨 Color Legend</div>
+                    <div id="color-legend">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Graph data
+        const graphData = {{GRAPH_DATA}};
+        const colorProperty = {{COLOR_PROPERTY}};
+        const colorMapping = {{COLOR_MAPPING}};
+
+        // D3.js setup
+        const svg = d3.select("#graph");
+        const width = {{WIDTH}};
+        const height = {{HEIGHT}};
+        const g = svg.append("g");
+
+        // Zoom behavior
+        const zoom = d3.zoom()
+            .scaleExtent([0.1, 4])
+            .on("zoom", (event) => {
+                g.attr("transform", event.transform);
+            });
+        svg.call(zoom);
+
+        // Tooltip
+        const tooltip = d3.select("#tooltip");
+
+        // Force simulation with better node separation
+        const nodeCount = graphData.nodes.length;
+        const linkDistance = Math.max(150, Math.min(300, 800 / Math.sqrt(nodeCount)));
+        const chargeStrength = Math.max(-1500, -500 - (nodeCount * 8));
+        const collisionRadius = Math.max(35, 25 + Math.sqrt(nodeCount));
+        
+        const simulation = d3.forceSimulation(graphData.nodes)
+            .force("link", d3.forceLink(graphData.edges).id(d => d.id).distance(linkDistance).strength(0))
+            .force("collision", d3.forceCollide().radius(collisionRadius).strength(1.0));
+
+        // Create links
+        const link = g.append("g")
+            .selectAll("line")
+            .data(graphData.edges)
+            .enter().append("line")
+            .attr("class", "link")
+            .attr("stroke-width", d => Math.sqrt(Object.keys(d.properties).length) + 1)
+            .on("mouseover", function(event, d) {
+                showTooltip(event, `Edge: ${d.source.id || d.source} → ${d.target.id || d.target}`);
+            })
+            .on("mouseout", hideTooltip)
+            .on("click", function(event, d) {
+                selectEdge(d);
+            });
+
+        // Create nodes
+        const node = g.append("g")
+            .selectAll("circle")
+            .data(graphData.nodes)
+            .enter().append("circle")
+            .attr("class", "node")
+            .attr("r", d => Math.sqrt(Object.keys(d.properties).length) * 3 + 8)
+            .attr("fill", d => d.properties.color || d3.schemeCategory10[d.id.charCodeAt(0) % 10])
+            .call(d3.drag()
+                .on("start", dragstarted)
+                .on("drag", dragged)
+                .on("end", dragended))
+            .on("mouseover", function(event, d) {
+                showTooltip(event, `Node: ${d.label}`);
+            })
+            .on("mouseout", hideTooltip)
+            .on("click", function(event, d) {
+                selectNode(d);
+            });
+
+        // Create labels
+        const labels = g.append("g")
+            .selectAll("text")
+            .data(graphData.nodes)
+            .enter().append("text")
+            .attr("class", "node-label")
+            .text(d => d.label)
+            .attr("dy", ".35em");
+
+        let labelsVisible = true;
+
+        // Simulation tick
+        simulation.on("tick", () => {
+            link
+                .attr("x1", d => d.source.x)
+                .attr("y1", d => d.source.y)
+                .attr("x2", d => d.target.x)
+                .attr("y2", d => d.target.y);
+
+            node
+                .attr("cx", d => d.x)
+                .attr("cy", d => d.y);
+
+            labels
+                .attr("x", d => d.x)
+                .attr("y", d => d.y + 25);
+        });
+
+        // Drag functions
+        function dragstarted(event, d) {
+            if (!event.active) simulation.alphaTarget(0.3).restart();
+            d.fx = d.x;
+            d.fy = d.y;
+        }
+
+        function dragged(event, d) {
+            d.fx = event.x;
+            d.fy = event.y;
+        }
+
+        function dragended(event, d) {
+            if (!event.active) simulation.alphaTarget(0);
+            d.fx = null;
+            d.fy = null;
+        }
+
+        // Tooltip functions
+        function showTooltip(event, text) {
+            tooltip
+                .style("opacity", 1)
+                .html(text)
+                .style("left", (event.pageX + 10) + "px")
+                .style("top", (event.pageY - 10) + "px");
+        }
+
+        function hideTooltip() {
+            tooltip.style("opacity", 0);
+        }
+
+        // Selection functions
+        let selectedElement = null;
+
+        function selectNode(nodeData) {
+            clearSelection();
+            selectedElement = nodeData;
+
+            // Highlight selected node
+            node.classed("selected", d => d.id === nodeData.id);
+
+            const info = document.getElementById("selection-info");
+            let html = `
+                <div class="selected-header">
+                    <h4 style="margin: 0; color: #1976d2;">🔵 Selected Node: ${nodeData.label}</h4>
+                </div>
+            `;
+
+            html += `<div class="property-item">
+                <span class="property-key">🆔 ID:</span>
+                <span class="property-value">${nodeData.id}</span>
+            </div>`;
+
+            const propCount = Object.keys(nodeData.properties).length;
+            html += `<div style="margin: 15px 0; font-weight: bold; color: #495057; text-align: center;">
+                📋 All Properties (${propCount} total)
+            </div>`;
+
+            for (const [key, value] of Object.entries(nodeData.properties)) {
+                const displayValue = typeof value === 'object' ? JSON.stringify(value, null, 2) : value;
+                html += `<div class="property-item">
+                    <span class="property-key">${key}:</span>
+                    <span class="property-value">${displayValue}</span>
+                </div>`;
+            }
+
+            info.innerHTML = html;
+            document.querySelector('.sidebar').scrollTop = 0;
+        }
+
+        function selectEdge(edgeData) {
+            clearSelection();
+            selectedElement = edgeData;
+
+            // Highlight selected edge
+            link.classed("selected", d =>
+                (d.source.id === edgeData.source.id && d.target.id === edgeData.target.id) ||
+                (d.source.id === edgeData.target.id && d.target.id === edgeData.source.id)
+            );
+
+            const info = document.getElementById("selection-info");
+            let html = `
+                <div class="selected-header" style="background: linear-gradient(135deg, #fff3e0 0%, #ffcc02 100%);">
+                    <h4 style="margin: 0; color: #f57c00;">🔗 Selected Edge</h4>
+                </div>
+            `;
+
+            html += `<div class="property-item">
+                <span class="property-key">📤 Source:</span>
+                <span class="property-value">${edgeData.source.id || edgeData.source}</span>
+            </div>`;
+
+            html += `<div class="property-item">
+                <span class="property-key">📥 Target:</span>
+                <span class="property-value">${edgeData.target.id || edgeData.target}</span>
+            </div>`;
+
+            const propCount = Object.keys(edgeData.properties).length;
+            html += `<div style="margin: 15px 0; font-weight: bold; color: #495057; text-align: center;">
+                📋 All Properties (${propCount} total)
+            </div>`;
+
+            for (const [key, value] of Object.entries(edgeData.properties)) {
+                const displayValue = typeof value === 'object' ? JSON.stringify(value, null, 2) : value;
+                html += `<div class="property-item">
+                    <span class="property-key">${key}:</span>
+                    <span class="property-value">${displayValue}</span>
+                </div>`;
+            }
+
+            info.innerHTML = html;
+            document.querySelector('.sidebar').scrollTop = 0;
+        }
+
+        function clearSelection() {
+            selectedElement = null;
+            node.classed("selected", false);
+            link.classed("selected", false);
+
+            document.getElementById("selection-info").innerHTML = `
+                <div class="call-to-action">
+                    <span class="icon">👆</span>
+                    <div style="font-weight: bold; margin-bottom: 5px;">Click any node or edge</div>
+                    <div style="font-size: 14px;">to see all its properties here!</div>
+                </div>
+            `;
+        }
+
+        // Control functions
+        function resetZoom() {
+            svg.transition().duration(750).call(
+                zoom.transform,
+                d3.zoomIdentity
+            );
+        }
+
+        function toggleLabels() {
+            labelsVisible = !labelsVisible;
+            labels.style("opacity", labelsVisible ? 1 : 0);
+        }
+
+        function reheatSimulation() {
+            simulation.alpha(1).restart();
+        }
+
+        // Create color legend
+        function createColorLegend() {
+            if (colorMapping && colorProperty && Object.keys(colorMapping).length > 1) {
+                const legendPanel = document.getElementById('color-legend-panel');
+                const legendContainer = document.getElementById('color-legend');
+                
+                legendContainer.innerHTML = '';
+                
+                // Add header showing which property is being colored by
+                const headerDiv = document.createElement('div');
+                headerDiv.style.cssText = 'font-weight: bold; margin-bottom: 8px; color: #495057; font-size: 12px; text-transform: uppercase;';
+                headerDiv.textContent = `Colored by: ${colorProperty}`;
+                legendContainer.appendChild(headerDiv);
+                
+                // Sort entries by value for consistent display
+                const sortedEntries = Object.entries(colorMapping).sort((a, b) => a[0].localeCompare(b[0]));
+                
+                sortedEntries.forEach(([value, color]) => {
+                    const legendItem = document.createElement('div');
+                    legendItem.className = 'legend-item';
+                    
+                    const colorCircle = document.createElement('div');
+                    colorCircle.className = 'legend-color';
+                    colorCircle.style.backgroundColor = color;
+                    
+                    const label = document.createElement('div');
+                    label.className = 'legend-label';
+                    label.textContent = value;
+                    
+                    legendItem.appendChild(colorCircle);
+                    legendItem.appendChild(label);
+                    legendContainer.appendChild(legendItem);
+                });
+                
+                legendPanel.style.display = 'block';
+            }
+        }
+
+        // Initialize legend after DOM is ready
+        createColorLegend();
+    </script>
+</body>
+</html>
