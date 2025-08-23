@@ -1,0 +1,40 @@
+import jwt
+from datetime import datetime, timedelta
+
+from django.contrib.auth.models import AbstractUser
+from core.models import CreatedModified, models
+from django.conf import settings
+
+
+class User(AbstractUser, CreatedModified):
+    """
+    The user model
+    """
+    phone = models.CharField(max_length=15, blank=True, null=True, unique=True)
+    fullname = models.CharField(max_length=1000, blank=True, null=True)
+    email = models.EmailField(blank=False, null=False, unique=True)
+    image = models.URLField(blank=True, null=True)
+    is_admin = models.BooleanField(blank=True, null=True)
+
+    def _generate_jwt_token(self) -> str:
+        """
+        Generates a JSON Web Token that stores this user's ID and has an expiry
+        date set to 60 days into the future.
+        """
+        dt = datetime.now() + timedelta(days=200)
+
+        token = jwt.encode({
+            'id': str(self.pk),
+            'exp': int(dt.strftime('%s'))
+        }, settings.SECRET_KEY, algorithm='HS256')
+
+        return token
+
+    @property
+    def token(self):
+        """
+        Allows us to get a user's token by calling `user.token` instead of
+        `user.generate_jwt_token().
+        """
+        return self._generate_jwt_token()
+

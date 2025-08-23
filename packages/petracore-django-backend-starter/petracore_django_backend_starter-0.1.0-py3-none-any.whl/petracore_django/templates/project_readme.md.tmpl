@@ -1,0 +1,213 @@
+
+
+# BACKEND DOCUMENTATION
+
+*This project was created by **petracore-django-backend-starter***.
+
+This is the {{PROJECT_NAME}} backend. It is a [Django](https://www.djangoproject.com/) project.
+
+If you have any questions buzz: [@maro-okegbero](https://github.com/maro-okegbero)
+
+---
+## PROJECT STRUCTURE
+
+```
+project_root/
+├── {{PROJECT_NAME}}/
+│   ├── settings.py
+│   └── urls.py
+├── core/
+│   ├── base_service.py
+│   ├── custom_authentication.py
+│   ├── utils.py
+│   ├── exceptions.py
+│   ├── models.py
+│   ├── serializers.py
+│   ├── urls.py
+├── user/
+│   ├── models.py
+│   ├── serializers.py
+│   ├── services.py
+│   ├── views.py
+│   └── urls.py
+├── app1/
+│   ├── models/
+│   │   ├── grade.py
+│   ├── views/
+│   │   ├── grade_views.py
+│   ├── serializers/
+│   │   ├── grade_serializers.py
+│   ├── services/
+│   │   ├── grade_service.py
+└── ...
+```
+
+### Explanation
+- The project root contains app directories (e.g., `app1`, `app2`) and the `{{PROJECT_NAME}}`/`core`/`user` directories.
+- Inside each app directory you typically have:
+  - **models/** – Django model classes.
+  - **views/** – HTTP handlers (function- or class-based).
+  - **serializers/** – DRF serializers for input validation and output shaping.
+  - **services/** – Business logic classes.
+
+---
+
+
+# Create a new app via the CLI
+
+Use the scaffold command to generate a new app skeleton:
+
+```bash
+python manage.py startapp_plus <app_name> [--force]
+```
+
+**Examples**
+```bash
+python manage.py startapp_plus blog
+python manage.py startapp_plus followers --force
+```
+
+**What you get**
+- `<app_name>/models.py`, `serializers.py`, `services.py`, `views.py`, `urls.py`
+- DRF-ready stubs you can tailor
+- Safe to re-run with `--force` if you want to overwrite files
+
+**Next steps**
+- Ensure the app is in `INSTALLED_APPS`:
+```python
+INSTALLED_APPS += ['<app_name>']
+```
+- Register routes (either in project `urls.py` or the app’s `urls.py`) using a router:
+```python
+from rest_framework.routers import SimpleRouter
+from <app_name>.views import <AppName>ViewSet
+
+router = SimpleRouter(trailing_slash=False)
+router.register('<app_name_plural>', <AppName>ViewSet, basename='<app_name>')
+urlpatterns = router.get_urls()
+```
+
+---
+# Model Overview
+
+All model definitions should inherit from the shared base model (e.g., `CreatedModified`). This base provides consistent timestamp fields and common behavior.
+
+## Key Features
+1. **Automatic date tracking**
+   Timestamps for when an object is created and updated.
+2. **Default primary key**
+   UUID or integer, depending on your template settings.
+
+## Usage Example
+```python
+from core.models import CreatedModified
+from django.db import models
+
+class YourModel(CreatedModified):
+    name = models.CharField(max_length=255)
+```
+
+---
+# Services
+
+## Repository Class
+
+The `Repository` in `core/base_service.py` provides a standardized way to build service classes for models (CRUD + helpers).
+
+### Methods (typical)
+- **get_object(pk)**
+- **create(**kwargs)**
+- **delete(pk)**
+- **find_one(**kwargs)**
+- **update_object(pk, **kwargs)**
+- **filter_objects(**kwargs)**
+- **bulk_create(**kwargs)**
+
+### Usage
+```python
+from core.base_service import Repository
+from yourapp.models import YourModel
+
+BaseModelService = Repository.create_service(YourModel)
+
+class YourModelService(BaseModelService):
+    @classmethod
+    def example_business_logic(cls, **kwargs):
+        pass
+```
+
+---
+# Serializers
+
+Serializers validate input and shape output for the API.
+
+```python
+from rest_framework import serializers
+from .models import Example
+
+class ExampleSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Example
+        fields = '__all__'
+```
+
+---
+# Views
+
+We use DRF `ModelViewSet` as a common base for CRUD endpoints.
+
+```python
+from rest_framework.viewsets import ModelViewSet
+from rest_framework.permissions import IsAuthenticated
+
+class ExampleViewSet(ModelViewSet):
+    """View handling Example API calls"""
+    permission_classes = [IsAuthenticated]
+    service = ExampleService
+    serializer_class = ExampleSerializer
+    create_serializer_class = CreateExampleSerializer
+    comment_serializer_class = CommentExampleSerializer
+    edit_serializer_class = EditExampleSerializer
+```
+
+## Search
+To enable search, add `SearchFilter` and specify `search_fields`:
+```python
+from rest_framework.filters import SearchFilter
+
+class ExampleViewSet(ModelViewSet):
+    filter_backends = [SearchFilter]
+    search_fields = ['title', 'description']
+```
+
+---
+# URLs
+
+A `SimpleRouter` can generate CRUD URL patterns for a `ViewSet`.
+
+```python
+from rest_framework.routers import SimpleRouter
+from yourapp.views.example_app import ExampleViewSet
+
+router = SimpleRouter(trailing_slash=False)
+router.register('examples', ExampleViewSet, basename='examples')
+
+urlpatterns = router.get_urls()
+```
+
+---
+# Authentication endpoints
+
+Ready-made views and endpoints for **login**, **register**, **edit profile**, and **user detail** are scaffolded. Update serializers/services to suit your domain.
+
+---
+# Notifications (optional)
+
+If using a messaging layer, you might expose helpers like:
+```python
+from notifications import MessagingService
+
+MessagingService.send_text(recipients=["09123456789"], message="Hello world")
+MessagingService.send_email(recipients=["test@gmail.com"], message="Hello world", subject="Subject")
+MessagingService.send_push(recipients=["3003030303"], message="Push message", subject="Subject")
+```

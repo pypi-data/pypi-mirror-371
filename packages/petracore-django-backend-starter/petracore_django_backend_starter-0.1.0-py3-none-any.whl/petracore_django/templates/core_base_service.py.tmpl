@@ -1,0 +1,139 @@
+"""
+base_service.py
+"""
+from core.utils import is_valid_uuid, populate_obj
+from core.exceptions import Invalid_Id, Object_Not_Found
+
+
+class Repository:
+    @classmethod
+    def create_service(cls, model_class):
+        """
+        generates a service class with basic functions
+        """
+
+        class BaseService:
+            model = model_class
+            string_name = model.__qualname__
+
+            @classmethod
+            def get_object(cls, pk):
+                """
+                returns a transaction object
+                """
+                uuid = is_valid_uuid(pk)
+                if not uuid:
+                    raise Invalid_Id(pk, cls.string_name)
+
+                try:
+                    obj = cls.model.objects.get(id=uuid)
+                    return obj
+                except cls.model.DoesNotExist:
+                    raise Object_Not_Found(pk, cls.string_name)
+
+            @classmethod
+            def create(cls, **kwargs):
+                """
+                creates an object of the model type
+                """
+                kwargs = cls.clean_kwargs(**kwargs)
+                try:
+                    obj = cls.model(**kwargs)
+                    obj.save()
+                    return obj
+                except Exception as e:
+                    raise e
+
+            @classmethod
+            def find_one(cls, **kwargs):
+                """
+                find an object based on parameters passed
+                """
+                kwargs = cls.clean_kwargs(**kwargs)
+                try:
+                    obj = cls.model.objects.get(**kwargs)
+                    return obj
+                except Exception as e:
+                    return None
+
+            @classmethod
+            def clean_kwargs(cls, **kwargs):
+                """
+                take out invalid keyword arguments passed
+                """
+                for key, value in kwargs.copy().items():
+                    if key not in dir(cls.model):
+                        kwargs.pop(key)
+                return kwargs
+
+            @classmethod
+            def update_object(cls, pk, **kwargs):
+                """
+                update the obj
+                """
+                uuid = is_valid_uuid(pk)
+                if not uuid:
+                    raise Invalid_Id(pk, cls.string_name)
+
+                data = cls.clean_kwargs(**kwargs)
+                try:
+                    obj = cls.get_object(pk=pk)
+                    obj = populate_obj(obj, data)
+                    obj.save()
+                    return obj
+                except Exception as e:
+                    raise e
+
+            @classmethod
+            def filter_objects(cls, **kwargs):
+                data = cls.clean_kwargs(**kwargs)
+
+                try:
+                    queryset = cls.model.objects.filter(**data)
+                    return list(queryset)  # enclosing queryset in a list to cache it
+                except Exception as e:
+                    raise e
+
+            @classmethod
+            def all_objects(cls):
+                """
+                returns all objects
+                """
+                try:
+                    queryset = cls.model.objects.all()
+                    return list(queryset)  # enclosing queryset in a list to cache it
+                except Exception as e:
+                    raise e
+
+            @classmethod
+            def delete_object(cls, pk):
+                """
+                delete the obj
+                """
+                uuid = is_valid_uuid(pk)
+                if not uuid:
+                    raise Invalid_Id(pk, cls.string_name)
+
+                try:
+                    obj = cls.get_object(pk=pk)
+                    obj = obj.delete()
+                except Exception as e:
+                    raise e
+
+            @classmethod
+            def update_or_create(cls, defaults=None, create_defaults=None, **kwargs):
+                return cls.model.objects.update_or_create(defaults, create_defaults, **kwargs)
+
+            @classmethod
+            def get_latest_object(cls, **filters):
+                """
+                Returns the latest object based on the date_created field with optional filters.
+                """
+                try:
+                    # Apply filters and fetch the latest object
+                    return cls.model.objects.filter(**filters).latest('date_created')
+                except cls.model.DoesNotExist:
+                    return None
+
+        return BaseService
+

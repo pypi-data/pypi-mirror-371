@@ -1,0 +1,74 @@
+"""
+service.py
+
+@Author:    Maro Okegbero
+@Date:      Jun, 2025
+
+
+This module contains  the service class definitions for Users
+"""
+from django.conf import settings
+from django.contrib.auth import authenticate
+from django.template.loader import get_template
+from django.utils import timezone
+
+from core.base_service import Repository
+from core.utils import generate_random_number, generate_random_string
+from user.models import User
+
+BaseUserService = Repository.create_service(User)
+
+
+class UserService(BaseUserService):
+    """
+    Service class for Users
+    """
+
+    @classmethod
+    def register_user(cls, **kwargs):
+        """
+        Register a new user
+        """
+        email = kwargs.get('email')
+        username = email + str(generate_random_number(6))
+        kwargs['username'] = username
+        user = cls.model.objects.create_user(**kwargs)
+        return user
+
+    @classmethod
+    def login_user(cls, **kwargs):
+        """
+        returns a valid auth token that can be used to make authenticated requests
+        """
+        email = kwargs.get('email').lower()
+        password = kwargs.get('password')
+
+        try:
+            user = cls.find_one(email=email)
+            username = user.username
+            authenticated_user = authenticate(username=username, password=password)
+
+            if authenticated_user is None:
+                raise ValueError(
+                    'A user with this email and password was not found.'
+                )
+
+            if not authenticated_user.is_active:
+                raise ValueError(
+                    'This user has been deactivated.'
+                )
+        except Exception as e:
+            raise ValueError(
+                'A user with this email and password was not found.'
+            )
+        user.last_login = timezone.now()
+        user.save()
+        return user
+
+    @classmethod
+    def update_info(cls, obj_id, **kwargs):
+        """
+        edit the user info
+        """
+        user = cls.update_object(obj_id, *kwargs)
+        return user
