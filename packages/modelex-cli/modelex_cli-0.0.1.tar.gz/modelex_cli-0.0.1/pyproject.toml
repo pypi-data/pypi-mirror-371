@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "modelex-cli"
+version = "0.0.1"
+description = "Minimal Modelex CLI"
+readme = ""
+requires-python = ">=3.8"
+dependencies = []
+
+# This creates the `modelex` command on PATH
+[project.scripts]
+modelex = "modelex_cli.cli:app"

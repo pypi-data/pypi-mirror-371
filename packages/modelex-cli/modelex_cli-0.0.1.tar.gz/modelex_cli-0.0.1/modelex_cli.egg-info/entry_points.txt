@@ -1,0 +1,2 @@
+[console_scripts]
+modelex = modelex_cli.cli:app
