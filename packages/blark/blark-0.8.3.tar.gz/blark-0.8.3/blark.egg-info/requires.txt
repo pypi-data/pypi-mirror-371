@@ -1,0 +1,21 @@
+lark>1.0
+lxml
+packaging
+
+[:python_version < "3.11"]
+typing-extensions
+
+[dev]
+apischema
+pytest
+pytest-cov
+
+[doc]
+apischema
+pytest
+pytest-cov
+docs-versions-menu
+numpydoc
+sphinx>=3.3.1
+sphinx_rtd_theme
+sphinxcontrib-jquery

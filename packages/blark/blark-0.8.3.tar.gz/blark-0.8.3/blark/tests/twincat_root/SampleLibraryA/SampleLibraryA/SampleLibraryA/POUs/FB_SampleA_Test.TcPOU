@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="FB_SampleA_Test" Id="{5eaf07ca-8428-4095-8bca-c1835b3c56ef}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_SampleA_Test
+VAR_INPUT
+	{attribute 'pytmc' := '
+		pv: fInput
+		io: io
+	'}
+	fInput : LREAL;
+END_VAR
+VAR_OUTPUT
+	{attribute 'pytmc' := '
+		pv: fOutput
+		io: input
+	'}
+	fOutput : LREAL;
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fOutput := fInput;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
