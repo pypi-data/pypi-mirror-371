@@ -1,0 +1,10 @@
+__main__.py,sha256=1hPD1HKPfIYE92DEtllwcKHaLbTLvx_gMLp7AKeqMPI,170
+kernel_daemon.py,sha256=r8SM7NeHVofPc0rITTp-DYZZUHE1OJQZXlYVyBskoWI,8679
+mcp_jupyter_server_fast.py,sha256=Wim28f4Th302GiB2NR1ntsePrUl8oTaqhKKvF8C3YL4,4025
+notebook_client.py,sha256=8VZSAz-hBXPdnqksnxyTuVVlXxK-uEBRUb_x8Rs9Mow,9587
+jupyter_mcp_kernel-1.0.1.dist-info/licenses/LICENSE,sha256=m66OUjhNLAudMIRD52t9KYznjrfI5CG1AFDKGrdjUeg,1069
+jupyter_mcp_kernel-1.0.1.dist-info/METADATA,sha256=YSDIlNrf-HMWOUfG4j2E0u-Q87o8gs_5CzJYV_JUq3Y,404
+jupyter_mcp_kernel-1.0.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+jupyter_mcp_kernel-1.0.1.dist-info/entry_points.txt,sha256=pb7WqVjoDyjXrzq7Ij2N9veEihnEEpJSBUwMRcOCKCA,61
+jupyter_mcp_kernel-1.0.1.dist-info/top_level.txt,sha256=UMY92MB5XIL664kIMazwHwq3YrBDPRFCvjAP-zhhC58,63
+jupyter_mcp_kernel-1.0.1.dist-info/RECORD,,
