@@ -1,0 +1,2 @@
+[console_scripts]
+split-screen-mac-test-mcp = split_screen_mcp.__main__:main
