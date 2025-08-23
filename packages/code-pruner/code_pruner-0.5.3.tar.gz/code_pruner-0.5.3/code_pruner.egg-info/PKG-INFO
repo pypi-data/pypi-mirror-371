@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: code-pruner
+Version: 0.5.3
+Summary: A tool to prune Python code based on specified patterns.
+Home-page: UNKNOWN
+Author: liubomyr.ivanitskyi
+Author-email: lubomyr.ivanitskiy@gmail.com
+License: MIT License
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+License-File: LICENSE.md
+
+Python code for pruning python files
+
+It may be usefull to remove some parts of the code like comments, spaces etc.
+Also used by the authoor to keep interface only when providing code to LLM for smaller context size
+
+
+# How to deploy
+We use setup.py and setup.cfg to deploy the package to PyPI. To create a source distribution and upload it to PyPI, run the following commands:
+```bash
+python setup.py sdist bdist_wheel
+```
+
+Install twine if you haven't already:
+```bash
+pip install twine
+```
+
+Then upload the package to PyPI:
+```bash
+twine upload dist/*
+```
+
