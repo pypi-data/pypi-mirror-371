@@ -1,0 +1,49 @@
+template_engine: 'flm.main.template.SimpleStringTemplate'
+template_engine_config:
+  template_content_extension: '.tex'
+
+default_config:
+
+  metadata:
+    title: 'FLM Document'
+
+  preamble:
+    general: |
+      % Add additional general preamble definitions here
+
+    # fonts: |
+    #   % LaTeX preamble to set up the document's fonts.  E.g.:
+    #   % \usepackage{sourceserifpro}
+    fonts: |
+      \usepackage[scale=0.96,default,semibold]{sourceserifpro}
+      \usepackage{unicode-math}
+      \setmathfont{Libertinus Math}
+      \setmathfont[range=up/{latin,Latin}]{Source Serif Pro}
+      \setmathfont[range=it/{latin,Latin}]{Source Serif Pro Italic}
+      \setmathfont[range=bfup/{latin,Latin}]{Source Serif Pro Bold}
+      \setmathfont[range=bfit/{latin,Latin}]{Source Serif Pro Bold Italic}
+      %\setmathfont[version=bold,FakeBold=3.5]{Libertinus Math}
+      %\setmathfont[range=up/{latin,Latin},version=bold,FakeBold=3.5]{Source Serif Pro}
+      %\setmathfont[range=it/{latin,Latin},version=bold,FakeBold=3.5]{Source Serif Pro Italic}
+      \def\boldsymbol#1{{\symbfit#1}}
+
+      \renewcommand{\notetitlefont}[1]{\bfseries#1}
+
+    # ### e.g. for a times font
+    # fonts: |
+    #   \usepackage{newtxtext}
+    #   \usepackage{newtxmath}
+
+
+  documentclass:
+    papersize: ''
+    fontsize: '11pt'
+
+  render_title: true
+  render_toc: false
+
+  enable_phfnote: true
+  phfnote_options: 'nosecfmt'
+  enable_hyperref: true
+
+  flmlatex_preamble_packages: ''
