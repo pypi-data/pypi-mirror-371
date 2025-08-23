@@ -1,0 +1,13 @@
+Metadata-Version: 2.4
+Name: opensearch-protobufs
+Version: 0.0.2
+Summary: Reserved namespace for future development
+Author-email: Peter Zhu <zhujiaxi@amazon.com>
+License: Apache-2.0
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: license-file
