@@ -1,0 +1,53 @@
+apiVersion: apiextensions.crossplane.io/v1beta1
+kind: EnvironmentConfig
+metadata:
+  name: cluster
+data:
+  cluster:
+    aws-account: "389908643420"
+    common-secrets-assume-role-arn: arn:aws:iam::264691424589:role/cloudops-dev-cep-dev-common-secrets
+    common-secrets-region: us-east-1
+    common-secrets-role-name: cep-dev-common-secrets
+    crossplane-aws-role: arn:aws:iam::389908643420:role/cep-dev-crossplane-system-aws
+    domain:
+      dns-name: cep-dev.cloudops.fortradev.com
+      zone-id: /hostedzone/Z04877973KWLU1SQ3OAZ2
+    instance-profile-name: cep-dev-karpenter-node
+    name: cep-dev
+    node-role-name: cep-dev-karpenter-node
+    oidc: oidc.eks.us-east-1.amazonaws.com/id/6E675DE872D760E5119E3273F168DAC6
+    region: us-east-1
+    tags:
+      array:
+      - key: FTA-application
+        value: CEP
+      - key: FTA-brand
+        value: Agari
+      - key: FTA-environment
+        value: Dev
+      - key: env
+        value: dev
+      - key: product
+        value: cep
+      - key: role
+        value: k8s-worker-node
+      map:
+        FTA-application: CEP
+        FTA-brand: Agari
+        FTA-environment: Dev
+        env: dev
+        product: cep
+        role: k8s-worker-node
+    vpc:
+      cluster-security-group-id: sg-0d7cf0d67613b30b8
+      private-a-subnet-id: subnet-07807ba0f5401e96e
+      private-b-subnet-id: subnet-0365a0af20005fb47
+      private-c-subnet-id: subnet-0b77babbb52094e15
+      private-route-table-id: rtb-0d0b4abb6623af019
+      public-a-subnet-id: subnet-052bd06b7a060fead
+      public-b-subnet-id: subnet-0232fa829b8b3bc2c
+      public-c-subnet-id: subnet-0abb11fbc74c05ffd
+      public-route-table-id: rtb-0214ee4d1aa5b94e7
+      vpc-cidr-block: 10.0.0.0/16
+      vpc-id: vpc-007922814a24a4150
+    xcluster-name: cep-dev

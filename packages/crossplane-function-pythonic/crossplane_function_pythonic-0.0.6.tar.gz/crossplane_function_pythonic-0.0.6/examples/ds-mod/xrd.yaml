@@ -1,0 +1,25 @@
+apiVersion: apiextensions.crossplane.io/v1
+kind: CompositeResourceDefinition
+metadata:
+  name: dsmods.example.crossplane.io
+spec:
+  group: example.crossplane.io
+  names:
+    kind: DSMod
+    plural: dsmods
+  versions:
+  - name: v1alpha1
+    served: true
+    referenceable: true
+    schema:
+      openAPIV3Schema:
+        type: object
+        properties:
+          spec:
+            type: object
+            properties:
+              foo:
+                type: string
+              bar:
+                type: string
+

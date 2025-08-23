@@ -1,0 +1,15 @@
+apiVersion: oss.grafana.crossplane.io/v1alpha1
+kind: Folder
+metadata:
+  annotations:
+    crossplane.io/composition-resource-name: folder
+  labels:
+    cluster: rfixe-test
+spec:
+  providerConfigRef:
+    name: influxdb-efc-dev-metric
+  forProvider:
+    title: EFC
+status:
+  atProvider:
+    uid: feuxdxg0q6yv4f

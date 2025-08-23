@@ -1,0 +1,36 @@
+apiVersion: apiextensions.crossplane.io/v1
+kind: Composition
+metadata:
+  name: dsmods.example.crossplane.io
+spec:
+  compositeTypeRef:
+    apiVersion: example.crossplane.io/v1alpha1
+    kind: DSMod
+  mode: Pipeline
+  pipeline:
+
+  - step: ds-mod
+    functionRef:
+      name: function-pythonic
+    input:
+      apiVersion: pythonic.fn.fortra.com/v1alpha1
+      kind: Composite
+      composite: |
+        class Composite(BaseComposite):
+          def compose(self):
+            print(str(self.request))
+            ds = self.requireds.DaemonSet('apps/v1', 'DaemonSet', 'default', 'test-dsmod')[0]
+            if not ds:
+              return
+            Object = self.resources.Object('kubernetes.crossplane.io/v1alpha2', 'Object')
+            m = Object.spec.forProvider.manifest
+            m.apiVersion = ds.apiVersion
+            m.kind = ds.kind
+            m.metadata.namespace = ds.metadata.namespace
+            m.metadata.name = ds.metadata.name
+            m.spec = ds.spec
+            m.spec.containers[0].env[0].name = 'foo'
+            m.spec.containers[0].env[0].value = self.spec.foo
+            m.spec.containers[0].env[1].name = 'bar'
+            m.spec.containers[0].env[1].value = self.spec.bar
+            print(str(self.response))

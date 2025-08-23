@@ -1,0 +1,26 @@
+apiVersion: observability.fortra.com/v1alpha1
+kind: XEFC
+metadata:
+  name: backlog-metric-s999k
+spec:
+  claimRef:
+    apiVersion: observability.fortra.com/v1alpha1
+    kind: EFC
+    namespace: monitoring
+    name: backlog-metric
+  title: EFC
+  environment: dev
+  influxdbInstance: efc-dev-metric
+  rules:
+  - name: IntegrationEvents
+    severity: low
+    threshold: 500000
+  - name: RulesEvents
+    severity: medium
+    threshold: 1000000
+  - name: EnrichmentEvents
+    severity: high
+    threshold: 1500000
+  - name: BulkEvents
+    severity: critical
+    threshold: 2000000

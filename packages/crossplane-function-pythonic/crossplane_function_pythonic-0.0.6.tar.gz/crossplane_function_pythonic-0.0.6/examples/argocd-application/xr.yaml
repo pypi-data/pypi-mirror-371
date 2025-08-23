@@ -1,0 +1,6 @@
+apiVersion: argocd.pipeline.cep.fortra.com/v1alpha1
+kind: Application
+metadata:
+  name: my-service
+spec:
+  gitRevision: main
