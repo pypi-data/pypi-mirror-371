@@ -1,0 +1,2 @@
+[console_scripts]
+geodepoly-bench = geodepoly.bench_compare:main
