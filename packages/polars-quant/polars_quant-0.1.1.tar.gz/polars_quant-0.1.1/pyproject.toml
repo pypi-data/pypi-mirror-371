@@ -1,0 +1,21 @@
+[project]
+name = "polars-quant"
+version = "0.1.1"
+description = "Blazingly Fast Polars Quant Tool"
+readme = "README.md"
+authors = [
+    { name = "Firstastor", email = "23150126@hdu.edu.cn" }
+]
+requires-python = ">=3.9"
+dependencies = [
+    "polars==1.32.0",
+    "pyarrow>=21.0.0",
+]
+
+[build-system]
+requires = ["maturin>=1.4,<2.0"]
+build-backend = "maturin"
+
+[tool.maturin]
+python-source = "python"
+
