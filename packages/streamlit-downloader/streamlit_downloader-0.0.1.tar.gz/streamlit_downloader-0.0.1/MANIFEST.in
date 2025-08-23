@@ -1,0 +1,1 @@
+recursive-include downloader/frontend/build *
