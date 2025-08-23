@@ -1,0 +1,104 @@
+Metadata-Version: 2.4
+Name: linkloom
+Version: 0.0.1
+Summary: LinkLoom is a command-line bookmark manager that allows you to save and find your bookmarks using natural language queries. Instead of searching by tags or keywords, you can search by meaning.
+Keywords: Bookmark,Organize,Productivity,Fast,Vector Search
+Author: Neirzhei
+Author-email: Neirzhei <neirzhei@gmail.com>
+License-Expression: MIT
+License-File: LICENSE
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Developers
+Requires-Dist: typer==0.16.0
+Requires-Dist: torch
+Requires-Dist: sentence-transformers==5.1.0
+Requires-Dist: trafilatura
+Requires-Dist: httpx
+Requires-Dist: chromadb==1.0.20
+Requires-Python: >=3.9
+Project-URL: Issues, https://github.com/neirzhei/LinkLoom/issues
+Project-URL: Repository, https://github.com/neirzhei/LinkLoom
+Description-Content-Type: text/markdown
+
+LinkLoom is a command-line bookmark manager that allows you to save and find your bookmarks using natural language queries. Instead of searching by tags or keywords, you search by meaning.
+
+Forget trying to remember the exact title of an article you saved three months ago. With LinkLoom, you can just ask: `lloom find "that article about black hole information paradox"` and get relevant results instantly.
+
+## How It Works
+LinkLoom operates by understanding the semantic meaning of your bookmarks, not just their text.
+
+- **Storage:** When you add a URL, its metadata (URL, notes) is stored in a local SQLite database.
+
+- **Content Extraction:** The main text content of the webpage is intelligently extracted using trafilatura.
+
+- **Semantic Embedding:** The extracted text and your personal note are converted into a numerical representation (a vector embedding) using a SentenceTransformer model. This vector captures the meaning and context of the content.
+
+- **Vector Storage:** These embeddings are stored and indexed in a local ChromaDB vector database for efficient similarity search.
+
+- **Semantic Search:** When you search, your query is also converted into an embedding. The system then performs a vector search to find the most semantically similar bookmarks in your database, providing highly relevant results that keyword-based search could never find.
+
+## Installation
+Follow these instructions precisely to get LinkLoom running on your system.
+
+### Prerequisites
+- Python 3.9+
+
+- git
+
+### Step-by-Step Guide
+1. **Clone the Repository:**
+```
+git clone https://github.com/neirzhei/LinkLoom.git
+cd LinkLoom
+```
+
+2. **Install the Build Tool (uv):**
+
+This project uses uv as a fast, modern build tool. If you don't have it, you need to install it. It's a single, simple command.
+```
+pip install uv
+```
+
+3. **Create and Activate a Virtual Environment:**
+```
+python3 -m venv .venv
+```
+Now, activate the virtual environment.
+
+On Linux or macOS:
+```
+source .venv/bin/activate
+```
+ On Windows:
+```
+venv\Scripts\activate
+```
+
+4. **Install LinkLoom:** With your virtual environment active, install the project in "editable" mode. The -e flag means any changes you make to the code are immediately available when you run the lloom command, without needing to reinstall.
+```
+uv pip install -e .
+```
+This command reads the pyproject.toml file, installs all the necessary dependencies (like torch, typer, and chromadb), and makes the lloom command available in your terminal.
+
+## Usage
+Make sure your virtual environment is active (source .venv/bin/activate) every time you open a new terminal.
+
+### Adding a Bookmark
+Use the add command. The `--note` option is highly recommended as it adds your own context to the search which gets prioritized when searching for a link later.
+```
+lloom add "https://neirzhei.github.io/article/art-in-weaponry.html" --note "might check out miyamoto musashi's book"
+```
+Output:
+```
+Saved: id=1
+```
+### Finding a Bookmark
+Use the `find` command with a natural language query. You can optionally specify the number of results to return with -k.
+```
+lloom find "miyamoto's view on art"
+```
+Output:
+```
+https://neirzhei.github.io/article/art-in-weaponry.html
+```

@@ -1,0 +1,3 @@
+[console_scripts]
+lloom = linkloom.cli:app
+
