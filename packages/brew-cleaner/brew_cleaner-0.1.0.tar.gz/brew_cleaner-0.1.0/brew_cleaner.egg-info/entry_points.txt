@@ -1,0 +1,2 @@
+[console_scripts]
+brew-cleaner = brew_cleaner.main:main

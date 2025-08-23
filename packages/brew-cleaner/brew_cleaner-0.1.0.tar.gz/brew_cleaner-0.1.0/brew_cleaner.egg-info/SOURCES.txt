@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.py
+brew_cleaner/__init__.py
+brew_cleaner/main.py
+brew_cleaner.egg-info/PKG-INFO
+brew_cleaner.egg-info/SOURCES.txt
+brew_cleaner.egg-info/dependency_links.txt
+brew_cleaner.egg-info/entry_points.txt
+brew_cleaner.egg-info/requires.txt
+brew_cleaner.egg-info/top_level.txt
