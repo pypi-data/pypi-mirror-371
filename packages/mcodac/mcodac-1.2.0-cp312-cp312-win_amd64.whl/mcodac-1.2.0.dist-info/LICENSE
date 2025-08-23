@@ -1,0 +1,18 @@
+## License
+
+Copyright © 2024 German Aerospace Center (DLR) e.V.
+
+This work is licensed under multiple licenses:
+- The source code and the accompanying material are licensed under [GPL-3.0-or-later](LICENSES/GPL-3.0-or-later.txt).
+- The source code of muesli in external/muesl is licensed under [GPL-3.0-or-later](LICENSES/GPL-3.0-or-later.txt).
+- The source code of compdam in external/compdam is licensed under [NASA-1.3](LICENSES/NASA-1.3.txt).
+- The source code of slatec in external/slatec is licensed under [LGPL-3.0-or-later.txt](LICENSES/LGPL-3.0-or-later.txt).
+- The source code of nms in external/nms is licensed under [LGPL-3.0-or-later.txt](LICENSES/LGPL-3.0-or-later.txt).
+- The source code of pchip in external/pchip is licensed under [LGPL-3.0-or-later.txt](LICENSES/LGPL-3.0-or-later.txt).
+- The source code of interp in external/interp is licensed under [LGPL-3.0-or-later.txt](LICENSES/LGPL-3.0-or-later.txt).
+- The source code of dispmodule in external/dispmodule is licensed under [Unlicense.txt](LICENSES/Unlicense.txt).
+- The source code of toms in external/toms is licensed under [Unlicense.txt](LICENSES/Unlicense.txt).
+
+Please see the individual files for more accurate information.
+
+> **Hint:** We provided the copyright and license information in accordance to the [REUSE Specification 3.0](https://reuse.software/spec/).
