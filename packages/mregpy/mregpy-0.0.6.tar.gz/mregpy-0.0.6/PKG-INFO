@@ -1,0 +1,16 @@
+Metadata-Version: 2.4
+Name: mregpy
+Version: 0.0.6
+Summary: A utility library for file regestries.
+Author-email: MrMcScreamyPants <noreply@githubusers.com>
+License-Expression: MIT
+Project-URL: Homepage, https://mregpy.readthedocs.io
+Project-URL: Issues, https://github.com/mrmcscreamypant/mregpy/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.11.2
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: license-file
+
+# mregpy

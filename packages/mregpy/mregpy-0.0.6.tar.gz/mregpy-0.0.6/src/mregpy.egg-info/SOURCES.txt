@@ -1,0 +1,8 @@
+LICENSE
+README.md
+pyproject.toml
+src/mregpy/__init__.py
+src/mregpy.egg-info/PKG-INFO
+src/mregpy.egg-info/SOURCES.txt
+src/mregpy.egg-info/dependency_links.txt
+src/mregpy.egg-info/top_level.txt
