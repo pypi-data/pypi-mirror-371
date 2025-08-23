@@ -1,0 +1,4 @@
+[console_scripts]
+alignsar_utils.py = alignsar.alignsar_utils:main
+rdrCode.py = alignsar.rdrcode.rdrCode_main:main
+signature_extraction.py = alignsar.signature_extraction:main
