@@ -1,0 +1,2 @@
+[console_scripts]
+anal-admin = anal.cli.__main__:main
