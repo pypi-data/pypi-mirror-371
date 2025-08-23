@@ -1,0 +1,6 @@
+videosdk/plugins/lmnt/__init__.py,sha256=JI72LJNs0cCg3S1lweyO-yiBLnViM6Dfp4zPvYJkDJQ,56
+videosdk/plugins/lmnt/tts.py,sha256=XFzyiMVp2KyLUidxM_k-JJXF2pcWrxnbxYKgzOCXxPw,7881
+videosdk/plugins/lmnt/version.py,sha256=wG_L368kts8CwFF4jsHZcxJ8KpBLf_UH2EJrz_VZae8,23
+videosdk_plugins_lmnt-0.0.27.dist-info/METADATA,sha256=ugdxEpI8nqinh5M_FHZwBIQ9TL1W0J1epmWDqkddYG0,806
+videosdk_plugins_lmnt-0.0.27.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+videosdk_plugins_lmnt-0.0.27.dist-info/RECORD,,
