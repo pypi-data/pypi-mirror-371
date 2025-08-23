@@ -1,0 +1,7 @@
+numpy>=1.24.1
+tqdm>=4.66
+librosa
+einops>=0.7
+torch>=2.7.0
+torchaudio>=2.7.0
+torchcodec
