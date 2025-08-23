@@ -1,0 +1,6 @@
+include README.md
+include LICENSE
+include pyproject.toml
+recursive-include AspenAutoKit *.xlsm
+recursive-include AspenAutoKit *.xlsx
+recursive-include AspenAutoKit/nan *.xlsx

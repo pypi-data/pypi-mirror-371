@@ -1,0 +1,95 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aspenautokit"
+version = "0.1.2"
+description = "A Python package for automating Aspen Plus simulations"
+readme = "README.md"
+license = "GPL-2.0-only"
+authors = [
+    {name = "Vincent Bailey Ladd"}
+]
+maintainers = [
+    {name = "Vincent Bailey Ladd"}
+]
+keywords = ["aspen", "simulation", "automation", "chemical engineering", "process simulation"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+
+    "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Chemistry",
+    "Topic :: Scientific/Engineering :: Physics",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "pandas",
+    "numpy",
+    "joblib",
+    "openpyxl",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0",
+    "pytest-cov>=2.0",
+    "black>=22.0",
+    "flake8>=4.0",
+    "mypy>=0.950",
+]
+windows = [
+    "pywin32>=305",
+]
+
+[project.urls]
+Homepage = "https://github.com/BaileyLadd01/AspenAutoKit"
+Repository = "https://github.com/BaileyLadd01/AspenAutoKit"
+
+[project.scripts]
+aspenautokit = "aspenautokit.main:main"
+aspenautokit-close = "aspenautokit.close_aspen:main"
+
+[tool.setuptools.packages.find]
+where = ["AspenAutoKit/src"]
+
+[tool.setuptools.package-data]
+aspenautokit = ["*.xlsm", "*.xlsx"]
+"*" = ["*.xlsm", "*.xlsx"]
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+)/
+'''
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+    "--strict-markers",
+    "--strict-config",
+    "--cov=aspenautokit",
+    "--cov-report=term-missing",
+    "--cov-report=html",
+]
