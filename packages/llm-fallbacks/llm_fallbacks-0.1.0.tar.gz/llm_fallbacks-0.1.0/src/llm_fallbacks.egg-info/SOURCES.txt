@@ -1,0 +1,16 @@
+LICENSE
+README.md
+pyproject.toml
+src/llm_fallbacks/__init__.py
+src/llm_fallbacks/__main__.py
+src/llm_fallbacks/config.py
+src/llm_fallbacks/core.py
+src/llm_fallbacks/filter_litellm.py
+src/llm_fallbacks/generate_configs.py
+src/llm_fallbacks.egg-info/PKG-INFO
+src/llm_fallbacks.egg-info/SOURCES.txt
+src/llm_fallbacks.egg-info/dependency_links.txt
+src/llm_fallbacks.egg-info/requires.txt
+src/llm_fallbacks.egg-info/top_level.txt
+src/tests/__init__.py
+src/tests/test_core.py
