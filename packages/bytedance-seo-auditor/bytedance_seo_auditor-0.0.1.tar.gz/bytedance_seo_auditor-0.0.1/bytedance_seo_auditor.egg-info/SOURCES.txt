@@ -1,0 +1,6 @@
+README.md
+setup.py
+bytedance_seo_auditor.egg-info/PKG-INFO
+bytedance_seo_auditor.egg-info/SOURCES.txt
+bytedance_seo_auditor.egg-info/dependency_links.txt
+bytedance_seo_auditor.egg-info/top_level.txt
