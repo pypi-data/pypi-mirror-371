@@ -1,0 +1,21 @@
+Metadata-Version: 2.4
+Name: panchito_lib
+Version: 0.1.5
+Summary: A library with some math functions
+Home-page: https://www.youtube.com/@PythonIsGod
+Author: Pablo Soifer
+Author-email: pablojapo@proton.me
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+License-File: LICENSE
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: home-page
+Dynamic: license
+Dynamic: license-file
+Dynamic: requires-python
+Dynamic: summary
