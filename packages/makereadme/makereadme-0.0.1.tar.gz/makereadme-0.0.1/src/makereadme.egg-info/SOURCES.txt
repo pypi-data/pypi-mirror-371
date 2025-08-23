@@ -1,0 +1,11 @@
+LICENSE
+LICENSE-PT
+README.md
+pyproject.toml
+src/makereadme/__init__.py
+src/makereadme/cli.py
+src/makereadme.egg-info/PKG-INFO
+src/makereadme.egg-info/SOURCES.txt
+src/makereadme.egg-info/dependency_links.txt
+src/makereadme.egg-info/entry_points.txt
+src/makereadme.egg-info/top_level.txt
