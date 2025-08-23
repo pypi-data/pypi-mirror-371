@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!-- This file is part of Tryton.  The COPYRIGHT file at the top level of
+this repository contains the full copyright notices and license terms. -->
+<tryton>
+    <data depends="account_payment">
+        <record model="ir.ui.view" id="shop_view_form">
+            <field name="model">web.shop</field>
+            <field name="inherit" ref="web_shop.shop_view_form"/>
+            <field name="name">shop_form</field>
+        </record>
+        <record model="ir.ui.view" id="payment_method_view_list">
+            <field name="model">web.shop.payment_method</field>
+            <field name="type">tree</field>
+            <field name="priority" eval="10"/>
+            <field name="name">payment_method_list</field>
+        </record>
+        <record model="ir.ui.view" id="payment_method_view_form">
+            <field name="model">web.shop.payment_method</field>
+            <field name="type">form</field>
+            <field name="priority" eval="20"/>
+            <field name="name">payment_method_form</field>
+        </record>
+        <record model="ir.action.act_window" id="act_shop_payment_method">
+            <field name="name">Payment Methods</field>
+            <field name="res_model">web.shop.payment_method</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_shop_payment_method_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="payment_method_view_list"/>
+            <field name="act_window" ref="act_shop_payment_method"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_shop_payment_method_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="payment_method_view_form"/>
+            <field name="act_window" ref="act_shop_payment_method"/>
+        </record>
+        <menuitem
+            parent="web_shop.menu_shop"
+            action="act_shop_payment_method"
+            sequence="20"
+            id="menu_payment_method"/>
+    </data>
+</tryton>
