@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "modfetch"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "aiofiles>=24.1.0",
+    "aiohttp>=3.12.15",
+    "click>=8.2.1",
+    "pyyaml>=6.0.2",
+    "toml>=0.10.2",
+    "xmltodict>=0.14.2",
+]
+
+[project.scripts]
+modfetch = "modfetch.__main__:cli_main"
+
+[tool.setuptools]
+packages = { find = { where = ["."] } }
+include-package-data = true
+license-files = []
+
+[dependency-groups]
+dev = ["nuitka>=2.7.12"]
