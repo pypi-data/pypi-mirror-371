@@ -1,0 +1,73 @@
+[project]
+name = "cryptozaurus"
+version = "0.1.3"
+description = "Decryptor for JS's WebCryptoAPI-encrypted timestamps"
+readme = "README.md"
+authors = [
+    { name = "Viacheslav Shirkeev", email = "ooovertone@gmail.com" }
+]
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+    "cryptography==45.0.6",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.12.10",
+]
+
+[tool.ruff]
+# https://docs.astral.sh/ruff/settings
+output-format = "concise"
+line-length = 99
+
+[tool.ruff.format]
+# https://docs.astral.sh/ruff/settings/#format
+docstring-code-format = true
+
+[tool.ruff.lint]
+# https://docs.astral.sh/ruff/settings/#lint
+select = [
+    # https://docs.astral.sh/ruff/rules
+    "F", "B", "I", "UP", "T", "D", "N", "E501",  # syntax + docstrings
+    "S",  # security
+    "PERF",  # performance
+    "LOG",  # logging best practices
+    "TRY",  # exception handling
+    "A",  # built-in shadowing
+    "C4",  # comprehension improvements
+]
+ignore = ["D100"]
+fixable = ["ALL"]
+unfixable = []
+
+[tool.ruff.lint.isort]
+# https://docs.astral.sh/ruff/settings/#lintisort
+case-sensitive = true
+
+[tool.ruff.lint.pydocstyle]
+# https://docs.astral.sh/ruff/settings/#lintpydocstyle
+convention = "google"
+
+[project.scripts]
+cryptozaurus = "cryptozaurus:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "src/cryptozaurus",
+    "README.md",
+    "LICENSE",
+    "pyproject.toml",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/cryptozaurus"]
+
+[project.urls]
+Homepage = "https://github.com/ooovertone/cryptozaurus"
+Repository = "https://github.com/ooovertone/cryptozaurus"
