@@ -1,0 +1,8 @@
+include README.md
+include logo/Neurix.png
+
+recursive-include Classification *.py
+recursive-include preprocessing *.py
+recursive-include Regression *.py
+recursive-include relation *.py
+recursive-include score *.py
