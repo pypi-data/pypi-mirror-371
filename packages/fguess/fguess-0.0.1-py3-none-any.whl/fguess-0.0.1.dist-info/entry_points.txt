@@ -1,0 +1,2 @@
+[console_scripts]
+fguess = fguess:main
