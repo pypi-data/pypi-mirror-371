@@ -1,0 +1,50 @@
+[project]
+name = "simple-winservice"
+version = "0.1.0"
+description = "A simple library for creating windows services and logging using windows event log"
+readme = "README.md"
+requires-python = ">=3.10"
+keywords = ["windows", "service"]
+authors = [
+    { name = "Einar Omang", email = "einar.omang@cognite.com" }
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Rust",
+  "Programming Language :: Python"
+]
+license = {text = "Apache-2.0"}
+
+[project.urls]
+homepage = "https://cognite.com"
+repository = "https://github.com/cognitedata/python-windows-service"
+
+[tool.maturin]
+features = ["pyo3/extension-module"]
+python-source = "python"
+
+[build-system]
+requires = ["maturin>=1.0,<2.0"]
+build-backend = "maturin"
+
+[tool.ruff.lint.per-file-ignores]
+"python/simple_winservice/__init__.py" = ["F403"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "T20", "S", "UP"]
+ignore = ["S104"]
+fixable = ["A", "B", "C", "D", "E", "F", "I", "UP"]
+unfixable = []
+
+exclude = [
+    ".git",
+    ".mypy_cache",
+    ".ruff_cache",
+]
+
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"

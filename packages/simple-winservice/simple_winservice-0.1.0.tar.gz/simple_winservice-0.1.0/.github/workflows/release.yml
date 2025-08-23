@@ -1,0 +1,50 @@
+name: Release the library
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+
+  build:
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Build wheels
+        uses: PyO3/maturin-action@v1
+        with:
+          command: build
+          args: --release --sdist -i python${{ matrix.python-version }}
+      - name: Upload wheels
+        uses: actions/upload-artifact@v4
+        with:
+          name: wheels-win-${{ matrix.python-version }}
+          path: ./target/wheels
+
+
+  publish:
+    runs-on: ubuntu-latest
+    environment: CD
+    needs: ["build"]
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: wheels-*
+          merge-multiple: true
+          path: ./wheels
+      - name: Install twine
+        run: pip install packaging==25.0 twine typing-extensions
+      - name: Publish artifact
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
+        run: twine upload --verbose wheels/* || echo 'Version exists'

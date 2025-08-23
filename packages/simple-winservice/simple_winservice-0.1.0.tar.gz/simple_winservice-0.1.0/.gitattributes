@@ -1,0 +1,4 @@
+# Mark generated files as generated
+Cargo.lock linguist-generated=true
+
+* text=auto eol=lf

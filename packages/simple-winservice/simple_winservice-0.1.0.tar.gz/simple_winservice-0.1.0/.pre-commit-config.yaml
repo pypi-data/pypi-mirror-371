@@ -1,0 +1,22 @@
+repos:
+-   repo: https://github.com/charliermarsh/ruff-pre-commit
+    hooks:
+    -   id: ruff
+        args: [--fix, --exit-non-zero-on-fix]
+    -   id: ruff-format
+    rev: v0.9.5
+-   repo: local
+    hooks:
+    -   id: cargo-fmt
+        name: cargo fmt
+        types: [rust]
+        language: rust
+        entry: cargo fmt --
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: check-builtin-literals
+      - id: mixed-line-ending
+        args: [--fix=lf]
+      - id: end-of-file-fixer
