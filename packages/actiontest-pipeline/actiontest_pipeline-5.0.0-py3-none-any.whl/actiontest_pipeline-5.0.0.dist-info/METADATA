@@ -1,0 +1,23 @@
+Metadata-Version: 2.3
+Name: actiontest-pipeline
+Version: 5.0.0
+Summary: GitHub Actions workflow automation test project
+License: MIT
+Author: jonathanw16
+Author-email: jonathanw16@users.noreply.github.com
+Requires-Python: >=3.11,<4.0
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Project-URL: Bug Tracker, https://github.com/jonathanw16/action-test/issues
+Project-URL: Homepage, https://github.com/jonathanw16/action-test
+Project-URL: Repository, https://github.com/jonathanw16/action-test
+Description-Content-Type: text/markdown
+
+# Action Test
+
+GitHub Actions workflow automation test project.
