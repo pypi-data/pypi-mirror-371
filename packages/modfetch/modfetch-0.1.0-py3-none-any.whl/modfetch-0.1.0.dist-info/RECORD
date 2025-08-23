@@ -1,0 +1,10 @@
+modfetch/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+modfetch/__main__.py,sha256=zIq2ZGd1gl_UVCHB97vhE3Lg0V_ZySsCDN3T7DxVV8M,1254
+modfetch/api.py,sha256=D9kXAZOkFCkgqbo0vokx9k9XYeO3Tcvnm1c194G7FY4,4721
+modfetch/core.py,sha256=DrzIeq3zW26OIIfvZp4AJBKi00s0G3h8I2QyGiXnB3g,23466
+modfetch/error.py,sha256=dYVBOptnpOyvEjFMMGcut3k7Q7sriRxDZITO3A8JmvY,227
+modfetch-0.1.0.dist-info/METADATA,sha256=9gBOFDLXNEISr3Cl0MVzNZbc--FFIECmGi_e2tZQkGE,1677
+modfetch-0.1.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+modfetch-0.1.0.dist-info/entry_points.txt,sha256=HeDS_gr8t5eZ1923B-1y-b2zfcpoM7oiYyXELeGp1dY,56
+modfetch-0.1.0.dist-info/top_level.txt,sha256=vPaYoQay9z2ZSAdvYKf0sQakaOCPSyGRzrZ9eGdxFlI,9
+modfetch-0.1.0.dist-info/RECORD,,
