@@ -1,0 +1,36 @@
+from importlib import import_module
+from importlib.util import find_spec
+from pathlib import Path
+
+from django.apps import apps
+from django.conf import settings
+from django.urls import include, path
+
+
+def _is_local_app(config) -> bool:
+    """Only include apps that live inside the project BASE_DIR (skip 3rd-party packages)."""
+    try:
+        base = Path(getattr(settings, "BASE_DIR", ".")).resolve()
+        app_path = Path(getattr(config, "path", "")).resolve()
+        return app_path.is_relative_to(base)
+    except Exception:
+        return False
+
+
+def _has_urls_module(app_name: str) -> bool:
+    return find_spec(f"{app_name}.urls") is not None
+
+
+def _collect_urlpatterns():
+    patterns = []
+    for cfg in sorted(apps.get_app_configs(), key=lambda c: c.name.lower()):
+        if cfg.name == "core" or not _is_local_app(cfg):
+            continue
+        if not _has_urls_module(cfg.name):
+            continue
+        module = import_module(f"{cfg.name}.urls")
+        patterns.append(path("", include(module)))
+    return patterns
+
+
+urlpatterns = _collect_urlpatterns()

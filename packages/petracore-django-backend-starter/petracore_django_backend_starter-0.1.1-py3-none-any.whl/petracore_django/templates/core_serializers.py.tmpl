@@ -1,0 +1,28 @@
+from rest_framework import serializers
+
+
+class MessageSerializer(serializers.Serializer):
+    message = serializers.CharField()
+
+
+class ErrorSerializer(serializers.Serializer):
+    error = serializers.CharField()
+
+
+class EmailSerializer(serializers.Serializer):
+    email = serializers.EmailField(required=True)
+
+
+class ValidateOTPSerializer(serializers.Serializer):
+    otp = serializers.CharField(required=True)
+    email = serializers.EmailField(required=True)
+
+
+class UserSerializer(serializers.Serializer):
+    first_name = serializers.CharField(required=True)
+    last_name = serializers.CharField(required=True)
+    email = serializers.CharField(required=True)
+    image = serializers.URLField(required=False)
+    is_admin = serializers.BooleanField(required=False)
+    is_superuser = serializers.BooleanField(required=False)
+    last_login = serializers.DateTimeField(required=False)

@@ -1,0 +1,108 @@
+"""
+utils.py
+
+@Author:    Maro Okegbero
+@Date:      Jan 9 2025
+
+This module contains a number of utility functions useful throughout our application.
+No references are made to specific models or views. As a result, they are useful with or
+without the application context.
+"""
+import random
+import string
+import uuid
+
+import base64
+
+from datetime import datetime
+
+
+
+def generate_random_number(num_digits):
+    if num_digits <= 0:
+        return 0
+    lower_bound = 10 ** (num_digits - 1)
+    upper_bound = 10 ** num_digits - 1
+    return random.randint(lower_bound, upper_bound)
+
+
+def token_generator(size=5, chars=string.digits):
+    """
+    utility function to generate random identification numbers
+    """
+    return ''.join(random.choice(chars) for x in range(size))
+
+
+def generate_random_string():
+    """
+    generates a unique reference number
+    """
+
+    year = datetime.now().year.__str__()
+    month = datetime.now().month.__str__()
+    x = ''.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits) for _ in range(9))
+    return f"RC{month}{''.join([x, year])}"
+
+
+def generate_reference_number():
+    """
+    generates a unique reference number
+    """
+
+    year = datetime.now().year.__str__()
+    month = datetime.now().month.__str__()
+    x = ''.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits) for _ in range(9))
+    return f"RC{month}{token_generator()}"
+
+
+def populate_obj(obj, data):
+    """
+    Populates an object with the data passed to it
+
+    param obj: Object to be populated
+    param data: The data to populate it with (dict)
+
+    returns: obj populated with data
+
+
+    """
+    for name, value in data.items():
+        if hasattr(obj, name):
+            # print(name, value)
+            setattr(obj, name, value)
+
+    return obj
+
+
+def get_html_content(file_path):
+    try:
+        with open(file_path) as f:
+            raw = f.read()
+
+            return raw
+    except Exception as e:
+        raw = '<html> </html>'
+        return raw
+
+
+def atob(x):
+    """
+    Python equivalent of atob
+    """
+
+    return base64.b64decode(x)
+
+
+def btoa(x):
+    """
+    Python equivalent of btoa
+    """
+
+    return base64.b64encode(bytes(x)).decode('utf-8')
+
+
+def is_valid_uuid(val):
+    try:
+        return uuid.UUID(str(val))
+    except ValueError:
+        return None
