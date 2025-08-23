@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pysublime"
+version = "0.1.1"
+description = "Line-level code embeddings with smart segmentation and negative prompting"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Daniel Losey", email = "danieljlosey@gmail.com" }]
+
+dependencies = [
+  "sentence-transformers>=2.2.0",
+  "faiss-cpu>=1.7.0",
+  "scikit-learn>=1.0.0",
+  "watchdog>=2.1.0",
+  "numpy>=1.21.0",
+  "torch>=1.9.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/dadukhankevin/Sublime"
+
+[tool.setuptools]
+py-modules = ["pysublime"]
+
