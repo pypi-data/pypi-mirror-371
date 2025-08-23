@@ -1,0 +1,47 @@
+Metadata-Version: 2.4
+Name: docforest
+Version: 0.1.0
+Summary: A package for intelligently chunking structured documents into a hierarchical, contextual tree.
+Author-email: Yuseok William Kang <willysk73@outlook.com>
+Project-URL: Homepage, https://github.com/willysk73/docforest
+Project-URL: Issues, https://github.com/willysk73/docforest/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: license-file
+
+# DocForest
+
+**DocForest** is a Python library for intelligently chunking structured documents like Markdown and AsciiDoc. It organizes document content into a recursive, tree-like structure, ensuring that each chunk retains its full contextual path from its parent headings. This makes it an ideal tool for RAG (Retrieval-Augmented Generation) systems, semantic search, and other NLP tasks.
+
+-----
+
+### Features
+
+  * **Hierarchical Chunking**: Splits documents based on heading levels, preserving the logical structure.
+  * **Context Preservation**: Each section's content is linked to all its parent headings, providing rich context.
+  * **Flexible Output**: Generates a structured "forest" or "tree" that is easy to traverse and process.
+  * **Support for Multiple Formats**: Built to handle various structured document types.
+
+### Installation
+
+Install `docforest` from PyPI:
+
+```bash
+pip install docforest
+```
+
+### Usage
+
+```python
+# (Code examples will be added here once the core logic is implemented.)
+```
+
+-----
+
+### License
+
+This project is licensed under the **MIT License**. See the `LICENSE` file for details.
