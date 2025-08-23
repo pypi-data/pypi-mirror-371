@@ -1,0 +1,10 @@
+aiohttp_msal/__init__.py,sha256=hnyifyJykI7NMvM93KrHIsTlrrfCVUrpKdbRKL6Gubw,4027
+aiohttp_msal/msal_async.py,sha256=p0OkF48ZDmCAUYN4qjn3UdMyH1oS4iBQSB5Z_C3yIBU,8816
+aiohttp_msal/redis_tools.py,sha256=6kCw0_zDQcvIcsJaPfG-zHUvT3vzkrNySNTV5y1tckE,6539
+aiohttp_msal/routes.py,sha256=8wU2jU9qSlqH5fq9kvkBZHAgrxQdmB-DvtQC-WlXbh0,8135
+aiohttp_msal/settings.py,sha256=ttbqGb2X1r7DsLvKb1AlDDKBYZWjIwHLHI-Sa-8K-lI,1562
+aiohttp_msal/settings_base.py,sha256=tRbjgphR1tvHCrFCcfOUhoFAyUnq_XnJBVO4NNiPdNg,3150
+aiohttp_msal/user_info.py,sha256=tO-vA_kxPseHseWxNlhGc_NlDfgJGdf1OMCaGmvDf8Q,1875
+aiohttp_msal-1.0.1.dist-info/WHEEL,sha256=4n27za1eEkOnA7dNjN6C5-O2rUiw6iapszm14Uj-Qmk,79
+aiohttp_msal-1.0.1.dist-info/METADATA,sha256=NJEzFuQyWHai3QcqvyTfeAWWfjq98nucwoYFt3qIOvc,4514
+aiohttp_msal-1.0.1.dist-info/RECORD,,
