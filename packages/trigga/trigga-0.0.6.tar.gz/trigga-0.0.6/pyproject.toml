@@ -1,0 +1,21 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "trigga"
+version = "0.0.6"
+description = "Simple dead man's switch."
+readme = "README.md"
+authors = [{name = "Jonas Eschmann", email = "jonas.eschmann@gmail.com"}]
+license = {text = "MIT"}
+dependencies = [
+    "PySDL2",
+]
+[project.optional-dependencies]
+pedal = [
+    "evdev",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["trigga"]

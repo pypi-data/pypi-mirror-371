@@ -1,0 +1,15 @@
+Metadata-Version: 2.4
+Name: trigga
+Version: 0.0.6
+Summary: Simple dead man's switch.
+Author-email: Jonas Eschmann <jonas.eschmann@gmail.com>
+License: MIT
+Requires-Dist: pysdl2
+Provides-Extra: pedal
+Requires-Dist: evdev; extra == 'pedal'
+Description-Content-Type: text/markdown
+
+### Simple Dead Man's Switch
+
+
+Using a gamepad or foot-switch for low latency and to not require focus from the window manager.
