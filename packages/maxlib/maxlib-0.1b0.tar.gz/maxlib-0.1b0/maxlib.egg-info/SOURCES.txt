@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+maxlib/__init__.py
+maxlib/classes.py
+maxlib/errors.py
+maxlib/filters.py
+maxlib.egg-info/PKG-INFO
+maxlib.egg-info/SOURCES.txt
+maxlib.egg-info/dependency_links.txt
+maxlib.egg-info/requires.txt
+maxlib.egg-info/top_level.txt
