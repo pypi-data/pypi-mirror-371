@@ -1,0 +1,223 @@
+Metadata-Version: 2.4
+Name: phasi-kit
+Version: 0.2.1
+Summary: Thai VAT tax ID lookup with 10/13-digit support (RD VATINFO)
+Project-URL: Homepage, https://example.com/phasi-kit
+Project-URL: Repository, https://example.com/phasi-kit.git
+Author: phasi-kit maintainers
+License: MIT
+License-File: LICENSE
+Requires-Python: >=3.10
+Requires-Dist: beautifulsoup4>=4.12
+Requires-Dist: httpx>=0.27
+Requires-Dist: loguru>=0.7
+Provides-Extra: test
+Requires-Dist: pytest-asyncio>=0.21.0; extra == 'test'
+Requires-Dist: pytest>=7.0; extra == 'test'
+Description-Content-Type: text/markdown
+
+phasi-kit
+==========
+
+Thai VAT tax ID lookup client for the Revenue Department (RD) VATINFO service.
+
+Overview
+- **NEW: Smart unified API** - Auto-detects 10/13 digits, handles single/multi results intelligently
+- **NEW: Full async support** - High-performance async client with connection pooling
+- **Auto-routing** - Automatically validates and routes 10 or 13-digit tax IDs
+- Parse TIS-620 HTML into structured `TaxInfo` objects
+- Robust requests with retries, backoff, and rate limiting
+- Detailed logging via loguru for debugging
+
+Requirements
+- Python 3.10+
+
+Installation
+- Using pip (editable): `pip install -e .`
+- Using uv (fast installer):
+  - Create/activate a virtualenv
+  - Install editable: `uv pip install -e .`
+  - With test extras: `uv pip install -e ".[test]"`
+
+Quickstart
+
+## New Unified API (Recommended)
+```python
+from phasi_kit import lookup, lookup_async
+
+# Smart sync lookup - auto-detects 10/13 digits
+result = lookup("0107555000023")  # Works with spaces/dashes too: "0107-555-000023"
+
+# Intelligently handles single or multiple results
+if result.is_single:
+    print(result.company_name)  # Direct access for single result
+else:
+    for info in result:  # Iterate through multiple branches
+        print(f"Branch {info.branch_no}: {info.company_name}")
+
+# Or simply use .first for the most common case
+print(result.first.company_name)
+
+# Async version for high performance
+import asyncio
+
+async def check_tax():
+    result = await lookup_async("3031571440")  # Auto-detects 10-digit
+    return result.first.company_name
+
+company = asyncio.run(check_tax())
+```
+
+## Legacy API (Still Supported)
+```python
+from phasi_kit import get_tax_info, get_tax_infos
+
+# First matching result
+info = get_tax_info("0107555000023")
+print(info.company_name, info.address, info.status)
+
+# All rows (multiple branches)
+rows = get_tax_infos("0107555000023")
+for r in rows:
+    print(r.branch_no, r.company_name)
+```
+
+API
+
+## New Unified API
+- `lookup(tax_id: str, branch_no: str | None = None) -> TaxInfoResult`
+  - Smart sync lookup with auto-detection of 10/13 digits
+  - Returns `TaxInfoResult` wrapper that handles single/multi results intelligently
+  - Automatically cleans input (removes spaces, dashes)
+  
+- `lookup_async(tax_id: str, branch_no: str | None = None) -> TaxInfoResult`
+  - Async version with same smart features
+  - Uses connection pooling for high performance
+
+- `TaxInfoResult` - Smart wrapper with:
+  - `.is_single` - Check if single result
+  - `.first` - Get first result (works for any case)
+  - `.all` - Get all results as list
+  - `.count` - Number of results
+  - Direct iteration: `for info in result:`
+  - Branch helpers: `.get_branch("0")`, `.hq`, `.branches`
+
+## Clients
+- `VATInfoClient` - Enhanced sync client with:
+  - Auto-routing for 10/13 digit tax IDs
+  - Connection pooling (`max_connections`, `max_keepalive_connections`)
+  - Automatic retries with exponential backoff
+  - Rate limiting support
+  
+- `AsyncVATInfoClient` - Full async client with:
+  - All features of sync client
+  - Async/await support
+  - Request coalescing for concurrent identical requests
+  - Context manager support: `async with AsyncVATInfoClient() as client:`
+
+## Legacy API (Backward Compatible)
+- `get_tax_info()` - Returns single `TaxInfo`
+- `get_tax_infos()` - Returns `list[TaxInfo]`
+- Original `VATInfoClient` methods still available
+
+Examples
+
+## Smart Result Handling
+```python
+from phasi_kit import lookup
+
+# Auto-detects format and cleans input
+result = lookup("0107-555-000023")  # Works with dashes
+result = lookup("0107 555 000023")  # Works with spaces
+result = lookup("0107555000023")    # Works with clean input
+
+# Smart accessors
+print(result.company_name)  # Direct attribute access (proxies to first)
+print(result.first.address)  # Explicitly get first result
+print(result.count)          # Number of results
+
+# Branch operations
+if result.has_branch("1"):
+    branch1 = result.get_branch("1")
+    print(branch1.company_name)
+
+hq = result.hq  # Get headquarters (branch "0")
+print(f"Branches: {result.branches}")  # List all branch numbers
+```
+
+## Async High Performance
+```python
+import asyncio
+from phasi_kit import AsyncVATInfoClient
+
+async def check_multiple():
+    async with AsyncVATInfoClient(
+        max_connections=20,  # Connection pooling
+        enable_coalescing=True,  # Dedupe concurrent identical requests
+    ) as client:
+        # These run concurrently
+        results = await asyncio.gather(
+            client.lookup_smart("0107555000023"),
+            client.lookup_smart("3031571440"),
+            client.lookup_smart("0105547127301"),
+        )
+        return [r.first.company_name for r in results]
+
+companies = asyncio.run(check_multiple())
+```
+
+## Validation with Auto-Routing
+```python
+from phasi_kit import validate_and_route_tax_id
+
+# Validate and get routing info
+validation = validate_and_route_tax_id("0107-555-000023")
+if validation.is_valid:
+    print(f"Type: {validation.tax_id_type}")  # "13"
+    print(f"Cleaned: {validation.cleaned_id}")  # "0107555000023"
+else:
+    print(f"Error: {validation.error_message}")
+```
+
+Logging
+- This package uses loguru. Configure sinks/levels in your app:
+```python
+from loguru import logger
+logger.remove()
+logger.add(sys.stderr, level="INFO")
+```
+Messages include request attempts, backoff decisions, not-found cases, and parsing fallbacks.
+
+Features
+
+## Auto-Routing
+- Automatically detects 10 vs 13 digit tax IDs
+- Cleans input (removes spaces, dashes, dots)
+- Detailed validation with specific error messages
+- Caches validation results for performance
+
+## Performance
+- Connection pooling for reusing HTTP connections
+- Async support for concurrent lookups
+- Request coalescing (deduplicates concurrent identical requests)
+- Optional response caching with TTL
+
+## Robust Error Handling
+- `TaxValidationError`: Invalid tax ID format or checksum
+- `TaxNotFoundError`: Valid ID but no record found
+- `TaxLookupError`: Network/HTTP failures
+- Automatic retries with exponential backoff
+- Detailed loguru debugging throughout
+
+Environment
+- `PHASI_VATINFO_URL`: Override the default RD endpoint if needed.
+
+Notes
+- Auto-detection works with any format: "0107555000023", "0107-555-000023", "0107 555 000023"
+- The smart API eliminates the need to know beforehand if a tax ID has multiple branches
+- RD HTML is TIS-620 encoded; decoding is handled automatically
+- Branch numbers: `0` = HQ, `1-99998` = branch offices
+- All async operations use connection pooling for optimal performance
+
+Development
+- Run tests: `pytest -q`
