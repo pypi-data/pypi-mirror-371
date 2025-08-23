@@ -1,0 +1,149 @@
+Metadata-Version: 2.4
+Name: macrotype
+Version: 0.3.0
+Summary: Generate .pyi stub files from existing modules
+Author-email: Kurt Rose <kurt@kurtrose.com>
+License: MIT License
+        
+        Copyright (c) 2025 Kurt Rose
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.12
+Description-Content-Type: text/x-rst
+License-File: LICENSE
+Provides-Extra: test
+Requires-Dist: mypy; extra == "test"
+Requires-Dist: pyright; extra == "test"
+Requires-Dist: ruff; extra == "test"
+Requires-Dist: pytest; extra == "test"
+Requires-Dist: sqlalchemy; extra == "test"
+Provides-Extra: build
+Requires-Dist: build; extra == "build"
+Requires-Dist: twine; extra == "build"
+Dynamic: license-file
+
+Macrotype
+=========
+
+Consider this:
+
+.. code-block:: python
+
+    VAL = 42
+
+    def get() -> type(VAL):
+        return VAL
+
+This is perfectly valid Python, but type checkers don't accept it.  Instead,
+you are supposed to write out all type references statically or use very
+limited global aliases.
+
+``macrotype`` makes this work exactly as you expect with all static type
+checkers, so your types can be as dynamic as the rest of your Python code.
+
+How?
+-----
+
+``macrotype`` is a CLI tool intended to be run before static type checking:
+
+.. code-block:: bash
+
+    macrotype your_module
+
+``macrotype`` imports your modules under normal Python and then generates
+corresponding ``.pyi`` files with all types pinned statically so the type
+checker can understand them.
+
+In our example, ``macrotype`` would generate this:
+
+.. code-block:: python
+
+    VAL: int
+
+    def get() -> int: ...
+
+``macrotype`` is the bridge between static type checkers and your dynamic
+code.  ``macrotype`` will import your modules as Python and then re-export the
+runtime types back out into a form that static type checkers can consume.
+
+What else?
+----------
+
+In addition to the CLI tool, there are also helpers for generating dynamic
+types.  See ``macrotype.meta_types``.  These are intended for you to import to
+enable dynamic programming patterns which would be unthinkable without
+``macrotype``.
+
+Type checking
+-------------
+
+Most users will want to run their static type checker through the
+``macrotype.check`` entrypoint.  This wrapper generates stub files and then
+invokes your checker with ``PYTHONPATH`` configured so the generated stubs are
+found.  The console script is installed as ``macrotype-check`` and accepts the
+checker command followed by the paths to stub.  Any additional arguments after
+``--`` are passed through to the checker:
+
+.. code-block:: bash
+
+    macrotype-check mypy src/ -- --strict
+
+Stubs are written to ``__macrotype__`` by default; use ``-o`` to choose a
+different directory.  When run with ``mypy``, ``macrotype-check`` prepends the
+stub directory to ``MYPYPATH`` so the overlay stubs are picked up
+automatically.  Other tools receive the stub directory on ``PYTHONPATH``.
+
+If you run ``mypy`` without ``macrotype-check``, set ``MYPYPATH`` or pass
+``--custom-typeshed-dir`` to point at the stub directory so it behaves the same
+way.
+
+Watch mode
+----------
+
+Use ``--watch`` (or ``-w``) to regenerate stubs whenever the source files
+change.  The command is re-run in a fresh Python process each time:
+
+.. code-block:: bash
+
+    macrotype --watch your_module
+
+The same flag is available for ``macrotype-check`` to rerun the wrapped type
+checker as files change.
+
+Dogfooding
+----------
+
+The ``macrotype`` project uses the CLI on itself.  Running:
+
+.. code-block:: bash
+
+    python -m macrotype macrotype
+
+regenerates the stub files for the package in place.  A CI job ensures that the
+checked in ``.pyi`` files are always in sync with this command.
+
+Documentation
+-------------
+
+Full documentation is available on `Read the Docs <https://macrotype.readthedocs.io/>`_.

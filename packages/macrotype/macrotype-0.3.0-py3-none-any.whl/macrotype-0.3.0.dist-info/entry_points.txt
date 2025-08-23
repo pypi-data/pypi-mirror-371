@@ -1,0 +1,3 @@
+[console_scripts]
+macrotype = macrotype.cli:main
+macrotype-check = macrotype.cli:check_main
