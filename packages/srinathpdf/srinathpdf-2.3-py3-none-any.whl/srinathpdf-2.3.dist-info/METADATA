@@ -1,0 +1,20 @@
+Metadata-Version: 2.4
+Name: srinathpdf
+Version: 2.3
+Summary: It will convert pdf to image and text
+Author: Srinath Reddy
+Author-email: srinathreddy438@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: license-file
+Dynamic: summary
+
+This is the homepage of our project.
