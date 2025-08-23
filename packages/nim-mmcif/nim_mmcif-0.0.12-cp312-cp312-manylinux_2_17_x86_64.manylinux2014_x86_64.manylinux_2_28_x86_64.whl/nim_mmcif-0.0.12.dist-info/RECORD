@@ -1,0 +1,12 @@
+nim_mmcif/mmcif.nim,sha256=7uFJwPRwXfALtevo5quqSj3PkCFHVBO6B8sAkeswi2w,5617
+nim_mmcif/_version.py,sha256=gceu3MehXIjHXwByoFDSYtaHkSoSagmhctmdkgYthJ4,76
+nim_mmcif/nim_mmcif.so,sha256=VUs0MRn_LYza0Sk-3KvNsWmSGCXmOCCkHLbSq8To_Ds,355888
+nim_mmcif/nim_mmcif.nim,sha256=nz7e7Ve1kakZ2X_zEbb8-KQbUuhPCH7fhcmvRTvoymk,2098
+nim_mmcif/_dummy.c,sha256=ALoLHdQ7zi_XyhMhIXN1pEfoKzLbl98sXjHzrq7ChB8,336
+nim_mmcif/python_bindings.nim,sha256=nz7e7Ve1kakZ2X_zEbb8-KQbUuhPCH7fhcmvRTvoymk,2098
+nim_mmcif/_dummy.cpython-312-x86_64-linux-gnu.so,sha256=TNAFc3nMadNcAiO5p9_zF1zGDW9pxRkQMFTnrNCkN1g,23968
+nim_mmcif/__init__.py,sha256=W5YtGa8KFptVGWQDU3YWewf3O6W5okbOeZMAGTGxYWA,10773
+nim_mmcif-0.0.12.dist-info/RECORD,,
+nim_mmcif-0.0.12.dist-info/METADATA,sha256=vdy2-dWEe09TipzhE5FiamcZxEfN0hCQWo4R7ync2U8,7207
+nim_mmcif-0.0.12.dist-info/top_level.txt,sha256=msg4vsyaswye01x3ndfrU337ixpJZTifmQHf4emGT08,10
+nim_mmcif-0.0.12.dist-info/WHEEL,sha256=DxRnWQz-Kp9-4a4hdDHsSv0KUC3H7sN9Nbef3-8RjXU,190
