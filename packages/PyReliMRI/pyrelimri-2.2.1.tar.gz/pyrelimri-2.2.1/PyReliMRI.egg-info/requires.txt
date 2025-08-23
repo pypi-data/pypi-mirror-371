@@ -1,0 +1,17 @@
+numpy
+pandas
+nilearn
+nibabel
+scipy
+seaborn
+scikit-learn
+hypothesis
+matplotlib
+joblib
+statsmodels
+
+[dev]
+pytest
+pytest-cov
+black
+flake8
