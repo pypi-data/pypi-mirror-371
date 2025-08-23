@@ -1,0 +1,10 @@
+README.md
+setup.py
+kyg_ggk/__init__.py
+kyg_ggk/fastguess.py
+kyg_ggk/main.py
+kyg_guessing_game_kit.egg-info/PKG-INFO
+kyg_guessing_game_kit.egg-info/SOURCES.txt
+kyg_guessing_game_kit.egg-info/dependency_links.txt
+kyg_guessing_game_kit.egg-info/entry_points.txt
+kyg_guessing_game_kit.egg-info/top_level.txt

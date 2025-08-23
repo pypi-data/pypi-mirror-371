@@ -1,0 +1,2 @@
+[console_scripts]
+kyg-ggk = kyg_ggk.main:main
