@@ -1,0 +1,3 @@
+[console_scripts]
+sharetrace = sharetrace.sharetrace:main
+sharetrace_demo = sharetrace.sharetrace_demo:main
