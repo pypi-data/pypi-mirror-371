@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: akamaiossg
+Version: 0.3.0
+Summary: Akamaiossg description for TLLs
+Home-page: https://github.com/mmfarabi/sentiebl
+Author: Mirza Milan Farabi
+Author-email: mmfar@gmail.com
+License: UNKNOWN
+Keywords: llm,vulnerability,prompt,ai-security
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Security
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Software Development :: Testing
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: ipython
+Requires-Dist: matplotlib
+Requires-Dist: ollama
+Requires-Dist: openai
+Requires-Dist: pandas
+
+# Hello Akamai
+
+
