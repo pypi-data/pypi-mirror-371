@@ -1,0 +1,15 @@
+catholic_mass_readings-0.5.0.dist-info/METADATA,sha256=UKSpGwYXQFhjavedo5uvDNYhDqSIfjGW0pelk1z7xcY,5205
+catholic_mass_readings-0.5.0.dist-info/WHEEL,sha256=9P2ygRxDrTJz3gsagc0Z96ukrxjr-LFBGOgv3AuKlCA,90
+catholic_mass_readings-0.5.0.dist-info/entry_points.txt,sha256=6OYgBcLyFCUgeqLgnvMyOJxPCWzgy7se4rLPKtNonMs,34
+catholic_mass_readings-0.5.0.dist-info/licenses/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+catholic_mass_readings/__init__.py,sha256=4V2JUThcPUB9vhOPVV9YEGU1m2mSoV4Dsr9Dr_Gt7Rw,474
+catholic_mass_readings/__main__.py,sha256=2Zd3v1VitGqiUqzKkR70ioxWcyK1fO4zhfB_80avCME,366
+catholic_mass_readings/commands/__init__.py,sha256=WEviiC9egOlhZJMmb34ZPbNyZF38xDOiEpqN8SIybhI,133
+catholic_mass_readings/commands/common.py,sha256=1SAmPfFDNHHDCv45JtsBfPy9A6ja6Agt5jYasWyDXJI,502
+catholic_mass_readings/commands/mass.py,sha256=F8tQRkWXhH4QG6tEjD7ZWT5APDawKvjzjzlPwMarcds,4575
+catholic_mass_readings/constants.py,sha256=5G1UlmdS6ABtCrkmraBGzx6RxkAhE-78mYpZY4EYoQ4,11890
+catholic_mass_readings/models.py,sha256=WqLSz2-7LSlR5JAvS3vz_8_MNnfQUNUM9i7IQ0RejY8,10525
+catholic_mass_readings/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+catholic_mass_readings/usccb.py,sha256=upzCga3xsN92wELCNmpnn7seuDEhemHm-RTskHptux4,11269
+catholic_mass_readings/utils.py,sha256=ai1cMsSh6NbpfZeBauHslKRsN_wOZp3EQPUNdk_2uW0,8324
+catholic_mass_readings-0.5.0.dist-info/RECORD,,
