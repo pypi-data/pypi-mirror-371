@@ -1,0 +1,20 @@
+[build-system]
+requires = ["flit_core >=3.11,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "commit_companion"
+version = "0.1.0"
+description = "Smarter Git commit messages using GPT."
+authors = [{name = "Zack Nelson", email = "zacknelson15@gmail.com"}]
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.8"
+keywords = ["git", "cli", "openai", "commit", "automation"]
+
+[project.urls]
+Home = "https://github.com/nelson-zack/commit-companion"
+
+[project.scripts]
+commit-companion = "commit_companion.cli:cli"

@@ -1,0 +1,10 @@
+⏳ Generating commit message...
+=== GPT Response ===
+ChatCompletion(id='chatcmpl-Ba9U8x1M6GXoSd7kl6A0gnxtjYmyA', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='Add new updates to README.md including test changes, another change, and confirmation that the hook is functioning.', refusal=None, role='assistant', annotations=[], audio=None, function_call=None, tool_calls=None))], created=1747955968, model='gpt-3.5-turbo-0125', object='chat.completion', service_tier='default', system_fingerprint=None, usage=CompletionUsage(completion_tokens=21, prompt_tokens=87, total_tokens=108, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0)))
+====================
+
+✅ Suggested Commit Message:
+
+feat: add new updates to README.md including test changes, another change, and confirmation that the hook is functioning.
+
+Use this commit message? [Y/n]: Test CLI is working
