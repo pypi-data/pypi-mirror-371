@@ -1,0 +1,89 @@
+apiVersion: apiextensions.crossplane.io/v1beta1
+kind: EnvironmentConfig
+metadata:
+  name: cluster
+data:
+  cluster:
+    aws-account: "277707108430"
+    common-secrets-assume-role-arn: arn:aws:iam::277707108430:role/sandbox-rfixe-test-common-secrets
+    common-secrets-gitlab-prefix: k8s/sandbox/
+    common-secrets-region: us-east-1
+    common-secrets-role-name: rfixe-test-common-secrets
+    crossplane-aws-role: arn:aws:iam::277707108430:role/rfixe-test-crossplane-system-aws
+    domain:
+      dns-name: rfixe-test.sandbox.cloudops.fortradev.com
+      management-dns-name: sandbox.sandbox.cloudops.fortradev.com
+      management-zone-id: /hostedzone/Z04086713PM83ZBZJVDHW
+      zone-id: /hostedzone/Z0466976GE7YZGF281R
+    instance-profile-name: rfixe-test-karpenter-node
+    management-account: "277707108430"
+    management-name: sandbox
+    name: rfixe-test
+    node-role-name: rfixe-test-karpenter-node
+    oidc: oidc.eks.us-east-1.amazonaws.com/id/ABCF50FF09A64B790F9285E762B020F8
+    region: us-east-1
+    tags:
+      array:
+      - key: FTA-application
+        value: eks-resources
+      - key: FTA-brand
+        value: GoldenPath
+      - key: FTA-environment
+        value: Dev
+      - key: FTA-group
+        value: GoldenPath
+      - key: FTA-group-email
+        value: Rockfeller.Fixe@fortra.com
+      - key: FTA-owner-email
+        value: Rockfeller.Fixe@fortra.com
+      map:
+        FTA-application: eks-resources
+        FTA-brand: GoldenPath
+        FTA-environment: Dev
+        FTA-group: GoldenPath
+        FTA-group-email: Rockfeller.Fixe@fortra.com
+        FTA-owner-email: Rockfeller.Fixe@fortra.com
+    vpc:
+      cluster-security-group-id: sg-0200486eb73107ba8
+      private-a-subnet-id: subnet-00dcc1dddd606bcc6
+      private-b-subnet-id: subnet-0234ea91013593246
+      private-c-subnet-id: subnet-076e952dc1c9ee5dd
+      private-route-table-id: rtb-09d3a86a3598088e7
+      public-a-subnet-id: subnet-06bd1a559e0983f31
+      public-b-subnet-id: subnet-04882e55a6623f56b
+      public-c-subnet-id: subnet-06f3a63b06247b1a3
+      public-route-table-id: rtb-0335db8dc609bf241
+      vpc-cidr-block: 10.0.0.0/16
+      vpc-id: vpc-0150d246591a60c1b
+    xcluster-name: rfixe-test
+---
+apiVersion: oss.grafana.crossplane.io/v1alpha1
+kind: DataSource
+metadata:
+  name: influxdb-efc-dev-metric
+spec:
+  providerConfigRef:
+    name: influxdb-efc-dev-metric
+  forProvider:
+    accessMode: proxy
+    isDefault: false
+    jsonDataEncoded: |
+      {
+        "defaultBucket": "fortra-efc",
+        "organization": "efc",
+        "version": "Flux",
+        "httpMethod": "POST"
+      }
+    name: influxdb-efc-dev-metric
+    orgId: "1"
+    privateDataSourceConnectNetworkId: d32d2490-ae09-4e07-a049-1e53ba975a6c
+    secureJsonDataEncodedSecretRef:
+      key: credentials
+      name: influxdb-efc-dev-metric-ds
+      namespace: monitoring
+    type: influxdb
+    uid: ceusvfs2fcv7kf
+    url: http://influxdb-efc-dev-metric:80
+status:
+  atProvider:
+    uid: ceusvfs2fcv7kf

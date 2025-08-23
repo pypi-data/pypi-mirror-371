@@ -1,0 +1,87 @@
+apiVersion: apiextensions.crossplane.io/v1
+kind: Composition
+metadata:
+  name: applications.argocd.pipeline.cep.fortra.com
+  labels:
+    crossplane.io/xrd: applications.argocd.pipeline.cep.fortra.com
+    provider: argocd
+spec:
+  compositeTypeRef:
+    apiVersion: argocd.pipeline.cep.fortra.com/v1alpha1
+    kind: Application
+  mode: Pipeline
+  pipeline:
+  - step: environment-configs
+    functionRef:
+      name: function-environment-configs
+    input:
+      apiVersion: environmentconfigs.fn.crossplane.io/v1beta1
+      kind: Input
+      spec:
+        environmentConfigs:
+        - type: Reference
+          ref:
+            name: cluster
+
+  - step: pythonic
+    functionRef:
+      name: function-pythonic
+    input:
+      apiVersion: pythonic.fn.fortra.com/v1alpha1
+      kind: Composite
+      composite: |
+        class Composite(BaseComposite):
+          def compose(self):
+            cluster = self.environment.cluster
+            vpc = cluster.vpc
+            name = self.metadata.name
+
+            app = self.resources.Application('kubernetes.crossplane.io/v1alpha2', 'Object').spec.forProvider.manifest
+            app.apiVersion = 'argoproj.io/v1alpha1'
+            app.kind = 'Application'
+            app.metadata.namespace = 'argocd'
+            app.metadata.name = name
+            app.spec.project = 'default'
+            app.spec.destination.namespace = self.spec.namespace or name
+            app.spec.destination.name = 'in-cluster'
+
+            app.spec.syncPolicy.automated.prune = True
+            app.spec.syncPolicy.automated.selfHeal = True
+            app.spec.syncPolicy.syncOptions[0] = 'ApplyOutOfSyncOnly=true'
+            app.spec.syncPolicy.syncOptions[1] = 'CreateNamespace=true'
+            app.spec.syncPolicy.syncOptions[2] = 'PruneLast=true'
+            app.spec.syncPolicy.syncOptions[3] = 'ServerSideApply=true'
+
+            app.spec.ignoredDifferences[0].group = 'dynamodb.aws.crossplane.io'
+            app.spec.ignoredDifferences[0].kind = 'Table'
+            app.spec.ignoredDifferences[0].jqPathExpressions[0] = '.spec.forProvider.tags[] | select(.key | test("crossplane-.*"))'
+
+            app.spec.source.repoURL = f"https://gitlab.fortra.com/{self.spec.gitRepo or ('drep/agari/cep/pipeline/' + name)}.git"
+            app.spec.source.targetRevision = self.spec.gitRevision
+            app.spec.source.path = self.spec.helmChartPath or 'helm'
+
+            helm = app.spec.source.helm
+            helm.releaseName = name
+            helm.passCredentials = True
+            helm.valueFiles[0] = 'values.yaml'
+            helm.valueFiles[1] = name + '-values.yaml'
+
+            values = helm.valuesObject
+            values.aws.accountId = cluster['aws-account']
+            values.aws.region = cluster.region
+            values.domain.name = cluster.domain['dns-name']
+            values.domain.environment = cluster.tags.map.env
+            values.cluster.name = cluster.name
+            values.vpc.id = vpc['vpc-id']
+            values.vpc.cidrBlock = vpc['vpc-cidr-block']
+            values.vpc.securityGroupId = vpc['cluster-security-group-id']
+            values.vpc.publicSubnetIds[0] = vpc['public-a-subnet-id']
+            values.vpc.publicSubnetIds[1] = vpc['public-b-subnet-id']
+            values.vpc.publicSubnetIds[2] = vpc['public-c-subnet-id']
+            values.vpc.publicRouteTableId = vpc['public-route-table-id']
+            values.vpc.privateSubnetIds[0] = vpc['private-a-subnet-id']
+            values.vpc.privateSubnetIds[1] = vpc['private-b-subnet-id']
+            values.vpc.privateSubnetIds[2] = vpc['private-c-subnet-id']
+            values.vpc.priveteRouteTableId = vpc['private-route-table-id']
+            if self.spec.imageTag:
+              values.image.tag = self.spec.imageTag
