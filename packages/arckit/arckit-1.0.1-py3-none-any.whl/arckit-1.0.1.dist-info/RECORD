@@ -1,0 +1,16 @@
+arckit/__init__.py,sha256=08VKf7u1r2ewZYVIl3ykFRqVPOXb8Vm_MRpGxquKYQ4,162
+arckit/cli.py,sha256=EadWRtGIC7jVUvT0fglLhIwoJBKoSHwgG3WkDhkhhAQ,1173
+arckit/data.py,sha256=ty0WvTo7vjHW5_20tOF4Hyc-WPWHQRUNlY-XA6j5RgM,12440
+arckit/importtool.py,sha256=BLoaxDfz7WDeyVViLWUOxlO4fD2vO66eo36f_qmgtnA,3274
+arckit/vis.py,sha256=ylcevj9mt3pYs1L-rLkQAzft55wEI4oEo5ZIWQ8zLSk,12501
+arckit/data/arc1.json,sha256=siy68BoeMPC79mfasw53vzh8alPeyEYH2SpBvSdqbUc,2631815
+arckit/data/arcagi2_f3283f7.json,sha256=4c3NG-XJJcvDifyk4cTXyc2eOysOTiV35N-7DZmdQO4,4025284
+arckit/data/arcagi_aa922be.json,sha256=dbC3gYNQoHEhM_DqzpNC8XdeWZWBh_2wVC_kCs7h3eM,2632428
+arckit/data/kaggle2024.json,sha256=c8iTBxODB6Nj4MaxTT_PWZ7GPYWI9QK-BF14PMoreR0,2632428
+arckit/data/kaggle2025_250808.json,sha256=LeOHcy4iNO8grjNmjSEkCh_Mxjq2QOjHTkmGDC9Tctw,4032924
+arckit-1.0.1.dist-info/licenses/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+arckit-1.0.1.dist-info/METADATA,sha256=Iq-iJ7PL_F5iiP-EOD1d9XGjkrN2AZ4AHQEZvAABsJk,9172
+arckit-1.0.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+arckit-1.0.1.dist-info/entry_points.txt,sha256=2k0G8Jzb4Cj_9U0dvHxxgOGRgmmQe64QieiiI3Wqbgs,79
+arckit-1.0.1.dist-info/top_level.txt,sha256=fAJt_Fxb-oM5WePjq-hHd6iPrPUfO_3FzFxtnrtXvQY,7
+arckit-1.0.1.dist-info/RECORD,,
