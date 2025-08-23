@@ -1,0 +1,7 @@
+README.md
+setup.py
+module/__init__.py
+pythonprogrammersamazingandgood.egg-info/PKG-INFO
+pythonprogrammersamazingandgood.egg-info/SOURCES.txt
+pythonprogrammersamazingandgood.egg-info/dependency_links.txt
+pythonprogrammersamazingandgood.egg-info/top_level.txt
