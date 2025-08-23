@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pucktrick"
+version = "0.5.1"
+description = "A python library for error generation in dataset for machine learning"
+readme = "README.md"
+requires-python = ">=3.6"
+license = {text = "CC BY-NC 4.0"}
+
+authors = [
+    {name = "Andrea Maurino", email = "andrea.maurino@unimib.it"},
+]
+
+dependencies = [
+    "numpy",
+    "pandas"
+]
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: Other/Proprietary License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/andreamaurino/pucktrick"
+
+[tool.setuptools.packages.find]
+where = ["src"]
