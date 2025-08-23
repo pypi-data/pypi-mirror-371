@@ -1,0 +1,12 @@
+click>=8.1
+rich
+pyfiglet
+typer[all]
+requests
+firebase-admin
+httpx
+
+[dev]
+pytest
+black
+ruff
