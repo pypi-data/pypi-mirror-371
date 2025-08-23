@@ -1,0 +1,10 @@
+savanty/__init__.py,sha256=zVNG1pKmQNkzZL2QTi_JxZCZPv0IBHf63QH9z4No2_A,162
+savanty/cli.py,sha256=T-TakBzBuWzMvkwlkAoWhoPQWlJXclMKXgXKB-NvjWo,5776
+savanty/dspy_modules.py,sha256=Qf3iPWhEJ9ToK3XyxduiVSWn5aoVFk7_uYgnbsXP1P8,4335
+savanty/solver.py,sha256=3-83Kw-9Y2vtlRtvmJ8dZMaE3MwIkoHmYYw_XpdJ_qg,4686
+savanty/templates/index.html,sha256=fozuF_DOb8SK4YIJPrnw8HqzvUrcQObHmcIrou5dpew,5214
+savanty-0.2.1.dist-info/LICENSE,sha256=pcP6PBO0wAe2fzxJf3zEZvHRr2CExmCefcpUOUQLbu0,1071
+savanty-0.2.1.dist-info/METADATA,sha256=dru39JM5et1PTDNjLrz6WxkrmgXIzTDos0juDviG60s,8740
+savanty-0.2.1.dist-info/WHEEL,sha256=b4K_helf-jlQoXBBETfwnf4B04YC67LOev0jo4fX5m8,88
+savanty-0.2.1.dist-info/entry_points.txt,sha256=j_65i7vmVAOsEmnzB2SEwm9Ra06mEnUeeINLCeqLiYo,43
+savanty-0.2.1.dist-info/RECORD,,
