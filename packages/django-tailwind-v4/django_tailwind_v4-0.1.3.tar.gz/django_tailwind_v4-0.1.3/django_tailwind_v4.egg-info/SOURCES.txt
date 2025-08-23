@@ -1,0 +1,11 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+django-tailwind-v4/__init__.py
+django-tailwind-v4/apps.py
+django_tailwind_v4.egg-info/PKG-INFO
+django_tailwind_v4.egg-info/SOURCES.txt
+django_tailwind_v4.egg-info/dependency_links.txt
+django_tailwind_v4.egg-info/requires.txt
+django_tailwind_v4.egg-info/top_level.txt
