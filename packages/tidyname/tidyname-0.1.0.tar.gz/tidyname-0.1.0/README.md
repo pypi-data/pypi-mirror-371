@@ -1,0 +1,227 @@
+# TidyName
+
+Intelligent company name cleaning for Python.
+
+TidyName is a Python package that intelligently removes legal entity terms and 
+organization type indicators from company names while preserving cases where 
+these terms are part of the actual business name.
+
+## Features
+
+- **Smart Detection**: Identifies and removes corporate suffixes (LLC, Inc., Ltd., etc.)
+- **Intelligent Preservation**: Preserves terms when they're part of brand names (e.g., "The Limited")
+- **Confidence Scoring**: Provides confidence levels for each cleaning decision
+- **International Support**: Handles international corporate suffixes (GmbH, S.A., etc.)
+- **Batch Processing**: Clean multiple company names efficiently
+- **Configurable**: Customize behavior through configuration options
+- **Pure Python**: No external dependencies required
+- **Type Safety**: Full type annotations for better IDE support
+
+## Requirements
+
+- Python 3.13+
+
+## Installation
+
+```bash
+pip install tidyname
+
+# For development
+git clone https://github.com/your-repo/tidyname.git
+cd tidyname
+uv install
+```
+
+## Quick Start
+
+```python
+from tidyname import Cleaner
+
+# Initialize the cleaner
+cleaner = Cleaner()
+
+# Clean a single company name
+result = cleaner.clean("Apple Inc.")
+
+print(result.original)         # "Apple Inc."
+print(result.cleaned)          # "Apple"
+print(result.confidence)       # 0.95
+print(result.confidence_level) # "high"
+print(result.changes_made)     # True
+print(result.reason)           # "Removed: Inc."
+```
+
+## Advanced Usage
+
+### Batch Processing
+
+```python
+from tidyname import Cleaner
+
+cleaner = Cleaner()
+
+companies = [
+    "Apple Inc.",
+    "Microsoft Corporation", 
+    "Google LLC",
+    "The Limited",  # Will be preserved
+    "Amazon"        # No changes needed
+]
+
+results = cleaner.clean_batch(companies)
+
+for result in results:
+    print(f"{result.original} → {result.cleaned}")
+```
+
+### Configuration Options
+
+```python
+from tidyname import Cleaner, CleanerConfig
+
+# Custom configuration
+config = CleanerConfig(
+    remove_corporate_suffixes=True,     # Enable/disable suffix removal
+    preserve_known_brands=True,         # Preserve known brand names
+    min_confidence_threshold=0.7        # Minimum confidence for changes
+)
+
+cleaner = Cleaner(config=config)
+
+# Or configure after initialization
+cleaner.configure(
+    preserve_known_brands=False,
+    min_confidence_threshold=0.8
+)
+```
+
+## Supported Terms
+
+### Corporate Suffixes
+- **Corporation**: Company, Incorporated, Corporation, Corp., Corp, Inc., Inc
+- **Limited Liability**: LLC, L.L.C., PLC, P.L.C.
+- **Limited**: Limited, Ltd., Ltd, Co., Co
+- **Partnership**: & Co., & Co, LLP, L.L.P.
+- **Professional**: Professional Corporation, P.C., PC
+
+### International Suffixes
+- **German**: GmbH, AG
+- **French**: S.A., S.A
+- **Dutch**: N.V., B.V.
+- **Italian**: S.r.l., S.p.A.
+
+## Examples
+
+### Basic Cleaning
+
+```python
+from tidyname import Cleaner
+
+cleaner = Cleaner()
+
+# Standard corporate suffixes
+print(cleaner.clean("Apple Inc.").cleaned)           # "Apple"
+print(cleaner.clean("Microsoft Corporation").cleaned) # "Microsoft"
+print(cleaner.clean("Google LLC").cleaned)           # "Google"
+
+# International suffixes
+print(cleaner.clean("Siemens AG").cleaned)           # "Siemens"
+print(cleaner.clean("L'Oréal S.A.").cleaned)        # "L'Oréal"
+
+# Multiple suffixes
+print(cleaner.clean("Tech Solutions Inc. LLC").cleaned) # "Tech Solutions"
+```
+
+### Brand Preservation
+
+```python
+from tidyname import Cleaner
+
+cleaner = Cleaner()
+
+# These will be preserved as they're known brands
+result = cleaner.clean("The Limited")
+print(result.cleaned)      # "The Limited"
+print(result.changes_made) # False
+
+result = cleaner.clean("Limited Brands")
+print(result.cleaned)      # "Limited Brands"
+print(result.changes_made) # False
+```
+
+### Confidence and Reasoning
+
+```python
+from tidyname import Cleaner
+
+cleaner = Cleaner()
+
+result = cleaner.clean("Apple Inc.")
+
+print(f"Confidence: {result.confidence}")           # 0.95
+print(f"Level: {result.confidence_level}")          # "high"
+print(f"Reasoning: {result.reason}")                # "Removed: Inc."
+
+# Low confidence example
+result = cleaner.clean("Limited Edition")
+print(f"Confidence: {result.confidence}")           # Lower score
+print(f"Reasoning: {result.reason}")                # Preservation reasoning
+```
+
+## API Reference
+
+### Cleaner Class
+
+#### `__init__(config: CleanerConfig | None = None)`
+Initialize the cleaner with optional configuration.
+
+#### `clean(company_name: str) -> CleaningResult`
+Clean a single company name.
+
+**Parameters:**
+- `company_name`: The company name to clean
+
+**Returns:**
+- `CleaningResult` object with cleaning results and metadata
+
+#### `clean_batch(company_names: list[str]) -> list[CleaningResult]`
+Clean multiple company names.
+
+**Parameters:**
+- `company_names`: List of company names to clean
+
+**Returns:**
+- List of `CleaningResult` objects
+
+#### `configure(**kwargs) -> None`
+Update configuration settings.
+
+### CleaningResult
+
+Result object containing:
+- `original`: Original company name
+- `cleaned`: Cleaned company name
+- `confidence`: Confidence score (0.0 to 1.0)
+- `confidence_level`: "high", "medium", or "low"
+- `changes_made`: Boolean indicating if changes were made
+- `reason`: Human-readable explanation of the decision
+
+### CleanerConfig
+
+Configuration object with:
+- `remove_corporate_suffixes`: Enable suffix removal (default: True)
+- `preserve_known_brands`: Preserve known brand names (default: True)
+- `min_confidence_threshold`: Minimum confidence for changes (default: 0.5)
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests for new functionality
+5. Run the test suite: `uv run pytest`
+6. Submit a pull request
+
+## License
+
+MIT License - see LICENSE file for details.

@@ -1,0 +1,41 @@
+[project]
+name = "tidyname"
+version = "0.1.0"
+description = "Intelligent company name cleaning for Python"
+readme = "README.md"
+requires-python = ">=3.13"
+license = "MIT"
+authors = [
+    {name = "Michelle Pellon", email = "mgracepellon@gmail.com"},
+]
+keywords = ["company", "name", "cleaning", "normalization", "nlp"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Text Processing :: Linguistic",
+]
+
+[project.urls]
+Homepage = "https://github.com/michellepellon/tidyname"
+Repository = "https://github.com/michellepellon/tidyname"
+Issues = "https://github.com/michellepellon/tidyname/issues"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["tidyname*"]
+
+[tool.setuptools.package-data]
+tidyname = ["py.typed"]
+
+[dependency-groups]
+dev = [
+    "mypy>=1.17.1",
+    "pytest>=8.4.1",
+]
