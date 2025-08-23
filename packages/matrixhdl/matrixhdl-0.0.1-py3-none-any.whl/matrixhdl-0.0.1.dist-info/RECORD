@@ -1,0 +1,8 @@
+matrixhdl/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+matrixhdl/mh_export.py,sha256=SVSK1UXQXcI7g-ljRrNTqc0xh0qKZ7EMlgRiiuQo5b4,29147
+matrixhdl/mh_hyperlink.py,sha256=UHJXJBmMT45ByQvaiDbCdD1X4rseA3bWp-aA79kQ754,25721
+matrixhdl/mh_ports.py,sha256=x4ZxLoqHGufPhEv8SAF_llAOtp3NLhDDxaN6_dt2a-4,12866
+matrixhdl-0.0.1.dist-info/entry_points.txt,sha256=8ALnq3npfmNpo1JCBhOc_HMTuVvDlH13WOumMseHMgE,128
+matrixhdl-0.0.1.dist-info/METADATA,sha256=4k2CU__gTXBlJClxaxbY7bIFF7zq6zZpjzPtCRmGpKA,5301
+matrixhdl-0.0.1.dist-info/WHEEL,sha256=XbeZDeTWKc1w7CSIyre5aMDU_-PohRwTQceYnisIYYY,88
+matrixhdl-0.0.1.dist-info/RECORD,,
