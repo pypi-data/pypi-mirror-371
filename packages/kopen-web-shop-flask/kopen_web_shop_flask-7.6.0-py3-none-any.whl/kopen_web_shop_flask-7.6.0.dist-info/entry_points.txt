@@ -1,0 +1,2 @@
+[trytond.modules]
+web_shop_flask = trytond.modules.web_shop_flask
