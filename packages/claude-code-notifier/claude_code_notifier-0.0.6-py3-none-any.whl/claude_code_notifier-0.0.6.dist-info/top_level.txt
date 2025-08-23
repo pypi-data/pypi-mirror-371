@@ -1,0 +1,6 @@
+channels
+claude_notifier
+events
+managers
+templates
+utils
