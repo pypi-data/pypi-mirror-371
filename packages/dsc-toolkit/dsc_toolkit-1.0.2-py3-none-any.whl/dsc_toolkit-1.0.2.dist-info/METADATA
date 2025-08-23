@@ -1,0 +1,122 @@
+Metadata-Version: 2.4
+Name: dsc-toolkit
+Version: 1.0.2
+Summary: DeepScenario Toolkit for visualizing and working with DeepScenario datasets
+Project-URL: Homepage, https://app.deepscenario.com
+Project-URL: Documentation, https://github.com/deepscenario/dsc-toolkit#readme
+Project-URL: Repository, https://github.com/deepscenario/dsc-toolkit
+Project-URL: Bug Tracker, https://github.com/deepscenario/dsc-toolkit/issues
+Author-email: DeepScenario <info@deepscenario.com>
+License-Expression: Apache-2.0
+License-File: LICENSE.txt
+Keywords: 3d,autonomous-driving,computer-vision,deepscenario,traffic,visualization
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: <4.0,>=3.10
+Requires-Dist: folium<1,>=0.20
+Requires-Dist: numpy<3.0,>=1.26
+Requires-Dist: open3d<1.0,>=0.19
+Requires-Dist: opendrive2lanelet<2.0,>=1.2
+Requires-Dist: pandas<3.0,>=2.2
+Requires-Dist: pyarrow<21.0,>=20.0
+Requires-Dist: pyproj<4.0,>=3.6
+Requires-Dist: rasterio<2.0,>=1.3
+Requires-Dist: scipy<2.0,>=1.14
+Requires-Dist: tqdm<5.0,>=4.66
+Requires-Dist: vedo>=2025.5.3
+Description-Content-Type: text/markdown
+
+# DeepScenario Toolkit
+
+A Python toolkit for visualizing and working with DeepScenario datasets, which can be downloaded at [app.deepscenario.com](https://app.deepscenario.com).
+
+## Overview
+
+DeepScenario provides a platform to virtualize real-world recordings into:
+- a **3D reconstruction** of the static environment
+- **3D trajectories** of the dynamic objects
+
+This toolkit provides easy-to-use tools for visualizing and working with DeepScenario datasets, including:
+- visualization of the object annotations in 3D or in OpenStreetMap
+- creation of an orthophoto from the 3D reconstruction
+
+## Installation
+
+### From PyPI (Recommended)
+
+```bash
+pip install dsc-toolkit
+```
+
+### From Source (Development)
+
+This project uses [uv](https://github.com/astral-sh/uv) for dependency management. Make sure you have `uv` installed first.
+
+```bash
+# Clone the repository
+git clone https://github.com/deepscenario/dsc-toolkit.git
+cd dsc-toolkit
+
+# Install the package and dependencies
+uv sync
+```
+
+## Quick Start
+
+The toolkit provides a command-line tool with several commands. Each command has detailed help available using the `--help` option, for example:
+
+```bash
+dsc-toolkit plot_annotations_3d --help
+```
+
+### `plot_annotations_3d`
+
+Interactive 3D visualization of the object annotations:
+
+```bash
+dsc-toolkit plot_annotations_3d \
+	--data_dir tests/assets/data \
+	--recording 2000-12-31T23-59-59 \
+	--mesh tests/assets/data/textured_mesh/textured_mesh.obj
+```
+
+### `plot_annotations_georeferenced`
+
+Interactive visualization of the object annotations in OpenStreetMap:
+
+```bash
+dsc-toolkit plot_annotations_georeferenced \
+	--data_dir tests/assets/data \
+	--recording 2000-12-31T23-59-59 \
+	--save_dir /tmp/output
+```
+
+### `render_orthophoto`
+
+Render a georeferenced orthophoto from the textured mesh:
+
+```bash
+dsc-toolkit render_orthophoto \
+	--data_dir tests/assets/data \
+	--mesh tests/assets/data/textured_mesh/textured_mesh.obj \
+	--save_dir /tmp/output
+```
+
+## License
+
+This project is licensed under the Apache License 2.0. See [LICENSE.txt](LICENSE.txt) for details.
+
+## Support
+
+For questions, issues, or contributions, please:
+- open an [issue in this repository](https://github.com/deepscenario/dsc-toolkit/issues)
+- contact DeepScenario at info@deepscenario.com
