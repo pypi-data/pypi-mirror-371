@@ -1,0 +1,3 @@
+[console_scripts]
+bitepics = bitepics.cli:main
+

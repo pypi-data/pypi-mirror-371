@@ -1,0 +1,15 @@
+.env.example
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+bitepics/__init__.py
+bitepics/analyzer.py
+bitepics/cli.py
+bitepics/utils.py
+bitepics.egg-info/PKG-INFO
+bitepics.egg-info/SOURCES.txt
+bitepics.egg-info/dependency_links.txt
+bitepics.egg-info/entry_points.txt
+bitepics.egg-info/requires.txt
+bitepics.egg-info/top_level.txt
