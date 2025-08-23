@@ -1,0 +1,67 @@
+# MANIFEST.in
+# Este arquivo especifica quais arquivos extras incluir na distribuição
+
+# Incluir arquivos de documentação
+include README.md
+include LICENSE
+include CHANGELOG.md
+include AUTHORS.md
+
+# Incluir arquivos de configuração
+include requirements.txt
+include requirements-dev.txt
+include pyproject.toml
+include setup.cfg
+
+# Incluir arquivos da pasta docs
+recursive-include docs *
+prune docs/_build
+
+# Incluir exemplos
+recursive-include examples *.py
+recursive-include examples *.md
+recursive-include examples *.txt
+recursive-include examples *.json
+
+# Incluir testes (opcional - alguns preferem não incluir)
+recursive-include tests *.py
+
+# Incluir dados/recursos se houver
+recursive-include waifu2x_python/data *
+recursive-include waifu2x_python/templates *
+recursive-include waifu2x_python/static *
+
+# Incluir arquivos de configuração do projeto
+include .flake8
+include .pre-commit-config.yaml
+include tox.ini
+include Makefile
+
+# Excluir arquivos desnecessários
+global-exclude *.pyc
+global-exclude *.pyo
+global-exclude *.pyd
+global-exclude __pycache__
+global-exclude .git*
+global-exclude .coverage
+global-exclude .pytest_cache
+global-exclude .mypy_cache
+global-exclude .tox
+global-exclude *.egg-info
+
+# Excluir arquivos temporários
+global-exclude *~
+global-exclude *.tmp
+global-exclude *.bak
+global-exclude .DS_Store
+global-exclude Thumbs.db
+
+# Excluir arquivos de IDE
+global-exclude .vscode
+global-exclude .idea
+global-exclude *.swp
+global-exclude *.swo
+
+# Excluir arquivos de build
+prune build
+prune dist
