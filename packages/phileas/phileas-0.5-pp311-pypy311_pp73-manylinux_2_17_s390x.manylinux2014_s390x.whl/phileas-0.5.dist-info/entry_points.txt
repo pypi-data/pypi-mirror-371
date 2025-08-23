@@ -1,0 +1,2 @@
+[console_scripts]
+phileas=phileas.__main__:main
