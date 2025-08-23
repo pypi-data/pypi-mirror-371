@@ -1,0 +1,5 @@
+
+[test]
+pytest==8.2.2
+pytest-asyncio==1.1.0
+psutil==5.8.0
