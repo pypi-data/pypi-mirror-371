@@ -1,0 +1,17 @@
+optim/MLorc_AdamW.py,sha256=VZJauKIIccaLxjvvH4DhueeraOFDojrgH333W7PJGEo,9465
+optim/MLorc_Adopt.py,sha256=DqACXAMZOlr2TRHEeh1mTKd_g0b_NEOACvo56Qg9FRQ,9291
+optim/MLorc_CAME.py,sha256=Eoo3nO0xCB4VXxHxeg9IVzYEf5FkABmAbXMVbG4Mla8,9633
+optim/MLorc_DAdapt_Lion.py,sha256=sWueoFLVjR6-uJGDlXREnUQy-QRkUhiDcXo3DqEKEBg,12447
+optim/MLorc_Lion.py,sha256=0NoGDtllADMjSRroORzelgBO-IuCy0Yzo8XV4_4uvsc,7934
+optim/MLorc_Prodigy.py,sha256=-UZo9wTB-YC2fHEP4EzpGpt1xsXy6HQofwAy0gSZt6o,12342
+optim/__init__.py,sha256=dAjXaJdKnMpwxu2MKDgeApp-OBCMu9e51yEqnl6wnZc,268
+util/BF16_Stochastic_Rounding.py,sha256=Q5H0BcogmE4atP65dLoI21HKSf50lRdsBDfeF6v9Tbg,1548
+util/Effective_Shape.py,sha256=TBvIk1V8IuTbbBsxuekJA4e_v8JlR5Nujtut8RTWAm4,318
+util/OrthoGrad.py,sha256=hVl89IfdeQ7s-0F137pMi3Z8O4hIrdt-RenZVSHi6NQ,1338
+util/Randomized_SVD.py,sha256=MH8z8DcBPSzsdcdj7nhaUytXhET0jXNyq2plYl2y-fI,1728
+util/__init__.py,sha256=hFdrWvI4OsK5Nixb4PrnVPklbePX50294bPB5hHW7PU,203
+MLorc_optim-0.1.1.dist-info/LICENSE,sha256=HrhfyXIkWY2tGFK11kg7vPCqhgh5DcxleloqdhrpyMY,11558
+MLorc_optim-0.1.1.dist-info/METADATA,sha256=1UyuDTownzk8zNDeV3-svMHKAeRoTG47LAsrrSvMbq0,5410
+MLorc_optim-0.1.1.dist-info/WHEEL,sha256=tZoeGjtWxWRfdplE7E3d45VPlLNQnvbKiYnx7gwAy8A,92
+MLorc_optim-0.1.1.dist-info/top_level.txt,sha256=obE4ItYSmocjaynuWi2rBDu2W7rnqzPxQGG-wHCBSFo,11
+MLorc_optim-0.1.1.dist-info/RECORD,,
