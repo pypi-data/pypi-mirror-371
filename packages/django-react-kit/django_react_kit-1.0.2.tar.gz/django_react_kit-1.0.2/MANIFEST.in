@@ -1,0 +1,17 @@
+# This ensures that setuptools includes all essential files
+# needed for a complete source distribution.
+
+# Include the core files from the project root
+include README.md
+include LICENSE
+include requirements.txt
+
+# Recursively include all files in the templates directory
+recursive-include django_react_kit/templates *
+
+# Recursively include all files in the frontend directory
+recursive-include django_react_kit/frontend *
+
+# Explicitly include Python files in the management/commands directory
+# This is more precise than including all files in 'management'
+recursive-include django_react_kit/management/commands *.py
