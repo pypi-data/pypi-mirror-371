@@ -1,0 +1,8 @@
+matcher_py-0.5.8.dist-info/METADATA,sha256=P-DGBn6Ub_9925aaWQYIPey_81OE9g242H2X1eAUaYA,11477
+matcher_py-0.5.8.dist-info/WHEEL,sha256=_xHg3saEIaH-xbo4KXsnUSMzULPFWw3FCvI0F-WwSiY,94
+matcher_py/__init__.py,sha256=wWMPkw82Rpon-Vk4Jo9b72xwXgTPR9kZx6wC-tEu7WM,294
+matcher_py/extension_types.py,sha256=LUe7GH2OeRkD850UCPbjKsshHLF4NmtPQ1BuCYRZh5E,8632
+matcher_py/matcher_py.cp38-win_amd64.pyd,sha256=i30rqB2D7MaTDLiFJC5y7jRYY1kg1yucIcnpl5d2zCY,6982144
+matcher_py/matcher_py.pyi,sha256=wJN9Y__1x20gWswu7q1ROlY_oOHa9mAfoIfxZCybgtk,4066
+matcher_py/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+matcher_py-0.5.8.dist-info/RECORD,,
