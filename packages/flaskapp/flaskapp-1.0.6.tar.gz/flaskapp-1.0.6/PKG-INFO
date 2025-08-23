@@ -1,0 +1,16 @@
+Metadata-Version: 2.4
+Name: flaskapp
+Version: 1.0.6
+Summary: Create flask project simply
+Home-page: https://github.com/ksg97031/flaskapp
+Author: KSG
+Author-email: ksg97031@gmail.com
+License-Expression: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.4
+Description-Content-Type: text/markdown
+Requires-Dist: flask
+Dynamic: author-email
+Dynamic: home-page
+Dynamic: requires-python
