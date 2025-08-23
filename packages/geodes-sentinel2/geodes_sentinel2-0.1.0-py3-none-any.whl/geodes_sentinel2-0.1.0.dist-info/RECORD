@@ -1,0 +1,17 @@
+geodes_sentinel2/__init__.py,sha256=xt4EJpqpUKPmIHDZJS1evlCBtWsNpJRMa9w-Fyok_yc,307
+geodes_sentinel2/cli.py,sha256=nyUqfGI9KpawcOGi36l9lrWBsSLGdwXt5SgfQMmqy9c,13040
+geodes_sentinel2/core/__init__.py,sha256=QNq2p0PcW_vqoPWVZP5GZKmSiTgcFF0RtTrXMBRga1g,302
+geodes_sentinel2/core/downloader.py,sha256=Wy1PqIZ3aHqzaVkqX1eiVNpS_2xak1TiK60vrBQ2sQM,6410
+geodes_sentinel2/core/processor.py,sha256=t4vMibpYW1_TgNy9bYEWV53RfvPSuxXoh_JVODsLP3E,16890
+geodes_sentinel2/core/search.py,sha256=9xPreMYYHeicX286on5KQ1wSVTXm_xDPGEnv2Svm5m4,7267
+geodes_sentinel2/processing/__init__.py,sha256=cGF2V9AobsoO9dSs2BMAUMcVoO75LPUNv_g9z5mmmQc,215
+geodes_sentinel2/processing/band_math.py,sha256=nQMBuRtaWqAekatHUuv9cP-HrysP0c771t8r7xXcaLs,17728
+geodes_sentinel2/processing/cropper.py,sha256=hoi6yedg8S-oJEel1tsdgELT1VSpp5CooRN_t9DuC9U,9200
+geodes_sentinel2/utils/__init__.py,sha256=76TgoG2cArhH2L4yxKXXPWJLX3gHhDG34DxgDg34Jyc,256
+geodes_sentinel2/utils/config.py,sha256=OZDmS_XVYHIrbZc-VhBiPwtkw6B-T3Kam9Phc1LgiKY,7150
+geodes_sentinel2/utils/logger.py,sha256=2VsksOnlmRffbh_lg8z-PJ9KyvXIYJKTRS47hzY5xQw,4618
+geodes_sentinel2-0.1.0.dist-info/METADATA,sha256=fhihORTKLuK2kQPgMhH2yCULxxU3adiDxKqVtFQ2Apk,9550
+geodes_sentinel2-0.1.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+geodes_sentinel2-0.1.0.dist-info/entry_points.txt,sha256=6nl6Sy6_HgMYpl8kjGTNvPCpIPsLzpdZgaOicYgPaEM,63
+geodes_sentinel2-0.1.0.dist-info/licenses/LICENSE,sha256=6X8IGdRpAhMBMiF_4rGNkk6Rph9FabVRjl-I9UZ0T88,1069
+geodes_sentinel2-0.1.0.dist-info/RECORD,,

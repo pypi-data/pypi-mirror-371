@@ -1,0 +1,2 @@
+[console_scripts]
+geodes-sentinel2 = geodes_sentinel2.cli:main
