@@ -1,0 +1,2 @@
+[console_scripts]
+sabot = sabot.__main__:main

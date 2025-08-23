@@ -1,0 +1,6 @@
+click>=8.2.1
+
+[test]
+mypy>=1.17.1
+pytest>=8.4.1
+pytest-mypy>=1.0.1
