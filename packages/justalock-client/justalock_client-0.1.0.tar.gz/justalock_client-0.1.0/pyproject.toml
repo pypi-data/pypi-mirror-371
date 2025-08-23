@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "justalock-client"
+version = "0.1.0"
+authors = [
+  { name="Glen Oakley", email="goakley123@gmail.com" },
+]
+description = "A distributed lock powered by the justalock service"
+readme = "README.md"
+requires-python = ">=3.11"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: System :: Distributed Computing",
+    "Topic :: Utilities",
+]
+keywords = ["async", "client", "concurrency", "distributed", "lock", "coordination"]
+
+[project.urls]
+Homepage = "https://justalock.dev/"
+Repository = "https://github.com/goakley/justalock-clients"
+Issues = "https://github.com/goakley/justalock-clients/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["justalock_client*"]
