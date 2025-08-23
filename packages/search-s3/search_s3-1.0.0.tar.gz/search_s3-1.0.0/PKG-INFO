@@ -1,0 +1,374 @@
+Metadata-Version: 2.4
+Name: search-s3
+Version: 1.0.0
+Summary: A powerful Python tool for searching S3 objects across multiple buckets
+Author-email: Alex van Rossum <alex@mipyip.com>
+Maintainer-email: Alex van Rossum <alex@mipyip.com>
+License: MIT
+Project-URL: Homepage, https://github.com/avanrossum/search_s3
+Project-URL: Documentation, https://github.com/avanrossum/search_s3#readme
+Project-URL: Repository, https://github.com/avanrossum/search_s3
+Project-URL: Bug Tracker, https://github.com/avanrossum/search_s3/issues
+Keywords: aws,s3,search,objects,buckets,filtering,regex
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: System :: Systems Administration
+Classifier: Topic :: Utilities
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: boto3>=1.26.0
+Provides-Extra: dev
+Requires-Dist: pytest>=6.0; extra == "dev"
+Requires-Dist: pytest-cov>=2.0; extra == "dev"
+Requires-Dist: black>=22.0; extra == "dev"
+Requires-Dist: flake8>=4.0; extra == "dev"
+Dynamic: license-file
+
+# S3 Object Search Tool
+
+![Tests](https://github.com/avanrossum/search_s3/actions/workflows/tests.yml/badge.svg)
+![Python Version](https://img.shields.io/badge/python-3.6+-blue.svg)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+
+A powerful Python tool for searching S3 objects across multiple buckets with flexible filtering and output options.
+
+## Features
+
+- Search for objects containing specific terms in their keys
+- Support for regex patterns in all search and filter operations
+- Filter buckets by inclusion/exclusion patterns
+- Multiple output formats (table, stacked, raw, CSV)
+- Streaming output for immediate results
+- Human-readable file sizes
+- Cross-platform compatibility
+
+## Requirements
+
+- Python 3.6+
+- AWS credentials configured (via AWS CLI, environment variables, or IAM roles)
+- Required permissions: `s3:ListBucket`, `s3:ListObjectsV2`
+
+## Installation
+
+### Option 1: Install from PyPI (Recommended)
+
+```bash
+pip install search-s3
+```
+
+### Option 2: Install from GitHub
+
+```bash
+pip install git+https://github.com/avanrossum/search_s3.git
+```
+
+### Option 3: Install from source
+
+```bash
+# Clone the repository
+git clone https://github.com/avanrossum/search_s3.git
+cd search_s3
+pip install -e .
+```
+
+### AWS Configuration
+
+Ensure you have AWS credentials configured:
+```bash
+aws configure
+```
+
+Required permissions: `s3:ListBucket`, `s3:ListObjectsV2`
+
+## Basic Usage
+
+### Required Arguments
+
+The search term is required and can be provided as a positional argument or flag. By default, it performs literal substring matching:
+
+```bash
+# Positional argument
+search-s3 "search-term"
+
+# Flag format
+search-s3 --term "search-term"
+search-s3 -t "search-term"
+```
+
+### Regex Support
+
+Enable regex pattern matching for more powerful searches:
+
+```bash
+# Case-sensitive regex
+search-s3 --regex -t "config\.(json|yaml|yml)$"
+
+# Case-insensitive regex
+search-s3 --regex-ignore-case -t "backup.*202[34]"
+
+# Regex with bucket filtering
+search-s3 --regex -t "\.log$" -b "prod.*"
+```
+
+### Optional Bucket Filtering
+
+Filter buckets by inclusion pattern:
+
+```bash
+# Search only buckets containing "gridpane"
+search-s3 "foobar" "gridpane"
+
+# Using flags
+search-s3 --term "foobar" --bucket "gridpane"
+search-s3 -t "foobar" -b "gridpane"
+```
+
+## Advanced Filtering
+
+### Regex Patterns
+
+The tool supports three modes of pattern matching:
+
+1. **Literal mode (default)**: Simple substring matching
+2. **Regex mode (`--regex`)**: Case-sensitive regex patterns
+3. **Regex ignore-case mode (`--regex-ignore-case`)**: Case-insensitive regex patterns
+
+#### Common Regex Examples
+
+```bash
+# Find files with specific extensions
+search-s3 --regex -t "\.(log|txt|csv)$"
+
+# Find files from specific date ranges
+search-s3 --regex -t "202[34]-[01][0-9]-[0-3][0-9]"
+
+# Find files in specific directories
+search-s3 --regex -t "^config/.*\.json$"
+
+# Case-insensitive search
+search-s3 --regex-ignore-case -t "backup.*\.(zip|tar|gz)$"
+
+# Complex patterns
+search-s3 --regex -t "(prod|staging)/.*\.(log|error)$"
+```
+
+### Exclusion Filters
+
+Exclude objects or buckets containing specific terms:
+
+```bash
+# Exclude objects with "backup" in the key
+search-s3 -t "config" -te "backup"
+
+# Exclude buckets with "archive" in the name
+search-s3 -t "data" -be "archive"
+
+# Combine inclusion and exclusion
+search-s3 -t "foobar" -b "gridpane" -te "temp" -be "archive"
+
+# Regex exclusions
+search-s3 --regex -t "\.log$" -te "\.(tmp|temp)$" -be "archive.*"
+```
+
+### Multiple Exclusions
+
+You can use multiple exclusion filters:
+
+```bash
+# Exclude multiple terms from object keys
+search-s3 -t "config" -te "backup" -te "temp" -te "cache"
+
+# Exclude multiple bucket patterns
+search-s3 -t "data" -be "archive" -be "old" -be "deprecated"
+
+# Regex exclusions
+search-s3 --regex -t "\.log$" -te "\.(tmp|temp)$" -be "archive.*"
+```
+
+## Output Formats
+
+### 1. Table Format (Default)
+
+Clean, aligned table output with no truncation:
+
+```bash
+search-s3 "foobar"
+```
+
+Example output:
+```
+Bucket                                                    Key                                    Size       Modified              Class
+gridpane-backups-58s48ra6-d31e-4ffe-6326-6421ad5ca95b   snapshots/foobar-com/10481      550B       2025-06-20T00:00:10+00:00 STANDARD
+gridpane-backups-58s48ra6-d31e-4ffe-6326-6421ad5ca95b   snapshots/foobar-com/11231      550B       2025-07-20T00:00:10+00:00 STANDARD
+```
+
+### 2. Stacked Format
+
+One object per section with clear separation:
+
+```bash
+search-s3 "foobar" --stacked
+```
+
+Example output:
+```
+=== Object 1 ===
+Bucket:     gridpane-backups-58s48ra6-531e-4ffe-1233-6421ad5ca95b
+Key:        snapshots/foobar-com/10481
+Size:       550B
+Modified:   2025-06-20T00:00:10+00:00
+Class:      STANDARD
+
+=== Object 2 ===
+Bucket:     gridpane-backups-58s48ra6-531e-4ffe-1233-6421ad5ca95b
+Key:        snapshots/foobar-com/11231
+Size:       550B
+Modified:   2025-07-20T00:00:10+00:00
+Class:      STANDARD
+```
+
+### 3. Raw Format
+
+Tab-separated output for easy copy-paste:
+
+```bash
+search-s3 "foobar" --raw
+```
+
+Example output:
+```
+Bucket	Key	Size	LastModified	StorageClass
+gridpane-backups-58s48ra6-g31e-4ffe-7895-6421ad5ca95b	snapshots/foobar-com/10481	550B	2025-06-20T00:00:10+00:00	STANDARD
+```
+
+### 4. CSV Format
+
+Comma-separated values for spreadsheet import:
+
+```bash
+# Output to terminal
+search-s3 "foobar" --csv
+
+# Save to file
+search-s3 "foobar" --csv --csv-file results.csv
+```
+
+Example output:
+```csv
+Bucket,Key,Size,LastModified,StorageClass
+gridpane-backups-58s48ra6-a31e-4ffe-1548-6421ad5ca95b,snapshots/foobar-com/10481,550B,2025-06-20T00:00:10+00:00,STANDARD
+```
+
+## Performance Characteristics
+
+- **Table format**: Collects all results first for proper column sizing
+- **Stacked format**: Streams results as they're found
+- **Raw format**: Streams results as they're found
+- **CSV format**: Streams results as they're found
+
+## Real-World Examples
+
+### Find Configuration Files
+
+```bash
+# Find all config files but exclude backups and temp files
+search-s3 -t "config" -te "backup" -te "temp" --stacked
+
+# Find config files using regex (more precise)
+search-s3 --regex -t "config\.(json|yaml|yml|conf)$" -te "\.(bak|tmp)$" --stacked
+```
+
+### Search Specific Project
+
+```bash
+# Search for project files in specific bucket pattern
+search-s3 -t "myproject" -b "production" -be "archive" --csv --csv-file project_files.csv
+```
+
+### Backup Analysis
+
+```bash
+# Find all backup files from last month
+search-s3 -t "backup" -b "gridpane" -te "old" --raw
+```
+
+### Data Migration Planning
+
+```bash
+# Find all data files for migration planning
+search-s3 -t "data" -be "archive" -be "deprecated" --csv --csv-file migration_data.csv
+
+# Find specific data file types using regex
+search-s3 --regex -t "\.(csv|json|parquet)$" -be "archive.*" --csv --csv-file data_files.csv
+```
+
+## Command Line Options
+
+| Option | Short | Description |
+|--------|-------|-------------|
+| `--term` | `-t` | Search term or regex pattern (case-sensitive) |
+| `--bucket` | `-b` | Include buckets matching this term or regex |
+| `--term-excluding` | `-te` | Exclude objects with keys matching this term or regex |
+| `--bucket-excluding` | `-be` | Exclude buckets matching this term or regex |
+| `--regex` | | Treat all patterns as regex (case-sensitive) |
+| `--regex-ignore-case` | | Treat all patterns as regex (case-insensitive) |
+| `--raw` | | Output tab-separated data |
+| `--stacked` | | Output in stacked format |
+| `--csv` | | Output in CSV format |
+| `--csv-file` | | Specify CSV output file |
+
+## Error Handling
+
+- Missing search term: Shows error message with usage instructions
+- No results found: Displays "No results found." message
+- AWS errors: Standard AWS SDK error messages
+- File write errors: Clear error messages for CSV file operations
+
+## Tips and Best Practices
+
+1. **Use bucket filtering** to improve performance when searching large numbers of buckets
+2. **Combine inclusion and exclusion** filters for precise results
+3. **Use stacked format** for detailed inspection of individual objects
+4. **Use CSV format** for data analysis and reporting
+5. **Use raw format** for quick copy-paste operations
+6. **Streaming formats** (stacked, raw, CSV) provide immediate feedback for long searches
+
+## Troubleshooting
+
+### Common Issues
+
+1. **No results found**: Check your search term and bucket filters
+2. **Permission denied**: Ensure AWS credentials have S3 list permissions
+3. **CSV file not created**: Check write permissions in the target directory
+4. **Slow performance**: Use bucket filtering to reduce search scope
+
+### Debug Mode
+
+For troubleshooting, you can add verbose output by modifying the tool to include debug prints.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Contributing
+
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests
+5. Submit a pull request
+
