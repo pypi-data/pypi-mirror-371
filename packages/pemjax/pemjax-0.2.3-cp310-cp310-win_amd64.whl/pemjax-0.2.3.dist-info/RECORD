@@ -1,0 +1,15 @@
+pemja_core.cp310-win_amd64.dll,sha256=UQLdwAy0eJt7vEMbdzyL4XwpGM1ZdqQt3U7E6JSRMrw,87040
+pemja_core.cp310-win_amd64.pyd,sha256=UQLdwAy0eJt7vEMbdzyL4XwpGM1ZdqQt3U7E6JSRMrw,87040
+pemja_utils.cp310-win_amd64.dll,sha256=FDDa-DG39QJPNPL2OVNz-ew3snxWJsCWGb-jS54SASk,10752
+pemja_utils.cp310-win_amd64.pyd,sha256=FDDa-DG39QJPNPL2OVNz-ew3snxWJsCWGb-jS54SASk,10752
+pemja/__init__.py,sha256=jRm-3MFYLa_nM1BrRSnm6Qfi4KUoZ-taJnMzSZvpHnQ,846
+pemja/display_patch.py,sha256=qzngWhZ0q5Qh31qCFGUcy4z1yLwt3EjBNrsW-YwdAyQ,6528
+pemja/import_sentinel.py,sha256=VkB_urtdKXC7EI_hFXFeLBJp7AkNY7juv3MEwkxwevE,1401
+pemja/redirect_stream.py,sha256=GlIbRFKbXOz1vxQNRxVFuAjqI1JGeu6-Vah-yeUHBHI,1432
+pemja/timeout_handler.py,sha256=15BvCKoiuGUABvpKdlf1j7090BYoRPLwl8X5v2pt3T8,6113
+pemja/version.py,sha256=ruVex6-4rLmyp3eIeXOMqNI4RZGJ46HJxOhtfdm4prk,808
+pemjax-0.2.3.dist-info/licenses/LICENSE,sha256=HrhfyXIkWY2tGFK11kg7vPCqhgh5DcxleloqdhrpyMY,11558
+pemjax-0.2.3.dist-info/METADATA,sha256=mOzSBucJIp3BbTM-wprd5PZQBqAkG1pi8rVayN4SAqA,4902
+pemjax-0.2.3.dist-info/WHEEL,sha256=KUuBC6lxAbHCKilKua8R9W_TM71_-9Sg5uEP3uDWcoU,101
+pemjax-0.2.3.dist-info/top_level.txt,sha256=OOlNGh--QZB0yQIp1Kns0_9mkVZOXCITULMc3530trE,29
+pemjax-0.2.3.dist-info/RECORD,,
