@@ -1,0 +1,10 @@
+swxg/__init__.py,sha256=WBgbXBAte_YUHCnz3eOooXQQ3gd_ng-5pDYCSo3X6Mc,75
+swxg/fit.py,sha256=JRq43JcB5f8a2StBYLhxkWeyerEdVjbJC1VtU-1ocDQ,30207
+swxg/make_figures.py,sha256=6VG8UcwHLwEcKwhpYPQCRgQXNI2Ilyex93KyewO6POM,54612
+swxg/model.py,sha256=bp9oB08_gU-bQfhDBUYFyYDukkFUf2msZQ-ctHGdD98,8765
+swxg/synthesize.py,sha256=9gWxR7axYYC9ycGp-3lFS92ZmT5HLW7_8a6JwEXkUZU,27240
+swxg-0.1.0.dist-info/licenses/LICENSE,sha256=u1VLXA3ezkRZbuzQcSvgHG-ZhUveOSiLQoR4dfMUHSc,1073
+swxg-0.1.0.dist-info/METADATA,sha256=T_qUpqCS7krhGYYEoVAZZCYrkXgQn4ka3-K0Oibk01U,2625
+swxg-0.1.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+swxg-0.1.0.dist-info/top_level.txt,sha256=RcQ1N0iMFAO0pB4LvXN6e8_p6P-PWYH0lqkKVMoMVwU,5
+swxg-0.1.0.dist-info/RECORD,,
