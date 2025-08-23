@@ -1,0 +1,1 @@
+raise Exception("This application cannot be imported as a module.")
