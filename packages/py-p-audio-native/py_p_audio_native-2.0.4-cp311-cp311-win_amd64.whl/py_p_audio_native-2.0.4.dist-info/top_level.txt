@@ -1,0 +1,2 @@
+py_p_audio_core
+py_p_audio_native
