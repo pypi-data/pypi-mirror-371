@@ -1,0 +1,9 @@
+certbot_dns_micetro/__init__.py,sha256=F4QwMZvQkeQGoE8L01PSd8zsIt9lEEvNh6CXtBlI1TQ,276
+certbot_dns_micetro/dns_micetro.py,sha256=-JIXdSNR8MR5pe7G8to09ZJU6CwqTPRXDRrqLYnXo3Q,13236
+certbot_dns_micetro-1.0.1.dist-info/licenses/LICENSE,sha256=Fn0I-6qV4PUYkY6eQvoDyc4Kb9APNoj5s0J-MU352ZA,9607
+tests/__init__.py,sha256=-fI6WIY2le82VMNubYBUSuBO5KwXWYgIHGuKoVo5gAM,51
+certbot_dns_micetro-1.0.1.dist-info/METADATA,sha256=dpRUmw0lbWrRwGKiWP6zBctdp8QyUtwuvuU59xeX7jk,6144
+certbot_dns_micetro-1.0.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+certbot_dns_micetro-1.0.1.dist-info/entry_points.txt,sha256=N7KCsMgIeDXPasFHk0I8ONyL_Kg-9ecUMeUzT_WLong,78
+certbot_dns_micetro-1.0.1.dist-info/top_level.txt,sha256=w1c0J6ZlObrY8vBpr1jZkfSdGMADt4POLMFk9fFwrXo,26
+certbot_dns_micetro-1.0.1.dist-info/RECORD,,
