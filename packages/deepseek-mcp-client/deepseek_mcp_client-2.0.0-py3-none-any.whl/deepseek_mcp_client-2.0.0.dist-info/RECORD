@@ -1,0 +1,16 @@
+deepseek_mcp_client/__init__.py,sha256=Vp_OHtIndNdhn8639IcQDuidKHp7L4DivczyfNkTfjU,1573
+deepseek_mcp_client/client/__init__.py,sha256=4P5a1JL1lLRc5dwlEwayB_vpVKipLfWZL_M04c8QEfw,83
+deepseek_mcp_client/client/deepseek_client.py,sha256=PwWLKMFlUORF88h38jPHc9TSVSzzoSeuhhDnXDKcRkk,21892
+deepseek_mcp_client/handlers/__init__.py,sha256=HZairPwqruQIsNS2hNjxXgTFbldzr_go8SkRr_GtdS0,139
+deepseek_mcp_client/handlers/message_handler.py,sha256=J07IYEaP0UDEk8-err3rP3s7M-kfoUe9iRIWxHQhOaU,4475
+deepseek_mcp_client/models/__init__.py,sha256=3dngaprPGtPhzj8EFitWGtDxDP5Z1RuouRf4l3bRw3Q,145
+deepseek_mcp_client/models/client_result.py,sha256=6n24W0AlQQSRMco2esG2L6QvUuzcZnv9UzamiQ_H_nk,1038
+deepseek_mcp_client/models/server_config.py,sha256=Kpcwv_R37qqqwQf1wQRn9rcAwmJmyWzJDTyNU0bUPmQ,2804
+deepseek_mcp_client/utils/__init__.py,sha256=iD418PeQW7XbfBzADvPIGMzuJRLzAHlzTNmJNErssWE,5846
+deepseek_mcp_client/utils/logging_config.py,sha256=tmvQBAuWy_ODO4rEV-C6Stont6aeUQJ2ck4CCtFKs6A,5794
+example_stdio/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+example_stdio/example_stdio.py,sha256=zTUIKc4-6_ocZhHWkmlxMLhGjP5_ZVtHrEsd97WXNm0,2332
+deepseek_mcp_client-2.0.0.dist-info/METADATA,sha256=T7LV0Q1oQcXiB5rVRnJyRLJ6Z1qvZgA5PZPNtuQBgJY,21412
+deepseek_mcp_client-2.0.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+deepseek_mcp_client-2.0.0.dist-info/top_level.txt,sha256=P0HZwjQCFmvZz37HeyMKP5xVT2B_WbIxhzR4sfY_6iU,34
+deepseek_mcp_client-2.0.0.dist-info/RECORD,,
