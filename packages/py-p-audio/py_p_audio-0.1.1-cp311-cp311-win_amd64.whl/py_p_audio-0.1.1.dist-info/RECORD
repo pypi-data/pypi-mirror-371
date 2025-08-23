@@ -1,0 +1,17 @@
+include/pa_win_ds.h,sha256=_MWKoXCzocLQkqcDu80YYHm0Smmav9VnxcNcKKyZQCc,3477
+include/pa_win_wasapi.h,sha256=WwjItrwEAF9Y0HIVOyGRDAz5QKn_4p62PUYSXoZj8yk,28689
+include/pa_win_waveformat.h,sha256=SPNFANcQScdtxxrICmNJG5auxMV0PeYnwK8HmL5FZvM,9973
+include/pa_win_wdmks.h,sha256=vrFz9owHbmbP4nrXHujqh0VsaE5C-huwTe4DAKLfpEU,4990
+include/pa_win_wmme.h,sha256=pLJcD0O42mogRO6pxmUVNfhGW8P4wgTzBlPNoSLo6zA,6987
+include/portaudio.h,sha256=TEn_ON5MwAaf8dttZGA8kb6yb0-AO3nE__uuRhq8vIk,48994
+lib/cmake/portaudio/portaudioConfig.cmake,sha256=HijxKWxQarzC8athIDsrIVVvtqGKBDoNuQ0VIcXstlI,61
+lib/cmake/portaudio/portaudioConfigVersion.cmake,sha256=3cg-k0Rv9LSnoRJC4V40rU-r_MN85QfyBjD48xLQorU,2818
+lib/cmake/portaudio/portaudioTargets-release.cmake,sha256=iWlLCqdhykoVkC2qeL9ButGtVX49jMfclRe5S-Q6IRo,876
+lib/cmake/portaudio/portaudioTargets.cmake,sha256=SogDNdGUFmdODdVTHhL1OEVmQXO50u1ZpI98pG-Mkb8,4322
+lib/libportaudio.a,sha256=_qjXR6v6gCHTP9FlKEAg2dD_76FLgUKBSHA4YswZrIM,580562
+lib/pkgconfig/portaudio-2.0.pc,sha256=lJjeqOZDcne2xmJ55O1pgUR9rdyhEGknoZPZwdFC_N0,279
+share/doc/portaudio/LICENSE.txt,sha256=JPPTU64ZtYzk6GkVtx6q21ZOeXaC0ihL6QuKfgeOXZw,3604
+share/doc/portaudio/README.md,sha256=WIDov6Cr5tW_47ZeHMequFPBVXinbpJgTvUix9I2w34,2956
+py_p_audio-0.1.1.dist-info/METADATA,sha256=mYSULKl8IorU5lEbtKUokd2W44QlClX9L2IzdXx28fE,2296
+py_p_audio-0.1.1.dist-info/WHEEL,sha256=RKWfL8d6R7y9dzb5_AyhPLMoBaKZaDpOTwy7YMg9zGI,106
+py_p_audio-0.1.1.dist-info/RECORD,,
