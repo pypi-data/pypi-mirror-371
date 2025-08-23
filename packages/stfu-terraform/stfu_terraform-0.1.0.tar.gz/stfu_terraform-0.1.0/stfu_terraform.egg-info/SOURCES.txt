@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+stfu/__init__.py
+stfu/cli.py
+stfu/parser.py
+stfu/terraform.py
+stfu_terraform.egg-info/PKG-INFO
+stfu_terraform.egg-info/SOURCES.txt
+stfu_terraform.egg-info/dependency_links.txt
+stfu_terraform.egg-info/entry_points.txt
+stfu_terraform.egg-info/requires.txt
+stfu_terraform.egg-info/top_level.txt
+tests/test_cli.py

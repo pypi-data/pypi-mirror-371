@@ -1,0 +1,3 @@
+[console_scripts]
+stfu = stfu.cli:main
+tf = stfu.cli:main
