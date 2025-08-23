@@ -1,0 +1,11 @@
+README.md
+USAGE.md
+pyproject.toml
+flexiplex_filter/__init__.py
+flexiplex_filter/main.py
+flexiplex_filter.egg-info/PKG-INFO
+flexiplex_filter.egg-info/SOURCES.txt
+flexiplex_filter.egg-info/dependency_links.txt
+flexiplex_filter.egg-info/entry_points.txt
+flexiplex_filter.egg-info/requires.txt
+flexiplex_filter.egg-info/top_level.txt
