@@ -1,0 +1,12 @@
+bubbleconf/__init__.py,sha256=HLzrDZxbkVqyBTrvv9ISXo8bfD5IUj8JGnDLJUX79XI,249
+bubbleconf/config_annotation.py,sha256=pHD6ZTVEpK1Tb3PlnfvTD27eJWVD5ZWe6wn0A8p4Ntg,415
+bubbleconf/parsers/__init__.py,sha256=bM0V34dQVmH86Rh2TwC5bJGmPhnjFaO-1MYimYBhXJo,55
+bubbleconf/parsers/cli_parser.py,sha256=DAcW_Kk6hyQMXhTdZaPNiGrgttNea0dNQ4pjrZtllBA,2328
+bubbleconf/parsers/config_error.py,sha256=eX1OVUyjWJTe45zNOmPKPdR5WYXxbzxe3PMMZhdw8yY,2485
+bubbleconf/parsers/env_parser.py,sha256=XrqqfikiSmByPsjooF7_VGqLD5Yq__Fue2WnCvOTlhg,2788
+bubbleconf/parsers/parse_priority.py,sha256=50fmN8NEPfYfVNmbc4y8_KYBX5Y1eFBngNWWMe7mDpY,5839
+bubbleconf-0.1.1.dist-info/licenses/LICENSE,sha256=OphKV48tcMv6ep-7j-8T6nycykPT0g8ZlMJ9zbGvdPs,1066
+bubbleconf-0.1.1.dist-info/METADATA,sha256=xwI0HXIvv0kbQCZigy0V8kFZE8CuVWiYU5o5E3jzy0Q,1821
+bubbleconf-0.1.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+bubbleconf-0.1.1.dist-info/top_level.txt,sha256=w-qphmgCUnNxmo-obujuf4otgTVwzlv9qx1Ca6Z1T2o,11
+bubbleconf-0.1.1.dist-info/RECORD,,
