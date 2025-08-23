@@ -1,0 +1,35 @@
+[project]
+name = "bubbleconf"
+version = "0.1.2"
+description = "A python package for reading configurations from different sources"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+authors = [{ name = "Felix Bjært Hargreaves", email = "not-a-real@email.com" }]
+
+license = { file = "LICENSE" }
+
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "License :: OSI Approved :: MIT License",
+]
+
+[project.urls]
+Homepage = "https://github.com/bubbleconf/"
+Repository = "https://github.com/bubbleconf/bubbleconf"
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.uv.workspace]
+members = ["example"]
+
+[dependency-groups]
+dev = ["pytest>=8.4.1"]
