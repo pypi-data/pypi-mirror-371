@@ -1,0 +1,3 @@
+[console_scripts]
+generate-api = src.scripts.generate_api:main
+generate-cli = src.scripts.generate_cli:main
