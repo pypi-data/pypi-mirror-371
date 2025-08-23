@@ -1,0 +1,11 @@
+optvl-1.4.2-cp312-cp312-win_amd64.whl,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+optvl/MExt.py,sha256=I_RP9eOZ_BBQEmd_LytJbyBFMbhS2S8RFIBLDkcoIs8,4241
+optvl/__init__.py,sha256=Cn6MqtUtGm-Z_nWfzGLtJ-Kxc6P37_F2_gezqBvt-zw,460
+optvl/libavl.cp312-win_amd64.dll.a,sha256=PMFncjiwdUpiLdW4kxVGCT5cz--XLjlJqvTwFDoanrI,1532
+optvl/libavl.cp312-win_amd64.pyd,sha256=Ba1ez8jgzyekVdztQutxzL-RgFJfP1P72AdIoyCwrQU,1694208
+optvl/om_wrapper.py,sha256=IyX82nooO8A_eSaNYjRTRuVYX98Jnqp4PvqZGEk5bdQ,30409
+optvl/optvl_class.py,sha256=aNqwmpWoyZHKV5gffSo4CnpUvCa9GrH-9Ig3vYUF3BM,109281
+optvl-1.4.2.dist-info/LICENSE.txt,sha256=NdTRWNlaPvBsF_sd-eBhkI6rft-vI4d_x5Ohx7pCZi0,214347
+optvl-1.4.2.dist-info/METADATA,sha256=cjq3heYiR1LXfs2i8NH8RpVVQ0cXz8m52ft5X4FLP7A,251772
+optvl-1.4.2.dist-info/WHEEL,sha256=50PeAbplA6PkI0hYOYoeacB9US1R6EguyfOnsccH0WU,85
+optvl-1.4.2.dist-info/RECORD,,
