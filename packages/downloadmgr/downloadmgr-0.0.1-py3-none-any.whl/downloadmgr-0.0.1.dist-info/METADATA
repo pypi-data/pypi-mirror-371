@@ -1,0 +1,10 @@
+Metadata-Version: 2.4
+Name: downloadmgr
+Version: 0.0.1
+Summary: a web ui for aria2
+Author: "yu moqing"
+Author-email: "yumoqing@gmail.com"
+License: "MIT"
+Requires-Dist: apppublic
+Requires-Dist: sqlor
+Requires-Dist: ahserver
