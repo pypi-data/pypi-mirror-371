@@ -1,0 +1,9 @@
+LICENSE
+README.md
+setup.py
+tystyle.py
+tystyle.egg-info/PKG-INFO
+tystyle.egg-info/SOURCES.txt
+tystyle.egg-info/dependency_links.txt
+tystyle.egg-info/requires.txt
+tystyle.egg-info/top_level.txt
