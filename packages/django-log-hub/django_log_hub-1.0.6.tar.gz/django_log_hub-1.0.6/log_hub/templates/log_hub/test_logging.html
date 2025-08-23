@@ -1,0 +1,358 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+
+{% block title %}Merkezi Loglama Sistemi Testi{% endblock %}
+
+{% block content %}
+<div class="module">
+    <h2>Merkezi Loglama Sistemi Testi</h2>
+    
+    <div class="description">
+        <p>Bu sayfa, django-log-hub modülünün merkezi loglama özelliklerini test etmenizi sağlar.</p>
+        <p><strong>Özellik:</strong> Tüm adımlar listede toplanır, return'dan önce tek satırda kaydedilir, HTML'de alt alta görünür.</p>
+        <p><strong>Dosya Davranışı:</strong> Her fonksiyon çağrısı aynı dosyaya alt satıra eklenir, önceki loglar silinmez.</p>
+    </div>
+    
+    <div class="test-buttons">
+        <h3>Test Senaryoları</h3>
+        
+        <button onclick="runTest('basic')" class="button">Temel Loglama Testi</button>
+        <button onclick="runTest('centralized')" class="button">Merkezi Loglama Testi</button>
+        <button onclick="runTest('dynamic')" class="button">Dinamik Loglama Testi</button>
+        <button onclick="runTest('endpoint_simulation')" class="button">Endpoint Simülasyonu</button>
+        <button onclick="runTest('error')" class="button">Hata Loglama Testi</button>
+        <button onclick="runDecoratorTest()" class="button">Merkezi Dekoratör Testi</button>
+        <button onclick="runDynamicDecoratorTest()" class="button">Dinamik Dekoratör Testi</button>
+    </div>
+    
+    <div id="results" class="results">
+        <h3>Test Sonuçları</h3>
+        <div id="result-content"></div>
+    </div>
+    
+    <div class="examples">
+        <h3>Kullanım Örnekleri</h3>
+        
+        <h4>1. DynamicLogger - Context Manager ile Merkezi Loglama (Önerilen)</h4>
+        <pre><code>from log_hub.services import DynamicLogger
+
+# Tüm adımlar tek seferde kaydedilir
+with DynamicLogger("Veri İşleme", user_id="123") as logger:
+    logger.step("Veri Okuma", {"file": "data.csv"})
+    logger.step("Veri Doğrulama", {"records": 1000})
+    logger.step("Veri İşleme", {"algorithm": "ml_model"})
+    logger.warning("Eksik veri tespit edildi", {"missing_count": 5})
+    
+    # Return'dan önce tüm loglar tek satırda kaydedilir
+    result = logger.finish()</code></pre>
+         
+         <h4>2. Global Logging Functions - Basit Kullanım</h4>
+         <pre><code>from log_hub.services import log_step, log_info, log_warning, log_error, finish_logging
+
+# Adım adım log toplama
+log_step("İşlem başladı", {"user_id": "123"})
+log_info("Veri okundu")
+log_step("Veri işlendi", {"data_size": 1000})
+log_warning("Eksik veri tespit edildi")
+log_error("Hata oluştu")
+finish_logging()</code></pre>
+         
+         <h4>3. @aggregated_log Dekoratörü - Fonksiyon Merkezi Loglama</h4>
+         <pre><code>from log_hub.services import aggregated_log
+
+@aggregated_log("Kullanıcı İşlemi")
+def process_user_data(user_id, data):
+    # Bu fonksiyon otomatik olarak merkezi loglama ile loglanacak
+    # Tüm adımlar tek satırda kaydedilecek ama HTML'de alt alta görünecek
+    result = {"status": "processed", "user_id": user_id}
+    return result
+
+# Kullanım
+result = process_user_data("123", {"name": "John"})</code></pre>
+         
+         <h4>4. API Endpoint Örneği</h4>
+         <pre><code>from log_hub.services import DynamicLogger
+from django.http import JsonResponse
+
+def api_endpoint(request):
+    # user_id otomatik olarak request.user.username'den alınır
+    with DynamicLogger("API İşlemi", user_id=request.user.username) as logger:
+        logger.step("Request alındı", {"method": request.method, "path": request.path})
+        logger.step("Parametreler doğrulanıyor", {"params": request.data})
+        logger.step("Veritabanı sorgusu yapılıyor", {"query": "SELECT * FROM users"})
+        logger.step("İş mantığı çalıştırılıyor", {"business_logic": "kullanıcı güncelleme"})
+        logger.step("Response hazırlanıyor", {"status_code": 200, "content_type": "application/json"})
+        
+        result = {"status": "success"}
+        return JsonResponse(result)</code></pre>
+         
+         <h4>5. Serializer Örneği</h4>
+         <pre><code>from log_hub.services import log_step, log_info, log_warning, log_error, finish_logging
+
+def to_representation(self, instance):
+    log_step("Starting data processing", {"shipment_id": instance.id})
+    
+    if instance.src_station:
+        representation['src_station'] = StationSerializer(instance.src_station).data
+        log_step("src_station processed", {"station_id": instance.src_station.id})
+    
+    if instance.dst_station:
+        representation['dst_station'] = StationSerializer(instance.dst_station).data
+        log_step("dst_station processed", {"station_id": instance.dst_station.id})
+    
+    log_step("items processed", {"item_count": instance.shipment_items.count()})
+    finish_logging()
+    return representation</code></pre>
+    </div>
+    
+    <div class="features">
+        <h3>Merkezi Loglama Özellikleri</h3>
+        <ul>
+            <li><strong>Adım Adım Toplama:</strong> Her log mesajı listede toplanır</li>
+            <li><strong>Tek Satır Kaydetme:</strong> Return'dan önce tüm loglar tek satırda kaydedilir</li>
+            <li><strong>HTML'de Alt Alta Görünüm:</strong> Loglar HTML sayfasında adım adım görünür</li>
+            <li><strong>Context Manager:</strong> with statement ile kolay kullanım</li>
+            <li><strong>Dekoratör Desteği:</strong> Fonksiyonları otomatik merkezi loglama</li>
+            <li><strong>Hata ve Uyarı Yönetimi:</strong> Özel hata ve uyarı loglama</li>
+            <li><strong>İşlem Takibi:</strong> Her işlem için benzersiz ID ve süre takibi</li>
+            <li><strong>JSON Format:</strong> Yapılandırılmış log kayıtları</li>
+            <li><strong>Otomatik Dosya Adı:</strong> Logger adından otomatik dosya adı oluşturma</li>
+            <li><strong>Global Functions:</strong> Basit log_step, log_info, log_warning, log_error fonksiyonları</li>
+        </ul>
+        
+        <h3>Yeni Özellikler</h3>
+        <ul>
+            <li><strong>AggregatedLogger:</strong> Ana loglama sınıfı - tek satırlık özet loglar</li>
+            <li><strong>DynamicLogger:</strong> Context manager için uyumluluk sınıfı</li>
+            <li><strong>Global Logger Instance:</strong> Tüm fonksiyonlar aynı logger instance'ını kullanır</li>
+            <li><strong>Automatic User Detection:</strong> Request objelerinden otomatik user bilgisi alma</li>
+            <li><strong>Simplified API:</strong> Daha basit ve kullanıcı dostu API</li>
+            <li><strong>Backward Compatibility:</strong> Eski kodlarla uyumluluk</li>
+        </ul>
+    </div>
+    
+    <div class="benefits">
+        <h3>Avantajlar</h3>
+        <ul>
+            <li><strong>Performans:</strong> Tek seferde dosya yazma işlemi</li>
+            <li><strong>Organizasyon:</strong> İlgili loglar bir arada</li>
+            <li><strong>Okunabilirlik:</strong> HTML'de adım adım görünüm</li>
+            <li><strong>Esneklik:</strong> Herhangi bir işlem türü için kullanılabilir</li>
+            <li><strong>Kolay Entegrasyon:</strong> Mevcut projelere kolayca entegre edilebilir</li>
+            <li><strong>Minimal Code:</strong> Daha az kod yazımı</li>
+            <li><strong>Automatic Context:</strong> Otomatik user ve modül bilgisi</li>
+        </ul>
+    </div>
+</div>
+
+<script>
+function runTest(testType) {
+    const button = event.target;
+    const originalText = button.textContent;
+    button.textContent = 'Test çalışıyor...';
+    button.disabled = true;
+    
+    fetch('{% url "log_hub:test_custom_logging" %}', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+        },
+        body: `test_type=${testType}`
+    })
+    .then(response => response.json())
+    .then(data => {
+        displayResult(data, testType);
+    })
+    .catch(error => {
+        displayResult({
+            success: false,
+            message: 'Test hatası: ' + error.message
+        }, testType);
+    })
+    .finally(() => {
+        button.textContent = originalText;
+        button.disabled = false;
+    });
+}
+
+function runDecoratorTest() {
+    const button = event.target;
+    const originalText = button.textContent;
+    button.textContent = 'Test çalışıyor...';
+    button.disabled = true;
+    
+    fetch('{% url "log_hub:test_dynamic_logging" %}?test_type=decorator', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        displayResult(data, 'decorator');
+    })
+    .catch(error => {
+        displayResult({
+            success: false,
+            message: 'Test hatası: ' + error.message
+        }, 'decorator');
+    })
+    .finally(() => {
+        button.textContent = originalText;
+        button.disabled = false;
+    });
+}
+
+function runDynamicDecoratorTest() {
+    const button = event.target;
+    const originalText = button.textContent;
+    button.textContent = 'Test çalışıyor...';
+    button.disabled = true;
+
+    fetch('{% url "log_hub:test_dynamic_logging" %}?test_type=dynamic', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        displayResult(data, 'dynamic_decorator');
+    })
+    .catch(error => {
+        displayResult({
+            success: false,
+            message: 'Test hatası: ' + error.message
+        }, 'dynamic_decorator');
+    })
+    .finally(() => {
+        button.textContent = originalText;
+        button.disabled = false;
+    });
+}
+
+function displayResult(data, testType) {
+    const resultDiv = document.getElementById('result-content');
+    const timestamp = new Date().toLocaleTimeString();
+    
+    let resultHtml = `<div class="test-result ${data.success ? 'success' : 'error'}">`;
+    resultHtml += `<h4>${getTestTypeName(testType)} - ${timestamp}</h4>`;
+    resultHtml += `<p><strong>Durum:</strong> ${data.success ? 'Başarılı' : 'Hata'}</p>`;
+    resultHtml += `<p><strong>Mesaj:</strong> ${data.message}</p>`;
+    
+    if (data.filepath) {
+        resultHtml += `<p><strong>Log Dosyası:</strong> ${data.filepath}</p>`;
+        resultHtml += `<p><em>Not: Tüm adımlar tek satırda kaydedildi, HTML'de alt alta görünecek</em></p>`;
+    }
+    
+    if (data.logs) {
+        resultHtml += `<details><summary>Log Detayları</summary><pre>${JSON.stringify(data.logs, null, 2)}</pre></details>`;
+    }
+    
+    if (data.result) {
+        resultHtml += `<details><summary>Sonuç</summary><pre>${JSON.stringify(data.result, null, 2)}</pre></details>`;
+    }
+    
+    resultHtml += '</div>';
+    
+    resultDiv.innerHTML = resultHtml + resultDiv.innerHTML;
+}
+
+function getTestTypeName(testType) {
+    const names = {
+        'basic': 'Temel Loglama',
+        'centralized': 'Merkezi Loglama',
+        'dynamic': 'Dinamik Loglama',
+        'endpoint_simulation': 'Endpoint Simülasyonu',
+        'error': 'Hata Loglama',
+        'decorator': 'Merkezi Dekoratör Testi',
+        'dynamic_decorator': 'Dinamik Dekoratör Testi'
+    };
+    return names[testType] || testType;
+}
+</script>
+
+<style>
+.test-buttons {
+    margin: 20px 0;
+}
+
+.test-buttons button {
+    margin: 5px;
+    padding: 10px 15px;
+    background: #79aec8;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.test-buttons button:hover {
+    background: #417690;
+}
+
+.test-buttons button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.results {
+    margin: 20px 0;
+    padding: 15px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.test-result {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.test-result.success {
+    background: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+}
+
+.test-result.error {
+    background: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+}
+
+.examples {
+    margin: 20px 0;
+}
+
+.examples pre {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 4px;
+    overflow-x: auto;
+}
+
+.features ul, .benefits ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+.features li, .benefits li {
+    margin: 5px 0;
+}
+
+.benefits {
+    margin: 20px 0;
+    padding: 15px;
+    background: #e7f3ff;
+    border: 1px solid #b3d9ff;
+    border-radius: 4px;
+}
+</style>
+
+{% csrf_token %}
+{% endblock %} 
