@@ -1,0 +1,13 @@
+shredderscales/__init__.py,sha256=c3aje-XkwrJBNF2NZnBV2SMj28J5F2Ha5Y86JwbPlcc,15
+shredderscales/__main__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+shredderscales/notes.py,sha256=o49mfcs-pzNko09K4LvLcdXeVd4WCyzAGQ69ZGZatdY,2813
+shredderscales/scales.py,sha256=JuhL0iThWJflZ1ZK4sDZ9bmOz2SgZ7_P-gVm9GurXCI,6105
+shredderscales/shredder.py,sha256=RUf1OZnoUXSH1fW-V5afAADJTt_iRFms7pvD2K8oKL0,20726
+shredderscales/tests/__init__.py,sha256=c3aje-XkwrJBNF2NZnBV2SMj28J5F2Ha5Y86JwbPlcc,15
+shredderscales/tests/test_scales.py,sha256=oJURH_nZftamunJEB5zKERF4n1rons9Ic9tCun03DDQ,3819
+shredderscales/tests/test_shredder.py,sha256=LoAVmU7vCbcjfn3iivNDnQZ34JclyGceryLfwOb9W-Q,1801
+shredderscales-1.0.0.dist-info/METADATA,sha256=MW7Xj55Vydohkh_4dKaGlidq4lnQIp_oXFwZ1Z7ChOo,171
+shredderscales-1.0.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+shredderscales-1.0.0.dist-info/entry_points.txt,sha256=LdrL9E6MR8PolcQCduH7JEWxv2TezEVFFUkvtGTtRdY,139
+shredderscales-1.0.0.dist-info/top_level.txt,sha256=-Sci6JUfpoM86_bOQkDU8r1ol-jV6hmZ9KlNuT5T4MM,15
+shredderscales-1.0.0.dist-info/RECORD,,
