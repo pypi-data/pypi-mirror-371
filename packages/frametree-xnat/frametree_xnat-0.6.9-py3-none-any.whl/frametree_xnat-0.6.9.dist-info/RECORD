@@ -1,0 +1,10 @@
+frametree/xnat/__init__.py,sha256=j00WbU96JV70hSc3QRIZit8_D2AlbcH9qgD6IVpnXD0,81
+frametree/xnat/_version.py,sha256=CCneNYZC2mV4E_4wijtYM3rPv0slP69P1ImE_RzAnSs,704
+frametree/xnat/api.py,sha256=WVcEQbGZ4ycXcmLamfMA6Jzzi0ejL1xpHMIm14LAtDo,25520
+frametree/xnat/cs.py,sha256=Fgc09upDFtxEeJkmqLTO7kQ6tLTfGHhyYAkN0mVJrOw,8811
+frametree/xnat/testing.py,sha256=7mQhSZ_uM2Ku-oRIjQ-1lvy8HP6fmKuXGd4hokB7QIk,1802
+frametree/xnat/tests/test_store.py,sha256=VYTbDsi3zRbontP-YDgJSUkkFPJcOFmjOdi4C_jf84M,8842
+frametree_xnat-0.6.9.dist-info/METADATA,sha256=_b4vIvQwi27_7Uco3ThqFlIyPI-8cSEW86HsSb6k6aY,21186
+frametree_xnat-0.6.9.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+frametree_xnat-0.6.9.dist-info/licenses/LICENSE,sha256=YvHlhl0Z71CeLbT-BjXQa_R4_7sXfKtStdlqe_jftqA,16577
+frametree_xnat-0.6.9.dist-info/RECORD,,
