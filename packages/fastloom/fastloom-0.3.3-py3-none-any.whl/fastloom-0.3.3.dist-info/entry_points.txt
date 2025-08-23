@@ -1,0 +1,3 @@
+[console_scripts]
+launch=core_bluprint.launcher.main:main
+
