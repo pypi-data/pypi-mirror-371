@@ -1,0 +1,15 @@
+PyTokenCounter/__init__.py,sha256=7LCnc2boest9jvrVTzjW9m74kCGFvQIjGKB891A-nbg,2225
+PyTokenCounter/cli.py,sha256=ZNF0aGgddH1s_Odj97s-iA1OwATWRxA1Ki_sx-B-0kw,24955
+PyTokenCounter/core.py,sha256=WQ-xONhWrnF5BAygNbRRLeiS9bbPNVfEvsQU2V2fw_E,30182
+PyTokenCounter/encoding_utils.py,sha256=pmlpP_1IW564bb4IeBGfkx769_i6RKhlS8mmEd0Fz-A,4061
+PyTokenCounter/file_tokens.py,sha256=E2iluWspr-FrbbCpJS1OQGaom0DUAa6FA_EX4ALEVfE,48007
+PyTokenCounter/progress.py,sha256=0KGQCtn9x1CS13bWUNYcbsixil8hLDnBlROaMZAQOH0,1913
+pytokencounter-1.8.1.dist-info/licenses/LICENSE,sha256=ixuiBLtpoK3iv89l7ylKkg9rs2GzF9ukPH7ynZYzK5s,35148
+tests/test_models.py,sha256=12Z-xrnbLoTmMHJFu3SFGePV8G3ZEiuQGgoYBlU2iF8,4742
+tests/test_tokenization.py,sha256=tjXx5KYVByxLSQenM-UOTWexpGhMyoBU8VfQifTtQPY,5002
+tests/test_utils.py,sha256=4Q3ZCl95yeejNiK_QnR5lMkcjKEphCo798Ao4tnMB9U,1187
+pytokencounter-1.8.1.dist-info/METADATA,sha256=OYko8Uqm9mzDP-xALaoHC4z0gt8QSc_xMCH7V-R1vMA,90783
+pytokencounter-1.8.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+pytokencounter-1.8.1.dist-info/entry_points.txt,sha256=MsHNflvFvY75y_FlAZ544fSP8ujmqzaS2NQnZ7NsrNk,84
+pytokencounter-1.8.1.dist-info/top_level.txt,sha256=iXlQc2heDYKLyuVLBEep8OBtA1YBSNtnZWG7FH6l9xM,21
+pytokencounter-1.8.1.dist-info/RECORD,,
