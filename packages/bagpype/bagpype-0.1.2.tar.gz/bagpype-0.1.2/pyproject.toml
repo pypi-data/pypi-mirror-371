@@ -1,0 +1,24 @@
+[project]
+name = "bagpype"
+version = "0.1.2"
+description = "A python library for pipeline diagram visualization"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+dependencies = [
+    "matplotlib>=3.7.0",
+    "seaborn>=0.12.0",
+]
+keywords = ["pipeline", "visualization", "computer architecture"]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+]
+
+[build-system]
+requires = ["uv_build >= 0.7.19, <0.9.0"]
+build-backend = "uv_build"
+
+[project.urls]
+"Homepage" = "https://github.com/iansseijelly/bagpype"
