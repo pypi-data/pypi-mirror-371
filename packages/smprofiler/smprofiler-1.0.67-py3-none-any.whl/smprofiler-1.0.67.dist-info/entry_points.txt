@@ -1,0 +1,3 @@
+[console_scripts]
+smprofiler = smprofiler.entry_point.cli:main_program
+smprofiler-enable-completion = smprofiler.entry_point.smprofiler_enable_completion:main_program
