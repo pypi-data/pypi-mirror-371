@@ -1,0 +1,11 @@
+dot_kernel/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dot_kernel/__main__.py,sha256=Rjp3rdl7Zj76haeJdMSDbyHjklCuQcufElRBk-p9TRo,127
+dot_kernel/imgsize.py,sha256=C7pGi9w03Iqu8P5RclG1BEdF52wDs9kQsDGT9Q0k_Qo,1768
+dot_kernel/kernel.py,sha256=JeAhnODc_HdZ0l2d1bV_ATKV6IkbThGoV1EZLglP_6A,1858
+dot_kernel-0.1.8.data/scripts/install-dot-kernel,sha256=3HihoiFr1UKpaECtweosHf6obwTf2yWRqIF-jFeSsW0,1087
+dot_kernel_spec/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dot_kernel_spec/kernel.json,sha256=w4sFox6tLt4ltOrVGVeAXvbGNNtmqSjCp-6xc5kJAcs,101
+dot_kernel-0.1.8.dist-info/METADATA,sha256=k7Op61dnhsb6ez1Pqm91GrO6Ru3j5jFES-DWhJ2O5Nc,1863
+dot_kernel-0.1.8.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+dot_kernel-0.1.8.dist-info/top_level.txt,sha256=hCKwOh4uI4_3KlfahgO_1KAEffo5ESMLwDoWP8mFhsI,27
+dot_kernel-0.1.8.dist-info/RECORD,,
