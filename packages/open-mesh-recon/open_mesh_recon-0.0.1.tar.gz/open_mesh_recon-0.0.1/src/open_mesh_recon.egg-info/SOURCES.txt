@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+src/omesh/__init__.py
+src/omesh/log.py
+src/omesh/main.py
+src/omesh/mesh_generation.py
+src/open_mesh_recon.egg-info/PKG-INFO
+src/open_mesh_recon.egg-info/SOURCES.txt
+src/open_mesh_recon.egg-info/dependency_links.txt
+src/open_mesh_recon.egg-info/top_level.txt

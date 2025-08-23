@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "open_mesh_recon"
+version = "0.0.1"
+description = "The OpenMesh package version 0.0.1 a first version of this package have the ability to work with 3D resconstruction models. Its not completed yet. wait for it."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+
+authors = [
+  { name = "Mohammad Taha", email = "mtaha13901211@gmail.com" }
+]
