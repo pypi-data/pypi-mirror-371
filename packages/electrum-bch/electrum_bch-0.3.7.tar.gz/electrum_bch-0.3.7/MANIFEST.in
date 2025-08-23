@@ -1,0 +1,2 @@
+global-exclude *.pyc *.pyo __pycache__ *.so *.dylib *.dll
+recursive-include elib/bitcoincashElectrum/plugins *.png *.ico *.proto
