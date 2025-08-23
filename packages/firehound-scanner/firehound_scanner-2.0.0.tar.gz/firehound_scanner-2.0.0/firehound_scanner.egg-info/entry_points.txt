@@ -1,0 +1,2 @@
+[console_scripts]
+firehound = firehound_package.main:main

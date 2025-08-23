@@ -1,0 +1,12 @@
+MANIFEST.in
+README.md
+pyproject.toml
+firehound_package/__init__.py
+firehound_package/main.py
+firehound_package/reports.py
+firehound_package/scanner.py
+firehound_scanner.egg-info/PKG-INFO
+firehound_scanner.egg-info/SOURCES.txt
+firehound_scanner.egg-info/dependency_links.txt
+firehound_scanner.egg-info/entry_points.txt
+firehound_scanner.egg-info/top_level.txt
