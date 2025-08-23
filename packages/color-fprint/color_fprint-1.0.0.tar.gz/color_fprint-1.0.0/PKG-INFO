@@ -1,0 +1,46 @@
+Metadata-Version: 2.4
+Name: color_fprint
+Version: 1.0.0
+Summary: Impresión de texto coloreado y variables en consola
+Author-email: Juan Manuel <juanmadiaz108@gmail.com>
+License: MIT
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+# cprint
+
+Imprime texto en consola con colores, permitiendo resaltar variables o expresiones dentro de llaves.
+
+## Instalación
+
+```bash
+pip install cprint
+```
+
+## Uso básico
+
+```python
+from cprint import cprint
+
+nombre = 'Juan'
+edad = 30
+cprint('Mi nombre es {nombre} y tengo {edad} años', text_color='yellow', var_color='blue')
+```
+
+## Opciones de color
+- `text_color`: Color del texto general. Ej: 'red', 'green', 'yellow', 'blue', 'magenta', 'cyan', 'white', 'black'.
+- `var_color`: Color de las variables/expresiones.
+- `bright`: Si es `True`, usa colores intensos (91, 92, etc).
+
+## Expresiones avanzadas
+
+Puedes usar expresiones dentro de las llaves:
+
+```python
+a = 5
+b = 3
+cprint('Suma: {a + b}', text_color='green', var_color='magenta')
+```
+
+## Licencia
+MIT

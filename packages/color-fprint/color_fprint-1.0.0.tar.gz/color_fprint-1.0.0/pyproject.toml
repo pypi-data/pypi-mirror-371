@@ -1,0 +1,12 @@
+[project]
+name = "color_fprint"
+version = "1.0.0"
+description = "Impresión de texto coloreado y variables en consola"
+authors = [{name = "Juan Manuel", email = "juanmadiaz108@gmail.com"}]
+readme = "README.md"
+requires-python = ">=3.7"
+license = {text = "MIT"}
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"

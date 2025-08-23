@@ -1,0 +1,7 @@
+README.md
+pyproject.toml
+color_fprint/__init__.py
+color_fprint.egg-info/PKG-INFO
+color_fprint.egg-info/SOURCES.txt
+color_fprint.egg-info/dependency_links.txt
+color_fprint.egg-info/top_level.txt
