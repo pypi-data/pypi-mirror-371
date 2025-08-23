@@ -1,0 +1,18 @@
+Metadata-Version: 2.4
+Name: psqlmodule
+Version: 0.1.5
+Summary: Psqlmodule to interact with psql database
+Author-email: Mohammed Magar <mfmagar@gmail.com>
+License: MIT
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: numpy>=2.3.2
+Requires-Dist: pandas>=2.3.2
+Requires-Dist: psycopg>=3.2.9
+Requires-Dist: psycopg-binary>=3.2.9
+Requires-Dist: python-dateutil>=2.9.0.post0
+Requires-Dist: pytz>=2025.2
+Requires-Dist: pyyaml>=6.0.2
+Requires-Dist: six>=1.17.0
+Requires-Dist: tqdm>=4.67.1
+Requires-Dist: tzdata>=2025.2
