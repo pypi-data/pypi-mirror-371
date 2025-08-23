@@ -1,0 +1,41 @@
+Metadata-Version: 2.4
+Name: waifu2x-python
+Version: 1.0.2
+Summary: Python wrapper for waifu2x-ncnn-vulkan
+Home-page: https://github.com/gleidsonnunes/waifu2x-python
+Author: Gleidson Rodrigues Nunes
+Author-email: Gleidson Rodrigues Nunes <gleidsonrnunes@gmail.com>
+License: MIT
+Project-URL: Homepage, https://github.com/gleidsonnunes/waifu2x-python
+Project-URL: Documentation, https://waifu2x-python.readthedocs.io/
+Project-URL: Repository, https://github.com/gleidsonnunes/waifu2x-python.git
+Project-URL: Bug Tracker, https://github.com/gleidsonnunes/waifu2x-python/issues
+Keywords: waifu2x,upscaling,image processing,anime,ai
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Multimedia :: Graphics
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: opencv-python>=4.5.0
+Requires-Dist: numpy>=1.21.0
+Requires-Dist: Pillow>=8.0.0
+Requires-Dist: tqdm
+Provides-Extra: dev
+Requires-Dist: pytest>=6.0; extra == "dev"
+Requires-Dist: pytest-cov>=2.0; extra == "dev"
+Requires-Dist: black>=21.0; extra == "dev"
+Requires-Dist: flake8>=3.8; extra == "dev"
+Requires-Dist: mypy>=0.910; extra == "dev"
+Dynamic: author
+Dynamic: home-page
+Dynamic: requires-python
+
+# Waifu2x Python
+
+Python wrapper para waifu2x-ncnn-vulkan com interface simples e poderosa.
+
+## Instalação
+```bash
+pip install waifu2x-python
