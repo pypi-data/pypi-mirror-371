@@ -1,0 +1,9 @@
+configset/__init__.py,sha256=HfBKpztg9ImfTktdmCaVp93pm8T1PoQ1L0LQleoTOr8,8398
+configset/__version__.py,sha256=qu6fiGd17lq6e4sVbrRMbY2jpctQET-VYmdtrtgngGE,16
+configset/configset.py,sha256=MSdw_XfTbg2TRERtSNah69Z1y75kSVLN7Z6SCFatulQ,70160
+configset/test.py,sha256=1RD0UXUqrmTFsFDRmKxq956aaNm824DCZ7ueLN8zG0o,253
+configset-1.68.dist-info/METADATA,sha256=I0mmJYRPj6qVSzoLETlE8D0z7B4n5PXOvwU0Xx-D8KI,21281
+configset-1.68.dist-info/WHEEL,sha256=JNWh1Fm1UdwIQV075glCn4MVuCRs0sotJIq-J6rbxCU,109
+configset-1.68.dist-info/entry_points.txt,sha256=52CfdZanqQZQvGSlNJxvcEzyI20G7UyOhmb5ylcEvH8,76
+configset-1.68.dist-info/top_level.txt,sha256=WshknC4Q22_KDnnbUZOCJGekDEkrdvLur6G_1m82YIY,10
+configset-1.68.dist-info/RECORD,,
