@@ -1,0 +1,6 @@
+async_promptic/__init__.py,sha256=RvV20iuvoA3NladP6rB_LVG78Hfu-Upn_epHxsNXrwg,110804
+async_promptic/django_support.py,sha256=3T2R8D7pO9BP78sTYuytZBmvPRC1-Wl1j9xCyI7-ISQ,7444
+async_promptic-5.5.6.dist-info/licenses/LICENSE,sha256=ieEKJ-VczfHpbzAARBk5cBwN-Qfu4_jjKLNpnH1JyAg,9161
+async_promptic-5.5.6.dist-info/WHEEL,sha256=G2gURzTEtmeR8nrdXUJfNiB3VYVxigPQ-bEQujpNiNs,82
+async_promptic-5.5.6.dist-info/METADATA,sha256=oFimEE1v-n-igqJcm5stpIn5x2z_zpAko99-5LJdIUA,39016
+async_promptic-5.5.6.dist-info/RECORD,,
