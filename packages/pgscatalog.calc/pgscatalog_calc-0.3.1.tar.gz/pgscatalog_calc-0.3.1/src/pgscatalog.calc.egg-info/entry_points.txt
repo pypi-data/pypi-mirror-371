@@ -1,0 +1,3 @@
+[console_scripts]
+pgscatalog-aggregate = pgscatalog.calc.cli.aggregate_cli:run_aggregate
+pgscatalog-ancestry-adjust = pgscatalog.calc.cli.ancestry_cli:run_ancestry
