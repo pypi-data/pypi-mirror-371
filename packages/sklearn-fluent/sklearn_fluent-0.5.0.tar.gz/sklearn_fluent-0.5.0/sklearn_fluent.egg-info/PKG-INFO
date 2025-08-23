@@ -1,0 +1,25 @@
+Metadata-Version: 2.4
+Name: sklearn_fluent
+Version: 0.5.0
+Summary: Linear/Multli Regression Mathematical Function in one line of code
+Author: YusiferZendric (Aditya Singh)
+Author-email: <yzendric@gmail.com>
+Keywords: python,sklearn,mathematical functions,functions,linear regressions
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
+Requires-Dist: scikit-learn
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: keywords
+Dynamic: requires-dist
+Dynamic: summary
+
+Just provide x and y list and there you have it the Mathemtical function + accuracy based on the x and y list.
