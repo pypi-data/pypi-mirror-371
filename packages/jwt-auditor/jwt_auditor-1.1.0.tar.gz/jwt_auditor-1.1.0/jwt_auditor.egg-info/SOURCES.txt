@@ -1,0 +1,8 @@
+jwt_auditor.py
+pyproject.toml
+jwt_auditor.egg-info/PKG-INFO
+jwt_auditor.egg-info/SOURCES.txt
+jwt_auditor.egg-info/dependency_links.txt
+jwt_auditor.egg-info/entry_points.txt
+jwt_auditor.egg-info/requires.txt
+jwt_auditor.egg-info/top_level.txt

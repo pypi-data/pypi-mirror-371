@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jwt-auditor"
+version = "1.1.0"
+description = "Command-line tool for JWT security auditing"
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+authors = [
+  { name="Joas Santos", email="joas.santos@hackersec.com" }
+]
+dependencies = [
+  "cryptography",
+  "requests"
+]
+
+[project.scripts]
+jwt-auditor = "jwt_auditor.cli:main"
+
