@@ -1,0 +1,13 @@
+poc/__init__.cpython-310-x86_64-linux-gnu.so,sha256=SZz5neGfH3DUMHNSFaeDHyqA-iyWuNXpyWSmcNtDCDY,57840
+poc/apple.cpython-310-x86_64-linux-gnu.so,sha256=YAfzPdBWZHNhVljg_RR4yZC6sp-xkouGJeuuKcBQ_y0,622784
+poc/bigquery.cpython-310-x86_64-linux-gnu.so,sha256=lzV5t2uwaPpwaFj5fdnF2Rxqm_9gMXwsn0sFqvrF0OQ,418480
+poc/insta.cpython-310-x86_64-linux-gnu.so,sha256=51aAEUxx7F8bnoa4iG6kpkCrP8Sk00BQXEu1lNhhVLc,456224
+poc/mysql.cpython-310-x86_64-linux-gnu.so,sha256=Z-DTnczlyemVErPjh_Y7PVBjwb346iODKrmH1ileIkw,313576
+poc/rest.cpython-310-x86_64-linux-gnu.so,sha256=pA-mKNIsQkvvkZDWBR9MGOhA2dRlieCki6bFL2oIj-o,626776
+poc/spotify.cpython-310-x86_64-linux-gnu.so,sha256=6d4rdMMQvYExYAV28-BribPFrvH-76RMPG2uUjk_qR0,512352
+poc/util.cpython-310-x86_64-linux-gnu.so,sha256=6rSx8uWhyINVkLLXIw9wqHAH_JUXQQpLrkj-HD38Lik,918096
+poc/youtube.cpython-310-x86_64-linux-gnu.so,sha256=fpTLYruIBgfFrUZpLteGLNDZP-RDD-w74HWsMkkgPJQ,578904
+fablelab-0.0.44.dist-info/METADATA,sha256=iYsUJPFJjAxqNh11hi7rX-4Bc7OApijBDm9xR17KfXA,207
+fablelab-0.0.44.dist-info/WHEEL,sha256=DTnKjM5OInJxWADod3iQyWxWcdG-eRwxzGww236swpY,151
+fablelab-0.0.44.dist-info/top_level.txt,sha256=unIn9WMh56vyJynXmqnXDRimDNSvRU4ivSUt3xIjyaw,4
+fablelab-0.0.44.dist-info/RECORD,,
