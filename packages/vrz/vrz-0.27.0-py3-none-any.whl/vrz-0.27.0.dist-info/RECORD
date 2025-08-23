@@ -1,0 +1,9 @@
+vrz/cli.py,sha256=dnKAfv4mWzOKYcMwGgNoN9-7VZXygOFI2LktwXh-zEg,2592
+vrz/core.py,sha256=lpYcceC3zzo4wDwfXJYStnQvOX3IcrsxEcJiPoh4nSA,1121
+vrz/git_utils.py,sha256=AShVvfXSqpfiY_7AH7m3pHRZ-RRMO-ifn_woe2lH35w,2236
+vrz/poetry_utils.py,sha256=3qTfYJYISjWAJGHmO5EerAHpaMBRfH5ubj3_Gk8PD40,3673
+vrz-0.27.0.dist-info/LICENSE,sha256=XO9W0vmUtJVBnI5OGsKoYEx8tIV2s79l1WMI8qx12xw,1070
+vrz-0.27.0.dist-info/METADATA,sha256=yC3YMCgdED38hystHJYvdT2ZfX_sv829y5QTYwIRVRE,1512
+vrz-0.27.0.dist-info/WHEEL,sha256=b4K_helf-jlQoXBBETfwnf4B04YC67LOev0jo4fX5m8,88
+vrz-0.27.0.dist-info/entry_points.txt,sha256=7uCLRlAHlfOmJSN0JaQlI38JA7-fWdTLHQenDrAsQKs,36
+vrz-0.27.0.dist-info/RECORD,,
