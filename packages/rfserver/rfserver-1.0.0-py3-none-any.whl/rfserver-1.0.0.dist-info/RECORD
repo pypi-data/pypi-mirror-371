@@ -1,0 +1,15 @@
+rfserver/__init__.py,sha256=1SzK1yeNL8FivwjAAFW_nJkEc6Kw9svaFnp3w2uyBQA,507
+rfserver/__main__.py,sha256=Vdhw8YA1K3wPMlbJQYL5WqvRzAKVeZ16mZQFO9VRmCo,62
+rfserver/db/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+rfserver/db/create_database.py,sha256=95kdZXK4Eh0dJN-2W52FqzDtE_-HDo77KoIwunWxCJA,7489
+rfserver/db/database.py,sha256=hRP8N_ST5lvZr-GV9xUf33KVMmUwgmvlJEnTXT5KprA,3095
+rfserver/db/detail.db,sha256=KsqFQo1DCb8fak7sLQXoz_d2qkiYzdNRW2y2L85i-hI,32768
+rfserver/main.py,sha256=66uXZuCJMooT3PIpxT59tHUD4FQt94UfYUbDX4kRtxs,230
+rfserver/rest_api/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+rfserver/rest_api/rest.py,sha256=kxoeummJFeO7Xt9si7_GMAASMjgnNTbe_VoHjFBQgco,1987
+rfserver-1.0.0.dist-info/AUTHORS.md,sha256=41Ou0N5tLpjne_Yq7mRM3HtNfZhUQJXphDXek4-6iKw,29
+rfserver-1.0.0.dist-info/LICENSE,sha256=hIahDEOTzuHCU5J2nd07LWwkLW7Hko4UFO__ffsvB-8,34523
+rfserver-1.0.0.dist-info/METADATA,sha256=qgqLRp6c4f4pA-rNT0mtqfY_mrQIqBaP5INSCFLG8fo,5943
+rfserver-1.0.0.dist-info/WHEEL,sha256=b4K_helf-jlQoXBBETfwnf4B04YC67LOev0jo4fX5m8,88
+rfserver-1.0.0.dist-info/entry_points.txt,sha256=T0PNqrQr1dlyJTR5dr4mds8nr6vxNbcy6I4Ai5NOujo,47
+rfserver-1.0.0.dist-info/RECORD,,
