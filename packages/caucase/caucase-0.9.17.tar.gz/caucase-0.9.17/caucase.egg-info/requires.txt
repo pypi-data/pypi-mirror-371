@@ -1,0 +1,7 @@
+PyJWT
+cryptography>=2.2.1
+pem>=18.2.0
+pyOpenSSL>=18.0.0
+
+[:python_version < "3"]
+ipaddress
