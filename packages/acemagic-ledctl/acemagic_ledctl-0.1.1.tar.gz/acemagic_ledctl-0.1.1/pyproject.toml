@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "acemagic-ledctl"
+version = "0.1.1"                       # bump this
+description = "ACEMAGIC P9/P9 Plus (CH340) LED controller and pattern hacks"
+readme = { file = "README.md", content-type = "text/markdown" }
+authors = [{ name = "fsncps", email = "fsncps@eml.cc" }]
+requires-python = ">=3.8"
+dependencies = ["pyserial>=3.5"]
+license = "MIT"                         # SPDX expression
+
+[project.scripts]
+ledctl = "ledctl.__main__:main"
+# Uncomment only if those modules expose main() as shown above:
+# ledctl-setmode = "ledctl.cli.setmode:main"
+# ledctl-setpattern = "ledctl.cli.setpattern:main"
+# ledctl-off = "ledctl.cli.off:main"
+# ledctl-wizard = "ledctl.cli.wizard:main"
+
+[tool.setuptools]
+packages = ["ledctl"]
+include-package-data = true
+
+# ensure non-.py assets in the package are included in the wheel
+[tool.setuptools.package-data]
+ledctl = ["*.tar"]
+
+# (Optional) if you want to exclude any junk:
+# [tool.setuptools.exclude-package-data]
+# ledctl = ["*.pyc", "__pycache__/*"]
+
