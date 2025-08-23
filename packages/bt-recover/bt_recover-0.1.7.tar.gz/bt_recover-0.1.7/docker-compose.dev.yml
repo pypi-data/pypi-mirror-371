@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  bt-recover-dev:
+    build: 
+      context: .
+      target: builder
+      args:
+        PYTHON_VERSION: "3.10"
+    volumes:
+      - .:/app
+      - ./output:/home/appuser/output
+    working_dir: /app
+    command: ["pytest", "-v"]
+    environment:
+      - PYTHONPATH=/app/src 
