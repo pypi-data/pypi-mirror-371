@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+src/pythermonomics/__init__.py
+src/pythermonomics.egg-info/PKG-INFO
+src/pythermonomics.egg-info/SOURCES.txt
+src/pythermonomics.egg-info/dependency_links.txt
+src/pythermonomics.egg-info/entry_points.txt
+src/pythermonomics.egg-info/requires.txt
+src/pythermonomics.egg-info/top_level.txt
