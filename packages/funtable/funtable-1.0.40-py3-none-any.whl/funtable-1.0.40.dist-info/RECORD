@@ -1,0 +1,15 @@
+funtable/__init__.py,sha256=HAA85dou3dPSicOX_jRzUyw37gxTKVAkTUdPzRHMsXI,27
+funtable/kv/__init__.py,sha256=zPUHzkgkZ0yDsyFPtyxjvp7fRArsUhH5JCLWmWCejoo,387
+funtable/kv/interface.py,sha256=5QTvXogLEg4OwqRzk1-WKcJWWfZYG8cV02-R1oi0lxU,9327
+funtable/kv/sqlite_table.py,sha256=O3bQy880Rs7cZCDPbVw84NHIIJppLrACBzuZgybY9zo,19376
+funtable/kv/tinydb_table.py,sha256=jTAVAfkXCyNOEttc0hXLWtpO6GcE0R2uU2rlNQH5i_s,24651
+funtable/snapshot/__init__.py,sha256=I0GnqISf3XmKlvuVtDU2_3yR_TYOhvxLlEUmzy9EBOo,61
+funtable/snapshot/core.py,sha256=Y1L0zHBUR8m8cGz9duweEZX6-EIQeJW9wkioTl5xyHE,1872
+funtable/sqlmodel/__init__.py,sha256=lx34LFj98RfbM4OMb630F2f5YiphJte2XY3BoCnfmq4,53
+funtable/sqlmodel/base.py,sha256=pHl3DXHzNGHdJeM0qA4Zfw6QE_VMxnWA-R2ljUeYZ0o,3385
+funtable/table/__init__.py,sha256=pf8ER2nfy1MkfXsU5rv6hLiUtHWoQZnYES7tugzx6Lg,56
+funtable/table/drive.py,sha256=vU9N5L7paVWeJzzcTz6HpbGfIDnaeLBH_9g0TMK8Pjo,3502
+funtable-1.0.40.dist-info/METADATA,sha256=se7QbBdJ41iTLJDEIQIirkJtOkD1fWM32PoTKVgjk8o,8999
+funtable-1.0.40.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+funtable-1.0.40.dist-info/top_level.txt,sha256=vxWlwsIwsY1Mx6NCfrZqGAkUNulJqPhM0x2l-Vjh1YY,9
+funtable-1.0.40.dist-info/RECORD,,
