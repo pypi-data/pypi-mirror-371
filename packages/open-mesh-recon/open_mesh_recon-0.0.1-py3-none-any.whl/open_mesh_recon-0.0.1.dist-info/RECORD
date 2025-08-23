@@ -1,0 +1,9 @@
+omesh/__init__.py,sha256=0Z8SQL4mzo3p2AX66F6-hMZxoe9CScGXt8067k9OsT4,63
+omesh/log.py,sha256=jGqvmJI4ufCpeUfjhW6Xv8ZoOkEx2FUp2jCD5g-hzUk,616
+omesh/main.py,sha256=CyyMSNQrL7SrxsyXW5IQGr4w-LHn-jaxfptqEKZk4G4,338
+omesh/mesh_generation.py,sha256=XGbk18v_fjK1yAGqWmeJrv1w-miB1gtwdrnGdaqV1qA,8982
+open_mesh_recon-0.0.1.dist-info/licenses/LICENSE,sha256=4TLLJT6xFWdt2Vrj_RUD2C_LyomLAcQcF5_R2fVlu4I,1070
+open_mesh_recon-0.0.1.dist-info/METADATA,sha256=H2KrMLoUj3TXS34zVFUOboctEvyLDwDqb_wA7wi8dCo,5137
+open_mesh_recon-0.0.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+open_mesh_recon-0.0.1.dist-info/top_level.txt,sha256=jGEUqp8bjcu-9h8rGNr-_-7jpvpgBo12UOVJrlUi0PE,6
+open_mesh_recon-0.0.1.dist-info/RECORD,,
