@@ -1,0 +1,2 @@
+[console_scripts]
+immich-mcp = immich_mcp.cli:main
