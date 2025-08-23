@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+cuPyLMA/__init__.py
+cuPyLMA/config.py
+cuPyLMA/lma.py
+cuPyLMA/sliced_tensor.py
+cupylma.egg-info/PKG-INFO
+cupylma.egg-info/SOURCES.txt
+cupylma.egg-info/dependency_links.txt
+cupylma.egg-info/requires.txt
+cupylma.egg-info/top_level.txt
