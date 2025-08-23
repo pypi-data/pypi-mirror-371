@@ -1,0 +1,31 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "SpearheadClient"
+version = "1.0.3"
+authors = [
+  { name="Spearhead Ops", email="support@spearheadops.com" },
+]
+description = "A client for the SpearheadOps GraphQL API"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+dependencies = [
+  "httpx",
+  "pydantic",
+  "asyncio",
+]
+
+[project.urls]
+Homepage = "https://pypi.org/project/SpearheadClient/"
+Issues = "https://pypi.org/project/SpearheadClient/"
+
+[tool.hatch.build.targets.wheel]
+packages = ["SpearheadClient"]
