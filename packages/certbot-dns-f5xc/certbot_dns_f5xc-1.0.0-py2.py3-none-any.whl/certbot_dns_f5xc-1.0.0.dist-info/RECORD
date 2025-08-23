@@ -1,0 +1,9 @@
+certbot_dns_f5xc/__init__.py,sha256=Q5OMCicFvpgV61mbHHqTHyze3i0nYk0KRey3jis1Xvo,95
+certbot_dns_f5xc/_internal/__init__.py,sha256=-FtCrJG_0HsqMMTfISv3y3WlcU37Hj5EsYML54UQfN0,49
+certbot_dns_f5xc/_internal/dns_f5xc.py,sha256=8FYsjyqvyZItD5VCC7nCPjUTMtIr3Y6OLOR2IlzGF6Q,22322
+certbot_dns_f5xc-1.0.0.dist-info/licenses/LICENSE,sha256=EMpvbHKK3AcbEryaX_ZSl-fMqQaS3J3pS7KHAOvSw5c,11419
+certbot_dns_f5xc-1.0.0.dist-info/METADATA,sha256=Cpqm-9-L-bBeNL1HR98cI2sClN-WdTTulqaCxxhqWas,8012
+certbot_dns_f5xc-1.0.0.dist-info/WHEEL,sha256=JNWh1Fm1UdwIQV075glCn4MVuCRs0sotJIq-J6rbxCU,109
+certbot_dns_f5xc-1.0.0.dist-info/entry_points.txt,sha256=0sZk4HKI8KetBFoXSzU0QetWqYCUZLYmyNHuPxf3wIg,79
+certbot_dns_f5xc-1.0.0.dist-info/top_level.txt,sha256=vjqUJbDvWUNbnlfmGnl-RwGTny7HoFWxkvVvH1VSL80,17
+certbot_dns_f5xc-1.0.0.dist-info/RECORD,,

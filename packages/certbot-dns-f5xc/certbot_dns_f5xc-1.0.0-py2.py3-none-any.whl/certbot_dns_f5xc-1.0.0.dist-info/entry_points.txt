@@ -1,0 +1,2 @@
+[certbot.plugins]
+dns-f5xc = certbot_dns_f5xc._internal.dns_f5xc:Authenticator
