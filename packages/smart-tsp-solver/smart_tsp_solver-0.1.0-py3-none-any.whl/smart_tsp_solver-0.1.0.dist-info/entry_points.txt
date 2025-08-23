@@ -1,0 +1,2 @@
+[console_scripts]
+smart-tsp-solver = main:main
