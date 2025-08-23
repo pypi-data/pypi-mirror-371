@@ -1,0 +1,101 @@
+Metadata-Version: 2.4
+Name: py-mcp-client
+Version: 0.0.8
+Summary: A Python client for interacting with MCP servers via Server-Sent Events and JSON-RPC
+Project-URL: Homepage, https://github.com/pytincture/py-mcp-client
+Project-URL: Repository, https://github.com/pytincture/py-mcp-client.git
+Project-URL: Issues, https://github.com/pytincture/py-mcp-client/issues
+Author-email: pytincture <schapman1974@gmail.com>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+
+MCPClient Python Library
+Overview
+The MCPClient is a Python client for interacting with an MCP (Message Control Protocol) server via Server-Sent Events (SSE) and JSON-RPC. It provides functionality to connect to an MCP server, initialize a session, list available tools, and execute tools interactively or programmatically.
+Features
+
+Connects to an MCP server using SSE
+Supports JSON-RPC 2.0 for sending requests and notifications
+Automatically discovers and parses available tools and their schemas
+Provides an interactive command-line interface for running tools
+Validates required parameters before tool execution
+Handles both required and optional parameters with type checking
+
+Installation
+No external dependencies are required beyond the Python standard library (json, urllib.request, urllib.parse).
+To use the library, save the provided Python code as py_mcp_client.py and import it into your project.
+Usage
+Basic Example
+from py_mcp_client import MCPClient
+
+# Initialize client with SSE URL
+client = MCPClient("https://example.com/sse")
+
+try:
+    # Connect to the server
+    client.connect()
+
+    # Initialize session and get available tools
+    init_response, tools = client.initialize()
+    print(f"Connected to server: {init_response['result']['serverInfo']['name']}")
+    print(f"Available tools: {list(tools.keys())}")
+
+    # Run a tool programmatically
+    result = client.run_tool("example_tool", {"param1": "value1"})
+    print(result)
+
+    # Start interactive mode
+    client.interactive_run()
+
+except Exception as e:
+    print(f"Error: {e}")
+
+Command-Line Usage
+Run the script directly and provide the SSE URL as a command-line argument or input it when prompted:
+python py_mcp_client.py https://example.com/sse
+
+The script will:
+
+Connect to the specified SSE URL
+Initialize the session
+Display server information and available tools
+Enter an interactive mode where you can select and run tools
+
+Interactive Mode
+In interactive mode, the client:
+
+Lists all available tools with their descriptions
+Allows selection of a tool by number
+Prompts for required and optional parameters
+Executes the selected tool and displays the result
+Continues until you choose to exit (option 0)
+
+Methods
+
+connect(): Establishes a connection to the SSE endpoint and retrieves the message URL.
+send_request(method, params): Sends a JSON-RPC request with an ID and returns the request ID.
+send_notification(method, params): Sends a JSON-RPC notification without an ID.
+initialize(): Initializes the MCP session and retrieves available tools.
+run_tool(tool_name, arguments): Executes a specified tool with provided arguments.
+interactive_run(): Starts the interactive command-line interface.
+
+Error Handling
+
+The client validates required parameters before tool execution.
+It handles various response formats (JSON and plain strings) for robustness.
+Errors during connection, initialization, or tool execution are caught and displayed.
+
+Limitations
+
+Requires a stable internet connection for SSE communication.
+Assumes the server follows the MCP protocol with JSON-RPC 2.0.
+Limited to the capabilities provided by the server's toolset.
+
+Contributing
+Feel free to fork the repository, make improvements, and submit pull requests. For issues or feature requests, please open an issue on the repository.
+License
+This project is licensed under the MIT License.
