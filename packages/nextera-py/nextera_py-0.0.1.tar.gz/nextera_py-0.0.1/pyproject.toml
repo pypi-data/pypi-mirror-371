@@ -1,0 +1,18 @@
+[project]
+name = "nextera-py"
+version = "0.0.1"
+authors = [
+  {name="zengzirui"},
+]
+description = "A small example package"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "MIT"
+
+[project.urls]
+Homepage = "https://github.com/zengzirui/nextera-py"
+Issues = "https://github.com/zengzirui/nextera-py/issues"
