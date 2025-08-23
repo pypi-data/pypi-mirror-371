@@ -1,0 +1,112 @@
+# HD GDK Python API
+
+这是一个用于调用 HD RPG 引擎框架(GDK)的 Python 库，提供了基础功能、登录验证、IP管理、插件安装扩展及环境初始化等功能的封装。
+
+## 功能特点
+
+- 自动加载 HD 引擎 DLL 文件（支持调试版和非调试版）
+- 提供简洁易用的 Python 接口
+- 内置错误处理机制
+- 模块化设计，便于扩展更多功能
+
+## 安装方法
+
+### 从源码安装
+
+```bash
+# 进入项目目录
+cd HD_python
+
+# 安装包（开发模式）
+pip install -e .
+```
+
+## 使用示例
+
+下面是一个完整的示例，展示如何使用 HD GDK Python API 的基础模块：
+
+```python
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+from hdgdk import create_hd_basic
+
+# 准备工作
+# 1. 确保你有正确的 HD 引擎 DLL 文件
+# 2. 将 DLL 文件放置在指定目录
+
+# 设置 DLL 文件所在路径（根据实际情况修改）
+DLL_PATH = "D:/HD/HD_python/dll"  # 替换为你的 DLL 文件路径
+# 是否使用调试版 DLL
+IS_DEBUG = False  # 正式环境设为 False，开发环境可设为 True
+
+# 创建基础功能模块实例
+try:
+    hd_basic = create_hd_basic(DLL_PATH, IS_DEBUG)
+    print("成功创建基础模块实例")
+
+except Exception as e:
+    print(f"创建基础模块实例失败: {str(e)}")
+    exit(1)
+
+# 使用基础模块功能
+
+# 1. 获取当前插件版本号
+try:
+    version = hd_basic.get_version()
+    print(f"HD 插件版本号: {version}")
+except Exception as e:
+    print(f"获取版本号失败: {str(e)}")
+
+# 2. 设置插件信息（可选）
+try:
+    # 如果需要自定义 DLL 名称，可以在这里设置
+    # result = hd_basic.set_plugin(release_dll="CustomHD.dll", debug_dll="CustomHDDebug.dll")
+    # print(f"设置插件信息结果: {result}")
+    pass
+except Exception as e:
+    print(f"设置插件信息失败: {str(e)}")
+
+# 3. 获取最大窗口数
+try:
+    max_window_num = hd_basic.get_max_window_num()
+    print(f"最大窗口数: {max_window_num}")
+except Exception as e:
+    print(f"获取最大窗口数失败: {str(e)}")
+
+# 4. 获取执行环境信息（中控窗口）
+try:
+    env_info = hd_basic.get_execute_env_info(window_index=0)  # 0 表示中控窗口
+    print(f"中控执行环境信息: {env_info}")
+except Exception as e:
+    print(f"获取执行环境信息失败: {str(e)}")
+
+# 5. 错误处理示例
+# 假设我们调用了一个可能失败的操作
+try:
+    # 这里仅作为示例，实际使用中替换为真实的操作
+    # 假设某个操作返回了错误代码
+    error_code = 0  # 示例值，实际使用中替换为真实的返回值
+    if error_code != 1:
+        error_str = hd_basic.get_error_str(error_code)
+        print(f"操作失败，错误代码: {error_code}, 错误信息: {error_str}")
+
+except Exception as e:
+    print(f"错误处理示例失败: {str(e)}")
+
+# 6. 获取最近的 WIN32 API 错误值
+try:
+    last_error = hd_basic.get_last_error()
+    print(f"最近的 WIN32 API 错误值: {last_error}")
+except Exception as e:
+    print(f"获取 WIN32 API 错误值失败: {str(e)}")
+
+print("HD GDK Python API 基础功能示例执行完毕")
+```
+
+## 注意事项
+
+1. 在使用前，请确保你已经获得了正确的 HD 引擎 DLL 文件
+2. 对于不同的功能模块，请使用对应的工厂函数创建实例
+3. 所有操作都应该包含适当的错误处理
+4. 更多高级功能和其他模块的使用方法，请参考源代码和相关文档
