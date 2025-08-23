@@ -1,0 +1,11 @@
+tiny3d/_build_config.py,sha256=rX7QwpaUqBk4RJL7mS7p58VgXkSMN9qvowN_7Aa5Xok,411
+tiny3d/__init__.py,sha256=rxq048ePv5T-bpce3ErsfWto6WzGWMO1LwU6U85PH-g,4150
+tiny3d/cpu/pybind.cpython-39-x86_64-linux-gnu.so,sha256=r7w-Ca1E070WLSkhj3XAUpRXF4WQrjjpmgbTQynkR9A,2747345
+tiny3d/cpu/__init__.py,sha256=ouZibTckvXJQr9FCNbilAEFUQHO29e6hi1yFJTVRoCc,524
+tiny3d.libs/libgomp-870cb1d0.so.1.0.0,sha256=Ta6ZPLbakQH8LP74JzBt0DuJIBHS4nicjkSCjKnyWDw,253289
+tiny3d-0.0.0.dist-info/RECORD,,
+tiny3d-0.0.0.dist-info/METADATA,sha256=Rd8dWG8YMbQJYKqTCOxk-w9CTUz0Kc3Hx2OI8jFqDcE,3813
+tiny3d-0.0.0.dist-info/entry_points.txt,sha256=UhBC-aW4LpWUE9M7T6Z7w8PnEgjlpz3U-u1sv8UOG-I,49
+tiny3d-0.0.0.dist-info/top_level.txt,sha256=stMN3sRo2TJf1xPD12kIAv2R2eAY4QMzQ9rJuJy6Va4,7
+tiny3d-0.0.0.dist-info/WHEEL,sha256=GgX20VmKcCojXA25QwkMazru5rPDAsLYhjc0VMiPAHQ,111
+tiny3d-0.0.0.dist-info/licenses/LICENSE.txt,sha256=DLuJ6c2Usool23Im9wYh5DmTEkYFs59t5xNyClYw0nQ,1109
