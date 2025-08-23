@@ -1,0 +1,13 @@
+cleancopy/__init__.py,sha256=IhqI7jiM-A6FlXtAhA16Rz1LR9ywfqzow6PVDQ02JFk,178
+cleancopy/_cst/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+cleancopy/_cst/ast_transformer.py,sha256=nhi0pBLqzqrcSWiJQ2_K15QWNwuCeyxWlrCjzlVbhRw,16258
+cleancopy/_cst/treesitter_.py,sha256=BktRQAMuNiaGOE1z5LtB6Xa2BsaobdkmhjIEw6HLqTo,25502
+cleancopy/ast.py,sha256=UVVfNM30I89zWZAP_R1EV-mva9Hm0y7l9pcusfxYC1M,9221
+cleancopy/cst.py,sha256=GorxppJ4dn7qf8VixxOTAUhWKsm4A4_ydYY80bMa3CQ,6553
+cleancopy/exceptions.py,sha256=GYdO5zE99W_z0wOO28pZc2ZgyYs8PmT6ZCl3JsXULMU,497
+cleancopy/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+cleancopy/spectypes.py,sha256=1wMnlcM6l3nIQ0-_V3zhHAd-Mbz0KaZgC9m0Ux7Ez4c,1048
+pycleancopy-2025.8.22.0.dist-info/METADATA,sha256=nlGl1O9EQjGtWE1OCD2xbV7VD6ZfV8zKfB5tEYUe7FA,362
+pycleancopy-2025.8.22.0.dist-info/WHEEL,sha256=9P2ygRxDrTJz3gsagc0Z96ukrxjr-LFBGOgv3AuKlCA,90
+pycleancopy-2025.8.22.0.dist-info/entry_points.txt,sha256=6OYgBcLyFCUgeqLgnvMyOJxPCWzgy7se4rLPKtNonMs,34
+pycleancopy-2025.8.22.0.dist-info/RECORD,,
