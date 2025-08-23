@@ -1,0 +1,11 @@
+FermaCongress/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+FermaCongress/annotate.py,sha256=ZSbr9q976E9K87d2U8iW9QnGTe8fYojs2F4qK1mqPlU,4447
+FermaCongress/auth.py,sha256=hnlCzfUnK_Psx9fworToCeUg6tvYqOO6QnzW4FljK68,2909
+FermaCongress/extractferma.py,sha256=i9Ts0oy9DhKOROg8qvXXjdWUHHpQwYI_VYZG_VW-JYU,16254
+FermaCongress/formatexcel.py,sha256=eqgeT_IqoROZ7lm0UIhZAuLkVYOV-nNkuIzam0w6yHY,18414
+FermaCongress/planner.py,sha256=69hlmzmSrEO2Y_7WurHlzEpnnohl01RnCUucGWtWDyk,2308
+FermaCongress/postferma.py,sha256=VGy2hIMd66n56ndAzjjDxWag5lo5apyZrSBKvdiBvAg,2154
+fermacongress-1.0.2.dist-info/METADATA,sha256=57zOv79XkisUURXG3rCik_TLL5khfbYDmzkmYEXiqOo,9152
+fermacongress-1.0.2.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+fermacongress-1.0.2.dist-info/top_level.txt,sha256=FVBQcYl41-a2mX1JGNMauYXJSFq28Hk6G5kCsZN-4oE,14
+fermacongress-1.0.2.dist-info/RECORD,,
