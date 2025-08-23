@@ -1,0 +1,11 @@
+waifu2x_python/__init__.py,sha256=q4ZeiWGdIcnEwVaBtlMxNsWw4epNNftNF9ccdHvYThI,655
+waifu2x_python/cli.py,sha256=_bgG5p0nNdgDaAb1tR0e2jhyBmxaDAV2O_OG6trIuq0,2752
+waifu2x_python/config.py,sha256=oX8gtu47PcjsCrbe3pbD4vrcUVQrm3lvhE6Mh9bQpKM,1166
+waifu2x_python/core.py,sha256=K5COi_fZXOiMzhOlTuRhCX1i36Gwk0h6wK_OrxzP3Tw,10118
+waifu2x_python/exceptions.py,sha256=RqbON_GjNf2liHFqVdC7ja0ElUL0VBgr93JtpuHAw7c,556
+waifu2x_python/utils.py,sha256=oZWGduoM4FZe7c8Q8LfUcvKQ9Xa3rIUCqOBJCQYNblo,2203
+waifu2x_python-1.0.2.dist-info/METADATA,sha256=X3zv2FFRdhC0UpakEyqnWLkrxQcbxX_4sD1hTx7tmkI,1519
+waifu2x_python-1.0.2.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+waifu2x_python-1.0.2.dist-info/entry_points.txt,sha256=_D9_fryWKiatgllHSdD6ifjamXf9Gd6s9_stltn98cQ,60
+waifu2x_python-1.0.2.dist-info/top_level.txt,sha256=MCPO-AvrpRWd0R4FWGSi5-x4BL84UQNuWYGQan5mIEA,15
+waifu2x_python-1.0.2.dist-info/RECORD,,
