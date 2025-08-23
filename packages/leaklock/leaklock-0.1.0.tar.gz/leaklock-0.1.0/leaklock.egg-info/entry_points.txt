@@ -1,0 +1,2 @@
+[console_scripts]
+leaklock = leaklock.cli:main

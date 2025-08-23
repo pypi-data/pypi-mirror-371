@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "leaklock"
+version = "0.1.0"
+description = "Stops API key leaks by blocking commits with secrets before they reach GitHub."
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [{name = "Ahmed Muawia", email = "amuawia666@email.com"}]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License"
+]
+
+[project.scripts]
+leaklock = "leaklock.cli:main"

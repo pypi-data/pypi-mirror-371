@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+leaklock/__init__.py
+leaklock/cli.py
+leaklock/secret_scanner.py
+leaklock.egg-info/PKG-INFO
+leaklock.egg-info/SOURCES.txt
+leaklock.egg-info/dependency_links.txt
+leaklock.egg-info/entry_points.txt
+leaklock.egg-info/top_level.txt
