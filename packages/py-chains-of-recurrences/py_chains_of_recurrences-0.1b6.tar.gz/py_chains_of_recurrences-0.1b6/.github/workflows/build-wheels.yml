@@ -1,0 +1,54 @@
+name: Build wheels
+
+on:
+  push:
+    branches: [ main ]
+    tags: [ "v*" ]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  build:
+    name: cibuildwheel (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ ubuntu-22.04, macos-13, windows-latest ]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install build tooling
+        run: python -m pip install -U pip build cibuildwheel==2.21.3
+
+      - name: Build wheels
+        env:
+          CIBW_BUILD_VERBOSITY: "3"
+          CIBW_SKIP: "pp* *_i686 *musllinux*"
+          CIBW_ARCHS_LINUX: "x86_64"
+          CIBW_MANYLINUX_X86_64_IMAGE: "manylinux_2_28"
+        run: python -m cibuildwheel --output-dir dist
+
+      - name: Build sdist (once)
+        if: runner.os == 'Linux'
+        run: python -m build --sdist -o dist
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist-${{ matrix.os }}
+          path: dist/*
+
+      - name: Publish to PyPI (Trusted Publisher)
+        if: startsWith(github.ref, 'refs/tags/v') && runner.os == 'Linux'
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages_dir: dist
