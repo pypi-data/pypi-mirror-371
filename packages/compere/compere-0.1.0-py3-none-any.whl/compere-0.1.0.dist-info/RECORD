@@ -1,0 +1,16 @@
+compere/__init__.py,sha256=o9o49gHKMnOuCFpF_DgLxkhpYV7nDyXrr9DEgSoe6oc,139
+compere/cli.py,sha256=heqPVbFkxYCwxfL0KwytnfsTgtF9T4SAP4_MHX2inZU,491
+compere/main.py,sha256=WWM0yiastdQBunK5hHwTdVKoXctWOZbkOv-SdKi7ucE,1375
+compere/modules/__init__.py,sha256=0UxldhvE3ZXpQcmYk4JnrW9A_j1-yqIuQwurCf47aaU,56
+compere/modules/comparison.py,sha256=iLOdcrQEMzW1Ufls-5qn7Y6Y0K8cpEpqrwOCT9ih05E,1400
+compere/modules/database.py,sha256=zmQ8dwL4yl-YyZjFYbn03tOnrvvUZUOUURVUNBRMdOU,822
+compere/modules/entity.py,sha256=FfVWPJX6sL51oOA0lhx_b8y36t2hULjRH4j4cEC-_l0,787
+compere/modules/mab.py,sha256=NHvo4Ksm5EJPTwoR3R2wYCXQ-ANgdw3gjFEqzZZXAhE,2825
+compere/modules/models.py,sha256=kD6uV3XHXnOoWkIKd8XD-MFCOtaYS89zDYaq3a6fgWY,1504
+compere/modules/rating.py,sha256=6HdNK-lYhGoubAXnIOyrQfjzkFY87Ffjb0N9V-B2nEg,894
+compere/modules/similarity.py,sha256=e9NCjelfik9h6G0njnj4u7LEczMP0P5Yfd_qTTMsS84,1131
+compere-0.1.0.dist-info/LICENSE,sha256=seMH8w6sjbQjkwtehcyOfTMp7EMuuR-JFia7XB8qv6o,1071
+compere-0.1.0.dist-info/METADATA,sha256=gFG67qz8m-7EXcZ4T_-qOf0Ep-7XF-oSUhXYzSz3Qh4,9804
+compere-0.1.0.dist-info/WHEEL,sha256=b4K_helf-jlQoXBBETfwnf4B04YC67LOev0jo4fX5m8,88
+compere-0.1.0.dist-info/entry_points.txt,sha256=CnjNQ-920UqzS13NcxAu6AIBpCDaEuemomCUwd0Sihs,44
+compere-0.1.0.dist-info/RECORD,,
