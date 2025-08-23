@@ -1,0 +1,1444 @@
+
+#pragma once
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef HIPO_MPI_IMPORTS
+#define MPI_COMM_NULL hipo_MPI_COMM_NULL
+#define MPI_OP_NULL hipo_MPI_OP_NULL
+#define MPI_GROUP_NULL hipo_MPI_GROUP_NULL
+#define MPI_DATATYPE_NULL hipo_MPI_DATATYPE_NULL
+#define MPI_REQUEST_NULL hipo_MPI_REQUEST_NULL
+#define MPI_ERRHANDLER_NULL hipo_MPI_ERRHANDLER_NULL
+#define MPI_IDENT hipo_MPI_IDENT
+#define MPI_CONGRUENT hipo_MPI_CONGRUENT
+#define MPI_SIMILAR hipo_MPI_SIMILAR
+#define MPI_UNEQUAL hipo_MPI_UNEQUAL
+#define MPI_CHAR hipo_MPI_CHAR
+#define MPI_SIGNED_CHAR hipo_MPI_SIGNED_CHAR
+#define MPI_UNSIGNED_CHAR hipo_MPI_UNSIGNED_CHAR
+#define MPI_BYTE hipo_MPI_BYTE
+#define MPI_WCHAR hipo_MPI_WCHAR
+#define MPI_SHORT hipo_MPI_SHORT
+#define MPI_UNSIGNED_SHORT hipo_MPI_UNSIGNED_SHORT
+#define MPI_INT hipo_MPI_INT
+#define MPI_UNSIGNED hipo_MPI_UNSIGNED
+#define MPI_LONG hipo_MPI_LONG
+#define MPI_UNSIGNED_LONG hipo_MPI_UNSIGNED_LONG
+#define MPI_FLOAT hipo_MPI_FLOAT
+#define MPI_DOUBLE hipo_MPI_DOUBLE
+#define MPI_LONG_DOUBLE hipo_MPI_LONG_DOUBLE
+#define MPI_LONG_LONG_INT hipo_MPI_LONG_LONG_INT
+#define MPI_UNSIGNED_LONG_LONG hipo_MPI_UNSIGNED_LONG_LONG
+#define MPI_LONG_LONG hipo_MPI_LONG_LONG
+#define MPI_PACKED hipo_MPI_PACKED
+#define MPI_FLOAT_INT hipo_MPI_FLOAT_INT
+#define MPI_DOUBLE_INT hipo_MPI_DOUBLE_INT
+#define MPI_LONG_INT hipo_MPI_LONG_INT
+#define MPI_SHORT_INT hipo_MPI_SHORT_INT
+#define MPI_2INT hipo_MPI_2INT
+#define MPI_LONG_DOUBLE_INT hipo_MPI_LONG_DOUBLE_INT
+#define MPI_COMPLEX hipo_MPI_COMPLEX
+#define MPI_DOUBLE_COMPLEX hipo_MPI_DOUBLE_COMPLEX
+#define MPI_LOGICAL hipo_MPI_LOGICAL
+#define MPI_REAL hipo_MPI_REAL
+#define MPI_DOUBLE_PRECISION hipo_MPI_DOUBLE_PRECISION
+#define MPI_INTEGER hipo_MPI_INTEGER
+#define MPI_2INTEGER hipo_MPI_2INTEGER
+#define MPI_2REAL hipo_MPI_2REAL
+#define MPI_2DOUBLE_PRECISION hipo_MPI_2DOUBLE_PRECISION
+#define MPI_CHARACTER hipo_MPI_CHARACTER
+#define MPI_REAL4 hipo_MPI_REAL4
+#define MPI_REAL8 hipo_MPI_REAL8
+#define MPI_COMPLEX8 hipo_MPI_COMPLEX8
+#define MPI_COMPLEX16 hipo_MPI_COMPLEX16
+#define MPI_INTEGER1 hipo_MPI_INTEGER1
+#define MPI_INTEGER2 hipo_MPI_INTEGER2
+#define MPI_INTEGER4 hipo_MPI_INTEGER4
+#define MPI_INTEGER8 hipo_MPI_INTEGER8
+#define MPI_INT8_T hipo_MPI_INT8_T
+#define MPI_INT16_T hipo_MPI_INT16_T
+#define MPI_INT32_T hipo_MPI_INT32_T
+#define MPI_INT64_T hipo_MPI_INT64_T
+#define MPI_UINT8_T hipo_MPI_UINT8_T
+#define MPI_UINT16_T hipo_MPI_UINT16_T
+#define MPI_UINT32_T hipo_MPI_UINT32_T
+#define MPI_UINT64_T hipo_MPI_UINT64_T
+#define MPI_C_BOOL hipo_MPI_C_BOOL
+#define MPI_C_FLOAT_COMPLEX hipo_MPI_C_FLOAT_COMPLEX
+#define MPI_C_COMPLEX hipo_MPI_C_COMPLEX
+#define MPI_C_DOUBLE_COMPLEX hipo_MPI_C_DOUBLE_COMPLEX
+#define MPI_C_LONG_DOUBLE_COMPLEX hipo_MPI_C_LONG_DOUBLE_COMPLEX
+#define MPI_AINT hipo_MPI_AINT
+#define MPI_OFFSET hipo_MPI_OFFSET
+#define MPI_TYPECLASS_REAL hipo_MPI_TYPECLASS_REAL
+#define MPI_TYPECLASS_INTEGER hipo_MPI_TYPECLASS_INTEGER
+#define MPI_TYPECLASS_COMPLEX hipo_MPI_TYPECLASS_COMPLEX
+#define MPI_COMM_WORLD hipo_MPI_COMM_WORLD
+#define MPI_COMM_SELF hipo_MPI_COMM_SELF
+#define MPI_GROUP_EMPTY hipo_MPI_GROUP_EMPTY
+#define MPI_WIN_NULL hipo_MPI_WIN_NULL
+#define MPI_FILE_NULL hipo_MPI_FILE_NULL
+#define MPI_MAX hipo_MPI_MAX
+#define MPI_MIN hipo_MPI_MIN
+#define MPI_SUM hipo_MPI_SUM
+#define MPI_PROD hipo_MPI_PROD
+#define MPI_LAND hipo_MPI_LAND
+#define MPI_BAND hipo_MPI_BAND
+#define MPI_LOR hipo_MPI_LOR
+#define MPI_BOR hipo_MPI_BOR
+#define MPI_LXOR hipo_MPI_LXOR
+#define MPI_BXOR hipo_MPI_BXOR
+#define MPI_MINLOC hipo_MPI_MINLOC
+#define MPI_MAXLOC hipo_MPI_MAXLOC
+#define MPI_REPLACE hipo_MPI_REPLACE
+#define MPI_TAG_UB hipo_MPI_TAG_UB
+#define MPI_HOST hipo_MPI_HOST
+#define MPI_IO hipo_MPI_IO
+#define MPI_WTIME_IS_GLOBAL hipo_MPI_WTIME_IS_GLOBAL
+#define MPI_UNIVERSE_SIZE hipo_MPI_UNIVERSE_SIZE
+#define MPI_LASTUSEDCODE hipo_MPI_LASTUSEDCODE
+#define MPI_APPNUM hipo_MPI_APPNUM
+#define MPI_WIN_BASE hipo_MPI_WIN_BASE
+#define MPI_WIN_SIZE hipo_MPI_WIN_SIZE
+#define MPI_WIN_DISP_UNIT hipo_MPI_WIN_DISP_UNIT
+#define MPI_MAX_PROCESSOR_NAME hipo_MPI_MAX_PROCESSOR_NAME
+#define MPI_MAX_ERROR_STRING hipo_MPI_MAX_ERROR_STRING
+#define MPI_MAX_PORT_NAME hipo_MPI_MAX_PORT_NAME
+#define MPI_MAX_OBJECT_NAME hipo_MPI_MAX_OBJECT_NAME
+#define MPI_UNDEFINED hipo_MPI_UNDEFINED
+#define MPI_KEYVAL_INVALID hipo_MPI_KEYVAL_INVALID
+#define MPI_BSEND_OVERHEAD hipo_MPI_BSEND_OVERHEAD
+#define MPI_BOTTOM hipo_MPI_BOTTOM
+#define MPI_PROC_NULL hipo_MPI_PROC_NULL
+#define MPI_ANY_SOURCE hipo_MPI_ANY_SOURCE
+#define MPI_ROOT hipo_MPI_ROOT
+#define MPI_ANY_TAG hipo_MPI_ANY_TAG
+#define MPI_LOCK_EXCLUSIVE hipo_MPI_LOCK_EXCLUSIVE
+#define MPI_LOCK_SHARED hipo_MPI_LOCK_SHARED
+#define MPI_ERRORS_ARE_FATAL hipo_MPI_ERRORS_ARE_FATAL
+#define MPI_ERRORS_RETURN hipo_MPI_ERRORS_RETURN
+#define MPI_NULL_COPY_FN hipo_MPI_NULL_COPY_FN
+#define MPI_NULL_DELETE_FN hipo_MPI_NULL_DELETE_FN
+#define MPI_DUP_FN hipo_MPI_DUP_FN
+#define MPI_COMM_NULL_COPY_FN hipo_MPI_COMM_NULL_COPY_FN
+#define MPI_COMM_NULL_DELETE_FN hipo_MPI_COMM_NULL_DELETE_FN
+#define MPI_COMM_DUP_FN hipo_MPI_COMM_DUP_FN
+#define MPI_WIN_NULL_COPY_FN hipo_MPI_WIN_NULL_COPY_FN
+#define MPI_WIN_NULL_DELETE_FN hipo_MPI_WIN_NULL_DELETE_FN
+#define MPI_WIN_DUP_FN hipo_MPI_WIN_DUP_FN
+#define MPI_TYPE_NULL_COPY_FN hipo_MPI_TYPE_NULL_COPY_FN
+#define MPI_TYPE_NULL_DELETE_FN hipo_MPI_TYPE_NULL_DELETE_FN
+#define MPI_TYPE_DUP_FN hipo_MPI_TYPE_DUP_FN
+#define MPI_INFO_NULL hipo_MPI_INFO_NULL
+#define MPI_MAX_INFO_KEY hipo_MPI_MAX_INFO_KEY
+#define MPI_MAX_INFO_VAL hipo_MPI_MAX_INFO_VAL
+#define MPI_ORDER_C hipo_MPI_ORDER_C
+#define MPI_ORDER_FORTRAN hipo_MPI_ORDER_FORTRAN
+#define MPI_DISTRIBUTE_BLOCK hipo_MPI_DISTRIBUTE_BLOCK
+#define MPI_DISTRIBUTE_CYCLIC hipo_MPI_DISTRIBUTE_CYCLIC
+#define MPI_DISTRIBUTE_NONE hipo_MPI_DISTRIBUTE_NONE
+#define MPI_DISTRIBUTE_DFLT_DARG hipo_MPI_DISTRIBUTE_DFLT_DARG
+#define MPI_IN_PLACE hipo_MPI_IN_PLACE
+#define MPI_MODE_NOCHECK hipo_MPI_MODE_NOCHECK
+#define MPI_MODE_NOSTORE hipo_MPI_MODE_NOSTORE
+#define MPI_MODE_NOPUT hipo_MPI_MODE_NOPUT
+#define MPI_MODE_NOPRECEDE hipo_MPI_MODE_NOPRECEDE
+#define MPI_MODE_NOSUCCEED hipo_MPI_MODE_NOSUCCEED
+#define MPI_Comm_c2f hipo_MPI_Comm_c2f
+#define MPI_Comm_f2c hipo_MPI_Comm_f2c
+#define MPI_Type_c2f hipo_MPI_Type_c2f
+#define MPI_Type_f2c hipo_MPI_Type_f2c
+#define MPI_Group_c2f hipo_MPI_Group_c2f
+#define MPI_Group_f2c hipo_MPI_Group_f2c
+#define MPI_Info_f2c hipo_MPI_Info_f2c
+#define MPI_Request_f2c hipo_MPI_Request_f2c
+#define MPI_Request_c2f hipo_MPI_Request_c2f
+#define MPI_Op_c2f hipo_MPI_Op_c2f
+#define MPI_Op_f2c hipo_MPI_Op_f2c
+#define MPI_Errhandler_c2f hipo_MPI_Errhandler_c2f
+#define MPI_Errhandler_f2c hipo_MPI_Errhandler_f2c
+#define MPI_Win_c2f hipo_MPI_Win_c2f
+#define MPI_Win_f2c hipo_MPI_Win_f2c
+#define MPI_STATUS_IGNORE hipo_MPI_STATUS_IGNORE
+#define MPI_STATUSES_IGNORE hipo_MPI_STATUSES_IGNORE
+#define MPI_ERRCODES_IGNORE hipo_MPI_ERRCODES_IGNORE
+#define MPI_ARGV_NULL hipo_MPI_ARGV_NULL
+#define MPI_ARGVS_NULL hipo_MPI_ARGVS_NULL
+#define MPI_THREAD_SINGLE hipo_MPI_THREAD_SINGLE
+#define MPI_THREAD_FUNNELED hipo_MPI_THREAD_FUNNELED
+#define MPI_THREAD_SERIALIZED hipo_MPI_THREAD_SERIALIZED
+#define MPI_THREAD_MULTIPLE hipo_MPI_THREAD_MULTIPLE
+#define MPI_SUCCESS hipo_MPI_SUCCESS
+#define MPI_ERR_BUFFER hipo_MPI_ERR_BUFFER
+#define MPI_ERR_COUNT hipo_MPI_ERR_COUNT
+#define MPI_ERR_TYPE hipo_MPI_ERR_TYPE
+#define MPI_ERR_TAG hipo_MPI_ERR_TAG
+#define MPI_ERR_COMM hipo_MPI_ERR_COMM
+#define MPI_ERR_RANK hipo_MPI_ERR_RANK
+#define MPI_ERR_ROOT hipo_MPI_ERR_ROOT
+#define MPI_ERR_TRUNCATE hipo_MPI_ERR_TRUNCATE
+#define MPI_ERR_GROUP hipo_MPI_ERR_GROUP
+#define MPI_ERR_OP hipo_MPI_ERR_OP
+#define MPI_ERR_REQUEST hipo_MPI_ERR_REQUEST
+#define MPI_ERR_TOPOLOGY hipo_MPI_ERR_TOPOLOGY
+#define MPI_ERR_DIMS hipo_MPI_ERR_DIMS
+#define MPI_ERR_ARG hipo_MPI_ERR_ARG
+#define MPI_ERR_OTHER hipo_MPI_ERR_OTHER
+#define MPI_ERR_UNKNOWN hipo_MPI_ERR_UNKNOWN
+#define MPI_ERR_INTERN hipo_MPI_ERR_INTERN
+#define MPI_ERR_IN_STATUS hipo_MPI_ERR_IN_STATUS
+#define MPI_ERR_PENDING hipo_MPI_ERR_PENDING
+#define MPI_ERR_ACCESS hipo_MPI_ERR_ACCESS
+#define MPI_ERR_AMODE hipo_MPI_ERR_AMODE
+#define MPI_ERR_BAD_FILE hipo_MPI_ERR_BAD_FILE
+#define MPI_ERR_CONVERSION hipo_MPI_ERR_CONVERSION
+#define MPI_ERR_DUP_DATAREP hipo_MPI_ERR_DUP_DATAREP
+#define MPI_ERR_FILE_EXISTS hipo_MPI_ERR_FILE_EXISTS
+#define MPI_ERR_FILE_IN_USE hipo_MPI_ERR_FILE_IN_USE
+#define MPI_ERR_FILE hipo_MPI_ERR_FILE
+#define MPI_ERR_IO hipo_MPI_ERR_IO
+#define MPI_ERR_NO_SPACE hipo_MPI_ERR_NO_SPACE
+#define MPI_ERR_NO_SUCH_FILE hipo_MPI_ERR_NO_SUCH_FILE
+#define MPI_ERR_READ_ONLY hipo_MPI_ERR_READ_ONLY
+#define MPI_ERR_UNSUPPORTED_DATAREP hipo_MPI_ERR_UNSUPPORTED_DATAREP
+#define MPI_ERR_INFO hipo_MPI_ERR_INFO
+#define MPI_ERR_INFO_KEY hipo_MPI_ERR_INFO_KEY
+#define MPI_ERR_INFO_VALUE hipo_MPI_ERR_INFO_VALUE
+#define MPI_ERR_INFO_NOKEY hipo_MPI_ERR_INFO_NOKEY
+#define MPI_ERR_NAME hipo_MPI_ERR_NAME
+#define MPI_ERR_NO_MEM hipo_MPI_ERR_NO_MEM
+#define MPI_ERR_NOT_SAME hipo_MPI_ERR_NOT_SAME
+#define MPI_ERR_PORT hipo_MPI_ERR_PORT
+#define MPI_ERR_QUOTA hipo_MPI_ERR_QUOTA
+#define MPI_ERR_SERVICE hipo_MPI_ERR_SERVICE
+#define MPI_ERR_SPAWN hipo_MPI_ERR_SPAWN
+#define MPI_ERR_UNSUPPORTED_OPERATION hipo_MPI_ERR_UNSUPPORTED_OPERATION
+#define MPI_ERR_WIN hipo_MPI_ERR_WIN
+#define MPI_ERR_BASE hipo_MPI_ERR_BASE
+#define MPI_ERR_LOCKTYPE hipo_MPI_ERR_LOCKTYPE
+#define MPI_ERR_KEYVAL hipo_MPI_ERR_KEYVAL
+#define MPI_ERR_RMA_CONFLICT hipo_MPI_ERR_RMA_CONFLICT
+#define MPI_ERR_RMA_SYNC hipo_MPI_ERR_RMA_SYNC
+#define MPI_ERR_SIZE hipo_MPI_ERR_SIZE
+#define MPI_ERR_DISP hipo_MPI_ERR_DISP
+#define MPI_ERR_ASSERT hipo_MPI_ERR_ASSERT
+#define MPI_ERR_LASTCODE hipo_MPI_ERR_LASTCODE
+#define MPI_CONVERSION_FN_NULL hipo_MPI_CONVERSION_FN_NULL
+#define MPIO_Request hipo_MPIO_Request
+#define MPI_MODE_RDONLY hipo_MPI_MODE_RDONLY
+#define MPI_MODE_RDWR hipo_MPI_MODE_RDWR
+#define MPI_MODE_WRONLY hipo_MPI_MODE_WRONLY
+#define MPI_MODE_CREATE hipo_MPI_MODE_CREATE
+#define MPI_MODE_EXCL hipo_MPI_MODE_EXCL
+#define MPI_MODE_DELETE_ON_CLOSE hipo_MPI_MODE_DELETE_ON_CLOSE
+#define MPI_MODE_UNIQUE_OPEN hipo_MPI_MODE_UNIQUE_OPEN
+#define MPI_MODE_APPEND hipo_MPI_MODE_APPEND
+#define MPI_MODE_SEQUENTIAL hipo_MPI_MODE_SEQUENTIAL
+#define MPI_DISPLACEMENT_CURRENT hipo_MPI_DISPLACEMENT_CURRENT
+#define MPI_SEEK_SET hipo_MPI_SEEK_SET
+#define MPI_SEEK_CUR hipo_MPI_SEEK_CUR
+#define MPI_SEEK_END hipo_MPI_SEEK_END
+#define MPI_MAX_DATAREP_STRING hipo_MPI_MAX_DATAREP_STRING
+#define MPI_Datatype hipo_MPI_Datatype
+#define MPI_Comm hipo_MPI_Comm
+#define MPI_Group hipo_MPI_Group
+#define MPI_Win hipo_MPI_Win
+#define MPI_Session hipo_MPI_Session
+#define MPI_File hipo_MPI_File
+#define MPI_Op hipo_MPI_Op
+#define MPI_UNWEIGHTED hipo_MPI_UNWEIGHTED
+#define MPI_WEIGHTS_EMPTY hipo_MPI_WEIGHTS_EMPTY
+#define MPI_Handler_function hipo_MPI_Handler_function
+#define MPI_Comm_copy_attr_function hipo_MPI_Comm_copy_attr_function
+#define MPI_Comm_delete_attr_function hipo_MPI_Comm_delete_attr_function
+#define MPI_Type_copy_attr_function hipo_MPI_Type_copy_attr_function
+#define MPI_Type_delete_attr_function hipo_MPI_Type_delete_attr_function
+#define MPI_Win_copy_attr_function hipo_MPI_Win_copy_attr_function
+#define MPI_Win_delete_attr_function hipo_MPI_Win_delete_attr_function
+#define MPI_Comm_errhandler_function hipo_MPI_Comm_errhandler_function
+#define MPI_File_errhandler_function hipo_MPI_File_errhandler_function
+#define MPI_Win_errhandler_function hipo_MPI_Win_errhandler_function
+#define MPI_Comm_errhandler_fn hipo_MPI_Comm_errhandler_fn
+#define MPI_File_errhandler_fn hipo_MPI_File_errhandler_fn
+#define MPI_Win_errhandler_fn hipo_MPI_Win_errhandler_fn
+#define MPI_Errhandler hipo_MPI_Errhandler
+#define MPI_Request hipo_MPI_Request
+#define MPI_Copy_function hipo_MPI_Copy_function
+#define MPI_Delete_function hipo_MPI_Delete_function
+#define MPI_Info hipo_MPI_Info
+#define MPI_Aint hipo_MPI_Aint
+#define MPI_Fint hipo_MPI_Fint
+#define MPI_Offset hipo_MPI_Offset
+#define MPI_Status hipo_MPI_Status
+#define MPI_User_function hipo_MPI_User_function
+#define MPI_F_STATUS_IGNORE hipo_MPI_F_STATUS_IGNORE
+#define MPI_F_STATUSES_IGNORE hipo_MPI_F_STATUSES_IGNORE
+#define MPI_F08_status hipo_MPI_F08_status
+#define MPI_F08_STATUS_IGNORE hipo_MPI_F08_STATUS_IGNORE
+#define MPI_F08_STATUSES_IGNORE hipo_MPI_F08_STATUSES_IGNORE
+#define MPI_Grequest_cancel_function hipo_MPI_Grequest_cancel_function
+#define MPI_Grequest_free_function hipo_MPI_Grequest_free_function
+#define MPI_Grequest_query_function hipo_MPI_Grequest_query_function
+#define MPI_Datarep_conversion_function hipo_MPI_Datarep_conversion_function
+#define MPI_Datarep_extent_function hipo_MPI_Datarep_extent_function
+#define MPI_Status_c2f hipo_MPI_Status_c2f
+#define MPI_Status_f2c hipo_MPI_Status_f2c
+#define MPI_Type_create_f90_integer hipo_MPI_Type_create_f90_integer
+#define MPI_Type_create_f90_real hipo_MPI_Type_create_f90_real
+#define MPI_Type_create_f90_complex hipo_MPI_Type_create_f90_complex
+#define MPI_Attr_delete hipo_MPI_Attr_delete
+#define MPI_Attr_get hipo_MPI_Attr_get
+#define MPI_Attr_put hipo_MPI_Attr_put
+#define MPI_Comm_create_keyval hipo_MPI_Comm_create_keyval
+#define MPI_Comm_delete_attr hipo_MPI_Comm_delete_attr
+#define MPI_Comm_free_keyval hipo_MPI_Comm_free_keyval
+#define MPI_Comm_get_attr hipo_MPI_Comm_get_attr
+#define MPI_Comm_set_attr hipo_MPI_Comm_set_attr
+#define MPI_Keyval_create hipo_MPI_Keyval_create
+#define MPI_Keyval_free hipo_MPI_Keyval_free
+#define MPI_Type_create_keyval hipo_MPI_Type_create_keyval
+#define MPI_Type_delete_attr hipo_MPI_Type_delete_attr
+#define MPI_Type_free_keyval hipo_MPI_Type_free_keyval
+#define MPI_Type_get_attr hipo_MPI_Type_get_attr
+#define MPI_Type_set_attr hipo_MPI_Type_set_attr
+#define MPI_Win_create_keyval hipo_MPI_Win_create_keyval
+#define MPI_Win_delete_attr hipo_MPI_Win_delete_attr
+#define MPI_Win_free_keyval hipo_MPI_Win_free_keyval
+#define MPI_Win_get_attr hipo_MPI_Win_get_attr
+#define MPI_Win_set_attr hipo_MPI_Win_set_attr
+#define MPI_Allgather hipo_MPI_Allgather
+#define MPI_Allgatherv hipo_MPI_Allgatherv
+#define MPI_Allreduce hipo_MPI_Allreduce
+#define MPI_Alltoall hipo_MPI_Alltoall
+#define MPI_Alltoallv hipo_MPI_Alltoallv
+#define MPI_Alltoallw hipo_MPI_Alltoallw
+#define MPI_Barrier hipo_MPI_Barrier
+#define MPI_Bcast hipo_MPI_Bcast
+#define MPI_Exscan hipo_MPI_Exscan
+#define MPI_Gather hipo_MPI_Gather
+#define MPI_Gatherv hipo_MPI_Gatherv
+#define MPI_Reduce hipo_MPI_Reduce
+#define MPI_Reduce_local hipo_MPI_Reduce_local
+#define MPI_Reduce_scatter hipo_MPI_Reduce_scatter
+#define MPI_Scan hipo_MPI_Scan
+#define MPI_Scatter hipo_MPI_Scatter
+#define MPI_Scatterv hipo_MPI_Scatterv
+#define MPI_Comm_compare hipo_MPI_Comm_compare
+#define MPI_Comm_create hipo_MPI_Comm_create
+#define MPI_Comm_dup hipo_MPI_Comm_dup
+#define MPI_Comm_free hipo_MPI_Comm_free
+#define MPI_Comm_get_name hipo_MPI_Comm_get_name
+#define MPI_Comm_group hipo_MPI_Comm_group
+#define MPI_Comm_rank hipo_MPI_Comm_rank
+#define MPI_Comm_remote_group hipo_MPI_Comm_remote_group
+#define MPI_Comm_remote_size hipo_MPI_Comm_remote_size
+#define MPI_Comm_set_name hipo_MPI_Comm_set_name
+#define MPI_Comm_size hipo_MPI_Comm_size
+#define MPI_Comm_split hipo_MPI_Comm_split
+#define MPI_Comm_test_inter hipo_MPI_Comm_test_inter
+#define MPI_Intercomm_create hipo_MPI_Intercomm_create
+#define MPI_Intercomm_merge hipo_MPI_Intercomm_merge
+#define MPI_Get_address hipo_MPI_Get_address
+#define MPI_Get_count hipo_MPI_Get_count
+#define MPI_Get_elements hipo_MPI_Get_elements
+#define MPI_Pack hipo_MPI_Pack
+#define MPI_Pack_external hipo_MPI_Pack_external
+#define MPI_Pack_external_size hipo_MPI_Pack_external_size
+#define MPI_Pack_size hipo_MPI_Pack_size
+#define MPI_Status_set_elements hipo_MPI_Status_set_elements
+#define MPI_Type_commit hipo_MPI_Type_commit
+#define MPI_Type_contiguous hipo_MPI_Type_contiguous
+#define MPI_Type_create_darray hipo_MPI_Type_create_darray
+#define MPI_Type_create_hindexed hipo_MPI_Type_create_hindexed
+#define MPI_Type_create_hvector hipo_MPI_Type_create_hvector
+#define MPI_Type_create_indexed_block hipo_MPI_Type_create_indexed_block
+#define MPI_Type_create_resized hipo_MPI_Type_create_resized
+#define MPI_Type_create_struct hipo_MPI_Type_create_struct
+#define MPI_Type_create_subarray hipo_MPI_Type_create_subarray
+#define MPI_Type_dup hipo_MPI_Type_dup
+#define MPI_Type_free hipo_MPI_Type_free
+#define MPI_Type_get_contents hipo_MPI_Type_get_contents
+#define MPI_Type_get_envelope hipo_MPI_Type_get_envelope
+#define MPI_Type_get_extent hipo_MPI_Type_get_extent
+#define MPI_Type_get_name hipo_MPI_Type_get_name
+#define MPI_Type_get_true_extent hipo_MPI_Type_get_true_extent
+#define MPI_Type_indexed hipo_MPI_Type_indexed
+#define MPI_Type_match_size hipo_MPI_Type_match_size
+#define MPI_Type_set_name hipo_MPI_Type_set_name
+#define MPI_Type_size hipo_MPI_Type_size
+#define MPI_Type_vector hipo_MPI_Type_vector
+#define MPI_Unpack hipo_MPI_Unpack
+#define MPI_Unpack_external hipo_MPI_Unpack_external
+#define MPI_Add_error_class hipo_MPI_Add_error_class
+#define MPI_Add_error_code hipo_MPI_Add_error_code
+#define MPI_Add_error_string hipo_MPI_Add_error_string
+#define MPI_Comm_call_errhandler hipo_MPI_Comm_call_errhandler
+#define MPI_Comm_create_errhandler hipo_MPI_Comm_create_errhandler
+#define MPI_Comm_get_errhandler hipo_MPI_Comm_get_errhandler
+#define MPI_Comm_set_errhandler hipo_MPI_Comm_set_errhandler
+#define MPI_Errhandler_free hipo_MPI_Errhandler_free
+#define MPI_Error_class hipo_MPI_Error_class
+#define MPI_Error_string hipo_MPI_Error_string
+#define MPI_File_call_errhandler hipo_MPI_File_call_errhandler
+#define MPI_File_create_errhandler hipo_MPI_File_create_errhandler
+#define MPI_File_get_errhandler hipo_MPI_File_get_errhandler
+#define MPI_File_set_errhandler hipo_MPI_File_set_errhandler
+#define MPI_Win_call_errhandler hipo_MPI_Win_call_errhandler
+#define MPI_Win_create_errhandler hipo_MPI_Win_create_errhandler
+#define MPI_Win_get_errhandler hipo_MPI_Win_get_errhandler
+#define MPI_Win_set_errhandler hipo_MPI_Win_set_errhandler
+#define MPI_Group_compare hipo_MPI_Group_compare
+#define MPI_Group_difference hipo_MPI_Group_difference
+#define MPI_Group_excl hipo_MPI_Group_excl
+#define MPI_Group_free hipo_MPI_Group_free
+#define MPI_Group_incl hipo_MPI_Group_incl
+#define MPI_Group_intersection hipo_MPI_Group_intersection
+#define MPI_Group_range_excl hipo_MPI_Group_range_excl
+#define MPI_Group_range_incl hipo_MPI_Group_range_incl
+#define MPI_Group_rank hipo_MPI_Group_rank
+#define MPI_Group_size hipo_MPI_Group_size
+#define MPI_Group_translate_ranks hipo_MPI_Group_translate_ranks
+#define MPI_Group_union hipo_MPI_Group_union
+#define MPI_Info_create hipo_MPI_Info_create
+#define MPI_Info_delete hipo_MPI_Info_delete
+#define MPI_Info_dup hipo_MPI_Info_dup
+#define MPI_Info_free hipo_MPI_Info_free
+#define MPI_Info_get hipo_MPI_Info_get
+#define MPI_Info_get_nkeys hipo_MPI_Info_get_nkeys
+#define MPI_Info_get_nthkey hipo_MPI_Info_get_nthkey
+#define MPI_Info_get_valuelen hipo_MPI_Info_get_valuelen
+#define MPI_Info_set hipo_MPI_Info_set
+#define MPI_Abort hipo_MPI_Abort
+#define MPI_Finalize hipo_MPI_Finalize
+#define MPI_Finalized hipo_MPI_Finalized
+#define MPI_Init hipo_MPI_Init
+#define MPI_Init_thread hipo_MPI_Init_thread
+#define MPI_Initialized hipo_MPI_Initialized
+#define MPI_Is_thread_main hipo_MPI_Is_thread_main
+#define MPI_Query_thread hipo_MPI_Query_thread
+#define MPI_Get_processor_name hipo_MPI_Get_processor_name
+#define MPI_Get_version hipo_MPI_Get_version
+#define MPI_Pcontrol hipo_MPI_Pcontrol
+#define MPI_Op_commutative hipo_MPI_Op_commutative
+#define MPI_Op_create hipo_MPI_Op_create
+#define MPI_Op_free hipo_MPI_Op_free
+#define MPI_Bsend hipo_MPI_Bsend
+#define MPI_Bsend_init hipo_MPI_Bsend_init
+#define MPI_Buffer_attach hipo_MPI_Buffer_attach
+#define MPI_Buffer_detach hipo_MPI_Buffer_detach
+#define MPI_Ibsend hipo_MPI_Ibsend
+#define MPI_Iprobe hipo_MPI_Iprobe
+#define MPI_Irecv hipo_MPI_Irecv
+#define MPI_Irsend hipo_MPI_Irsend
+#define MPI_Isend hipo_MPI_Isend
+#define MPI_Issend hipo_MPI_Issend
+#define MPI_Probe hipo_MPI_Probe
+#define MPI_Recv hipo_MPI_Recv
+#define MPI_Recv_init hipo_MPI_Recv_init
+#define MPI_Rsend hipo_MPI_Rsend
+#define MPI_Rsend_init hipo_MPI_Rsend_init
+#define MPI_Send hipo_MPI_Send
+#define MPI_Send_init hipo_MPI_Send_init
+#define MPI_Sendrecv hipo_MPI_Sendrecv
+#define MPI_Sendrecv_replace hipo_MPI_Sendrecv_replace
+#define MPI_Ssend hipo_MPI_Ssend
+#define MPI_Ssend_init hipo_MPI_Ssend_init
+#define MPI_Cancel hipo_MPI_Cancel
+#define MPI_Grequest_complete hipo_MPI_Grequest_complete
+#define MPI_Grequest_start hipo_MPI_Grequest_start
+#define MPI_Request_free hipo_MPI_Request_free
+#define MPI_Request_get_status hipo_MPI_Request_get_status
+#define MPI_Start hipo_MPI_Start
+#define MPI_Startall hipo_MPI_Startall
+#define MPI_Status_set_cancelled hipo_MPI_Status_set_cancelled
+#define MPI_Test hipo_MPI_Test
+#define MPI_Test_cancelled hipo_MPI_Test_cancelled
+#define MPI_Testall hipo_MPI_Testall
+#define MPI_Testany hipo_MPI_Testany
+#define MPI_Testsome hipo_MPI_Testsome
+#define MPI_Wait hipo_MPI_Wait
+#define MPI_Waitall hipo_MPI_Waitall
+#define MPI_Waitany hipo_MPI_Waitany
+#define MPI_Waitsome hipo_MPI_Waitsome
+#define MPI_Accumulate hipo_MPI_Accumulate
+#define MPI_Alloc_mem hipo_MPI_Alloc_mem
+#define MPI_Free_mem hipo_MPI_Free_mem
+#define MPI_Get hipo_MPI_Get
+#define MPI_Put hipo_MPI_Put
+#define MPI_Win_complete hipo_MPI_Win_complete
+#define MPI_Win_create hipo_MPI_Win_create
+#define MPI_Win_fence hipo_MPI_Win_fence
+#define MPI_Win_free hipo_MPI_Win_free
+#define MPI_Win_get_group hipo_MPI_Win_get_group
+#define MPI_Win_get_name hipo_MPI_Win_get_name
+#define MPI_Win_lock hipo_MPI_Win_lock
+#define MPI_Win_post hipo_MPI_Win_post
+#define MPI_Win_set_name hipo_MPI_Win_set_name
+#define MPI_Win_start hipo_MPI_Win_start
+#define MPI_Win_test hipo_MPI_Win_test
+#define MPI_Win_unlock hipo_MPI_Win_unlock
+#define MPI_Win_wait hipo_MPI_Win_wait
+#define MPI_Close_port hipo_MPI_Close_port
+#define MPI_Comm_accept hipo_MPI_Comm_accept
+#define MPI_Comm_connect hipo_MPI_Comm_connect
+#define MPI_Comm_disconnect hipo_MPI_Comm_disconnect
+#define MPI_Comm_get_parent hipo_MPI_Comm_get_parent
+#define MPI_Comm_join hipo_MPI_Comm_join
+#define MPI_Comm_spawn hipo_MPI_Comm_spawn
+#define MPI_Comm_spawn_multiple hipo_MPI_Comm_spawn_multiple
+#define MPI_Lookup_name hipo_MPI_Lookup_name
+#define MPI_Open_port hipo_MPI_Open_port
+#define MPI_Publish_name hipo_MPI_Publish_name
+#define MPI_Unpublish_name hipo_MPI_Unpublish_name
+#define MPI_Wtick hipo_MPI_Wtick
+#define MPI_Wtime hipo_MPI_Wtime
+#define MPI_Cart_coords hipo_MPI_Cart_coords
+#define MPI_Cart_create hipo_MPI_Cart_create
+#define MPI_Cart_get hipo_MPI_Cart_get
+#define MPI_Cart_map hipo_MPI_Cart_map
+#define MPI_Cart_rank hipo_MPI_Cart_rank
+#define MPI_Cart_shift hipo_MPI_Cart_shift
+#define MPI_Cart_sub hipo_MPI_Cart_sub
+#define MPI_Cartdim_get hipo_MPI_Cartdim_get
+#define MPI_Dims_create hipo_MPI_Dims_create
+#define MPI_Graph_create hipo_MPI_Graph_create
+#define MPI_Graph_get hipo_MPI_Graph_get
+#define MPI_Graph_map hipo_MPI_Graph_map
+#define MPI_Graph_neighbors hipo_MPI_Graph_neighbors
+#define MPI_Graph_neighbors_count hipo_MPI_Graph_neighbors_count
+#define MPI_Graphdims_get hipo_MPI_Graphdims_get
+#define MPI_Topo_test hipo_MPI_Topo_test
+#define MPI_Allgather_c hipo_MPI_Allgather_c
+#define MPI_Allgatherv_c hipo_MPI_Allgatherv_c
+#define MPI_Allreduce_c hipo_MPI_Allreduce_c
+#define MPI_Alltoall_c hipo_MPI_Alltoall_c
+#define MPI_Alltoallv_c hipo_MPI_Alltoallv_c
+#define MPI_Alltoallw_c hipo_MPI_Alltoallw_c
+#define MPI_Bcast_c hipo_MPI_Bcast_c
+#define MPI_Exscan_c hipo_MPI_Exscan_c
+#define MPI_Gather_c hipo_MPI_Gather_c
+#define MPI_Gatherv_c hipo_MPI_Gatherv_c
+#define MPI_Reduce_c hipo_MPI_Reduce_c
+#define MPI_Reduce_local_c hipo_MPI_Reduce_local_c
+#define MPI_Reduce_scatter_c hipo_MPI_Reduce_scatter_c
+#define MPI_Scan_c hipo_MPI_Scan_c
+#define MPI_Scatter_c hipo_MPI_Scatter_c
+#define MPI_Scatterv_c hipo_MPI_Scatterv_c
+#define MPI_Get_count_c hipo_MPI_Get_count_c
+#define MPI_Get_elements_c hipo_MPI_Get_elements_c
+#define MPI_Pack_c hipo_MPI_Pack_c
+#define MPI_Pack_external_c hipo_MPI_Pack_external_c
+#define MPI_Pack_external_size_c hipo_MPI_Pack_external_size_c
+#define MPI_Pack_size_c hipo_MPI_Pack_size_c
+#define MPI_Type_contiguous_c hipo_MPI_Type_contiguous_c
+#define MPI_Type_create_darray_c hipo_MPI_Type_create_darray_c
+#define MPI_Type_create_hindexed_c hipo_MPI_Type_create_hindexed_c
+#define MPI_Type_create_hvector_c hipo_MPI_Type_create_hvector_c
+#define MPI_Type_create_indexed_block_c hipo_MPI_Type_create_indexed_block_c
+#define MPI_Type_create_resized_c hipo_MPI_Type_create_resized_c
+#define MPI_Type_create_struct_c hipo_MPI_Type_create_struct_c
+#define MPI_Type_create_subarray_c hipo_MPI_Type_create_subarray_c
+#define MPI_Type_get_contents_c hipo_MPI_Type_get_contents_c
+#define MPI_Type_get_envelope_c hipo_MPI_Type_get_envelope_c
+#define MPI_Type_get_extent_c hipo_MPI_Type_get_extent_c
+#define MPI_Type_get_true_extent_c hipo_MPI_Type_get_true_extent_c
+#define MPI_Type_indexed_c hipo_MPI_Type_indexed_c
+#define MPI_Type_size_c hipo_MPI_Type_size_c
+#define MPI_Type_vector_c hipo_MPI_Type_vector_c
+#define MPI_Unpack_c hipo_MPI_Unpack_c
+#define MPI_Unpack_external_c hipo_MPI_Unpack_external_c
+#define MPI_Op_create_c hipo_MPI_Op_create_c
+#define MPI_Bsend_c hipo_MPI_Bsend_c
+#define MPI_Bsend_init_c hipo_MPI_Bsend_init_c
+#define MPI_Buffer_attach_c hipo_MPI_Buffer_attach_c
+#define MPI_Buffer_detach_c hipo_MPI_Buffer_detach_c
+#define MPI_Ibsend_c hipo_MPI_Ibsend_c
+#define MPI_Irecv_c hipo_MPI_Irecv_c
+#define MPI_Irsend_c hipo_MPI_Irsend_c
+#define MPI_Isend_c hipo_MPI_Isend_c
+#define MPI_Issend_c hipo_MPI_Issend_c
+#define MPI_Recv_c hipo_MPI_Recv_c
+#define MPI_Recv_init_c hipo_MPI_Recv_init_c
+#define MPI_Rsend_c hipo_MPI_Rsend_c
+#define MPI_Rsend_init_c hipo_MPI_Rsend_init_c
+#define MPI_Send_c hipo_MPI_Send_c
+#define MPI_Send_init_c hipo_MPI_Send_init_c
+#define MPI_Sendrecv_c hipo_MPI_Sendrecv_c
+#define MPI_Sendrecv_replace_c hipo_MPI_Sendrecv_replace_c
+#define MPI_Ssend_c hipo_MPI_Ssend_c
+#define MPI_Ssend_init_c hipo_MPI_Ssend_init_c
+#define MPI_Accumulate_c hipo_MPI_Accumulate_c
+#define MPI_Get_c hipo_MPI_Get_c
+#define MPI_Put_c hipo_MPI_Put_c
+#define MPI_Win_create_c hipo_MPI_Win_create_c
+#define MPI_File_open hipo_MPI_File_open
+#define MPI_File_close hipo_MPI_File_close
+#define MPI_File_delete hipo_MPI_File_delete
+#define MPI_File_set_size hipo_MPI_File_set_size
+#define MPI_File_preallocate hipo_MPI_File_preallocate
+#define MPI_File_get_size hipo_MPI_File_get_size
+#define MPI_File_get_group hipo_MPI_File_get_group
+#define MPI_File_get_amode hipo_MPI_File_get_amode
+#define MPI_File_set_info hipo_MPI_File_set_info
+#define MPI_File_get_info hipo_MPI_File_get_info
+#define MPI_File_set_view hipo_MPI_File_set_view
+#define MPI_File_get_view hipo_MPI_File_get_view
+#define MPI_File_read_at hipo_MPI_File_read_at
+#define MPI_File_read_at_all hipo_MPI_File_read_at_all
+#define MPI_File_write_at hipo_MPI_File_write_at
+#define MPI_File_write_at_all hipo_MPI_File_write_at_all
+#define MPI_File_iread_at hipo_MPI_File_iread_at
+#define MPI_File_iwrite_at hipo_MPI_File_iwrite_at
+#define MPI_File_read hipo_MPI_File_read
+#define MPI_File_read_all hipo_MPI_File_read_all
+#define MPI_File_write hipo_MPI_File_write
+#define MPI_File_write_all hipo_MPI_File_write_all
+#define MPI_File_iread hipo_MPI_File_iread
+#define MPI_File_iwrite hipo_MPI_File_iwrite
+#define MPI_File_seek hipo_MPI_File_seek
+#define MPI_File_get_position hipo_MPI_File_get_position
+#define MPI_File_get_byte_offset hipo_MPI_File_get_byte_offset
+#define MPI_File_read_shared hipo_MPI_File_read_shared
+#define MPI_File_write_shared hipo_MPI_File_write_shared
+#define MPI_File_iread_shared hipo_MPI_File_iread_shared
+#define MPI_File_iwrite_shared hipo_MPI_File_iwrite_shared
+#define MPI_File_read_ordered hipo_MPI_File_read_ordered
+#define MPI_File_write_ordered hipo_MPI_File_write_ordered
+#define MPI_File_seek_shared hipo_MPI_File_seek_shared
+#define MPI_File_get_position_shared hipo_MPI_File_get_position_shared
+#define MPI_File_read_at_all_begin hipo_MPI_File_read_at_all_begin
+#define MPI_File_read_at_all_end hipo_MPI_File_read_at_all_end
+#define MPI_File_write_at_all_begin hipo_MPI_File_write_at_all_begin
+#define MPI_File_write_at_all_end hipo_MPI_File_write_at_all_end
+#define MPI_File_read_all_begin hipo_MPI_File_read_all_begin
+#define MPI_File_read_all_end hipo_MPI_File_read_all_end
+#define MPI_File_write_all_begin hipo_MPI_File_write_all_begin
+#define MPI_File_write_all_end hipo_MPI_File_write_all_end
+#define MPI_File_read_ordered_begin hipo_MPI_File_read_ordered_begin
+#define MPI_File_read_ordered_end hipo_MPI_File_read_ordered_end
+#define MPI_File_write_ordered_begin hipo_MPI_File_write_ordered_begin
+#define MPI_File_write_ordered_end hipo_MPI_File_write_ordered_end
+#define MPI_File_get_type_extent hipo_MPI_File_get_type_extent
+#define MPI_Register_datarep hipo_MPI_Register_datarep
+#define MPI_File_set_atomicity hipo_MPI_File_set_atomicity
+#define MPI_File_get_atomicity hipo_MPI_File_get_atomicity
+#define MPI_File_sync hipo_MPI_File_sync
+#define MPI_File_read_c hipo_MPI_File_read_c
+#define MPI_File_read_all_c hipo_MPI_File_read_all_c
+#define MPI_File_read_all_begin_c hipo_MPI_File_read_all_begin_c
+#define MPI_File_read_at_c hipo_MPI_File_read_at_c
+#define MPI_File_read_at_all_c hipo_MPI_File_read_at_all_c
+#define MPI_File_read_at_all_begin_c hipo_MPI_File_read_at_all_begin_c
+#define MPI_File_read_ordered_c hipo_MPI_File_read_ordered_c
+#define MPI_File_read_ordered_begin_c hipo_MPI_File_read_ordered_begin_c
+#define MPI_File_read_shared_c hipo_MPI_File_read_shared_c
+#define MPI_File_write_c hipo_MPI_File_write_c
+#define MPI_File_write_all_c hipo_MPI_File_write_all_c
+#define MPI_File_write_all_begin_c hipo_MPI_File_write_all_begin_c
+#define MPI_File_write_at_c hipo_MPI_File_write_at_c
+#define MPI_File_write_at_all_c hipo_MPI_File_write_at_all_c
+#define MPI_File_write_at_all_begin_c hipo_MPI_File_write_at_all_begin_c
+#define MPI_File_write_ordered_c hipo_MPI_File_write_ordered_c
+#define MPI_File_write_ordered_begin_c hipo_MPI_File_write_ordered_begin_c
+#define MPI_File_write_shared_c hipo_MPI_File_write_shared_c
+#define MPI_File_iread_c hipo_MPI_File_iread_c
+#define MPI_File_iread_at_c hipo_MPI_File_iread_at_c
+#define MPI_File_iread_shared_c hipo_MPI_File_iread_shared_c
+#define MPI_File_iwrite_c hipo_MPI_File_iwrite_c
+#define MPI_File_iwrite_at_c hipo_MPI_File_iwrite_at_c
+#define MPI_File_iwrite_shared_c hipo_MPI_File_iwrite_shared_c
+#define MPI_File_get_type_extent_c hipo_MPI_File_get_type_extent_c
+#define MPI_Register_datarep_c hipo_MPI_Register_datarep_c
+#define MPI_File_f2c hipo_MPI_File_f2c
+#define MPI_File_c2f hipo_MPI_File_c2f
+#define MPI_Address hipo_MPI_Get_address
+#define MPI_Errhandler_create hipo_MPI_Comm_create_errhandler
+#define MPI_Errhandler_get hipo_MPI_Comm_get_errhandler
+#define MPI_Errhandler_set hipo_MPI_Comm_set_errhandler
+#define MPI_Type_struct hipo_MPI_Type_create_struct
+#define MPI_Type_hvector hipo_MPI_Type_create_hvector
+#define MPI_Type_hindexed hipo_MPI_Type_create_hindexed
+#define MPI_Type_extent hipo_MPI_Type_create_extent
+#define MPI_Type_lb hipo_MPI_Type_create_lb
+#define MPI_Type_ub hipo_MPI_Type_create_ub
+#endif
+#define hipo_MPI_COMM_NULL hipo_MPI_COMM_NULL_CONST()
+#define hipo_MPI_OP_NULL hipo_MPI_OP_NULL_CONST()
+#define hipo_MPI_GROUP_NULL hipo_MPI_GROUP_NULL_CONST()
+#define hipo_MPI_DATATYPE_NULL hipo_MPI_DATATYPE_NULL_CONST()
+#define hipo_MPI_REQUEST_NULL hipo_MPI_REQUEST_NULL_CONST()
+#define hipo_MPI_ERRHANDLER_NULL hipo_MPI_ERRHANDLER_NULL_CONST()
+#define hipo_MPI_IDENT hipo_MPI_IDENT_CONST()
+#define hipo_MPI_CONGRUENT hipo_MPI_CONGRUENT_CONST()
+#define hipo_MPI_SIMILAR hipo_MPI_SIMILAR_CONST()
+#define hipo_MPI_UNEQUAL hipo_MPI_UNEQUAL_CONST()
+#define hipo_MPI_CHAR hipo_MPI_CHAR_CONST()
+#define hipo_MPI_SIGNED_CHAR hipo_MPI_SIGNED_CHAR_CONST()
+#define hipo_MPI_UNSIGNED_CHAR hipo_MPI_UNSIGNED_CHAR_CONST()
+#define hipo_MPI_BYTE hipo_MPI_BYTE_CONST()
+#define hipo_MPI_WCHAR hipo_MPI_WCHAR_CONST()
+#define hipo_MPI_SHORT hipo_MPI_SHORT_CONST()
+#define hipo_MPI_UNSIGNED_SHORT hipo_MPI_UNSIGNED_SHORT_CONST()
+#define hipo_MPI_INT hipo_MPI_INT_CONST()
+#define hipo_MPI_UNSIGNED hipo_MPI_UNSIGNED_CONST()
+#define hipo_MPI_LONG hipo_MPI_LONG_CONST()
+#define hipo_MPI_UNSIGNED_LONG hipo_MPI_UNSIGNED_LONG_CONST()
+#define hipo_MPI_FLOAT hipo_MPI_FLOAT_CONST()
+#define hipo_MPI_DOUBLE hipo_MPI_DOUBLE_CONST()
+#define hipo_MPI_LONG_DOUBLE hipo_MPI_LONG_DOUBLE_CONST()
+#define hipo_MPI_LONG_LONG_INT hipo_MPI_LONG_LONG_INT_CONST()
+#define hipo_MPI_UNSIGNED_LONG_LONG hipo_MPI_UNSIGNED_LONG_LONG_CONST()
+#define hipo_MPI_LONG_LONG hipo_MPI_LONG_LONG_CONST()
+#define hipo_MPI_PACKED hipo_MPI_PACKED_CONST()
+#define hipo_MPI_FLOAT_INT hipo_MPI_FLOAT_INT_CONST()
+#define hipo_MPI_DOUBLE_INT hipo_MPI_DOUBLE_INT_CONST()
+#define hipo_MPI_LONG_INT hipo_MPI_LONG_INT_CONST()
+#define hipo_MPI_SHORT_INT hipo_MPI_SHORT_INT_CONST()
+#define hipo_MPI_2INT hipo_MPI_2INT_CONST()
+#define hipo_MPI_LONG_DOUBLE_INT hipo_MPI_LONG_DOUBLE_INT_CONST()
+#define hipo_MPI_COMPLEX hipo_MPI_COMPLEX_CONST()
+#define hipo_MPI_DOUBLE_COMPLEX hipo_MPI_DOUBLE_COMPLEX_CONST()
+#define hipo_MPI_LOGICAL hipo_MPI_LOGICAL_CONST()
+#define hipo_MPI_REAL hipo_MPI_REAL_CONST()
+#define hipo_MPI_DOUBLE_PRECISION hipo_MPI_DOUBLE_PRECISION_CONST()
+#define hipo_MPI_INTEGER hipo_MPI_INTEGER_CONST()
+#define hipo_MPI_2INTEGER hipo_MPI_2INTEGER_CONST()
+#define hipo_MPI_2REAL hipo_MPI_2REAL_CONST()
+#define hipo_MPI_2DOUBLE_PRECISION hipo_MPI_2DOUBLE_PRECISION_CONST()
+#define hipo_MPI_CHARACTER hipo_MPI_CHARACTER_CONST()
+#define hipo_MPI_REAL4 hipo_MPI_REAL4_CONST()
+#define hipo_MPI_REAL8 hipo_MPI_REAL8_CONST()
+#define hipo_MPI_COMPLEX8 hipo_MPI_COMPLEX8_CONST()
+#define hipo_MPI_COMPLEX16 hipo_MPI_COMPLEX16_CONST()
+#define hipo_MPI_INTEGER1 hipo_MPI_INTEGER1_CONST()
+#define hipo_MPI_INTEGER2 hipo_MPI_INTEGER2_CONST()
+#define hipo_MPI_INTEGER4 hipo_MPI_INTEGER4_CONST()
+#define hipo_MPI_INTEGER8 hipo_MPI_INTEGER8_CONST()
+#define hipo_MPI_INT8_T hipo_MPI_INT8_T_CONST()
+#define hipo_MPI_INT16_T hipo_MPI_INT16_T_CONST()
+#define hipo_MPI_INT32_T hipo_MPI_INT32_T_CONST()
+#define hipo_MPI_INT64_T hipo_MPI_INT64_T_CONST()
+#define hipo_MPI_UINT8_T hipo_MPI_UINT8_T_CONST()
+#define hipo_MPI_UINT16_T hipo_MPI_UINT16_T_CONST()
+#define hipo_MPI_UINT32_T hipo_MPI_UINT32_T_CONST()
+#define hipo_MPI_UINT64_T hipo_MPI_UINT64_T_CONST()
+#define hipo_MPI_C_BOOL hipo_MPI_C_BOOL_CONST()
+#define hipo_MPI_C_FLOAT_COMPLEX hipo_MPI_C_FLOAT_COMPLEX_CONST()
+#define hipo_MPI_C_COMPLEX hipo_MPI_C_COMPLEX_CONST()
+#define hipo_MPI_C_DOUBLE_COMPLEX hipo_MPI_C_DOUBLE_COMPLEX_CONST()
+#define hipo_MPI_C_LONG_DOUBLE_COMPLEX hipo_MPI_C_LONG_DOUBLE_COMPLEX_CONST()
+#define hipo_MPI_AINT hipo_MPI_AINT_CONST()
+#define hipo_MPI_OFFSET hipo_MPI_OFFSET_CONST()
+#define hipo_MPI_TYPECLASS_REAL hipo_MPI_TYPECLASS_REAL_CONST()
+#define hipo_MPI_TYPECLASS_INTEGER hipo_MPI_TYPECLASS_INTEGER_CONST()
+#define hipo_MPI_TYPECLASS_COMPLEX hipo_MPI_TYPECLASS_COMPLEX_CONST()
+#define hipo_MPI_COMM_WORLD hipo_MPI_COMM_WORLD_CONST()
+#define hipo_MPI_COMM_SELF hipo_MPI_COMM_SELF_CONST()
+#define hipo_MPI_GROUP_EMPTY hipo_MPI_GROUP_EMPTY_CONST()
+#define hipo_MPI_WIN_NULL hipo_MPI_WIN_NULL_CONST()
+#define hipo_MPI_FILE_NULL hipo_MPI_FILE_NULL_CONST()
+#define hipo_MPI_MAX hipo_MPI_MAX_CONST()
+#define hipo_MPI_MIN hipo_MPI_MIN_CONST()
+#define hipo_MPI_SUM hipo_MPI_SUM_CONST()
+#define hipo_MPI_PROD hipo_MPI_PROD_CONST()
+#define hipo_MPI_LAND hipo_MPI_LAND_CONST()
+#define hipo_MPI_BAND hipo_MPI_BAND_CONST()
+#define hipo_MPI_LOR hipo_MPI_LOR_CONST()
+#define hipo_MPI_BOR hipo_MPI_BOR_CONST()
+#define hipo_MPI_LXOR hipo_MPI_LXOR_CONST()
+#define hipo_MPI_BXOR hipo_MPI_BXOR_CONST()
+#define hipo_MPI_MINLOC hipo_MPI_MINLOC_CONST()
+#define hipo_MPI_MAXLOC hipo_MPI_MAXLOC_CONST()
+#define hipo_MPI_REPLACE hipo_MPI_REPLACE_CONST()
+#define hipo_MPI_TAG_UB hipo_MPI_TAG_UB_CONST()
+#define hipo_MPI_HOST hipo_MPI_HOST_CONST()
+#define hipo_MPI_IO hipo_MPI_IO_CONST()
+#define hipo_MPI_WTIME_IS_GLOBAL hipo_MPI_WTIME_IS_GLOBAL_CONST()
+#define hipo_MPI_UNIVERSE_SIZE hipo_MPI_UNIVERSE_SIZE_CONST()
+#define hipo_MPI_LASTUSEDCODE hipo_MPI_LASTUSEDCODE_CONST()
+#define hipo_MPI_APPNUM hipo_MPI_APPNUM_CONST()
+#define hipo_MPI_WIN_BASE hipo_MPI_WIN_BASE_CONST()
+#define hipo_MPI_WIN_SIZE hipo_MPI_WIN_SIZE_CONST()
+#define hipo_MPI_WIN_DISP_UNIT hipo_MPI_WIN_DISP_UNIT_CONST()
+#define hipo_MPI_MAX_PROCESSOR_NAME 256
+#define hipo_MPI_MAX_ERROR_STRING hipo_MPI_MAX_ERROR_STRING_CONST()
+#define hipo_MPI_MAX_PORT_NAME hipo_MPI_MAX_PORT_NAME_CONST()
+#define hipo_MPI_MAX_OBJECT_NAME hipo_MPI_MAX_OBJECT_NAME_CONST()
+#define hipo_MPI_UNDEFINED hipo_MPI_UNDEFINED_CONST()
+#define hipo_MPI_KEYVAL_INVALID hipo_MPI_KEYVAL_INVALID_CONST()
+#define hipo_MPI_BSEND_OVERHEAD hipo_MPI_BSEND_OVERHEAD_CONST()
+#define hipo_MPI_BOTTOM hipo_MPI_BOTTOM_CONST()
+#define hipo_MPI_PROC_NULL hipo_MPI_PROC_NULL_CONST()
+#define hipo_MPI_ANY_SOURCE hipo_MPI_ANY_SOURCE_CONST()
+#define hipo_MPI_ROOT hipo_MPI_ROOT_CONST()
+#define hipo_MPI_ANY_TAG hipo_MPI_ANY_TAG_CONST()
+#define hipo_MPI_LOCK_EXCLUSIVE hipo_MPI_LOCK_EXCLUSIVE_CONST()
+#define hipo_MPI_LOCK_SHARED hipo_MPI_LOCK_SHARED_CONST()
+#define hipo_MPI_ERRORS_ARE_FATAL hipo_MPI_ERRORS_ARE_FATAL_CONST()
+#define hipo_MPI_ERRORS_RETURN hipo_MPI_ERRORS_RETURN_CONST()
+#define hipo_MPI_NULL_COPY_FN hipo_MPI_NULL_COPY_FN_CONST()
+#define hipo_MPI_NULL_DELETE_FN hipo_MPI_NULL_DELETE_FN_CONST()
+#define hipo_MPI_DUP_FN hipo_MPI_DUP_FN_CONST()
+#define hipo_MPI_COMM_NULL_COPY_FN hipo_MPI_COMM_NULL_COPY_FN_CONST()
+#define hipo_MPI_COMM_NULL_DELETE_FN hipo_MPI_COMM_NULL_DELETE_FN_CONST()
+#define hipo_MPI_COMM_DUP_FN hipo_MPI_COMM_DUP_FN_CONST()
+#define hipo_MPI_WIN_NULL_COPY_FN hipo_MPI_WIN_NULL_COPY_FN_CONST()
+#define hipo_MPI_WIN_NULL_DELETE_FN hipo_MPI_WIN_NULL_DELETE_FN_CONST()
+#define hipo_MPI_WIN_DUP_FN hipo_MPI_WIN_DUP_FN_CONST()
+#define hipo_MPI_TYPE_NULL_COPY_FN hipo_MPI_TYPE_NULL_COPY_FN_CONST()
+#define hipo_MPI_TYPE_NULL_DELETE_FN hipo_MPI_TYPE_NULL_DELETE_FN_CONST()
+#define hipo_MPI_TYPE_DUP_FN hipo_MPI_TYPE_DUP_FN_CONST()
+#define hipo_MPI_INFO_NULL hipo_MPI_INFO_NULL_CONST()
+#define hipo_MPI_MAX_INFO_KEY hipo_MPI_MAX_INFO_KEY_CONST()
+#define hipo_MPI_MAX_INFO_VAL hipo_MPI_MAX_INFO_VAL_CONST()
+#define hipo_MPI_ORDER_C hipo_MPI_ORDER_C_CONST()
+#define hipo_MPI_ORDER_FORTRAN hipo_MPI_ORDER_FORTRAN_CONST()
+#define hipo_MPI_DISTRIBUTE_BLOCK hipo_MPI_DISTRIBUTE_BLOCK_CONST()
+#define hipo_MPI_DISTRIBUTE_CYCLIC hipo_MPI_DISTRIBUTE_CYCLIC_CONST()
+#define hipo_MPI_DISTRIBUTE_NONE hipo_MPI_DISTRIBUTE_NONE_CONST()
+#define hipo_MPI_DISTRIBUTE_DFLT_DARG hipo_MPI_DISTRIBUTE_DFLT_DARG_CONST()
+#define hipo_MPI_IN_PLACE hipo_MPI_IN_PLACE_CONST()
+#define hipo_MPI_MODE_NOCHECK hipo_MPI_MODE_NOCHECK_CONST()
+#define hipo_MPI_MODE_NOSTORE hipo_MPI_MODE_NOSTORE_CONST()
+#define hipo_MPI_MODE_NOPUT hipo_MPI_MODE_NOPUT_CONST()
+#define hipo_MPI_MODE_NOPRECEDE hipo_MPI_MODE_NOPRECEDE_CONST()
+#define hipo_MPI_MODE_NOSUCCEED hipo_MPI_MODE_NOSUCCEED_CONST()
+#define hipo_MPI_STATUS_IGNORE hipo_MPI_STATUS_IGNORE_CONST()
+#define hipo_MPI_STATUSES_IGNORE hipo_MPI_STATUSES_IGNORE_CONST()
+#define hipo_MPI_ERRCODES_IGNORE hipo_MPI_ERRCODES_IGNORE_CONST()
+#define hipo_MPI_ARGV_NULL hipo_MPI_ARGV_NULL_CONST()
+#define hipo_MPI_ARGVS_NULL hipo_MPI_ARGVS_NULL_CONST()
+#define hipo_MPI_THREAD_SINGLE hipo_MPI_THREAD_SINGLE_CONST()
+#define hipo_MPI_THREAD_FUNNELED hipo_MPI_THREAD_FUNNELED_CONST()
+#define hipo_MPI_THREAD_SERIALIZED hipo_MPI_THREAD_SERIALIZED_CONST()
+#define hipo_MPI_THREAD_MULTIPLE hipo_MPI_THREAD_MULTIPLE_CONST()
+#define hipo_MPI_SUCCESS hipo_MPI_SUCCESS_CONST()
+#define hipo_MPI_ERR_BUFFER hipo_MPI_ERR_BUFFER_CONST()
+#define hipo_MPI_ERR_COUNT hipo_MPI_ERR_COUNT_CONST()
+#define hipo_MPI_ERR_TYPE hipo_MPI_ERR_TYPE_CONST()
+#define hipo_MPI_ERR_TAG hipo_MPI_ERR_TAG_CONST()
+#define hipo_MPI_ERR_COMM hipo_MPI_ERR_COMM_CONST()
+#define hipo_MPI_ERR_RANK hipo_MPI_ERR_RANK_CONST()
+#define hipo_MPI_ERR_ROOT hipo_MPI_ERR_ROOT_CONST()
+#define hipo_MPI_ERR_TRUNCATE hipo_MPI_ERR_TRUNCATE_CONST()
+#define hipo_MPI_ERR_GROUP hipo_MPI_ERR_GROUP_CONST()
+#define hipo_MPI_ERR_OP hipo_MPI_ERR_OP_CONST()
+#define hipo_MPI_ERR_REQUEST hipo_MPI_ERR_REQUEST_CONST()
+#define hipo_MPI_ERR_TOPOLOGY hipo_MPI_ERR_TOPOLOGY_CONST()
+#define hipo_MPI_ERR_DIMS hipo_MPI_ERR_DIMS_CONST()
+#define hipo_MPI_ERR_ARG hipo_MPI_ERR_ARG_CONST()
+#define hipo_MPI_ERR_OTHER hipo_MPI_ERR_OTHER_CONST()
+#define hipo_MPI_ERR_UNKNOWN hipo_MPI_ERR_UNKNOWN_CONST()
+#define hipo_MPI_ERR_INTERN hipo_MPI_ERR_INTERN_CONST()
+#define hipo_MPI_ERR_IN_STATUS hipo_MPI_ERR_IN_STATUS_CONST()
+#define hipo_MPI_ERR_PENDING hipo_MPI_ERR_PENDING_CONST()
+#define hipo_MPI_ERR_ACCESS hipo_MPI_ERR_ACCESS_CONST()
+#define hipo_MPI_ERR_AMODE hipo_MPI_ERR_AMODE_CONST()
+#define hipo_MPI_ERR_BAD_FILE hipo_MPI_ERR_BAD_FILE_CONST()
+#define hipo_MPI_ERR_CONVERSION hipo_MPI_ERR_CONVERSION_CONST()
+#define hipo_MPI_ERR_DUP_DATAREP hipo_MPI_ERR_DUP_DATAREP_CONST()
+#define hipo_MPI_ERR_FILE_EXISTS hipo_MPI_ERR_FILE_EXISTS_CONST()
+#define hipo_MPI_ERR_FILE_IN_USE hipo_MPI_ERR_FILE_IN_USE_CONST()
+#define hipo_MPI_ERR_FILE hipo_MPI_ERR_FILE_CONST()
+#define hipo_MPI_ERR_IO hipo_MPI_ERR_IO_CONST()
+#define hipo_MPI_ERR_NO_SPACE hipo_MPI_ERR_NO_SPACE_CONST()
+#define hipo_MPI_ERR_NO_SUCH_FILE hipo_MPI_ERR_NO_SUCH_FILE_CONST()
+#define hipo_MPI_ERR_READ_ONLY hipo_MPI_ERR_READ_ONLY_CONST()
+#define hipo_MPI_ERR_UNSUPPORTED_DATAREP hipo_MPI_ERR_UNSUPPORTED_DATAREP_CONST()
+#define hipo_MPI_ERR_INFO hipo_MPI_ERR_INFO_CONST()
+#define hipo_MPI_ERR_INFO_KEY hipo_MPI_ERR_INFO_KEY_CONST()
+#define hipo_MPI_ERR_INFO_VALUE hipo_MPI_ERR_INFO_VALUE_CONST()
+#define hipo_MPI_ERR_INFO_NOKEY hipo_MPI_ERR_INFO_NOKEY_CONST()
+#define hipo_MPI_ERR_NAME hipo_MPI_ERR_NAME_CONST()
+#define hipo_MPI_ERR_NO_MEM hipo_MPI_ERR_NO_MEM_CONST()
+#define hipo_MPI_ERR_NOT_SAME hipo_MPI_ERR_NOT_SAME_CONST()
+#define hipo_MPI_ERR_PORT hipo_MPI_ERR_PORT_CONST()
+#define hipo_MPI_ERR_QUOTA hipo_MPI_ERR_QUOTA_CONST()
+#define hipo_MPI_ERR_SERVICE hipo_MPI_ERR_SERVICE_CONST()
+#define hipo_MPI_ERR_SPAWN hipo_MPI_ERR_SPAWN_CONST()
+#define hipo_MPI_ERR_UNSUPPORTED_OPERATION hipo_MPI_ERR_UNSUPPORTED_OPERATION_CONST()
+#define hipo_MPI_ERR_WIN hipo_MPI_ERR_WIN_CONST()
+#define hipo_MPI_ERR_BASE hipo_MPI_ERR_BASE_CONST()
+#define hipo_MPI_ERR_LOCKTYPE hipo_MPI_ERR_LOCKTYPE_CONST()
+#define hipo_MPI_ERR_KEYVAL hipo_MPI_ERR_KEYVAL_CONST()
+#define hipo_MPI_ERR_RMA_CONFLICT hipo_MPI_ERR_RMA_CONFLICT_CONST()
+#define hipo_MPI_ERR_RMA_SYNC hipo_MPI_ERR_RMA_SYNC_CONST()
+#define hipo_MPI_ERR_SIZE hipo_MPI_ERR_SIZE_CONST()
+#define hipo_MPI_ERR_DISP hipo_MPI_ERR_DISP_CONST()
+#define hipo_MPI_ERR_ASSERT hipo_MPI_ERR_ASSERT_CONST()
+#define hipo_MPI_ERR_LASTCODE hipo_MPI_ERR_LASTCODE_CONST()
+#define hipo_MPI_CONVERSION_FN_NULL hipo_MPI_CONVERSION_FN_NULL_CONST()
+typedef void* hipo_MPIO_Request;
+#define hipo_MPI_MODE_RDONLY hipo_MPI_MODE_RDONLY_CONST()
+#define hipo_MPI_MODE_RDWR hipo_MPI_MODE_RDWR_CONST()
+#define hipo_MPI_MODE_WRONLY hipo_MPI_MODE_WRONLY_CONST()
+#define hipo_MPI_MODE_CREATE hipo_MPI_MODE_CREATE_CONST()
+#define hipo_MPI_MODE_EXCL hipo_MPI_MODE_EXCL_CONST()
+#define hipo_MPI_MODE_DELETE_ON_CLOSE hipo_MPI_MODE_DELETE_ON_CLOSE_CONST()
+#define hipo_MPI_MODE_UNIQUE_OPEN hipo_MPI_MODE_UNIQUE_OPEN_CONST()
+#define hipo_MPI_MODE_APPEND hipo_MPI_MODE_APPEND_CONST()
+#define hipo_MPI_MODE_SEQUENTIAL hipo_MPI_MODE_SEQUENTIAL_CONST()
+#define hipo_MPI_DISPLACEMENT_CURRENT hipo_MPI_DISPLACEMENT_CURRENT_CONST()
+#define hipo_MPI_SEEK_SET hipo_MPI_SEEK_SET_CONST()
+#define hipo_MPI_SEEK_CUR hipo_MPI_SEEK_CUR_CONST()
+#define hipo_MPI_SEEK_END hipo_MPI_SEEK_END_CONST()
+#define hipo_MPI_MAX_DATAREP_STRING hipo_MPI_MAX_DATAREP_STRING_CONST()
+typedef void* hipo_MPI_Datatype;
+typedef void* hipo_MPI_Comm;
+typedef void* hipo_MPI_Group;
+typedef void* hipo_MPI_Win;
+typedef void* hipo_MPI_Session;
+typedef void* hipo_MPI_File;
+typedef void* hipo_MPI_Op;
+typedef void ( hipo_MPI_Handler_function ) ( hipo_MPI_Comm * , int * , ... );
+typedef int ( hipo_MPI_Comm_copy_attr_function ) ( hipo_MPI_Comm , int , void * , void * , void * , int * );
+typedef int ( hipo_MPI_Comm_delete_attr_function ) ( hipo_MPI_Comm , int , void * , void * );
+typedef int ( hipo_MPI_Type_copy_attr_function ) ( hipo_MPI_Datatype , int , void * , void * , void * , int * );
+typedef int ( hipo_MPI_Type_delete_attr_function ) ( hipo_MPI_Datatype , int , void * , void * );
+typedef int ( hipo_MPI_Win_copy_attr_function ) ( hipo_MPI_Win , int , void * , void * , void * , int * );
+typedef int ( hipo_MPI_Win_delete_attr_function ) ( hipo_MPI_Win , int , void * , void * );
+typedef void ( hipo_MPI_Comm_errhandler_function ) ( hipo_MPI_Comm * , int * , ... );
+typedef void ( hipo_MPI_File_errhandler_function ) ( hipo_MPI_File * , int * , ... );
+typedef void ( hipo_MPI_Win_errhandler_function ) ( hipo_MPI_Win * , int * , ... );
+typedef hipo_MPI_Comm_errhandler_function hipo_MPI_Comm_errhandler_fn;
+typedef hipo_MPI_File_errhandler_function hipo_MPI_File_errhandler_fn;
+typedef hipo_MPI_Win_errhandler_function hipo_MPI_Win_errhandler_fn;
+typedef void* hipo_MPI_Errhandler;
+typedef void* hipo_MPI_Request;
+typedef int ( hipo_MPI_Copy_function ) ( hipo_MPI_Comm , int , void * , void * , void * , int * );
+typedef int ( hipo_MPI_Delete_function ) ( hipo_MPI_Comm , int , void * , void * );
+typedef void* hipo_MPI_Info;
+typedef long hipo_MPI_Aint;
+typedef int hipo_MPI_Fint;
+typedef long hipo_MPI_Offset;
+typedef struct hipo_MPI_Status {  int MPI_SOURCE ; int MPI_TAG ; int MPI_ERROR ; } hipo_MPI_Status;
+typedef void ( hipo_MPI_User_function ) ( void * , void * , int * , hipo_MPI_Datatype * );
+typedef struct { hipo_MPI_Fint count_lo ; hipo_MPI_Fint count_hi_and_cancelled ; hipo_MPI_Fint hipo_MPI_SOURCE ; hipo_MPI_Fint hipo_MPI_TAG ; hipo_MPI_Fint hipo_MPI_ERROR ; } hipo_MPI_F08_status;
+typedef int ( hipo_MPI_Grequest_cancel_function ) ( void * , int );
+typedef int ( hipo_MPI_Grequest_free_function ) ( void * );
+typedef int ( hipo_MPI_Grequest_query_function ) ( void * , hipo_MPI_Status * );
+typedef int ( hipo_MPI_Datarep_conversion_function ) ( void * , hipo_MPI_Datatype , int , void * , hipo_MPI_Offset , void * );
+typedef int ( hipo_MPI_Datarep_extent_function ) ( hipo_MPI_Datatype datatype , hipo_MPI_Aint * , void * );
+int hipo_MPI_Status_c2f ( const hipo_MPI_Status * c_status , hipo_MPI_Fint * f_status );
+int hipo_MPI_Status_f2c ( const hipo_MPI_Fint * f_status , hipo_MPI_Status * c_status );
+int hipo_MPI_Type_create_f90_integer ( int r , hipo_MPI_Datatype * newtype );
+int hipo_MPI_Type_create_f90_real ( int p , int r , hipo_MPI_Datatype * newtype );
+int hipo_MPI_Type_create_f90_complex ( int p , int r , hipo_MPI_Datatype * newtype );
+int hipo_MPI_Attr_delete ( hipo_MPI_Comm comm , int keyval );
+int hipo_MPI_Attr_get ( hipo_MPI_Comm comm , int keyval , void * attribute_val , int * flag );
+int hipo_MPI_Attr_put ( hipo_MPI_Comm comm , int keyval , void * attribute_val );
+int hipo_MPI_Comm_create_keyval ( hipo_MPI_Comm_copy_attr_function * comm_copy_attr_fn , hipo_MPI_Comm_delete_attr_function * comm_delete_attr_fn , int * comm_keyval , void * extra_state );
+int hipo_MPI_Comm_delete_attr ( hipo_MPI_Comm comm , int comm_keyval );
+int hipo_MPI_Comm_free_keyval ( int * comm_keyval );
+int hipo_MPI_Comm_get_attr ( hipo_MPI_Comm comm , int comm_keyval , void * attribute_val , int * flag );
+int hipo_MPI_Comm_set_attr ( hipo_MPI_Comm comm , int comm_keyval , void * attribute_val );
+int hipo_MPI_Keyval_create ( hipo_MPI_Copy_function * copy_fn , hipo_MPI_Delete_function * delete_fn , int * keyval , void * extra_state );
+int hipo_MPI_Keyval_free ( int * keyval );
+int hipo_MPI_Type_create_keyval ( hipo_MPI_Type_copy_attr_function * type_copy_attr_fn , hipo_MPI_Type_delete_attr_function * type_delete_attr_fn , int * type_keyval , void * extra_state );
+int hipo_MPI_Type_delete_attr ( hipo_MPI_Datatype datatype , int type_keyval );
+int hipo_MPI_Type_free_keyval ( int * type_keyval );
+int hipo_MPI_Type_get_attr ( hipo_MPI_Datatype datatype , int type_keyval , void * attribute_val , int * flag );
+int hipo_MPI_Type_set_attr ( hipo_MPI_Datatype datatype , int type_keyval , void * attribute_val );
+int hipo_MPI_Win_create_keyval ( hipo_MPI_Win_copy_attr_function * win_copy_attr_fn , hipo_MPI_Win_delete_attr_function * win_delete_attr_fn , int * win_keyval , void * extra_state );
+int hipo_MPI_Win_delete_attr ( hipo_MPI_Win win , int win_keyval );
+int hipo_MPI_Win_free_keyval ( int * win_keyval );
+int hipo_MPI_Win_get_attr ( hipo_MPI_Win win , int win_keyval , void * attribute_val , int * flag );
+int hipo_MPI_Win_set_attr ( hipo_MPI_Win win , int win_keyval , void * attribute_val );
+int hipo_MPI_Allgather ( const void * sendbuf , int sendcount , hipo_MPI_Datatype sendtype , void * recvbuf , int recvcount , hipo_MPI_Datatype recvtype , hipo_MPI_Comm comm );
+int hipo_MPI_Allgatherv ( const void * sendbuf , int sendcount , hipo_MPI_Datatype sendtype , void * recvbuf , const int recvcounts [ ] , const int displs [ ] , hipo_MPI_Datatype recvtype , hipo_MPI_Comm comm );
+int hipo_MPI_Allreduce ( const void * sendbuf , void * recvbuf , int count , hipo_MPI_Datatype datatype , hipo_MPI_Op op , hipo_MPI_Comm comm );
+int hipo_MPI_Alltoall ( const void * sendbuf , int sendcount , hipo_MPI_Datatype sendtype , void * recvbuf , int recvcount , hipo_MPI_Datatype recvtype , hipo_MPI_Comm comm );
+int hipo_MPI_Alltoallv ( const void * sendbuf , const int sendcounts [ ] , const int sdispls [ ] , hipo_MPI_Datatype sendtype , void * recvbuf , const int recvcounts [ ] , const int rdispls [ ] , hipo_MPI_Datatype recvtype , hipo_MPI_Comm comm );
+int hipo_MPI_Alltoallw ( const void * sendbuf , const int sendcounts [ ] , const int sdispls [ ] , const hipo_MPI_Datatype sendtypes [ ] , void * recvbuf , const int recvcounts [ ] , const int rdispls [ ] , const hipo_MPI_Datatype recvtypes [ ] , hipo_MPI_Comm comm );
+int hipo_MPI_Barrier ( hipo_MPI_Comm comm );
+int hipo_MPI_Bcast ( void * buffer , int count , hipo_MPI_Datatype datatype , int root , hipo_MPI_Comm comm );
+int hipo_MPI_Exscan ( const void * sendbuf , void * recvbuf , int count , hipo_MPI_Datatype datatype , hipo_MPI_Op op , hipo_MPI_Comm comm );
+int hipo_MPI_Gather ( const void * sendbuf , int sendcount , hipo_MPI_Datatype sendtype , void * recvbuf , int recvcount , hipo_MPI_Datatype recvtype , int root , hipo_MPI_Comm comm );
+int hipo_MPI_Gatherv ( const void * sendbuf , int sendcount , hipo_MPI_Datatype sendtype , void * recvbuf , const int recvcounts [ ] , const int displs [ ] , hipo_MPI_Datatype recvtype , int root , hipo_MPI_Comm comm );
+int hipo_MPI_Reduce ( const void * sendbuf , void * recvbuf , int count , hipo_MPI_Datatype datatype , hipo_MPI_Op op , int root , hipo_MPI_Comm comm );
+int hipo_MPI_Reduce_local ( const void * inbuf , void * inoutbuf , int count , hipo_MPI_Datatype datatype , hipo_MPI_Op op );
+int hipo_MPI_Reduce_scatter ( const void * sendbuf , void * recvbuf , const int recvcounts [ ] , hipo_MPI_Datatype datatype , hipo_MPI_Op op , hipo_MPI_Comm comm );
+int hipo_MPI_Scan ( const void * sendbuf , void * recvbuf , int count , hipo_MPI_Datatype datatype , hipo_MPI_Op op , hipo_MPI_Comm comm );
+int hipo_MPI_Scatter ( const void * sendbuf , int sendcount , hipo_MPI_Datatype sendtype , void * recvbuf , int recvcount , hipo_MPI_Datatype recvtype , int root , hipo_MPI_Comm comm );
+int hipo_MPI_Scatterv ( const void * sendbuf , const int sendcounts [ ] , const int displs [ ] , hipo_MPI_Datatype sendtype , void * recvbuf , int recvcount , hipo_MPI_Datatype recvtype , int root , hipo_MPI_Comm comm );
+int hipo_MPI_Comm_compare ( hipo_MPI_Comm comm1 , hipo_MPI_Comm comm2 , int * result );
+int hipo_MPI_Comm_create ( hipo_MPI_Comm comm , hipo_MPI_Group group , hipo_MPI_Comm * newcomm );
+int hipo_MPI_Comm_dup ( hipo_MPI_Comm comm , hipo_MPI_Comm * newcomm );
+int hipo_MPI_Comm_free ( hipo_MPI_Comm * comm );
+int hipo_MPI_Comm_get_name ( hipo_MPI_Comm comm , char * comm_name , int * resultlen );
+int hipo_MPI_Comm_group ( hipo_MPI_Comm comm , hipo_MPI_Group * group );
+int hipo_MPI_Comm_rank ( hipo_MPI_Comm comm , int * rank );
+int hipo_MPI_Comm_remote_group ( hipo_MPI_Comm comm , hipo_MPI_Group * group );
+int hipo_MPI_Comm_remote_size ( hipo_MPI_Comm comm , int * size );
+int hipo_MPI_Comm_set_name ( hipo_MPI_Comm comm , const char * comm_name );
+int hipo_MPI_Comm_size ( hipo_MPI_Comm comm , int * size );
+int hipo_MPI_Comm_split ( hipo_MPI_Comm comm , int color , int key , hipo_MPI_Comm * newcomm );
+int hipo_MPI_Comm_test_inter ( hipo_MPI_Comm comm , int * flag );
+int hipo_MPI_Intercomm_create ( hipo_MPI_Comm local_comm , int local_leader , hipo_MPI_Comm peer_comm , int remote_leader , int tag , hipo_MPI_Comm * newintercomm );
+int hipo_MPI_Intercomm_merge ( hipo_MPI_Comm intercomm , int high , hipo_MPI_Comm * newintracomm );
+int hipo_MPI_Get_address ( const void * location , hipo_MPI_Aint * address );
+int hipo_MPI_Get_count ( const hipo_MPI_Status * status , hipo_MPI_Datatype datatype , int * count );
+int hipo_MPI_Get_elements ( const hipo_MPI_Status * status , hipo_MPI_Datatype datatype , int * count );
+int hipo_MPI_Pack ( const void * inbuf , int incount , hipo_MPI_Datatype datatype , void * outbuf , int outsize , int * position , hipo_MPI_Comm comm );
+int hipo_MPI_Pack_external ( const char * datarep , const void * inbuf , int incount , hipo_MPI_Datatype datatype , void * outbuf , hipo_MPI_Aint outsize , hipo_MPI_Aint * position );
+int hipo_MPI_Pack_external_size ( const char * datarep , int incount , hipo_MPI_Datatype datatype , hipo_MPI_Aint * size );
+int hipo_MPI_Pack_size ( int incount , hipo_MPI_Datatype datatype , hipo_MPI_Comm comm , int * size );
+int hipo_MPI_Status_set_elements ( hipo_MPI_Status * status , hipo_MPI_Datatype datatype , int count );
+int hipo_MPI_Type_commit ( hipo_MPI_Datatype * datatype );
+int hipo_MPI_Type_contiguous ( int count , hipo_MPI_Datatype oldtype , hipo_MPI_Datatype * newtype );
+int hipo_MPI_Type_create_darray ( int size , int rank , int ndims , const int array_of_gsizes [ ] , const int array_of_distribs [ ] , const int array_of_dargs [ ] , const int array_of_psizes [ ] , int order , hipo_MPI_Datatype oldtype , hipo_MPI_Datatype * newtype );
+int hipo_MPI_Type_create_hindexed ( int count , const int array_of_blocklengths [ ] , const hipo_MPI_Aint array_of_displacements [ ] , hipo_MPI_Datatype oldtype , hipo_MPI_Datatype * newtype );
+int hipo_MPI_Type_create_hvector ( int count , int blocklength , hipo_MPI_Aint stride , hipo_MPI_Datatype oldtype , hipo_MPI_Datatype * newtype );
+int hipo_MPI_Type_create_indexed_block ( int count , int blocklength , const int array_of_displacements [ ] , hipo_MPI_Datatype oldtype , hipo_MPI_Datatype * newtype );
+int hipo_MPI_Type_create_resized ( hipo_MPI_Datatype oldtype , hipo_MPI_Aint lb , hipo_MPI_Aint extent , hipo_MPI_Datatype * newtype );
+int hipo_MPI_Type_create_struct ( int count , const int array_of_blocklengths [ ] , const hipo_MPI_Aint array_of_displacements [ ] , const hipo_MPI_Datatype array_of_types [ ] , hipo_MPI_Datatype * newtype );
+int hipo_MPI_Type_create_subarray ( int ndims , const int array_of_sizes [ ] , const int array_of_subsizes [ ] , const int array_of_starts [ ] , int order , hipo_MPI_Datatype oldtype , hipo_MPI_Datatype * newtype );
+int hipo_MPI_Type_dup ( hipo_MPI_Datatype oldtype , hipo_MPI_Datatype * newtype );
+int hipo_MPI_Type_free ( hipo_MPI_Datatype * datatype );
+int hipo_MPI_Type_get_contents ( hipo_MPI_Datatype datatype , int max_integers , int max_addresses , int max_datatypes , int array_of_integers [ ] , hipo_MPI_Aint array_of_addresses [ ] , hipo_MPI_Datatype array_of_datatypes [ ] );
+int hipo_MPI_Type_get_envelope ( hipo_MPI_Datatype datatype , int * num_integers , int * num_addresses , int * num_datatypes , int * combiner );
+int hipo_MPI_Type_get_extent ( hipo_MPI_Datatype datatype , hipo_MPI_Aint * lb , hipo_MPI_Aint * extent );
+int hipo_MPI_Type_get_name ( hipo_MPI_Datatype datatype , char * type_name , int * resultlen );
+int hipo_MPI_Type_get_true_extent ( hipo_MPI_Datatype datatype , hipo_MPI_Aint * true_lb , hipo_MPI_Aint * true_extent );
+int hipo_MPI_Type_indexed ( int count , const int array_of_blocklengths [ ] , const int array_of_displacements [ ] , hipo_MPI_Datatype oldtype , hipo_MPI_Datatype * newtype );
+int hipo_MPI_Type_match_size ( int typeclass , int size , hipo_MPI_Datatype * datatype );
+int hipo_MPI_Type_set_name ( hipo_MPI_Datatype datatype , const char * type_name );
+int hipo_MPI_Type_size ( hipo_MPI_Datatype datatype , int * size );
+int hipo_MPI_Type_vector ( int count , int blocklength , int stride , hipo_MPI_Datatype oldtype , hipo_MPI_Datatype * newtype );
+int hipo_MPI_Unpack ( const void * inbuf , int insize , int * position , void * outbuf , int outcount , hipo_MPI_Datatype datatype , hipo_MPI_Comm comm );
+int hipo_MPI_Unpack_external ( const char datarep [ ] , const void * inbuf , hipo_MPI_Aint insize , hipo_MPI_Aint * position , void * outbuf , int outcount , hipo_MPI_Datatype datatype );
+int hipo_MPI_Add_error_class ( int * errorclass );
+int hipo_MPI_Add_error_code ( int errorclass , int * errorcode );
+int hipo_MPI_Add_error_string ( int errorcode , const char * string );
+int hipo_MPI_Comm_call_errhandler ( hipo_MPI_Comm comm , int errorcode );
+int hipo_MPI_Comm_create_errhandler ( hipo_MPI_Comm_errhandler_function * comm_errhandler_fn , hipo_MPI_Errhandler * errhandler );
+int hipo_MPI_Comm_get_errhandler ( hipo_MPI_Comm comm , hipo_MPI_Errhandler * errhandler );
+int hipo_MPI_Comm_set_errhandler ( hipo_MPI_Comm comm , hipo_MPI_Errhandler errhandler );
+int hipo_MPI_Errhandler_free ( hipo_MPI_Errhandler * errhandler );
+int hipo_MPI_Error_class ( int errorcode , int * errorclass );
+int hipo_MPI_Error_string ( int errorcode , char * string , int * resultlen );
+int hipo_MPI_File_call_errhandler ( hipo_MPI_File fh , int errorcode );
+int hipo_MPI_File_create_errhandler ( hipo_MPI_File_errhandler_function * file_errhandler_fn , hipo_MPI_Errhandler * errhandler );
+int hipo_MPI_File_get_errhandler ( hipo_MPI_File file , hipo_MPI_Errhandler * errhandler );
+int hipo_MPI_File_set_errhandler ( hipo_MPI_File file , hipo_MPI_Errhandler errhandler );
+int hipo_MPI_Win_call_errhandler ( hipo_MPI_Win win , int errorcode );
+int hipo_MPI_Win_create_errhandler ( hipo_MPI_Win_errhandler_function * win_errhandler_fn , hipo_MPI_Errhandler * errhandler );
+int hipo_MPI_Win_get_errhandler ( hipo_MPI_Win win , hipo_MPI_Errhandler * errhandler );
+int hipo_MPI_Win_set_errhandler ( hipo_MPI_Win win , hipo_MPI_Errhandler errhandler );
+int hipo_MPI_Group_compare ( hipo_MPI_Group group1 , hipo_MPI_Group group2 , int * result );
+int hipo_MPI_Group_difference ( hipo_MPI_Group group1 , hipo_MPI_Group group2 , hipo_MPI_Group * newgroup );
+int hipo_MPI_Group_excl ( hipo_MPI_Group group , int n , const int ranks [ ] , hipo_MPI_Group * newgroup );
+int hipo_MPI_Group_free ( hipo_MPI_Group * group );
+int hipo_MPI_Group_incl ( hipo_MPI_Group group , int n , const int ranks [ ] , hipo_MPI_Group * newgroup );
+int hipo_MPI_Group_intersection ( hipo_MPI_Group group1 , hipo_MPI_Group group2 , hipo_MPI_Group * newgroup );
+int hipo_MPI_Group_range_excl ( hipo_MPI_Group group , int n , int ranges [ ] [ 3 ] , hipo_MPI_Group * newgroup );
+int hipo_MPI_Group_range_incl ( hipo_MPI_Group group , int n , int ranges [ ] [ 3 ] , hipo_MPI_Group * newgroup );
+int hipo_MPI_Group_rank ( hipo_MPI_Group group , int * rank );
+int hipo_MPI_Group_size ( hipo_MPI_Group group , int * size );
+int hipo_MPI_Group_translate_ranks ( hipo_MPI_Group group1 , int n , const int ranks1 [ ] , hipo_MPI_Group group2 , int ranks2 [ ] );
+int hipo_MPI_Group_union ( hipo_MPI_Group group1 , hipo_MPI_Group group2 , hipo_MPI_Group * newgroup );
+int hipo_MPI_Info_create ( hipo_MPI_Info * info );
+int hipo_MPI_Info_delete ( hipo_MPI_Info info , const char * key );
+int hipo_MPI_Info_dup ( hipo_MPI_Info info , hipo_MPI_Info * newinfo );
+int hipo_MPI_Info_free ( hipo_MPI_Info * info );
+int hipo_MPI_Info_get ( hipo_MPI_Info info , const char * key , int valuelen , char * value , int * flag );
+int hipo_MPI_Info_get_nkeys ( hipo_MPI_Info info , int * nkeys );
+int hipo_MPI_Info_get_nthkey ( hipo_MPI_Info info , int n , char * key );
+int hipo_MPI_Info_get_valuelen ( hipo_MPI_Info info , const char * key , int * valuelen , int * flag );
+int hipo_MPI_Info_set ( hipo_MPI_Info info , const char * key , const char * value );
+int hipo_MPI_Abort ( hipo_MPI_Comm comm , int errorcode );
+int hipo_MPI_Finalize ( void );
+int hipo_MPI_Finalized ( int * flag );
+int hipo_MPI_Init ( int * argc , char * * * argv );
+int hipo_MPI_Init_thread ( int * argc , char * * * argv , int required , int * provided );
+int hipo_MPI_Initialized ( int * flag );
+int hipo_MPI_Is_thread_main ( int * flag );
+int hipo_MPI_Query_thread ( int * provided );
+int hipo_MPI_Get_processor_name ( char * name , int * resultlen );
+int hipo_MPI_Get_version ( int * version , int * subversion );
+int hipo_MPI_Pcontrol ( const int level , ... );
+int hipo_MPI_Op_commutative ( hipo_MPI_Op op , int * commute );
+int hipo_MPI_Op_create ( hipo_MPI_User_function * user_fn , int commute , hipo_MPI_Op * op );
+int hipo_MPI_Op_free ( hipo_MPI_Op * op );
+int hipo_MPI_Bsend ( const void * buf , int count , hipo_MPI_Datatype datatype , int dest , int tag , hipo_MPI_Comm comm );
+int hipo_MPI_Bsend_init ( const void * buf , int count , hipo_MPI_Datatype datatype , int dest , int tag , hipo_MPI_Comm comm , hipo_MPI_Request * request );
+int hipo_MPI_Buffer_attach ( void * buffer , int size );
+int hipo_MPI_Buffer_detach ( void * buffer_addr , int * size );
+int hipo_MPI_Ibsend ( const void * buf , int count , hipo_MPI_Datatype datatype , int dest , int tag , hipo_MPI_Comm comm , hipo_MPI_Request * request );
+int hipo_MPI_Iprobe ( int source , int tag , hipo_MPI_Comm comm , int * flag , hipo_MPI_Status * status );
+int hipo_MPI_Irecv ( void * buf , int count , hipo_MPI_Datatype datatype , int source , int tag , hipo_MPI_Comm comm , hipo_MPI_Request * request );
+int hipo_MPI_Irsend ( const void * buf , int count , hipo_MPI_Datatype datatype , int dest , int tag , hipo_MPI_Comm comm , hipo_MPI_Request * request );
+int hipo_MPI_Isend ( const void * buf , int count , hipo_MPI_Datatype datatype , int dest , int tag , hipo_MPI_Comm comm , hipo_MPI_Request * request );
+int hipo_MPI_Issend ( const void * buf , int count , hipo_MPI_Datatype datatype , int dest , int tag , hipo_MPI_Comm comm , hipo_MPI_Request * request );
+int hipo_MPI_Probe ( int source , int tag , hipo_MPI_Comm comm , hipo_MPI_Status * status );
+int hipo_MPI_Recv ( void * buf , int count , hipo_MPI_Datatype datatype , int source , int tag , hipo_MPI_Comm comm , hipo_MPI_Status * status );
+int hipo_MPI_Recv_init ( void * buf , int count , hipo_MPI_Datatype datatype , int source , int tag , hipo_MPI_Comm comm , hipo_MPI_Request * request );
+int hipo_MPI_Rsend ( const void * buf , int count , hipo_MPI_Datatype datatype , int dest , int tag , hipo_MPI_Comm comm );
+int hipo_MPI_Rsend_init ( const void * buf , int count , hipo_MPI_Datatype datatype , int dest , int tag , hipo_MPI_Comm comm , hipo_MPI_Request * request );
+int hipo_MPI_Send ( const void * buf , int count , hipo_MPI_Datatype datatype , int dest , int tag , hipo_MPI_Comm comm );
+int hipo_MPI_Send_init ( const void * buf , int count , hipo_MPI_Datatype datatype , int dest , int tag , hipo_MPI_Comm comm , hipo_MPI_Request * request );
+int hipo_MPI_Sendrecv ( const void * sendbuf , int sendcount , hipo_MPI_Datatype sendtype , int dest , int sendtag , void * recvbuf , int recvcount , hipo_MPI_Datatype recvtype , int source , int recvtag , hipo_MPI_Comm comm , hipo_MPI_Status * status );
+int hipo_MPI_Sendrecv_replace ( void * buf , int count , hipo_MPI_Datatype datatype , int dest , int sendtag , int source , int recvtag , hipo_MPI_Comm comm , hipo_MPI_Status * status );
+int hipo_MPI_Ssend ( const void * buf , int count , hipo_MPI_Datatype datatype , int dest , int tag , hipo_MPI_Comm comm );
+int hipo_MPI_Ssend_init ( const void * buf , int count , hipo_MPI_Datatype datatype , int dest , int tag , hipo_MPI_Comm comm , hipo_MPI_Request * request );
+int hipo_MPI_Cancel ( hipo_MPI_Request * request );
+int hipo_MPI_Grequest_complete ( hipo_MPI_Request request );
+int hipo_MPI_Grequest_start ( hipo_MPI_Grequest_query_function * query_fn , hipo_MPI_Grequest_free_function * free_fn , hipo_MPI_Grequest_cancel_function * cancel_fn , void * extra_state , hipo_MPI_Request * request );
+int hipo_MPI_Request_free ( hipo_MPI_Request * request );
+int hipo_MPI_Request_get_status ( hipo_MPI_Request request , int * flag , hipo_MPI_Status * status );
+int hipo_MPI_Start ( hipo_MPI_Request * request );
+int hipo_MPI_Startall ( int count , hipo_MPI_Request array_of_requests [ ] );
+int hipo_MPI_Status_set_cancelled ( hipo_MPI_Status * status , int flag );
+int hipo_MPI_Test ( hipo_MPI_Request * request , int * flag , hipo_MPI_Status * status );
+int hipo_MPI_Test_cancelled ( const hipo_MPI_Status * status , int * flag );
+int hipo_MPI_Testall ( int count , hipo_MPI_Request array_of_requests [ ] , int * flag , hipo_MPI_Status array_of_statuses [ ] );
+int hipo_MPI_Testany ( int count , hipo_MPI_Request array_of_requests [ ] , int * indx , int * flag , hipo_MPI_Status * status );
+int hipo_MPI_Testsome ( int incount , hipo_MPI_Request array_of_requests [ ] , int * outcount , int array_of_indices [ ] , hipo_MPI_Status array_of_statuses [ ] );
+int hipo_MPI_Wait ( hipo_MPI_Request * request , hipo_MPI_Status * status );
+int hipo_MPI_Waitall ( int count , hipo_MPI_Request array_of_requests [ ] , hipo_MPI_Status array_of_statuses [ ] );
+int hipo_MPI_Waitany ( int count , hipo_MPI_Request array_of_requests [ ] , int * indx , hipo_MPI_Status * status );
+int hipo_MPI_Waitsome ( int incount , hipo_MPI_Request array_of_requests [ ] , int * outcount , int array_of_indices [ ] , hipo_MPI_Status array_of_statuses [ ] );
+int hipo_MPI_Accumulate ( const void * origin_addr , int origin_count , hipo_MPI_Datatype origin_datatype , int target_rank , hipo_MPI_Aint target_disp , int target_count , hipo_MPI_Datatype target_datatype , hipo_MPI_Op op , hipo_MPI_Win win );
+int hipo_MPI_Alloc_mem ( hipo_MPI_Aint size , hipo_MPI_Info info , void * baseptr );
+int hipo_MPI_Free_mem ( void * base );
+int hipo_MPI_Get ( void * origin_addr , int origin_count , hipo_MPI_Datatype origin_datatype , int target_rank , hipo_MPI_Aint target_disp , int target_count , hipo_MPI_Datatype target_datatype , hipo_MPI_Win win );
+int hipo_MPI_Put ( const void * origin_addr , int origin_count , hipo_MPI_Datatype origin_datatype , int target_rank , hipo_MPI_Aint target_disp , int target_count , hipo_MPI_Datatype target_datatype , hipo_MPI_Win win );
+int hipo_MPI_Win_complete ( hipo_MPI_Win win );
+int hipo_MPI_Win_create ( void * base , hipo_MPI_Aint size , int disp_unit , hipo_MPI_Info info , hipo_MPI_Comm comm , hipo_MPI_Win * win );
+int hipo_MPI_Win_fence ( int assert , hipo_MPI_Win win );
+int hipo_MPI_Win_free ( hipo_MPI_Win * win );
+int hipo_MPI_Win_get_group ( hipo_MPI_Win win , hipo_MPI_Group * group );
+int hipo_MPI_Win_get_name ( hipo_MPI_Win win , char * win_name , int * resultlen );
+int hipo_MPI_Win_lock ( int lock_type , int rank , int assert , hipo_MPI_Win win );
+int hipo_MPI_Win_post ( hipo_MPI_Group group , int assert , hipo_MPI_Win win );
+int hipo_MPI_Win_set_name ( hipo_MPI_Win win , const char * win_name );
+int hipo_MPI_Win_start ( hipo_MPI_Group group , int assert , hipo_MPI_Win win );
+int hipo_MPI_Win_test ( hipo_MPI_Win win , int * flag );
+int hipo_MPI_Win_unlock ( int rank , hipo_MPI_Win win );
+int hipo_MPI_Win_wait ( hipo_MPI_Win win );
+int hipo_MPI_Close_port ( const char * port_name );
+int hipo_MPI_Comm_accept ( const char * port_name , hipo_MPI_Info info , int root , hipo_MPI_Comm comm , hipo_MPI_Comm * newcomm );
+int hipo_MPI_Comm_connect ( const char * port_name , hipo_MPI_Info info , int root , hipo_MPI_Comm comm , hipo_MPI_Comm * newcomm );
+int hipo_MPI_Comm_disconnect ( hipo_MPI_Comm * comm );
+int hipo_MPI_Comm_get_parent ( hipo_MPI_Comm * parent );
+int hipo_MPI_Comm_join ( int fd , hipo_MPI_Comm * intercomm );
+int hipo_MPI_Comm_spawn ( const char * command , char * argv [ ] , int maxprocs , hipo_MPI_Info info , int root , hipo_MPI_Comm comm , hipo_MPI_Comm * intercomm , int array_of_errcodes [ ] );
+int hipo_MPI_Comm_spawn_multiple ( int count , char * array_of_commands [ ] , char * * array_of_argv [ ] , const int array_of_maxprocs [ ] , const hipo_MPI_Info array_of_info [ ] , int root , hipo_MPI_Comm comm , hipo_MPI_Comm * intercomm , int array_of_errcodes [ ] );
+int hipo_MPI_Lookup_name ( const char * service_name , hipo_MPI_Info info , char * port_name );
+int hipo_MPI_Open_port ( hipo_MPI_Info info , char * port_name );
+int hipo_MPI_Publish_name ( const char * service_name , hipo_MPI_Info info , const char * port_name );
+int hipo_MPI_Unpublish_name ( const char * service_name , hipo_MPI_Info info , const char * port_name );
+double hipo_MPI_Wtick ( void );
+double hipo_MPI_Wtime ( void );
+int hipo_MPI_Cart_coords ( hipo_MPI_Comm comm , int rank , int maxdims , int coords [ ] );
+int hipo_MPI_Cart_create ( hipo_MPI_Comm comm_old , int ndims , const int dims [ ] , const int periods [ ] , int reorder , hipo_MPI_Comm * comm_cart );
+int hipo_MPI_Cart_get ( hipo_MPI_Comm comm , int maxdims , int dims [ ] , int periods [ ] , int coords [ ] );
+int hipo_MPI_Cart_map ( hipo_MPI_Comm comm , int ndims , const int dims [ ] , const int periods [ ] , int * newrank );
+int hipo_MPI_Cart_rank ( hipo_MPI_Comm comm , const int coords [ ] , int * rank );
+int hipo_MPI_Cart_shift ( hipo_MPI_Comm comm , int direction , int disp , int * rank_source , int * rank_dest );
+int hipo_MPI_Cart_sub ( hipo_MPI_Comm comm , const int remain_dims [ ] , hipo_MPI_Comm * newcomm );
+int hipo_MPI_Cartdim_get ( hipo_MPI_Comm comm , int * ndims );
+int hipo_MPI_Dims_create ( int nnodes , int ndims , int dims [ ] );
+int hipo_MPI_Graph_create ( hipo_MPI_Comm comm_old , int nnodes , const int indx [ ] , const int edges [ ] , int reorder , hipo_MPI_Comm * comm_graph );
+int hipo_MPI_Graph_get ( hipo_MPI_Comm comm , int maxindex , int maxedges , int indx [ ] , int edges [ ] );
+int hipo_MPI_Graph_map ( hipo_MPI_Comm comm , int nnodes , const int indx [ ] , const int edges [ ] , int * newrank );
+int hipo_MPI_Graph_neighbors ( hipo_MPI_Comm comm , int rank , int maxneighbors , int neighbors [ ] );
+int hipo_MPI_Graph_neighbors_count ( hipo_MPI_Comm comm , int rank , int * nneighbors );
+int hipo_MPI_Graphdims_get ( hipo_MPI_Comm comm , int * nnodes , int * nedges );
+int hipo_MPI_Topo_test ( hipo_MPI_Comm comm , int * status );
+int hipo_MPI_File_open ( hipo_MPI_Comm comm , const char * filename , int amode , hipo_MPI_Info info , hipo_MPI_File * fh );
+int hipo_MPI_File_close ( hipo_MPI_File * fh );
+int hipo_MPI_File_delete ( const char * filename , hipo_MPI_Info info );
+int hipo_MPI_File_set_size ( hipo_MPI_File fh , hipo_MPI_Offset size );
+int hipo_MPI_File_preallocate ( hipo_MPI_File fh , hipo_MPI_Offset size );
+int hipo_MPI_File_get_size ( hipo_MPI_File fh , hipo_MPI_Offset * size );
+int hipo_MPI_File_get_group ( hipo_MPI_File fh , hipo_MPI_Group * group );
+int hipo_MPI_File_get_amode ( hipo_MPI_File fh , int * amode );
+int hipo_MPI_File_set_info ( hipo_MPI_File fh , hipo_MPI_Info info );
+int hipo_MPI_File_get_info ( hipo_MPI_File fh , hipo_MPI_Info * info_used );
+int hipo_MPI_File_set_view ( hipo_MPI_File fh , hipo_MPI_Offset disp , hipo_MPI_Datatype etype , hipo_MPI_Datatype filetype , const char * datarep , hipo_MPI_Info info );
+int hipo_MPI_File_get_view ( hipo_MPI_File fh , hipo_MPI_Offset * disp , hipo_MPI_Datatype * etype , hipo_MPI_Datatype * filetype , char * datarep );
+int hipo_MPI_File_read_at ( hipo_MPI_File fh , hipo_MPI_Offset offset , void * buf , int count , hipo_MPI_Datatype datatype , hipo_MPI_Status * status );
+int hipo_MPI_File_read_at_all ( hipo_MPI_File fh , hipo_MPI_Offset offset , void * buf , int count , hipo_MPI_Datatype datatype , hipo_MPI_Status * status );
+int hipo_MPI_File_write_at ( hipo_MPI_File fh , hipo_MPI_Offset offset , const void * buf , int count , hipo_MPI_Datatype datatype , hipo_MPI_Status * status );
+int hipo_MPI_File_write_at_all ( hipo_MPI_File fh , hipo_MPI_Offset offset , const void * buf , int count , hipo_MPI_Datatype datatype , hipo_MPI_Status * status );
+int hipo_MPI_File_iread_at ( hipo_MPI_File fh , hipo_MPI_Offset offset , void * buf , int count , hipo_MPI_Datatype datatype , hipo_MPIO_Request * request );
+int hipo_MPI_File_iwrite_at ( hipo_MPI_File fh , hipo_MPI_Offset offset , const void * buf , int count , hipo_MPI_Datatype datatype , hipo_MPIO_Request * request );
+int hipo_MPI_File_read ( hipo_MPI_File fh , void * buf , int count , hipo_MPI_Datatype datatype , hipo_MPI_Status * status );
+int hipo_MPI_File_read_all ( hipo_MPI_File fh , void * buf , int count , hipo_MPI_Datatype datatype , hipo_MPI_Status * status );
+int hipo_MPI_File_write ( hipo_MPI_File fh , const void * buf , int count , hipo_MPI_Datatype datatype , hipo_MPI_Status * status );
+int hipo_MPI_File_write_all ( hipo_MPI_File fh , const void * buf , int count , hipo_MPI_Datatype datatype , hipo_MPI_Status * status );
+int hipo_MPI_File_iread ( hipo_MPI_File fh , void * buf , int count , hipo_MPI_Datatype datatype , hipo_MPIO_Request * request );
+int hipo_MPI_File_iwrite ( hipo_MPI_File fh , const void * buf , int count , hipo_MPI_Datatype datatype , hipo_MPIO_Request * request );
+int hipo_MPI_File_seek ( hipo_MPI_File fh , hipo_MPI_Offset offset , int whence );
+int hipo_MPI_File_get_position ( hipo_MPI_File fh , hipo_MPI_Offset * offset );
+int hipo_MPI_File_get_byte_offset ( hipo_MPI_File fh , hipo_MPI_Offset offset , hipo_MPI_Offset * disp );
+int hipo_MPI_File_read_shared ( hipo_MPI_File fh , void * buf , int count , hipo_MPI_Datatype datatype , hipo_MPI_Status * status );
+int hipo_MPI_File_write_shared ( hipo_MPI_File fh , const void * buf , int count , hipo_MPI_Datatype datatype , hipo_MPI_Status * status );
+int hipo_MPI_File_iread_shared ( hipo_MPI_File fh , void * buf , int count , hipo_MPI_Datatype datatype , hipo_MPIO_Request * request );
+int hipo_MPI_File_iwrite_shared ( hipo_MPI_File fh , const void * buf , int count , hipo_MPI_Datatype datatype , hipo_MPIO_Request * request );
+int hipo_MPI_File_read_ordered ( hipo_MPI_File fh , void * buf , int count , hipo_MPI_Datatype datatype , hipo_MPI_Status * status );
+int hipo_MPI_File_write_ordered ( hipo_MPI_File fh , const void * buf , int count , hipo_MPI_Datatype datatype , hipo_MPI_Status * status );
+int hipo_MPI_File_seek_shared ( hipo_MPI_File fh , hipo_MPI_Offset offset , int whence );
+int hipo_MPI_File_get_position_shared ( hipo_MPI_File fh , hipo_MPI_Offset * offset );
+int hipo_MPI_File_read_at_all_begin ( hipo_MPI_File fh , hipo_MPI_Offset offset , void * buf , int count , hipo_MPI_Datatype datatype );
+int hipo_MPI_File_read_at_all_end ( hipo_MPI_File fh , void * buf , hipo_MPI_Status * status );
+int hipo_MPI_File_write_at_all_begin ( hipo_MPI_File fh , hipo_MPI_Offset offset , const void * buf , int count , hipo_MPI_Datatype datatype );
+int hipo_MPI_File_write_at_all_end ( hipo_MPI_File fh , const void * buf , hipo_MPI_Status * status );
+int hipo_MPI_File_read_all_begin ( hipo_MPI_File fh , void * buf , int count , hipo_MPI_Datatype datatype );
+int hipo_MPI_File_read_all_end ( hipo_MPI_File fh , void * buf , hipo_MPI_Status * status );
+int hipo_MPI_File_write_all_begin ( hipo_MPI_File fh , const void * buf , int count , hipo_MPI_Datatype datatype );
+int hipo_MPI_File_write_all_end ( hipo_MPI_File fh , const void * buf , hipo_MPI_Status * status );
+int hipo_MPI_File_read_ordered_begin ( hipo_MPI_File fh , void * buf , int count , hipo_MPI_Datatype datatype );
+int hipo_MPI_File_read_ordered_end ( hipo_MPI_File fh , void * buf , hipo_MPI_Status * status );
+int hipo_MPI_File_write_ordered_begin ( hipo_MPI_File fh , const void * buf , int count , hipo_MPI_Datatype datatype );
+int hipo_MPI_File_write_ordered_end ( hipo_MPI_File fh , const void * buf , hipo_MPI_Status * status );
+int hipo_MPI_File_get_type_extent ( hipo_MPI_File fh , hipo_MPI_Datatype datatype , hipo_MPI_Aint * extent );
+int hipo_MPI_Register_datarep ( const char * datarep , hipo_MPI_Datarep_conversion_function * read_conversion_fn , hipo_MPI_Datarep_conversion_function * write_conversion_fn , hipo_MPI_Datarep_extent_function * dtype_file_extent_fn , void * extra_state );
+int hipo_MPI_File_set_atomicity ( hipo_MPI_File fh , int flag );
+int hipo_MPI_File_get_atomicity ( hipo_MPI_File fh , int * flag );
+int hipo_MPI_File_sync ( hipo_MPI_File fh );
+hipo_MPI_File hipo_MPI_File_f2c ( hipo_MPI_Fint file );
+hipo_MPI_Fint hipo_MPI_File_c2f ( hipo_MPI_File file );
+hipo_MPI_Comm hipo_MPI_COMM_NULL_CONST();
+void* hipo_MPI_OP_NULL_CONST();
+void* hipo_MPI_GROUP_NULL_CONST();
+hipo_MPI_Datatype hipo_MPI_DATATYPE_NULL_CONST();
+hipo_MPI_Request hipo_MPI_REQUEST_NULL_CONST();
+hipo_MPI_Errhandler hipo_MPI_ERRHANDLER_NULL_CONST();
+int hipo_MPI_IDENT_CONST();
+int hipo_MPI_CONGRUENT_CONST();
+void* hipo_MPI_SIMILAR_CONST();
+void* hipo_MPI_UNEQUAL_CONST();
+hipo_MPI_Datatype hipo_MPI_CHAR_CONST();
+void* hipo_MPI_SIGNED_CHAR_CONST();
+void* hipo_MPI_UNSIGNED_CHAR_CONST();
+hipo_MPI_Datatype hipo_MPI_BYTE_CONST();
+void* hipo_MPI_WCHAR_CONST();
+hipo_MPI_Datatype hipo_MPI_SHORT_CONST();
+void* hipo_MPI_UNSIGNED_SHORT_CONST();
+hipo_MPI_Datatype hipo_MPI_INT_CONST();
+void* hipo_MPI_UNSIGNED_CONST();
+hipo_MPI_Datatype hipo_MPI_LONG_CONST();
+void* hipo_MPI_UNSIGNED_LONG_CONST();
+hipo_MPI_Datatype hipo_MPI_FLOAT_CONST();
+hipo_MPI_Datatype hipo_MPI_DOUBLE_CONST();
+void* hipo_MPI_LONG_DOUBLE_CONST();
+void* hipo_MPI_LONG_LONG_INT_CONST();
+void* hipo_MPI_UNSIGNED_LONG_LONG_CONST();
+void* hipo_MPI_LONG_LONG_CONST();
+hipo_MPI_Datatype hipo_MPI_PACKED_CONST();
+void* hipo_MPI_FLOAT_INT_CONST();
+void* hipo_MPI_DOUBLE_INT_CONST();
+hipo_MPI_Datatype hipo_MPI_LONG_INT_CONST();
+hipo_MPI_Datatype hipo_MPI_SHORT_INT_CONST();
+void* hipo_MPI_2INT_CONST();
+void* hipo_MPI_LONG_DOUBLE_INT_CONST();
+hipo_MPI_Datatype hipo_MPI_COMPLEX_CONST();
+hipo_MPI_Datatype hipo_MPI_DOUBLE_COMPLEX_CONST();
+void* hipo_MPI_LOGICAL_CONST();
+void* hipo_MPI_REAL_CONST();
+void* hipo_MPI_DOUBLE_PRECISION_CONST();
+void* hipo_MPI_INTEGER_CONST();
+void* hipo_MPI_2INTEGER_CONST();
+void* hipo_MPI_2REAL_CONST();
+void* hipo_MPI_2DOUBLE_PRECISION_CONST();
+void* hipo_MPI_CHARACTER_CONST();
+void* hipo_MPI_REAL4_CONST();
+void* hipo_MPI_REAL8_CONST();
+void* hipo_MPI_COMPLEX8_CONST();
+void* hipo_MPI_COMPLEX16_CONST();
+void* hipo_MPI_INTEGER1_CONST();
+void* hipo_MPI_INTEGER2_CONST();
+void* hipo_MPI_INTEGER4_CONST();
+void* hipo_MPI_INTEGER8_CONST();
+hipo_MPI_Datatype hipo_MPI_INT8_T_CONST();
+hipo_MPI_Datatype hipo_MPI_INT16_T_CONST();
+hipo_MPI_Datatype hipo_MPI_INT32_T_CONST();
+hipo_MPI_Datatype hipo_MPI_INT64_T_CONST();
+void* hipo_MPI_UINT8_T_CONST();
+void* hipo_MPI_UINT16_T_CONST();
+void* hipo_MPI_UINT32_T_CONST();
+void* hipo_MPI_UINT64_T_CONST();
+void* hipo_MPI_C_BOOL_CONST();
+void* hipo_MPI_C_FLOAT_COMPLEX_CONST();
+void* hipo_MPI_C_COMPLEX_CONST();
+void* hipo_MPI_C_DOUBLE_COMPLEX_CONST();
+void* hipo_MPI_C_LONG_DOUBLE_COMPLEX_CONST();
+void* hipo_MPI_AINT_CONST();
+void* hipo_MPI_OFFSET_CONST();
+void* hipo_MPI_TYPECLASS_REAL_CONST();
+void* hipo_MPI_TYPECLASS_INTEGER_CONST();
+void* hipo_MPI_TYPECLASS_COMPLEX_CONST();
+hipo_MPI_Comm hipo_MPI_COMM_WORLD_CONST();
+hipo_MPI_Comm hipo_MPI_COMM_SELF_CONST();
+void* hipo_MPI_GROUP_EMPTY_CONST();
+void* hipo_MPI_WIN_NULL_CONST();
+void* hipo_MPI_FILE_NULL_CONST();
+hipo_MPI_Op hipo_MPI_MAX_CONST();
+hipo_MPI_Op hipo_MPI_MIN_CONST();
+hipo_MPI_Op hipo_MPI_SUM_CONST();
+void* hipo_MPI_PROD_CONST();
+void* hipo_MPI_LAND_CONST();
+void* hipo_MPI_BAND_CONST();
+void* hipo_MPI_LOR_CONST();
+void* hipo_MPI_BOR_CONST();
+void* hipo_MPI_LXOR_CONST();
+void* hipo_MPI_BXOR_CONST();
+void* hipo_MPI_MINLOC_CONST();
+void* hipo_MPI_MAXLOC_CONST();
+void* hipo_MPI_REPLACE_CONST();
+void* hipo_MPI_TAG_UB_CONST();
+void* hipo_MPI_HOST_CONST();
+void* hipo_MPI_IO_CONST();
+void* hipo_MPI_WTIME_IS_GLOBAL_CONST();
+void* hipo_MPI_UNIVERSE_SIZE_CONST();
+void* hipo_MPI_LASTUSEDCODE_CONST();
+void* hipo_MPI_APPNUM_CONST();
+void* hipo_MPI_WIN_BASE_CONST();
+void* hipo_MPI_WIN_SIZE_CONST();
+void* hipo_MPI_WIN_DISP_UNIT_CONST();
+int hipo_MPI_MAX_PROCESSOR_NAME_CONST();
+int hipo_MPI_MAX_ERROR_STRING_CONST();
+void* hipo_MPI_MAX_PORT_NAME_CONST();
+void* hipo_MPI_MAX_OBJECT_NAME_CONST();
+int hipo_MPI_UNDEFINED_CONST();
+int hipo_MPI_KEYVAL_INVALID_CONST();
+void* hipo_MPI_BSEND_OVERHEAD_CONST();
+void* hipo_MPI_BOTTOM_CONST();
+int hipo_MPI_PROC_NULL_CONST();
+int hipo_MPI_ANY_SOURCE_CONST();
+void* hipo_MPI_ROOT_CONST();
+void* hipo_MPI_ANY_TAG_CONST();
+int hipo_MPI_LOCK_EXCLUSIVE_CONST();
+int hipo_MPI_LOCK_SHARED_CONST();
+void* hipo_MPI_ERRORS_ARE_FATAL_CONST();
+void* hipo_MPI_ERRORS_RETURN_CONST();
+void* hipo_MPI_NULL_COPY_FN_CONST();
+void* hipo_MPI_NULL_DELETE_FN_CONST();
+void* hipo_MPI_DUP_FN_CONST();
+void* hipo_MPI_COMM_NULL_COPY_FN_CONST();
+hipo_MPI_Comm_delete_attr_function* hipo_MPI_COMM_NULL_DELETE_FN_CONST();
+hipo_MPI_Comm_copy_attr_function* hipo_MPI_COMM_DUP_FN_CONST();
+void* hipo_MPI_WIN_NULL_COPY_FN_CONST();
+void* hipo_MPI_WIN_NULL_DELETE_FN_CONST();
+void* hipo_MPI_WIN_DUP_FN_CONST();
+void* hipo_MPI_TYPE_NULL_COPY_FN_CONST();
+void* hipo_MPI_TYPE_NULL_DELETE_FN_CONST();
+void* hipo_MPI_TYPE_DUP_FN_CONST();
+void* hipo_MPI_INFO_NULL_CONST();
+void* hipo_MPI_MAX_INFO_KEY_CONST();
+void* hipo_MPI_MAX_INFO_VAL_CONST();
+void* hipo_MPI_ORDER_C_CONST();
+void* hipo_MPI_ORDER_FORTRAN_CONST();
+void* hipo_MPI_DISTRIBUTE_BLOCK_CONST();
+void* hipo_MPI_DISTRIBUTE_CYCLIC_CONST();
+void* hipo_MPI_DISTRIBUTE_NONE_CONST();
+void* hipo_MPI_DISTRIBUTE_DFLT_DARG_CONST();
+void* hipo_MPI_IN_PLACE_CONST();
+int hipo_MPI_MODE_NOCHECK_CONST();
+void* hipo_MPI_MODE_NOSTORE_CONST();
+void* hipo_MPI_MODE_NOPUT_CONST();
+void* hipo_MPI_MODE_NOPRECEDE_CONST();
+void* hipo_MPI_MODE_NOSUCCEED_CONST();
+hipo_MPI_Fint hipo_MPI_Comm_c2f(hipo_MPI_Comm comm);
+hipo_MPI_Comm hipo_MPI_Comm_f2c(hipo_MPI_Fint comm);
+hipo_MPI_Fint hipo_MPI_Type_c2f(hipo_MPI_Datatype type);
+hipo_MPI_Datatype hipo_MPI_Type_f2c(hipo_MPI_Fint type);
+hipo_MPI_Fint hipo_MPI_Group_c2f(hipo_MPI_Group group);
+hipo_MPI_Group hipo_MPI_Group_f2c(hipo_MPI_Fint group);
+hipo_MPI_Info hipo_MPI_Info_f2c(hipo_MPI_Fint info);
+hipo_MPI_Request hipo_MPI_Request_f2c(hipo_MPI_Fint request);
+hipo_MPI_Fint hipo_MPI_Request_c2f(hipo_MPI_Request request);
+hipo_MPI_Fint hipo_MPI_Op_c2f(hipo_MPI_Op op);
+hipo_MPI_Op hipo_MPI_Op_f2c(hipo_MPI_Fint op);
+hipo_MPI_Fint hipo_MPI_Errhandler_c2f(hipo_MPI_Errhandler errhandler);
+hipo_MPI_Errhandler hipo_MPI_Errhandler_f2c(hipo_MPI_Fint errhandler);
+hipo_MPI_Fint hipo_MPI_Win_c2f(hipo_MPI_Win win);
+hipo_MPI_Win hipo_MPI_Win_f2c(hipo_MPI_Fint win);
+hipo_MPI_Status* hipo_MPI_STATUS_IGNORE_CONST();
+hipo_MPI_Status* hipo_MPI_STATUSES_IGNORE_CONST();
+void* hipo_MPI_ERRCODES_IGNORE_CONST();
+void* hipo_MPI_ARGV_NULL_CONST();
+void* hipo_MPI_ARGVS_NULL_CONST();
+void* hipo_MPI_THREAD_SINGLE_CONST();
+void* hipo_MPI_THREAD_FUNNELED_CONST();
+void* hipo_MPI_THREAD_SERIALIZED_CONST();
+void* hipo_MPI_THREAD_MULTIPLE_CONST();
+int hipo_MPI_SUCCESS_CONST();
+void* hipo_MPI_ERR_BUFFER_CONST();
+void* hipo_MPI_ERR_COUNT_CONST();
+void* hipo_MPI_ERR_TYPE_CONST();
+void* hipo_MPI_ERR_TAG_CONST();
+void* hipo_MPI_ERR_COMM_CONST();
+void* hipo_MPI_ERR_RANK_CONST();
+void* hipo_MPI_ERR_ROOT_CONST();
+void* hipo_MPI_ERR_TRUNCATE_CONST();
+void* hipo_MPI_ERR_GROUP_CONST();
+void* hipo_MPI_ERR_OP_CONST();
+void* hipo_MPI_ERR_REQUEST_CONST();
+void* hipo_MPI_ERR_TOPOLOGY_CONST();
+void* hipo_MPI_ERR_DIMS_CONST();
+void* hipo_MPI_ERR_ARG_CONST();
+void* hipo_MPI_ERR_OTHER_CONST();
+void* hipo_MPI_ERR_UNKNOWN_CONST();
+void* hipo_MPI_ERR_INTERN_CONST();
+int hipo_MPI_ERR_IN_STATUS_CONST();
+void* hipo_MPI_ERR_PENDING_CONST();
+void* hipo_MPI_ERR_ACCESS_CONST();
+void* hipo_MPI_ERR_AMODE_CONST();
+void* hipo_MPI_ERR_BAD_FILE_CONST();
+void* hipo_MPI_ERR_CONVERSION_CONST();
+void* hipo_MPI_ERR_DUP_DATAREP_CONST();
+void* hipo_MPI_ERR_FILE_EXISTS_CONST();
+void* hipo_MPI_ERR_FILE_IN_USE_CONST();
+void* hipo_MPI_ERR_FILE_CONST();
+void* hipo_MPI_ERR_IO_CONST();
+void* hipo_MPI_ERR_NO_SPACE_CONST();
+void* hipo_MPI_ERR_NO_SUCH_FILE_CONST();
+void* hipo_MPI_ERR_READ_ONLY_CONST();
+void* hipo_MPI_ERR_UNSUPPORTED_DATAREP_CONST();
+void* hipo_MPI_ERR_INFO_CONST();
+void* hipo_MPI_ERR_INFO_KEY_CONST();
+void* hipo_MPI_ERR_INFO_VALUE_CONST();
+void* hipo_MPI_ERR_INFO_NOKEY_CONST();
+void* hipo_MPI_ERR_NAME_CONST();
+void* hipo_MPI_ERR_NO_MEM_CONST();
+void* hipo_MPI_ERR_NOT_SAME_CONST();
+void* hipo_MPI_ERR_PORT_CONST();
+void* hipo_MPI_ERR_QUOTA_CONST();
+void* hipo_MPI_ERR_SERVICE_CONST();
+void* hipo_MPI_ERR_SPAWN_CONST();
+void* hipo_MPI_ERR_UNSUPPORTED_OPERATION_CONST();
+void* hipo_MPI_ERR_WIN_CONST();
+void* hipo_MPI_ERR_BASE_CONST();
+void* hipo_MPI_ERR_LOCKTYPE_CONST();
+void* hipo_MPI_ERR_KEYVAL_CONST();
+void* hipo_MPI_ERR_RMA_CONFLICT_CONST();
+void* hipo_MPI_ERR_RMA_SYNC_CONST();
+void* hipo_MPI_ERR_SIZE_CONST();
+void* hipo_MPI_ERR_DISP_CONST();
+void* hipo_MPI_ERR_ASSERT_CONST();
+void* hipo_MPI_ERR_LASTCODE_CONST();
+void* hipo_MPI_CONVERSION_FN_NULL_CONST();
+int hipo_MPI_MODE_RDONLY_CONST();
+void* hipo_MPI_MODE_RDWR_CONST();
+int hipo_MPI_MODE_WRONLY_CONST();
+int hipo_MPI_MODE_CREATE_CONST();
+void* hipo_MPI_MODE_EXCL_CONST();
+void* hipo_MPI_MODE_DELETE_ON_CLOSE_CONST();
+int hipo_MPI_MODE_UNIQUE_OPEN_CONST();
+int hipo_MPI_MODE_APPEND_CONST();
+void* hipo_MPI_MODE_SEQUENTIAL_CONST();
+void* hipo_MPI_DISPLACEMENT_CURRENT_CONST();
+int hipo_MPI_SEEK_SET_CONST();
+void* hipo_MPI_SEEK_CUR_CONST();
+void* hipo_MPI_SEEK_END_CONST();
+void* hipo_MPI_MAX_DATAREP_STRING_CONST();
+
+#ifdef __cplusplus
+}
+#endif
