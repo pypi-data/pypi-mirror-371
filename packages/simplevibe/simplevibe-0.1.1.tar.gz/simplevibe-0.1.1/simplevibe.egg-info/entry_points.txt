@@ -1,0 +1,2 @@
+[console_scripts]
+simplevibe = simplevibe.cli:main
