@@ -1,0 +1,9 @@
+numpy<2,>=1.23
+pandas<3.0,>=2.0
+matplotlib<4.0,>=3.7
+mplfinance>=0.12.10b0
+pyarrow>=14.0.2
+
+[dev]
+pytest>=8.0
+coverage>=7.0
