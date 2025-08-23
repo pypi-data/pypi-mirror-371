@@ -1,0 +1,4 @@
+nonebot2>=2.0
+fastapi>=0.95
+pydantic<3.0,>=1.10
+jmcomic>=2.5.0
