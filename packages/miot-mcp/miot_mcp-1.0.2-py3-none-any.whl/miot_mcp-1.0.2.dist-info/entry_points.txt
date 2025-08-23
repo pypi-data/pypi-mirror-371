@@ -1,0 +1,2 @@
+[console_scripts]
+miot-mcp = mcp_server.mcp_server:main
