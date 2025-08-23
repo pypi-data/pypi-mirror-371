@@ -1,0 +1,6 @@
+libzrod-0.1.17.dist-info/RECORD,,
+libzrod-0.1.17.dist-info/WHEEL,sha256=qEYXoy5tYDT5u1E_aS0zetkC03ZPGwz9n2p40WeA6eI,111
+libzrod-0.1.17.dist-info/METADATA,sha256=QOMiiVojUEDeaIiuXjHw6S92_Y5SgWpMYTBWPkBifB8,1945
+libzrod/_libzrod.py,sha256=vBqGcj-ZZOZi5d1N7J9JLRcmiZsxHGoul_PmJUj8Qhg,31203
+libzrod/__init__.py,sha256=uiY6Lx9gvpfPX1v1v31sIyqqJVq9Fpj1ceVjUzcRybY,561
+libzrod/libzrod.cpython-38-darwin.so,sha256=zx6UoN8YI7wNy0smJsMQ7vDx-H7HOaHoySlZ0sHF770,7966048
