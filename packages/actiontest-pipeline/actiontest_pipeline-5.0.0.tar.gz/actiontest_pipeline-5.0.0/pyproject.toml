@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "actiontest-pipeline"
+version = "5.0.0"
+description = "GitHub Actions workflow automation test project"
+authors = ["jonathanw16 <jonathanw16@users.noreply.github.com>"]
+readme = "README.md"
+license = "MIT"
+homepage = "https://github.com/jonathanw16/action-test"
+repository = "https://github.com/jonathanw16/action-test"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+packages = [{include = "action_test"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.0"
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/jonathanw16/action-test/issues"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
