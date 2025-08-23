@@ -1,0 +1,14 @@
+
+[dev]
+pytest
+numpy
+
+[lint]
+ruff
+black
+mypy
+pytest-cov
+pre-commit
+
+[plots]
+matplotlib
