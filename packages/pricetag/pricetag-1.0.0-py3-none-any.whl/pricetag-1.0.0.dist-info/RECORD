@@ -1,0 +1,11 @@
+pricetag/__init__.py,sha256=TVWsT4NFDt6PmXPZKjCsgYXyXgaoHFrlctFYMQXQggA,744
+pricetag/extractor.py,sha256=O7bSXxSWEyvSWpAPFeg1qhMTIw34s3B_QG8ZylDu2E8,19756
+pricetag/normalizer.py,sha256=UlAmk2DWeFBwlaBZGK-vRJlofd-ZIMIgu_odvdlVDDA,3768
+pricetag/patterns.py,sha256=XHhgsT_m_721YIHsQ7E_osTnDiVzDncv4JWNTIuZIi0,23078
+pricetag/types.py,sha256=E3NOfLVwChMqMKDZbTKW7_FU7B3oiFB5VHkcY3RbETA,1798
+pricetag/validators.py,sha256=NdErQyW4ei_6iL5SsJMzLkLXB73Sa00OKSiGbhzm0LQ,6567
+pricetag-1.0.0.dist-info/licenses/LICENSE,sha256=LNjZ0SwDSA27QDrX5AX0WQZtbGkfNW3_zpw3mo1moS0,1071
+pricetag-1.0.0.dist-info/METADATA,sha256=nKKxoI5eyT0n03WKLeIJjbAaT2QXKQmvqy8OmAMVh8U,6733
+pricetag-1.0.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+pricetag-1.0.0.dist-info/top_level.txt,sha256=SITKiUe5_aB2Ovi8Zi91qawxTmu9b0C9nMsered7Q34,9
+pricetag-1.0.0.dist-info/RECORD,,
