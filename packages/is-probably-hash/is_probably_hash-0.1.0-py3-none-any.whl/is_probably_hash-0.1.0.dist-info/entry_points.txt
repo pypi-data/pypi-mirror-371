@@ -1,0 +1,2 @@
+[console_scripts]
+is_probably_hash = is_probably_hash.main:hello
