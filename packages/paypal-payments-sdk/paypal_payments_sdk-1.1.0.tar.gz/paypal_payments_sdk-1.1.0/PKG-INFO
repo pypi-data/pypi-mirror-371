@@ -1,0 +1,494 @@
+Metadata-Version: 2.4
+Name: paypal-payments-sdk
+Version: 1.1.0
+Summary: A comprehensive Python SDK for PayPal Payments REST API v2 and Transaction Search API
+Home-page: https://github.com/ljohri/paypal_sdk
+Author: ljohri
+Author-email: ljohri@example.com
+Project-URL: Bug Reports, https://github.com/ljohri/paypal_sdk/issues
+Project-URL: Source, https://github.com/ljohri/paypal_sdk
+Project-URL: Documentation, https://github.com/ljohri/paypal_sdk#readme
+Keywords: paypal payments api sdk
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Office/Business :: Financial
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests>=2.31.0
+Requires-Dist: python-dotenv>=1.0.0
+Requires-Dist: pydantic>=2.0.0
+Requires-Dist: typing-extensions>=4.0.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0.0; extra == "dev"
+Requires-Dist: pytest-cov>=4.0.0; extra == "dev"
+Requires-Dist: flake8>=5.0.0; extra == "dev"
+Requires-Dist: mypy>=1.0.0; extra == "dev"
+Requires-Dist: black>=22.0.0; extra == "dev"
+Requires-Dist: isort>=5.0.0; extra == "dev"
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: license-file
+Dynamic: project-url
+Dynamic: provides-extra
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# PayPal Payments SDK for Python
+
+A comprehensive Python SDK for PayPal Payments REST API v2, providing easy-to-use methods for handling authorizations, captures, and refunds.
+
+## Features
+
+- **Complete API Coverage**: Supports all PayPal Payments API v2 endpoints and Transaction Search API
+- **Type Safety**: Built with Pydantic for robust data validation
+- **Error Handling**: Comprehensive exception handling with specific error types
+- **Authentication**: Automatic OAuth token management
+- **Environment Support**: Easy configuration via environment variables
+- **Context Manager**: Clean resource management with context managers
+- **Idempotency**: Built-in support for request idempotency
+
+## Installation
+
+1. **Clone the repository**:
+   ```bash
+   git clone <repository-url>
+   cd paypal-sdk
+   ```
+
+2. **Set up virtual environment**:
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+   ```
+
+3. **Install dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+## Configuration
+
+### Environment Variables
+
+Create a `.env` file in your project root:
+
+```env
+# PayPal API Configuration
+PAYPAL_CLIENT_ID=your_client_id_here
+PAYPAL_CLIENT_SECRET=your_client_secret_here
+PAYPAL_BASE_URL=https://api-m.sandbox.paypal.com
+PAYPAL_MODE=sandbox  # or 'live'
+
+# Optional: Request ID for idempotency
+PAYPAL_REQUEST_ID=optional_request_id
+```
+
+### Getting PayPal Credentials
+
+1. Go to [PayPal Developer Portal](https://developer.paypal.com/)
+2. Create a developer account
+3. Create a new app to get your Client ID and Client Secret
+4. Use sandbox credentials for testing, live credentials for production
+
+## Quick Start
+
+```python
+from paypal_sdk import PayPalClient
+
+# Initialize client
+client = PayPalClient(
+    client_id="your_client_id",
+    client_secret="your_client_secret",
+    mode="sandbox"  # Use "live" for production
+)
+
+# Get authorization details
+auth = client.get_authorization("authorization_id")
+
+# Create and process a capture
+capture_request = client.create_capture_request(
+    amount=client.create_money("USD", "10.99"),
+    invoice_id="INVOICE-123"
+)
+capture = client.capture_authorization("authorization_id", capture_request)
+
+# Process a refund
+refund_request = client.create_refund_request(
+    amount=client.create_money("USD", "5.00"),
+    note_to_payer="Partial refund"
+)
+refund = client.refund_capture("capture_id", refund_request)
+
+# Search for transactions
+from datetime import datetime, timedelta
+end_date = datetime.utcnow()
+start_date = end_date - timedelta(days=30)
+transactions = client.search_transactions(
+    start_date=start_date,
+    end_date=end_date,
+    fields="transaction_info"
+)
+
+# Get account balances
+balances = client.get_balances()
+
+# Always close the client
+client.close()
+```
+
+## API Reference
+
+### Client Initialization
+
+```python
+PayPalClient(
+    client_id: Optional[str] = None,
+    client_secret: Optional[str] = None,
+    base_url: Optional[str] = None,
+    mode: str = "sandbox",
+    request_id: Optional[str] = None
+)
+```
+
+### Authorization Methods
+
+#### Get Authorization Details
+```python
+auth = client.get_authorization(authorization_id: str) -> Authorization
+```
+
+#### Capture Authorization
+```python
+capture = client.capture_authorization(
+    authorization_id: str,
+    capture_request: CaptureRequest
+) -> Capture
+```
+
+#### Reauthorize Authorization
+```python
+reauth = client.reauthorize_authorization(
+    authorization_id: str,
+    reauthorize_request: ReauthorizeRequest
+) -> Authorization
+```
+
+#### Void Authorization
+```python
+voided_auth = client.void_authorization(authorization_id: str) -> Optional[Authorization]
+```
+
+### Capture Methods
+
+#### Get Capture Details
+```python
+capture = client.get_capture(capture_id: str) -> Capture
+```
+
+#### Refund Capture
+```python
+refund = client.refund_capture(
+    capture_id: str,
+    refund_request: Optional[RefundRequest] = None
+) -> Refund
+```
+
+### Refund Methods
+
+#### Get Refund Details
+```python
+refund = client.get_refund(refund_id: str) -> Refund
+```
+
+### Convenience Methods
+
+#### Create Request Objects
+```python
+# Capture request
+capture_request = client.create_capture_request(
+    amount: Optional[Dict[str, str]] = None,
+    invoice_id: Optional[str] = None,
+    final_capture: bool = True,
+    note_to_payer: Optional[str] = None,
+    soft_descriptor: Optional[str] = None
+) -> CaptureRequest
+
+# Refund request
+refund_request = client.create_refund_request(
+    amount: Optional[Dict[str, str]] = None,
+    custom_id: Optional[str] = None,
+    invoice_id: Optional[str] = None,
+    note_to_payer: Optional[str] = None
+) -> RefundRequest
+
+# Reauthorize request
+reauth_request = client.create_reauthorize_request(
+    amount: Dict[str, str]
+) -> ReauthorizeRequest
+
+# Money object
+money = client.create_money(currency_code: str, value: str) -> Dict[str, str]
+```
+
+## Data Models
+
+The SDK includes comprehensive Pydantic models for all PayPal API data structures:
+
+- `Authorization`: Authorization entity with status and details
+- `Capture`: Capture entity with breakdown information
+- `Refund`: Refund entity with status and breakdown
+- `Money`: Currency and amount representation
+- `ErrorResponse`: Error response structure
+- And many more...
+
+## Error Handling
+
+The SDK provides specific exception types for different error scenarios:
+
+```python
+from paypal_sdk import (
+    PayPalError,
+    PayPalAuthenticationError,
+    PayPalValidationError,
+    PayPalNotFoundError,
+    PayPalConflictError,
+    PayPalUnprocessableEntityError,
+    PayPalServerError,
+    PayPalRateLimitError
+)
+
+try:
+    auth = client.get_authorization("invalid_id")
+except PayPalNotFoundError as e:
+    print(f"Authorization not found: {e}")
+except PayPalAuthenticationError as e:
+    print(f"Authentication failed: {e}")
+except PayPalError as e:
+    print(f"PayPal error: {e}")
+```
+
+## Examples
+
+### Basic Usage
+```python
+# See examples/basic_usage.py for comprehensive examples
+```
+
+### Environment Configuration
+```python
+# Using environment variables
+with PayPalClient() as client:
+    auth = client.get_authorization("auth_id")
+    # Client automatically closes
+```
+
+### Full Refund
+```python
+# Full refund (no amount specified)
+refund = client.refund_capture("capture_id")
+```
+
+### Partial Refund
+```python
+# Partial refund
+refund_request = client.create_refund_request(
+    amount=client.create_money("USD", "5.00"),
+    note_to_payer="Partial refund for defective item"
+)
+refund = client.refund_capture("capture_id", refund_request)
+```
+
+### Reauthorization
+```python
+# Reauthorize with new amount
+reauth_request = client.create_reauthorize_request(
+    client.create_money("USD", "15.99")
+)
+reauth = client.reauthorize_authorization("auth_id", reauth_request)
+```
+
+### Transaction Search API
+
+The SDK includes comprehensive support for PayPal's Transaction Search API, allowing you to search for transactions and retrieve account balances.
+
+#### Search Transactions
+
+```python
+from datetime import datetime, timedelta
+from paypal_sdk import TransactionStatusEnum, PaymentInstrumentTypeEnum
+
+# Search for transactions in the last 30 days
+end_date = datetime.utcnow()
+start_date = end_date - timedelta(days=30)
+
+# Basic search
+transactions = client.search_transactions(
+    start_date=start_date,
+    end_date=end_date,
+    fields="transaction_info"
+)
+
+# Search with filters
+successful_transactions = client.search_transactions(
+    start_date=start_date,
+    end_date=end_date,
+    transaction_status=TransactionStatusEnum.S,  # Successful transactions only
+    transaction_currency="USD",
+    payment_instrument_type=PaymentInstrumentTypeEnum.CREDITCARD,
+    fields="transaction_info,payer_info",
+    page_size=10
+)
+
+# Search by amount range (in cents)
+amount_filtered = client.search_transactions(
+    start_date=start_date,
+    end_date=end_date,
+    transaction_amount="1000 TO 10000",  # $10.00 to $100.00
+    transaction_currency="USD",
+    fields="transaction_info"
+)
+
+# Access transaction details
+for transaction in transactions.transaction_details:
+    if transaction.transaction_info:
+        info = transaction.transaction_info
+        print(f"Transaction ID: {info.transaction_id}")
+        print(f"Amount: {info.transaction_amount.value} {info.transaction_amount.currency_code}")
+        print(f"Status: {info.transaction_status}")
+        print(f"Date: {info.transaction_initiation_date}")
+```
+
+#### Get Account Balances
+
+```python
+# Get current balances
+balances = client.get_balances()
+
+# Get balances for specific currency
+usd_balances = client.get_balances(currency_code="USD")
+
+# Get balances as of specific time
+from datetime import datetime
+as_of_time = datetime(2024, 1, 1, 12, 0, 0)
+historical_balances = client.get_balances(as_of_time=as_of_time)
+
+# Access balance information
+for balance in balances.balances:
+    print(f"Currency: {balance.currency}")
+    print(f"Primary: {balance.primary}")
+    if balance.total_balance:
+        print(f"Total: {balance.total_balance.value} {balance.total_balance.currency_code}")
+    if balance.available_balance:
+        print(f"Available: {balance.available_balance.value} {balance.available_balance.currency_code}")
+    if balance.withheld_balance:
+        print(f"Withheld: {balance.withheld_balance.value} {balance.withheld_balance.currency_code}")
+```
+
+#### Transaction Status Codes
+
+- `D`: Denied
+- `P`: Pending
+- `S`: Success
+- `V`: Voided
+
+#### Payment Instrument Types
+
+- `CREDITCARD`: Credit card transactions
+- `DEBITCARD`: Debit card transactions
+
+#### Available Fields
+
+You can specify which fields to include in the response:
+
+- `transaction_info`: Transaction details (default)
+- `payer_info`: Payer information
+- `shipping_info`: Shipping information
+- `cart_info`: Cart and item details
+- `store_info`: Store information
+- `auction_info`: Auction information
+- `incentive_info`: Incentive details
+- `all`: Include all fields
+
+## Best Practices
+
+1. **Always close the client**: Use context managers or explicitly call `client.close()`
+2. **Handle errors appropriately**: Catch specific exception types for better error handling
+3. **Use environment variables**: Store sensitive credentials in environment variables
+4. **Test in sandbox**: Always test in sandbox mode before going live
+5. **Validate data**: The SDK automatically validates data, but ensure your inputs are correct
+6. **Use idempotency**: Set request IDs for operations that should be idempotent
+
+## Development
+
+### Running Tests
+```bash
+# Install development dependencies
+pip install -r requirements-dev.txt
+
+# Run tests
+pytest
+```
+
+### Code Quality
+```bash
+# Run linting
+flake8 paypal_sdk/
+
+# Run type checking
+mypy paypal_sdk/
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests for new functionality
+5. Ensure all tests pass
+6. Submit a pull request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Support
+
+For issues and questions:
+- Check the [PayPal Developer Documentation](https://developer.paypal.com/docs/api/payments/v2/)
+- Review the examples in the `examples/` directory
+- Open an issue on GitHub
+
+## Changelog
+
+### Version 1.1.0
+- Added Transaction Search API support
+- New models for transaction search and balances
+- Added `search_transactions()` method
+- Added `get_balances()` method
+- Added transaction status and payment instrument type enums
+- Comprehensive transaction search filtering options
+- Added transaction search example and tests
+
+### Version 1.0.0
+- Initial release
+- Complete PayPal Payments API v2 support
+- Pydantic models for type safety
+- Comprehensive error handling
+- OAuth token management
+- Environment variable support
