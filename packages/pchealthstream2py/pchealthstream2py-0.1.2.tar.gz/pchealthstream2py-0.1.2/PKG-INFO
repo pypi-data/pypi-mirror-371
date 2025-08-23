@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: pchealthstream2py
+Version: 0.1.2
+Summary: stream2py interface to pc health
+Home-page: https://github.com/i2mint/pchealthstream2py
+License: apache-2.0
+Description: 
+        # pchealthstream2py
+        stream2py interface to pc health
+        
+        
+        To install:	```pip install pchealthstream2py```
+        
+Platform: any
+Description-Content-Type: text/markdown
