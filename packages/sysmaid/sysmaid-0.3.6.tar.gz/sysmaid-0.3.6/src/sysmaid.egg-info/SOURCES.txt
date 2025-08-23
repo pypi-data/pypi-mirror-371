@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+src/sysmaid/__init__.py
+src/sysmaid/maid.py
+src/sysmaid.egg-info/PKG-INFO
+src/sysmaid.egg-info/SOURCES.txt
+src/sysmaid.egg-info/dependency_links.txt
+src/sysmaid.egg-info/requires.txt
+src/sysmaid.egg-info/top_level.txt
+tests/test_stress.py
