@@ -1,0 +1,87 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "fguess"
+dynamic = ["version"]
+description = 'f-string format spec guesser'
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+keywords = []
+authors = [
+  { name = "Trey Hunner" },
+]
+classifiers = [
+  "Development Status :: 2 - Pre-Alpha",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = [
+  "strptime-cli",
+]
+
+[project.urls]
+Documentation = "https://github.com/treyhunner/fguess#readme"
+Issues = "https://github.com/treyhunner/fguess/issues"
+Source = "https://github.com/treyhunner/fguess"
+
+[project.scripts]
+fguess = "fguess:main"
+
+[tool.hatch.version]
+path = "fguess.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["fguess.py"]
+
+[tool.hatch.envs.default]
+dependencies = [
+  "coverage[toml]>=6.5",
+]
+[tool.hatch.envs.default.scripts]
+test = "pytest {args:tests}"
+test-cov = "coverage run -m pytest {args:tests}"
+cov-report = ["- coverage combine", "coverage report", "coverage xml"]
+cov-html = "coverage html"
+cov = [
+  "test-cov",
+  "cov-report",
+  "cov-html",
+]
+
+[tool.hatch.envs.lint]
+dependencies = [
+  "ruff",
+]
+[tool.hatch.envs.lint.scripts]
+check = ["ruff check {args:.}", "ruff format --check {args:.}"]
+fmt = "ruff format {args:.}"
+
+[[tool.hatch.envs.all.matrix]]
+python = ["3.9", "3.10", "3.11", "3.12", "3.13", "3.14"]
+
+[tool.coverage.run]
+source_pkgs = ["fguess", "tests"]
+branch = true
+parallel = true
+omit = []
+
+[tool.coverage.paths]
+fguess = ["fguess"]
+tests = ["tests"]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]
