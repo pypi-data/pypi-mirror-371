@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+LOGS_solutions/__init__.py
+LOGS_solutions/Library/CopyProjectLib.py
+LOGS_solutions/Library/__init__.py
+logs_py_solutions.egg-info/PKG-INFO
+logs_py_solutions.egg-info/SOURCES.txt
+logs_py_solutions.egg-info/dependency_links.txt
+logs_py_solutions.egg-info/requires.txt
+logs_py_solutions.egg-info/top_level.txt
