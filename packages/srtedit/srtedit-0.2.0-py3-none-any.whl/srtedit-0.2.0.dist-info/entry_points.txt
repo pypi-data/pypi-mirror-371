@@ -1,0 +1,3 @@
+[console_scripts]
+srtedit=srtedit.cli:srtedit
+
