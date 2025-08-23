@@ -1,0 +1,10 @@
+PyUTLoc/__init__.py,sha256=3_lTiF9WfqtICjddtfhHfdWHd8AQUedJUI8a7XGAzU0,2283
+PyUTLoc/annotation.py,sha256=B-MMSauE2tqFIgnynqhoBMKTj1723piMUUJjO3pltVA,5916
+PyUTLoc/geocoding.py,sha256=XxIDa4DryJxLFF36GMcW268KimDVRFMznIHavp4uCK4,19169
+PyUTLoc/transformation.py,sha256=mGvDDRfaf_PpfHa_V3edY14PZpjPyb2CnIEI9klzUSw,74752
+pyutloc-1.0.0.dist-info/licenses/LICENSE.txt,sha256=Qv2ilebwoUtMJnRsZwRy729xS5JZQzLauJ0tQzkAkTA,1088
+pyutloc-1.0.0.dist-info/METADATA,sha256=etdxDDlg15TdV46tOG0EnoMyGWiB69yRTosENHkL3UQ,2059
+pyutloc-1.0.0.dist-info/WHEEL,sha256=JNWh1Fm1UdwIQV075glCn4MVuCRs0sotJIq-J6rbxCU,109
+pyutloc-1.0.0.dist-info/entry_points.txt,sha256=mrDFdJ56vGJZi-4QrviH-vjVLEe0xNb89b0JkG_Evhw,54
+pyutloc-1.0.0.dist-info/top_level.txt,sha256=a123dkkM0RuDKPxfYjb3aF24t4V9w6G9Dn3_7urs3yY,8
+pyutloc-1.0.0.dist-info/RECORD,,
