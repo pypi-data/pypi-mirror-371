@@ -1,0 +1,10 @@
+vedro_unittest/__init__.py,sha256=QsiG8uKszag9KavQ-OswNvNQHpFsSeNcQjCYmXsoVUI,223
+vedro_unittest/_scenario_provider.py,sha256=Cb_00o4czNS2l_82yWwXgiKo8jdu_tJfxW6ZQzLJ67w,11296
+vedro_unittest/_test_result.py,sha256=45ufziNGiPQ_HxwbHIOxZO_MCTO4E6rau4brXhOhjvc,4184
+vedro_unittest/_vedro_unittest.py,sha256=Q0GIk4BCyR9NF3K4SCciXJytOmIYd_MaWaEzy8LssmA,5841
+vedro_unittest/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+vedro_unittest-0.2.0.dist-info/licenses/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+vedro_unittest-0.2.0.dist-info/METADATA,sha256=q8dT06S5dTXLvJqVR0lM_GdYb_38h0_1wPuhAluVoXA,3614
+vedro_unittest-0.2.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+vedro_unittest-0.2.0.dist-info/top_level.txt,sha256=CQsRFEwTCLpbo6eIIJkxrFQngQoA-Vvtumx5AXrrSq8,15
+vedro_unittest-0.2.0.dist-info/RECORD,,
