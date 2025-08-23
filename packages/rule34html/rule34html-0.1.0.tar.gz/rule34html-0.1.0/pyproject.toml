@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rule34html"
+version = "0.1.0"
+description = "Feature-rich HTML parser for rule34.xxx (no API). Search posts, autocomplete tags, get random images."
+readme = "README.md"
+authors = [{name="Hotment"}]
+requires-python = ">=3.9"
+dependencies = [
+    "httpx>=0.27.0",
+    "beautifulsoup4>=4.12.2"
+]
+
+[project.scripts]
+r34 = "rule34html.cli:main"
+
+[tool.setuptools]
+packages = ["rule34html"]

@@ -1,0 +1,81 @@
+# rule34html
+
+A friendly, zero-API HTML parser for **rule34.xxx** built in Python.
+It scrapes the website’s public HTML (no API calls) to provide:
+
+- Search posts by tags
+- Get a single random post from tags
+- Get multiple random posts from tags
+- Tag autocomplete
+- Get full-size image/file URL
+- Download images
+- Both sync and async clients with context manager support (`with`/`async with`)
+- Polite rate-limiting + retries
+- Handy CLI: `r34`
+
+> ⚠️ For adults and legal use only. This package just parses public HTML from rule34.xxx.
+> It does **not** use the site's JSON/XML API endpoints.
+
+## Quick start
+
+```bash
+pip install .
+# or
+pip install -e .  # for editable dev
+```
+
+### Synchronous Client
+
+```python
+from rule34html import Rule34Client
+
+# Use the client as a context manager to ensure it's closed properly
+with Rule34Client() as client:
+    # Search for posts
+    posts = client.search_posts(["blue_eyes", "1girl"], page=0)
+    print(f"Found post: {posts[0].id}, Image URL: {posts[0].image_url}")
+
+    # Get a single random post
+    post = client.random_post(["blue_eyes"])
+    print(f"Random post: {post.id}, Image URL: {post.image_url}")
+
+    # Get 5 random posts
+    random_posts = client.random_posts(["solo"], count=5)
+    print(f"Got {len(random_posts)} random posts.")
+    for p in random_posts:
+        print(f" - Post {p.id}")
+```
+
+### Asynchronous Client
+
+```python
+import asyncio
+from rule34html import AsyncRule34Client
+
+async def main():
+    async with AsyncRule34Client() as client:
+        # Get 5 random posts concurrently
+        random_posts = await client.random_posts(["solo"], count=5)
+        print(f"Got {len(random_posts)} random posts asynchronously.")
+        for p in random_posts:
+            print(f" - Post {p.id}, Image URL: {p.image_url}")
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+### CLI
+
+```bash
+# Search posts
+r34 search "blue_eyes 1girl" --page 0 --limit 10
+
+# Random post by tags
+r34 random "blue_eyes" --open
+
+# Autocomplete tags
+r34 autocomplete blu --limit 15
+
+# Download a post by id
+r34 download --id 1234567 --out ./downloads
+```
