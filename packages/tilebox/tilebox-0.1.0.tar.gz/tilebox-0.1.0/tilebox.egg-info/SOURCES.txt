@@ -1,0 +1,8 @@
+LICENSE
+README.md
+pyproject.toml
+tilebox.egg-info/PKG-INFO
+tilebox.egg-info/SOURCES.txt
+tilebox.egg-info/dependency_links.txt
+tilebox.egg-info/requires.txt
+tilebox.egg-info/top_level.txt

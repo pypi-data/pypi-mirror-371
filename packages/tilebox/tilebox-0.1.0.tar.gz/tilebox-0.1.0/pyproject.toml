@@ -1,0 +1,38 @@
+[project]
+name = "tilebox"
+version = "0.1.0"
+description = "Python library for Tilebox, a lightweight space data management and orchestration software - on ground and in orbit."
+authors = [{ name = "Tilebox, Inc.", email = "support@tilebox.com" }]
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+classifiers = [
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Software Development",
+]
+requires-python = ">=3.10"
+dependencies = [
+    "tilebox-datasets>=0.41.0",
+    "tilebox-storage>=0.41.0",
+    "tilebox-workflows>=0.41.0",
+]
+
+[project.urls]
+Homepage = "https://tilebox.com"
+Documentation = "https://docs.tilebox.com/datasets/introduction"
+
+[tool.uv.build-backend]
+namespace = true
+
+[build-system]
+requires = ["setuptools>=80.0"]
+build-backend = "setuptools.build_meta"
