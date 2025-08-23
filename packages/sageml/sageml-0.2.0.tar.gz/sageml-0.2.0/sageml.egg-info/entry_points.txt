@@ -1,0 +1,2 @@
+[console_scripts]
+sagedev = sageml.dev.__main__:cli
