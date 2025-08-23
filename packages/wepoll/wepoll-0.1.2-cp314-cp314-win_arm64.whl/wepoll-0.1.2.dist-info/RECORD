@@ -1,0 +1,15 @@
+wepoll/__init__.pxd,sha256=M6puHUqnORQzGVngxBZpVdh6x_XQ9lbi4lpdGKvP7DY,187
+wepoll/__init__.py,sha256=EjRJAPFKI4elzbnSP-UEzVDX-BXF-TDSJ0P6kGDQrBg,973
+wepoll/_wepoll.c,sha256=8-ixGRU6czdNbL4noB4Fh3aJxKgLSJ-3NrT8UWly2Lw,618083
+wepoll/_wepoll.cp314-win_arm64.pyd,sha256=atG3pGCeM88FYtGsjkQjWghDeY7n-gE5Q5gCss7UhT0,78848
+wepoll/_wepoll.pxd,sha256=5meDAWOiBrZ-4ANlGS9ELbz0Lxx2_oRlxiQLQjrO1tM,938
+wepoll/_wepoll.pyi,sha256=ZcQvk-omGkQbV_y5ko3gUlqjgJYSo97ZM5RJ703z8R8,1099
+wepoll/_wepoll.pyx,sha256=BsTR9qJC7xlwHGtp-EOsJXk6T_BNXArpQVZluUqfzYY,18215
+wepoll/flags.py,sha256=POvIbg-3KFrfX8CbwLQlvn5Py6N6pl2QFBH_yBa7EN0,959
+wepoll/loop.py,sha256=ZDnnxNFaFmU2sx9aZu95xNVory04vYCOXNcfPtJCbvY,404
+wepoll/selector.py,sha256=aRiDRvqHcvqU3NSISyTE2Wu2QVPoXOXPEQ2GQj6r2LA,2880
+wepoll/socket.pxd,sha256=HBR6t3RTMU9_9hxwSwx_UsPHZcqNT9leEvXWAxCgEQE,4633
+wepoll-0.1.2.dist-info/METADATA,sha256=J5H1UwM9g4DgbZ5FkYkyWTUP3N3a8gqnyeHT5o2smRg,1909
+wepoll-0.1.2.dist-info/WHEEL,sha256=bMXkUWfr_3hlaRObp_pv9_U0ksvQo0T0Mwq6lQkXaZc,101
+wepoll-0.1.2.dist-info/top_level.txt,sha256=wakq198IXYUWMKKd-5U-ctS4mhVdYEsSeRd_TR-NSUs,7
+wepoll-0.1.2.dist-info/RECORD,,
