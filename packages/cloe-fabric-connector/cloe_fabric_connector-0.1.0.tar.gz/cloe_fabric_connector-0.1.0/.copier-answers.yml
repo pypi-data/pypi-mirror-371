@@ -1,0 +1,10 @@
+# Changes here will be overwritten by Copier
+_commit: 0.4.0
+_src_path: git+https://dev.azure.com/initions-consulting/CLOE/_git/cloe-package-template-py
+project_description: A new cool package.
+project_name: cloe-fabric-connector
+python_devops_environment_name: cloe-fabric-connector
+python_devops_repository_name: cloe-fabric-connector-py
+python_package_distribution_name: cloe-fabric-connector
+python_package_import_name: cloe_fabric_connector
+version: 0.1.0
