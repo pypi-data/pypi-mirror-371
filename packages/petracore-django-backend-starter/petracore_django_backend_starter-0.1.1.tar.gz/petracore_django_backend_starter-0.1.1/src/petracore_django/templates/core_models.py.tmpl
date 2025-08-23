@@ -1,0 +1,14 @@
+import uuid
+from datetime import datetime
+
+from django.db import models
+
+
+class CreatedModified(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    date_created = models.DateTimeField(auto_now_add=True, db_index=True, null=True)
+    last_updated = models.DateTimeField(auto_now=True, db_index=True)
+
+
+    class Meta:
+        abstract = True

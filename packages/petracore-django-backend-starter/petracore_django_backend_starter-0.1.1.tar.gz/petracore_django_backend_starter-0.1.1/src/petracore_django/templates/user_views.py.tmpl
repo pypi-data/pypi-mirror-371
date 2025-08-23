@@ -1,0 +1,64 @@
+"""
+@Author: Maro Okegbero
+"""
+from rest_framework import status
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import AllowAny, IsAuthenticated
+from rest_framework.response import Response
+
+from .serializers import LoginSerializer, EditUserInfoSerializer, ProfileViewSerializer, \
+    RegisterSerializer
+from .services import UserService
+
+
+@api_view(['POST'])
+@permission_classes([AllowAny])
+def login_user(request):
+    """
+    Log a user in using the username/email and password as the authentication credentials
+    """
+    data = request.data
+    serializer = LoginSerializer(data=data, context={'request': request})
+    serializer.is_valid(raise_exception=True)
+    try:
+        user = UserService.login_user(**serializer.validated_data)
+    except Exception as e:
+        print(f"Error logging in user: {e}")
+        return Response({"detail": str(e)}, status=status.HTTP_400_BAD_REQUEST)
+    response = LoginSerializer(user)
+    return Response(response.data, status=status.HTTP_200_OK)
+
+
+@api_view(['POST'])
+def register_user(request):
+    """
+    Register a user
+    """
+    serializer = RegisterSerializer(data=request.data, context={'request': request})
+    serializer.is_valid(raise_exception=True)
+    user = UserService.register_user(**serializer.validated_data)
+    response = LoginSerializer(user)
+    return Response(response.data, status=status.HTTP_200_OK)
+
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def edit_info(request):
+    """
+    edit user info
+    """
+    serializer = EditUserInfoSerializer(data=request.data, context={"request": request})
+    serializer.is_valid(raise_exception=True)
+    user = UserService.edit_info(**serializer.validated_data)
+    response = LoginSerializer(user)
+    return Response(response.data, status=status.HTTP_200_OK)
+
+
+@api_view()
+@permission_classes([IsAuthenticated])
+def user_detail(request):
+    """
+    Return a user's details
+    """
+    user = ProfileViewSerializer(request.user)
+    return Response(user.data, status=status.HTTP_200_OK)

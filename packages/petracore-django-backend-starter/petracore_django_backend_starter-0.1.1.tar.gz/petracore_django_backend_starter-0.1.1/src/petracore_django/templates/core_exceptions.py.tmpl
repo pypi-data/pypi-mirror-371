@@ -1,0 +1,19 @@
+"""
+custom exceptions
+"""
+
+
+class BaseError(Exception):
+    pass
+
+
+class Invalid_Id(BaseError):
+
+    def __int__(self, pk, model_object):
+        self.message = f"{pk} is an invalid {model_object} id"
+
+
+class Object_Not_Found(BaseError):
+
+    def __int__(self, pk, model_object: str):
+        self.message = f"No {model_object} was found with the pk {pk}"
