@@ -1,0 +1,13 @@
+datascience/__init__.py,sha256=Y9Q6WN7sjGrjeH18De5F0fJd_YYo-OcCm46OaWSUglg,145
+datascience/formats.py,sha256=PKLIRpHi1wqG56mgXj-VSO96uMaLPNbXGtgSwx409x0,5824
+datascience/maps.py,sha256=NOF-B3Y1GBilyk7TuUGKShm2-BNk0C4D4svD6BwJ034,41223
+datascience/predicates.py,sha256=vHqjfOvlIY4Q_ayUmUqIlYKtxJfCTyIgzQKbCU1KPKA,7173
+datascience/tables.py,sha256=xIG_NdEt250qsCnAZxAL24fxsEreF6WIi1cElRdHnz0,245711
+datascience/util.py,sha256=x0v-F9f94E08t3N0fvBoPD2A8O922vkAzj64s0_UOrU,8997
+datascience/version.py,sha256=xLQqGjpDoJw8wh7LhnSmkR_X41AAFaOxbyFZXuEbtfY,23
+datascience/geodata/geocode_states.csv,sha256=r1YPG287FMu9gaFJVUV6w4bzMdzSVlzQQAeP9CYkFr8,2238169
+datascience-0.18.0.dist-info/licenses/LICENSE,sha256=QQsKSbmqylYtGspAi4HFCHDlgaEbk1-f6LvSljvR4RI,1508
+datascience-0.18.0.dist-info/METADATA,sha256=BuoHMCKOrVTvm-xPRSVkueG1rptWHaNNxK7VP6SxpAk,910
+datascience-0.18.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+datascience-0.18.0.dist-info/top_level.txt,sha256=-84hDjt3lZh0uzewA8X5UFf6b2AlUg6e60zcNNEtYps,12
+datascience-0.18.0.dist-info/RECORD,,
