@@ -1,0 +1,11 @@
+STMGraph_pyG0/STMGraph.py,sha256=Y0ePTcPJV6gypvfiq8NrTvjCtE0rNVT9QrL1Yjbh7c4,8279
+STMGraph_pyG0/Train_STMGraph.py,sha256=5oqi7dGKA2WKOGwlqIPnLf5LGMZ9GG7H0qnhyHHdNY8,5994
+STMGraph_pyG0/__init__.py,sha256=shuM7GnSN9AicNWQMk380bMVAGipbpVyaHN0Zq8suis,377
+STMGraph_pyG0/gat_conv.py,sha256=WYZmy1rJ4jspL4Jsh2ZDETQLnCBOju5Gjs2lAueRF1o,9702
+STMGraph_pyG0/gatv2_conv.py,sha256=uNaLi_LwXb8GEObspFQcuXug3i29Xe0_9uLjtJ5d39I,9303
+STMGraph_pyG0/utils.py,sha256=XbyhY_xLB2kRaiKD4cZe0gd57I5-wpZiotyj4FqJ3PI,11454
+stmgraph_pyg-0.0.1.dist-info/LICENSE.txt,sha256=oNJzues7IM1TgC_0qwn1DAT0t5NAK0_Y8el39HSfyys,1067
+stmgraph_pyg-0.0.1.dist-info/METADATA,sha256=F3fabrIv9_3CvdDYjmPSWJpDS2T5qoIWJo2YzZqsEaQ,737
+stmgraph_pyg-0.0.1.dist-info/WHEEL,sha256=iAkIy5fosb7FzIOwONchHf19Qu7_1wCWyFNR5gu9nU0,91
+stmgraph_pyg-0.0.1.dist-info/top_level.txt,sha256=UeEsyOBc78qDGe7t1kGTLTMILpjfBKt5hXzUaHhwNuM,14
+stmgraph_pyg-0.0.1.dist-info/RECORD,,
