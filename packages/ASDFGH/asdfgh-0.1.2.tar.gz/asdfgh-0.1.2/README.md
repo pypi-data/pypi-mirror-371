@@ -1,0 +1,80 @@
+
+# ASDFGH Retro Clock
+
+A stylish terminal clock with retro and plain themes featuring big font display.
+
+
+
+
+## Installation
+
+Install ASDFGH with pip
+
+```bash
+  pip install ASDFGH
+```
+
+
+
+## Usage
+
+Quick Start Example
+
+```python
+"""
+ASDFGH Terminal Clock - Quick Start Demo
+The simplest way to use the clock.
+"""
+
+from ASDFGH import quick_start
+
+# Easiest way: use quick_start
+quick_start()  # Default retro theme
+```
+Theme Example
+```python
+"""
+ASDFGH Terminal Clock - Theme Demo
+Show different theme options.
+"""
+
+from ASDFGH import quick_start
+
+# Choose your theme
+quick_start(theme="plain")  # Plain theme
+
+# Or use retro theme
+# quick_start(theme="retro")  # Retro theme
+```
+Custom Clock Example
+```python
+"""
+ASDFGH Terminal Clock - Custom Clock Demo
+Full control with all options.
+"""
+
+from ASDFGH import ColorClock, Theme
+
+# For full control, create custom clock
+clock = ColorClock(
+    theme=Theme.RETRO,              # Possible: Theme.RETRO or Theme.PLAIN
+    military_time=True,             # 24-hour format - Possible: True/False
+    show_date=False,                # Hide date - Possible: True/False
+    big_font=True,                  # Big font - Possible: True/False
+    blink_separators=False,         # Blinking colons - Possible: True/False
+)
+
+clock.display()  # Press CTRL+C to exit
+```
+
+
+
+## Features
+
+- Dual Themes: Retro (green) and Plain (white) themes
+- Big Font: Large block-style digits for easy reading
+- Date Display: Optional date header
+- Time Formats: 12-hour and 24-hour format support
+- Visual Effects: Optional blinking colon separators
+- Centered Display: Automatically centers in terminal
+
