@@ -1,0 +1,13 @@
+bubbleconf-0.1.0.dist-info/licenses/LICENSE,sha256=OphKV48tcMv6ep-7j-8T6nycykPT0g8ZlMJ9zbGvdPs,1066
+pyconf/__init__.py,sha256=nFgvXSbli-BGAsXSorYA2lDM2jR2Wp1T5FH4yctxfYA,88
+pyconf/config_annotation.py,sha256=o4_I9uEtsTkq7shh6j8qHjOMA_q_AXizYB9GTswRCGE,475
+pyconf/main.py,sha256=8fJySCZ-aLVDrpCBBkN8wiNTxeKe0txCN-41ub_AJZ4,632
+pyconf/parsers/__init__.py,sha256=mz3H2c0sGWEOPumBEVicHXhlPhPmQLWcTHYBAIHESP8,51
+pyconf/parsers/cli_parser.py,sha256=DAcW_Kk6hyQMXhTdZaPNiGrgttNea0dNQ4pjrZtllBA,2328
+pyconf/parsers/config_error.py,sha256=eX1OVUyjWJTe45zNOmPKPdR5WYXxbzxe3PMMZhdw8yY,2485
+pyconf/parsers/env_parser.py,sha256=XrqqfikiSmByPsjooF7_VGqLD5Yq__Fue2WnCvOTlhg,2788
+pyconf/parsers/parse_priority.py,sha256=kYJew_4a-RyhSapcsyaFxfN2yoIOzYbAOzZcIellw4o,5361
+bubbleconf-0.1.0.dist-info/METADATA,sha256=EkoX4GElT7xjWZ3pAHTV2OMdLEHVl8QzORs1KG1658g,1802
+bubbleconf-0.1.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+bubbleconf-0.1.0.dist-info/top_level.txt,sha256=FtJVsehvsxNibwH7yOgdv8VRRt02skSsypWb3w5uGnU,7
+bubbleconf-0.1.0.dist-info/RECORD,,
