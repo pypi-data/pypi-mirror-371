@@ -1,0 +1,92 @@
+# SPDX-FileCopyrightText: 2025 GFZ Helmholtz Centre for Geosciences
+#
+# SPDX-License-Identifier: Apache-2.0
+
+[build-system]
+requires = ["setuptools>=45", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "swvo"
+authors = [
+    {name = "Bernhard Haas", email = "bernhard.haas@gfz.de"},
+    {name = "Sahil Jhawar", email = "jhawar@gfz.de"},
+]
+description = "Tools for downloading and reading space-weather data and geomagnetic indices."
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "GPLv3"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    'Programming Language :: Python :: 3.11',
+    'Programming Language :: Python :: 3.12',
+    'Programming Language :: Python :: 3.13',
+    'Operating System :: POSIX',
+    'Operating System :: Unix',
+    'Operating System :: MacOS',
+]
+dynamic = ["dependencies", "version"]
+
+
+[tool.setuptools.dynamic]
+version = {attr = "swvo.__version__"}
+dependencies = {file = ["requirements.txt"]}
+
+[project.urls]
+Homepage = "https://github.com/GFZ/SWVO"
+Documentation = "https://spsw.git-pages.gfz-potsdam.de/swvo"
+Download = "https://pypi.org/project/swvo/#files"
+Tracker = "https://github.com/GFZ/SWVO/issues"
+
+[tool.setuptools.packages.find]
+include = ["swvo*"]
+
+
+
+[tool.coverage.run]
+source = ["swvo"]
+
+[tool.coverage.report]
+# Regexes for lines to exclude from consideration
+exclude_lines = [
+    # Have to re-enable the standard pragma
+    "pragma: no cover",
+    # Don't complain about missing debug-only code:
+    "def __repr__",
+    # Don't complain if tests don't hit defensive assertion code:
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "raise KeyError",
+    "except KeyError",
+    "raise ValueError",
+    "except JSONDecodeError:",
+    "raise requests.exceptions.RequestException",
+    # Don't complain if non-runnable code isn't run:
+    "if 0:",
+    "if False:",
+    'if __name__ == "__main__":',
+    "err =",
+    "logger.error",
+    "raise"
+    ]
+ignore_errors = true
+
+[tool.isort]
+profile = "black"
+
+[tool.pytest.ini_options]
+addopts = "--verbose -r s"
+asyncio_mode = "strict"
+asyncio_default_fixture_loop_scope = "session"
+
+[tool.bumpver]
+current_version = "1.0.0"
+version_pattern = "MAJOR.MINOR.PATCH[PYTAGNUM]"
+commit_message = "bump version {old_version} -> {new_version}"
+commit = true
+tag = true
+push = true
+
+[tool.bumpver.file_patterns]
+"pyproject.toml" = ['current_version = "{version}"']
+"swvo/__init__.py" = ['__version__ = "{version}"']
