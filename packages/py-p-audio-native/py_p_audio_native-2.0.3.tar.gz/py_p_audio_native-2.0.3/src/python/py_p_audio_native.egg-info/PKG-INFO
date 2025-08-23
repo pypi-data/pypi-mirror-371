@@ -1,0 +1,275 @@
+Metadata-Version: 2.4
+Name: py-p-audio-native
+Version: 2.0.3
+Summary: 高性能な Python オーディオライブラリ - ネイティブ C++ コア搭載
+Home-page: https://github.com/hiroshi-tamura/py-p-audio-native
+Author: hiroshi-tamura
+Author-email: 
+License: MIT
+Project-URL: Homepage, https://github.com/hiroshi-tamura/py-p-audio-native
+Project-URL: Repository, https://github.com/hiroshi-tamura/py-p-audio-native.git
+Project-URL: Issues, https://github.com/hiroshi-tamura/py-p-audio-native/issues
+Keywords: audio,recording,playback,WASAPI,ASIO,native,pybind11
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: C++
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Multimedia :: Sound/Audio :: Capture/Recording
+Classifier: Topic :: Multimedia :: Sound/Audio :: Players
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Dynamic: home-page
+Dynamic: requires-python
+
+# py-p-audio-native
+
+**高性能な Python オーディオライブラリ - ネイティブ C++ コア搭載**
+
+Windows 環境で WASAPI と ASIO をサポートした、pybind11 ベースの高性能オーディオ録音・再生ライブラリです。
+
+[![PyPI version](https://badge.fury.io/py/py-p-audio-native.svg)](https://pypi.org/project/py-p-audio-native/)
+[![Python versions](https://img.shields.io/pypi/pyversions/py-p-audio-native.svg)](https://pypi.org/project/py-p-audio-native/)
+[![License](https://img.shields.io/pypi/l/py-p-audio-native.svg)](https://github.com/hiroshi-tamura/py-p-audio-native/blob/main/LICENSE)
+
+## 特徴
+
+- ✅ **ネイティブ C++ パフォーマンス**: pybind11 による高速な音声処理
+- ✅ **外部依存関係なし**: PyAudio, sounddevice など不要
+- ✅ **WASAPI & ASIO 対応**: 低レイテンシ・高音質録音
+- ✅ **マルチチャンネル対応**: ステレオ〜8ch+ の録音・再生
+- ✅ **ループバック録音**: システム音声キャプチャ
+- ✅ **リアルタイム監視**: ピークレベル、録音時間の取得
+- ✅ **簡潔な API**: 初心者にも使いやすい Python インターフェース
+
+## インストール
+
+```bash
+pip install py-p-audio-native
+```
+
+## クイックスタート
+
+### デバイス一覧
+
+```python
+import py_p_audio_native as ppa
+
+# 利用可能なオーディオデバイス表示
+devices = ppa.list_devices()
+for device in devices:
+    print(f"[{device.index}] {device.name} ({device.api_name})")
+    if device.max_input_channels > 0:
+        print(f"  → 入力: {device.max_input_channels}ch")
+    if device.max_output_channels > 0:
+        print(f"  → 出力: {device.max_output_channels}ch")
+```
+
+### シンプル録音
+
+```python
+# デフォルトマイクで 5秒録音
+ppa.record(duration=5.0, output_file="recording.wav")
+
+# 高音質・デバイス指定録音
+ppa.record(
+    duration=10.0,
+    output_file="high_quality.wav",
+    device_index=1,      # デバイス番号
+    sample_rate=48000,   # 48kHz
+    channels=2,          # ステレオ
+    bit_depth=24         # 24ビット
+)
+```
+
+### システム音声録音
+
+```python
+# コンピュータの音声出力をそのまま録音
+ppa.record_loopback(duration=10.0, output_file="system_audio.wav")
+```
+
+### 音声再生
+
+```python
+# ファイル再生
+ppa.play("recording.wav")
+
+# デバイス指定再生
+ppa.play("music.wav", device_index=2)
+```
+
+## 詳細制御
+
+### 高度な録音制御
+
+```python
+# Recorder クラスで詳細制御
+recorder = ppa.Recorder(
+    device_index=0,      # 入力デバイス
+    sample_rate=44100,   # サンプリング周波数
+    channels=2,          # チャンネル数
+    bit_depth=16,        # ビット深度
+    buffer_size=1024     # バッファサイズ
+)
+
+recorder.setup()
+recorder.start_recording("live.wav")
+
+# リアルタイム監視
+import time
+while recorder.is_recording():
+    time_elapsed = recorder.get_recording_time()
+    peak_level = recorder.get_peak_level()
+    print(f"録音時間: {time_elapsed:.1f}s, レベル: {peak_level:.2f}")
+    
+    if time_elapsed >= 10.0:
+        recorder.stop_recording()
+        break
+    time.sleep(0.5)
+```
+
+### ASIO デバイスで最高音質
+
+```python
+# ASIO デバイス検索
+devices = ppa.list_devices()
+asio_device = None
+for device in devices:
+    if "ASIO" in device.api_name:
+        asio_device = device
+        break
+
+if asio_device:
+    ppa.record(
+        duration=30.0,
+        output_file="studio_quality.wav",
+        device_index=asio_device.index,
+        sample_rate=96000,   # 96kHz
+        channels=8,          # 8ch
+        bit_depth=32         # 32ビット
+    )
+```
+
+### プログレスコールバック
+
+```python
+def progress_callback(progress, status):
+    print(f"進捗: {progress:.1f}%, ステータス: {status}")
+
+recorder = ppa.Recorder()
+recorder.set_progress_callback(progress_callback)
+recorder.record(duration=5.0, output_file="with_callback.wav")
+```
+
+## API リファレンス
+
+### 基本関数
+
+- `list_devices()` - デバイス一覧取得
+- `get_device_info(index)` - デバイス情報取得
+- `find_device(name)` - デバイス名検索
+- `record(duration, file, ...)` - シンプル録音
+- `record_loopback(duration, file, ...)` - システム音声録音
+- `play(file, device_index)` - 音声再生
+
+### クラス
+
+- `Recorder` - 詳細録音制御
+- `LoopbackRecorder` - システム音声録音制御  
+- `Player` - 音声再生制御
+- `AudioDevice` - デバイス情報
+
+### 例外
+
+- `DeviceError` - デバイス関連エラー
+- `RecordingError` - 録音エラー
+- `PlaybackError` - 再生エラー
+- `FileError` - ファイル操作エラー
+
+## 使用例
+
+### USB マイク録音
+
+```python
+# USB マイクを見つけて録音
+usb_mic = ppa.find_device("USB")
+if usb_mic:
+    ppa.record(
+        duration=5.0,
+        output_file="usb_recording.wav",
+        device_index=usb_mic.index
+    )
+```
+
+### マルチチャンネル録音
+
+```python
+# 8チャンネル同時録音
+ppa.record(
+    duration=60.0,
+    output_file="8ch_recording.wav",
+    device_index=2,
+    channels=8,
+    sample_rate=48000,
+    bit_depth=24
+)
+```
+
+### 長時間録音監視
+
+```python
+recorder = ppa.Recorder(device_index=0)
+recorder.setup()
+recorder.start_recording("long_recording.wav")
+
+try:
+    while recorder.is_recording():
+        level = recorder.get_peak_level()
+        time_elapsed = recorder.get_recording_time()
+        
+        # ピークレベル可視化
+        bar_length = int(level * 50)
+        bar = "█" * bar_length + "░" * (50 - bar_length)
+        print(f"\r時間: {time_elapsed:6.1f}s |{bar}| {level:.2f}", end="")
+        
+        time.sleep(0.1)
+except KeyboardInterrupt:
+    recorder.stop_recording()
+    print("\n録音完了")
+```
+
+## 対応環境
+
+- **OS**: Windows 10/11 (x64)
+- **Python**: 3.8, 3.9, 3.10, 3.11, 3.12
+- **アーキテクチャ**: x64
+- **API**: WASAPI, ASIO
+
+## ドキュメント
+
+- [クイックスタートガイド](docs/quick_start.md)
+- [詳細使用方法](docs/advanced_usage.md)
+- [ビルドガイド](build_guide.md)
+
+## ライセンス
+
+MIT License - 詳細は [LICENSE](LICENSE) を参照
+
+## 貢献
+
+プルリクエストやイシュー報告を歓迎します。
+
+## 作者
+
+hiroshi-tamura
+
+---
+
+**高性能・低レイテンシな音声処理が必要なアプリケーション開発に最適です。**
