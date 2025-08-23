@@ -1,0 +1,2 @@
+[console_scripts]
+d8fmt = d8fmt:run_cli
