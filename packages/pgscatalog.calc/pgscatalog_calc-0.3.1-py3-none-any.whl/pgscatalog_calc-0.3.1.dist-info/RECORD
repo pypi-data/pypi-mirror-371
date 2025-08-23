@@ -1,0 +1,17 @@
+pgscatalog/calc/__init__.py,sha256=GuHsdwIDqPiyNzm1fJLFy5cFntsoV5nXWU6QwiP6oY8,572
+pgscatalog/calc/cli/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pgscatalog/calc/cli/aggregate_cli.py,sha256=I346wZP08ECkihAFTsULViAGKVYkw6FBe17-ROuXKZ4,6370
+pgscatalog/calc/cli/ancestry_cli.py,sha256=BP8dR60zlG-nbiRlRpKUA_Aljbncawu4OA4NzKkWuT0,6061
+pgscatalog/calc/lib/__init__.py,sha256=Px2RKxajwvlE84hwjmNQ98fATdzVbcO8xVu98Sl3RpE,512
+pgscatalog/calc/lib/_config.py,sha256=H25Kx26gR917lLJFQXi4vizuq03ziKraHxGwvNIGxgo,114
+pgscatalog/calc/lib/polygenicscore.py,sha256=R14HAF83OGP-UQxbtOKjcFPpVJfKLZHI9pL8d1UBbHc,17027
+pgscatalog/calc/lib/principalcomponents.py,sha256=MNFJ_iIQSO1KIrR_lYdyEnWT2SPz2sDLVUiD_jTZ0Io,5826
+pgscatalog/calc/lib/_ancestry/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pgscatalog/calc/lib/_ancestry/read.py,sha256=pzUIW2VskpUErx8BL1AHZDG8ZduOWtl4a2q2n3HKg1g,3217
+pgscatalog/calc/lib/_ancestry/tools.py,sha256=iMyuqLVnAnjgdhpYNNfp_okouTDTVYQtrZ6ulm0H4XA,28292
+pgscatalog_calc-0.3.1.dist-info/licenses/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+pgscatalog_calc-0.3.1.dist-info/METADATA,sha256=iNkgw0VB9-j2W06Fp7--Urqo6aaee-aCmvxcfHmk1Vw,3610
+pgscatalog_calc-0.3.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+pgscatalog_calc-0.3.1.dist-info/entry_points.txt,sha256=MGEjVZo397o9sYUJfnOdCy0MI2HC6tl-0K3hpqA8mL4,164
+pgscatalog_calc-0.3.1.dist-info/top_level.txt,sha256=Kvj88FRwYpaA0UciJGsdNM4BYi6tV-nzdDArWyidcWA,11
+pgscatalog_calc-0.3.1.dist-info/RECORD,,
