@@ -1,0 +1,3 @@
+[console_scripts]
+iccf-check-ccf = iCCF.scripts:check_CCF
+iccf-make-ccf = iCCF.scripts:make_CCF
