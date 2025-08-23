@@ -1,0 +1,8 @@
+README.md
+main.py
+pyproject.toml
+demozodiurjnb.egg-info/PKG-INFO
+demozodiurjnb.egg-info/SOURCES.txt
+demozodiurjnb.egg-info/dependency_links.txt
+demozodiurjnb.egg-info/requires.txt
+demozodiurjnb.egg-info/top_level.txt
