@@ -1,0 +1,9 @@
+protobuf
+zeroconf
+
+[release]
+bump-my-version
+
+[tests]
+pytest
+pytest-asyncio
