@@ -1,0 +1,4 @@
+pyyaml
+jq
+jsonschema
+pytest

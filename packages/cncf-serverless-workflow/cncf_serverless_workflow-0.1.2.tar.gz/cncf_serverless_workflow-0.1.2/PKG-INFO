@@ -1,0 +1,130 @@
+Metadata-Version: 2.4
+Name: cncf-serverless-workflow
+Version: 0.1.2
+Summary: CNCF Serverless Workflow v1.0 validator and executor
+Home-page: https://github.com/rvergis/cncf-serverless-workflow-python-v1
+Author: Ron Vergis
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pyyaml
+Requires-Dist: jq
+Requires-Dist: jsonschema
+Requires-Dist: pytest
+Dynamic: author
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: summary
+
+# CNCF Serverless Workflow Python v1.0
+
+A Python 3 library for parsing, validating, and executing workflows defined in the [CNCF Serverless Workflow v1.0 specification](https://serverlessworkflow.io/). Supports all state types (`OperationState`, `ForEachState`, `SwitchState`, `SubflowState`, `ParallelState`, `EndState`, `EventState`, `DelayState`, `InjectState`), JQ-based data filtering, events, retries, and authentication. Optimized for agentic workflows with LLM-friendly design.
+
+## Features
+- **Parse and Validate**: Validates YAML/JSON workflows against the v1.0 schema, enforcing `transition` or `end: true` for non-`EndState` types, collecting all errors.
+- **Execute Workflows**: Handles all state types, including event-driven, delay, and data injection.
+- **JQ Integration**: Supports JQ for `stateDataFilter`, `arguments`, and `inputCollection`.
+- **LLM-Friendly**: Structured comments (e.g., `# MANDATORY Transition`) and comprehensive error reporting for LLM generation.
+- **Testing**: Pytest suite for validation of multiple error cases.
+
+## Installation
+1. Clone the repository:
+   ```
+   git clone https://github.com/rvergis/cncf-serverless-workflow-python-v1.git
+   cd cncf-serverless-workflow-python-v1
+   ```
+2. Install dependencies:
+   ```
+   pip install pyyaml jq jsonschema pytest
+   ```
+3. Install as a package:
+   ```
+   pip install .
+   ```
+
+## Usage
+1. Save your workflow (`workflow.yaml`) and schema (`workflow_schema.yaml`).
+2. Validate and execute:
+   ```python
+   from cncf_serverless_workflow.workflow_validator import load_yaml, validate_workflow
+   from cncf_serverless_workflow.workflowengine import execute_workflow
+   schema = load_yaml("workflow_schema.yaml")
+   workflow = load_yaml("workflow_example.yaml")
+   
+   result = validate_workflow(workflow, schema)
+   if result["status"] == "valid":
+       final_state = execute_workflow(workflow)
+       print(json.dumps(final_state, indent=2))
+   else:
+       print(json.dumps(result["message"], indent=2))
+   ```
+3. Example output for `workflow_example.yaml`:
+   ```json
+   {
+     "context": {
+       "ParallelStartOutput": {
+         "items": [{"value": 60}, {"value": 30}, {"value": 45}],
+         "value": 60,
+         "Branch1Output": 62,
+         "Branch2Output": "Processed: 2"
+       },
+       "ForEachStateOutput": {
+         "results": [
+           {"method2": "Processed: 10"},
+           {"method3": [31, 32]},
+           {"method3": [46, 47]}
+         ]
+       },
+       "SwitchStateOutput": {"value": 60},
+       "OperationStateOutput": {
+         "initOperation": {"value": 70},
+         "method1": 72,
+         "method2": "Processed: Seq2: 72",
+         "method3": ["Processed: Seq2: 72", "Processed: Seq2: 73"],
+         "method4": {"key": "Processed: Seq2: 72"}
+       }
+     }
+   }
+   ```
+
+## LLM Integration
+To generate valid workflows:
+1. Provide `workflow_example.yaml` as a one-shot example.
+2. Use prompt: “Generate a state with `transition` (to ParallelStart, ForEachState, etc.) or `end: true` after `type`, optional `stateDataFilter`, and `dataOutput`.”
+3. Validate with `workflow_validator.py`, retrying up to 3 times with errors: “Regenerate fixing: {errors}.”
+4. Example error: `["State 'GetAllObjectIds' missing mandatory transition or end: true"]`.
+
+## Testing
+Run tests to validate workflows:
+```
+pytest test_workflow_validator.py
+```
+
+## Project Structure
+- `workflowengine.py`: Executes workflows.
+- `workflow_validator.py`: Validates workflows, collecting all errors.
+- `test_workflow_validator.py`: Pytest suite for multiple error cases.
+- `workflow_schema.yaml`: Full CNCF v1.0 schema.
+- `workflow_example.yaml`: Example workflow with LLM-friendly comments.
+
+## Contributing
+1. Fork the repository.
+2. Create a feature branch (`git checkout -b feature/your-feature`).
+3. Commit changes (`git commit -m "Add your feature"`).
+4. Push to the branch (`git push origin feature/your-feature`).
+5. Open a pull request.
+
+## License
+MIT License. See [LICENSE](LICENSE).
+
+## Acknowledgments
+- Built on CNCF Serverless Workflow v1.0.
+- Inspired by `serverlessworkflow/sdk-python` (v0.8).
