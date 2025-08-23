@@ -1,0 +1,15 @@
+hdx_cli_toolkit/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+hdx_cli_toolkit/ckan_utilities.py,sha256=Ow0qube4Ibkwc20rvgLkFGps6jgx9k7Pq43jeN1YvPU,5557
+hdx_cli_toolkit/cli.py,sha256=szDwJthJwUiRM_6OH8i8M7u9ftlqk5J-mkR978lttEA,31865
+hdx_cli_toolkit/data_quality_utilities.py,sha256=jT0w5XO2LHfUVUzsCcyuqArqLNnmR_ALpjTEwZ1D5qU,28109
+hdx_cli_toolkit/hapi_utilities.py,sha256=Tda1ZednU8clmQJTDdyPaAJXef3AVvRrrGd3k1-2Qqw,2517
+hdx_cli_toolkit/hdx_utilities.py,sha256=Gj4IlQDV5_MOoG-69xPSiEpAPrYeWikLnFJ2-bXZ2-o,25134
+hdx_cli_toolkit/stable_schema_utilities.py,sha256=9nJTxUDbkqwl2i2thx616CPzCFYIrTPUZRI4To7e0gc,9148
+hdx_cli_toolkit/utilities.py,sha256=T2rnCZYK3hwfaanSq2AwkCfmBHkAz5_maEiqBD9K1iI,17745
+hdx_cli_toolkit/data/datagrid-datasets.csv,sha256=vu4vf6G-pC1P0alK5qLyrwQoht3W8F69iugr2DUp7GA,84582
+hdx_cli_toolkit-2025.8.1.dist-info/licenses/LICENSE,sha256=JbCpPljLxczKDGqqOSV5ENisLSQpO-A0b9eYPEIHI0Q,1080
+hdx_cli_toolkit-2025.8.1.dist-info/METADATA,sha256=kNF3DagGdztNB5NyenqLLpb-JpfU5h2ZFdJOsm7Pht0,7386
+hdx_cli_toolkit-2025.8.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+hdx_cli_toolkit-2025.8.1.dist-info/entry_points.txt,sha256=J2wFpUS0qWxrKtLY11XLOnNvBfdhkd1OuYptx-0MWbw,64
+hdx_cli_toolkit-2025.8.1.dist-info/top_level.txt,sha256=bN60R_SCKuRXX_8cg0gB_GOQMdtikdqfmU2WroSt-70,16
+hdx_cli_toolkit-2025.8.1.dist-info/RECORD,,
