@@ -1,0 +1,13 @@
+scaffoldfitter/__init__.py,sha256=7WtyqJ2yf7YxCw87c7DxwA1lXEAeyaNU5QEjs2l0f-M,86
+scaffoldfitter/fitter.py,sha256=eg6FnI0w8emncK8YPTYwt9Vf0rR_xB23BuYqCkoQC7c,91754
+scaffoldfitter/fitterexceptions.py,sha256=Y9Gax2zvwM0M7EVKdV9nEG5tohwoK2UOFgqE37duMUI,55
+scaffoldfitter/fitterjson.py,sha256=iEF63AOr6IBrilnyEgIuKxbjjK1AGZmSysnrIS5kt-w,1004
+scaffoldfitter/fitterstep.py,sha256=FNvfUQ8aIM5hd1zWZX1X8mNvm3ZSinow4Lbj-WmocH0,7501
+scaffoldfitter/fitterstepalign.py,sha256=owazi3w9BNePwRIRSk9O1zXKDvwwawq1MgJMER4BUpc,25516
+scaffoldfitter/fitterstepconfig.py,sha256=X-o_v8mcxvoWPq7lZY_TxKb2xPqXmJUekG8WpQMUYEI,10160
+scaffoldfitter/fitterstepfit.py,sha256=VBkUjsFGejtQKrh9D15PI9PexTu6yO0to4BRITbj2Jo,28982
+scaffoldfitter-0.11.2.dist-info/licenses/LICENSE,sha256=emWvht14Bzfzn9WDeQj-F4clwXRsECqJKBO0GhbY3mo,595
+scaffoldfitter-0.11.2.dist-info/METADATA,sha256=hk23bc-2cypD3jfnjJAKy40C5_oNxqUqC6moigkU5n0,1542
+scaffoldfitter-0.11.2.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+scaffoldfitter-0.11.2.dist-info/top_level.txt,sha256=K6Y5l_yAFk9XuMfob-lg8tczBZTxSGb3DvTW_m9rylc,15
+scaffoldfitter-0.11.2.dist-info/RECORD,,
