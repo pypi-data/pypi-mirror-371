@@ -1,0 +1,14 @@
+Metadata-Version: 2.4
+Name: bitloom
+Version: 0.1.0
+Summary: Minimal Bitloom lang processor
+Author: mav
+License: MIT
+Description-Content-Type: text/markdown
+
+# Bitloom
+
+Minimal Bitloom lang processor
+
+- `make_file(filename)` — converts your Bitloom code to python
+- `run_file(filename)` — runs the converted code

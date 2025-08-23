@@ -1,0 +1,8 @@
+README.md
+pyproject.toml
+bitloom/core.py
+bitloom/init.py
+bitloom.egg-info/PKG-INFO
+bitloom.egg-info/SOURCES.txt
+bitloom.egg-info/dependency_links.txt
+bitloom.egg-info/top_level.txt
