@@ -1,0 +1,11 @@
+c2pa/__init__.py,sha256=5yxCaO_fteqyNGa6Ue_LNVt2_dfEBf5nAFKDTDicxrQ,534
+c2pa/build.py,sha256=iQiKW0Hz2n2Mrrx9JLlHyKX3FELHqHSFMy1w0adt4mc,3576
+c2pa/c2pa.py,sha256=ET0oPscl8ww67ci5Yqit6FIRhrYSVQ001ZArxA0TCjo,77128
+c2pa/lib.py,sha256=b-CgpOMy5l8rQrZbJBQLzgz9GTJBlTZmILwobo9nuZI,9360
+c2pa/libs/libc2pa_c.dylib,sha256=VsqVJ1CxqT7qdUNgSOvdm2j7Rr4Tr_Sg4ckm1tfSAHw,28952448
+c2pa/libs/libc2pa_c.dylib.dSYM.zip,sha256=6nmHcVzG9S3MBtmClHQ6Z0mQ7CBNgTz9GgxZ1v4D8rY,365639
+c2pa_python-0.12.1.dist-info/METADATA,sha256=faNUV6G84v_FvJlWMSxwzfcN_nBqPmhnxqsubx2xO88,2446
+c2pa_python-0.12.1.dist-info/WHEEL,sha256=uzJr3Ii0RVZTHslkN5PPYROxgc6YNAA4deAFO92P0EE,106
+c2pa_python-0.12.1.dist-info/entry_points.txt,sha256=SdMQ_ZWuA4Vas8ki_caSqG7R8ereKjupdDL7Yd3DI-A,69
+c2pa_python-0.12.1.dist-info/top_level.txt,sha256=ExreT1v3X1BMi_fTygO4xPNW9qoO8lCQKXXSF6NVVbc,5
+c2pa_python-0.12.1.dist-info/RECORD,,
