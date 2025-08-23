@@ -1,0 +1,79 @@
+# --------------------------------------------------
+# 1. Build system: enables wheel & sdist creation
+# --------------------------------------------------
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+# --------------------------------------------------
+# 2. Project metadata & dependencies
+# --------------------------------------------------
+[project]
+name = "scrahot"
+version = "1.48.5"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "Flask>=3.0,<=3.1.0",
+    "itemadapter==0.8.0",
+    "blinker<1.8.0",
+    "Scrapy==2.9.0",
+    "scrapy_selenium==0.0.7",
+    "selenium==4.34.2",
+    "selenium_wire==5.1.0",
+    "mitmproxy>=12.0.0,<13.0.0",
+    "Twisted==22.10.0",
+    "undetected_chromedriver==3.5.5",
+    "typing_extensions>=4.14.0,<4.15.dev0",
+    "PyAutoGUI==0.9.54",
+    "pytest==8.4.1",
+    "pytest-ordering==0.6",
+    "fake-useragent==1.5.1",
+    "loguru==0.7.3",
+    "seleniumbase==4.40.5",
+    "pyinstaller>=6.12.0",
+]
+
+# --------------------------------------------------
+# 3. Console‐script entry point for `uvx scrahot`
+# --------------------------------------------------
+[project.scripts]
+# Defines the "scrahot" command that uvx (or pipx) will install
+scrahot = "scrahot.app:main"      # ← adjust if your entrypoint is elsewhere :contentReference[oaicite:0]{index=0}
+
+# --------------------------------------------------
+# 4. Explicit package discovery
+# --------------------------------------------------
+[tool.setuptools.packages.find]
+# Only look in the current directory (flat layout)
+where = ["."]
+# Include your main package and any subpackages
+include = ["scrahot", "scrahot.*"]
+exclude = [
+  "latest_logs",
+  "latest_logs.*",
+  "downloaded_files",
+  "downloaded_files.*",
+  "scrahot.records.*",
+  "scrahot.egg-info.*",
+  "tests.*",
+  # add any other top-level dirs or patterns you want to skip
+]
+[tool.setuptools.package-data]
+scrahot = ["*"]
+
+# --------------------------------------------------
+# 5. (Optional) Private-index configuration
+# --------------------------------------------------
+# When you're ready to publish to a private registry,
+# uncomment and fill in the URL of your chosen index.
+#
+[[tool.uv.index]]
+name        = "github"
+url         = "https://encouver.github.io/packages/pypi/simple/"      # replace OWNER
+publish-url = "https://upload.pypi.github.com/encouver/"              # replace OWNER
+explicit    = true
+#
+# You can set credentials via:
+# export UV_CREDENTIALS_my-private="username:password"

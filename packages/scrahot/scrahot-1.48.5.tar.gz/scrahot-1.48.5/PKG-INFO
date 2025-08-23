@@ -1,0 +1,53 @@
+Metadata-Version: 2.4
+Name: scrahot
+Version: 1.48.5
+Summary: Add your description here
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+Requires-Dist: Flask<=3.1.0,>=3.0
+Requires-Dist: itemadapter==0.8.0
+Requires-Dist: blinker<1.8.0
+Requires-Dist: Scrapy==2.9.0
+Requires-Dist: scrapy_selenium==0.0.7
+Requires-Dist: selenium==4.34.2
+Requires-Dist: selenium_wire==5.1.0
+Requires-Dist: mitmproxy<13.0.0,>=12.0.0
+Requires-Dist: Twisted==22.10.0
+Requires-Dist: undetected_chromedriver==3.5.5
+Requires-Dist: typing_extensions<4.15.dev0,>=4.14.0
+Requires-Dist: PyAutoGUI==0.9.54
+Requires-Dist: pytest==8.4.1
+Requires-Dist: pytest-ordering==0.6
+Requires-Dist: fake-useragent==1.5.1
+Requires-Dist: loguru==0.7.3
+Requires-Dist: seleniumbase==4.40.5
+Requires-Dist: pyinstaller>=6.12.0
+
+# Instructions to execute
+
+## Running multiple instances with uvx:
+# Instance 1
+```sh 
+FLASK_PORT=5005 MITMPROXY_PORT=6005 uvx --python 3.12 scrahot 
+```
+
+# Instance 2  
+```sh 
+FLASK_PORT=5006 MITMPROXY_PORT=6006 uvx --python 3.12 scrahot
+```
+
+# Instance 3
+```sh 
+FLASK_PORT=5007 MITMPROXY_PORT=6007 uvx --python 3.12 scrahot
+``` 
+
+## Alternatively, using command line arguments:
+# Instance 1
+```sh 
+uvx --python 3.12 scrahot -- --port 5005 --proxy-port 6005
+```
+
+# Instance 2
+```sh
+uvx --python 3.12 scrahot -- --port 5006 --proxy-port 6006
+```
