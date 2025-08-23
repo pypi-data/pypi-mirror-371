@@ -1,0 +1,15 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+titbit/__init__.py
+titbit/ast_utils.py
+titbit/graphs.py
+titbit/mappings.py
+titbit/strings.py
+titbit.egg-info/PKG-INFO
+titbit.egg-info/SOURCES.txt
+titbit.egg-info/dependency_links.txt
+titbit.egg-info/not-zip-safe
+titbit.egg-info/requires.txt
+titbit.egg-info/top_level.txt
