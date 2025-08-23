@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!-- The COPYRIGHT file at the top level of this repository contains the full
+    copyright notices and license terms. -->
+<data>
+    <xpath expr="/form/notebook/page[@name='web_shops']" position="after">
+        <page col="4" id="flask" string="Flask WebShop">
+            <label name="flask_slug"/>
+            <group name="flask_slug" string="" col="2">
+                <field name="flask_slug"/>
+                <field name="flask_slug_custom" xalign="0.0" xexpand="0"/>
+            </group>
+            <label name="flask_sequence" string="Sequence:"/>
+            <field name="flask_sequence"/>
+        </page>
+    </xpath>
+</data>
