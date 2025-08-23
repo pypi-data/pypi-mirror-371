@@ -1,0 +1,2 @@
+[console_scripts]
+morphantic = morphantic_core.cli:main

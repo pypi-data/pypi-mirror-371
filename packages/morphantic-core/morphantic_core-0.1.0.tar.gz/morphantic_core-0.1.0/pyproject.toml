@@ -1,0 +1,63 @@
+[build-system]
+requires = ["setuptools>=68", "wheel", "setuptools-scm>=8"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "morphantic-core"
+version = "0.1.0"
+description = "Morphantic Core: modular evolutionary optimization with safe exploration, drift guard, and Optuna integration."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Your Name", email = "you@example.com" }]
+keywords = ["optimization", "evolutionary", "optuna", "surrogate", "trust-region"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: Apache Software License",
+  "Operating System :: OS Independent",
+]
+
+# Core dependencies for the optimization engine
+dependencies = [
+  "numpy>=1.23,<3.0",
+  "requests>=2.28,<3.0",
+  "pydantic>=2.0,<3.0",
+]
+
+[project.optional-dependencies]
+# Server dependencies for FastAPI
+server = [
+  "fastapi>=0.110,<1.0", 
+  "uvicorn[standard]>=0.23,<1.0",
+  "requests>=2.28,<3.0",
+  "pydantic>=2.0,<3.0"
+]
+
+# Machine learning dependencies
+sklearn = [
+  "scikit-learn>=1.1,<2.0",
+  "numpy>=1.23,<3.0"
+]
+
+# Full installation with all dependencies
+all = [
+  "numpy>=1.23,<3.0",
+  "requests>=2.28,<3.0", 
+  "pydantic>=2.0,<3.0",
+  "fastapi>=0.110,<1.0",
+  "uvicorn[standard]>=0.23,<1.0",
+  "scikit-learn>=1.1,<2.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/your-org/morphantic-core"
+Issues = "https://github.com/your-org/morphantic-core/issues"
+
+[project.scripts]
+morphantic = "morphantic_core.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
