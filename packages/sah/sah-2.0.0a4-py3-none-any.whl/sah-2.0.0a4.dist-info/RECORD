@@ -1,0 +1,17 @@
+sah/__init__.py,sha256=287I8wrX38oceupqH6zi3jl5s6WuVx22DUYonKuDxsE,202
+sah/_version.py,sha256=u4sWHjH8SKO5Qudcqtt6kBRBwTPOh5SPP0X60MOX1cM,196
+sah/classes.py,sha256=uIeYKf27cKIMcd-2nuXmsYvbjTq8TG2MH9uqd1XgpXg,18746
+sah/deuterium.py,sha256=O1o1GWcaemvHdmmadnEc5GQVhYltjFUgWnbv8RWBgQ0,13777
+sah/fit.py,sha256=sq6lTG-QjGYQRs_mdlhrYj1stWxRoiO805SqMwb1gUk,6747
+sah/normalize.py,sha256=1NnOCr-9xx7TaRo_EAOrvNhGPcSCWckntbykJzEMIUE,4811
+sah/plot.py,sha256=JYctdtLHyBWA_E-G8DXUiMWIrdhjzVuhv01Xaez5Xw0,7136
+sah/samples.py,sha256=PIB3COL64vagwrtDzx4cSKfVd98t-OXxK_7cAekOvb0,1987
+sah-2.0.0a4.dist-info/licenses/LICENSE,sha256=hIahDEOTzuHCU5J2nd07LWwkLW7Hko4UFO__ffsvB-8,34523
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/test_ins.py,sha256=ckOrl4MJyUB2o1VKnBvVkHgmuBzxGHP5IAGG3NgGG-o,2716
+tests/test_material.py,sha256=rUHXmadGp22LnJPrUJEFjOIYdcleEIqszBkAix8N9d8,265
+tests/test_raman.py,sha256=0HnUyuPxItrIzlFFpxbghLXWpkQTwkcl3GNWZ2oamvw,496
+sah-2.0.0a4.dist-info/METADATA,sha256=SkuLkMlGwHZbAiGHFNiY2-AlYmdnEFsNE9AOj9QoCDU,4854
+sah-2.0.0a4.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+sah-2.0.0a4.dist-info/top_level.txt,sha256=KNTapbXOXj7cmd4X-fxSUZFNRpWaWKjwMyJc9s8VZJo,10
+sah-2.0.0a4.dist-info/RECORD,,
