@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.py
+mla/__init__.py
+mla/attention.py
+multihead_latent_attention.egg-info/PKG-INFO
+multihead_latent_attention.egg-info/SOURCES.txt
+multihead_latent_attention.egg-info/dependency_links.txt
+multihead_latent_attention.egg-info/requires.txt
+multihead_latent_attention.egg-info/top_level.txt
