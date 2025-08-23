@@ -1,0 +1,7 @@
+README.md
+main.py
+pyproject.toml
+toolcraft.egg-info/PKG-INFO
+toolcraft.egg-info/SOURCES.txt
+toolcraft.egg-info/dependency_links.txt
+toolcraft.egg-info/top_level.txt
