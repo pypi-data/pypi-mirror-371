@@ -1,0 +1,104 @@
+# Pedro CLI
+
+![Pedro CLI Logo](https://gecowave.top/pedro/logo.png)
+
+## Terminal AI Assistant
+
+Pedro is a powerful terminal-based AI assistant created by emqnuele (gecowave). Interact with artificial intelligence directly from your terminal with a simple and intuitive interface.
+
+## Installation
+
+```bash
+pip install pedro
+```
+
+## Usage
+
+After installation, start Pedro by simply typing:
+
+```bash
+pedro
+```
+
+### Available Commands
+
+Pedro supports various commands that you can use during a session:
+
+#### Basic Commands
+
+- `/help` - Show all available commands
+- `/new` - Start a new conversation
+- `/exit` - Exit Pedro
+- `/clear` - Clear the screen and show the current conversation
+- `/history` - Show the history of the current conversation
+
+#### System Commands
+
+- `/system <message>` - Set a custom system prompt
+- `/config` - Show current configuration
+- `/model` - Show information about the AI model being used
+- `/stats` - Show conversation statistics
+
+#### Conversation Management
+
+- `/save <name>` - Save the current conversation with a specific name
+- `/load <name>` - Load a saved conversation
+- `/list` - List all saved conversations
+- `/rename <old> <new>` - Rename a saved conversation
+- `/delete <name>` - Delete a saved conversation
+
+#### Interface
+
+- `/theme` - Toggle color theme (light/dark)
+
+## Usage Examples
+
+### Starting a New Conversation
+
+```
+pedro
+> Hello, how can I help you today?
+How can I create a website with HTML and CSS?
+> [Pedro responds with information about HTML and CSS...]
+/new
+> Started new conversation. How can I help you?
+```
+
+### Saving and Loading Conversations
+
+```
+/save web_project
+> Conversation saved as 'web_project'
+/new
+> Started new conversation. How can I help you?
+/load web_project
+> Loaded conversation 'web_project'
+```
+
+### Setting a System Prompt
+
+```
+/system You are a Python programming expert and will help me write efficient code.
+> System prompt set. How can I help you with Python?
+```
+
+## Features
+
+- **Persistent Conversations**: Your conversations are saved locally
+- **Intuitive Interface**: Simple interaction via terminal
+- **Customization**: Set custom system prompts
+- **Statistics**: Keep track of usage with detailed statistics
+- **Color Themes**: Choose between light and dark theme
+
+## System Requirements
+
+- Python 3.8 or higher
+- Active internet connection
+
+## Additional Information
+
+For more information, visit [gecowave.top/pedro](https://gecowave.top/pedro)
+
+---
+
+Created with ❤️ by emqnuele (gecowave)

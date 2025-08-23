@@ -1,0 +1,11 @@
+README.md
+pyproject.toml
+src/pedro/__init__.py
+src/pedro/api_client.py
+src/pedro/cli.py
+src/pedroCLI.egg-info/PKG-INFO
+src/pedroCLI.egg-info/SOURCES.txt
+src/pedroCLI.egg-info/dependency_links.txt
+src/pedroCLI.egg-info/entry_points.txt
+src/pedroCLI.egg-info/requires.txt
+src/pedroCLI.egg-info/top_level.txt

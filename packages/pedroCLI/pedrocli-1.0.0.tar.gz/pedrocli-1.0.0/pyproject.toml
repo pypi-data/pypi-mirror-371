@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pedroCLI"
+version = "1.0.0"
+description = "Pedro CLI — spectacular terminal AI client - Get PEDRO on your own pc"
+authors = [{name="emqnuele", email="help@gecowave.top"}]
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "rich>=13.0.0",
+    "requests>=2.28.0",
+    "prompt-toolkit>=3.0.0"
+]
+
+[project.scripts]
+pedro = "pedro.cli:main"
