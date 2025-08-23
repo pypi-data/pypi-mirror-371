@@ -1,0 +1,10 @@
+numpy
+matplotlib
+tkinter
+
+[dev]
+twine
+build
+bumpver
+pytest
+pdoc3

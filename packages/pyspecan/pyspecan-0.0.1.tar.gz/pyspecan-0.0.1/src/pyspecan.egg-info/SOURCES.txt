@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+src/pyspecan/__init__.py
+src/pyspecan.egg-info/PKG-INFO
+src/pyspecan.egg-info/SOURCES.txt
+src/pyspecan.egg-info/dependency_links.txt
+src/pyspecan.egg-info/requires.txt
+src/pyspecan.egg-info/top_level.txt
