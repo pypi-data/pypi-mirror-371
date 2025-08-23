@@ -1,0 +1,7 @@
+requests>=2.25.0
+typing-extensions>=3.7.4
+
+[dev]
+pytest>=6.0
+black
+flake8

@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "anansi-compute"
+version = "0.1.0"
+description = "Secure multi-cloud compute orchestration with TEE and GPU CC support"
+readme = "README.md"
+requires-python = ">=3.7"
+license = {text = "MIT"}
+authors = [
+    {name = "Rewsr", email = "hello@rewsr.com"}
+]
+keywords = ["confidential-computing", "tee", "gpu", "multi-cloud", "secure-compute"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Security :: Cryptography",
+    "Topic :: System :: Distributed Computing"
+]
+dependencies = [
+    "requests>=2.25.0",
+    "typing-extensions>=3.7.4"
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=6.0", "black", "flake8"]
+
+[project.urls]
+Homepage = "https://rewsr.com"
+Documentation = "https://docs.rewsr.com"
+Repository = "https://github.com/rewsr/anansi-compute"
+Issues = "https://github.com/rewsr/anansi-compute/issues"

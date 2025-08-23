@@ -1,0 +1,9 @@
+README.md
+pyproject.toml
+anansi/__init__.py
+anansi/client.py
+anansi_compute.egg-info/PKG-INFO
+anansi_compute.egg-info/SOURCES.txt
+anansi_compute.egg-info/dependency_links.txt
+anansi_compute.egg-info/requires.txt
+anansi_compute.egg-info/top_level.txt
