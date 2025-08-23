@@ -1,0 +1,123 @@
+[project]
+name = "ppt-translator"
+version = "0.1.0"
+description = "AI-powered PowerPoint presentation translator using Amazon Bedrock"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {file = "LICENSE"}
+authors = [
+    {name = "PPT-Translator Team", email = "contact@ppt-translator.com"}
+]
+maintainers = [
+    {name = "PPT-Translator Team", email = "contact@ppt-translator.com"}
+]
+keywords = ["powerpoint", "translation", "ai", "bedrock", "ppt", "presentation"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Office/Business :: Office Suites",
+    "Topic :: Text Processing :: Linguistic",
+    "Topic :: Utilities",
+]
+dependencies = [
+    "boto3>=1.40.1",
+    "fastapi>=0.116.1",
+    "fastmcp>=2.11.0",
+    "python-dotenv>=1.1.1",
+    "python-multipart>=0.0.20",
+    "python-pptx>=1.0.2",
+    "uvicorn>=0.35.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/your-org/ppt-translator"
+Documentation = "https://github.com/your-org/ppt-translator#readme"
+Repository = "https://github.com/your-org/ppt-translator.git"
+Issues = "https://github.com/your-org/ppt-translator/issues"
+Changelog = "https://github.com/your-org/ppt-translator/blob/main/CHANGELOG.md"
+
+[project.scripts]
+ppt-translator = "ppt_translator.cli:main"
+ppt-translate = "ppt_translator.cli:main"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "isort>=5.12.0",
+    "flake8>=6.0.0",
+    "mypy>=1.0.0",
+]
+web = [
+    "fastapi>=0.104.0",
+    "uvicorn>=0.24.0",
+    "python-multipart>=0.0.6",
+]
+gui = [
+    "tkinter-tooltip>=2.0.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["ppt_translator"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/ppt_translator",
+    "/README.md",
+    "/LICENSE",
+    "/DEPLOYMENT_PLAN.md",
+]
+
+# Code quality tools configuration (for manual use only)
+[tool.black]
+line-length = 88
+target-version = ['py311']
+skip-string-normalization = true
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 88
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+ensure_newline_before_comments = true
+
+[tool.flake8]
+max-line-length = 88
+extend-ignore = ["E203", "W503"]
+exclude = [".git", "__pycache__", "build", "dist", ".venv"]
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
+ignore_missing_imports = true
