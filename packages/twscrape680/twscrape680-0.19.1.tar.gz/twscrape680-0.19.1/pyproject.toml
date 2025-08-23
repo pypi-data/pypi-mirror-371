@@ -1,0 +1,54 @@
+[build-system]
+requires = ["hatchling>=1.9.1"]
+build-backend = "hatchling.build"
+
+[project]
+name = "twscrape680"
+version = "0.19.1"
+authors = [{name="xx", email="x@x.x"}]
+description = " "
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+  "aiosqlite>=0.17.0",
+  "fake-useragent>=1.4.0",
+  "httpx>=0.26.0",
+  "loguru>=0.7.0",
+  "pyotp>=2.9.0",
+  "beautifulsoup4>=4.13.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "build>=1.2.2",
+  "pyright>=1.1.369",
+  "pytest-asyncio>=0.23.3",
+  "pytest-cov>=4.1.0",
+  "pytest-httpx>=0.28.0",
+  "pytest>=7.4.4",
+  "ruff>=0.1.11",
+]
+
+[project.scripts]
+twscrape = "twscrape.cli:run"
+
+[tool.setuptools]
+packages = ['twscrape']
+
+[tool.hatch.build.targets.wheel]
+packages = ["twscrape"]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "session"
+filterwarnings = ["ignore::DeprecationWarning"]
+
+[tool.ruff]
+line-length = 99
+
+[tool.ruff.lint]
+ignore = ["E501"]
