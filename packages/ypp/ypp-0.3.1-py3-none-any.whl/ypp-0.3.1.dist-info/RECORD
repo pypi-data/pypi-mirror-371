@@ -1,0 +1,12 @@
+ypp/__init__.py,sha256=da1PTClDMl-IBkrSvq6JC1lnS-K_BASzCvxVhNxN5Ls,13
+ypp/__main__.py,sha256=dGGm3nlDK7z6pKHbAGGSUGj6YszXxrrT4sTD3KzGArU,12848
+ypp/auto_build.py,sha256=snEoo1j3UwCHc2n-HGXw_XWZ6_71BJJiR6fGdI59cl0,5466
+ypp/common.py,sha256=_fFsfXyQmKYT-fj43l3m6fsN_7YuvN-TWZo6Ugo9M1o,2811
+ypp/init_commands.py,sha256=2k_Y9T848cJ56NukR5cND0C2e3LNYn2qkpMIgm6a9YU,1537
+ypp/makefile_modifier.py,sha256=b8W4lGwq7ewPvE4wcc_tPt_kZVth4wWexzBxN47MWlQ,4005
+ypp-0.3.1.dist-info/licenses/LICENSE,sha256=Vi3cItkblr6fZwGbNlp_HnBaMFwXSWYPkrVQLXX3LCs,1057
+ypp-0.3.1.dist-info/METADATA,sha256=1RO89lRUJQem__obZYob8xhKHk1HKMe9KOiKUhT9NA8,2903
+ypp-0.3.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+ypp-0.3.1.dist-info/entry_points.txt,sha256=pVHTD3VncYAl4MZlhPDIqGkiYCcOyfIc1mXCCzeq1vk,42
+ypp-0.3.1.dist-info/top_level.txt,sha256=zTtSZaXYV2Isk0IOW1rYyFGTN4qMkNyl9aFxfc0hNCQ,4
+ypp-0.3.1.dist-info/RECORD,,
