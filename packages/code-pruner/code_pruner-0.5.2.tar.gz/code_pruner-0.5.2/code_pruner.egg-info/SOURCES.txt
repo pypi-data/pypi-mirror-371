@@ -1,0 +1,11 @@
+LICENSE.md
+setup.cfg
+setup.py
+code_pruner/demo.py
+code_pruner/prune.py
+code_pruner/utils.py
+code_pruner.egg-info/PKG-INFO
+code_pruner.egg-info/SOURCES.txt
+code_pruner.egg-info/dependency_links.txt
+code_pruner.egg-info/requires.txt
+code_pruner.egg-info/top_level.txt
