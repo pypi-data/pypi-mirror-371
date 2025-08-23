@@ -1,0 +1,49 @@
+# AI Assistant
+
+This project implements an AI assistant with various features and customizable settings.
+
+## Features
+
+1. **Conversational AI**: Interact with the AI assistant through a command-line interface.
+2. **Customizable Settings**: Change the assistant's name, model, and system message on the fly.
+3. **Tool Integration**: The assistant can use various tools to perform tasks.
+4. **Conversation History**: Maintains a history of the conversation, with a configurable limit.
+5. **Dot Commands**: Special commands to control the assistant's behavior and view settings.
+
+## Agent Settings
+
+- **Agent Name**: AI Assistant (customizable)
+- **Default LLM Model**: bedrock/anthropic.claude-3-5-sonnet-20240620-v1:0 (customizable)
+- **Default System Message**: "You are a helpful assistant named MATH Assistant." (customizable)
+- **Max Tokens**: 1000
+- **History Limit**: 100 messages
+
+## Tool Settings
+
+- **Enable Tools**: Yes
+
+## Usage
+
+Run the `agent.py` file to start the AI assistant. Interact with it using text input.
+
+### Dot Commands
+
+- `.help`: Show available commands
+- `.clear`: Clear the conversation history
+- `.model <model_name>`: Change the LLM model
+- `.view`: View current settings
+- `.system <message>`: Change the system message
+- `.name <new_name>`: Change the assistant's name
+
+## Implementation Details
+
+- The assistant uses the `litellm` library for LLM interactions.
+- Asynchronous programming is used for improved performance.
+- The assistant can make tool calls and process their results.
+- Environment variables are loaded from a `.env` file.
+
+## Customization
+
+Most settings can be customized in the `settings.py` file or during runtime using dot commands.
+
+For more information on how to use or customize the AI Assistant, please refer to the documentation or contact the project maintainers.
