@@ -1,0 +1,3 @@
+[console_scripts]
+cp-setup = creativepython_setup:run
+cp-test = creativepython_setup:playNote
