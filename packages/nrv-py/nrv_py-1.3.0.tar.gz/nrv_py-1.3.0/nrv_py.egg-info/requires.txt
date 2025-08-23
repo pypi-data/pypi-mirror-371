@@ -1,0 +1,14 @@
+icecream
+matplotlib
+mph
+neuron
+numpy
+pandas
+pathos
+psutil
+pyeit
+pyswarms
+rich
+scipy
+seaborn
+shapely
