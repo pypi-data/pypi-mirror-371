@@ -1,0 +1,3 @@
+[console_scripts]
+split-mac-test = split_mac_test.__main__:main
+split-mac-test-mcp = split_mac_test.__main__:main
