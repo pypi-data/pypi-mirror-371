@@ -1,0 +1,61 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "knowme"
+version = "1.0.5"
+authors = [
+  { name="Hrishi Mehta", email="mehtahrishi45@gmail.com" },
+]
+description = "A fast, offline command-line tool that displays detailed system info with text-based ASCII art logos. Silent installation with progress bar!"
+readme = "README.md"
+requires-python = ">=3.7"
+license = {text = "MIT"}
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: System Administrators",
+    "Operating System :: OS Independent",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: MacOS",
+    "Operating System :: Android",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: System :: Systems Administration",
+    "Topic :: Utilities",
+]
+keywords = ["system", "info", "neofetch", "cli", "terminal", "ascii", "mobile", "termux", "android", "silent"]
+dependencies = [
+    "psutil>=5.8.0",
+    "distro>=1.6.0",
+    "py-cpuinfo>=8.0.0",
+    "requests>=2.25.0",
+    "gputil>=1.4.0",
+    "screeninfo>=0.6.0",
+    "ifaddr>=0.1.7",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/mehtahrishi/knowme"
+"Bug Tracker" = "https://github.com/mehtahrishi/knowme/issues"
+"Documentation" = "https://github.com/mehtahrishi/knowme#readme"
+"Source Code" = "https://github.com/mehtahrishi/knowme"
+
+[project.scripts]
+knowme = "knowme.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["knowme*"]
+exclude = ["tests*"]
+
+[tool.setuptools.package-data]
+knowme = ["*.py"]
