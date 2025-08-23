@@ -1,0 +1,75 @@
+site_name: Duckdantic
+site_description: Flexible structural typing and runtime validation for Python
+site_author: Duckdantic Team
+site_url: https://github.com/pr1m8/duckdantic
+repo_url: https://github.com/pr1m8/duckdantic
+repo_name: pr1m8/duckdantic
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  language: en
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+  features:
+    - content.code.copy
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - toc.follow
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - def_list
+  - footnotes
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+nav:
+  - Home:
+      - index.md
+      - getting-started.md
+      - concepts.md
+  - User Guide:
+      - guide/index.md
+      - guide/basic-usage.md
+      - guide/duck-api.md
+      - guide/traits.md
+      - guide/policies.md
+  - API Reference:
+      - api/index.md
+      - api/core.md
+  - Examples:
+      - examples/index.md
+  - Development:
+      - contributing.md
+      - changelog.md

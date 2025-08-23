@@ -1,0 +1,4 @@
+# file: /home/will/Projects/duckdantic/src/duckdantic/providers/pydantic_v2.py
+# hypothesis_version: 6.136.6
+
+['__iter__', 'alias', 'annotation', 'choices', 'fget', 'is_required', 'model_fields', 'pydantic-v2', 'return', 'return_type', 'serialization_alias', 'validation_alias']
