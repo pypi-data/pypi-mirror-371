@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+joira/__init__.py
+joira/__main__.py
+joira/cli.py
+joira.egg-info/PKG-INFO
+joira.egg-info/SOURCES.txt
+joira.egg-info/dependency_links.txt
+joira.egg-info/entry_points.txt
+joira.egg-info/top_level.txt

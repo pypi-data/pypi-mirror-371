@@ -1,0 +1,29 @@
+Metadata-Version: 2.4
+Name: joira
+Version: 0.0.0
+Summary: Hello world placeholder for joira
+Author: Joira Maintainers
+Project-URL: Homepage, https://example.com/joira
+Keywords: joira,placeholder
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+# joira (Python)
+
+Minimal placeholder package to claim the `joira` name on PyPI.
+
+Usage:
+
+```
+python -m joira
+```
+
+Or via console script after install:
+
+```
+joira
+```

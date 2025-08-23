@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "joira"
+version = "0.0.0"
+description = "Hello world placeholder for joira"
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [{ name = "Joira Maintainers" }]
+keywords = ["joira", "placeholder"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+]
+
+[project.urls]
+Homepage = "https://example.com/joira"
+
+[project.scripts]
+joira = "joira.cli:main"
+
+[tool.setuptools]
+packages = ["joira"]
+
