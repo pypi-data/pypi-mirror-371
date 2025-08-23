@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: subhan-stt
+Version: 0.1
+Summary: this speech to text package created by Subhan Saeed
+Author: Subhan Saeed
+Author-email: subhanmian@950.com
+Dynamic: author
+Dynamic: author-email
+Dynamic: summary
