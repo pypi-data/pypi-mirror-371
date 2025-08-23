@@ -1,0 +1,73 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "certbot-dns-f5xc"
+dynamic = ["version"]
+description = "F5 Distributed Cloud (F5XC) DNS Authenticator plugin for Certbot"
+readme = "README.md"
+license = {text = "Apache License 2.0"}
+authors = [
+    {name = "Fadly Tabrani", email = "fadly.tabrani@gmail.com"}
+]
+maintainers = [
+    {name = "Fadly Tabrani", email = "fadly.tabrani@gmail.com"}
+]
+keywords = ["certbot", "dns", "f5xc", "lets-encrypt", "ssl", "certificate"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Plugins",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: Security",
+    "Topic :: System :: Installation/Setup",
+    "Topic :: System :: Networking",
+    "Topic :: System :: Systems Administration",
+    "Topic :: Utilities",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "requests>=2.25.0",
+    "cryptography>=3.4.0",
+    "acme>=1.0.0",
+    "certbot>=1.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/fadlytabrani/certbot-dns-f5xc"
+Documentation = "https://github.com/fadlytabrani/certbot-dns-f5xc#readme"
+Repository = "https://github.com/fadlytabrani/certbot-dns-f5xc"
+Issues = "https://github.com/fadlytabrani/certbot-dns-f5xc/issues"
+Changelog = "https://github.com/fadlytabrani/certbot-dns-f5xc/releases"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0",
+    "pytest-cov>=2.0",
+    "black>=21.0",
+    "flake8>=3.8",
+    "mypy>=0.800",
+]
+
+[tool.setuptools.dynamic]
+version = {attr = "certbot_dns_f5xc.__version__"}
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["certbot_dns_f5xc*"]
+
+[tool.setuptools.package-data]
+"certbot_dns_f5xc" = ["py.typed"]
+
+[project.entry-points."certbot.plugins"]
+"dns-f5xc" = "certbot_dns_f5xc._internal.dns_f5xc:Authenticator"

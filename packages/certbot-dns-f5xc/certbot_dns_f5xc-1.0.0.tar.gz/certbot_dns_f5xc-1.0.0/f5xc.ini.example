@@ -1,0 +1,23 @@
+# F5XC Configuration Example
+# Copy this file to f5xc.ini and fill in your actual values
+
+# Tenant ID (e.g., your-tenant-id)
+dns_f5xc_tenant = your_tenant_id_here
+
+# Certificate-based authentication (recommended for DNS management)
+# Path to your P12 certificate file (relative to project root)
+dns_f5xc_certificate_path = secret/your_certificate.p12
+
+# Password for the P12 certificate
+dns_f5xc_certificate_password = your_certificate_password_here
+
+# Optional: DNS propagation delay in seconds (default: 60)
+# dns_f5xc_propagation_seconds = 60
+
+# Optional: Custom RRSet identifier (default: auto-detected machine hostname)
+# Examples: your_custom_identifier_here, server-01, web-server, etc.
+# dns_f5xc_rrset_identifier = your_custom_identifier_here
+
+# Alternative: API token authentication (deprecated)
+# NOTE: If both certificate and API token are provided, certificate authentication takes priority
+# dns_f5xc_api_token = your_api_token_here
