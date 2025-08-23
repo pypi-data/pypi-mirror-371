@@ -1,0 +1,27 @@
+# python 
+__pycache__
+*.egg-info
+.env
+*mypy_cache
+*.pytest_cache
+venv
+.venv
+.DS_Store
+.idea
+/dist/
+
+# installation folders
+/data/
+/plugins/
+/static/
+
+# DBs
+*metadata.db
+*metadata-v*.db
+*metadata.json
+*metadata-test.json
+test_db.db
+
+# cache embedder
+src/local_cache/*
+
