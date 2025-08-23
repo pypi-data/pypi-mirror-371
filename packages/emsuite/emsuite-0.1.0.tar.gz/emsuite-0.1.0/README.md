@@ -1,0 +1,68 @@
+# EMSuite
+
+A suite of calculators for quantified electrostatic interactions.
+
+## Installation
+
+```bash
+pip install emsuite
+```
+
+## Quick Start
+
+```python
+from emsuite import TuningCalculator
+
+# Initialize calculator
+calc = TuningCalculator(
+    molecule="water.xyz",
+    basis_set="6-31G*",
+    functional="m06-2x"
+)
+
+# Run calculations
+calc.run_calculation(['gse', 'homo', 'lumo', 'gap'])
+
+
+## Available Properties
+
+**Basic Electronic Properties:**
+- `gse` - Ground state energy
+- `homo` - HOMO energy
+- `lumo` - LUMO energy  
+- `gap` - HOMO-LUMO gap
+- `dm` - Dipole moment
+
+**Ionization & Electron Affinity:**
+- `ie` - Ionization energy
+- `ea` - Electron affinity
+
+**Chemical Descriptors:**
+- `cp` - Chemical potential
+- `eng` - Electronegativity
+- `hard` - Chemical hardness
+- `efl` - Electrophilicity index
+- `nfl` - Nucleophilicity index
+
+**Excited States (TD-DFT):**
+- `exe` - Excitation energies
+- `osc` - Oscillator strengths
+
+
+## Features
+
+- Electronic structure calculations (DFT, HF)
+- Molecular property analysis (HOMO/LUMO, ionization energy, electron affinity)
+- Solvent effects and geometry optimization
+- TD-DFT excited state calculations
+
+## Requirements
+
+- Python 3.8+
+- PySCF
+- RDKit
+- NumPy
+
+## License
+
+MIT
