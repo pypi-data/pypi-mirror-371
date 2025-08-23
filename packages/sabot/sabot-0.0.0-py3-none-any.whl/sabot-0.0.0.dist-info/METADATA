@@ -1,0 +1,15 @@
+Metadata-Version: 2.4
+Name: sabot
+Version: 0.0.0
+Summary: A command-line note-taking database.
+Requires-Python: >=3.13
+Description-Content-Type: text/markdown
+Requires-Dist: click>=8.2.1
+Provides-Extra: test
+Requires-Dist: mypy>=1.17.1; extra == "test"
+Requires-Dist: pytest>=8.4.1; extra == "test"
+Requires-Dist: pytest-mypy>=1.0.1; extra == "test"
+
+# Sabot
+
+**Sabot** is a command-line note-taking database, written in Python 3.13 by Stephen Malone.

@@ -1,0 +1,16 @@
+comms/__init__.py,sha256=YIpiBghn8MAXbRcFD9nIoxNvynOX-kjMdEeEoBRgXGU,147
+comms/base.py,sha256=bs1YrF9CEtzE0JZymEzby-WutMaPvBFDgr_6zhle79U,491
+comms/list.py,sha256=ScLmLcBIZXkRulgkp2ZT06liguOSjCIUFKe0N13SpEo,416
+items/__init__.py,sha256=IdlVb4Qw-E5P6q9DCFSOMRyZAxWnMQekf3DgiudEOz0,185
+items/book.py,sha256=yvHXWcwTOFJ4bpw-lWot2opbs3fpbgarsT8DXdXtDgc,2311
+items/note.py,sha256=ldWTRDq8t74MTZfLc5DgB5Cq4CjtPKHh4Ut6LOTojEU,2652
+items/page.py,sha256=gjmf7c8Sm1ydRDZIiXPG1n8ilyW3fV5PWxW2zx06rGI,2245
+tools/__init__.py,sha256=KHwzCPWQwDknCZVIChAzkKYSkJnFC8NckdBxYn3t6o0,170
+tools/clui.py,sha256=YDbNtpbuU7m_xknILDYQfPRHTb6FKs1pg56iVpZjeqo,582
+tools/neat.py,sha256=N9g_RfnQtfUw4YsDD6HiDZks3JOg68awhLpnVZgNjBM,682
+tools/sqls.py,sha256=yn_YMfMMnJEQI8VF8A4FREB8IYBQXBnybglMQbuxbtQ,556
+sabot-0.0.0.dist-info/METADATA,sha256=DGUgFRxJLjkP_aEe172TQbB2RYlAEFtEpGGWfMkaKPI,452
+sabot-0.0.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+sabot-0.0.0.dist-info/entry_points.txt,sha256=ndnWV8b58GUEmKQe3l__Cz9EhfgsPpmPuLdWIvoOKLc,46
+sabot-0.0.0.dist-info/top_level.txt,sha256=mLgiXsZEwFQXO50KwhTo-OunmSCKvUs_rA1hY4v573w,18
+sabot-0.0.0.dist-info/RECORD,,
