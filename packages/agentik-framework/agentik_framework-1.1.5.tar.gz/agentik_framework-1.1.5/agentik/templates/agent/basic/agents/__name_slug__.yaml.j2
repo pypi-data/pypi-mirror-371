@@ -1,0 +1,43 @@
+# =====================================================================
+# Agentik Agent Configuration Template
+# =====================================================================
+# This template defines the core structure of an Agentik agent.
+# Customize each section as needed for your use case.
+#
+# NOTE:
+# Tool usage is not universally supported across all free model endpoints on OpenRouter.
+# If a selected model does not support tools, any attempt to call them will result
+# in routing errors or failed requests.
+#
+# To ensure smooth execution when using free endpoints, disable tools in your agent
+# configuration by setting:
+#
+#   tools: []
+#
+# Paid OpenRouter accounts generally provide access to models that support tools,
+# but if you are on a free plan, always verify the model’s capabilities before
+# enabling tool calls.
+# =====================================================================
+
+
+version: 1
+agent:
+  name: "{{ name }}"
+  goal: "Do the task: {{ name }}."
+  loop:
+    max_steps: 8
+    reflect: true
+llm:
+  model: "openai/gpt-5"
+  temperature: 0.2
+  json_mode: false
+memory:
+  type: "{{ memory_type }}"
+  path: "{{ memory_path }}"
+tools:
+{% for t in tools %}
+  - "{{ t }}"
+{% endfor %}
+policies:
+  allow_network: true
+  allow_filesystem: true

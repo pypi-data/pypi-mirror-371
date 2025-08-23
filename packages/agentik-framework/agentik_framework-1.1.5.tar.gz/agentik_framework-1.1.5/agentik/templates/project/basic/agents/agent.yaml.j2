@@ -1,0 +1,33 @@
+# NOTE:
+# Tool usage is not universally supported across all free model endpoints on OpenRouter.
+# If a selected model does not support tools, any attempt to call them will result
+# in routing errors or failed requests.
+#
+# To ensure smooth execution when using free endpoints, disable tools in your agent
+# configuration by setting:
+# 
+#   tools: []
+#
+# Paid OpenRouter accounts generally provide access to models that support tools,
+# but if you are on a free plan, always verify the model’s capabilities before
+# enabling tool calls.
+
+
+version: 1
+agent:
+  name: "{{ project_name }}"
+  goal: "Describe the project."
+  loop:
+    max_steps: 3
+    reflect: true
+llm:
+  model: "openai/gpt-4o-mini"
+  temperature: 0.2
+  json_mode: false
+memory:
+  type: "json"
+  path: "./memory/{{ project_slug }}.json"
+tools: []
+policies:
+  allow_network: true
+  allow_filesystem: true
