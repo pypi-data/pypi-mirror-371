@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "real-imdb"
+version = "1.0.0"
+description = "A comprehensive IMDb scraper using GraphQL API"
+readme = "README.md"
+requires-python = ">=3.7"
+license = {text = "MIT"}
+authors = [
+    {name = "Pavan Kalyan", email = "your.email@example.com"},
+]
+keywords = ["imdb", "scraper", "movies", "graphql", "api"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+dependencies = [
+    "requests>=2.25.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/pavan412kalyan/imdb-movie-scraper"
+Repository = "https://github.com/pavan412kalyan/imdb-movie-scraper"
+Issues = "https://github.com/pavan412kalyan/imdb-movie-scraper/issues"
+
+[project.scripts]
+real-imdb = "real_imdb.cli:main"
