@@ -1,0 +1,6 @@
+click
+python-dotenv
+anthropic
+
+[dev]
+terminal-bench>=0.2.17
