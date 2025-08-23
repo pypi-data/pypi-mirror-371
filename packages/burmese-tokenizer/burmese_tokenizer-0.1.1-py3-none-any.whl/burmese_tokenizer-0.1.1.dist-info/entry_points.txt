@@ -1,0 +1,3 @@
+[console_scripts]
+burmese_tokenizer = burmese_tokenizer.cli:main
+
