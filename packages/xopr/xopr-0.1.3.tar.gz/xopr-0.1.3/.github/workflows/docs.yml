@@ -1,0 +1,109 @@
+name: Build and Deploy Jupyter Book
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+env:
+  BASE_URL: /xopr
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Install uv
+      uses: astral-sh/setup-uv@v4
+    
+    - name: Set up Python
+      run: uv python install 3.12
+    
+    - name: Install dependencies
+      run: |
+        uv sync --extra test --extra stac
+    
+    - name: Install package in development mode
+      run: |
+        uv pip install -e .
+    
+    - name: Run tests with pytest
+      run: |
+        uv run pytest --cov=xopr --cov-report=html --cov-report=xml --cov-report=term
+    
+    - name: Upload coverage artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: coverage-report
+        path: ./htmlcov
+
+  build:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Install uv
+      uses: astral-sh/setup-uv@v4
+
+    - name: Set up Python
+      run: uv python install
+
+    - name: Install dependencies
+      run: uv sync --extra docs
+
+    - name: Build Jupyter Book
+      run: |
+        cd docs
+        uv run --extra docs jupyter-book build --html --execute 2>&1 | tee jupyter-book-build.log
+        # Check for errors running the notebooks and fail if any are found
+        if grep -r "Error\\|Exception\\|Traceback" jupyter-book-build.log; then
+          echo "Found execution errors in build"
+          exit 1
+        fi
+
+    - name: Download coverage artifacts
+      uses: actions/download-artifact@v4
+      with:
+        name: coverage-report
+        path: ./coverage-temp
+
+    - name: Copy coverage to docs build
+      run: |
+        mkdir -p docs/_build/html/coverage
+        cp -r ./coverage-temp/* docs/_build/html/coverage/
+
+    - name: Setup Pages
+      uses: actions/configure-pages@v5
+      if: github.ref == 'refs/heads/main'
+
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      if: github.ref == 'refs/heads/main'
+      with:
+        path: docs/_build/html
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: [test, build]
+    if: github.ref == 'refs/heads/main'
+    steps:
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
