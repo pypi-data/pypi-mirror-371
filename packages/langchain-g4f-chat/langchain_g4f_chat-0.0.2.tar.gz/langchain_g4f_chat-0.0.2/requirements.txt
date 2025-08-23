@@ -1,0 +1,7 @@
+langchain-core>=0.3.74
+g4f>=0.6.1.4
+pydantic>=2.0
+typing-extensions>=4.0.0
+# Optional dependencies for compatibility with latest langchain integrations
+langchain-openai>=0.3.31
+langchain-groq>=0.3.7

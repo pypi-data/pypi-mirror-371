@@ -1,0 +1,9 @@
+include README.md
+include requirements.txt
+include CHANGELOG.md
+recursive-include langchain_g4f *.py
+recursive-include langchain_g4f *.md
+recursive-include langchain_g4f *.txt
+global-exclude *.pyc
+global-exclude __pycache__
+global-exclude *.egg-info
