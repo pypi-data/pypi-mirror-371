@@ -1,0 +1,1 @@
+import{L as o,d as s}from"./p-DqvYzWfw.js";const p=o,r=s;export{p as ListIcon,r as defineCustomElement}

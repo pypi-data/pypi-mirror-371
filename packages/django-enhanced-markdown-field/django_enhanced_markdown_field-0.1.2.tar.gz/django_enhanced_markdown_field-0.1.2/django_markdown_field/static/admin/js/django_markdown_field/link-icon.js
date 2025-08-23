@@ -1,0 +1,1 @@
+import{L as o,d as s}from"./p-BWDa0A0q.js";const a=o,p=s;export{a as LinkIcon,p as defineCustomElement}
