@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "openlib"
+version = "0.0.3"
+description = "testing"
+readme = "README.md"
+license = { text = "MIT" }
+keywords = [
+    "python",
+]
+authors = [
+    { name = "spring", email = "springnode@gmail.com" }
+]
+requires-python = ">=3.8"
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent"
+]
+dependencies = [
+
+]
+[project.urls]
+Homepage = "https://github.com/springkim/help"
+Issues = "https://github.com/springkim/help/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["openlib"]
+
+[tool.setuptools.exclude-package-data]
+"*" = ["*.pyc", "*.pyo", "*.so", "*.pyd", "__pycache__"]
