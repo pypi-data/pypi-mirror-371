@@ -1,0 +1,8 @@
+Metadata-Version: 2.4
+Name: shredderscales
+Version: 1.0.0
+Author: Jamie Wangen
+Requires-Dist: matplotlib>=3.10
+Requires-Dist: mpld3
+Dynamic: author
+Dynamic: requires-dist
