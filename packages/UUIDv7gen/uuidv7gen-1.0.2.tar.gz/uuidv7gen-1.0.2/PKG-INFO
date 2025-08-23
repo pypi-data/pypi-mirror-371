@@ -1,0 +1,46 @@
+Metadata-Version: 2.4
+Name: UUIDv7gen
+Version: 1.0.2
+Summary: A Python library to generate and validate UUID version 7 identifiers from scratch.
+Author-email: Roger Mukai <roger@mukaiguy.com>
+License-Expression: MIT
+Project-URL: Homepage, https://github.com/MukaiGuy/UUIDv7
+Project-URL: Bug Tracker, https://github.com/MukaiGuy/UUIDv7issues
+Keywords: uuid,uuid7,guid,unique identifier,globally unique identifier,generator,uuid generator
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Utilities
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: license-file
+
+# Meet my UUIDv7 Generator
+
+## How To Install
+```bash
+pip install UUIDv7gen
+```
+
+## Example Usage
+```python
+
+from UUIDv7gen import UUIDv7, is_valid_uuid7
+
+# To Generate a UUID
+uuid = UUIDv7()
+print(uuid)
+
+# To Validate a UUID
+print(is_valid_uuid7(uuid))
+```
