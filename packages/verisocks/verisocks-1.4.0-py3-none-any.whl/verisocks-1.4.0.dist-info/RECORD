@@ -1,0 +1,10 @@
+verisocks/__init__.py,sha256=K9E8AvnMT8I__DTFbNP3vVoQ4r5XGMQfFdvEvH3OUuU,1176
+verisocks/utils.py,sha256=VB_jdEU-RTbecze9RHyRukbdQCmi8061r3pGYhtu-fc,7341
+verisocks/verisocks.py,sha256=eYnUtcGsb4X0cjojjxgXTNbe0uGEzCBPjSc4aMPIub0,24431
+verisocks/cli/__init__.py,sha256=5B7hF5m3RJf_9rgvDf2J6oiqCAD6ZSuWLtYD7spZMQ4,12
+verisocks/cli/wizard.py,sha256=H8qfcxdomQ9appU3AMEuBZhVOdI0yYEPVLuhT1iD3V8,6007
+verisocks-1.4.0.dist-info/METADATA,sha256=v9stgSCJMion2OyxOKMtLL1fhxA58gGb2_IqECAsDqU,490
+verisocks-1.4.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+verisocks-1.4.0.dist-info/entry_points.txt,sha256=ZA1AmwKAOu0HYo4Z717wy1uapqXOwxaxzQcIbAnwHWs,57
+verisocks-1.4.0.dist-info/top_level.txt,sha256=tyex9Bk4cvJ0T_PCAEM7Zvp0zy4U8tOWHi5BXXwiCHw,10
+verisocks-1.4.0.dist-info/RECORD,,
