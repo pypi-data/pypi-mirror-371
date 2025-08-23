@@ -1,0 +1,13 @@
+# Build and publish a PyPi package
+publish:
+    #!/bin/bash
+    rm -rf dist
+    rm -rf src/*.egg-info
+
+    if [[ -z "$PYPI_TOKEN" ]]; then
+        echo "You have to define PYPI_TOKEN env!"
+        exit 1
+    fi
+
+    uv build
+    uv publish --username __token__ --password $PYPI_TOKEN
