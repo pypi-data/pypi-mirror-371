@@ -1,0 +1,46 @@
+[project]
+name = "worldalphabets"
+version = "0.1.0"
+readme = "README.md"
+requires-python = ">=3.11"
+
+dependencies = [
+    "langcodes>=3.3.0",
+    "language-data>=1.1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "ruff>=0.1.0",
+    "mypy>=1.0.0",
+    "build>=0.10.0",
+    "requests>=2.31.0",
+    "beautifulsoup4>=4.12.3",
+    "types-requests",
+    "types-beautifulsoup4",
+]
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"worldalphabets" = ["data/alphabets/*.json", "data/index.json"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+
+[tool.mypy]
+python_version = "3.11"
+warn_unused_configs = true
+disallow_untyped_defs = true
+strict_optional = true
+
+[[tool.mypy.overrides]]
+module = "langcodes"
+ignore_missing_imports = true
