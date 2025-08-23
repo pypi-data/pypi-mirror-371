@@ -1,0 +1,3 @@
+[console_scripts]
+lhs-mcp-demov = lhs_mcp_demov:main
+
