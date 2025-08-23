@@ -1,0 +1,5 @@
+[console_scripts]
+gistqd = gistqd.cli:cli
+
+[gui_scripts]
+
