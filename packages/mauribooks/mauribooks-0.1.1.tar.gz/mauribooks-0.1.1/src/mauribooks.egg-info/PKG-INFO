@@ -1,0 +1,224 @@
+Metadata-Version: 2.4
+Name: mauribooks
+Version: 0.1.1
+Summary: SDK Python pour accéder à l’API MauriBooks
+Author-email: Daouda Ba <daoudaba4500@gmail.com>
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: httpx>=0.28.1
+Requires-Dist: pydantic>=2.11.3
+Requires-Dist: backoff>=2.2.1
+Requires-Dist: numpy>=2.2.4
+Requires-Dist: pandas>=2.2.3
+Requires-Dist: python-dotenv
+Requires-Dist: gdown
+
+# 📚 Mauribooks SDK
+
+> Un SDK Python moderne et intuitif pour interagir avec l’API Books (dataset inspiré de Goodbooks-10k), spécialement pensé pour les workflows Data.
+
+[![PyPI version](https://badge.fury.io/py/mauribooks.svg)](https://badge.fury.io/py/mauribooks)
+[![Python 3.8+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+
+---
+
+##  Fonctionnalités principales
+
+- **Simple & clair** : interface Python ergonomique
+- **Multi-format** : objets Pydantic, dicts et DataFrames Pandas
+- **Flexible** : Compatible avec APIs locales et déployées
+- **Performant** : Optimisé pour l'analyse de données
+- **Data-friendly** : idéal pour l’exploration et la modélisation
+
+---
+
+## Installation rapide
+
+```bash
+pip install mauribooks
+```
+
+**Prérequis** : Python 3.10+
+
+---
+
+## Démarrage rapide
+
+### Configuration initiale
+
+```python
+from mauribooks import BookClient, BookConfig
+
+# Configuration avec l'API hébergée
+config = BookConfig(book_base_url="https://books-project-api.onrender.com")
+client = BookClient(config=config)
+
+# Vérification de la connexion
+status = client.health_check()
+print(status)  # {"message": "API Goodreads opérationnelle"}
+```
+
+### Exemples d'utilisation
+
+####  Récupérer un livre spécifique
+
+```python
+# Récupération avec validation Pydantic
+book = client.get_book(1)
+print(f"Titre : {book.title}")
+print(f"Auteurs : {book.authors}")
+print(f"Note moyenne : {book.average_rating}")
+```
+
+---
+
+## API Reference
+
+### Méthodes principales
+
+| Méthode | Description | Formats supportés |
+|---------|-------------|------------------|
+| `health_check()` | Vérification de l'état de l'API | `dict` |
+| `get_book(id)` | Récupération d'un livre par ID | `Pydantic` |
+| `list_books` | Liste des livres avec filtres | `pydantic`, `dict`, `pandas` |
+| `get_rating(user_id, book_id)` | Évaluation d’un utilisateur pour un livre | `pydantic`|
+| `list_book_tags(skip=0, limit=100, book_id=None, tag_id=None, output_format=...)` | Relations livre-tag | `pydantic`, `dict`, `pandas` |
+| `list_ratings(**kwargs)` | Liste des évaluations | `pydantic`, `dict`, `pandas` |
+| `get_analytics()` | Statistiques globales | `pydantic` |
+
+#### Multi-formats de sortie
+
+```python
+# 1) Pydantic (défaut)
+books_p = client.list_books(limit=10)
+print(type(books_p[0]))  
+
+# 2) Dictionnaires
+books_d = client.list_books(limit=10, output_format="dict")
+print(type(books_d))  
+
+# 3) DataFrame
+books_df = client.list_books(limit=10, output_format="pandas")
+print(books_df.dtypes)
+
+```
+## Analyses rapides
+```python
+import pandas as pd
+
+df = client.list_books(limit=1000, output_format="pandas")
+
+# Top auteurs par nombre de livres dans l'échantillon
+print(df['authors'].value_counts().head(10))
+
+# Notes moyennes par langue
+lang_stats = (
+    df.groupby('language_code', dropna=False)['average_rating']
+      .mean()
+      .sort_values(ascending=False)
+      .round(2)
+)
+print(lang_stats.head(10))
+
+```
+## Relations Livre-Tag
+```python
+# Relations pour un livre donné
+bt_df = client.list_book_tags(book_id=1, limit=20, output_format="pandas")
+print(bt_df.head())
+
+# Filtrer par tag_id
+bt_df_tag = client.list_book_tags(tag_id=30574, limit=20, output_format="pandas")
+```
+## Statistics
+```python
+stats = client.get_analytics()
+print(stats)  # ex: book_count, rating_count, tag_count, to_read_count, book_tag_count
+
+```
+
+
+### Paramètres de configuration
+
+```python
+config = BookConfig(
+    book_base_url="https://books-project-api.onrender.com",  
+    timeout=30,
+)
+```
+
+---
+
+## Développement local
+
+Pour tester avec une instance locale :
+
+```python
+config = BookConfig(book_base_url="http://localhost:8000")
+client = BookClient(config=config)
+
+local_df = client.list_books(limit=5, output_format="pandas")
+print(local_df)
+```
+
+---
+
+
+## Développement et contribution
+
+### Installation en mode développement
+
+```bash
+git clone https://github.com/Daouda-Ba/Books_Project_API.git
+cd mauribooks
+pip install -e .
+```
+
+### Tests
+
+```bash
+# (optionnel) tests si présents
+pytest -q
+```
+
+---
+
+## Roadmap
+
+- [ ] Support des requêtes asynchrones
+- [ ] Cache intelligent des données
+- [ ] Export vers autres formats (JSON, CSV, Parquet)
+- [ ] Documentation interactive
+
+---
+
+## Public cible
+
+- **Data Scientists** : Analyse et modélisation de données littéraires
+- **Data Analysts** : Reporting et visualisation
+- **Développeurs Python** : Intégration rapide d'APIs de livres
+- **Étudiants** : Apprentissage de l'analyse de données
+- **Chercheurs** : Études sur les tendances littéraires
+
+---
+
+---
+
+## Licence
+
+Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
+
+---
+
+## Liens utiles
+
+- **API (prod)** : [https://books-project-api.onrender.com](https://books-project-api.onrender.com)
+- **PyPI Package** : [https://pypi.org/project/mauribooks](https://pypi.org/project/mauribooks)
+- **Docs Swagger** : [https://books-project-api.onrender.com/docs](https://books-project-api.onrender.com/docs)
+
+---
