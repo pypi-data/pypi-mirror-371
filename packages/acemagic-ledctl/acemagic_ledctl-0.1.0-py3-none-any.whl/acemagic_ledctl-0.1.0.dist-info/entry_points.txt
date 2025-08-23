@@ -1,0 +1,5 @@
+[console_scripts]
+ledctl = ledctl.__main__:main
+ledctl-pattern = ledctl.cli.set:main
+ledctl-setmode = ledctl.cli.set:main
+ledctl-wizard = ledctl.cli.wizard:main
