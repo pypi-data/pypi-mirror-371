@@ -1,0 +1,4 @@
+plotext
+plotly
+rich>=13.0.1
+requests
