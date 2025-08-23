@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+src/JokesDB.egg-info/PKG-INFO
+src/JokesDB.egg-info/SOURCES.txt
+src/JokesDB.egg-info/dependency_links.txt
+src/JokesDB.egg-info/requires.txt
+src/JokesDB.egg-info/top_level.txt
+src/jokesdb/__init__.py

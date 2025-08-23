@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "JokesDB"
+version = "0.1.2"
+description = "A simple Python module to fetch jokes from my website."
+readme = { file = "README.md", content-type = "text/markdown" }
+requires-python = ">=3.6"
+license = { file = "LICENSE" }
+authors = [
+  { name = "Code2Craft", email = "support@code2craft.xyz" }
+]
+dependencies = [
+    "requests"
+]
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://code2craft.xyz"
+Source = "https://github.com/gamercristi11/JokesDB"
+Docs = "https://code2craft.xyz/jokesdb/docs.html"
+
+[tool.setuptools.packages.find]
+where = ["src"]
