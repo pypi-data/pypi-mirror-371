@@ -1,0 +1,15 @@
+pydictable/__init__.py,sha256=vdIm7g0f-af8G6SivtWkTVoE17dMCCK4nVeVq0X238Y,111
+pydictable/core.py,sha256=JGzGJLuiaKKX9U3gWvUhuMjOwHQDknnzE-YhHZESO-8,7735
+pydictable/field.py,sha256=NI7Z2to1L-0KXyjJhnIcqmMJZWow2IFA_b2ktJrZHQQ,12376
+pydictable/generic.py,sha256=Fcd5lF7RmzuUv1O5LBfPiQrVBRBpqQrfJlMR_JkLiBQ,750
+pydictable/json_schema.py,sha256=uS5A4qMp2PQFm5R9cOVXnpAwGMGwNWxxjXDzFd5ePHI,1974
+pydictable/test_core.py,sha256=L8KlRxNSXs79HaHhTBqd5LXSL1fQHl0ymRmCxTiDkLw,39814
+pydictable/test_field.py,sha256=BKab0CfrR5XgzZmSO-8gEva320AJgLHGTIl4hZ6VgZc,3377
+pydictable/test_generic.py,sha256=jqi-zsRGru9WfCv4GiR5hvUi4SEwtEJcuXJcbfgNQgE,1307
+pydictable/test_json_schema.py,sha256=Oe4lGH7gJ-1dnXn9-xGhbvFdTObW6hB2VAAlUh9j4Wc,2542
+pydictable/type.py,sha256=2ZAKqUcISGsfua9Pj19D-WtQOpv__7HkEBRiebpFydY,1352
+pydictable-2.3.0.dist-info/licenses/LICENSE,sha256=SHPctDOisFygp96pkTQKmt1jCYEc6EtgrIHJcOBeFKY,1069
+pydictable-2.3.0.dist-info/METADATA,sha256=3S3l8tUp0LUMca002JkNk52QY7HkXmRmf3Jtz_bqV0c,547
+pydictable-2.3.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+pydictable-2.3.0.dist-info/top_level.txt,sha256=x6blenTyVJD1X0osMbUIKE60QNHW_6_joYlpmjOFtx0,11
+pydictable-2.3.0.dist-info/RECORD,,
