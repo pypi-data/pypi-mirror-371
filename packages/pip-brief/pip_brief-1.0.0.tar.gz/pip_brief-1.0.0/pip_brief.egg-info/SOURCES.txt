@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+pip_brief/__init__.py
+pip_brief/cli.py
+pip_brief/core.py
+pip_brief.egg-info/PKG-INFO
+pip_brief.egg-info/SOURCES.txt
+pip_brief.egg-info/dependency_links.txt
+pip_brief.egg-info/entry_points.txt
+pip_brief.egg-info/top_level.txt

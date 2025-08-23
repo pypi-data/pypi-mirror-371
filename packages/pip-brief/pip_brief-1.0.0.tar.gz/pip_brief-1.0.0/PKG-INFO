@@ -1,0 +1,152 @@
+Metadata-Version: 2.4
+Name: pip-brief
+Version: 1.0.0
+Summary: A simple wrapper for pip install with clean, organized output
+Author-email: Nachiket Mehendale <your-email@example.com>
+License: MIT License
+        
+        Copyright (c) 2025 Nachiket Mehendale
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+Project-URL: Homepage, https://github.com/Nachiket-Mehendale/pip-brief
+Project-URL: Repository, https://github.com/Nachiket-Mehendale/pip-brief
+Project-URL: Issues, https://github.com/Nachiket-Mehendale/pip-brief/issues
+Keywords: pip,wrapper,cli,package-manager,install,summary
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: System :: Installation/Setup
+Classifier: Topic :: Utilities
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: license-file
+
+# pip-brief
+
+A clean, human-readable wrapper for `pip install` that provides organized summaries of installation results.
+
+## Features
+
+- **Clean Output Format**: Organized summary with numbered sections
+- **Comprehensive Tracking**: Shows installed packages, already satisfied requirements, warnings, errors, and dependencies
+- **Duplicate Removal**: Eliminates repetitive messages for cleaner output
+- **Verbose Mode**: Option to see full pip output when needed
+- **Simple Interface**: Easy-to-use command structure
+
+## Installation
+
+```bash
+pip install pip-brief
+```
+
+## Usage
+
+### Install one or more packages with brief summary:
+```bash
+pip-brief install <package-name>
+pip-brief install <package1> <package2> <package3>
+```
+
+### Install with verbose output (shows full pip output):
+```bash
+pip-brief install <package-name> --verbose
+```
+
+## Example Output
+
+### Single Package:
+```
+**Summary of requests installation:**
+
+
+1) Installed:
+requests (2.31.0), urllib3 (2.0.4), certifi (2023.7.22)
+
+
+2) Already Satisfied:
+charset-normalizer, idna
+
+
+3) Dependencies:
+requests, urllib3, certifi, charset-normalizer, idna
+```
+
+### Multiple Packages:
+```
+**Summary of loguru installation:**
+
+
+1) Installed:
+loguru (0.7.3)
+
+
+2) Dependencies:
+loguru
+
+==================================================
+
+**Summary of emoji installation:**
+
+
+1) Installed:
+emoji (2.8.0)
+
+
+2) Dependencies:
+emoji
+```
+
+## Output Format
+
+The summary is organized into up to 5 sections (only applicable sections are shown):
+
+1. **Installed**: Packages that were newly installed
+2. **Already Satisfied**: Packages that were already present and up-to-date
+3. **Warnings**: Important warnings from pip (cleaned and deduplicated)
+4. **Errors**: Any errors encountered (key messages only)
+5. **Dependencies**: All packages that were collected/processed during installation
+
+## Why pip-brief?
+
+Standard `pip install` output can be verbose and hard to parse quickly. pip-brief provides:
+- Clear separation of different types of information
+- Elimination of redundant messages
+- Easy-to-scan format
+- Focus on what actually happened during installation
+
+## Requirements
+
+- Python 3.6+
+- pip
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
