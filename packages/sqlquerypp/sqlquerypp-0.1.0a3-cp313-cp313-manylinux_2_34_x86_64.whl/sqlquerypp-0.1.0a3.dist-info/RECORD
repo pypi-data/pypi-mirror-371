@@ -1,0 +1,9 @@
+sqlquerypp-0.1.0a3.dist-info/METADATA,sha256=jrffcX-qlDTz4iJ9Memeb6vKWDh0IKBPW2RugdnCG8E,3308
+sqlquerypp-0.1.0a3.dist-info/WHEEL,sha256=ZET2S-TR0wahsrBIWv8ILttEqf0jpgj4FEJEEVG_vb0,108
+sqlquerypp-0.1.0a3.dist-info/licenses/LICENSE,sha256=scsYbqTdihXYbfdMoQfz232M-F-Lv_8EW43X1F93Ahk,1066
+sqlquerypp/__init__.py,sha256=jBP-G6iExranZ0tx5-kU1vp80eLcXU8qIZ22obqhdK8,153
+sqlquerypp/compiler.py,sha256=fyE-Tt7BTgZ0ftSdWJwv1fKm6fxbQ4bK9HdwUOdxN6k,4247
+sqlquerypp/sqlquerypp.cpython-313-x86_64-linux-gnu.so,sha256=SoU1JvWTnQD2e2_grVGsELF9gOBd2xrMW6TVaKhrYpw,5834384
+sqlquerypp/sqlquerypp.pyi,sha256=ICV3TKttalrH_hrmrL6UZGtHUHsHQyoCMcnSbkJmPXE,399
+sqlquerypp/types.py,sha256=pKNq9lzdnVIKCP__2nmeo2QXUv2k5bPEywZnsgGEC9s,155
+sqlquerypp-0.1.0a3.dist-info/RECORD,,
