@@ -1,0 +1,16 @@
+LICENSE
+README.md
+pyproject.toml
+src/bubbleconf/__init__.py
+src/bubbleconf/config_annotation.py
+src/bubbleconf.egg-info/PKG-INFO
+src/bubbleconf.egg-info/SOURCES.txt
+src/bubbleconf.egg-info/dependency_links.txt
+src/bubbleconf.egg-info/top_level.txt
+src/bubbleconf/parsers/__init__.py
+src/bubbleconf/parsers/cli_parser.py
+src/bubbleconf/parsers/config_error.py
+src/bubbleconf/parsers/env_parser.py
+src/bubbleconf/parsers/parse_priority.py
+tests/test_cli_args.py
+tests/test_json_source.py
