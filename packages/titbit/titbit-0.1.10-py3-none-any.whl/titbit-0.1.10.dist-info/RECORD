@@ -1,0 +1,10 @@
+titbit/__init__.py,sha256=dNrFNUezTqSNQkTICMJteWRW99tAlqreu9klrApBVgo,2514
+titbit/ast_utils.py,sha256=zUbGfe6mPi2otohnaAb5ROcDXwsqdof4F9WCmIP3l9c,12522
+titbit/graphs.py,sha256=sdXb9_YWb9Hu8ouG5Ty-3DMSemtd4_vhMOd1JUQ--bs,6023
+titbit/mappings.py,sha256=SIeaOc8NQx-w_VT27tujg6VgunLaZVRgCRm6JNOnulc,3002
+titbit/strings.py,sha256=t5R1PqY4dL3fuO4kYyjXvElsNW3cDIWbUQv1amEq84s,1615
+titbit-0.1.10.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+titbit-0.1.10.dist-info/METADATA,sha256=aPqh-p3XfFv_KVCetjCFFN27ALTCdympcok9b-xhK20,3992
+titbit-0.1.10.dist-info/WHEEL,sha256=tZoeGjtWxWRfdplE7E3d45VPlLNQnvbKiYnx7gwAy8A,92
+titbit-0.1.10.dist-info/top_level.txt,sha256=8bJXDSokNu7tfHOfQokI6toRlT3Om6DsNLaR6Ppg-P0,7
+titbit-0.1.10.dist-info/RECORD,,
