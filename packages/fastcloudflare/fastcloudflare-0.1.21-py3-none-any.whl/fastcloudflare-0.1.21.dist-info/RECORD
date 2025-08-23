@@ -1,0 +1,8 @@
+fastcloudflare/__init__.py,sha256=FoEGlD10lz9me7rgclmyngNFHxNQ-R8mwPuuL_-dW6U,1738
+fastcloudflare/api_cfg.py,sha256=y58pEKcow9mUAi8WRFnNwB5i-VPw-0c8YyLfQ5gM9Oo,1537
+fastcloudflare/cloudflare_api.py,sha256=dcCA5mKP8RXAmVhprHEkNFMEFxm_EsnczOo_sJgJkss,7076
+fastcloudflare/gateway.py,sha256=OuhzHt6tXdDmZ613-8m2fz3WGovE1Quz4PMMkweUhq4,2235
+fastcloudflare-0.1.21.dist-info/LICENSE,sha256=dlh6f2qp23PzSIjosKnKz34zGscfGfKVNDOKzclXLsE,1095
+fastcloudflare-0.1.21.dist-info/METADATA,sha256=hocNl31ndNmisPG6ONfAmMf9H8y5TvG34elRbvDqCVI,637
+fastcloudflare-0.1.21.dist-info/WHEEL,sha256=b4K_helf-jlQoXBBETfwnf4B04YC67LOev0jo4fX5m8,88
+fastcloudflare-0.1.21.dist-info/RECORD,,
