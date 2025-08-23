@@ -1,0 +1,67 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "py-p-audio"
+version = "1.0.1"
+description = "Professional Python audio library with WASAPI/ASIO support for Windows"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [{name = "hiroshi-tamura"}]
+keywords = ["audio", "recording", "playback", "WASAPI", "ASIO", "loopback", "Windows"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Multimedia :: Sound/Audio :: Capture/Recording",
+    "Topic :: Multimedia :: Sound/Audio :: Players",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    "PyAudioWPatch>=0.2.12",  # WASAPI loopback support
+    "sounddevice>=0.4.6",      # ASIO support
+    "soundfile>=0.12.1",       # Audio file I/O
+    "numpy>=1.21.0",           # Audio data processing
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0", "black", "ruff", "mypy", "pytest-cov"]
+test = ["pytest>=7.0", "pytest-cov", "pytest-asyncio"]
+docs = ["sphinx", "sphinx-rtd-theme", "myst-parser"]
+
+[project.urls]
+Homepage = "https://github.com/hiroshi-tamura/py-p-audio"
+Documentation = "https://py-p-audio.readthedocs.io"
+Repository = "https://github.com/hiroshi-tamura/py-p-audio.git"
+Issues = "https://github.com/hiroshi-tamura/py-p-audio/issues"
+
+[project.scripts]
+py-p-audio = "py_p_audio.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+py_p_audio = ["py.typed"]
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+
+[tool.ruff]
+line-length = 88
+target-version = "py38"
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true

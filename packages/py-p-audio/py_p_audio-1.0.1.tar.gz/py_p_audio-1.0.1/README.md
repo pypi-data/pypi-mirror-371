@@ -1,0 +1,167 @@
+# py-p-audio
+
+Professional Python audio library with WASAPI and ASIO support for Windows
+
+## Features
+
+- **WASAPI Support**: High-quality audio recording and playback through Windows Audio Session API
+- **ASIO Support**: Low-latency audio through Audio Stream Input/Output for professional audio interfaces
+- **Loopback Recording**: Capture system audio output without additional drivers
+- **Flexible Channel Selection**: Support multiple channel specification formats (1-based indexing)
+- **Rich Callbacks**: Real-time monitoring with comprehensive callback information
+- **Modern Python**: Built with type hints and modern Python packaging standards
+- **Easy Installation**: Just `pip install py-p-audio` - no additional drivers needed
+
+## Installation
+
+```bash
+pip install py-p-audio
+```
+
+## Quick Start
+
+```python
+import py_p_audio as ppa
+
+# List available devices
+devices = ppa.list_audio_devices()
+
+# Simple recording (5 seconds)
+ppa.record(duration=5.0, output_file="recording.wav")
+
+# Record system audio
+ppa.record_system_audio(duration=3.0, output_file="system_audio.wav")
+
+# Simple playback
+ppa.play("recording.wav")
+```
+
+## Channel Specification
+
+The library supports flexible channel specification using 1-based indexing:
+
+```python
+# Single channel
+recorder = ppa.Recorder(channels=1)
+
+# Multiple specific channels
+recorder = ppa.Recorder(channels=[1, 3, 5])
+
+# Channel range
+recorder = ppa.Recorder(channels="1-6")  # Channels 1 through 6
+
+# Using range object
+recorder = ppa.Recorder(channels=range(1, 7))  # Channels 1-6
+```
+
+## Advanced Usage
+
+### ASIO Recording with Low Latency
+
+```python
+with ppa.ASIORecorder(
+    device_id=asio_device_id,
+    channels="1-4",
+    buffer_size=256,  # Low latency
+    sample_rate=48000
+) as recorder:
+    
+    def callback(info):
+        print(f"Latency: {info.latency:.1f}ms | Peak: {info.max_peak_level:.2f}")
+    
+    recorder.set_progress_callback(callback)
+    recorder.start_recording("asio_recording.wav")
+    time.sleep(10)
+    recorder.stop_recording()
+```
+
+### Loopback Recording with Silence Detection
+
+```python
+with ppa.LoopbackRecorder(silence_threshold=0.01) as recorder:
+    recorder.start_recording("system_audio.wav")
+    
+    # Record until 3 seconds of silence
+    while recorder.get_silence_duration() < 3.0:
+        time.sleep(0.1)
+    
+    recorder.stop_recording()
+```
+
+### Real-time Audio Processing
+
+```python
+with ppa.Recorder() as recorder:
+    recorder.start_recording()  # In-memory recording
+    time.sleep(5)
+    audio_data = recorder.stop_recording()
+    
+    # Process audio data
+    processed_data = audio_data * 0.5  # Reduce volume
+    
+    # Play processed audio
+    with ppa.Player() as player:
+        player.load_data(processed_data, 44100)
+        player.play()
+```
+
+## API Reference
+
+### High-Level API
+
+- `ppa.record()` - Simple recording function
+- `ppa.record_system_audio()` - System audio recording
+- `ppa.play()` - Simple playback function
+- `ppa.list_audio_devices()` - List available devices
+
+### Classes
+
+- `ppa.Recorder` - Unified recorder (WASAPI/ASIO)
+- `ppa.LoopbackRecorder` - System audio recorder
+- `ppa.Player` - Unified player (WASAPI/ASIO)
+- `ppa.WASAPIRecorder` - Low-level WASAPI recorder
+- `ppa.ASIORecorder` - Low-level ASIO recorder
+- `ppa.WASAPIPlayer` - Low-level WASAPI player
+- `ppa.ASIOPlayer` - Low-level ASIO player
+
+### Callback Information
+
+The `CallbackInfo` object provides comprehensive information:
+
+```python
+def progress_callback(info: ppa.CallbackInfo):
+    print(f"Time: {info.current_time:.1f}s")
+    print(f"Device: {info.device_name}")
+    print(f"API: {info.api_type.value}")
+    print(f"Peak levels: {info.peak_levels}")
+    print(f"Latency: {info.latency}ms")  # ASIO only
+    print(f"Sample rate: {info.sample_rate}Hz")
+```
+
+## Requirements
+
+- Windows 10/11
+- Python 3.8+
+- PyAudioWPatch (for WASAPI support)
+- sounddevice (for ASIO support)
+- soundfile (for audio file I/O)
+- numpy (for audio data processing)
+
+## License
+
+MIT License
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## Changelog
+
+### v1.0.0
+- Initial release
+- WASAPI recording and playback support
+- ASIO recording and playback support
+- Loopback recording with silence detection
+- Flexible channel specification
+- Rich callback system
+- Modern Python packaging
