@@ -1,0 +1,10 @@
+.gitignore,sha256=7XuE6BY1nRcnaoAYAt5cNiwsVyzj5QqGcMg2Kwg1E4A,109
+.python-version,sha256=e1X45ntWI8S-8_ppEojalDfXnTq6FW3kjUgdsyrH0W0,5
+PKG-INFO,sha256=mvd00-vqRyNncfwSyE6vLoXr_MfuloAj2DGTNGujV0U,260
+README.md,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+agent.py,sha256=7Pg-nJJQusZhy49lEq9pKHQus3OqnN0Rb_Mmrv-Ij6s,3427
+pyproject.toml,sha256=qbn7evaa8zPFB28RrrHb96vX1IwbX2AZdLF_wtqGY5Y,439
+uv.lock,sha256=czdUoVKRJf7vs7H6kR2x4JfRauu6GTtPF8pUs5XOIO8,275676
+cli_chatbot-0.1.4.dist-info/METADATA,sha256=mvd00-vqRyNncfwSyE6vLoXr_MfuloAj2DGTNGujV0U,260
+cli_chatbot-0.1.4.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+cli_chatbot-0.1.4.dist-info/RECORD,,
