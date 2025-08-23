@@ -1,0 +1,1 @@
+import{H as o,d as s}from"./p-D5xaqcie.js";const a=o,p=s;export{a as H5Icon,p as defineCustomElement}
