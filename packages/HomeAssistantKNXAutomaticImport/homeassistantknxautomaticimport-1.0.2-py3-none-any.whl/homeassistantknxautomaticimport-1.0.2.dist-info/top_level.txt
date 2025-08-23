@@ -1,0 +1,8 @@
+ha_knx_objects
+ha_knx_objects_common
+ha_knx_objects_factory
+homeassistant_knx_automatic_import
+knx_function_analyzer
+knx_project
+knx_project_objects
+knx_utils
