@@ -1,0 +1,19 @@
+Metadata-Version: 2.4
+Name: electrum-bch
+Version: 0.3.9
+Summary: Bitcoin Cash Electrum core packaged as elib.bitcoincashElectrum (patched: pure-python ECDSA on Windows)
+Author: Packaged by Chat Assistant
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Internet
+Requires-Python: >=3.1
+Description-Content-Type: text/markdown
+Requires-Dist: pyaes>=1.6.1
+Requires-Dist: ecdsa>=0.18.0
+
+# electrum-bch 0.3.7 (patched)
+
+- Forces ECDSA backend
