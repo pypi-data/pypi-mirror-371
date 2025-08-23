@@ -1,0 +1,2 @@
+[console_scripts]
+geonaksaa = geonaksaa.cli:main
