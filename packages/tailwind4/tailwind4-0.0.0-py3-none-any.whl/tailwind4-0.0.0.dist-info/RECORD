@@ -1,0 +1,12 @@
+tailwind4/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tailwind4/apps.py,sha256=BaZlIps9fW3HRJnfyA0pXvurSitkV2m6bTcwQtF1MQc,188
+tailwind4/utils.py,sha256=17iDIOUMgWOKrn-a7wgU_rJCdSKYOpQ_CEpRm6Q2X8A,377
+tailwind4/management/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tailwind4/management/commands/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tailwind4/management/commands/tailwind_build.py,sha256=Dqnshscgf6LPDMYHk3E24vIWGYas4TUXwGJp53bJ5Cc,713
+tailwind4/management/commands/tailwind_init.py,sha256=lig5736p7KbH2_q2rjjTn7Z1AI-5J3oAEqfGwblPdPg,1031
+tailwind4-0.0.0.dist-info/licenses/LICENSE,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tailwind4-0.0.0.dist-info/METADATA,sha256=QlwI6TepUE5RmOae_SmQgTDaebYH_EN7kOloaT7xUzk,97
+tailwind4-0.0.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+tailwind4-0.0.0.dist-info/top_level.txt,sha256=zxCmZkHVSi5wYpH58R8XCIpBNh6ZNnLFgvUNqwv2lM4,10
+tailwind4-0.0.0.dist-info/RECORD,,
