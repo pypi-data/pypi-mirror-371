@@ -1,0 +1,69 @@
+Metadata-Version: 2.4
+Name: simplevibe
+Version: 0.1.1
+Summary: A Python library that interfaces with Llama LLM for various operations
+Home-page: https://github.com/bomxacalaka/simplevibe
+Author: bomxacalaka
+Author-email: jorgeeduardodsc@gmail.com
+Project-URL: Bug Tracker, https://github.com/bomxacalaka/simplevibe/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: transformers==4.52.3
+Requires-Dist: torch==2.6.0
+Requires-Dist: pillow==10.4.0
+Requires-Dist: accelerate==1.3.0
+Requires-Dist: bitsandbytes==0.45.5
+Dynamic: license-file
+
+# SimpleVibe
+
+A vibe coded AI powered isOdd tool <3
+Bonus: vibify()
+
+## Installation
+
+```bash
+pip install simplevibe
+```
+
+## Usage
+
+### As a library
+
+```python
+from simplevibe.core import oddVibes
+
+# Use AI powered tool to check if a number is odd
+result = oddVibes(42)
+print(f"Is 42 odd? {result}")  # Is 42 odd? False
+```
+
+### From the command line
+
+After installation, you can use the `simplevibe` command:
+
+```bash
+# Show the greeting
+simplevibe
+
+# Check if a number is odd
+simplevibe oddVibes 42
+```
+
+## Requirements
+
+- Python 3.7 or higher
+
+## License
+
+MIT
