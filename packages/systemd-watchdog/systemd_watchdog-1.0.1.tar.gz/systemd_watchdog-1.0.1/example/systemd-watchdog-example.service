@@ -1,0 +1,15 @@
+# Example systemd-watchdog service file - fix path below
+[Unit]
+Description=systemd-watchdog example service
+StartLimitBurst=5
+StartLimitIntervalSec=600
+
+[Service]
+ExecStart=/home/user/systemd-watchdog/examples/daemon.py
+Restart=on-failure
+RestartSec=10
+Type=notify
+WatchdogSec=15
+
+[Install]
+WantedBy=default.target
