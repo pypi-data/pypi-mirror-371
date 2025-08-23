@@ -1,0 +1,35 @@
+[project]
+name = "cryptozaurus"
+version = "0.1.0"
+description = "Decryptor for JS's Crypto encrypted timestamps tokens"
+readme = "README.md"
+authors = [
+    { name = "Viacheslav Shirkeev", email = "ooovertone@gmail.com" }
+]
+requires-python = ">=3.12, <3.13"
+license = { text = "MIT" }
+dependencies = [
+    "cryptography==45.0.6",
+]
+
+[project.scripts]
+cryptozaurus = "cryptozaurus:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "src/cryptozaurus",
+    "README.md",
+    "LICENSE",
+    "pyproject.toml",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["cryptozaurus"]
+
+[project.urls]
+Homepage = "https://github.com/ooovertone/cryptozaurus"
+Repository = "https://github.com/ooovertone/cryptozaurus"
