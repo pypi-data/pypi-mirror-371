@@ -1,0 +1,51 @@
+[project]
+name = "split-screen-macOS-test-copy"
+version = "0.1.1"
+description = "Model Context Protocol Server for macOS Window Management and Split-Screen Operations"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [
+  {name = "Beta"}
+]
+maintainers = [
+  {name = "Beta"}
+]
+license = {file = "LICENSE"}
+keywords = ["mcp", "macos", "window-management", "split-screen", "accessibility", "model-context-protocol"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: MacOS",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Desktop Environment :: Window Managers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: System :: Systems Administration",
+]
+dependencies = [
+    "mcp>=0.1.0",
+    "pyobjc-framework-Cocoa>=9.0",
+    "pyobjc-framework-Quartz>=9.0",
+]
+
+[project.scripts]
+split-screen-macOS-test-copy = "split_screen_mcp.__main__:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/split_screen_mcp"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "/src/split_screen_mcp/**/*.py",
+  "/README.md",
+  "/LICENSE",
+  "/pyproject.toml"
+]
