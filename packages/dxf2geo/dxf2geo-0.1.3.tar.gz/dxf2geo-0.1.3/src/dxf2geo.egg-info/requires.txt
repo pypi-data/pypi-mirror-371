@@ -1,0 +1,14 @@
+geopandas>=1.0
+pyogrio>=0.11
+shapely>=2.0
+pandas>=2.0
+plotly>=5
+tqdm>=4.66
+
+[dev]
+pytest
+pytest-mock
+ruff
+black
+build
+twine
