@@ -1,0 +1,10 @@
+suite2p
+antspyx
+itk-elastix
+caiman
+h5py
+tifffile
+numpy
+scipy
+pandas
+opencv-python
