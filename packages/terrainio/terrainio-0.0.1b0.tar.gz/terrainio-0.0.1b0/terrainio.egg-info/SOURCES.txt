@@ -1,0 +1,8 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+terrainio.egg-info/PKG-INFO
+terrainio.egg-info/SOURCES.txt
+terrainio.egg-info/dependency_links.txt
+terrainio.egg-info/top_level.txt
