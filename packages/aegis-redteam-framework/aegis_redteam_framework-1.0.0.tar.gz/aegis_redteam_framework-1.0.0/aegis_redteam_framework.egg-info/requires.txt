@@ -1,0 +1,12 @@
+typer[all]
+rich
+plotly
+pandas
+google-generativeai
+openai
+python-dotenv
+requests
+fpdf2
+streamlit
+kaleido
+bandit
