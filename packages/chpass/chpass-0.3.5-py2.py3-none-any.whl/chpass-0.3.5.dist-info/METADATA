@@ -1,0 +1,90 @@
+Metadata-Version: 2.4
+Name: chpass
+Version: 0.3.5
+Summary: Gather information from chrome
+Home-page: https://github.com/bengabay11/chpass
+Author: Ben Gabay
+Author-email: ben.gabay38@gmail.com
+License: License :: OSI Approved :: MIT License
+Keywords: chrome passwords
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pattern-singleton==1.2.0
+Requires-Dist: sqlalchemy==2.0.31
+Requires-Dist: pandas==2.2.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: license
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# chpass
+
+Gather information from Chrome 🔑
+
+[![Unit Tests](https://github.com/bengabay11/chpass/actions/workflows/unit-tests.yml/badge.svg)](https://github.com/bengabay11/chpass/actions/workflows/unit-tests.yml)
+[![Integration Tests](https://github.com/bengabay11/chpass/actions/workflows/integration-tests.yml/badge.svg)](https://github.com/bengabay11/chpass/actions/workflows/integration-tests.yml)
+[![python](https://img.shields.io/badge/python-3.9%20%7C%203.8%20%7C%203.9%20%7C%203.10%20%7C%203.12-blue)](https://pypi.org/project/chpass/)
+
+## Features
+
+- import/export passwords
+- history
+- google account profile picture
+- downloads
+- top visited sites
+
+## Installing
+
+```console
+$ pip install chpass
+```
+
+## Usage
+
+```console
+usage: chpass [-h] [-u USER] [-i FILE_ADAPTER] {import,export} ...
+```
+
+> Chrome must be closed during the whole process, because its database is locked while running.
+
+### Export
+
+```console
+usage: chpass export [-h] [-d DESTINATION_FOLDER] {passwords,history,downloads,top_sites,profile_pic} ...
+```
+
+### Import
+
+```console
+usage: chpass import [-h] -f FROM_FILE
+```
+
+> In order to import the passwords successfully, Chrome must be restarted after the import to load the passwords from the database.
+
+## File adapters
+
+`chpass` support read/write functionality with `csv` and `json`.
+
+the default export and import is done with `csv`.
+
+you can change the file adapter with the flag:
+
+```console
+$ chpass -i json export
+```
+
+## License
+
+This project is licensed under the terms of the MIT license.
