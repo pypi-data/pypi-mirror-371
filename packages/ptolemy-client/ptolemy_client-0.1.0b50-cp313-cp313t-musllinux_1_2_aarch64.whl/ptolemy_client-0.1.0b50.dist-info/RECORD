@@ -1,0 +1,12 @@
+ptolemy_client-0.1.0b50.dist-info/METADATA,sha256=f_kXibQkPewEcSudFv0RJSfqyB9x82L0ohEzqgeVvmI,490
+ptolemy_client-0.1.0b50.dist-info/WHEEL,sha256=yGPW3M1hQPMOjSiAt1n4gVI7TCeagg-tJLbnCoHn5Pg,109
+ptolemy_client-0.1.0b50.dist-info/entry_points.txt,sha256=NUTJKJkOojFO4ApbmyuCdUquWc4qqrVjKZK2yBwQEBE,39
+ptolemy_client.libs/libgcc_s-e52197c3.so.1,sha256=vkPW1Auw6CH9Bjk7frmX3hry_1H9c0tRI0Ncyg71WUI,724137
+ptolemy_client/__init__.py,sha256=Se2-gUgFrTD9dGjiQ3k7XZDhzvV8d7ApZ71nhqyK8Uk,170
+ptolemy_client/client.py,sha256=MIP-hA0wPpsx7UsPzjpxpYbVrNMnnzAPjHaz9zxhwOk,5592
+ptolemy_client/_core.pyi,sha256=qDKrSvEz59Wqt8DOctcNJUrY_1Ot6dEG4F0rjAyfwSo,466
+ptolemy_client/tier.py,sha256=9wfizz1v22ZFIu2alVXOv1LYhqqjvmjJeMKZcxIZ-8M,542
+ptolemy_client/setup_dev.py,sha256=NC1dVr4JeHTogpU_IhwEpJqVB9D_U44tjXaV6c5i0sk,252
+ptolemy_client/io.py,sha256=7a_x0un7IBkJEA1RbS6Oaslr94VADZtdnzLMaBeEY1o,978
+ptolemy_client/_core.cpython-313t-aarch64-linux-musl.so,sha256=CgJIE8RKamWsiaK38I_igi4jXLRB-32314o-wXCsEV4,2428489
+ptolemy_client-0.1.0b50.dist-info/RECORD,,
