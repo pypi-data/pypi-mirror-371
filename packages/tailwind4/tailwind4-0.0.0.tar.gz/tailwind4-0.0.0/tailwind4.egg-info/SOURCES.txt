@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+tailwind4/__init__.py
+tailwind4/apps.py
+tailwind4/utils.py
+tailwind4.egg-info/PKG-INFO
+tailwind4.egg-info/SOURCES.txt
+tailwind4.egg-info/dependency_links.txt
+tailwind4.egg-info/top_level.txt
+tailwind4/management/__init__.py
+tailwind4/management/commands/__init__.py
+tailwind4/management/commands/tailwind_build.py
+tailwind4/management/commands/tailwind_init.py
+tailwind4/static/tailwind4/input.css
+tailwind4/templates/tailwind4/base.html

@@ -1,0 +1,2 @@
+recursive-include tailwind4/static *
+recursive-include tailwind4/templates *
