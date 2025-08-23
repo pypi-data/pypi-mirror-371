@@ -1,0 +1,38 @@
+[package]
+name = "berry-core-python"
+version = "0.6.9"
+edition = "2021"
+description = "High-performance blockchain data processing library forked from cherry-core"
+homepage = "https://github.com/elyase/berry-core"
+repository = "https://github.com/elyase/berry-core"
+authors = [
+    "Yaser Martinez Palenzuela <yaser.martinez@gmail.com>",
+    "Ozgur Akkurt <oezgurmakkurt@gmail.com>"
+]
+license = "MIT OR Apache-2.0"
+
+[lib]
+name = "berry_core"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = { version = "0.23", features = ["anyhow", "experimental-async"] }
+# Use only the basic core functionality, exclude ingest to avoid complex dependencies
+cherry-evm-validate = { path = "../evm-validate", version = "0.1.0" }
+cherry-evm-decode = { path = "../evm-decode", version = "0.2.0" }
+cherry-cast = { path = "../cast", version = "0.2.0" }
+cherry-svm-decode = { path = "../svm-decode", version = "0.3.0" }
+cherry-evm-schema = { path = "../evm-schema", version = "0.1.0" }
+cherry-svm-schema = { path = "../svm-schema", version = "0.1.0" }
+cherry-query = { path = "../query", version = "0.2.0" }
+cherry-rpc-call = { path = "../rpc_call", version = "0.2.1" }
+
+arrow = { version = "54.2.1", features = ["pyarrow"] }
+anyhow = "1"
+faster-hex = "0.10"
+futures-lite = "2"
+tokio = { version = "1", features = ["full"] }
+env_logger = "0.11"
+bs58 = "0.5"
+openssl = { version = "0.10", features = ["vendored"] }
+tikv-jemallocator = { version = "0.6", features = ["disable_initial_exec_tls", "unprefixed_malloc_on_supported_platforms"] }
