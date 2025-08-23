@@ -1,0 +1,5 @@
+root-painter-painter
+typer[all]>=0.16.1
+
+[trainer]
+root-painter-trainer
