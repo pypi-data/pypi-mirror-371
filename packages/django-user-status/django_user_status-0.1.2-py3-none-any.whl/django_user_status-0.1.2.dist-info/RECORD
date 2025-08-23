@@ -1,0 +1,12 @@
+django_user_status/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+django_user_status/middleware.py,sha256=bP2usja_zh9A5y0fo1nIlh7XvAWP32amyzmw4EWUAl0,767
+django_user_status/urls.py,sha256=e36Xss2rvxNh0vkAGAIMnXTrSuEA8pG2fAou7Qr1xt0,190
+django_user_status/templatetags/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+django_user_status/templatetags/user_status_tags.py,sha256=h1aTcLJC5YEaY6FjJZE4P4P5Qxfh5N7upQW0ZpE0U8Q,1105
+django_user_status/tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+django_user_status/tests/test_user_status.py,sha256=o9_MZJN69wl5I2eAHIqzCLvaHOmnyizZESLh7d2HF_I,2048
+django_user_status-0.1.2.dist-info/licenses/LICENSE,sha256=ahnhZ2MgIijGLELqpej4qN0PwEDQUc7pm-6qqozEZIE,1085
+django_user_status-0.1.2.dist-info/METADATA,sha256=9VDHQgY-NYRjNMEE8foyKJsdO1P1A60iWYdANQCsYFY,2669
+django_user_status-0.1.2.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+django_user_status-0.1.2.dist-info/top_level.txt,sha256=gy0fIOLVWZDUTLxdu8resU0PtSvOhxePrgF-5K0353E,19
+django_user_status-0.1.2.dist-info/RECORD,,
