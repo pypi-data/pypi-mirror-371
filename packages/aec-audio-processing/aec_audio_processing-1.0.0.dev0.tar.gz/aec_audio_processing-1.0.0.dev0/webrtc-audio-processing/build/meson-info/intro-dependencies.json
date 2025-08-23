@@ -1,0 +1,197 @@
+[
+  {
+    "name": "threads",
+    "type": "system",
+    "version": "unknown",
+    "compile_args": [],
+    "link_args": [],
+    "include_directories": [],
+    "sources": [],
+    "extra_files": [],
+    "dependencies": [],
+    "depends": [],
+    "meson_variables": []
+  },
+  {
+    "name": "appleframeworks",
+    "type": "appleframeworks",
+    "version": "unknown",
+    "compile_args": [],
+    "link_args": [
+      "-framework",
+      "Foundation"
+    ],
+    "include_directories": [],
+    "sources": [],
+    "extra_files": [],
+    "dependencies": [],
+    "depends": [],
+    "meson_variables": []
+  },
+  {
+    "name": "dep87600080754422952021062266556299562100",
+    "type": "internal",
+    "version": "2.1",
+    "compile_args": [],
+    "link_args": [],
+    "include_directories": [],
+    "sources": [],
+    "extra_files": [],
+    "dependencies": [],
+    "depends": [
+      "d23430c@@libbase@sta"
+    ],
+    "meson_variables": [
+      "base_dep"
+    ]
+  },
+  {
+    "name": "dep180933801351913068511623766431500902918",
+    "type": "internal",
+    "version": "2.1",
+    "compile_args": [],
+    "link_args": [],
+    "include_directories": [],
+    "sources": [],
+    "extra_files": [],
+    "dependencies": [],
+    "depends": [
+      "f994007@@libapi@sta"
+    ],
+    "meson_variables": [
+      "api_dep"
+    ]
+  },
+  {
+    "name": "dep212058607169984077158143582930891715815",
+    "type": "internal",
+    "version": "2.1",
+    "compile_args": [],
+    "link_args": [],
+    "include_directories": [],
+    "sources": [],
+    "extra_files": [],
+    "dependencies": [],
+    "depends": [
+      "6b7c953@@system_wrappers@sta"
+    ],
+    "meson_variables": [
+      "system_wrappers_dep"
+    ]
+  },
+  {
+    "name": "dep211943567888841720510032388960731721796",
+    "type": "internal",
+    "version": "2.1",
+    "compile_args": [],
+    "link_args": [],
+    "include_directories": [],
+    "sources": [],
+    "extra_files": [],
+    "dependencies": [],
+    "depends": [
+      "98938ab@@common_audio@sta"
+    ],
+    "meson_variables": [
+      "common_audio_dep"
+    ]
+  },
+  {
+    "name": "dep18477600735934110419684409563410493613",
+    "type": "internal",
+    "version": "2.1",
+    "compile_args": [],
+    "link_args": [],
+    "include_directories": [],
+    "sources": [],
+    "extra_files": [],
+    "dependencies": [],
+    "depends": [
+      "5abf6e6@@libpffft@sta"
+    ],
+    "meson_variables": [
+      "pffft_dep"
+    ]
+  },
+  {
+    "name": "dep327038571515505854594621796274322903339",
+    "type": "internal",
+    "version": "2.1",
+    "compile_args": [],
+    "link_args": [],
+    "include_directories": [],
+    "sources": [],
+    "extra_files": [],
+    "dependencies": [],
+    "depends": [
+      "30e4b70@@librnnoise@sta"
+    ],
+    "meson_variables": [
+      "rnnoise_dep"
+    ]
+  },
+  {
+    "name": "dep30733168734646313879838876265862698084",
+    "type": "internal",
+    "version": "2.1",
+    "compile_args": [],
+    "link_args": [],
+    "include_directories": [],
+    "sources": [],
+    "extra_files": [],
+    "dependencies": [],
+    "depends": [
+      "0a03598@@libfft@sta"
+    ],
+    "meson_variables": [
+      "fft_dep"
+    ]
+  },
+  {
+    "name": "dep138238268724500361115732944452714913966",
+    "type": "internal",
+    "version": "2.1",
+    "compile_args": [],
+    "link_args": [],
+    "include_directories": [],
+    "sources": [
+      "/Users/deepbhupatkar/Desktop/Developer/HELLO/python-webrtc-audio-processing/webrtc-audio-processing/webrtc/modules/audio_coding/codecs/isac/main/source/filter_functions.c",
+      "/Users/deepbhupatkar/Desktop/Developer/HELLO/python-webrtc-audio-processing/webrtc-audio-processing/webrtc/modules/audio_coding/codecs/isac/main/source/isac_vad.c",
+      "/Users/deepbhupatkar/Desktop/Developer/HELLO/python-webrtc-audio-processing/webrtc-audio-processing/webrtc/modules/audio_coding/codecs/isac/main/source/pitch_estimator.c",
+      "/Users/deepbhupatkar/Desktop/Developer/HELLO/python-webrtc-audio-processing/webrtc-audio-processing/webrtc/modules/audio_coding/codecs/isac/main/source/pitch_filter.c"
+    ],
+    "extra_files": [],
+    "dependencies": [],
+    "depends": [],
+    "meson_variables": [
+      "isac_vad_dep"
+    ]
+  },
+  {
+    "name": "dep73650591744351087882699327072750480643",
+    "type": "internal",
+    "version": "2.1",
+    "compile_args": [],
+    "link_args": [],
+    "include_directories": [
+      "/Users/deepbhupatkar/Desktop/Developer/HELLO/python-webrtc-audio-processing/webrtc-audio-processing/webrtc/.",
+      "/Users/deepbhupatkar/Desktop/Developer/HELLO/python-webrtc-audio-processing/webrtc-audio-processing/build/webrtc/."
+    ],
+    "sources": [],
+    "extra_files": [],
+    "dependencies": [
+      "dep105461293820179977417191102662251870915",
+      "dep310446970092185278048239956165405297117",
+      "dep50462304246772186536651751385485149988",
+      "dep225980101385171269380131462821624898289",
+      "dep111823801568333434388279158641882787186",
+      "dep19780826809354593572558525293285930668"
+    ],
+    "depends": [
+      "b2dffe2@@webrtc-audio-processing-2@sha"
+    ],
+    "meson_variables": [
+      "audio_processing_dep"
+    ]
+  }
+]
