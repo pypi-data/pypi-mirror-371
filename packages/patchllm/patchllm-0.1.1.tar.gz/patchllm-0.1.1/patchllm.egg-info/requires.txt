@@ -1,0 +1,6 @@
+litellm
+python-dotenv
+
+[voice]
+SpeechRecognition
+pyttsx3
