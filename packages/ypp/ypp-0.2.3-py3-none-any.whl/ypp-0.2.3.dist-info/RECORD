@@ -1,0 +1,10 @@
+ypp/__init__.py,sha256=da1PTClDMl-IBkrSvq6JC1lnS-K_BASzCvxVhNxN5Ls,13
+ypp/__main__.py,sha256=zcju4MY8GzdgXedsMEbYXLL3ImGx1yqHWNWhBLmoyp4,13558
+ypp/auto_build.py,sha256=snEoo1j3UwCHc2n-HGXw_XWZ6_71BJJiR6fGdI59cl0,5466
+ypp/makefile_modifier.py,sha256=b8W4lGwq7ewPvE4wcc_tPt_kZVth4wWexzBxN47MWlQ,4005
+ypp-0.2.3.dist-info/licenses/LICENSE,sha256=Vi3cItkblr6fZwGbNlp_HnBaMFwXSWYPkrVQLXX3LCs,1057
+ypp-0.2.3.dist-info/METADATA,sha256=LqTZ4NtiuWhr1VBmrhbiNPmGhOK_s1Qv6qkZGcPKaBU,2460
+ypp-0.2.3.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+ypp-0.2.3.dist-info/entry_points.txt,sha256=pVHTD3VncYAl4MZlhPDIqGkiYCcOyfIc1mXCCzeq1vk,42
+ypp-0.2.3.dist-info/top_level.txt,sha256=zTtSZaXYV2Isk0IOW1rYyFGTN4qMkNyl9aFxfc0hNCQ,4
+ypp-0.2.3.dist-info/RECORD,,
