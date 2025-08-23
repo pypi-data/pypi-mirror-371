@@ -1,0 +1,11 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+electrum_bch.egg-info/PKG-INFO
+electrum_bch.egg-info/SOURCES.txt
+electrum_bch.egg-info/dependency_links.txt
+electrum_bch.egg-info/top_level.txt
+elib/bitcoincashElectrum/plugins/fusion/red_exclamation.png
+elib/bitcoincashElectrum/plugins/fusion/protobuf/fusion.proto
+elib/bitcoincashElectrum/plugins/shuffle_deprecated/protobuf/message.proto
