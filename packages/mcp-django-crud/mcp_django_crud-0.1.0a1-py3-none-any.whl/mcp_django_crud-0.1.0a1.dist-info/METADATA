@@ -1,0 +1,21 @@
+Metadata-Version: 2.3
+Name: mcp-django-crud
+Version: 0.1.0a1
+Summary: MCP server for Django projects
+Author: Josh Thomas
+Author-email: Josh Thomas <josh@joshthomas.dev>
+Classifier: Development Status :: 1 - Planning
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+
+# mcp-django-crud
+
+This package is currently under development.
+
+For now, please use [mcp-django-shell](https://pypi.org/project/mcp-django-shell/) instead:
+
+```bash
+pip install mcp-django-shell
+```
+
+Full release coming soon!
