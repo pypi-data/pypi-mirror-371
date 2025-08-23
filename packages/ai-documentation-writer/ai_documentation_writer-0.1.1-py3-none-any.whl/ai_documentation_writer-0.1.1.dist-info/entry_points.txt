@@ -1,0 +1,3 @@
+[console_scripts]
+ai-documentation-writer = ai_documentation_writer.__main__:main
+doc-writer = ai_documentation_writer.__main__:main
