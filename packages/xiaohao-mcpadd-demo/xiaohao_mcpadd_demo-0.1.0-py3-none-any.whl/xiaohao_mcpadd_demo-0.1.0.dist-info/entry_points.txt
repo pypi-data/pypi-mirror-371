@@ -1,0 +1,3 @@
+[console_scripts]
+xiaohao-mcpadd-demo = xiaohao_mcpadd_demo:main
+
