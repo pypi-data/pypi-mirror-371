@@ -1,0 +1,10 @@
+tiny3d-0.0.0.dist-info/RECORD,,
+tiny3d-0.0.0.dist-info/WHEEL,sha256=RXcaVXR1VzLQNykyQkOwdYMhFRpSIriy9vgf0qPtPa0,108
+tiny3d-0.0.0.dist-info/entry_points.txt,sha256=UhBC-aW4LpWUE9M7T6Z7w8PnEgjlpz3U-u1sv8UOG-I,49
+tiny3d-0.0.0.dist-info/top_level.txt,sha256=stMN3sRo2TJf1xPD12kIAv2R2eAY4QMzQ9rJuJy6Va4,7
+tiny3d-0.0.0.dist-info/LICENSE.txt,sha256=DLuJ6c2Usool23Im9wYh5DmTEkYFs59t5xNyClYw0nQ,1109
+tiny3d-0.0.0.dist-info/METADATA,sha256=fxk3COdG6uifrblB08K0_yT4JwBfgaFOyGceVubeDWc,3539
+tiny3d/_build_config.py,sha256=rX7QwpaUqBk4RJL7mS7p58VgXkSMN9qvowN_7Aa5Xok,411
+tiny3d/__init__.py,sha256=dYKOphbVRCYS4FSfQzj3uP85z5V9fhrlkisxeaUJPv8,1641
+tiny3d/cpu/pybind.cpython-39-darwin.so,sha256=s-mQRikY8PvYvUiSmrwmpJX9Jr8L6QX1RflTzrddzrw,1642920
+tiny3d/cpu/__init__.py,sha256=ouZibTckvXJQr9FCNbilAEFUQHO29e6hi1yFJTVRoCc,524
