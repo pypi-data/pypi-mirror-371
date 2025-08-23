@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+HLL.egg-info/PKG-INFO
+HLL.egg-info/SOURCES.txt
+HLL.egg-info/dependency_links.txt
+HLL.egg-info/not-zip-safe
+HLL.egg-info/top_level.txt
+lib/murmur2.c
+lib/murmur2.h
+src/hll.c
+src/hll.h
