@@ -1,0 +1,83 @@
+Metadata-Version: 2.4
+Name: py-p-audio-native
+Version: 2.0.0
+Summary: High-performance Python audio library with native C++ core
+Home-page: https://github.com/hiroshi-tamura/py-p-audio-native
+Author: hiroshi-tamura
+Author-email: 
+License: MIT
+Project-URL: Homepage, https://github.com/hiroshi-tamura/py-p-audio-native
+Project-URL: Repository, https://github.com/hiroshi-tamura/py-p-audio-native.git
+Project-URL: Issues, https://github.com/hiroshi-tamura/py-p-audio-native/issues
+Keywords: audio,recording,playback,WASAPI,ASIO,native,pybind11
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: C++
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Multimedia :: Sound/Audio :: Capture/Recording
+Classifier: Topic :: Multimedia :: Sound/Audio :: Players
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Dynamic: home-page
+Dynamic: requires-python
+
+# py-p-audio-native
+
+High-performance Python audio library powered by native C++ implementation.
+
+**Features:**
+- Zero external dependencies (no PyAudioWPatch, sounddevice, soundfile)
+- Native C++ performance with Python convenience
+- Full WASAPI and ASIO support
+- Low-latency audio processing
+- Complete loopback recording capabilities
+
+## Installation
+
+```bash
+pip install py-p-audio-native
+```
+
+## Quick Start
+
+```python
+import py_p_audio_native as ppa
+
+# List audio devices
+devices = ppa.list_devices()
+
+# Record audio (5 seconds)
+ppa.record(duration=5.0, output_file="recording.wav")
+
+# Record system audio (loopback)
+ppa.record_loopback(duration=3.0, output_file="system_audio.wav")
+
+# Play audio file
+ppa.play("recording.wav")
+```
+
+## Architecture
+
+- **C++ Core**: Native PortAudio + ASIO SDK implementation
+- **pybind11 Bindings**: Zero-overhead Python bindings
+- **Python API**: Thin convenience layer
+
+## Performance
+
+| Feature | py-p-audio (old) | py-p-audio-native |
+|---------|------------------|-------------------|
+| Dependencies | 4 packages | 0 packages |
+| Recording latency | ~50ms | ~5ms |
+| Memory usage | ~50MB | ~5MB |
+| Binary size | N/A | ~2MB |
+
+## License
+
+MIT License
