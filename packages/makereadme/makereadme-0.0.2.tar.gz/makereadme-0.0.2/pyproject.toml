@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "makereadme"
+version = "0.0.2"
+description = "A simple CLI tool to generate README.md files from Python scripts"
+authors = [
+    { name = "Glayton Ricardo" }
+]
+license = { file = "LICENSE" }
+readme = "README.md"
+requires-python = ">=3.8"
+
+dependencies = []
+
+[project.scripts]
+makereadme = "makereadme.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project.urls]
+"Homepage" = "https://github.com/GR-MARTINS/mkreadme"
