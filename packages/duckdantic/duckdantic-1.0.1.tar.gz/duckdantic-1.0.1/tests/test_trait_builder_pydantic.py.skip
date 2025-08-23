@@ -1,0 +1,26 @@
+import pytest
+try:
+    import pydantic as pyd
+    from pydantic import computed_field
+except Exception:
+    pytestmark = pytest.mark.skip(reason="pydantic not installed")
+
+from duckdantic import TraitBuilder, satisfies, POLICY_PRAGMATIC
+
+class M(pyd.BaseModel):
+    q: str
+    n: int | None = None
+
+    @computed_field
+    @property
+    def d(self) -> str:
+        return str(self.n)
+
+def test_builder_pydantic_respects_required_and_computed():
+    tb = TraitBuilder.from_model(M).respect_required(True).include_computed(True)
+    t = tb.build()
+    req = {f.name: f.required for f in t.fields}
+    assert req["q"] is True
+    assert req["n"] is False   # default -> not required
+    assert "d" in {f.name for f in t.fields}
+    assert satisfies(M, t, POLICY_PRAGMATIC)
