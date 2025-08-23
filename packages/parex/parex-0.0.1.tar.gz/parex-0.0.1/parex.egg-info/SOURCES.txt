@@ -1,0 +1,7 @@
+README.md
+pyproject.toml
+parex/__init__.py
+parex.egg-info/PKG-INFO
+parex.egg-info/SOURCES.txt
+parex.egg-info/dependency_links.txt
+parex.egg-info/top_level.txt

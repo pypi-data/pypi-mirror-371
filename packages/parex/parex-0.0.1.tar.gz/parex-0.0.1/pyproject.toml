@@ -1,0 +1,11 @@
+[build-system]
+requires = ["setuptools<77.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "parex"
+version = "0.0.1"
+description = "Placeholder package for SEL internal use. Prevents package squatting on PyPI."
+readme = "README.md"
+requires-python = ">=3.7"
+

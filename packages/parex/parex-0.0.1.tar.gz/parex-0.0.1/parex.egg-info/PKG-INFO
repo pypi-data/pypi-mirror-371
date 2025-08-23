@@ -1,0 +1,12 @@
+Metadata-Version: 2.2
+Name: parex
+Version: 0.0.1
+Summary: Placeholder package for SEL internal use. Prevents package squatting on PyPI.
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+# parex
+
+Placeholder package for SEL internal use. Prevents package squatting on PyPI.
+
+This package is private and contains no functionality.
