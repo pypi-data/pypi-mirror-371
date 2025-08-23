@@ -1,0 +1,52 @@
+[project]
+name = "hhaven"
+license = "MIT"
+version = "0.2.0"
+requires-python = ">=3.10"
+description = "A well-documented and typed API wrapper for Hentai Haven."
+authors = [
+    { name = "JokelBaf", email = "jokelbaf@gmail.com" },
+]
+maintainers = [
+    { name = "JokelBaf", email = "jokelbaf@gmail.com" },
+]
+readme = "README.md"
+keywords = ["hentai-haven", "hentai"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Utilities",
+    "Typing :: Typed",
+]
+dependencies = [
+    "aiocache>=0.12.3",
+    "aiohttp>=3.12.15",
+    "pydantic>=2.11.7",
+]
+
+[project.urls]
+homepage = "https://github.com/jokelbaf/hhaven"
+repository = "https://github.com/jokelbaf/hhaven"
+documentation = "https://hhaven.nekolab.app"
+
+[dependency-groups]
+test = [
+    "pytest>=8.4.1",
+    "pytest-asyncio>=1.1.0",
+    "python-dotenv>=1.1.1",
+]
+
+[tool.pytest.ini_options]
+addopts = [
+  "--import-mode=importlib",
+]
+asyncio_mode = "auto"
+pythonpath = [
+  "."
+]
