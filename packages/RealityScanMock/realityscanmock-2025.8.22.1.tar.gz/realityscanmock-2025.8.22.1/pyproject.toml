@@ -1,0 +1,41 @@
+################################################################
+#                                                              #
+#  This file is part of RealityScanMock                        #
+#                                                              #
+#      https://github.com/basejumpa/RealityScanMock            #
+#                                                              #
+#  Copyright (c) 2025 Alexander Mann-Wahrenberg (basejumpa)    #
+#                                                              #
+#  License                                                     #
+#                                                              #
+#  - MIT for contents used as software                         #
+#                                                              #
+################################################################
+[tool.poetry]
+name = "RealityScanMock"
+version = "2025.08.22.1"
+description = "Mock of REST-API of RealityScan Node (fka Reality Capture rc node)"
+authors = ["basejumpa <alexander.mannwahrenberg@gmail.com>"]
+license = "MIT"
+homepage = "https://github.com/basejumpa/RealityScanNodeMock"
+readme = "README.md"
+
+packages = [
+    { include = "reality_scan_mock", from = "src" },
+]
+
+include = [
+    "README.md",
+    "LICENSE"
+]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+# ✅ Correct table path:
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.0"
+
+[tool.poetry-dynamic-versioning]
+enable = false
+vcs = "git"
