@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.py
+phandas/__init__.py
+phandas/data_fetcher.py
+phandas/factors.py
+phandas.egg-info/PKG-INFO
+phandas.egg-info/SOURCES.txt
+phandas.egg-info/dependency_links.txt
+phandas.egg-info/requires.txt
+phandas.egg-info/top_level.txt
