@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+src/demo.py
+src/phootlogger/__init__.py
+src/phootlogger/logger.py
+src/phootlogger.egg-info/PKG-INFO
+src/phootlogger.egg-info/SOURCES.txt
+src/phootlogger.egg-info/dependency_links.txt
+src/phootlogger.egg-info/top_level.txt

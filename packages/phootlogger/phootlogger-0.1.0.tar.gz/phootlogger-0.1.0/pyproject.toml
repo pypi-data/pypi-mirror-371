@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "phootlogger"
+version = "0.1.0"
+authors = [
+  { name="Parker Hooten", email="parkerhooten@gmail.com" },
+]
+description = "Package to print out messages to user."
+readme = "README.md"
+requires-python = ">=3.7"
+license = {text = "MIT"}
+keywords = ["messages", "logger"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: MacOS"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/phooten/phootlogger/"
+"Bug Tracker" = "https://github.com/phooten/phootlogger/issues"
+
+
+#dependencies = [
+#    "requests",
+#    'importlib-metadata; python_version<"3.8"',
+#]
+#dynamic = ["version"]
+
+
+#[project.optional-dependencies]
+#pdf = ["ReportLab>=1.2", "RXP"]
+#rest = ["docutils>=0.3", "pack ==1.1, ==1.3"]
+
+
+#[project.scripts]
+#my-script = "my_package.module:function"
