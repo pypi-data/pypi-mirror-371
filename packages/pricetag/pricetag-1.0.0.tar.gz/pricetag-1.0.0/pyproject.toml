@@ -1,0 +1,75 @@
+[project]
+name = "pricetag"
+version = "1.0.0"
+description = "A pure-Python library for extracting price and currency information from unstructured text"
+authors = [
+    {name = "Michelle Pellon", email = "mgracepellon@gmail.com"}
+]
+maintainers = [
+    {name = "Michelle Pellon", email = "mgracepellon@gmail.com"}
+]
+license = "MIT"
+readme = "README.md"
+keywords = [
+    "price extraction",
+    "salary parsing",
+    "text processing",
+    "nlp",
+    "compensation",
+    "job postings",
+    "data extraction"
+]
+requires-python = ">=3.13"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Text Processing",
+    "Topic :: Text Processing :: Linguistic",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Typing :: Typed",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/michellepellon/pricetag"
+"Repository" = "https://github.com/michellepellon/pricetag"
+"Documentation" = "https://github.com/michellepellon/pricetag#readme"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "black>=23.0.0",
+    "mypy>=1.0.0",
+    "ruff>=0.1.0",
+]
+
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.black]
+line-length = 88
+target-version = ["py313"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py313"
+select = ["E", "F", "I", "N", "W"]
+
+[tool.mypy]
+python_version = "3.13"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
