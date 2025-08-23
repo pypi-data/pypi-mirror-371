@@ -1,0 +1,3 @@
+[console_scripts]
+microsoft-drive-mcpserver=microsoft_drive_mcpserver:main
+
