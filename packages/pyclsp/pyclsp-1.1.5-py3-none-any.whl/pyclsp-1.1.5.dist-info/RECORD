@@ -1,0 +1,10 @@
+clsp/__init__.py,sha256=aIjcNL3-QdgOMW6MscoEioG1XcGFrQ4yV76Kqku7VXI,91
+clsp/clsp.py,sha256=2EBmf4_oyIgpPcMdhQLFARWH_617itIjf9pXsXdtQkI,10925
+clsp/errors.py,sha256=vLrZM2rg5lFlXHfeZuZgt1t_nHql6aqOeVFMjD8xhB4,1214
+clsp/solver.py,sha256=lkqSVju1GKogBBF-evxfMMRsK9uKGHESux5bp__nV18,12424
+clsp/utils.py,sha256=bqLV2fpSYPPHWxPgFasJuDIWKIATlGu-SBA4WqW3Z1Q,14233
+pyclsp-1.1.5.dist-info/licenses/LICENSE,sha256=GBD85YooWzpjrnQL2N3DQat780nYLRoiJaGcAkv7Kl4,1070
+pyclsp-1.1.5.dist-info/METADATA,sha256=FuSVd_apIlywC44AWnFHX-lJMwEGSYZIjTnQZaJwkVM,11323
+pyclsp-1.1.5.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+pyclsp-1.1.5.dist-info/top_level.txt,sha256=IalkNGMZVyzpHnuIj0ZFArDGGUrj4HnAnLFiGxKHEEI,5
+pyclsp-1.1.5.dist-info/RECORD,,
