@@ -1,0 +1,10 @@
+README.md
+setup.py
+plicat_model/__init__.py
+plicat_model/configuration_plicat.py
+plicat_model/modeling_plicat.py
+plicat_model.egg-info/PKG-INFO
+plicat_model.egg-info/SOURCES.txt
+plicat_model.egg-info/dependency_links.txt
+plicat_model.egg-info/requires.txt
+plicat_model.egg-info/top_level.txt
