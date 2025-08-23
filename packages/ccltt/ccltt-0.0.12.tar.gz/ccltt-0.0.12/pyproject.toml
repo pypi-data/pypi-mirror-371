@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ccltt"
+version = "0.0.12"
+description = ''
+readme = "README.md"
+requires-python = ">=3.8"
+
+keywords = []
+authors = [
+  { name = "Flyshde", email = "zhangyang@outlook.es" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = []
+
+[project.urls]
+Documentation = "https://github.com/Flyshde/ccltt#readme"
+Issues = "https://github.com/Flyshde/ccltt/issues"
+Source = "https://github.com/Flyshde/ccltt"
+
+
+
+
+
+
+
+[tool.coverage.run]
+source_pkgs = ["ccltt", "tests"]
+branch = true
+parallel = true
+omit = [
+  "src/ccltt/__about__.py",
+]
+
+[tool.coverage.paths]
+ccltt = ["src/ccltt", "*/ccltt/src/ccltt"]
+tests = ["tests", "*/ccltt/tests"]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]
+
