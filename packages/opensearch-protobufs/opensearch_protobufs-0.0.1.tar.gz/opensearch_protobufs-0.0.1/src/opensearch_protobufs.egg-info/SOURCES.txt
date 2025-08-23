@@ -1,0 +1,6 @@
+LICENSE
+pyproject.toml
+src/opensearch_protobufs.egg-info/PKG-INFO
+src/opensearch_protobufs.egg-info/SOURCES.txt
+src/opensearch_protobufs.egg-info/dependency_links.txt
+src/opensearch_protobufs.egg-info/top_level.txt
