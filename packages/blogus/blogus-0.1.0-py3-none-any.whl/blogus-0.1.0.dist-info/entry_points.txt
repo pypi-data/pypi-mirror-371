@@ -1,0 +1,4 @@
+[console_scripts]
+blogus=blogus.cli:cli
+blogus-web=blogus.web_cli:main
+
