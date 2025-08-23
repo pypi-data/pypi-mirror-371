@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: balrogclient
+Version: 2.0
+Summary: Balrog admin API client
+Author-email: Mozilla Release Engineering <release+python@mozilla.com>
+License-Expression: MPL-2.0
+License-File: LICENSE
+Requires-Python: >=3.11
+Requires-Dist: requests
