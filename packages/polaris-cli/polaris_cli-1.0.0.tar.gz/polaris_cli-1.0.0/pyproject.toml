@@ -1,0 +1,68 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "polaris-cli"
+version = "1.0.0"
+description = "A beautiful and powerful cloud resource management CLI for Polaris Cloud"
+authors = [{name = "Polaris Team", email = "team@polaris.dev"}]
+readme = "README.md"
+license = {file = "LICENSE"}
+requires-python = ">=3.9"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: System :: Systems Administration",
+    "Topic :: Utilities",
+]
+keywords = ["cloud", "cli", "infrastructure", "polaris", "resource-management"]
+dependencies = [
+    "typer>=0.9.0",
+    "rich>=13.7.0",
+    "requests>=2.32.0",
+    "pydantic>=2.5.0",
+    "keyring>=24.0.0",
+    "python-dateutil>=2.8.0",
+    "pyfiglet>=1.0.0",
+    "colorama>=0.4.6",
+    "alive-progress>=3.1.0"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/polaris-cloud/polaris-cli"
+"Bug Reports" = "https://github.com/polaris-cloud/polaris-cli/issues"
+"Source" = "https://github.com/polaris-cloud/polaris-cli"
+"Documentation" = "https://docs.polaris.cloud/cli"
+
+[project.scripts]
+polaris = "polaris_cli.main:cli_main"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+    "mypy>=1.5.0",
+    "build>=0.10.0",
+    "twine>=4.0.0"
+]
+
+[tool.black]
+line-length = 88
+target-version = ['py39']
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
