@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+src/pywellgeo/__init__.py
+src/pywellgeo.egg-info/PKG-INFO
+src/pywellgeo.egg-info/SOURCES.txt
+src/pywellgeo.egg-info/dependency_links.txt
+src/pywellgeo.egg-info/requires.txt
+src/pywellgeo.egg-info/top_level.txt
