@@ -1,0 +1,8 @@
+torch
+
+[dev]
+pytest
+torchvision
+numpy
+Pillow
+py-cpuinfo
