@@ -1,0 +1,6 @@
+pandas
+rich
+questionary
+playwright
+beautifulsoup4
+tldextract
