@@ -1,0 +1,352 @@
+Metadata-Version: 2.4
+Name: keenmail-mcp-server
+Version: 0.1.1
+Summary: MCP server for KeenMail API integration
+Project-URL: Homepage, https://github.com/yourusername/keenmail-mcp-server
+Project-URL: Repository, https://github.com/yourusername/keenmail-mcp-server
+Project-URL: Issues, https://github.com/yourusername/keenmail-mcp-server/issues
+Author-email: Your Name <your.email@example.com>
+License: MIT
+License-File: LICENSE
+Keywords: api,email,keenmail,mcp,server
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Communications :: Email
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.10
+Requires-Dist: fastmcp>=0.1.0
+Requires-Dist: httpx>=0.24.0
+Requires-Dist: pydantic>=2.0.0
+Provides-Extra: dev
+Requires-Dist: mypy>=1.5.0; extra == 'dev'
+Requires-Dist: pytest-asyncio>=0.21.0; extra == 'dev'
+Requires-Dist: pytest>=7.0.0; extra == 'dev'
+Requires-Dist: ruff>=0.1.0; extra == 'dev'
+Description-Content-Type: text/markdown
+
+# KeenMail MCP Server
+
+A Model Context Protocol (MCP) server for integrating with the KeenMail API. This server allows AI assistants to send template-based emails through KeenMail's service.
+
+## Features
+
+- **MCP Compatible**: Works with Claude Desktop and other MCP clients
+- **UVX Ready**: Installable and runnable via `uvx` for easy distribution
+- **Environment Configuration**: Secure API key management through environment variables
+- **STDIO Transport**: Full compatibility with MCP protocol standards
+- **Template Email Sending**: Send emails using KeenMail templates with dynamic data
+
+## Installation
+
+### Using UVX (Recommended)
+
+```bash
+uvx keenmail-mcp-server
+```
+
+### Using Docker (Recommended for Production)
+
+```bash
+# Quick start with Docker Compose
+git clone <repository-url>
+cd keenmail-mcp-server
+cp .env.docker .env
+# Edit .env with your API credentials
+docker-compose up -d
+```
+
+### Using pip
+
+```bash
+pip install keenmail-mcp-server
+```
+
+### From source
+
+```bash
+git clone <repository-url>
+cd keenmail-mcp-server
+uv sync --dev
+uv run python -m keenmail_mcp
+```
+
+## Configuration
+
+Set the following environment variables before running:
+
+```bash
+export KEENMAIL_API_KEY="your_api_key_here"
+export KEENMAIL_SECRET="your_secret_key_here"
+export KEENMAIL_BASE_URL="https://app.keenmail.com/api/v1"  # Optional, defaults to this
+```
+
+### Environment File (.env)
+
+You can also create a `.env` file in your working directory:
+
+```bash
+KEENMAIL_API_KEY=your_api_key_here
+KEENMAIL_SECRET=your_secret_key_here
+```
+
+## Usage
+
+### With Docker (Recommended)
+
+```bash
+# Development mode
+./scripts/docker-run.sh --dev --logs
+
+# Production mode
+./scripts/docker-run.sh --prod
+
+# Build and run
+./scripts/docker-run.sh --build --logs
+```
+
+### With Docker Compose
+
+```bash
+# Development
+cp .env.docker .env
+# Edit .env with your credentials
+docker-compose up -d
+
+# Production
+docker-compose -f docker-compose.prod.yml up -d
+
+# View logs
+docker-compose logs -f keenmail-mcp-server
+```
+
+### With UVX
+
+```bash
+# Set environment variables
+export KEENMAIL_API_KEY="your_key"
+export KEENMAIL_SECRET="your_secret"
+
+# Run the server
+uvx keenmail-mcp-server
+```
+
+### With Claude Desktop
+
+Add to your Claude Desktop configuration file:
+
+```json
+{
+  "mcpServers": {
+    "keenmail": {
+      "command": "uvx",
+      "args": ["keenmail-mcp-server"],
+      "env": {
+        "KEENMAIL_API_KEY": "your_api_key",
+        "KEENMAIL_SECRET": "your_secret"
+      }
+    }
+  }
+}
+```
+
+### Programmatically
+
+```python
+from keenmail_mcp import create_server
+
+server = create_server()
+server.run(transport="stdio")
+```
+
+## Available Tools
+
+The MCP server exposes the following tools:
+
+### `sendTemplateEmail`
+
+Send an email using a KeenMail template.
+
+**Parameters:**
+- `templateId` (string): The ID of the email template
+- `providerId` (string): The email provider configuration ID
+- `recipients` (array): List of recipient objects with email details and template data
+
+**Example:**
+```json
+{
+  "templateId": "welcome_email",
+  "providerId": "ses_smtp_test",
+  "recipients": [
+    {
+      "from": "sender@example.com",
+      "to": "recipient@example.com",
+      "data": {
+        "userName": "John Doe",
+        "companyName": "Example Corp"
+      }
+    }
+  ]
+}
+```
+
+## Development
+
+### Requirements
+
+- Python 3.10+
+- uv (recommended) or pip
+
+### Setup
+
+```bash
+# Clone the repository
+git clone <repository-url>
+cd keenmail-mcp-server
+
+# Install dependencies with uv
+uv sync --dev
+
+# Or with pip
+pip install -e ".[dev]"
+```
+
+### Running Tests
+
+```bash
+uv run pytest
+```
+
+### Linting and Formatting
+
+```bash
+# Run ruff linter
+uv run ruff check .
+
+# Format code
+uv run ruff format .
+
+# Type checking
+uv run mypy src/
+```
+
+### Building
+
+#### Python Package
+```bash
+uv build
+```
+
+#### Docker Image
+```bash
+# Quick build
+./scripts/docker-build.sh
+
+# Build with specific tag
+./scripts/docker-build.sh --tag v0.1.0
+
+# Multi-platform build and push
+./scripts/docker-build.sh --platform linux/amd64,linux/arm64 --push --tag v0.1.0
+```
+
+## Publishing
+
+This package uses automated publishing through GitHub Actions:
+
+1. **Create a version tag:**
+   ```bash
+   # Update version in pyproject.toml first, then:
+   uv version patch  # or minor, major
+   git add .
+   git commit -m "Bump version to $(uv version --dry-run patch)"
+   git tag "v$(grep version pyproject.toml | cut -d'"' -f2)"
+   git push origin main --tags
+   ```
+
+2. **Automatic publishing:** The GitHub Action will automatically build and publish to PyPI when a version tag is pushed.
+
+### Manual Publishing
+
+#### Python Package
+```bash
+# Build the package
+uv build
+
+# Publish to PyPI
+uv publish
+```
+
+#### Docker Image
+```bash
+# Build and push to GitHub Container Registry
+./scripts/docker-build.sh --push --tag v0.1.0
+
+# Or manually with Docker
+docker build -t ghcr.io/yourusername/keenmail-mcp-server:v0.1.0 .
+docker push ghcr.io/yourusername/keenmail-mcp-server:v0.1.0
+```
+
+## Docker Deployment
+
+### Quick Start
+
+1. **Clone the repository:**
+   ```bash
+   git clone <repository-url>
+   cd keenmail-mcp-server
+   ```
+
+2. **Set up environment:**
+   ```bash
+   cp .env.docker .env
+   # Edit .env with your KeenMail API credentials
+   ```
+
+3. **Run with Docker Compose:**
+   ```bash
+   # Development
+   docker-compose up -d
+   
+   # Production
+   docker-compose -f docker-compose.prod.yml up -d
+   ```
+
+### Production Deployment
+
+The production Docker setup includes:
+- **Security hardening** with non-root user and read-only filesystem
+- **Resource limits** and health checks
+- **Log rotation** and structured logging
+- **Restart policies** for high availability
+- **Network isolation** with custom bridge network
+
+```bash
+# Production deployment
+cp .env.docker .env
+# Configure production credentials
+docker-compose -f docker-compose.prod.yml up -d
+
+# Monitor
+docker-compose -f docker-compose.prod.yml ps
+docker-compose -f docker-compose.prod.yml logs -f
+```
+
+### Container Registry
+
+Images are automatically published to GitHub Container Registry:
+- `ghcr.io/yourusername/keenmail-mcp-server:latest` - Latest development build
+- `ghcr.io/yourusername/keenmail-mcp-server:v0.1.0` - Specific version tags
+
+## License
+
+MIT License - see LICENSE file for details.
+
+## Support
+
+For issues and questions:
+- GitHub Issues: [Create an issue](https://github.com/yourusername/keenmail-mcp-server/issues)
+- KeenMail Support: support@keenmail.com
