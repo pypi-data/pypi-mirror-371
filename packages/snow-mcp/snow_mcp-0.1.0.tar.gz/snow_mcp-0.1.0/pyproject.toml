@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+# The name used for 'pip install'
+name = "snow-mcp" 
+version = "0.1.0" # You should increment this for future releases (e.g., 0.1.1, 0.2.0)
+description = "A comprehensive MCP server for interacting with ServiceNow modules."
+authors = [
+    { name = "Narayan Panigrahy ", email = "narayanpanigrahy18@gmail.com" },
+    { name = "Rohit Ranjan ", email = "itzsrohit@gmail.com" }
+]
+readme = "README.md"
+
+license = { text = "MIT" } 
+requires-python = ">=3.8"
+
+# Add classifiers to help users find your package
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+    "Intended Audience :: Developers",
+    "Intended Audience :: System Administrators",
+]
+
+# Add keywords for better searchability on PyPI
+keywords = ["servicenow", "mcp", "fastmcp", "api", "automation", "itsm", "snow", "snow"]
+
+# Your dependencies
+dependencies = [
+    "fastmcp>=2.1.0",
+    "httpx",
+    "pydantic",
+    "python-dotenv"
+]
+
+# This creates the 'snow-mcp' command when the package is installed
+[project.scripts]
+snow-mcp = "servicenow_mcp_server.server:main"
+
+# This tells setuptools where to find your actual Python code
+[tool.setuptools.packages.find]
+where = ["src"]

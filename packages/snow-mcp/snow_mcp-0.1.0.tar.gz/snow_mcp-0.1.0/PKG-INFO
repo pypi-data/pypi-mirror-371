@@ -1,0 +1,23 @@
+Metadata-Version: 2.4
+Name: snow-mcp
+Version: 0.1.0
+Summary: A comprehensive MCP server for interacting with ServiceNow modules.
+Author: Your Name
+Author-email: Narayan Panigrahy  <narayanpanigrahy18@gmail.com>, Rohit Ranjan  <itzsrohit@gmail.com>
+License: MIT
+Keywords: servicenow,mcp,fastmcp,api,automation,itsm,snow,snow
+Platform: any
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: fastmcp>=2.1.0
+Requires-Dist: httpx
+Requires-Dist: pydantic
+Requires-Dist: python-dotenv
+Dynamic: license-file

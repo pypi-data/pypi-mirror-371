@@ -1,0 +1,74 @@
+# ServiceNow MCP Server
+
+A comprehensive, production-ready MCP server for interacting with various modules in a ServiceNow instance. This server exposes a rich set of tools for managing Incidents, Changes, Users, Service Catalog, and more.
+
+## Features
+
+- **Modular Design:** Tools are organized by ServiceNow application (Incident, Change, Agile, etc.).
+- **Production-Ready:** Robust Pydantic models for input validation and clear schemas.
+- **Extensible:** Easily add new tools and modules.
+- **Distributable:** Can be installed as a standard Python package via `pip`.
+
+## Installation
+
+1.  **Prerequisites:** Python 3.8+
+2.  **Install from source:**
+
+    git clone <your-git-repo-url>
+    cd servicenow-mcp-server
+    pip install -e .
+
+    *(Note: In the future, if you publish to PyPI, this would be `pip install snow-mcp`)*
+
+## Configuration
+
+This server uses a client-side credential model. The client application is responsible for passing the ServiceNow instance URL, username, and password with every tool call inside the `params` object.
+
+**Example Payload Structure:**
+```json
+{
+  "params": {
+    "instance_url": "https://your-instance.service-now.com",
+    "username": "your_api_user",
+    "password": "your_api_password",
+    // ... other tool-specific parameters ...
+  }
+}
+```
+
+## Usage
+
+Once installed, the server can be started by any MCP client that knows its command.
+
+### Starting the Server Manually
+You can run the server directly from your terminal:
+```bash
+servicenow-mcp-server
+```
+
+### Example Client (`test_client.py`)
+
+An example client is provided to demonstrate how to call the server's tools. It can be run from the project's root directory:
+```bash
+python test/test_client.py 
+```
+*(You may need to move your test client to a `test/` directory at the root level for clarity)*
+
+## Available Tools
+
+This server provides the following tools:
+
+### Incident Management
+- `create_incident`
+- `get_incident_by_number`
+- `list_recent_incidents`
+- `update_incident`
+- `add_comment_to_incident`
+- `add_work_notes_to_incident`
+- ... *(list all other tools)* ...
+
+### Change Management
+- `create_change_request`
+- `update_change_request`
+- ... *(list all other tools)* ...
+
