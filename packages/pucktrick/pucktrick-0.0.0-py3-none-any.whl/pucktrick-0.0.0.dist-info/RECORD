@@ -1,0 +1,12 @@
+pucktrick/__init__.py,sha256=pVYhOkVS5PHJd_cIEx6PTaY6VggXFTC3pqWdf0I8zao,21
+pucktrick/duplicated.py,sha256=fHp5zUZ-66Pv7j3HhVuiUTObA66YQCZvs-1R4S_EIFk,5392
+pucktrick/labels.py,sha256=TmrSZAgy-EKFPog92nmFYUjadeyf2OuPVR8s4i__uCA,1786
+pucktrick/missing.py,sha256=pMZJ1dxzchOFzeEnX9Suyjkth9iiwNat9x2XFocHBrU,4932
+pucktrick/noisy.py,sha256=OdAQRE8x99j11RL8CegGLBKT-9IR5MIOhcXJ2kc2_XM,5209
+pucktrick/outliers.py,sha256=sv7yK5BEq60aH9nm_3LDBHX50B27VBTmoPJJKc3ZJT0,5808
+pucktrick/utils.py,sha256=LhhBfXCP4XW5QxNEfWP_NH_27Dl-87h_GyPylEWwxeo,17367
+pucktrick-0.0.0.dist-info/licenses/LICENCE,sha256=McWU_K39dJBZBJlNoiN97R4cIn3OqiY8KgHRlDbxJdc,13294
+pucktrick-0.0.0.dist-info/METADATA,sha256=c560__Y4CaUd-7xXVNuc5QihgEwBz7DR1dJE6EAYbj4,97
+pucktrick-0.0.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+pucktrick-0.0.0.dist-info/top_level.txt,sha256=rxJAW8Pa6CPGlt95g4yCYw0ui0IQV-KbfRuqOiaEups,10
+pucktrick-0.0.0.dist-info/RECORD,,
