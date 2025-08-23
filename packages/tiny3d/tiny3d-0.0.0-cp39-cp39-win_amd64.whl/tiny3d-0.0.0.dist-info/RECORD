@@ -1,0 +1,10 @@
+tiny3d/__init__.py,sha256=-kQUzTQMDCPAuVMIgeo6cqinT2gsxDslim9G5yboJVA,4260
+tiny3d/_build_config.py,sha256=EB_skHI-5Evw92Hr9tZzn_P38gwxrZRSQfqHatU0HbM,423
+tiny3d/cpu/__init__.py,sha256=Ee9IkqtwuFP8ApMAxK77fL2VsEkUtrJwKfv1_7XQNg8,537
+tiny3d/cpu/pybind.cp39-win_amd64.pyd,sha256=QjPt_uXn17-_AOjcIEnm9-AHAyZzRqfL2A7o_fRYtkU,14536704
+tiny3d-0.0.0.dist-info/LICENSE.txt,sha256=SM-MedplN6Tp_GplXk3XzJZuIrQ30JLPqJDDNJ1Peu0,1131
+tiny3d-0.0.0.dist-info/METADATA,sha256=dvA2h-HTyB5lcjOrKVuQOEQC_VQAJDkvWHLXLyyPbnc,3641
+tiny3d-0.0.0.dist-info/WHEEL,sha256=2xSj8c4s_gFbWpcImYQptdXS3JLuzC2uK5Om8I_SEKg,100
+tiny3d-0.0.0.dist-info/entry_points.txt,sha256=UhBC-aW4LpWUE9M7T6Z7w8PnEgjlpz3U-u1sv8UOG-I,49
+tiny3d-0.0.0.dist-info/top_level.txt,sha256=stMN3sRo2TJf1xPD12kIAv2R2eAY4QMzQ9rJuJy6Va4,7
+tiny3d-0.0.0.dist-info/RECORD,,
