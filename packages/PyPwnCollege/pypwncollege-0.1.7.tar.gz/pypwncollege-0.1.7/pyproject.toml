@@ -1,0 +1,34 @@
+[tool.poetry]
+name = "PyPwnCollege"
+packages = [
+    {include = "pwncollege"}
+]
+version = "0.1.7"
+description = "A wrapper for the pwn.college API. This allows automating interactions with pwn.college and also includes a command-line-interface(CLI) to list dojos/modules, submit flags, start challenges, run commands in challenge containers and more."
+readme = "README.md"
+homepage = "https://pypwncollege.readthedocs.io/"
+repository = "https://github.com/zeeshan12340/pypwncollege"
+documentation = "https://pypwncollege.readthedocs.io/"
+keywords = ["pwn.college", "pwncollege", "automation"]
+authors = ["Zeeshan Ayub <mayub9799@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+requests = "^2.0.0"
+paramiko = "^3.0.0"
+
+[tool.poetry.dev-dependencies]
+Sphinx = "^4.5.0"
+pytest = "^7.1.2"
+python-dotenv = "^0.21.0"
+pytest-xdist = "^2.5.0"
+sphinx-rtd-theme = "^1.0.0"
+mypy = "^0.950"
+types-requests = "^2.27.25"
+
+[tool.poetry.scripts]
+pwncli = 'pwncollege.pwncli:main'
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
