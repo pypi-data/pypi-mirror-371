@@ -1,0 +1,2 @@
+[console_scripts]
+git-ai-reporter = git_ai_reporter.cli:APP
