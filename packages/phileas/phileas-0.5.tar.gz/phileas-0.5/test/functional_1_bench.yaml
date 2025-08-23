@@ -1,0 +1,24 @@
+name: "Laser bench"
+
+laser_bus_1:
+  loader: laser_bus
+  device: "/dev/ttyUSB0"
+
+laser_1064:
+  loader: laser_source
+  bus: laser_bus_1
+  address: 1
+  wavelength: 1064
+
+laser_980:
+  loader: laser_source
+  bus: laser_bus_1
+  address: 2
+  wavelength: 980
+
+dut:
+  device: "/dev/dut_uart"
+
+main_power_supply:
+  loader: precision_power_supply
+  ip: "192.168.1.2"

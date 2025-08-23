@@ -1,0 +1,47 @@
+repos:
+    - repo: https://github.com/pre-commit/pre-commit-hooks
+      rev: v5.0.0
+      hooks:
+        - id: trailing-whitespace
+        - id: end-of-file-fixer
+        - id: check-yaml
+          args: ["--unsafe"]
+        - id: check-added-large-files
+    - repo: https://github.com/psf/black
+      rev: '25.1.0'
+      hooks:
+        - id: black
+    - repo: https://github.com/pycqa/flake8
+      rev: 7.2.0
+      hooks:
+        - id: flake8
+          additional_dependencies:
+            - flake8-bugbear
+            - flake8-comprehensions
+            - flake8-simplify
+    - repo: https://github.com/pre-commit/mirrors-mypy
+      rev: 'v1.15.0'
+      hooks:
+        - id: mypy
+          args: [--check-untyped-defs, --follow-untyped-imports]
+          additional_dependencies:
+            - graphviz >= 0.20.3
+            - ruamel-yaml >= 0.18.10
+            - rich >= 14.0.0
+            - numpy >= 2.0
+            - hypothesis >= 6.131.17
+            - xarray >= 2024.7
+            - pandas-stubs >= 2.2.2
+            - dacite >= 1.9.2
+            - jinja2 >= 3.1.6
+            - sympy >= 1.14
+    - repo: https://github.com/pycqa/isort
+      rev: '6.0.1'
+      hooks:
+        - id: isort
+    - repo: https://github.com/python-poetry/poetry
+      rev: '2.1.4'
+      hooks:
+        - id: poetry-check
+        - id: poetry-lock
+          args: [--verbose]

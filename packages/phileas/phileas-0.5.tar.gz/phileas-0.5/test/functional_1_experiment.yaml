@@ -1,0 +1,50 @@
+laser:
+  interface: laser
+
+  power: !range
+    start: 1
+    end: 2
+    steps: 10
+    default: 0
+
+  filter:
+    wavelength: 1064
+
+dut_power_supply:
+  interface: power_supply
+  ch1:
+    tension: 5.0
+    limit_current: 0.1
+
+  ch2:
+    tension: !sequence
+      elements: [1, 2, 3, 3.3]
+      default: 3.3
+    limit_current: 0.2
+
+  connections:
+    - from: ch1
+      to: dut.input
+
+dut:
+  chip: stm32f4
+
+ampli:
+  type: 1st order lowpass
+  cutoff: 3.0e8
+
+connections:
+  - from: dut_power_supply.ch2
+    to: dut.alt_power
+  - from: dut_power_supply.ch3
+    to: ampli.power
+  - from: dut.shunt_resistor
+    to: ampli.input
+  - from: ampli.output
+    to: scope.ch1
+  - from: foo.baz
+    to: bar.buz
+  - to: foo.baz
+    from: bar.buz
+  - from: foo
+    to: bar
