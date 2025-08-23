@@ -1,0 +1,12 @@
+boto3
+
+# Test dependencies
+moto
+pytest
+coverage
+pytest-cov
+tox
+
+# Publishing dependencies
+build
+twine
