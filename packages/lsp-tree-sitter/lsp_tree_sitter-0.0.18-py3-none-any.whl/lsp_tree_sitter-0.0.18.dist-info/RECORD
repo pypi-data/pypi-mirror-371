@@ -1,0 +1,15 @@
+lsp_tree_sitter/__init__.py,sha256=Vu41JBHVd6M6dWyy45yMNsTkkHUF4fNd_Aabf4lXqzo,12402
+lsp_tree_sitter/_metainfo.py,sha256=ck-I-ozQC4P2An8qB3v3Tg7b9R2uM0qwhR64JhwnVjg,590
+lsp_tree_sitter/_version.py,sha256=tzG3REjXftgEO32YP2rgLirgULNff34B-C5Yb8oweEc,706
+lsp_tree_sitter/complete.py,sha256=eMWpW_8HPohJgqTM92vY6enbBfQE_W_FqReysn2ZF9s,2813
+lsp_tree_sitter/diagnose.py,sha256=OzKkcSGK2Tef5Ih4CUhH6WKCcpz59U7gfhbKT90rMdk,5330
+lsp_tree_sitter/finders.py,sha256=lwwGkLA4eO4aUUyqxIuzR_fji3Rc0vHNi93AeeWgbJE,15416
+lsp_tree_sitter/format.py,sha256=QsDQqK8_DR7ebzaJX_yAzz0qgsrDhXVgU_d427rQc9o,4125
+lsp_tree_sitter/misc.py,sha256=-MpWKKoGyuj-ZScHtBnJood8IHeQy2L3Lg5203UNbhk,3488
+lsp_tree_sitter/schema.py,sha256=7StFyvdrSk3UwJz5LScPvOhSrayKfx4wEO72U3woDnA,4100
+lsp_tree_sitter/utils.py,sha256=CalU7Icv4K-Aj1ThRrYX32ONjGoO8VqBYWuaEScGtCU,3031
+lsp_tree_sitter-0.0.18.dist-info/licenses/LICENSE,sha256=OXLcl0T2SZ8Pmy2_dmlvKuetivmyPd5m1q-Gyd-zaYY,35149
+lsp_tree_sitter-0.0.18.dist-info/METADATA,sha256=3-DHWdCECfGTX8GW5oMa-8CkVu0XxIzG-IlD4kpZqqQ,16674
+lsp_tree_sitter-0.0.18.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+lsp_tree_sitter-0.0.18.dist-info/top_level.txt,sha256=Q_03sF-cakaQsxKp0c9AeTVyTt4LYmScyw8_8Na4tO0,16
+lsp_tree_sitter-0.0.18.dist-info/RECORD,,
