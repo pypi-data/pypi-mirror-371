@@ -1,0 +1,13 @@
+knowme/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+knowme/__main__.py,sha256=prA_-2wp0gYryJiWVIKPzlrbu7pM85mhQvQh77HBXgU,3792
+knowme/ascii.py,sha256=C6aOtyrlVZN_M_yLqTAqrBW6afdNzqE01Mx0f5HKYg8,1819
+knowme/installer.py,sha256=u830jCK3NRBaPvGiQSf0uSd398aK-ipsqKQZXLoWrIk,8115
+knowme/logos.py,sha256=E7pEBGE8_Xv6efroAr8JPwBRH10-dTYpfICc0eHQ8rc,10515
+knowme/system_info.py,sha256=hmIjt3FQ82nE7LY8SJtXsOHnfEri_S4i5Pfkae88rKM,16492
+knowme/utils.py,sha256=aBXAtd9_GUxPsaJKjouR6mnzCM49jg4yJQ50Vg0NJw4,1290
+knowme-1.0.5.dist-info/licenses/LICENSE,sha256=j_v7WkCO1lZFLSecJVCNzZNsB6tMoUxgDH1pkn7M6lY,1068
+knowme-1.0.5.dist-info/METADATA,sha256=qQolfGMkZMBPolpA6GCM9XbSeANL7bZ0yxxOVuz21tc,4136
+knowme-1.0.5.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+knowme-1.0.5.dist-info/entry_points.txt,sha256=foJ8F6NAkNVWK1N8NJvlcHSSUahF6ZL37UpNTPcAn4I,48
+knowme-1.0.5.dist-info/top_level.txt,sha256=YYbToxnlT_D9wI9f1m7mNIgwnacIciUQbMURsOCyC90,7
+knowme-1.0.5.dist-info/RECORD,,
