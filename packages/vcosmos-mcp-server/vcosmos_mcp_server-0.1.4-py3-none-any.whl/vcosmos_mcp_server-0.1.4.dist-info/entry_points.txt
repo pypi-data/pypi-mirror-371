@@ -1,0 +1,2 @@
+[console_scripts]
+vcosmos-mcp-server = vcosmos_mcp_server.server:cli
