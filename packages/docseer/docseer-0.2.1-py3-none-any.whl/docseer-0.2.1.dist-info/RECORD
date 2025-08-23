@@ -1,0 +1,12 @@
+docseer/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+docseer/__main__.py,sha256=cU1pEKhBBNaGI23U_qCH8e2n4-fluAnOv-sUXZkJFx8,1882
+docseer/agent.py,sha256=aHnNHB0S_KffEV8oG1gRLlpTM0ArELo2wPvSbR5ZiSM,5829
+docseer/formatter.py,sha256=hInjm_X__H3t-rZliOFR0YePRzYR2uNMU4b_UaWULvg,1127
+docseer/processing.py,sha256=AU0Q0WLmZhqY4FSPKmUGcZHRkr3bIOMe_VHld9qjzng,5097
+docseer/utils.py,sha256=X2IWYujOPf7s-XjTd_WEZpZ-72oE2k8p5Az0KUBvFZE,333
+docseer-0.2.1.dist-info/licenses/LICENSE,sha256=8HHOT8_9R_mRTSLxaw5RllSNXhgQY-TI4xxRtkmAZU8,1073
+docseer-0.2.1.dist-info/METADATA,sha256=hC1xiINlroMN_H4BVYWxnVtYFpsjrPokU5Efo4xq_N8,3050
+docseer-0.2.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+docseer-0.2.1.dist-info/entry_points.txt,sha256=q2n0FXj3LcfGgOYICEf-U-kKTe8C6P-sbmfXr61Djz8,50
+docseer-0.2.1.dist-info/top_level.txt,sha256=BL91eBGzO3gQYuH2vSVflv3Eq-X_WztsIQH8t9pCgo4,8
+docseer-0.2.1.dist-info/RECORD,,
