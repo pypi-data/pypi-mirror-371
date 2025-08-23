@@ -1,0 +1,14 @@
+LICENSE
+README.md
+setup.py
+antishlop_cli.egg-info/PKG-INFO
+antishlop_cli.egg-info/SOURCES.txt
+antishlop_cli.egg-info/dependency_links.txt
+antishlop_cli.egg-info/entry_points.txt
+antishlop_cli.egg-info/requires.txt
+antishlop_cli.egg-info/top_level.txt
+antishlopcli/agent.py
+antishlopcli/cli.py
+antishlopcli/config.py
+antishlopcli/prompts.py
+antishlopcli/vector_db.py

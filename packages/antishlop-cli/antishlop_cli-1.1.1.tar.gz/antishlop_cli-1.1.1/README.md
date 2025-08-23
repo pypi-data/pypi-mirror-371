@@ -1,0 +1,96 @@
+# AntiShlop Security Agent
+
+AI-powered security agent for code files.
+
+## Installation
+
+```bash
+pip install antishlop-cli
+```
+
+## Setup
+
+Set your OpenAI API key:
+
+```bash
+# Option 1: Environment variable
+export OPENAI_API_KEY=your_api_key_here
+
+# Option 2: .env file
+echo "OPENAI_API_KEY=your_api_key_here" > .env
+
+# Option 3: Interactive setup (will prompt automatically)
+antishlop path/to/file.py
+```
+
+## Usage
+
+```bash
+# Analyze a single file
+antishlop file.py
+
+# Analyze a directory
+antishlop /path/to/project
+
+# Save detailed report to JSON
+antishlop file.py -o report.json
+
+# Quiet mode (minimal output)
+antishlop file.py -q
+```
+
+## What It Does
+
+- Detects **200+ security vulnerability patterns** across **23 analyzer categories**
+- Uses **GPT-4.1** with specialized security analysis tools
+- Shows **real-time token usage** during analysis
+- Supports **file-by-file** or **directory** analysis
+- **Automatic deeper analysis** when issues are found
+- **Vector database context** from your entire codebase
+- **Documentation recommendations** with potential fixes (not guaranteed)
+
+## Supported Languages
+
+Python • JavaScript • TypeScript • Java • Go • Ruby • PHP • C/C++ • C# • Rust • Swift • Kotlin • Scala
+
+## Features
+
+### Core Security Analyzers (15)
+- **OWASP Top 10** - Injection flaws, broken access control, misconfigurations
+- **Secrets Detection** - API keys, passwords, tokens, certificates
+- **Dependency Scanning** - Known CVEs, supply chain attacks
+- **Authentication** - Auth bypass, privilege escalation, JWT flaws
+- **Input Validation** - SQL injection, XSS, command injection
+- **Cryptography** - Weak algorithms, key management issues
+- **Data Security** - PII exposure, encryption gaps
+- **Configuration** - Security headers, CORS, CSP issues
+- **Business Logic** - Race conditions, workflow bypasses
+- **Error Handling** - Stack traces, debug info leaks
+- **Code Quality** - Dead code with secrets, commented credentials
+- **Infrastructure** - Docker, K8s, cloud misconfigurations
+- **API Security** - Rate limiting, endpoint enumeration
+- **Filesystem** - Path traversal, permission issues
+- **Concurrency** - Race conditions, deadlocks
+
+### Advanced Security Analyzers (8) - NEW in v1.1.0
+- **Speculative Execution** - Spectre, Meltdown, cache timing attacks
+- **Quantum-Safe Crypto** - Post-quantum readiness, PQC migration
+- **AI/ML Security** - Prompt injection, model attacks, LLM vulnerabilities
+- **Supply Chain** - Dependency confusion, build pipeline security
+- **Cloud Misconfig** - IAM permissions, S3 buckets, secrets in cloud
+- **TOCTTOU** - Advanced race conditions, atomicity violations
+- **IoT/Firmware** - Unsigned firmware, embedded credentials
+- **Business Logic Abuse** - Financial exploits, transaction abuse
+
+### UI & Reporting
+- **Interactive Setup**: Automatically prompts for API key if not found
+- **Beautiful UI**: Animated progress, colored output, professional styling  
+- **Graceful Exit**: Ctrl+C exits cleanly without error messages
+- **Context Aware**: Uses vector database to understand code relationships
+- **JSON Export**: Machine-readable reports for CI/CD integration
+- **Documentation Links**: Provides potential fixes and resources (not guaranteed)
+
+## Requirements
+
+- Python 3.8+
+- OpenAI API key
