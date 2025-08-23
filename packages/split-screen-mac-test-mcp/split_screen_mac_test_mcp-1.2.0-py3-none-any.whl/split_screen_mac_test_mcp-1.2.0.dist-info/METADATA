@@ -1,0 +1,129 @@
+Metadata-Version: 2.4
+Name: split-screen-mac-test-mcp
+Version: 1.2.0
+Summary: Model Context Protocol Server for macOS Split Screen Window Management
+Author: Beta
+License: MIT License
+        
+        Copyright (c) 2024 Split Screen macOS MCP Server
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+License-File: LICENSE
+Keywords: desktop-productivity,macos,mcp,split-screen,tiling,window-management
+Requires-Python: >=3.9
+Requires-Dist: mcp>=0.1.0
+Requires-Dist: pyobjc-framework-appkit>=9.0; sys_platform == 'darwin'
+Requires-Dist: pyobjc-framework-applicationservices>=9.0; sys_platform == 'darwin'
+Requires-Dist: pyobjc-framework-quartz>=9.0; sys_platform == 'darwin'
+Description-Content-Type: text/markdown
+
+# Split Screen macOS MCP Server
+
+Model Context Protocol server that exposes macOS split-screen window management tools. This server provides the same functionality as the original `split-screen-mac-test` project but wrapped in an MCP server for AI client integration.
+
+## Features
+
+- **macOS Native**: Uses PyObjC frameworks for robust window management
+- **Split-screen layouts**: Halves, quadrants, thirds, and two-thirds variations
+- **Window controls**: Maximize, minimize, and fullscreen
+- **MCP integration**: Full Model Context Protocol server support
+- **Accessibility APIs**: Leverages macOS Accessibility framework for reliable window manipulation
+
+## Install / Run via MCP client
+
+### Installation
+```bash
+pip install split-screen-mac-test-mcp
+```
+
+**Note**: PyObjC dependencies are automatically installed only on macOS systems.
+
+Configure your MCP client:
+
+```json
+{
+  "mcpServers": {
+    "split-screen-mac-test": {
+      "command": "uvx",
+      "args": ["split-screen-mac-test-mcp"],
+      "env": {}
+    }
+  }
+}
+```
+
+## Available Tools
+
+### Half-screen layouts
+- `left-half-screen` - Snap current window to left half
+- `right-half-screen` - Snap current window to right half
+- `top-half-screen` - Snap current window to top half
+- `bottom-half-screen` - Snap current window to bottom half
+
+### Quadrant layouts
+- `top-left-screen` - Top-left quadrant
+- `top-right-screen` - Top-right quadrant
+- `bottom-left-screen` - Bottom-left quadrant
+- `bottom-right-screen` - Bottom-right quadrant
+
+### Third layouts
+- `left-one-third-screen` - Left third (1/3)
+- `middle-one-third-screen` - Middle third (1/3)
+- `right-one-third-screen` - Right third (1/3)
+
+### Two-thirds layouts
+- `left-two-thirds-screen` - Left two-thirds (2/3)
+- `right-two-thirds-screen` - Right two-thirds (2/3)
+
+### Window controls
+- `maximize-screen` - Maximize to visible frame (respects Dock & menu bar)
+- `fullscreen-screen` - Native macOS fullscreen mode
+- `minimize-screen` - Minimize window to Dock
+
+## Technical Details
+
+This MCP server is built using:
+- **PyObjC**: For macOS framework access
+- **AppKit**: Screen and workspace management
+- **Quartz**: Event handling and accessibility
+- **ApplicationServices**: Accessibility APIs
+- **MCP**: Model Context Protocol server framework
+
+## Dependencies
+
+- **Core**: Python 3.9+, `mcp>=0.1.0`
+- **macOS (Automatic)**: 
+  - `pyobjc-framework-AppKit>=9.0` (only on macOS)
+  - `pyobjc-framework-Quartz>=9.0` (only on macOS)
+  - `pyobjc-framework-ApplicationServices>=9.0` (only on macOS)
+
+## Future Plans
+
+This package is designed with cross-platform support in mind:
+- **Current**: macOS with automatic PyObjC dependency installation
+- **Future**: Windows support with pywin32 (will be added with similar platform markers)
+- **Smart**: Dependencies automatically install based on the target platform
+
+## Development
+
+The server is built from the original `split-screen-mac-test` project, which served as a testing environment for the window management logic. The core functionality has been extracted into the MCP server format while maintaining all the robust macOS-specific features.
+
+## License
+
+MIT License - see LICENSE file for details.
