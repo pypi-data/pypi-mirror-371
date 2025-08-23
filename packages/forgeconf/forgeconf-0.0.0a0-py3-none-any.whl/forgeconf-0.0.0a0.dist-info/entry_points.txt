@@ -1,0 +1,10 @@
+[console_scripts]
+forge = forgeconf.cli:main
+format-code = scripts:format_code [dev]
+full-coverage = scripts:full_coverage [dev]
+lint = scripts:lint [dev]
+publish = scripts:publish [dev]
+quality = scripts:quality [dev]
+report-coverage = scripts:report_coverage [dev]
+run-coverage = scripts:run_coverage [dev]
+type-check = scripts:type_check [dev]
