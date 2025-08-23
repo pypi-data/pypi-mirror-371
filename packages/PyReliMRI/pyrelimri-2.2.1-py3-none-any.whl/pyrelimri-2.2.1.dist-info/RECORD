@@ -1,0 +1,13 @@
+pyrelimri/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pyrelimri/brain_icc.py,sha256=Y8Lyw05nCwiE_2KxoNwghPlDcL89ksOBSFfq8Ane-Hk,17691
+pyrelimri/conn_icc.py,sha256=jRytjNgso47mRXs6Qsiyd6UY55GsFCoZZOwhU_S3xww,8368
+pyrelimri/icc.py,sha256=ZtV1seWhHUWrnRDjJhl21ODWnsTPIOmKS7-rEQEJTjo,11393
+pyrelimri/masked_timeseries.py,sha256=N0kqvbW_I94ryntpxEl8W9d7OE6mue_wQs5ESZwZvG0,21943
+pyrelimri/mktestdata.py,sha256=FqvIQUcb8-a8ep9fAcmZYOiQCjpiJkUdEcYd5_hsNLA,162
+pyrelimri/similarity.py,sha256=90Krj4TaaetDMufpqn9MUPamWdrli_glfh0aHQQACo0,6559
+pyrelimri/tetrachoric_correlation.py,sha256=lCAmyWiVzuLdYIhqlUkVgROtsowVWglfUTYCoIN-K0o,1273
+pyrelimri-2.2.1.dist-info/licenses/LICENSE,sha256=UPEyEDZTxldNFkqrXKxnABpvVMIEbnjxQFby4do047U,1074
+pyrelimri-2.2.1.dist-info/METADATA,sha256=IYDFjlLf_GMnM5maj9CMsM49wNSvM46ix4pI3QXEk4c,8455
+pyrelimri-2.2.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+pyrelimri-2.2.1.dist-info/top_level.txt,sha256=ek1Z6No95mIFIcIyrzEoFOd2M77nBEFLZ2tBdaWjnxw,10
+pyrelimri-2.2.1.dist-info/RECORD,,
