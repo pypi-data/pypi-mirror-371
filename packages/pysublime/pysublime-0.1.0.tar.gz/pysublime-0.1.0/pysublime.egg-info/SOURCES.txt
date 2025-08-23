@@ -1,0 +1,9 @@
+LICENSE
+README.md
+embedings.py
+pyproject.toml
+pysublime.egg-info/PKG-INFO
+pysublime.egg-info/SOURCES.txt
+pysublime.egg-info/dependency_links.txt
+pysublime.egg-info/requires.txt
+pysublime.egg-info/top_level.txt
