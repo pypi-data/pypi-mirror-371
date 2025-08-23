@@ -1,0 +1,6 @@
+videosdk/plugins/navana/__init__.py,sha256=MOJ2Ipq4ukiczJhOp_vc4LriuwLWu8Vlil2hLb1n3l0,51
+videosdk/plugins/navana/stt.py,sha256=IS2PUU160PUS7PTpTz-7DAzdt1kFir5AOh7cPbVH7p4,5680
+videosdk/plugins/navana/version.py,sha256=fJCbtkUBjOoT0tN9kkSyqEm7I4rr92yi9hAJsw2fSpc,22
+videosdk_plugins_navana-0.0.27.dist-info/METADATA,sha256=xHbTepLzn2f9csxJrnNOFH9X2MXf0jGODEeCpuB1yHE,913
+videosdk_plugins_navana-0.0.27.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+videosdk_plugins_navana-0.0.27.dist-info/RECORD,,
