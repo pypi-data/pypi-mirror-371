@@ -1,0 +1,12 @@
+seanox_ai_nlp/__init__.py,sha256=J7Yx_hx09_VzHtUSLUOBoSbAxeF9qZJhlZGX3rJ6Du8,1105
+seanox_ai_nlp/synthetics/README.md,sha256=3CgR5K5nX1DDGkPwhjxYYT24aix1qzUQQFUxxh7avTg,24351
+seanox_ai_nlp/synthetics/__init__.py,sha256=oeiotZFHPOCVKqPuKVNmNuTimUj9F_AxNr2ALpH4wDA,338
+seanox_ai_nlp/synthetics/synthetics.py,sha256=NBaubzxasmgn36sH1zyGHT3Kmv-LgB5CsC-FJGqADNU,20524
+seanox_ai_nlp/units/README.md,sha256=dTzkwjyTeZFIqtVVkBh6wKr1gZAb_jobI-9MW0VZyTw,55738
+seanox_ai_nlp/units/__init__.py,sha256=E_dXo5N5bl7eUR-kQBMrhznIntOcFehr73U0X5O7n_U,784
+seanox_ai_nlp/units/units.py,sha256=lubU9tAeNMtlEUQwTfKYv1AqA5PjTPjVDQmE6gyCesg,24379
+seanox_ai_nlp/units/units.xlsx,sha256=C2p-qZMQ7MbIBdCNU5VqHN92q2N3oSGX549_XCwpAkM,31537
+seanox_ai_nlp-1.1.0.dist-info/METADATA,sha256=FvfPHDZOmJxvU9cKKRoM7dIyrVo7KCqNeGxaKZ3DuOc,10447
+seanox_ai_nlp-1.1.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+seanox_ai_nlp-1.1.0.dist-info/licenses/LICENSE,sha256=HrhfyXIkWY2tGFK11kg7vPCqhgh5DcxleloqdhrpyMY,11558
+seanox_ai_nlp-1.1.0.dist-info/RECORD,,
