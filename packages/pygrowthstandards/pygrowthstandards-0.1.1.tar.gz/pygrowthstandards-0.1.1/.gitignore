@@ -1,0 +1,18 @@
+# Raw Files
+data/raw/**/*.csv
+data/raw/**/*.pdf
+data/raw/**/*.xlsx
+
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# robots
+.copilot/
