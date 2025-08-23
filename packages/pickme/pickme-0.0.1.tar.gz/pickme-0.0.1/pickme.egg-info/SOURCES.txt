@@ -1,0 +1,8 @@
+LICENSE
+README.md
+setup.py
+pickme/__init__.py
+pickme.egg-info/PKG-INFO
+pickme.egg-info/SOURCES.txt
+pickme.egg-info/dependency_links.txt
+pickme.egg-info/top_level.txt

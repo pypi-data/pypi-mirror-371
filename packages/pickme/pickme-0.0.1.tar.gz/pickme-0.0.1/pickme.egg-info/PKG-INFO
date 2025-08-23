@@ -1,0 +1,22 @@
+Metadata-Version: 2.4
+Name: pickme
+Version: 0.0.1
+Summary: Smart optimizing LLM router
+Author: Tanmay Sachan
+Author-email: tnmysachan@gmail.com
+License: BSD-3-Clause
+Classifier: Development Status :: 1 - Planning
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: license
+Dynamic: requires-python
+Dynamic: summary
+
+PickMe is a WIP smart LLM query router that gets better with use.
