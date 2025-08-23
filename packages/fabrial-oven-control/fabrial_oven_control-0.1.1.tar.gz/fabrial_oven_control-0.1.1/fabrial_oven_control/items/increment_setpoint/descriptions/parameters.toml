@@ -1,0 +1,5 @@
+"{{ OVEN_PORT }}" = "The COM port the oven is connected to."
+"{{ INCREMENT }}" = "How many degrees to increment the setpoint by (can be negative)."
+"{{ INTERVAL }}" = "How often to measure the temperature in milliseconds."
+"{{ MINIMUM_MEASUREMENTS }}" = """The minimum number of measurements required for the oven's temperature to be "stable"."""
+"{{ TOLERANCE }}" = """How close temperatures must be to the setpoint to be considered "stable". For example, with a setpoint of 30.0 and a temperature of 31.0, a tolerance 1.0 means the measurement is stable, but a tolerance of 1.5 means it is unstable."""
