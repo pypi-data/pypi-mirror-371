@@ -1,0 +1,25 @@
+[build-system]
+requires = ["hatchling>=1.25.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "botbolt"
+version = "0.1.0"
+description = "A beginner-friendly Python wrapper around nextcord for building Discord bots fast."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { file = "LICENSE" }
+authors = [{name="Alex Ahern", email="alexahern417@gmail.com"}]
+keywords = ["discord", "bot", "nextcord", "wrapper"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: Communications :: Chat",
+    "Framework :: AsyncIO",
+]
+
+dependencies = [
+    "nextcord>=2.6.0",
+]
+
