@@ -1,0 +1,53 @@
+Metadata-Version: 2.1
+Name: spotify-playlist-extractor
+Version: 1.0.0
+Summary: A simple CLI tool to extract Spotify playlists
+Home-page: https://github.com/username/spotify-playlist-extractor
+Author: Junior Developer
+Author-email: junior@example.com
+License: UNKNOWN
+Project-URL: Bug Reports, https://github.com/username/spotify-playlist-extractor/issues
+Project-URL: Source, https://github.com/username/spotify-playlist-extractor
+Description: Simple Spotify Playlist Extractor
+        ==================================
+        
+        This is a simple command line tool to extract tracks from Spotify playlists.
+        
+        Requirements:
+        - Python 3.6 or higher
+        - requests library
+        
+        Installation:
+        1. Install Python from python.org
+        2. Open command prompt (cmd)
+        3. Navigate to this folder
+        4. Run: pip install -r requirements.txt
+        
+        Usage:
+        python main.py [playlist_url]
+        
+        Options:
+        -f, --format    Output format: txt, json, or csv (default: txt)
+        -o, --output    Output filename (optional)
+        
+        Examples:
+        python main.py https://open.spotify.com/playlist/37i9dQZF1DX0XUsuxWHRQd
+        python main.py -f json https://open.spotify.com/playlist/37i9dQZF1DX0XUsuxWHRQd
+        python main.py -o my_playlist.txt https://open.spotify.com/playlist/37i9dQZF1DX0XUsuxWHRQd
+        
+        Note: The Spotify API credentials are already included in the code.
+Keywords: spotify playlist extractor music cli
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Topic :: Multimedia :: Sound/Audio
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.7
+Description-Content-Type: text/plain
+License-File: LICENSE

@@ -1,0 +1,4 @@
+include README.txt
+include requirements.txt
+include LICENSE
+recursive-include spotify_extractor *.py
