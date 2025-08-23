@@ -1,0 +1,12 @@
+Metadata-Version: 2.4
+Name: fileprinter
+Version: 0.1.0
+Summary: A simple Python package to print file contents with timing
+Author-email: pymodules <siewkingoh6@gmail.com>
+License: MIT
+Project-URL: Homepage, https://github.com/pymodules/fileprinter
+Project-URL: Issues, https://github.com/pymodules/fileprinter/issues
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: license-file
