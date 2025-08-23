@@ -1,0 +1,2 @@
+[console_scripts]
+half-orm-inspect = half_orm_inspect.cli_extension:inspect

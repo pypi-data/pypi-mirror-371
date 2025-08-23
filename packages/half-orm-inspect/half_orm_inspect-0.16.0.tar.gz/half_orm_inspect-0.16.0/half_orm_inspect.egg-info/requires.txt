@@ -1,0 +1,10 @@
+half_orm>=0.16
+click>=7.0
+
+[dev]
+pytest>=6.0
+pytest-cov
+black
+flake8
+
+[json]

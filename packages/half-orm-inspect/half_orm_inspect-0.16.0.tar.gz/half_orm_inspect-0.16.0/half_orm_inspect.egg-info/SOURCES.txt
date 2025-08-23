@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+half_orm_inspect/__init__.py
+half_orm_inspect/cli_extension.py
+half_orm_inspect.egg-info/PKG-INFO
+half_orm_inspect.egg-info/SOURCES.txt
+half_orm_inspect.egg-info/dependency_links.txt
+half_orm_inspect.egg-info/entry_points.txt
+half_orm_inspect.egg-info/not-zip-safe
+half_orm_inspect.egg-info/requires.txt
+half_orm_inspect.egg-info/top_level.txt
