@@ -1,0 +1,13 @@
+httpx_limiter/__init__.py,sha256=38OiOSNGloIxYHm9a2qzbjruFxvBf9tbQsqWxCKgQBc,1004
+httpx_limiter/_version.py,sha256=2_0GUP7yBCXRus-qiJKxQD62z172WSs1sQ6DVpPsbmM,704
+httpx_limiter/abstract_rate_limiter_repository.py,sha256=x-mKlNpe5gc2QoP3fwvaseLR9H-mKPLMobV-nH3AE5w,2570
+httpx_limiter/async_limiter.py,sha256=7Eea7RFmLIM0OJHuvTxFVFO-THQh5kqM4bSIR7P60zM,3782
+httpx_limiter/async_multi_rate_limited_transport.py,sha256=ZpuykUBPU0Qi41L3TD_qrUfHL7b8PTJRFCjs6OZwPF4,2895
+httpx_limiter/async_rate_limited_transport.py,sha256=fuboG_CDjdk4ldn9qv090A2FH-cPytMaRpw_yx0dbc4,2776
+httpx_limiter/py.typed,sha256=zwRNjZOV3leFzGdwfkbvGOfGbBoplIeeZu4g7d6P928,170
+httpx_limiter/rate.py,sha256=wO6KlWQDgTlI3sBsztxGbKGIW7Wag_IZVpOZTvdTIA4,1641
+httpx_limiter/types.py,sha256=-4ncSfLpWYGgcqpvLkKTP9OEZmcOuvrkvhRnT64hV30,1204
+httpx_limiter-0.4.0.dist-info/METADATA,sha256=SmriFc0s2xUQJBlnjSv7M59oqoUfrPexlhh3aINKZeo,8354
+httpx_limiter-0.4.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+httpx_limiter-0.4.0.dist-info/licenses/LICENSE,sha256=lWiisVXmasPguh_YC1K4J7lGDmz28jMSXny8qOIG3cM,10174
+httpx_limiter-0.4.0.dist-info/RECORD,,
