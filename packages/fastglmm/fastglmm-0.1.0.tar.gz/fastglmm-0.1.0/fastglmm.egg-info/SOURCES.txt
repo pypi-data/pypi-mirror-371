@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+fastglmm/__init__.py
+fastglmm/fastglmm.py
+fastglmm.egg-info/PKG-INFO
+fastglmm.egg-info/SOURCES.txt
+fastglmm.egg-info/dependency_links.txt
+fastglmm.egg-info/requires.txt
+fastglmm.egg-info/top_level.txt

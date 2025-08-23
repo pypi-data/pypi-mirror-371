@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fastglmm"
+version = "0.1.0"
+description = "Fast Generalized Linear Mixed Models in Python"
+readme = "README.md"
+requires-python = ">=3.8"
+license = { file = "LICENCE" }
+authors = [
+  { name = "Ali Akbari", email = "alek0991@gmail.com" }
+]
+dependencies = [
+  "pandas",
+]
