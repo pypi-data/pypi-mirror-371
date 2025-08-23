@@ -1,0 +1,30 @@
+Metadata-Version: 2.4
+Name: s7svrsim
+Version: 0.2.0
+Summary: Add your description here
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+
+
+# Type hints for writing S7SvrSim Scripts 
+
+## Install
+
+```bash
+pip install s7svrsim
+```
+
+## Usage
+
+```python
+from s7svrsim import hints
+
+# annotate
+S7: hints.S7DB = S7
+Logger: hints.Logger = Logger
+
+# now you get IntelliSence
+Logger.LogInfo("111111")
+```
+
+

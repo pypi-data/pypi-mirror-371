@@ -1,0 +1,9 @@
+README.md
+pyproject.toml
+src/setup.py
+src/s7svrsim/__init__.py
+src/s7svrsim/hints.py
+src/s7svrsim.egg-info/PKG-INFO
+src/s7svrsim.egg-info/SOURCES.txt
+src/s7svrsim.egg-info/dependency_links.txt
+src/s7svrsim.egg-info/top_level.txt
