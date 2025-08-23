@@ -1,0 +1,13 @@
+Metadata-Version: 2.4
+Name: djangineer
+Version: 0.0.1a0
+Summary: An experimental Django IDE
+License: Apache-2.0
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: Django>=5.0
+Dynamic: license-file
+
+# djangineer
+Visual Django IDE to build apps faster — model editor, settings config, drag-and-drop UI, and plug-and-play Django apps. With future support for issue and security detection.
