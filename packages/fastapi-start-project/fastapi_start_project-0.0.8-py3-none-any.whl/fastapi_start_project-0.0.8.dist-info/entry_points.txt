@@ -1,0 +1,2 @@
+[console_scripts]
+fastapi-start-project = fastapi_start_project.cli:app

@@ -1,0 +1,11 @@
+fastapi_start_project/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+fastapi_start_project/cli.py,sha256=v4OQQ_ymVgH0pVXSfA-Y20P-MdQY73w5SXur5f_mUeE,7783
+fastapi_start_project/config_app.py,sha256=Fmr1VvlDub1i3mrj4g2vPTWVqDfPUy9NBp22E3tNXY4,8517
+fastapi_start_project/files_content.py,sha256=fawlO6aJYmHS7jRyJ94cuRH7vvKGOpTY6G8lCOwtgWE,9968
+fastapi_start_project/utils.py,sha256=yJ_BYSiqMoM4dG_Gr9Ja7GE5AaewsJbAF2aMf1zTATk,1693
+fastapi_start_project-0.0.8.dist-info/licenses/LICENSE,sha256=RZLHx2EeSmgJHfpYIM6Ioc7OehhEiSZTi7gtNcH3yFs,1090
+fastapi_start_project-0.0.8.dist-info/METADATA,sha256=aOIkGp49ndBwfpglKylGYbBN_hoNNWZp0pfKaR1n9Zw,2287
+fastapi_start_project-0.0.8.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+fastapi_start_project-0.0.8.dist-info/entry_points.txt,sha256=jqT1yG59WCJwP8ZtErxT3gc87KhQxirYZsG2261OlTc,72
+fastapi_start_project-0.0.8.dist-info/top_level.txt,sha256=ghs1_TQ8X0lBEx78vCZI4cwlYhBXJKJ2zEVxaniCx5o,22
+fastapi_start_project-0.0.8.dist-info/RECORD,,
