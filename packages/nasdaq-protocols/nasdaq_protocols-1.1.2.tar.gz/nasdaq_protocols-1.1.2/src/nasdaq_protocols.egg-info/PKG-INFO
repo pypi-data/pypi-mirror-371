@@ -1,0 +1,33 @@
+Metadata-Version: 2.4
+Name: nasdaq-protocols
+Version: 1.1.2
+Summary: Nasdaq protocols python library
+Classifier: Development Status :: 3 - Alpha
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: docs/LICENSE.rst
+Requires-Dist: attrs>=23.1
+Requires-Dist: chevron>=0.14.0
+Requires-Dist: click>=8.1
+Requires-Dist: asn1>=2.6
+Requires-Dist: asn1tools==0.164.0
+Dynamic: license-file
+
+Nasdaq Protocols Python Library
+===============================
+
+nasdaq-protocols contains client side implementations of the various
+publicly available protocols used by Nasdaq ecosystem.
+
+This package contains only the core implementations of the protocols like message
+serialization, deserialization, message validation and session handling. It does not
+contain any actual messages that are exchanged between the client and the server.
+
+The actual messages are application specific and hence has to be defined by the
+user of this library. The user has to define the messages as per the protocol specification
+by extending the base message class defined in the package.
+
+
+More documentation can be found in the [github-pages](https://nasdaq.github.io/nasdaq-protocols/)
+

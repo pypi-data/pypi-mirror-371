@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=64", "setuptools_scm[toml]>=8"]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "nasdaq-protocols"
+description = "Nasdaq protocols python library"
+license-files = ["docs/LICENSE.rst"]
+requires-python = ">= 3.10"
+classifiers = [
+    'Development Status :: 3 - Alpha',
+    'Topic :: Software Development :: Libraries :: Python Modules'
+]
+readme = "README.md"
+
+dependencies = [
+    'attrs>=23.1',
+    'chevron>=0.14.0',
+    'click>=8.1',
+    'asn1>=2.6',
+    'asn1tools==0.164.0'
+]
+dynamic = ["version"]
+
+[project.scripts]
+nasdaq-ouch-codegen="nasdaq_protocols.ouch.codegen:generate"
+nasdaq-itch-codegen="nasdaq_protocols.itch.codegen:generate"
+nasdaq-itch-tools-codegen="nasdaq_protocols.itch.codegen:generate_itch_tools"
+nasdaq-fix-codegen="nasdaq_protocols.fix.codegen:generate"
+nasdaq-asn1soup-codegen="nasdaq_protocols.asn1_app.codegen:generate_soup_app"
+nasdaq-protocols-create-new-project="nasdaq_protocols.tools.new_project:create"
+nasdaq-soup-tail="nasdaq_protocols.soup.tools_soup_tail:command"
+
+
+[tool.setuptools_scm]
+
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["nasdaq_protocols*"]
+namespaces = false
+
