@@ -1,0 +1,6 @@
+beautifulsoup4
+SPARQLWrapper
+requests
+pandas
+xmltodict
+tqdm
