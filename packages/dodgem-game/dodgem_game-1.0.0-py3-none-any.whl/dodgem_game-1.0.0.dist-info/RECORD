@@ -1,0 +1,11 @@
+dodgem/__init__.py,sha256=odCRxOc2fu-LeOJBldUa-4K-BOGcrElC94gqmc2IaVg,36
+dodgem/__main__.py,sha256=t1qRblJjQ69a6tFYxPxi1js0ZeWvUAnFKU8yBBXDtG8,3616
+dodgem/dodgem.py,sha256=GQdaC_ewi9AD4PyNeIRFRPMeZPBGZDor7SXyFZ9YOOE,53701
+dodgem/dodgem_eval.json.gz,sha256=pxzW-TUV_3U_ZSkCfIU1LIbJSxg5yLw7OemuA4kswuQ,5130432
+dodgem/gui.py,sha256=WO97IQweg04uU5MgWXQKwPvcxxjLVzxAobrcphJ5Gik,10282
+dodgem_game-1.0.0.dist-info/licenses/LICENSE,sha256=N7kSkpXo7CD4vAiVn3S9c5Ebmp7QD7_x3fa9mV8frto,1085
+dodgem_game-1.0.0.dist-info/METADATA,sha256=MNokXH2da7Q3TUZvmFlgw1vCsmK22dzQj8uh9KzP-tk,4723
+dodgem_game-1.0.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+dodgem_game-1.0.0.dist-info/entry_points.txt,sha256=J2rpI4xu7TIqRI2xtMvkV4k9ajGv2QGpE_abwbrdKVE,48
+dodgem_game-1.0.0.dist-info/top_level.txt,sha256=ZvSOYPGMaGH5L5YuIe2jR-_2cYAb_ag1cs4odbDM7v4,7
+dodgem_game-1.0.0.dist-info/RECORD,,
