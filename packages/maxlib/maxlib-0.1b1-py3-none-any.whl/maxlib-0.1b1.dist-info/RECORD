@@ -1,0 +1,10 @@
+maxlib/__init__.py,sha256=IHV9wDBYwvttHNh0SAGBeBaxLg-DWdBSxcIMbwJfytc,41
+maxlib/classes.py,sha256=wO1m1zSjvh-LhjPUMNUCDmehhBFrTltbMjanYsw13iw,9107
+maxlib/errors.py,sha256=dJtC7Jf1VleH54lDLseIFBXaKvnd4n15dfvmOOzTk7o,273
+maxlib/filters.py,sha256=6LmJoGtV2MMNrZf7C1qROgtcdSqKkBsBrZnOdF0dvJY,8494
+maxlib/max.py,sha256=TYhE5FtLoMGas-D_VOEaoCzxb_fHfyKZ1jC9gwHM8Lk,26060
+maxlib-0.1b1.dist-info/licenses/LICENSE,sha256=OXLcl0T2SZ8Pmy2_dmlvKuetivmyPd5m1q-Gyd-zaYY,35149
+maxlib-0.1b1.dist-info/METADATA,sha256=zjhkcyYGaDQHS8Adn-92yfMiNE3f8OVw4jlw5ItoHqw,8468
+maxlib-0.1b1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+maxlib-0.1b1.dist-info/top_level.txt,sha256=U-Bl6QRbGHnJhf2ygyP_AQJ7gMsd4-PiCsm7MUyhhaU,7
+maxlib-0.1b1.dist-info/RECORD,,
