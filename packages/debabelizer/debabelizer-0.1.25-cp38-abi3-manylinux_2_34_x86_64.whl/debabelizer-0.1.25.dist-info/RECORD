@@ -1,0 +1,9 @@
+debabelizer-0.1.25.dist-info/METADATA,sha256=pJUc43GMhgFMYoqNDfz7MrzOIqWxQxEU144zGLWDnD0,1431
+debabelizer-0.1.25.dist-info/WHEEL,sha256=aOld2NVWP4JrKyC3FPWO2LJHUrFAX5cGTcOzPH71VfY,106
+debabelizer.libs/libcrypto-d0003de0.so.3,sha256=gXQTW7Czy-Lw-BMROXj96GjpjZxn7mA0eZf_52EuyWY,5883465
+debabelizer.libs/libssl-2ffb22b1.so.3,sha256=jBomeLjw8LV1-Gy96PQFA8QkE-NSBzBcudKX5RIVgvo,1117825
+debabelizer.libs/libzstd-17b6900d.so.1,sha256=lAmu8X6tck27ZQcSX0iNCpXZwh8lEIR708_27DBL7sM,779385
+debabelizer/__init__.py,sha256=R_4HO1oo7uRcGYyRWrZFpku6A9ZWP8PN7GN_-9Qhy4I,1082
+debabelizer/__pycache__/__init__.cpython-312.pyc,sha256=4t_twLIlcWpBMaLJ3Zr5xClv8MOsTgYoIAH7YnT4hNk,841
+debabelizer/_internal.abi3.so,sha256=MxvpoqDwejF4QiWKMMbuIb8Av4hsfpGznty8L7PdShk,9515729
+debabelizer-0.1.25.dist-info/RECORD,,
