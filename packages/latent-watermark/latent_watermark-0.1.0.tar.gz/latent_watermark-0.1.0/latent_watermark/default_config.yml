@@ -1,0 +1,65 @@
+# Default configuration for latent_watermark
+# This file contains all default settings for the watermarking system
+# Edit these values according to your needs
+
+# Security settings for watermark generation
+security:
+  # Hash algorithm used for generating unique identifiers
+  # Supported: sha256, sha512, md5, sha1, blake2b
+  hash_algorithm: "sha256"
+  
+  # Length of encryption keys in bytes
+  key_length: 32
+  
+  # Default password for encryption (change this!)
+  default_password: "latent_watermark_2024"
+
+# Watermark configuration
+watermark:
+  # Maximum total length for the entire watermark string
+  max_total_length: 256
+  
+  # Quality settings for watermark embedding
+  quality:
+    # D1 parameter: higher values = more robust but more image distortion (1-100)
+    d1: 15
+    
+    # D2 parameter: lower values = more robust but more image distortion (1-100)
+    d2: 75
+  
+  # Field configuration for dynamic watermark generation
+  fields:
+    # Author field configuration
+    author:
+        min_length: 1
+        max_length: 20
+        default: "unknown"  # Default author name
+    
+    # Buyer field configuration
+    buyer:
+      min_length: 1
+      max_length: 50
+    
+    # Date field configuration
+    date:
+      # Date format string
+      # Supported: ISO, US, EU, CUSTOM
+      format: "ISO"
+    
+    # Hash field configuration
+    hash:
+      # Number of digits to display from hash
+      last_n_digits: 8
+
+# Output settings for processed images
+output:
+  # Output image format
+  # Supported: png, jpg, jpeg, webp, bmp, tiff
+  format: "png"
+  
+  # Output image quality (1-100, only affects lossy formats)
+  quality: 95
+  
+  # Output directory for processed images
+  # Leave empty to use input directory
+  directory: ""

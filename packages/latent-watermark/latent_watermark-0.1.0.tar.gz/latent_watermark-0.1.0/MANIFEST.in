@@ -1,0 +1,7 @@
+include README.md
+include LICENSE
+include CONFIGURATION.md
+include latent_watermark/default_config.yml
+recursive-include tests *.py
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
