@@ -1,0 +1,5 @@
+pyproject.toml
+vcp_cli.egg-info/PKG-INFO
+vcp_cli.egg-info/SOURCES.txt
+vcp_cli.egg-info/dependency_links.txt
+vcp_cli.egg-info/top_level.txt
