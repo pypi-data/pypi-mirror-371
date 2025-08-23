@@ -1,0 +1,2 @@
+[console_scripts]
+tiny3d = tiny3d.tools.cli:main
