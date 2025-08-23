@@ -1,0 +1,7 @@
+higp_cext.cpython-312-darwin.so,sha256=kczgoMo0FRLV_GLu5PB6w--xgWMc5btJRpNSlk13pxI,478512
+higp/__init__.py,sha256=cyvdpjPNUkkUuj0tbLZBm3WeE59ZUk7bUgtUqHkF70Y,58
+higp/modules.py,sha256=8lIYIsgfnsblJTxivILsTm2hQGTDWYefFYu4aeuWCxI,26441
+higp-2025.8.21.dist-info/METADATA,sha256=7Z4hZXIXcjAPKlcpgq2VRmPNqoGCC8mRy1u_5pOW9JQ,228
+higp-2025.8.21.dist-info/WHEEL,sha256=LAelGRA0xLenkvsuTJ9tttGr-WMk6-GbdK6vPGfs-g0,109
+higp-2025.8.21.dist-info/top_level.txt,sha256=7wNKLtA1_OXoFmEh8ckITzAbMXcp_rVqFPE0EmVY4gE,15
+higp-2025.8.21.dist-info/RECORD,,
