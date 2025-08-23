@@ -1,0 +1,126 @@
+Metadata-Version: 2.4
+Name: lyzr-python-sdk
+Version: 0.1.1
+Summary: A Python client library for interacting with the Lyzr Agent API
+Home-page: https://github.com/LyzrCore/lyzr-python
+Author: Lyzr
+Author-email: Lyzr <support@lyzr.ai>
+Maintainer-email: Lyzr <support@lyzr.ai>
+License-Expression: MIT
+Project-URL: Homepage, https://github.com/LyzrCore/lyzr-python
+Project-URL: Documentation, https://docs.lyzr.ai
+Project-URL: Repository, https://github.com/LyzrCore/lyzr-python
+Project-URL: Bug Reports, https://github.com/LyzrCore/lyzr-python/issues
+Keywords: lyzr,agent,api,client,llm,artificial intelligence
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests>=2.25.0
+Provides-Extra: dev
+Requires-Dist: pytest>=6.0; extra == "dev"
+Requires-Dist: pytest-cov>=2.0; extra == "dev"
+Requires-Dist: black>=21.0; extra == "dev"
+Requires-Dist: flake8>=3.8; extra == "dev"
+Requires-Dist: mypy>=0.800; extra == "dev"
+Provides-Extra: docs
+Requires-Dist: sphinx>=4.0; extra == "docs"
+Requires-Dist: sphinx-rtd-theme>=1.0; extra == "docs"
+Dynamic: author
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-python
+
+# Lyzr Agent API Python Client
+
+![PyPI - Python Version](https://img.shields.io/pypi/py/lyzr-agent-api)
+![PyPI](https://img.shields.io/pypi/v/lyzr-agent-api)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+A Python client library for interacting with the Lyzr Agent API. This client provides a convenient and structured way to access the various functionalities offered by the API, including managing environments, agents, tools, handling inference requests, and interacting with user data and workflows.
+
+## Table of Contents
+
+*   [Description](#description)
+*   [Installation](#installation)
+*   [Quick Start](#quick-start)
+*   [API Sections](#api-sections)
+    *   [Agents (v3)](#agents-v3)
+    *   [Providers (v3)](#providers-v3)
+    *   [Tools (v3)](#tools-v3)
+    *   [Inference (v3)](#inference-v3)
+    *   [Semantic Model (v3)](#semantic-model-v3)
+    *   [Users (v1)](#users-v1)
+    *   [Workflows (v3)](#workflows-v3)
+    *   [Ops (v3)](#ops-v3)
+*   [Authentication](#authentication)
+*   [Error Handling](#error-handling)
+*   [Contributing](#contributing)
+*   [License](#license)
+
+## Description
+
+The Lyzr Agent API is a modular, universal agent framework designed to simplify the creation of LLM-based agents. This Python client library aims to provide a seamless Python interface to interact with the API, abstracting away the HTTP request details and providing dedicated client objects for each major API section.
+
+The framework's architecture is divided into three main components:
+
+*   **Environment:** Defines the modules, features, available tools, and other configurations for your agent.
+*   **Agent:** Specifies your agent's configuration, including the system prompt, name, and persona. The agent operates within an environment identified by an environment ID.
+*   **Inference:** Handles the processing and execution of tasks and conversations.
+
+This client library provides specific client classes for different API versions and functionalities, organized for clarity and ease of use.
+
+## Installation
+
+You can install the package using pip:
+
+```bash
+pip install lyzr-python-sdk
+```
+
+### Quick Start
+Here's a basic example demonstrating how to initialize the client and make a simple API call:
+
+```python
+from lyzr_python_sdk import LyzrAgentAPI
+import os
+
+# Replace with your actual API key.
+# It's recommended to use environment variables for sensitive information.
+api_key = os.environ.get("LYZR_AGENT_API_KEY")
+if not api_key:
+    raise ValueError("LYZR_AGENT_API_KEY environment variable not set.")
+
+try:
+    # Initialize the main client
+    client = LyzrAgentAPI(api_key=api_key)
+
+    # Access a specific API section (e.g., Agents)
+    print("Fetching agents...")
+    agents = client.agents.get_agents_by_api_key()
+    print("All Agents:", agents)
+
+except Exception as e:
+    print(f"An error occurred: {e}")
+```
+
+### Contributing
+We welcome contributions to this Python client library! If you find a bug, have a feature request, or want to improve the documentation, please open an issue or submit a pull request on the GitHub repository.
+
+- Fork the repository.
+- Create a new branch for your feature or bugfix.
+- Make your changes and write tests.
+- Ensure tests pass.
+- Submit a pull request.
