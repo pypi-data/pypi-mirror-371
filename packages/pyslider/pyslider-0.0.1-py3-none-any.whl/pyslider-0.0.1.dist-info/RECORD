@@ -1,0 +1,10 @@
+pyslider/__init__.py,sha256=nZfIg4fYN6vQl3GyenC4F3kNNDOeH-5dSsLVQGO3_z8,30
+pyslider/configs.py,sha256=eSI6SNf84cEAI9LyCzvNf17kxXCmKRzvI4jKTQY02Vo,610
+pyslider/main.py,sha256=L_YoSiSChRra6HpAIoOBy7OTECJyJ6IgsqGoF3XevcA,625
+pyslider/static.py,sha256=SmAJDzYEkj7wr20aj9iO1Q5BmYwKpvFxsZWNqYpbMEs,200
+pyslider/utils/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pyslider-0.0.1.dist-info/METADATA,sha256=Jcu2GQ0bF5uRARei2B9yb9jlMFk3Wlgn0BPskrQ-bys,2338
+pyslider-0.0.1.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+pyslider-0.0.1.dist-info/entry_points.txt,sha256=iWLWWvJLwszq6dzKl6YO5QWPkdlUBaLQfllNmg3X9zI,48
+pyslider-0.0.1.dist-info/licenses/LICENSE,sha256=9a8jLtjEZ8tyEy0TU9t3RGCgQe4JTu_bcixFLKpH19Y,1069
+pyslider-0.0.1.dist-info/RECORD,,

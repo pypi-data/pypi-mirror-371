@@ -1,0 +1,5 @@
+""" version which can be consumed from within the module """
+VERSION_STR = "0.0.1"
+DESCRIPTION = "Pyslider is a tool to create pdf slides from markdown"
+APP_NAME = "pyslider"
+LOGGER_NAME = "pyslider"

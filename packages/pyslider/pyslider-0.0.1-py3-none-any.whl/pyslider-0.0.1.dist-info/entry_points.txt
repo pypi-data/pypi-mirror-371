@@ -1,0 +1,2 @@
+[console_scripts]
+pyslider = pyslider.main:main
