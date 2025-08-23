@@ -1,0 +1,4 @@
+# file: /home/will/Projects/duckdantic/src/duckdantic/naming.py
+# hypothesis_version: 6.136.6
+
+[',', '.', '_', '__name__', 'fields', 'utf-8']

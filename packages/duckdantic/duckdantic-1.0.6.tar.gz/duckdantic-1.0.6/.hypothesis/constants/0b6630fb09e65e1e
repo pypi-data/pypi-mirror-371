@@ -1,0 +1,4 @@
+# file: /home/will/Projects/duckdantic/src/duckdantic/providers/mapping.py
+# hypothesis_version: 6.136.6
+
+['__iter__', 'alias', 'annotation', 'choices', 'mapping', 'serialization_alias', 'validation_alias']

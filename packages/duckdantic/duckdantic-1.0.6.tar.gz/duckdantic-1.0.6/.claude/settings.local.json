@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(python -m pytest tests/test_methods_satisfy.py tests/test_abc_adapter.py -v)",
+      "Bash(uv sync:*)",
+      "Bash(uv run pytest tests/test_methods_satisfy.py tests/test_abc_adapter.py -v)",
+      "Bash(uv build:*)",
+      "Bash(python:*)",
+      "Bash(uv run pytest:*)",
+      "Bash(uv run:*)",
+      "Bash(rm:*)",
+      "Bash(find:*)",
+      "Bash(mv:*)",
+      "Bash(trunk check:*)",
+      "Bash(trunk fmt:*)",
+      "Bash(grep:*)",
+      "Bash(uv add:*)",
+      "Bash(sed:*)",
+      "Bash(touch:*)",
+      "Bash(chmod:*)",
+      "Bash(trunk init:*)",
+      "Bash(ls:*)",
+      "Bash(gh repo list:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git tag:*)",
+      "Bash(gh run list:*)",
+      "Bash(gh run watch:*)",
+      "Bash(gh run view:*)",
+      "Bash(gh run rerun:*)",
+      "Bash(uv publish:*)",
+      "Bash(gh repo edit:*)"
+    ],
+    "deny": []
+  }
+}

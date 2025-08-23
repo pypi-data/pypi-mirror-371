@@ -1,0 +1,4 @@
+# file: /home/will/Projects/duckdantic/src/duckdantic/adapters/__init__.py
+# hypothesis_version: 6.136.6
+
+['abc_for', 'duckisinstance', 'duckissubclass']
