@@ -1,0 +1,4 @@
+[console_scripts]
+pyb = pybench.cli:main
+pybench = pybench.cli:main
+

@@ -1,0 +1,72 @@
+Metadata-Version: 2.4
+Name: pybenchx
+Version: 0.1.0
+Summary: A tiny, precise microbenchmarking framework for Python
+Keywords: benchmark,microbenchmark,performance,timeit,deno
+Author: Seu Nome
+Author-email: Seu Nome <vc@example.com>
+License-Expression: MIT
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Testing
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Project-URL: Homepage, https://github.com/fullzer4/pybenchx
+Project-URL: Issues, https://github.com/fullzer4/pybenchx/issues
+Project-URL: Repository, https://github.com/fullzer4/pybenchx
+Description-Content-Type: text/markdown
+
+# PyBench — a microbenchmarking framework for Python
+
+Write small, focused benchmarks with automatic file discovery, simple parameterization, and a clean, minimal CLI.
+
+Run benchmarks with a single command:
+
+```bash
+pybench path/to/file_or_dir [-k keyword] [-P key=value ...]
+```
+
+## ✨ Features
+
+- One-line registration: register cases with `bench.bench(...)`; optionally use `BenchContext.start()/end()` to measure only the critical section.
+- Auto-discovery: `pybench <dir>` expands `**/*bench.py`.
+- Parameterization: generate multiple cases via `params={...}` (cartesian product) or per-case `args/kwargs`.
+- CLI overrides: `-P key=value` to tweak parameters at runtime (no code edits).
+- Sound timing: high-resolution, monotonic clock; built-in warmup and repeat.
+- Nice output: medians, means, and stdev per call (ns) with iterations/repeats.
+
+## 📦 Installation
+
+- With pip:
+  ```bash
+  pip install pybench
+  ```
+- With uv:
+  ```bash
+  uv pip install pybench
+  ```
+
+## 🚀 Usage
+
+- Run benchmarks in a file or directory:
+  ```bash
+  pybench path/to/file_or_dir [-k keyword] [-P key=value ...]
+  ```
+- Examples:
+  ```bash
+  # Filter by keyword in case/file name
+  pybench benches/ -k json
+
+  # Pass runtime parameters
+  pybench benches/ -P size=1000 -P repeats=10
+  ```
+
+Tip: use `BenchContext.start()/end()` when you only want to measure the critical section of your benchmark.
