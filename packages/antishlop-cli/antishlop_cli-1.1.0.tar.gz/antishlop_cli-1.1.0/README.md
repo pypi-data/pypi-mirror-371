@@ -1,0 +1,66 @@
+# AntiShlop Security Agent
+
+AI-powered security agent for code files.
+
+## Installation
+
+```bash
+pip install antishlop-cli
+```
+
+## Setup
+
+Set your OpenAI API key:
+
+```bash
+# Option 1: Environment variable
+export OPENAI_API_KEY=your_api_key_here
+
+# Option 2: .env file
+echo "OPENAI_API_KEY=your_api_key_here" > .env
+
+# Option 3: Interactive setup (will prompt automatically)
+antishlop path/to/file.py
+```
+
+## Usage
+
+```bash
+# Analyze a single file
+antishlop file.py
+
+# Analyze a directory
+antishlop /path/to/project
+
+# Save detailed report to JSON
+antishlop file.py -o report.json
+
+# Quiet mode (minimal output)
+antishlop file.py -q
+```
+
+## What It Does
+
+- Detects **53 types** of security vulnerabilities
+- Uses **GPT-4.1** with specialized security analysis tools
+- Shows **real-time token usage** during analysis
+- Supports **file-by-file** or **directory** analysis
+- **Automatic deeper analysis** when issues are found
+- **Vector database context** from your entire codebase
+
+## Supported Languages
+
+Python • JavaScript • TypeScript • Java • Go • Ruby • PHP • C/C++ • C#
+
+## Features
+
+- **Interactive Setup**: Automatically prompts for API key if not found
+- **Beautiful UI**: Animated progress, colored output, professional styling  
+- **Graceful Exit**: Ctrl+C exits cleanly without error messages
+- **Context Aware**: Uses vector database to understand code relationships
+- **JSON Export**: Machine-readable reports for CI/CD integration
+
+## Requirements
+
+- Python 3.8+
+- OpenAI API key
