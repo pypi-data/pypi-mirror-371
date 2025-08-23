@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+lox/__init__.py
+lox/main.py
+lox/master.py
+lox/recovery.py
+lox/utils.py
+lox/vault.py
+loxword.egg-info/PKG-INFO
+loxword.egg-info/SOURCES.txt
+loxword.egg-info/dependency_links.txt
+loxword.egg-info/entry_points.txt
+loxword.egg-info/requires.txt
+loxword.egg-info/top_level.txt

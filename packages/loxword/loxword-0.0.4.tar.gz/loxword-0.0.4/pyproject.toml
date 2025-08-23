@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "loxword"
+version = "0.0.4"
+authors = [
+    {name = "Aditya Chavan", email = "iaditya.2016@gmail.com"},
+]
+description = "A secure CLI password manager with multi-user support and auto-lock features."
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.7"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8", 
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Security",
+    "Topic :: Utilities",
+    "Environment :: Console",
+    "Topic :: Security :: Cryptography",
+]
+keywords = ["password", "manager", "security", "cli", "encryption", "vault", "bcrypt"]
+dependencies = [
+    "cryptography>=39.0.0,<44.0.0",  
+    "bcrypt>=4.0.0,<5.0.0",
+    "pyperclip>=1.8.0,<2.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/adchad90/Lox"
+Issues = "https://github.com/adchad90/Lox/issues"
+Repository = "https://github.com/adchad90/Lox.git"
+
+[project.scripts]
+lox = "lox.main:main"
+[tool.setuptools]
+packages = ["lox"]
