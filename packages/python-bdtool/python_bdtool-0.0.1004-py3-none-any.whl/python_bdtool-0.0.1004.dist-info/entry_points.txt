@@ -1,0 +1,2 @@
+[console_scripts]
+bdtool = bdtool.tool:cli
