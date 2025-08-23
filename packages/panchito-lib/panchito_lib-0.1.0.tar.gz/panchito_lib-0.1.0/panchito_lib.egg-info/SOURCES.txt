@@ -1,0 +1,8 @@
+LICENSE
+setup.py
+panchito_lib/__init__.py
+panchito_lib/primes.py
+panchito_lib.egg-info/PKG-INFO
+panchito_lib.egg-info/SOURCES.txt
+panchito_lib.egg-info/dependency_links.txt
+panchito_lib.egg-info/top_level.txt
