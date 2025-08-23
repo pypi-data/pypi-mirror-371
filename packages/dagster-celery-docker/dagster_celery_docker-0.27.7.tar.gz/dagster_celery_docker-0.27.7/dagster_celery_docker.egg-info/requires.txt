@@ -1,0 +1,7 @@
+dagster==1.11.7
+dagster-celery==0.27.7
+dagster-graphql==1.11.7
+docker
+
+[test]
+botocore>=1.21.49
