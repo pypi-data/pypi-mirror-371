@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=65.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "itk_dev_event_log"
+version = "1.0.0"
+authors = [
+  { name="ITK Development", email="itk-rpa@mkb.aarhus.dk" },
+]
+description = "A package used to emit to a simple event log."
+readme = "README.md"
+requires-python = ">=3.11"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Microsoft :: Windows",
+]
+dependencies = [
+    "pyodbc == 5.2.*"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/itk-dev-rpa/itk_dev_event_log"
+"Bug Tracker" = "https://github.com/itk-dev-rpa/itk_dev_event_log/issues"
+
+[project.optional-dependencies]
+dev = [
+  "pylint",
+  "flake8"
+]

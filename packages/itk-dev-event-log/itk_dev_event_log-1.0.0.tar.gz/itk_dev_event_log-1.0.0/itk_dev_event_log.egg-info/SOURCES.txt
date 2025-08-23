@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+itk_dev_event_log/__init__.py
+itk_dev_event_log.egg-info/PKG-INFO
+itk_dev_event_log.egg-info/SOURCES.txt
+itk_dev_event_log.egg-info/dependency_links.txt
+itk_dev_event_log.egg-info/requires.txt
+itk_dev_event_log.egg-info/top_level.txt
