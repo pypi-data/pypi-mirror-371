@@ -1,0 +1,8 @@
+langchain_zunno/__init__.py,sha256=f8gMSVjaRKOQ-wlkVkA_mUhx-aVQQqhMRtEMFX7F7ec,394
+langchain_zunno/embeddings.py,sha256=cWVUOQqxl-SegaLdfWH3zULYObvIvbZZJFPFbzuulVA,5055
+langchain_zunno/llm.py,sha256=SOIWUXDmk-pv9E1bYyA0kwr5ENnBDi18vtyNxVtsRSQ,4464
+langchain_zunno-0.1.5.dist-info/licenses/LICENSE,sha256=dfF1ZH0fV045UpyRp_biKmKgCnMzhtoI3LDb38A3BTY,1062
+langchain_zunno-0.1.5.dist-info/METADATA,sha256=Ny-Nt0GixAMPlIsa8L8wJci0ONyZaEXAykgXqgguu9I,7071
+langchain_zunno-0.1.5.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+langchain_zunno-0.1.5.dist-info/top_level.txt,sha256=BLZabFpkl0bwIZYVHVEWL5KgvEUzHWC_KuAsk9tm0t4,16
+langchain_zunno-0.1.5.dist-info/RECORD,,
