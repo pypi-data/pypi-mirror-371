@@ -1,0 +1,67 @@
+# configs, databases and virtualenv artifacts
+include/
+man/
+module_autoop.db
+pyfibot/bot.config
+rss.db
+databases/
+# Don't let actual configs to version control
+config.yml
+
+#imdbpy
+etc
+doc
+
+*.py[cod]
+
+# C extensions
+*.so
+
+# Packages
+*.egg
+*.egg-info
+dist
+build
+eggs
+parts
+bin
+var
+sdist
+develop-eggs
+.installed.cfg
+lib
+lib64
+local
+.cache/
+.eggs/
+
+# Installer logs
+pip-log.txt
+pip-selfcheck.json
+
+# Unit test / coverage reports
+.coverage
+.tox
+nosetests.xml
+
+# Translations
+*.mo
+
+# Mr Developer
+.pypirc
+.mr.developer.cfg
+.project
+.pydevproject
+/docs/.doctrees/
+/docs/_build/
+/docs/undoc.pickle
+/paver-minilib.zip
+/pyfibot/GeoLiteCity.dat
+/pyfibot/modules/imgur_auth.dat
+/undoc.pickle
+
+# VSCode
+.vscode
+
+# Environment variables
+.envrc

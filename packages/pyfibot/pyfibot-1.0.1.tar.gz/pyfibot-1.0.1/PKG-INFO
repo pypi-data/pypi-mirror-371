@@ -1,0 +1,100 @@
+Metadata-Version: 2.4
+Name: pyfibot
+Version: 1.0.1
+Summary: A Python IRC bot with modular plugin system
+License-File: LICENSE
+Requires-Python: >=3.8
+Requires-Dist: beautifulsoup4
+Requires-Dist: dataset
+Requires-Dist: feedparser>=5.1.3
+Requires-Dist: gitpython>=3.1.0
+Requires-Dist: httplib2>=0.8.0
+Requires-Dist: jsonschema>=1.0.0
+Requires-Dist: lxml>=4.6.0
+Requires-Dist: ndg-httpsclient
+Requires-Dist: pyasn1
+Requires-Dist: pydantic>=2.0.0
+Requires-Dist: pygeoip
+Requires-Dist: pyopenssl
+Requires-Dist: python-dateutil>=2.2
+Requires-Dist: python-instagram
+Requires-Dist: pytvmaze
+Requires-Dist: pytz
+Requires-Dist: pyyaml
+Requires-Dist: repoze-lru
+Requires-Dist: requests
+Requires-Dist: requests-cache>=1.0.0
+Requires-Dist: service-identity
+Requires-Dist: simplejson>=3.0.0
+Requires-Dist: sqlalchemy
+Requires-Dist: tenacity>=8.0.0
+Requires-Dist: tvdb-api
+Requires-Dist: twisted>=24.0.0
+Provides-Extra: dev
+Requires-Dist: autopep8; extra == 'dev'
+Requires-Dist: black; extra == 'dev'
+Requires-Dist: coverage; extra == 'dev'
+Requires-Dist: flake8; extra == 'dev'
+Requires-Dist: mypy; extra == 'dev'
+Requires-Dist: pep8; extra == 'dev'
+Requires-Dist: pylint; extra == 'dev'
+Requires-Dist: pytest; extra == 'dev'
+Requires-Dist: pytest-cov; extra == 'dev'
+Requires-Dist: vcrpy; extra == 'dev'
+Description-Content-Type: text/markdown
+
+# Pyfibot is back
+
+Thanks to the power of Claude Code, I was able to port the code to python3
+
+- [uv](https://github.com/astral-sh/uv) is used to manage packages
+- [Taskfiles](https://taskfile.dev/) instead of Makefiles
+
+---
+
+[![Python application](https://github.com/lepinkainen/pyfibot/actions/workflows/python-app.yml/badge.svg)](https://github.com/lepinkainen/pyfibot/actions/workflows/python-app.yml)
+
+## pyfibot
+
+A Python IRC-bot made using the [Twisted Matrix](http://twistedmatrix.com/trac/) IRC-library.
+
+Supports online module reloading - only major core changes require a
+restart. Extensive module & handler -support for easy extension and
+customization.
+
+## Installation
+
+[Installation instructions](https://github.com/lepinkainen/pyfibot/wiki/Installation)
+
+## Module highlights
+
+- URL title fetching with custom handlers via API calls for speed and
+efficiency
+  - IMDb
+  - Youtube / Dailymotion
+  - Wikipedia
+  - Imgur
+  - Instagram
+  - eBay
+  - Spotify
+- Bitcoin exchange rates
+- Wolfram Alpha queries
+- Weather
+- RSS support
+
+## Features
+
+- Modular
+  - Live refresh of modules and configuration
+  - Coder friendly (a basic module requires just 2 lines of boilerplate
+    code)
+  - SSL-support
+  - IPv6-support
+  - virtualenv-support
+  - Works with torify
+
+Support can be found at #pyfibot on irc.nerv.fi and please contact
+<yllapito@nerv.fi> if you want to connect outside of Finland (will be
+changed) or need help with IRC-network.
+
+This product includes GeoLite data created by MaxMind, available from [http://www.maxmind.com](http://maxmind.com/).
