@@ -1,0 +1,355 @@
+Metadata-Version: 2.4
+Name: commit-memory
+Version: 0.1.4
+Summary: A Git companion tool that allows you to attach notes and memos to specific commits and file lines in your Git repository
+Author: Ilia Lataria
+License: MIT
+Project-URL: Homepage, https://github.com/StarFleet1334/commit-memory
+Project-URL: Bug Tracker, https://github.com/StarFleet1334/commit-memory/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: typer>=0.9
+Requires-Dist: rich>=13
+Requires-Dist: GitPython>=3.1
+Requires-Dist: PyYAML>=6.0.1
+Provides-Extra: test
+Requires-Dist: pytest>=7.0.0; extra == "test"
+Requires-Dist: pytest-mock>=3.10.0; extra == "test"
+Requires-Dist: pytest-cov>=4.1.0; extra == "test"
+Dynamic: license-file
+
+# Commit Memory
+
+A Git companion tool that allows you to attach notes and memos to specific commits and file lines in your Git repository. Commit Memory helps you document the reasoning behind code changes, track important decisions, and share knowledge with your team.
+
+## Project Purpose
+
+Commit Memory solves the problem of preserving context and knowledge about code changes that might not be appropriate for commit messages but are still valuable to remember. It allows you to:
+
+- Document the "why" behind code changes
+- Leave notes for yourself or team members about specific lines of code
+- Create a searchable history of decisions and explanations
+- Keep track of important information without cluttering commit messages
+
+## Key Features
+
+- **Commit Memos**: Attach notes to entire commits
+- **File Line Memos**: Attach notes to specific lines in files
+- **Private & Shared Memos**: Choose whether memos are private to your local repository or shared with your team
+- **Rich Search**: Find memos by author, commit, file, or visibility
+- **Git Log Integration**: View memos inline with your git log
+
+## Important Note
+- **To truly use package functionality, generate a public age key and place in trust.yml. these keys are your collaborators**
+- **To whom you want to send some note**
+
+## Installation
+
+### Prerequisites
+
+- Python 3.9 or higher
+- Git repository
+
+### Steps
+
+1. Clone the repository:
+   ```
+   git clone https://github.com/<your-username>/commit-memory.git
+   cd commit-memory
+   ```
+
+2. Create and activate a virtual environment:
+
+   | OS / Shell      | Command                                  |
+   |-----------------|------------------------------------------|
+   | macOS / Linux   | `python -m venv .venv && source .venv/bin/activate` |
+   | Windows – PowerShell | `python -m venv .venv && .\.venv\Scripts\Activate.ps1` |
+   | Windows – cmd   | `python -m venv .venv && .venv\Scripts\activate.bat` |
+   | Git Bash (Win)  | `python -m venv .venv && source .venv/bin/activate` |
+
+3. Install the package:
+   ```
+   pip install -e .
+   ```
+
+   This will install the package in development mode with all required dependencies.
+
+## Private vs. Shared Memos
+
+Commit Memory supports two types of memos:
+
+- **Private Memos** (default): Stored in `.commit-memos.private.json`, these memos are only visible to you and aren't typically committed to the repository.
+- **Shared Memos**: Stored in `.commit-memos.shared.json`, these memos can be committed to the repository and shared with your team.
+
+To create a shared memo, use the `--shared` flag with the `add` command.
+
+## Usage Examples
+
+### Adding Memos
+
+```bash
+# Add a private memo to the current commit (HEAD)
+cm add --memo "This refactoring improves performance by 30%"
+
+# Add a private memo to a specific commit
+cm add --commit abc1234 --memo "Fixed a critical bug in the authentication flow"
+
+# Add a shared memo to a specific commit (visible to the team when committed)
+cm add --commit abc1234 --shared --memo "Team: we should revisit this approach in Q3"
+
+# Add a memo to line 42 of file.py at a specific commit
+cm add file.py 42 --commit abc1234 --memo "This was changed to fix issue #123"
+
+# Add a memo to line 42 of file.py at the current commit
+cm add file.py 42 --memo "This algorithm has O(n) complexity, be careful with large inputs"
+
+# Add notes for intended collaborator for HEAD
+cm add --commit HEAD --memo "silence" --shared --to alice,ilia
+
+# or for specific commit
+cm add --commit <commit_id> --memo "silence" --shared --to alice,ilia
+
+```
+
+### Viewing Memos
+
+```bash
+# Show all memos for a specific commit
+cm show abc1234
+
+# Show a rich-formatted git log with all memos inline
+cm log
+
+# Show only the last 5 commits
+cm log --max 5
+
+# Show the first page of commits (with default page size)
+cm log --page 1
+
+# Show the first page with 2 commits per page
+cm log --page 1 --page-size 2
+```
+
+### Searching Memos
+
+```bash
+# Search by author (partial name matching)
+cm search --author "John"
+# or
+cm search -auth "John"
+
+# Search by commit
+cm search --commit abc1234
+# or
+cm search -c abc1234
+
+# Search by file path
+cm search --file "src/components/Button.js"
+# or
+cm search -f "src/components/Button.js"
+
+# Search by visibility (private or shared)
+cm search --visibility "shared"
+# or
+cm search -vs "shared"
+
+# Limit search results
+cm search --author "John" --max 10
+
+# Paginate search results
+cm search --author "John" --page 1 --page-size 5
+```
+
+### Updating Memos
+
+```bash
+# Update a commit memo at index 0
+cm update --commit abc1234 --index 0 --memo "Updated explanation of the change"
+
+# Update a file memo at index 0
+cm update --commit abc1234 --file --index 0 --memo "Updated note about this code"
+
+or you can also skip using -memo and just type in terminal
+```
+
+### Deleting Memos
+
+```bash
+# Delete a commit memo at index 0
+cm delete --commit abc1234 --index 0
+
+# Delete a file memo at index 0
+cm delete --commit abc1234 --file --index 0
+
+# Delete all in commit_memos
+cm delete --all
+
+# Delete on files side
+cm delete --file --all
+
+```
+
+### Pull/ Fetch Notes
+```bash
+# Fetch memo notes and index them into the local store so show/log look up to date.
+cm pull
+
+```
+
+### Push Notes
+```bash
+
+git add .commit-memos/shared
+git commit -m "add shared memo blob"
+git push
+git push origin refs/notes/memos
+
+```
+
+### Groups
+```bash
+
+# to create a group use command
+cm group create <groupName> --members <person1>,<person2> ...
+
+# This creates an empty group with groupName as indicated
+cm group create <groupName>
+
+# Add members to a group
+cm group add <groupName> --members <person1>,<person2> ...
+
+# Remove members from a group
+cm group rm <groupName> --members <person1>
+
+# List all groups and their members.
+cm group list
+
+# Show one group's members.
+cm group show <groupName>
+
+```
+
+## Command Reference
+
+### `cm add [FILE] [LINE] [OPTIONS]`
+
+Adds a memo to a commit or to a specific file line in a commit.
+
+**Arguments:**
+- `FILE`: Path to the file (relative to repo root)
+- `LINE`: 1-based line number
+
+**Options:**
+- `--commit, -c TEXT`: Commit hash/ref (defaults to HEAD)
+- `--memo TEXT`: The memo text (will prompt if not provided)
+- `--shared`: Store in shared file (visible to team when committed)
+- `--help`: Show a help message
+
+### `cm update [OPTIONS]`
+
+Updates an existing memo.
+
+**Options:**
+- `--commit, -c TEXT`: Commit hash/ref
+- `--index, -i INTEGER`: Memo index (0-based)
+- `--memo TEXT`: New memo text (will prompt if not provided)
+- `--file, -f`: Update file memo instead of commit memo
+- `--help`: Show a help message
+
+### `cm delete [OPTIONS]`
+
+Delete an existing memo by its index.
+
+**Options:**
+- `--commit, -c TEXT`: Commit hash/ref
+- `--index, -i INTEGER`: Memo index (0-based)
+- `--file, -f`: Delete file memo instead of commit memo
+- `--help`: Show a help message
+
+### `cm search [OPTIONS]`
+
+Search for memos with various filtering options.
+
+**Options:**
+- `--author, -auth TEXT`: Author name
+- `--commit, -c TEXT`: Commit hash or reference
+- `--file, -f TEXT`: File path
+- `--visibility, -vs TEXT`: Memo visibility (private/shared)
+- `--max, -n INTEGER`: Maximum number of results to show (default: 10)
+- `--page INTEGER`: Page number to display (default: 1)
+- `--page-size, -p INTEGER`: Number of memos per page (default: 5)
+- `--help`: Show a help message
+
+### `cm show COMMIT`
+
+Display every memo (commit-level and file-line) attached to a commit.
+
+**Arguments:**
+- `COMMIT`: Commit hash, branch name, or tag
+
+**Options:**
+- `--help`: Show a help message
+
+### `cm log [OPTIONS]`
+
+Rich-formatted `git log` with all memos inline.
+
+**Options:**
+- `--max, -n INTEGER`: Show N latest commits
+- `--page INTEGER`: Page number to display (default: 1)
+- `--page-size, -p INTEGER`: Number of commits per page (default: 10)
+- `--help`: Show a help message
+
+### Global Options
+
+These options can be used with any command:
+
+- `--verbose, -v`: Increase verbosity (can be used multiple times)
+- `--quiet, -q`: Suppress all output except errors
+- `-vv`: Show internal details (WARNING level logging)
+- `--help`: Show a help message
+
+## Storage and Performance
+
+Commit Memory uses optimized storage with the following features:
+
+- **Incremental Updates**: Only modified commits/files are tracked and updated
+- **Caching**: Frequently accessed data is cached for better performance
+- **Lazy Loading**: Data is loaded only when needed, not at initialization
+
+Memos are stored in two JSON files:
+- `.commit-memos.private.json`: For your personal, private memos
+- `.commit-memos.shared.json`: For memos shared with your team
+
+## Contributing
+
+Contributions are welcome! Please check out our [Contributing Guidelines](CONTRIBUTING.md) for details on how to get started.
+
+### Development Workflow
+
+For developers working on Commit Memory, we use pre-commit hooks to ensure code quality and consistency:
+
+1. Install development dependencies:
+   ```
+   pip install pre-commit pytest
+   ```
+
+2. Set up pre-commit hooks:
+   ```
+   pre-commit install
+   ```
+
+This will automatically run the following checks before each commit:
+- Code formatting with Black and isort
+- Linting with Ruff
+- Type checking with mypy
+- Various file checks (trailing whitespace, YAML/TOML validation, etc.)
+
+## License
+
+This project is licensed under the MIT License—see the LICENSE file for details.
