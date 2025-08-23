@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "TTS_ka"
+version = "0.3.0"
+authors = [
+  { name="David Chincharashvili", email="davidchincharashvili@gmail.com" },
+]
+description = "A simple text to speech program using edge-tts library"
+readme = "README.md"
+requires-python = ">=3.6"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+license = { file = "LICENSE" }
+dependencies = [
+    "edge-tts",
+    "pyperclip",
+   ]
+
+[project.urls]
+"Homepage" = "https://github.com/DavidTbilisi/TTS.git"
+
+[project.scripts]
+TTS_ka = "TTS_ka.main:main"
