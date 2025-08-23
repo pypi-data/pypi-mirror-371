@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mediapyr"                       # tên package trên PyPI
+version = "0.1.4"                     # version
+description = "Lightweight Mediator pattern (sync/async) for Python"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {file = "LICENSE"}
+authors = [
+  { name="Nguyễn Tùng Sk", email="skfreelancer2004@gmail.com" }
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+
+[tool.setuptools.package-data]
+"mediapyr" = ["py.typed"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["mediapyr*"]
