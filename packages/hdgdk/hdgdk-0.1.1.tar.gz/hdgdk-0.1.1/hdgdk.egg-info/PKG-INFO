@@ -1,0 +1,78 @@
+Metadata-Version: 2.4
+Name: hdgdk
+Version: 0.1.1
+Summary: HD RPG 引擎框架(GDK) Python API
+Home-page: https://github.com/hdgdk/hdgdk-python
+Author: HD GDK API
+Author-email: hdgdk@example.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Microsoft :: Windows
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-python
+Dynamic: summary
+
+# HD GDK Python API
+
+这是一个用于调用 HD RPG 引擎框架(GDK)的 Python 库，提供了基础功能、登录验证、IP管理、插件安装扩展及环境初始化等功能的封装。
+
+## 功能特点
+
+- 自动加载 HD 引擎 DLL 文件（支持调试版和非调试版）
+- 提供简洁易用的 Python 接口
+- 内置错误处理机制
+- 模块化设计，便于扩展更多功能
+
+## 安装方法
+
+### 从源码安装
+
+```bash
+# 进入项目目录
+cd HD_python
+
+# 安装包（开发模式）
+pip install -e .
+```
+
+## 使用示例
+
+下面是一个完整的示例，展示如何使用 HD GDK Python API 的基础模块：
+
+```python
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+
+from hdgdk import (
+    init_dll_manager,
+
+    create_hd_basic,
+    create_hd_login
+                   )
+
+
+# 设置 DLL 文件所在路径（根据实际情况修改）
+DLL_PATH = "./dll"
+# 是否使用调试版 DLL
+IS_DEBUG = True
+init_dll_manager(DLL_PATH, is_debug=IS_DEBUG)
+hd_basic = create_hd_basic(DLL_PATH, IS_DEBUG)
+print(hd_basic)
+login = create_hd_login()
+print(login.login("", "","",""))
+```
+
+## 注意事项
+
+1. 在使用前，请确保你已经获得了正确的 HD 引擎 DLL 文件
+2. 对于不同的功能模块，请使用对应的工厂函数创建实例
+3. 所有操作都应该包含适当的错误处理
+4. 更多高级功能和其他模块的使用方法，请参考源代码和相关文档
