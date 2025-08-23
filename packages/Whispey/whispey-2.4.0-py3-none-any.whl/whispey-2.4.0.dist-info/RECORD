@@ -1,0 +1,9 @@
+whispey/__init__.py,sha256=87Tplm66ajd_OYOQRXM77NialLI11FSoimMyHE-4PZk,15287
+whispey/event_handlers.py,sha256=uD7jC4_GRDr_AQd1lgvX0Lq3pQwPr-AbRfdZJ8a0Pko,18147
+whispey/metrics_service.py,sha256=VZ7T_5v9iGMepzI8QbqXSK-CcEr101JsM2n0fzJGN24,673
+whispey/send_log.py,sha256=rWuJWUo-yMPNeQHvFdfphJM-6nqp35MgViIgdLhSjec,4536
+whispey/whispey.py,sha256=LUdlxpJ-jVlMWaupRAXSZGr_hRHLD9btBMHUZu-57H0,13275
+whispey-2.4.0.dist-info/METADATA,sha256=pFgaVHFY-k1xfxVo21Cr-5S67i-U75xYLMX_Q7lPbXs,1477
+whispey-2.4.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+whispey-2.4.0.dist-info/top_level.txt,sha256=Q_aVt1SLIDYgjaQdk2sdA5eM5PZ2sprC_S1I2RmJ9oY,8
+whispey-2.4.0.dist-info/RECORD,,
