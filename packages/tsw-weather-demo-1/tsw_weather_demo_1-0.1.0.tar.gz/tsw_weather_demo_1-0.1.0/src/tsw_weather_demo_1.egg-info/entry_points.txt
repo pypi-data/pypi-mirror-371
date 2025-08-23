@@ -1,0 +1,2 @@
+[console_scripts]
+tsw_weather_demo_1 = weather:mcp.run

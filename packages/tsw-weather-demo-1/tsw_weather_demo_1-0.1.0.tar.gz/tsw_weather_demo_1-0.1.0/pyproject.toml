@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61.0","wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tsw_weather_demo_1"
+version = "0.1.0"
+description = "weather"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "httpx>=0.28.1",
+    "mcp>=1.13.0",
+    "openai>=1.100.2",
+    "python-dotenv>=1.1.1",
+]
+[project.scripts]
+tsw_weather_demo_1 = "weather:mcp.run"
+[tool.setuptools]
+package-dir = {"" = "src"}
+[tool.setuptools.packages.find]
+where = ["src"]
