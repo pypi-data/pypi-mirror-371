@@ -1,0 +1,9 @@
+sparklingasterisk-0.1.0.dist-info/METADATA,sha256=YVeu2-YpCeN_E2XGs6RiRlH17TJn0EGvGLJHbWX90_8,298
+sparklingasterisk-0.1.0.dist-info/WHEEL,sha256=rXa1hNKJPd-J1se02jkvuZn4v_WM-W9q2R8LeAdqQiM,97
+sparklingasterisk/__init__.py,sha256=hQDHp8tx2nzajiEe4c2KYtfReNaIjgtzUgdO47osL-s,101
+sparklingasterisk/_core.abi3.so,sha256=MddKG3WPjEuDsWXknCDwHK-2KkdANDBCwZcrDF-bcqU,499784
+sparklingasterisk/_core.pyi,sha256=b6oJaUXUzEzqUE5rpqefV06hl8o_JCU8pgKgIIzQgmc,33
+sparklingasterisk/differential/__init__.py,sha256=wthVEgnKH3fg_e8fjcWu5DRIJsy6LSAfd8Jntn-JiJ4,46
+sparklingasterisk/differential/discrete.py,sha256=1Q-4-uruOvhs66fA1ILkVpFpd9gzKeTNAQhdK1WKUaY,195
+sparklingasterisk/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+sparklingasterisk-0.1.0.dist-info/RECORD,,
