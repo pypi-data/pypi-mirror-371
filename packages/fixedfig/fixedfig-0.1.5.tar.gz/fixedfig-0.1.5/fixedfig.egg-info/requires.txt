@@ -1,0 +1,2 @@
+matplotlib
+pyglet==1.5.27
