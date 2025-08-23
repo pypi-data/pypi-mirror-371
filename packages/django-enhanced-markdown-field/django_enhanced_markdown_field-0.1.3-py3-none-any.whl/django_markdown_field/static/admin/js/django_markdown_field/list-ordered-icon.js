@@ -1,0 +1,1 @@
+import{L as s,d as o}from"./p-DAXZ5svi.js";const p=s,r=o;export{p as ListOrderedIcon,r as defineCustomElement}
