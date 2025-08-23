@@ -1,0 +1,11 @@
+lightcurves/__init__.py,sha256=wfvfbP_9gN9WKZPLWPzif3VhgLgE3nLq_EyaSiO1PwE,109
+lightcurves/_version.py,sha256=O2MwkHziz63f5tgvyTDcaX64UwyuPAN_tWOgO5wh1WI,704
+lightcurves/hop.py,sha256=cmLGQj_Plm21-32afzmELb53FLfqvYa8gTqJcUpaycM,5811
+lightcurves/hop_finder.py,sha256=LQmgnnsHi9gEA40m6wMFJJR_uwDEg46b4RH9rFoLyqo,12046
+lightcurves/lc.py,sha256=QEWS1JKb0OG9E37iaZXQpnLBW65LHu5FTe3dcwV8fYk,38318
+lightcurves/lc_set.py,sha256=rR_N3Zcnr6Exi7R7Ea3j6EQUyM91Slef6_xph_FqhdU,6788
+lightcurves/version.py,sha256=MatIc3BMQW5nd6tISIvCfhzYIv0m9opIcWxpf4zW9IM,783
+lightcurves-1.1.1.dist-info/METADATA,sha256=x-bLWcaFsSnjaIfOIRWHGGRuM2DiwoB7hi2bQU6NdLA,2271
+lightcurves-1.1.1.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+lightcurves-1.1.1.dist-info/licenses/LICENSE.txt,sha256=9LkMWgU_t7GcvnvuM_WCSQgKFqxl183F5wBeHiB20m8,1071
+lightcurves-1.1.1.dist-info/RECORD,,
