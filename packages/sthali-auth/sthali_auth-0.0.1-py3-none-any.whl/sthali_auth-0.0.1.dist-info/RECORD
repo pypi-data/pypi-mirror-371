@@ -1,0 +1,12 @@
+sthali_auth/__init__.py,sha256=FqbRhjYQrbahWjZp3h8SP4060VVeb2P9gCPWbM2Nakk,2879
+sthali_auth/auth.py,sha256=j1J8Hc_sgcrg_PURYVHT6TXJZLN2EnA8dQlGUkWcrWE,1414
+sthali_auth/config.py,sha256=Hbyila91OiQytoteUN3X0jogn596bA70M2fjpxcS5-E,69
+sthali_auth/dependencies.py,sha256=uF1WwjlYlR4M1tf9_qqJrJTr4QAV0YNrVCbHxAhJRYE,205
+sthali_auth/clients/__init__.py,sha256=FdvqpmTF77T6O9Xys2LPZSKaKuJR3wXjqwob9xrVKU4,851
+sthali_auth/clients/apikey.py,sha256=sRbHb9l0L5a1-sCD6tcGKpgxdSKQX7qZHLO1sufTnys,1780
+sthali_auth/clients/basic.py,sha256=PbhvaHdSXoKnkGo-Iae8sVLa3aTidh1Y7xTE1L0L5bM,3073
+sthali_auth-0.0.1.dist-info/licenses/LICENSE,sha256=e4OdmTmp6KDSyxrlWjrIlDhEnNDgNuanZmmbQOh3YCI,1071
+sthali_auth-0.0.1.dist-info/METADATA,sha256=bobgShPDvoDQmuvgmKP5b47nBgdr93sf7OuQNhcD80o,4303
+sthali_auth-0.0.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+sthali_auth-0.0.1.dist-info/top_level.txt,sha256=12BNQSlmUBunuJ6D5lUZ1Idr6WJViBYMyHwjzlH4Xo4,12
+sthali_auth-0.0.1.dist-info/RECORD,,
