@@ -1,0 +1,26 @@
+[package]
+name = "jpreprocess-mod-naist-jdic"
+edition = "2021"
+
+version.workspace = true
+description.workspace = true
+license.workspace = true
+repository.workspace = true
+keywords.workspace = true
+categories.workspace = true
+rust-version.workspace = true
+
+documentation = "https://docs.rs/jpreprocess-naist-jdic"
+readme = "README.md"
+
+[features]
+naist-jdic = ["dep:tokio"]
+
+[dependencies]
+lindera-dictionary.workspace = true
+
+[build-dependencies]
+tokio = { workspace = true, optional = true }
+
+lindera-dictionary = { workspace = true, default-features = true }
+jpreprocess-mod-dictionary.workspace = true

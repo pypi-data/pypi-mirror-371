@@ -1,0 +1,22 @@
+[package]
+name = "jpreprocess-mod-njd"
+edition = "2021"
+
+version.workspace = true
+description.workspace = true
+license.workspace = true
+repository.workspace = true
+keywords.workspace = true
+categories.workspace = true
+rust-version.workspace = true
+
+documentation = "https://docs.rs/jpreprocess-njd"
+readme = "README.md"
+
+[dependencies]
+phf = { workspace = true, features = ["macros"] }
+aho-corasick.workspace = true
+
+jpreprocess-mod-core.workspace = true
+jpreprocess-mod-window.workspace = true
+jpreprocess-mod-dictionary.workspace = true

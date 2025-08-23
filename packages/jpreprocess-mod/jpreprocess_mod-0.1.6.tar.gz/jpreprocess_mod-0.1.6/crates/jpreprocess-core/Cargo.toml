@@ -1,0 +1,27 @@
+[package]
+name = "jpreprocess-mod-core"
+edition = "2021"
+
+version.workspace = true
+description.workspace = true
+license.workspace = true
+repository.workspace = true
+keywords.workspace = true
+categories.workspace = true
+rust-version.workspace = true
+
+documentation = "https://docs.rs/jpreprocess-core"
+readme = "README.md"
+
+[dependencies]
+thiserror.workspace = true
+bincode.workspace = true
+
+once_cell.workspace = true
+
+lindera.workspace = true
+
+serde = { workspace = true, features = ["derive"] }
+
+regex.workspace = true
+aho-corasick.workspace = true
