@@ -1,0 +1,7 @@
+psutil>=5.8.0
+distro>=1.6.0
+py-cpuinfo>=8.0.0
+requests>=2.25.0
+gputil>=1.4.0
+screeninfo>=0.6.0
+ifaddr>=0.1.7

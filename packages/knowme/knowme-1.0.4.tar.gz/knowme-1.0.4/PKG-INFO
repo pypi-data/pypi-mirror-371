@@ -1,0 +1,132 @@
+Metadata-Version: 2.4
+Name: knowme
+Version: 1.0.4
+Summary: A fast, offline command-line tool that displays detailed system info with text-based ASCII art logos. Now with mobile/Termux support!
+Home-page: https://github.com/mehtahrishi/KnowMe
+Author: Hrishi Mehta
+Author-email: Hrishi Mehta <mehtahrishi45@gmail.com>
+License: MIT
+Project-URL: Homepage, https://github.com/mehtahrishi/KnowMe
+Project-URL: Bug Tracker, https://github.com/mehtahrishi/KnowMe/issues
+Project-URL: Documentation, https://github.com/mehtahrishi/KnowMe#readme
+Project-URL: Source Code, https://github.com/mehtahrishi/KnowMe
+Keywords: system,info,neofetch,cli,terminal,ascii,mobile,termux,android
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: Operating System :: OS Independent
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Android
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: System :: Systems Administration
+Classifier: Topic :: Utilities
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: psutil>=5.8.0
+Requires-Dist: distro>=1.6.0
+Requires-Dist: py-cpuinfo>=8.0.0
+Requires-Dist: requests>=2.25.0
+Requires-Dist: gputil>=1.4.0
+Requires-Dist: screeninfo>=0.6.0
+Requires-Dist: ifaddr>=0.1.7
+Dynamic: author
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-python
+
+# KnowMe
+
+A fast, offline command-line tool that displays detailed system information with a classic, neofetch-style ASCII logo.
+
+## Features
+
+- 🚀 **Fast & Offline**: No internet connection required
+- 🎨 **Beautiful ASCII Art**: OS-specific logos and colorful output
+- 📊 **Comprehensive Info**: CPU, Memory, Storage, Network, and more
+- 🔧 **Cross-Platform**: Works on Linux, macOS, and Windows
+- 💻 **Lightweight**: Minimal dependencies and resource usage
+
+## Installation
+
+### From PyPI (Recommended)
+
+```bash
+pip install knowme
+```
+
+### From Source
+
+```bash
+git clone https://github.com/mehtahrishi/knowme.git
+cd knowme
+pip install .
+```
+
+### Development Installation
+
+```bash
+git clone https://github.com/mehtahrishi/knowme.git
+cd knowme
+pip install -e .
+```
+
+## Usage
+
+Simply run the command:
+
+```bash
+knowme
+```
+
+This will display your system information in a beautiful two-column layout with an ASCII logo.
+
+## System Information Displayed
+
+- **Operating System**: Name, version, and architecture
+- **Kernel**: Kernel version and release info
+- **CPU**: Model, cores, threads, and current frequency
+- **Memory**: Total, used, and available RAM
+- **Storage**: Disk usage for all mounted drives
+- **Network**: Active interfaces and IP addresses
+- **GPU**: Graphics card information (if available)
+- **Display**: Screen resolution and refresh rate
+- **Uptime**: System uptime
+- **Shell**: Current shell and version
+- **Terminal**: Terminal emulator information
+
+## Requirements
+
+- Python 3.7 or higher
+- Works on Linux, macOS, and Windows
+
+## Dependencies
+
+- `psutil` - System and process utilities
+- `distro` - Linux distribution information
+- `py-cpuinfo` - CPU information
+- `requests` - HTTP library
+- `gputil` - GPU utilities
+- `screeninfo` - Display information
+- `ifaddr` - Network interface addresses
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+Inspired by neofetch and other system information tools.
