@@ -1,0 +1,10 @@
+nonebot_plugin_weiweibot-0.2.3.dist-info/METADATA,sha256=D-HDv8sbHnici5KHLXxGUS8rB4m7F2Hwe9gBmsxLG6g,4533
+nonebot_plugin_weiweibot-0.2.3.dist-info/WHEEL,sha256=9P2ygRxDrTJz3gsagc0Z96ukrxjr-LFBGOgv3AuKlCA,90
+nonebot_plugin_weiweibot-0.2.3.dist-info/entry_points.txt,sha256=6OYgBcLyFCUgeqLgnvMyOJxPCWzgy7se4rLPKtNonMs,34
+nonebot_plugin_weiweibot-0.2.3.dist-info/licenses/LICENSE,sha256=pZYkosdF0Vxh70WeoVvIoBIcLOHQYhBdJImPJ3nshH8,1063
+plug/nonebot-plugin-weiweibot/__init__.py,sha256=4jcmbeiSQsLD6Rj6DlHdRmjPFKLg9OdgHmSEpUQza_A,22829
+plug/nonebot-plugin-weiweibot/config.py,sha256=1T8VnU0_HA6XCQ3tdjeP3WQaAvGvWajrdncXYqvLgK8,70
+plug/nonebot-plugin-weiweibot/search.py,sha256=7JyvgJWwo8BS14TY8CHpfZXUDVCKTlklF3loun84-LI,3432
+plug/nonebot-plugin-weiweibot/store.py,sha256=sCbvJPwzqJlj2Pg_sWAjrZlRWRbvCTRikby9Fk2bpbw,713
+plug/nonebot-plugin-weiweibot/utils.py,sha256=VNfEVjiN2YglqScDamYKoFFDcWMD96mSoBzxyJ4wCbA,2795
+nonebot_plugin_weiweibot-0.2.3.dist-info/RECORD,,
