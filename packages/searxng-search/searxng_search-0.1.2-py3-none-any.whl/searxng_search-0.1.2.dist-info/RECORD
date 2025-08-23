@@ -1,0 +1,10 @@
+searxng_search/__init__.py,sha256=qqzgVMyIA4dvFL12Qn93CYdi7MLKw_sMCJ052xOBddk,242
+searxng_search/exceptions.py,sha256=zK4fP_PFlLvW_n5cE5I4Qv6FSwVcTmB-95IbEZ_wx50,383
+searxng_search/searxng_search.py,sha256=Wh1nIKcgssOWhiciT2-zBhptR832yigM0z65rpaivss,9774
+searxng_search/utils.py,sha256=1GYM7c-7XtdcjYk-TsFaXjLkdbH0xGHZurk_WdeZ1DU,1499
+searxng_search-0.1.2.dist-info/licenses/LICENSE.md,sha256=e_6t-u_0uj1U_5J6m9RU-aN72P1UKKFZzYQCfVXL5y4,1065
+test/demo.py,sha256=J592ehboNNFAyXkz6NYBLLfsHZNM-s0SCNmKRJ58bfo,3109
+searxng_search-0.1.2.dist-info/METADATA,sha256=6NnK0A1VzmgIrqxPA79LzVUWJoGpakLPBkp3S0oosdQ,14954
+searxng_search-0.1.2.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+searxng_search-0.1.2.dist-info/top_level.txt,sha256=0ycGOW6prPn0FCV47rxBSWzHyxHA41F0LqbrTkCO-ZA,20
+searxng_search-0.1.2.dist-info/RECORD,,
