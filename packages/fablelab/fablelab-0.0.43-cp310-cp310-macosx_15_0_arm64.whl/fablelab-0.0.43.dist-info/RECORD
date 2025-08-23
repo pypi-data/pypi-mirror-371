@@ -1,0 +1,13 @@
+poc/__init__.cpython-310-darwin.so,sha256=pdsS1aUirts3KxCu7g-9OnifCMOWHALgzkh02MH_yWg,54576
+poc/apple.cpython-310-darwin.so,sha256=J8li94XHf2w3XLlo_bc0SeHiTYSDFA_gsXWQ8iQYQLw,109832
+poc/bigquery.cpython-310-darwin.so,sha256=MDx3q2hCYr_YiU14eGMtXidDIB__U8iewMqwb1k86k8,112096
+poc/insta.cpython-310-darwin.so,sha256=5I5BfHxXCpDa6oiaeo8NN_5fXYeUcApOoaQ4mq-QtfY,107144
+poc/mysql.cpython-310-darwin.so,sha256=pHTxG2NWgVbQL63M2UQhy4ZN_3v_73ZLLqahVau6UWg,89496
+poc/rest.cpython-310-darwin.so,sha256=-TpZNnX7MfbCforXHGw-iKhvfAHacW-osdiE3_qfBGE,116008
+poc/spotify.cpython-310-darwin.so,sha256=FQ7hGs2REQS7R5nHW_HcyBRPelrBTj0LkIZamYLPcO4,113152
+poc/util.cpython-310-darwin.so,sha256=l3aCMI5PC0g-UrgAMLA-Fwq1lCKxXWxud46kRYAOU0E,134264
+poc/youtube.cpython-310-darwin.so,sha256=K2V3fMCzt3Ih6tWRo1tjtp19jYlcirAO1dNNnIN2BLs,109888
+fablelab-0.0.43.dist-info/METADATA,sha256=-upc9knVh7DOvL2kJVg7heSx8nl-JzOGiT2ws5H7ad4,593
+fablelab-0.0.43.dist-info/WHEEL,sha256=QbwVjH-TlueSdsOKSic424jsJD30r52gknYt4wXVwF0,109
+fablelab-0.0.43.dist-info/top_level.txt,sha256=unIn9WMh56vyJynXmqnXDRimDNSvRU4ivSUt3xIjyaw,4
+fablelab-0.0.43.dist-info/RECORD,,
