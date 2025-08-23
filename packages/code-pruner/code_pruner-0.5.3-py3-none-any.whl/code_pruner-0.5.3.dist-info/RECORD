@@ -1,0 +1,15 @@
+code_pruner/demo.py,sha256=oNX0tdt6wy7uN9812yuQYJn4VTzeVmOgQdbgqPdQm9M,536
+code_pruner/prune.py,sha256=CWeRYUGWdIpsDikj1OdoWbon2oyke8jGqDKjyFKn3Gs,2631
+code_pruner/utils.py,sha256=vSPih6UGSw3biTUyPrAX4FeQFVTwYMzAQd5et3Nde1g,168
+code_pruner/data/example.py,sha256=40FLZZExN7380N4G6ngYaswlN8Yli2Zx8rd_yZwSC80,2254
+code_pruner/data/example_pruned.py,sha256=VLwU7zD_b9s8YqsVojPvRduo7U7LG8CthxCOjI3sJJU,1365
+code_pruner/metadata/path_provider.py,sha256=88VEJycPzz8z1ljNmBtIRok-MSNrh8KR_OpFhlvOaDA,1770
+code_pruner/metadata/rules_provider.py,sha256=AzWHO1vXTIieOL5n3Nb_eVkO71YoT4_S7aGeGhChTBU,7415
+code_pruner/pruning/data_types.py,sha256=RzkxhQ1NMaKnjSf20dk7ujbRo5uiT_EwiWSg-KiqlwU,1555
+code_pruner/pruning/macher.py,sha256=3pDj6ln-ixQ4qLGwG0xu2qfZZpGOTJJfiZgLQSUmTLY,1019
+code_pruner/pruning/transformers.py,sha256=pTuVy-KLnGRlSvKLWDbiW-BpIIQkAWdJAunUXvaQkEs,1294
+code_pruner-0.5.3.dist-info/LICENSE.md,sha256=wUIM-QRNjxXbvrL0h3bRbjZ8JX5v41r3O6qG8RCvVs8,1095
+code_pruner-0.5.3.dist-info/METADATA,sha256=kLy5tYHtuwornLGGjutGh6L09h5ebK_RDsNs6rzBugU,982
+code_pruner-0.5.3.dist-info/WHEEL,sha256=tZoeGjtWxWRfdplE7E3d45VPlLNQnvbKiYnx7gwAy8A,92
+code_pruner-0.5.3.dist-info/top_level.txt,sha256=8GGRyaHy3J7mFhaNeo2kwitwhD8frwUuUziL1tS5sLY,12
+code_pruner-0.5.3.dist-info/RECORD,,
