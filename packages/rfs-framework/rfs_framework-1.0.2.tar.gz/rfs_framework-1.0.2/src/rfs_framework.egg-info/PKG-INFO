@@ -1,0 +1,317 @@
+Metadata-Version: 2.4
+Name: rfs-framework
+Version: 1.0.2
+Summary: Reactive Functional Serverless Framework for Python
+Author-email: RFS Framework Team <dev@rfs-framework.org>
+License: MIT
+Project-URL: Homepage, https://github.com/rfs-framework/rfs-python
+Project-URL: Documentation, https://rfs-framework.readthedocs.io/
+Project-URL: Repository, https://github.com/rfs-framework/rfs-python
+Project-URL: Bug Reports, https://github.com/rfs-framework/rfs-python/issues
+Project-URL: Changelog, https://github.com/rfs-framework/rfs-python/blob/main/CHANGELOG.md
+Keywords: reactive,functional,serverless,framework,async,cloud-run,cloud-tasks,spring-reactor,state-machine,event-driven,saga,cqrs
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: System :: Distributed Computing
+Classifier: Topic :: Internet :: WWW/HTTP :: HTTP Servers
+Classifier: Typing :: Typed
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: typing-extensions>=4.0.0
+Provides-Extra: cloud
+Requires-Dist: google-cloud-tasks>=2.13.0; extra == "cloud"
+Requires-Dist: google-cloud-run>=0.9.0; extra == "cloud"
+Requires-Dist: aioredis>=2.0.0; extra == "cloud"
+Requires-Dist: psutil>=5.9.0; extra == "cloud"
+Provides-Extra: eventstore
+Requires-Dist: aiofiles>=22.0.0; extra == "eventstore"
+Requires-Dist: aioredis>=2.0.0; extra == "eventstore"
+Provides-Extra: all
+Requires-Dist: google-cloud-tasks>=2.13.0; extra == "all"
+Requires-Dist: google-cloud-run>=0.9.0; extra == "all"
+Requires-Dist: aioredis>=2.0.0; extra == "all"
+Requires-Dist: psutil>=5.9.0; extra == "all"
+Requires-Dist: aiofiles>=22.0.0; extra == "all"
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0.0; extra == "dev"
+Requires-Dist: pytest-asyncio>=0.21.0; extra == "dev"
+Requires-Dist: pytest-cov>=4.0.0; extra == "dev"
+Requires-Dist: black>=22.0.0; extra == "dev"
+Requires-Dist: isort>=5.10.0; extra == "dev"
+Requires-Dist: mypy>=1.0.0; extra == "dev"
+Requires-Dist: flake8>=5.0.0; extra == "dev"
+Requires-Dist: pre-commit>=2.20.0; extra == "dev"
+Provides-Extra: docs
+Requires-Dist: sphinx>=5.0.0; extra == "docs"
+Requires-Dist: sphinx-rtd-theme>=1.0.0; extra == "docs"
+Requires-Dist: sphinx-autodoc-typehints>=1.19.0; extra == "docs"
+Dynamic: license-file
+
+# RFS Framework
+
+**Reactive Functional Serverless Framework for Python**
+
+[![PyPI version](https://badge.fury.io/py/rfs-framework.svg)](https://badge.fury.io/py/rfs-framework)
+[![Python versions](https://img.shields.io/pypi/pyversions/rfs-framework.svg)](https://pypi.org/project/rfs-framework/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Tests](https://github.com/rfs-framework/rfs-python/actions/workflows/test.yml/badge.svg)](https://github.com/rfs-framework/rfs-python/actions)
+
+RFS Framework는 Python을 위한 포괄적인 반응형 함수형 서버리스 프레임워크입니다. Spring Reactor에서 영감을 받은 반응형 스트림, 함수형 프로그래밍 패턴, 상태 머신 시스템, 서버리스 최적화를 통합합니다.
+
+## 🚀 주요 기능
+
+### ⚡ Reactive Streams
+Spring Reactor에서 영감을 받은 **Flux**와 **Mono**를 통한 비동기 스트림 처리
+
+```python
+from rfs import Flux, Mono
+
+# 비동기 스트림 처리
+result = await (
+    Flux.from_iterable([1, 2, 3, 4, 5])
+    .map(lambda x: x * 2)
+    .filter(lambda x: x > 5)
+    .parallel(max_concurrency=3)
+    .sequential()
+    .to_list()
+)
+```
+
+### 🔀 Railway Oriented Programming
+강력한 **Result** 타입을 통한 에러 처리
+
+```python
+from rfs import Result, success, failure
+
+def safe_divide(a: int, b: int) -> Result[float, str]:
+    if b == 0:
+        return failure("Division by zero")
+    return success(a / b)
+
+result = (success(10)
+         .bind(lambda x: safe_divide(x, 2))
+         .map(lambda x: x * 3))
+```
+
+### 🔧 State Machine
+Spring StateMachine에서 영감을 받은 상태 관리
+
+```python
+from rfs.state_machine.functional import (
+    create_state_machine, add_state_to_machine, add_transition_to_machine,
+    start_state_machine, process_all_events
+)
+
+# 함수형 스타일 상태 머신
+machine = (create_state_machine("order_machine")
+          |> add_state_to_machine(_, initial_state)
+          |> add_state_to_machine(_, processing_state)
+          |> add_transition_to_machine(_, transition))
+```
+
+### ☁️ Serverless Optimization
+Google Cloud Run/Tasks에 최적화된 서버리스 아키텍처
+
+```python
+from rfs import CloudRunOptimizer
+
+optimizer = CloudRunOptimizer(config)
+
+@optimizer.cold_start_detector
+@optimizer.cache_result(ttl_seconds=300)
+async def my_function():
+    return "Hello World"
+```
+
+### 📡 Event-Driven Architecture
+강력한 이벤트 버스와 사가 패턴
+
+```python
+from rfs import EventBus, Event, Saga
+
+# 이벤트 처리
+event_bus = await get_event_bus()
+await event_bus.publish(Event("order_created", {"order_id": "123"}))
+
+# 사가 패턴으로 분산 트랜잭션
+saga = Saga("order_processing")
+saga.step("reserve_inventory", reserve_action, compensate_action)
+saga.step("process_payment", payment_action, refund_action)
+```
+
+## 📦 설치
+
+```bash
+# 기본 설치
+pip install rfs-framework
+
+# 모든 의존성 포함
+pip install rfs-framework[all]
+
+# 클라우드 기능만
+pip install rfs-framework[cloud]
+
+# 개발용
+pip install rfs-framework[dev]
+```
+
+## 🎯 빠른 시작
+
+### 기본 사용법
+
+```python
+import asyncio
+from rfs import Flux, success, failure
+
+async def main():
+    # Reactive 처리와 Result 패턴 결합
+    def safe_operation(x: int):
+        if x < 0:
+            return failure("Negative number")
+        return success(x * x)
+    
+    results = await (
+        Flux.from_iterable([-1, 2, 3, -4, 5])
+        .map(safe_operation)
+        .filter(lambda r: r.is_success())
+        .map(lambda r: r.unwrap())
+        .to_list()
+    )
+    
+    print(results)  # [4, 9, 25]
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+### 전자상거래 예제
+
+```python
+from rfs import EventBus, Saga, StatelessRegistry
+
+@StatelessRegistry.register("order_service")
+class OrderService:
+    async def process_order(self, order_data):
+        # 비즈니스 로직
+        return success(processed_order)
+
+# 주문 처리 사가
+saga = Saga("order_processing")
+saga.step("validate_order", validate_action)
+saga.step("reserve_inventory", reserve_action, release_action)
+saga.step("process_payment", payment_action, refund_action)
+
+# 이벤트 기반 처리
+event_bus = await get_event_bus()
+event_bus.subscribe(order_handler, ["order_created"])
+```
+
+## 🏗️ 아키텍처
+
+RFS Framework는 다음 핵심 구성요소로 이루어져 있습니다:
+
+- **`rfs.reactive`**: Flux/Mono 반응형 스트림
+- **`rfs.core.result`**: Railway Oriented Programming
+- **`rfs.core.singleton`**: 무상태 싱글톤 패턴
+- **`rfs.state_machine`**: 함수형 상태 머신
+- **`rfs.serverless`**: Cloud Run/Tasks 최적화
+- **`rfs.events`**: 이벤트 버스, 사가, CQRS
+
+## 🔧 고급 기능
+
+### 병렬 처리와 배치
+
+```python
+# 대용량 데이터 병렬 처리
+result = await (
+    Flux.from_iterable(large_dataset)
+    .buffer(100)  # 100개씩 배치
+    .map(process_batch)
+    .parallel(max_concurrency=5)
+    .sequential()
+    .to_list()
+)
+```
+
+### 함수 합성과 파이프라인
+
+```python
+from rfs.core.result import pipe_results
+
+def validate_user(data): return success(data) if data.get("id") else failure("No ID")
+def authenticate(data): return success(data) if data.get("token") else failure("No token")
+def authorize(data): return success(data) if data.get("role") == "admin" else failure("Not admin")
+
+pipeline = pipe_results(validate_user, authenticate, authorize)
+result = pipeline(user_data)
+```
+
+### 이벤트 소싱과 CQRS
+
+```python
+from rfs.events import EventStore, CommandHandler, QueryHandler
+
+# 이벤트 스토어
+store = EventStore(StorageType.FILE, base_path="./events")
+stream = store.get_stream("user_stream")
+await stream.append(UserCreatedEvent(user_id="123"))
+
+# CQRS 패턴
+@command_handler(CreateUserCommand)
+class CreateUserHandler(CommandHandler):
+    async def handle(self, command):
+        # 커맨드 처리 로직
+        return CommandResult(success=True, events=[user_created_event])
+```
+
+## 📖 문서
+
+- [API 문서](https://rfs-framework.readthedocs.io/)
+- [사용자 가이드](https://rfs-framework.readthedocs.io/user-guide/)
+- [예제 모음](https://github.com/rfs-framework/rfs-python/tree/main/examples)
+- [마이그레이션 가이드](https://rfs-framework.readthedocs.io/migration/)
+
+## 🤝 기여
+
+기여를 환영합니다! 자세한 내용은 [CONTRIBUTING.md](CONTRIBUTING.md)를 참고해주세요.
+
+### 개발 환경 설정
+
+```bash
+git clone https://github.com/rfs-framework/rfs-python.git
+cd rfs-python
+pip install -e .[dev]
+pre-commit install
+```
+
+### 테스트 실행
+
+```bash
+pytest                    # 전체 테스트
+pytest tests/test_reactive.py  # 특정 테스트
+pytest --cov=rfs         # 커버리지 포함
+```
+
+## 📜 라이선스
+
+MIT License. 자세한 내용은 [LICENSE](LICENSE) 파일을 참고해주세요.
+
+## 🙏 감사의 말
+
+- [Spring Framework](https://spring.io/) - Reactor와 StateMachine 영감
+- [RxJava](https://github.com/ReactiveX/RxJava) - 반응형 패턴 아이디어
+- [Rust](https://www.rust-lang.org/) - Result 타입 영감
+- [F#](https://fsharp.org/) - Railway Oriented Programming
+
+---
+
+**RFS Framework**로 더 나은 반응형, 함수형, 서버리스 애플리케이션을 만들어보세요! 🚀
