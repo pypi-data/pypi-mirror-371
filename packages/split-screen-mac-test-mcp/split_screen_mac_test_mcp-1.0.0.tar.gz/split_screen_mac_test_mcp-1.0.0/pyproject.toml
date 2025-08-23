@@ -1,0 +1,32 @@
+[project]
+name = "split-screen-mac-test-mcp"
+version = "1.0.0"
+description = "Model Context Protocol Server for macOS Split Screen Window Management"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [
+    {name = "Beta"}
+]
+license = {file = "LICENSE"}
+keywords = ["mcp", "split-screen", "window-management", "tiling", "macos", "desktop-productivity"]
+dependencies = [
+    "mcp>=0.1.0"
+]
+
+[project.scripts]
+split-screen-mac-test-mcp = "split_screen_mcp.__main__:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/split_screen_mcp"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/src/split_screen_mcp/**/*.py",
+    "/README.md",
+    "/LICENSE",
+    "/pyproject.toml"
+]
