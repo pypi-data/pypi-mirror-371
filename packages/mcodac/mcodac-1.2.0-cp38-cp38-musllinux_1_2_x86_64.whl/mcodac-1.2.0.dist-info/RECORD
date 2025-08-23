@@ -1,0 +1,10 @@
+mcodac.libs/libblas-6717843b.so.3.9.0,sha256=ymLpnGnp46KJIrK5fmpBTYNX2bzRq78lGYixgWnUAMI,554417
+mcodac.libs/libgcc_s-452e9da3.so.1,sha256=fKy7Q_k8bveczsPLknZm47fVPJJQPrlpedzUP8r7YC4,105833
+mcodac.libs/libquadmath-001c3ec9.so.0.0.0,sha256=tw9FXIRkVi1hAbzTeyXNYh2xnxZDSbB50l50ntoW31Y,301233
+mcodac.libs/libgfortran-8d7ace49.so.5.0.0,sha256=zjOW9EiSq6boMDPeA0-vRgKHaxXJGyzkXdKZtvLwnEU,3072625
+mcodac.libs/liblapack-84c87590.so.3.9.0,sha256=bLbUepcaplF_EinsjR809ZpcGODDIjpSbB97_F5Frvc,9422369
+mcodac-1.2.0.dist-info/METADATA,sha256=msl0v0Fi66pQcBBh8muR339ENyf2VKBVuEscqkx0EjE,1797
+mcodac-1.2.0.dist-info/WHEEL,sha256=oJbFmCCQfZ71ZBaGHTFbs_d01RYZcFB0DKQcsqZ2vF8,107
+mcodac-1.2.0.dist-info/RECORD,,
+mcodac/_mcodac.cpython-38-x86_64-linux-gnu.so,sha256=SjKD7YtA15BuxrR7odzk0KrXphz1sl0j92PtsXLP65Q,11757793
+mcodac/__init__.py,sha256=oDr-Pjmj2MwMEbh84jGZr1ZgQdVTVbbauJ7cO3Y5Kvc,1085
