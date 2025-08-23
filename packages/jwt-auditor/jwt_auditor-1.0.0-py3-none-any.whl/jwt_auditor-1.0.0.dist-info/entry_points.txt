@@ -1,0 +1,2 @@
+[console_scripts]
+jwt-auditor = jwt_auditor.cli:main
