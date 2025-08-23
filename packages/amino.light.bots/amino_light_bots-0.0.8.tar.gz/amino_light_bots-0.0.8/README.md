@@ -1,0 +1,135 @@
+<div align="center">
+  <h1>🤖 aminolightbots</h1>
+  <p><i>powerful and convenient framework for creating bots in amino</i></p>
+  
+  [![PyPI version](https://badge.fury.io/py/AminoLightBots.svg)](https://badge.fury.io/py/AminoLightBots)
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+  [![Python 3.7+](https://img.shields.io/badge/python-3.7+-blue.svg)](https://www.python.org/downloads/)
+</div>
+
+## 📝 description
+
+**aminolightbots** is a modern framework for rapid bot development on the amino platform. built on the optimized [aminolightpy](https://github.com/augustligh/aminolightpy) library, it provides developers with an intuitive api and rich toolset.
+
+## ✨ key features
+
+🚀 **ease of use**
+- intuitive api
+- minimal code for bot creation
+- detailed documentation
+
+⚙️ **advanced message processing** 
+- command and regex support
+- message filtering by various criteria
+- handling all content types (text, images, stickers, etc.)
+
+🔄 **extended capabilities**
+- multithreaded message processing
+- middleware system
+- convenient dialog and command chain handling
+
+## ⚡️ quick start
+
+### installation
+
+```bash
+pip install aminolightbots
+```
+
+### simple example
+
+```python
+from aminolightbots import bot
+
+bot = bot(email="your_email", password="your_password")
+
+@bot.message_handler(commands=['start'])
+def start_command(message):
+    message.reply("👋 hi! im bot in aminolightbots")
+
+@bot.message_handler(regexp=r'hello|hi')
+def handle_greeting(message):
+    message.reply(f"hi, {message.author.nickname}! 😊")
+
+bot.start_websocket_handling()
+```
+
+## 📚 usage examples
+
+### working with commands
+
+```python
+@bot.message_handler(commands=['help'])
+def help_command(message):
+    help_text = """
+    🔍 available commands:
+    /start - start dialog
+    /help - show help
+    /info - bot information
+    """
+    message.reply(help_text)
+```
+
+### user dialogs
+
+```python
+@bot.message_handler(commands=['register'])
+def start_registration(message):
+    bot.send_message(message.chatId, "what's your name?")
+    bot.register_next_step_handler(message, process_name)
+
+def process_name(message):
+    name = message.content
+    message.reply(f"nice to meet you, {name}! 🤝")
+```
+
+## 🛠 supported events
+
+| event | description |
+|-------|-------------|
+| `text` | text messages |
+| `image` | image messages |
+| `voice` | voice messages |
+| `sticker` | sticker messages |
+| `delete` | deleted messages |
+| `member_join` | member joins the chat |
+| `member_leave` | member leaves the chat |
+| `start_voice_chat` | voice chat started |
+| `end_voice_chat` | voice chat ended |
+| `start_video_chat` | video chat started |
+| `end_video_chat` | video chat ended |
+| `start_screen_room` | screen sharing started |
+| `end_screen_room` | screen sharing ended |
+
+### example
+
+```python
+@bot.message_handler(func=lambda: True, content_types=["voice"])
+def handle_voice(message):
+    message.reply("nice voice message!")
+```
+
+## 🤝 contributing
+
+we welcome community contributions to the project! 
+
+1. fork the repository
+2. create a branch for your changes
+3. make changes and create a pull request
+
+## 📄 license
+
+this project is licensed under the mit license. see the [license](license) file for details.
+
+## 🔗 useful links
+
+- [documentation](https://aminolightbots.readthedocs.io/)
+- [github repository](https://github.com/augustligh/aminolightbots)
+- [pypi package](https://pypi.org/project/aminolightbots/)
+- [support telegram](https://t.me/aminolightpy)
+
+---
+
+<div align="center">
+  <p>created with ❤️ for the amino community</p>
+  <p>©
