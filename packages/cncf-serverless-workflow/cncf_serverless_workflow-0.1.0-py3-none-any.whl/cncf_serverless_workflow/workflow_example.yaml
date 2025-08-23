@@ -1,0 +1,191 @@
+# Workflow: Simplified Agentic AI Workflow
+# Non-End states MUST include transition or end: true
+id: simplified-agentic-workflow
+specVersion: "1.0"
+version: "1.0.0"
+name: Simplified Agentic AI Workflow
+description: "Simplified workflow with state-based naming, no dataInput, null checks, quoted structured comments"
+
+start: ParallelStart
+functions:
+  - name: initParallel
+    type: expression
+    operation: "{items: [{value: 60}, {value: 30}, {value: 45}], value: 60}"
+    comment: "Returns object (e.g., {\"items\": [{\"value\": number}], \"value\": number})"
+  - name: initForEach
+    type: expression
+    operation: "{items: [{value: 60}, {value: 30}, {value: 45}]}"
+    comment: "Returns object (e.g., {\"items\": [{\"value\": number}]})"
+  - name: initSwitch
+    type: expression
+    operation: "{value: 60}"
+    comment: "Returns object (e.g., {\"value\": number})"
+  - name: initOperation
+    type: expression
+    operation: "{value: 70}"
+    comment: "Returns object (e.g., {\"value\": number})"
+  - name: method1
+    type: custom
+    operation: AGENT1.method1
+    comment: "Returns int (e.g., incremented value)"
+  - name: method2
+    type: custom
+    operation: AGENT2.method2
+    comment: "Returns string (e.g., formatted message)"
+  - name: method3
+    type: expression
+    operation: "[.input.value, .input.value + 1]"
+    comment: "Returns list (e.g., [value, value + 1])"
+  - name: method4
+    type: custom
+    operation: AGENT4.method4
+    comment: "Returns object (e.g., {\"key\": processed})"
+  - name: subAgent
+    type: custom
+    operation: sub_agent_operation
+    comment: "Returns object (e.g., {\"subResult\": processed})"
+
+states:
+  # State: ParallelStart
+  - name: ParallelStart
+    type: parallel
+    transition: ForEachState
+    completionType: allOf
+    branches:
+      - name: Branch1
+        states:
+          - name: Branch1Operation
+            type: operation
+            actions:
+              - functionRef:
+                  refName: initParallel
+                  arguments:
+                    input: "{}"
+                dataOutput: ".context.ParallelStartOutput"
+              - functionRef:
+                  refName: method1
+                  arguments:
+                    input: "{input: (.context.ParallelStartOutput.value // 0) + 1}"
+                dataOutput: ".context.ParallelStartOutput.Branch1Output"
+            end: true
+      - name: Branch2
+        states:
+          - name: Branch2Operation
+            type: operation
+            actions:
+              - functionRef:
+                  refName: method2
+                  arguments:
+                    input: "{input: 2}"
+                dataOutput: ".context.ParallelStartOutput.Branch2Output"
+            end: true
+  
+  # State: ForEachState
+  - name: ForEachState
+    type: foreach
+    transition: SwitchState
+    inputCollection: ".context.ParallelStartOutput.items // []"
+    iterationParam: "item"
+    completionType: allOf
+    iterator:
+      - name: ForEachSwitch
+        type: switch
+        dataConditions:
+          - condition: ".item.value > 50"
+            transition: HighAction
+          - condition: ".item.value <= 50"
+            transition: LowAction
+        defaultCondition:
+          transition: SubflowAction
+      - name: HighAction
+        type: operation
+        actions:
+          - functionRef:
+              refName: method2
+              arguments:
+                input: "{input: (.item.value // 0) - 50}"
+            dataOutput: ".context.ForEachStateOutput.method2"
+        end: true
+      - name: LowAction
+        type: operation
+        actions:
+          - functionRef:
+              refName: method3
+              arguments:
+                input: "{input: {value: (.item.value // 0) + 1}}"
+            dataOutput: ".context.ForEachStateOutput.method3"
+        end: true
+      - name: SubflowAction
+        type: subflow
+        workflowId: SubWorkflow
+        dataOutput: ".context.ForEachStateOutput.SubWorkflowOutput"
+        end: true
+  
+  # State: SwitchState
+  - name: SwitchState
+    type: switch
+    dataConditions:
+      - condition: ".context.ForEachStateOutput.results != null and .context.ForEachStateOutput.results[0].method2 != null"
+        transition: OperationState
+      - condition: ".context.ForEachStateOutput.results == null or .context.ForEachStateOutput.results[0].method2 == null"
+        transition: End
+    defaultCondition:
+      transition: End
+  
+  # State: OperationState
+  - name: OperationState
+    type: operation
+    transition: End
+    actionMode: sequential
+    actions:
+      - functionRef:
+          refName: initOperation
+          arguments:
+            input: "{}"
+        dataOutput: ".context.OperationStateOutput.initOperation"
+      - functionRef:
+          refName: method1
+          arguments:
+            input: "{input: (.context.OperationStateOutput.initOperation.value // 0) + 1}"
+        dataOutput: ".context.OperationStateOutput.method1"
+      - functionRef:
+          refName: method2
+          arguments:
+            input: "{input: \"Seq2: \" + ((.context.OperationStateOutput.method1 // 0) | tostring)}"
+        dataOutput: ".context.OperationStateOutput.method2"
+      - functionRef:
+          refName: method3
+          arguments:
+            input: "{input: {value: (.context.OperationStateOutput.method2 // \"\")}}"
+        dataOutput: ".context.OperationStateOutput.method3"
+      - functionRef:
+          refName: method4
+          arguments:
+            input: "{input: {default: (.context.OperationStateOutput.method3[0] // \"\")}}"
+        dataOutput: ".context.OperationStateOutput.method4"
+  
+  # State: End
+  - name: End
+    type: end
+
+subWorkflows:
+  # SubWorkflow: SubWorkflow
+  - id: SubWorkflow
+    specVersion: "1.0"
+    version: "1.0.0"
+    name: Sub Workflow Example
+    functions:
+      - name: subAgent
+        type: custom
+        operation: sub_agent_operation
+        comment: "Returns object (e.g., {\"subResult\": processed})"
+    states:
+      - name: SubOperation
+        type: operation
+        actions:
+          - functionRef:
+              refName: subAgent
+              arguments:
+                input: "{input: (.context.SubWorkflowOutput.value // 0)}"
+            dataOutput: ".context.SubWorkflowOutput.subResult"
+        end: true
