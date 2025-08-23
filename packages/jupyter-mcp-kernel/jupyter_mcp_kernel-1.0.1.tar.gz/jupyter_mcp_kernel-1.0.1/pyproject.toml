@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jupyter-mcp-kernel"
+version = "1.0.1"
+description = "Persistent Jupyter kernel execution for Claude via MCP"
+authors = [{name = "Mayank Ketkar"}]
+dependencies = [
+    "fastmcp>=2.11.0",
+    "jupyter",
+    "ipykernel",
+    "nbformat",
+    "jupyter_client",
+]
+requires-python = ">=3.8"
+
+[project.scripts]
+jupyter-mcp = "mcp_jupyter_server_fast:main"
+
+[project.urls]
+Homepage = "https://github.com/sloflash/jupy"
+
+[tool.setuptools]
+py-modules = ["mcp_jupyter_server_fast", "notebook_client", "kernel_daemon", "__main__"]

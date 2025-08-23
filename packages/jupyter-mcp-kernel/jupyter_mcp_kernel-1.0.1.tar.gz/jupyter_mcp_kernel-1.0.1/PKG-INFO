@@ -1,0 +1,14 @@
+Metadata-Version: 2.4
+Name: jupyter-mcp-kernel
+Version: 1.0.1
+Summary: Persistent Jupyter kernel execution for Claude via MCP
+Author: Mayank Ketkar
+Project-URL: Homepage, https://github.com/sloflash/jupy
+Requires-Python: >=3.8
+License-File: LICENSE
+Requires-Dist: fastmcp>=2.11.0
+Requires-Dist: jupyter
+Requires-Dist: ipykernel
+Requires-Dist: nbformat
+Requires-Dist: jupyter_client
+Dynamic: license-file

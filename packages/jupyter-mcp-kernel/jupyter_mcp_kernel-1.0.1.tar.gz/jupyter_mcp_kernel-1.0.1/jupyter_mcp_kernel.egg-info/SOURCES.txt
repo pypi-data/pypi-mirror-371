@@ -1,0 +1,13 @@
+LICENSE
+README.md
+__main__.py
+kernel_daemon.py
+mcp_jupyter_server_fast.py
+notebook_client.py
+pyproject.toml
+jupyter_mcp_kernel.egg-info/PKG-INFO
+jupyter_mcp_kernel.egg-info/SOURCES.txt
+jupyter_mcp_kernel.egg-info/dependency_links.txt
+jupyter_mcp_kernel.egg-info/entry_points.txt
+jupyter_mcp_kernel.egg-info/requires.txt
+jupyter_mcp_kernel.egg-info/top_level.txt

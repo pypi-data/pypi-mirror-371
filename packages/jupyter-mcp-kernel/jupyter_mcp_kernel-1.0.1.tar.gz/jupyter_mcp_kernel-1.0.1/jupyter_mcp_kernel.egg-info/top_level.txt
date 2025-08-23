@@ -1,0 +1,4 @@
+__main__
+kernel_daemon
+mcp_jupyter_server_fast
+notebook_client
