@@ -1,0 +1,11 @@
+CHANGELOG.txt
+LICENCE.txt
+MANIFEST.in
+README.txt
+bashcommands.txt
+setup.py
+basiccalculator/__init__.py
+karimstestcalculator.egg-info/PKG-INFO
+karimstestcalculator.egg-info/SOURCES.txt
+karimstestcalculator.egg-info/dependency_links.txt
+karimstestcalculator.egg-info/top_level.txt

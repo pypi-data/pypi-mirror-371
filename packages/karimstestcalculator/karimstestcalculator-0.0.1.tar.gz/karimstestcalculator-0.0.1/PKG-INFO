@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: karimstestcalculator
+Version: 0.0.1
+Summary: A tiny calculator
+Home-page: 
+Author: Karim Rachidi
+Author-email: karim.rachidi1@gmail.com
+License: MIT
+Keywords: calculator
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Education
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+License-File: LICENCE.txt
+
+You can put any necessary data into this filel, that describes the library you're creating.
+In this case two numbers num1 and num2 are either added, subtracted, multiplied or divided by one another.
+
+Change Log
+==========
+
+0.0.1 (17/07/2025)
+-------------------
+- First Release
