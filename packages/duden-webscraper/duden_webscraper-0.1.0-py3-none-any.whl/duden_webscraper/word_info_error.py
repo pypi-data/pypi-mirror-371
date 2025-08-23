@@ -1,0 +1,2 @@
+class WordInfoError(Exception):
+    pass

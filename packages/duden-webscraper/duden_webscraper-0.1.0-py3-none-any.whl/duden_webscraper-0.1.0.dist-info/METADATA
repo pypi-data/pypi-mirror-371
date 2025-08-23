@@ -1,0 +1,16 @@
+Metadata-Version: 2.3
+Name: duden-webscraper
+Version: 0.1.0
+Summary: Add your description here
+Author: Márcio Dias
+Author-email: Márcio Dias <marciojr91@gmail.com>
+Requires-Dist: beautifulsoup4>=4.13.4
+Requires-Dist: requests>=2.32.4
+Requires-Python: >=3.13
+Description-Content-Type: text/markdown
+
+## Exercutar testes
+
+```sh
+uv run -m pytest --cov=duden_webscraper --cov-report=term-missing
+```

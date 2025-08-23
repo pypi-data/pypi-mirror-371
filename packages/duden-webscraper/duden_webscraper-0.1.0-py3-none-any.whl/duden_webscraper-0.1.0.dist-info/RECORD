@@ -1,0 +1,9 @@
+duden_webscraper/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+duden_webscraper/duden_web_scraper.py,sha256=SUj9eDj9xfg8RKPH8pX-F0r0fRB5oBuG1SSTWfhTMgg,5942
+duden_webscraper/endpoint.py,sha256=4DFP9Ff7OJSjdoTBkzcwDT_44HrvlUzilsglmQiBzEc,157
+duden_webscraper/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+duden_webscraper/word_info_error.py,sha256=BlMQXGKRq6_ddBiVc-fr59rtZB9X2hZvsa-qEQQljW8,41
+duden_webscraper/word_not_found_error.py,sha256=07553vdZAcgA3oCIRYipnuIYpQD8XMIZrtZGLb5DKGU,45
+duden_webscraper-0.1.0.dist-info/WHEEL,sha256=4n27za1eEkOnA7dNjN6C5-O2rUiw6iapszm14Uj-Qmk,79
+duden_webscraper-0.1.0.dist-info/METADATA,sha256=QwlL4izZmK9AoRVSpDCYlyXe8BlDsZXs9O6bjL8tcc0,397
+duden_webscraper-0.1.0.dist-info/RECORD,,
