@@ -1,0 +1,156 @@
+Metadata-Version: 2.4
+Name: split-screen-mac-test
+Version: 1.4.0
+Summary: MCP Server for macOS Split Screen Window Management via Native APIs
+Author: Beta
+License: MIT License
+        
+        Copyright (c) 2024 Beta
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+License-File: LICENSE
+Keywords: appkit,macos,mcp,pyobjc,quartz,split-screen,tiling,window-management
+Requires-Python: >=3.9
+Requires-Dist: mcp>=0.1.0
+Requires-Dist: pyobjc-framework-cocoa>=9.0
+Description-Content-Type: text/markdown
+
+# Split Screen Mac Test MCP Server
+
+MCP server that exposes macOS split-screen tools via native PyObjC/Quartz APIs for maximum performance and reliability.
+
+## Features
+
+- **Native macOS implementation**: Uses PyObjC, Quartz, and AppKit for direct system access
+- **Split-screen layouts**: Halves, quadrants, thirds, and two-thirds variations
+- **Window controls**: Maximize, minimize, and fullscreen
+- **MCP integration**: Full Model Context Protocol server support
+- **No startup issues**: Screen detection only happens when tools are called
+
+## MCP Client Configuration
+
+Use this exact configuration in your MCP client:
+
+```json
+{
+  "mcpServers": {
+    "split-screen-mac-test": {
+      "command": "uvx",
+      "args": ["split-screen-mac-test-mcp"],
+      "env": {}
+    }
+  }
+}
+```
+
+## Setup for uvx (Required)
+
+For the above configuration to work, you need to install PyObjC first:
+
+```bash
+# Install PyObjC in your current Python environment
+pip install pyobjc-framework-cocoa
+
+# Then your MCP client can use uvx to run the server
+```
+
+## Alternative Installation Methods
+
+### Option 1: Install from PyPI (Most Reliable)
+```bash
+pip install split-screen-mac-test
+```
+
+Then use this MCP configuration:
+```json
+{
+  "mcpServers": {
+    "split-screen-mac-test": {
+      "command": "split-screen-mac-test-mcp",
+      "args": [],
+      "env": {}
+    }
+  }
+}
+```
+
+### Option 2: Clone and run locally
+```bash
+git clone <your-repo>
+cd split-screen-mac-test
+uvx --from . split-screen-mac-test-mcp
+```
+
+## Available Tools
+
+- `left-half-screen` - Snap current window to left half
+- `right-half-screen` - Snap current window to right half
+- `top-half-screen` - Snap current window to top half
+- `bottom-half-screen` - Snap current window to bottom half
+- `top-left-screen` - Top-left quadrant
+- `top-right-screen` - Top-right quadrant
+- `bottom-left-screen` - Bottom-left quadrant
+- `bottom-right-screen` - Bottom-right quadrant
+- `left-one-third-screen` - Left third (1/3)
+- `middle-one-third-screen` - Middle third (1/3)
+- `right-one-third-screen` - Right third (1/3)
+- `left-two-thirds-screen` - Left two-thirds (2/3)
+- `right-two-thirds-screen` - Right two-thirds (2/3)
+- `maximize-screen` - OS maximize (bordered)
+- `fullscreen-screen` - Fullscreen (no borders)
+- `minimize-screen` - Minimize window
+
+## Technical Details
+
+- **Platform**: macOS only (uses native PyObjC APIs)
+- **Dependencies**: 
+  - `mcp>=0.1.0`
+  - `pyobjc-framework-cocoa>=9.0` (required for uvx)
+- **Architecture**: Direct system calls via Quartz/AppKit for maximum performance
+- **Startup**: Safe MCP initialization with lazy screen detection
+
+## Troubleshooting
+
+### ModuleNotFoundError: No module named 'AppKit'
+This error occurs when PyObjC is not available. Solutions:
+
+1. **For uvx users**: Install PyObjC first: `pip install pyobjc-framework-cocoa`
+2. **Use pip installation**: `pip install split-screen-mac-test` (more reliable)
+3. **Check Python version**: Ensure you're using Python 3.9+ with PyObjC support
+
+### uvx Import Issues
+If you're using `uvx` and getting import errors:
+
+1. **Install PyObjC first**: `pip install pyobjc-framework-cocoa`
+2. **Use pip instead**: `pip install split-screen-mac-test` (more reliable)
+3. **Check Python version**: Ensure you're using Python 3.9+ with PyObjC support
+
+## Why uvx Needs PyObjC First
+
+- **uvx creates isolated environments**: Each run creates a temporary virtual environment
+- **PyObjC is system-specific**: It's not a standard PyPI package that uv can easily install
+- **macOS integration**: PyObjC requires system-level access that isolated environments don't have
+- **Solution**: Install PyObjC in your main Python environment before using uvx
+
+## Advantages over AppleScript-based solutions
+
+- **Faster execution**: Direct API calls vs. AppleScript interpretation
+- **Better error handling**: Native exception handling and fallbacks
+- **More reliable**: No AppleScript parsing or execution issues
+- **Lower latency**: Direct system access without intermediate layers
