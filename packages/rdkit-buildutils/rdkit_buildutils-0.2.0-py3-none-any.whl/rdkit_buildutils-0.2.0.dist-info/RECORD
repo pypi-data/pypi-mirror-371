@@ -1,0 +1,10 @@
+rdkit_buildutils/__init__.py,sha256=PJHc-TTfSRKmA1eHdkQVIPP2oaYKwuhtiB2-gyC_vAg,732
+rdkit_buildutils/core.py,sha256=jrymuZ7aKhj25itozAdBZemyGpc5M-POOnHQBOns0CM,1772
+rdkit_buildutils/duplicates_pandas.py,sha256=46GmxjJY2wY-qr3FS1lSClRprJiOAd6GbEdj1MNvI4c,1031
+rdkit_buildutils/rgroup_core.py,sha256=APgHJwx5MdW8o-JVdB_NJMBDUYEIA2QzEwyuHlkA9mM,10109
+rdkit_buildutils/scaffold_normalize.py,sha256=ovqAoABAqhDlPMZIBhFDM0-LES5Tb2Z0ZNJ4tqz8vbU,2372
+rdkit_buildutils-0.2.0.dist-info/licenses/LICENSE,sha256=wk8aRXmzWw33kBSchKc23Mzx6AG0YXx1H7cSz2RgEw4,1068
+rdkit_buildutils-0.2.0.dist-info/METADATA,sha256=B7UTkF1PhxBfryMat9CRzrHhEzh10upijar63RW0pL8,6320
+rdkit_buildutils-0.2.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+rdkit_buildutils-0.2.0.dist-info/top_level.txt,sha256=BLn5cvttJjtvf5zLvFCV3qJIjR9sQTYJ8WF6bskEuc0,17
+rdkit_buildutils-0.2.0.dist-info/RECORD,,
