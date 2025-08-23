@@ -1,0 +1,16 @@
+refidxdb/__init__.py,sha256=dTLymMsCUvOTtMN1P2JzVRBDk9hTT09JF61Gqt14CAk,428
+refidxdb/app.py,sha256=39diPBSBgOkGYnnYQcexidW7ob7jyLyCpCECJ0mjcfQ,4287
+refidxdb/cli.py,sha256=vFkUa7RYZ95rKeczRLKgqbZfD_FqymRwG6D11atqbWA,5005
+refidxdb/handler.py,sha256=gCZr2CG9XL675BhcnxSZNtfo9Z7gBtN6xWq3R6x8UTE,3820
+refidxdb/refidxdb.py,sha256=fqwFl7-TPpntMH9_iXOvepzzYKebcQVdF4jakA7orbU,1796
+refidxdb/file/__init__.py,sha256=6vBOvOU-Zvg-BArXAbzqZI5rcRB9dz83J1JXMYyVM5w,1326
+refidxdb/file/csv.py,sha256=5W7Ib7diCOIMq895pQfenBLSLk59PmRj8gctVpK0zg4,540
+refidxdb/file/dat.py,sha256=OrhHlvKN2xBbBEYnzi4yHOC_NV5sAsRV35ViEhDN1TE,992
+refidxdb/url/__init__.py,sha256=fWDc-uhnr3j22YZSJa7vMAbKWkLkL-bJKaYul5pmmiE,2047
+refidxdb/url/aria.py,sha256=mNM8pKs0smQgZr338znp7zmCJn-YKJsBdBw_eNbrb98,3080
+refidxdb/url/refidx.py,sha256=n-PcMDOjJjy6QLOykOT6wCilUE-7Gi-4PuAOu77uUHg,5070
+refidxdb-0.4.0.dist-info/METADATA,sha256=N3irXtOxpLtBj3Dibr37LaexSF6iA0G2ioh37UR1V1s,7696
+refidxdb-0.4.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+refidxdb-0.4.0.dist-info/entry_points.txt,sha256=2iFeh9XDzjXO2k2FkjPGFlgxVYENdCKImq4hb4WEqq4,46
+refidxdb-0.4.0.dist-info/licenses/LICENSE,sha256=Rp_Gu4oJUFTlncvH1N9GN0vuUlb03C1SrP-fh43IX6Y,1069
+refidxdb-0.4.0.dist-info/RECORD,,
