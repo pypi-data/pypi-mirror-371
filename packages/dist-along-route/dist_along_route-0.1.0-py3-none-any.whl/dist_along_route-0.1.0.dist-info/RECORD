@@ -1,0 +1,7 @@
+dist_along_route-0.1.0.dist-info/METADATA,sha256=c8XIdQ5cyj9CzGDzV9oGkEgiBia7NzIWqmuC9GWyJ14,4730
+dist_along_route-0.1.0.dist-info/WHEEL,sha256=9P2ygRxDrTJz3gsagc0Z96ukrxjr-LFBGOgv3AuKlCA,90
+dist_along_route-0.1.0.dist-info/entry_points.txt,sha256=6OYgBcLyFCUgeqLgnvMyOJxPCWzgy7se4rLPKtNonMs,34
+dist_along_route/__init__.py,sha256=W6k8Tya2nNUwsDzkkF5nflgIdXZZmnlo5-fhEFZxv8E,46
+dist_along_route/path.py,sha256=sUZWhKiiOS9kUIDOuDrFjUHHDcpUsYZpcMCa646MZ6U,6274
+dist_along_route/route.py,sha256=gfafw_CZMQWYbDNbHQsXii7_pU0L_VFYSspAN56gMoI,4175
+dist_along_route-0.1.0.dist-info/RECORD,,
