@@ -1,0 +1,12 @@
+pandascamoufox/LICENSE,sha256=ndpYZYI03EbMfGAKRGyzptvVTUli5FsBjobLjMJkesM,1069
+pandascamoufox/README.MD,sha256=0wkRt58rNnIaQc7R4FHyfDv4-NqySc1rjKj75pdIewo,1355
+pandascamoufox/__init__.py,sha256=AIQNbGZvEQnSehhONcbGJrLK5nyHuo-6AcaMB9NuuIw,572
+pandascamoufox/requirements.txt,sha256=sgiv2D3w_OYu4k6502p88x2zPsi_5uBRAmob6A7O_U0,43
+pandascamoufox/thirdparty.json,sha256=UDKxlLKEsNNqViRgn-RYELVwml-GkOudqpFQK-I96RY,51720
+pandascamoufox/uiev.pyx,sha256=vUaZhnzJS9htJQVH8FDAgcsbcOpORTGkfuafFK8kRuc,17153
+pandascamoufox/uiev_compile.py,sha256=dMQ2hB32z4_qiGyOE1qSmkJko58c4g3fhJuMnLueEkA,3233
+pandascamoufox-0.11.dist-info/LICENSE.rst,sha256=MBeWZwMEd0tDbQZr3zYdkKVvGHIOxuoBsHbEz1WmbQg,1148
+pandascamoufox-0.11.dist-info/METADATA,sha256=rGTpC4lD1hXm5XV3D22qywBGwJz1fImCpBDG2jipX7M,2370
+pandascamoufox-0.11.dist-info/WHEEL,sha256=M2qxDNS_MH-01_tnrj2iI7Mc9NEQ7gdlTfPKyI1_te0,91
+pandascamoufox-0.11.dist-info/top_level.txt,sha256=YVGwaCtiURJrHkis6YHZalEMvq_QTxIeYpFtE4WBCTs,15
+pandascamoufox-0.11.dist-info/RECORD,,
