@@ -1,0 +1,23 @@
+Metadata-Version: 2.4
+Name: coconut-api
+Version: 0.0.1
+Summary: A middleware rich python framework for building backend web applications.
+Author-email: A S Nandanunni <asnqln@gmail.com>
+License: MIT
+Project-URL: Homepage, https://github.com/nan-dan-unni/data-structures-and-algorithms
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+
+# :coconut: Coconut: A python backend framework
+
+## Description
+
+A middleware rich python framework for building backend web applications. Just like an coconut has shells, this framework is built around stackable middlewares that let you compose functionality in a clean and modular way.
+
+## Status
+
+:gear: Early development stage

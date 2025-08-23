@@ -1,0 +1,20 @@
+# pyproject.toml
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "coconut-api"
+version = "0.0.1"
+description = "A middleware rich python framework for building backend web applications."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name="A S Nandanunni", email="asnqln@gmail.com" }]
+urls = { "Homepage" = "https://github.com/nan-dan-unni/data-structures-and-algorithms" }
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Operating System :: OS Independent"
+]
