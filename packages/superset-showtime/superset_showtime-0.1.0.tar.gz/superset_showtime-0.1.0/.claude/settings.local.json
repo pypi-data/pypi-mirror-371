@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/max/code/superset/.github/workflows/**)",
+      "Bash(showtime stop:*)",
+      "Bash(python:*)",
+      "Bash(uv pip install:*)",
+      "Bash(aws configure:*)",
+      "Bash(env)",
+      "Bash(unset:*)",
+      "Bash(aws sts:*)",
+      "WebSearch",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(ruff check:*)",
+      "Bash(pytest:*)",
+      "Bash(make test:*)",
+      "Bash(uv pip compile:*)",
+      "Bash(chmod:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
