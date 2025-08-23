@@ -1,0 +1,12 @@
+pyproject.toml
+src/stem_splitter/band_split_roformer.py
+src/stem_splitter/cli.py
+src/stem_splitter/inference.py
+src/stem_splitter/transformer.py
+src/stem_splitter.egg-info/PKG-INFO
+src/stem_splitter.egg-info/SOURCES.txt
+src/stem_splitter.egg-info/dependency_links.txt
+src/stem_splitter.egg-info/entry_points.txt
+src/stem_splitter.egg-info/requires.txt
+src/stem_splitter.egg-info/top_level.txt
+test/test.py
