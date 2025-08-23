@@ -1,0 +1,12 @@
+pyvista
+pandas
+scipy
+meshio
+trame
+vtk>=9.1
+trame-vtk
+trame-vuetify
+colorcet
+
+[nb]
+jupyter
