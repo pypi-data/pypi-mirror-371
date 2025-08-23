@@ -1,0 +1,11 @@
+crossplane/pythonic/__init__.py,sha256=9Oz3mvFO-8GXb75iEfybSHgVr3p8INdqA201tCusuSo,408
+crossplane/pythonic/composite.py,sha256=CK_3ejKZ29zWnAZ94r5ycNduf_cmDeH8-AL5QcJL1Mo,19937
+crossplane/pythonic/function.py,sha256=4kfyR0U6UaAQAhVbFrhFPwOOsHjeNEktuTuswLrm0G4,10535
+crossplane/pythonic/main.py,sha256=8nbPyTzRg2-Vrjp0MKxdp6Fc5uiFjLfIHXVmbG_dGIw,6399
+crossplane/pythonic/packages.py,sha256=5GyUmd6BnDyDnT9Y0-yCW6z8ncuqas28N5slRhJYYpA,6137
+crossplane/pythonic/protobuf.py,sha256=9wvKMXavrHxD1n1TufFQs_6If9m4gRZA36p_pmrlU7I,34633
+crossplane_function_pythonic-0.0.7b0.dist-info/METADATA,sha256=QLTM6zFnwP65DCxl7tEtLh2C2CBg84b9PC-CIRY3ccU,20689
+crossplane_function_pythonic-0.0.7b0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+crossplane_function_pythonic-0.0.7b0.dist-info/entry_points.txt,sha256=jJ4baywFDviB9WyAhyhNYF2VOCb6XtbRSjKf7bnBwhg,68
+crossplane_function_pythonic-0.0.7b0.dist-info/licenses/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+crossplane_function_pythonic-0.0.7b0.dist-info/RECORD,,
