@@ -1,0 +1,58 @@
+---
+name: Find Packages
+description: Discovers all package directories in the repository
+outputs:
+  packages:
+    description: JSON array of package names
+    value: ${{ steps.find.outputs.packages }}
+  package_count:
+    description: Number of packages found
+    value: ${{ steps.find.outputs.package_count }}
+runs:
+  using: composite
+  steps:
+    - id: find
+      shell: bash
+      run: |-
+        echo "Finding packages in packages/ directory..."
+
+        # Create packages directory if it doesn't exist
+        if [ ! -d "packages" ]; then
+          mkdir -p packages
+          echo "Created packages directory"
+        fi
+
+        # Define expected packages (for this polyrepo structure)
+        EXPECTED_PACKAGES=("haive-core" "haive-agents" "haive-dataflow" "haive-games" "haive-prebuilt" "haive-tools")
+
+        # Check for existing directories in packages/
+        PACKAGES=()
+
+        # First, look for directories that already exist
+        for pkg_dir in packages/*/; do
+          if [ -d "$pkg_dir" ]; then
+            pkg_name=$(basename "$pkg_dir")
+            PACKAGES+=("$pkg_name")
+          fi
+        done
+
+        # Then, check for expected packages that don't exist
+        for pkg in "${EXPECTED_PACKAGES[@]}"; do
+          if [ ! -d "packages/$pkg" ]; then
+            echo "Expected package not found: $pkg"
+          fi
+        done
+
+        # Remove duplicates from PACKAGES array
+        UNIQUE_PACKAGES=($(echo "${PACKAGES[@]}" | tr ' ' '\n' | sort -u | tr '\n' ' '))
+
+        # Convert bash array to JSON array for GitHub Actions
+        JSON_PACKAGES="["
+        for pkg in "${UNIQUE_PACKAGES[@]}"; do
+          JSON_PACKAGES="${JSON_PACKAGES}\"${pkg}\","
+        done
+        JSON_PACKAGES="${JSON_PACKAGES%,}]"  # Remove trailing comma and close array
+        echo "packages=${JSON_PACKAGES}" >> $GITHUB_OUTPUT
+        echo "package_count=${#UNIQUE_PACKAGES[@]}" >> $GITHUB_OUTPUT
+        echo "Found ${#UNIQUE_PACKAGES[@]} packages: ${UNIQUE_PACKAGES[*]}"
+        echo "JSON packages: ${JSON_PACKAGES}"

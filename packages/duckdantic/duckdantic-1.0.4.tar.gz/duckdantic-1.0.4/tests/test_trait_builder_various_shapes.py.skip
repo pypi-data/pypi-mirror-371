@@ -1,0 +1,48 @@
+import pytest
+from duckdantic import TraitBuilder, satisfies, POLICY_PRAGMATIC
+
+# plain class
+class P:
+    a: int
+    b: list[str]
+
+def test_builder_plain_class():
+    t = TraitBuilder.from_model(P).build()
+    assert satisfies(P, t, POLICY_PRAGMATIC)
+
+# mapping
+def test_builder_mapping():
+    m = {"a": int, "b": list[str]}
+    t = TraitBuilder.from_model(m).build()
+    class X: a: int; b: list[str]
+    assert satisfies(X, t, POLICY_PRAGMATIC)
+
+# dataclass
+try:
+    import dataclasses
+    @dataclasses.dataclass
+    class D:
+        a: int
+        b: list[str]
+except Exception:
+    D = None
+
+@pytest.mark.skipif(D is None, reason="dataclasses not available")
+def test_builder_dataclass():
+    t = TraitBuilder.from_model(D).build()
+    assert satisfies(D, t, POLICY_PRAGMATIC)
+
+# TypedDict
+try:
+    from typing import TypedDict, NotRequired, Required
+    class TD(TypedDict, total=False):
+        a: Required[int]
+        b: NotRequired[list[str]]
+except Exception:
+    TD = None
+
+@pytest.mark.skipif(TD is None, reason="TypedDict unavailable")
+def test_builder_typeddict():
+    t = TraitBuilder.from_model(TD).build()
+    class X: a: int; b: list[str]
+    assert satisfies(X, t, POLICY_PRAGMATIC)

@@ -1,0 +1,4 @@
+# file: /home/will/Projects/duckdantic/src/duckdantic/models.py
+# hypothesis_version: 6.136.6
+
+['Duck', 'Field', 'FieldDuck', 'M', 'T', '__duck_type__', '_duck_type', 'is_required', 'model_fields', 'value']
