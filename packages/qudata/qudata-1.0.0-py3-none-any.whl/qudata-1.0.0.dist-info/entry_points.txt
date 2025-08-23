@@ -1,0 +1,2 @@
+[console_scripts]
+qudata = qudata.cli:main
