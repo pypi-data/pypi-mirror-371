@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+rendu/__init__.py
+rendu/htmldeck.py
+rendu.egg-info/PKG-INFO
+rendu.egg-info/SOURCES.txt
+rendu.egg-info/dependency_links.txt
+rendu.egg-info/top_level.txt
+test/penguins_example.py
