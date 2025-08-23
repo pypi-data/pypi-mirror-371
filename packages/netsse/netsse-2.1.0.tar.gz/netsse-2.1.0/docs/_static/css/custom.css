@@ -1,0 +1,34 @@
+.bd-main .bd-content .bd-article-container {
+    max-width: 100%;  /* default is 60em */
+    text-align:justify;
+}
+
+.bd-page-width {
+    max-width: 95%;  /* default is 88rem */
+}
+
+.bd-sidebar-primary {
+    max-width: 20%;
+}
+
+.bd-sidebar-secondary {
+    max-width: 20%;
+}
+
+.bd-header-announcement {
+    min-height:2rem;
+}
+
+.center {
+    text-align: center;
+}
+
+.with-border {
+    border: 1px solid black;
+    /* padding: 10px; */
+    display: inline-block;
+}
+
+mjx-container[jax="CHTML"][display="true"] mjx-math {
+    padding: 1px 0 !important;
+}

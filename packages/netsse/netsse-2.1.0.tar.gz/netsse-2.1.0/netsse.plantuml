@@ -1,0 +1,283 @@
+@startuml NetSSE 2.2024.0
+
+class netsse.base.Network{
+    name: str
+    nature: str
+    platforms: List
+    __init__(...)
+    add_platform(*args)
+    remove_platform(*args)
+}
+
+class netsse.base.Platform{
+    name, owner: str
+    operations: List
+    seastate_collections: List
+    __init__(...)
+    add_operation(*args)
+    remove_operation(*args)
+    add_seastatecollec(*args)
+    remove_seastatecollec(*args)
+}
+
+class netsse.base.Collection{
+    area, nature: str
+    origin: str or object
+    datetime_start, datetime_end: datetime
+    lat_min, lat_max: float
+    lon_min, lon_max: float
+    __init__(...)
+    add_entries(*args)
+    export(...)
+}
+
+class netsse.base.SeaStateCollec{
+    seastates: List
+    __init__(...)
+    add_seastates(*args)
+    simul(Nseeds,...)
+}
+
+class netsse.base.SeaState{
+    index: int
+    timestamp: datetime
+    lat, lon: float
+    depth: float
+    duration: float
+    params: List
+    waveseqs: List
+    wavespecs: List
+    dirwavespecs: List
+    __init__(...)
+    add_params(*args)
+    add_waveseqs(*args)
+    add_wavespecs(*args)
+    add_dirwavespecs(*args)
+    estim(method,...)
+    simul(Nseeds,...): List(WaveSeq)
+}
+
+class netsse.base.SeaStateParam{
+    origin: str or object
+    is_discrete: bool or dict
+    value: float or dict
+    __init__(...)
+    from_wavespec(...)
+    from_dirwavespec(...)
+    from_dirspreadfunc(...)
+    estim(...)
+}
+
+class netsse.base.TimeSeq{
+    nature: str
+    origin: object
+    index: int
+    time: array_like
+    series: array_like
+    unit: str
+    fs: float
+    Nt: int
+    duration: None
+    __init__(...)
+    to_spec(...): Spectrum
+    plot(...)
+}
+
+class netsse.base.WaveSeq{
+    to_spec(...): WaveSpec
+
+}
+
+class netsse.base.EncWaveSeq{
+    speed: float
+    heading: float
+    __init__(...)
+}
+
+class netsse.base.RespSeq{
+    resp: str
+    __init__(...)
+    to_spec(...): RespSpec
+}
+
+class netsse.base.Spec{
+    nature: str
+    origin: object
+    f: array_like
+    om: array_like
+    Sf: array_like
+    Som: array_like
+    __init__(...)
+    pad(...)
+    from_timeseq(timeseq,...)
+}
+
+class netsse.base.WaveSpec{
+    from_standard(method,...)
+    estim(method,...)
+    get_params(...): SeaStateParam
+    to_dirspec(...): DirWaveSpec
+    to_encspec(method,...): EncWaveSpec
+    plot(...)
+}
+
+class netsse.base.EncWaveSpec{
+    speed: float
+    heading: float
+    __init__(...)
+    to_dirspec(...): DirEncWaveSpec
+    to_absspec(method,...): WaveSpec
+}
+
+class netsse.base.DirWaveSpec{
+    nature: str
+    origin: object
+    f: array_like
+    om: array_like
+    theta_d: array_like
+    theta_r: array_like
+    S2D: array_like
+    unit: str
+    is_wrapped: bool
+    is_padded: bool
+    __init__(...)
+    wrap(...), pad(...), plot(...)
+    from_wavespec(...)
+    estim(...)
+    to_direnc(method,...): DirEncWaveSpec
+    get_params(...): SeaStateParam
+    get_pointspec(...): WaveSpec
+    get_dirspreadfunc(...): DirSpreadFunc
+}
+
+class netsse.base.DirSpreadFunc{
+    f: array_like
+    om: array_like
+    theta_d: array_like
+    theta_r: array_like
+    DSF: array_like
+    unit: str
+    is_wrapped: bool
+    is_padded: bool
+    __init__(...)
+    wrap(...), pad(...)
+    from_standard(method,...)
+    from_dirwavespec(...)
+    estim(method,...)
+    get_params(...): dict
+}
+
+class netsse.base.DirEncWaveSpec{
+    speed: float
+    heading: float
+    __init__(...)
+    get_pointspec(...): EncWaveSpec
+    to_dirabs(method,...): DirWaveSpec
+}
+
+class netsse.base.Operation{
+    segments: List
+    __init__(...)
+    add_segments(*args)
+    simul(Nseeds,...)
+    get_seastates(method,...): SeaStateCollec
+}
+
+class netsse.base.Segment{
+    index: int
+    timestamp: datetime
+    duration: float
+    lat, lon: float
+    depth: float
+    oper_conds: dict
+    respseqs: List
+    respspecs: List
+    __init__(...)
+    add_respseq(*args)
+    add_respspec(*args)
+    simul(Nseeds,...)
+    get_seastate(method,...): SeaState
+}
+
+class netsse.base.RespSpec{
+    resp1: str
+    resp2: str
+    amp: array_like
+    phase: array_like
+    real: array_like
+    imag: array_like
+    unit: str
+    __init__(...)
+    from_respseq(...)
+    from_wavespec(...)
+    from_dirwavespec(...)
+}
+
+class netsse.base.Buoy{
+    type: str
+    __init__(...)
+}
+
+class netsse.base.WaveRadar{
+    type: str
+    __init__(...)
+}
+
+class netsse.base.Vessel{
+    type: str
+    params: dict
+    raos: List
+    __init__(...)
+    add_rao(*args)
+}
+
+class netsse.base.RespAmpOper{
+    nature: str
+    resp: str
+    oper_conds: dict
+    f: array_like
+    om: array_like
+    beta_d: array_like
+    beta_r: array_like
+    RAO: array_like
+    unit: str
+    __init__(...)
+    estim(vessel,method,...)
+    export(...)
+}
+
+class netsse.base.TransFunc{
+    phase: array_like
+    __init__(...)
+}
+
+netsse.base.Network "1" *-- netsse.base.Platform
+netsse.base.Platform "1" *-- netsse.base.Operation
+netsse.base.Platform <|-- netsse.base.Buoy
+netsse.base.Platform <|-- netsse.base.WaveRadar
+netsse.base.Platform <|-- netsse.base.Vessel
+netsse.base.Vessel "1" *-- netsse.base.RespAmpOper
+netsse.base.RespAmpOper <|-- netsse.base.TransFunc
+netsse.base.Collection <|-- netsse.base.Operation
+netsse.base.Operation "1" *-- netsse.base.Segment 
+netsse.base.Segment "1" *-- netsse.base.RespSeq
+netsse.base.Segment "1" *-- netsse.base.RespSpec
+netsse.base.Platform "1" *-- netsse.base.SeaStateCollec
+netsse.base.Collection <|-- netsse.base.SeaStateCollec
+netsse.base.SeaStateCollec "1" *-- netsse.base.SeaState
+netsse.base.SeaState "1" *-- netsse.base.WaveSeq
+netsse.base.TimeSeq <|-- netsse.base.WaveSeq
+netsse.base.WaveSeq <|-- netsse.base.EncWaveSeq
+netsse.base.TimeSeq <|-- netsse.base.RespSeq
+netsse.base.SeaState "1" *-- netsse.base.WaveSpec
+netsse.base.SeaState "1" *-- netsse.base.SeaStateParam
+netsse.base.Spec <|-- netsse.base.WaveSpec
+netsse.base.WaveSpec <|-- netsse.base.EncWaveSpec
+netsse.base.SeaState "1" *-- netsse.base.DirWaveSpec
+netsse.base.DirWaveSpec <|-- netsse.base.DirEncWaveSpec
+netsse.base.DirWaveSpec "1" *-- "1" netsse.base.WaveSpec
+netsse.base.DirWaveSpec "1" *-- "1" netsse.base.DirSpreadFunc
+netsse.base.Spec <|-- netsse.base.RespSpec
+
+footer © Copyright 2023-2025 Technical University of Denmark, Raphaël E. G. Mounet
+@enduml
