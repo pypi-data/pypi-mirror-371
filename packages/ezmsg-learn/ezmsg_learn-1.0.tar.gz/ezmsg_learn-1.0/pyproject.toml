@@ -1,0 +1,49 @@
+[project]
+name = "ezmsg-learn"
+description = "ezmsg namespace package for machine learning"
+readme = "README.md"
+authors = [
+    { name = "Chadwick Boulay", email = "chadwick.boulay@gmail.com" }
+]
+license = "MIT"
+requires-python = ">=3.10.15"
+dynamic = ["version"]
+dependencies = [
+    "ezmsg-sigproc",
+    "river>=0.22.0",
+    "scikit-learn>=1.6.0",
+    "torch>=2.6.0",
+]
+
+[dependency-groups]
+dev = [
+  {include-group = "lint"},
+  {include-group = "test"},
+  "pre-commit>=4.3.0",
+]
+lint = [
+    "ruff>=0.12.9",
+]
+test = [
+    "hmmlearn>=0.3.3",
+    "pytest>=8.4.1",
+]
+
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.build.hooks.vcs]
+version-file = "src/ezmsg/learn/__version__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ezmsg"]
+
+[tool.pytest.ini_options]
+pythonpath = [
+    "src",
+    ".",
+]
