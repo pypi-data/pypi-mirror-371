@@ -1,0 +1,6 @@
+bota_driver/__init__.py,sha256=ufCjmjRZ6lBaHZs4UhSILcWktIB4j1FlirIPc5ibVGU,1217
+bota_driver/bota_driver_ext.cpython-39-aarch64-linux-gnu.so,sha256=z0M5ASfjpCK7w0x8uAw6S32SrELYFWYD865rp6o5lb8,267376
+bota_driver/cpp_lib/lib/libBotaDriver.so,sha256=dW-6L-tS6JNTQWz6hqTYvFekF9R-V71XrxenVJGjvDk,995080
+bota_driver-1.1.2.dist-info/METADATA,sha256=VGFP4sYvv7fsI_KTrE_rz9sdfcerwRdEqBk0XL9dvKw,715
+bota_driver-1.1.2.dist-info/WHEEL,sha256=gu1o_mS9eb_IobguubYTCnn7nMfcZsdpcn1NoTonQTE,155
+bota_driver-1.1.2.dist-info/RECORD,,
