@@ -1,0 +1,519 @@
+[build-system]
+requires = ["setuptools>=75.3.2", "wheel>=0.45.1"]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "aiootp"
+dynamic = ["version", "readme"]
+description = "a high-level async cryptographic anonymity library to scale, simplify, & automate privacy best practices for secure data & identity processing, communication, & storage."
+license = "AGPL-3.0-only"
+license-files = ["LICENSE"]
+requires-python = ">=3.9"
+dependencies = [
+    "aiofiles>=24.1.0",
+    "cryptography>=45.0.6",
+]
+authors = [
+    {name = "Gonzo Investigative Journalism Agency, LLC", email = "gonzo.development@protonmail.ch"},
+    {name = "Ricchi Machado", email = "rmlibre@riseup.net"},
+]
+maintainers = [
+    {name = "Ricchi Machado", email = "rmlibre@riseup.net"},
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Framework :: AsyncIO",
+    "Framework :: IPython",
+    "Framework :: Jupyter",
+    "Framework :: Pytest",
+    "Natural Language :: English",
+    "Operating System :: Other OS",
+    "Operating System :: Unix",
+    "Operating System :: MacOS",
+    "Operating System :: MacOS :: MacOS X",
+    "Operating System :: POSIX",
+    "Operating System :: POSIX :: BSD",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: OS Independent",
+    "Operating System :: Microsoft :: Windows",
+    "Topic :: System",
+    "Topic :: Internet",
+    "Topic :: Security",
+    "Topic :: Database",
+    "Topic :: Education",
+    "Topic :: Utilities",
+    "Topic :: Communications",
+    "Topic :: Office/Business",
+    "Topic :: Text Processing",
+    "Topic :: System :: Archiving",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: Software Development",
+    "Topic :: System :: Networking",
+    "Topic :: System :: Filesystems",
+    "Topic :: Communications :: Chat",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Communications :: Email",
+    "Topic :: Security :: Cryptography",
+    "Topic :: Office/Business :: Financial",
+    "Topic :: Communications :: File Sharing",
+    "Topic :: System :: Distributed Computing",
+    "Topic :: System :: Software Distribution",
+    "Topic :: System :: Systems Administration",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Scientific/Engineering :: Mathematics",
+    "Topic :: Office/Business :: Financial :: Investment",
+    "Topic :: Office/Business :: Financial :: Accounting",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+    "Typing :: Typed",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+    "Intended Audience :: Education",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Legal Industry",
+    "Intended Audience :: Other Audience",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: End Users/Desktop",
+    "Intended Audience :: Healthcare Industry",
+    "Intended Audience :: System Administrators",
+    "Intended Audience :: Information Technology",
+    "Intended Audience :: Telecommunications Industry",
+    "Intended Audience :: Financial and Insurance Industry",
+]
+keywords = [
+    "xor",
+    "key",
+    "salt",
+    "pepper",
+    "nonce",
+    "aad",
+    "iv",
+    "siv",
+    "resuse",
+    "misuse",
+    "robust",
+    "fully",
+    "context",
+    "committing",
+    "commitment",
+    "online",
+    "AEAD",
+    "auth",
+    "authenticated",
+    "authentication",
+    "shmac",
+    "hmac",
+    "nmac",
+    "mac",
+    "digest",
+    "integrity",
+    "infosec",
+    "opsec",
+    "appsec",
+    "privacy",
+    "engineering",
+    "stream",
+    "block",
+    "cipher",
+    "permutation",
+    "chunky2048",
+    "slick256",
+    "encrypt",
+    "plaintext",
+    "decrypt",
+    "ciphertext",
+    "passcrypt",
+    "passphrase",
+    "PBKDF",
+    "password",
+    "based",
+    "derivation",
+    "function",
+    "3dh",
+    "2dh",
+    "25519",
+    "x25519",
+    "ed25519",
+    "curve25519",
+    "diffie",
+    "hellman",
+    "sign",
+    "signature",
+    "verify",
+    "verification",
+    "db",
+    "database",
+    "value",
+    "store",
+    "user",
+    "uuid",
+    "unique",
+    "guid",
+    "global",
+    "transparent",
+    "encryption",
+    "decryption",
+    "indistinguishable",
+    "indistinguishability",
+    "pseudo",
+    "one",
+    "time",
+    "pad",
+    "onetimepad",
+    "canonical",
+    "canonicalization",
+    "domain",
+    "separation",
+    "KDF",
+    "bit",
+    "bits",
+    "hash",
+    "sha",
+    "sha3",
+    "sha-3",
+    "keccak",
+    "ephemeral",
+    "byte",
+    "entropy",
+    "PRF",
+    "PRG",
+    "PRP",
+    "RNG",
+    "PRNG",
+    "CSPRNG",
+    "cryptographically",
+    "secure",
+    "random",
+    "number",
+    "generator",
+    "bitwise",
+    "operations",
+    "IND",
+    "CCA",
+    "CPA",
+    "RUP",
+    "information",
+    "cyber",
+    "security",
+    "active",
+    "passive",
+    "adaptive",
+    "chosen",
+    "attack",
+    "resistance",
+    "resistant",
+    "tweak",
+    "tweakable",
+    "anonymous",
+    "anonymity",
+    "pseudonymous",
+    "symmetric",
+    "asymmetric",
+    "communications",
+    "utilities",
+    "simple",
+    "clean",
+    "code",
+    "crypto",
+    "cryptology",
+    "cryptography",
+    "cryptanalysis",
+    "beta",
+    "testing",
+    "data",
+    "science",
+    "multi",
+    "processing",
+    "threading",
+    "await",
+    "async",
+    "asyncio",
+    "parallel",
+    "concurrency",
+    "coroutine",
+    "coroutines",
+    "asynchronous",
+    "asynchrony",
+]
+
+
+[project.optional-dependencies]
+test = [
+    "coverage[toml]>=7.10.4",
+    "hypothesis>=6.138.2",
+    "pytest>=8.4.1",
+    "pytest-asyncio>=1.1.0",
+    "ruff>=0.12.10",
+]
+dev = [
+    "build>=1.3.0",
+    "coverage[toml]>=7.10.4",
+    "hypothesis>=6.138.2",
+    "ipython>=8.18.1",
+    "pytest>=8.4.1",
+    "pytest-asyncio>=1.1.0",
+    "ruff>=0.12.10",
+    "setuptools>=80.9.0",
+    "twine>=6.1.0",
+    "wheel>=0.45.1",
+]
+
+
+[project.urls]
+Homepage = "https://twitter.com/aiootp"
+Download = "https://pypi.org/project/aiootp"
+Source = "https://github.com/rmlibre/aiootp"
+Repository = "https://github.com/rmlibre/aiootp.git"
+Tracker = "https://github.com/rmlibre/aiootp/issues"
+Changelog = "https://github.com/rmlibre/aiootp/blob/main/CHANGES.rst"
+Documentation = "https://github.com/rmlibre/aiootp/blob/main/README.rst"
+
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["aiootp", "aiootp*"]
+namespaces = true
+
+
+[tool.setuptools.package-data]
+"aiootp.db" = ["README_DATABASES.rst"]
+"aiootp.tor" = ["README_TOR.rst"]
+
+
+[tool.setuptools.dynamic]
+version = {attr = "aiootp.__init__.__version__"}
+readme = {file = ["README.rst"]}
+
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+cache_dir = "/tmp/.pytest_cache"
+asyncio_default_fixture_loop_scope = "function"
+doctest_optionflags = ["IGNORE_EXCEPTION_DETAIL", "ELLIPSIS"]
+# filterwarnings = [
+#     "error",
+#     "ignore::RuntimeWarning",
+#     "ignore::DeprecationWarning",
+#     "ignore::pytest.PytestUnraisableExceptionWarning:test_gentools",
+# ]
+addopts = [
+    "--verbose",
+    "--ignore=docs/*",
+    "--ignore=aiootp/db/*",
+    "--ignore=aiootp/tor/*",
+    "--show-capture=all",
+    "--pythonwarnings=default",
+]
+
+
+[tool.coverage.run]
+branch = true
+parallel = true
+relative_files = true
+source = ["aiootp"]
+# command_line = "-m pytest tests/all_aiootp_tests.py"
+concurrency = ["thread", "multiprocessing"]
+omit = ["**/__engagement/**", "**/db/**", "**/tor/**"]
+
+
+[tool.coverage.html]
+directory = "tests/htmlcov"
+
+
+[tool.ruff]
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".env",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".ipynb_checkpoints",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pyenv",
+    ".pytest_cache",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    ".vscode",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "env",
+    "node_modules",
+    "site-packages",
+    "venv",
+]
+line-length = 76
+indent-width = 4
+target-version = "py38"
+
+
+[tool.ruff.lint]
+select = [
+    "A",  # flake8-builtins
+    "ANN",  # flake8-annotations
+    "ARG",  # flake8-unused-arguments
+    "ASYNC",  # flake8-async
+    "B",  # flake8-bugbear
+    "C",  # conventions & complexity
+    "E",  # pycodestyle errors
+    "ERA",  # eradicate commented out code
+    "F",  # pyflakes
+    "FBT",  # flake8-boolean-trap
+    "FLY",  # flynt
+    "FURB",  # refurb
+    "PERF",  # Perflint
+    "PIE",  # flake8-pie
+    "PL",  # Pylint
+    "PT",  # pytest-style
+    "PTH",  # flake8-use-pathlib
+    "Q",  # flake8-quotes
+    "RSE",  # flake8-raise
+    "S",  # flake8-bandit
+    "SIM",  # flake8-simplify
+    "T20",  # flake8-print
+    "TCH",  # flake8-type-checking
+    "TD",  # flake8-todos
+    "RUF",  # Ruff-specific
+    "UP",  # pyupgrade
+    "W",  # pycodestyle warnings
+]
+ignore = [
+    "B006",  # mutable defaults only used for **unpacking interface
+    "B028",  # thanks for the warning, if stacklevel was needed
+    "C408",  # string keys aren't better than keyword arguments
+    "COM",  # TODO: use? it's discouraged but nice
+    "E501",  # trust the 76-length enforcement from the formatter
+    "E731",  # TODO: look through lambda's to maybe comply
+    "PLE0604",  # runtime will catch non-string __all__ members
+    "PLR0913",  # many arguments is a smell, but sometimes it's practical
+    "PLR2004",  # TODO: refactor out magic values
+    "PLW2901",  # overwriting names is ok
+    "RUF012",  # sometimes other types better describe class variables
+    "RUF022",  # semantic groupings > alphabetic ordering
+    "RUF023",  # semantic groupings > alphabetic ordering
+    "S101",  # sometimes asserts are nice sanity checks
+    "SIM300",  # hey! yoda's alright
+    "TD003",  # not all TODOs have an issue link, but should?
+]
+fixable = ["ALL"]
+unfixable = []
+
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = [
+    "E402",  # sometimes an init defines things for its subpackages
+    "F403",  # the init are just shuttling names, `import *` == fine
+    "F405",  # honestly, `import *` is ok for shuttling inits
+    "F821",  # (sub)packages don't need to import their modules' names
+    "F822",  # potential NameError warnings ie. `import *`
+]
+"{issue_reporting,sign_package_*}.py" = [
+    "T201",  # legit print use in CLI
+]
+"sign_package_build.py" = [
+    "A004",  # legit built-in python variable use
+    "S603",  # legit shell use to get git file tree to sign
+]
+"**sign_package_service.py" = [
+    "A004",  # legit built-in python variable use
+    "PERF203",  # not a tight loop needing this optimization
+]
+"**/_typing/*" = [
+    "A002",  # no control if mirrored interfaces reuse built-in names
+    "FBT001",  # no control over positional boolean params here
+]
+"**{_paths.py,_exceptions.py}" = [
+    "PLC0415",  # allow internal imports to access higher level modules
+]
+"**/{__engagement/,_constants/,_exceptions.py}**" = [
+    "S105",  # these are constants not credentials
+]
+"**/asynchs/aos.py" = [
+    "F822",  # `__all__` declarations exist in `os` module
+]
+"**/randoms/_early_salts.py" = [
+    "PLW0603",  # global updates are ok in context of package entropy
+]
+"**/randoms/simple.py" = [
+    "S311",  # weak random is labelled in simple module
+]
+"**/randoms/rng.py" = [
+    "B008",  # random defaults at startup are intended
+]
+"**/databases/{async,sync}_database.py" = [
+    "ARG002",  # TODO: temp, until `admin` kwarg (non-)usage is decided
+]
+"dual_output_shake_cipher_config.py" = [
+    "SIM114",  # TODO: specify branch exceptions & other build limits
+]
+"*{config,format}.py" = [
+    "PLR0913",  # config objects can have many arguments
+]
+"conftest.py" = [
+    "E402",  # there's a wibbly wobbly, timey wimey import sequence here
+    "F401",  # most other tests get their imports from this module
+]
+"**/{tests,docs}/*" = [
+    "ANN001",  # type annotations on tests nice but unnecessary
+    "ANN003",  # ''   ''
+    "ANN202",  # ''   ''
+    "C901",  # tests can get complex
+    "F403",  # tests get most of their imports from `import *`
+    "F405",  # `import *` confuses it a lot
+    "F822",  # potential NameError warnings ie. `import *`
+    "PLE0605",  # it doesn't think `sorted` returns a list
+    "PLR0915",  # TODO: refactor tests so this passes
+    "PLR2004",  # literals can be clearer in tests
+    "S101",  # asserts happen in tests
+    "S311",  # weak random is fine in tests
+]
+
+
+[tool.ruff.lint.flake8-quotes]
+docstring-quotes = "double"
+
+
+[tool.ruff.format]
+line-ending = "auto"
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+
+# Enable auto-formatting of code examples in docstrings. Markdown,
+# reStructuredText code/literal blocks and doctests are all supported.
+#
+# This is currently disabled by default, but it is planned for this
+# to be opt-out in the future.
+docstring-code-format = false
+
+# Set the line length limit used when formatting code snippets in
+# docstrings.
+#
+# This only has an effect when the `docstring-code-format` setting is
+# enabled.
+docstring-code-line-length = "dynamic"
+
+# This Ruff configuration is adapted from their documentation.
+# https://docs.astral.sh/ruff/configuration/
