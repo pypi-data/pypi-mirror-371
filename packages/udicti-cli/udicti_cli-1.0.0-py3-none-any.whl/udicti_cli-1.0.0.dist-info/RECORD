@@ -1,0 +1,15 @@
+udicti_cli/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+udicti_cli/main.py,sha256=_apueyxQ0n93idtIkj-_E3PqE5sFbhh8efsc7aWd9gI,2674
+udicti_cli/commands/__init__.py,sha256=H9KAyCG_6FXjFJvhn-QqFF24vJqQ3raSE15tSnWsur0,508
+udicti_cli/commands/dashboard.py,sha256=7wbeZQRROmDhJ_HfsaBDJelZyeeBzmUn7Ym5y15wJlU,12084
+udicti_cli/commands/firebase.py,sha256=ZxRbZ8dFgnZc0t16N0xTJsBend8mYXyA8Q4CFoVuOOY,4847
+udicti_cli/commands/github_auth.py,sha256=A3CzEga3-h1q9e3mMn6YLBLfjGFj8yZ6L5_u1oD2-74,8308
+udicti_cli/commands/onboarding.py,sha256=32hW6CzecpDatV0kTdrh3h56M18rHMLmfq_PZd-ZJkU,7655
+udicti_cli/commands/show.py,sha256=wOtYrSax92IA1voIkpml4iyPS2BXdD_GUA6ChEFHzY0,2995
+udicti_cli/commands/welcome.py,sha256=v_q5CP0hv8dZKIZqfU0RnmNK8AtnxHDRxSPGykY9KVQ,4569
+udicti_cli-1.0.0.dist-info/licenses/LICENSE,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+udicti_cli-1.0.0.dist-info/METADATA,sha256=ToTVRejaMrOjspPf28rKHTZjcJ7RWV2uyxaXKg-4XRo,4460
+udicti_cli-1.0.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+udicti_cli-1.0.0.dist-info/entry_points.txt,sha256=mRfIt0I5oPXLz1_Lb-ywnmZvedVvTwPGOOiBPedpC0E,47
+udicti_cli-1.0.0.dist-info/top_level.txt,sha256=V9pAfeV1J4Mc1ZtscJcCDTverupSix7PucKqC76Owi0,11
+udicti_cli-1.0.0.dist-info/RECORD,,

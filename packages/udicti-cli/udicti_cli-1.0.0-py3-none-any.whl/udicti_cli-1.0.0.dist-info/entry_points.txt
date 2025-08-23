@@ -1,0 +1,2 @@
+[console_scripts]
+udicti = udicti_cli.main:app
