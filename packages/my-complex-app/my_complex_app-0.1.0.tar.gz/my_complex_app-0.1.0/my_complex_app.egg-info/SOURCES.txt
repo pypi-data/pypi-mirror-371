@@ -1,0 +1,11 @@
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+my_complex_app/__init__.py
+my_complex_app/calc.py
+my_complex_app.egg-info/PKG-INFO
+my_complex_app.egg-info/SOURCES.txt
+my_complex_app.egg-info/dependency_links.txt
+my_complex_app.egg-info/requires.txt
+my_complex_app.egg-info/top_level.txt
