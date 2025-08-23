@@ -1,0 +1,19 @@
+[project]
+name = "lhs-mcp-demo-lh"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "lhs", email = "1350371071@qq.com" }
+]
+requires-python = ">=3.11.5"
+dependencies = [
+    "mcp[cli]>=1.13.1",
+]
+
+[project.scripts]
+lhs-mcp-demo-lh = "lhs_mcp_demo_lh:main"
+
+[build-system]
+requires = ["uv_build>=0.8.13,<0.9.0"]
+build-backend = "uv_build"
