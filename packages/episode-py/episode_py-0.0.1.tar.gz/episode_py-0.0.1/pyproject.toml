@@ -1,0 +1,26 @@
+# pyproject.toml
+
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "episode-py"
+version = "0.0.1"
+readme = "README.md"
+authors = [{name = "Krzysztof Kacprzyk"}]
+license = { file = "LICENSE" }
+dependencies = [
+    "numpy >= 1.0.0",
+    "pandas >= 2.0.0",
+    "scipy >= 1.0.0",
+    "matplotlib >= 3.0.0",
+    "optuna >= 3.0.0",
+    "tqdm >= 4.0.0",
+    "torch >= 2.0.0",
+    "lightning >= 2.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/krzysztof-kacprzyk/EPISODEpy"
+
