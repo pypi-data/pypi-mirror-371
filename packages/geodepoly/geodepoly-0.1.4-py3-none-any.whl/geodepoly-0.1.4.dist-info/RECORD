@@ -1,0 +1,16 @@
+geodepoly/__init__.py,sha256=RoDbmFtBc1RxhEkjtgNvRE9OssoP0U5M_EF5qsrez_Y,484
+geodepoly/eigs.py,sha256=f6E2aPf6tINJMYE6PQl82MGl9tlaQFFtg_dnxHpcb7w,1210
+geodepoly/finishers.py,sha256=T1OGLxlAbi6NfPR1T3oVnyux3DK6uJ8E6PUclLgxMRk,7155
+geodepoly/hyper_catalan.py,sha256=IEpVcvAsmhNSa_sg1wpAkFbBKFcJke6xfpXm_NmRJNw,3458
+geodepoly/resummation.py,sha256=i9JrxTd6inWxOXzwtiGRdoo7ja3bWH4sl4n35djTkBg,5700
+geodepoly/series_core.py,sha256=qElyTCKiBzNEzD_kJqtUUHj10rU7CO-O6j_bXMTtyuQ,3318
+geodepoly/series_solve.py,sha256=qEUS0oEM5wjFoqVdzHEQ37tZrrby9su4vF-nYg-Emt8,11247
+geodepoly/solver.py,sha256=2Hki40mGgh9wUXV7HgdIyNvOJEVMEabEJ7XJ7qq69n4,5792
+geodepoly/sympy_plugin.py,sha256=cf-xboKMXEGarlvc0zr5Ulj88N01lX-ZDUMyPp94Cgw,1123
+geodepoly/util.py,sha256=crBTh0SPZ-cE3NJt5tmF9Lo_fyIJzWeuQmt2ZOLgWc0,731
+geodepoly/scripts/benchmark.py,sha256=Io9CEvzQPHtdLzl4nNH2x-bFxNCKeYGwfr8O0dQG0_Y,1485
+geodepoly-0.1.4.dist-info/licenses/LICENSE,sha256=olTYNlAq9MUi338URkf7rAy8LP_mxcXYdlN20qOPiCw,1081
+geodepoly-0.1.4.dist-info/METADATA,sha256=8OYpzBQxLX1u-tiEcDtnD260fJQau5jAW49edGQeHiI,5842
+geodepoly-0.1.4.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+geodepoly-0.1.4.dist-info/top_level.txt,sha256=_ZvaAfyAl4tQmdVP_a2-8caRZPOzjv0qH9s-EpTD_0k,10
+geodepoly-0.1.4.dist-info/RECORD,,
