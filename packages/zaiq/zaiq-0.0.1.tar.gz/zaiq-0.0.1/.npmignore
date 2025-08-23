@@ -1,0 +1,6 @@
+docs/
+.git/
+.bmad-core/
+.claude/
+*.md
+!README.md
