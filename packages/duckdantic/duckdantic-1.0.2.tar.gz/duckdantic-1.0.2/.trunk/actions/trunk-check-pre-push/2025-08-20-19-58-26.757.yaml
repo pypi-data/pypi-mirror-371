@@ -1,0 +1,17 @@
+action_id: trunk-check-pre-push
+date: 2025-08-20 19:58:26
+run: trunk check -n -t git-push --commit-ref-from-pre-push '${hook_stdin_path}'
+args:
+  - origin
+  - https://github.com/pr1m8/duckdantic.git
+run_from: ""
+trigger: pre-push
+result:
+  exit_code: 0
+  out: ""
+  err: ""
+timestamp: 1755719906
+full_timestamp:
+  nanos: 757315000
+  seconds: 1755719906
+trunk_version: 1.25.0

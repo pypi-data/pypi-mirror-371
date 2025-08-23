@@ -1,0 +1,540 @@
+[2025-08-22 16:24:47.141] [global] [info] [service.cc:409] [user-agent=cli/check sid=13] TX:virtual grpc::Status trunk::cli::lint::Service::Queue(grpc::ServerContext *, const proto::v1::QueueRequest *, proto::v1::QueueResponse *) status=OK
+[2025-08-22 16:24:47.142] [global] [info] [service.cc:452] [user-agent=cli/check sid=13] RX:virtual grpc::Status trunk::cli::lint::Service::DoneLinting(grpc::ServerContext *, const proto::v1::DoneLintingRequest *, proto::v1::DoneLintingResponse *)
+[2025-08-22 16:24:47.142] [global] [info] [service.cc:452] [user-agent=cli/check sid=13] TX:virtual grpc::Status trunk::cli::lint::Service::DoneLinting(grpc::ServerContext *, const proto::v1::DoneLintingRequest *, proto::v1::DoneLintingResponse *) status=OK
+[2025-08-22 16:24:47.142] [global] [info] [service.cc:528] [user-agent=cli/check sid=13] RX:virtual grpc::Status trunk::cli::lint::Service::Lint(grpc::ServerContext *, const proto::v1::LintRequest *, grpc::ServerWriter<proto::v1::LintResponse> *)
+[2025-08-22 16:24:47.144] [global] [info] [cache.cc:978] [on-demand] [git-diff-check:lint:scripts/release.py:HEAD] running linter (uncacheable)
+[2025-08-22 16:24:47.145] [global] [info] [cache.cc:974] [on-demand] [trufflehog:lint:scripts/release.py:HEAD] running linter (cache-key:7d0302fdf54c107bd475609ed1b36942)
+[2025-08-22 16:24:47.151] [global] [info] [cache.cc:974] [on-demand] [bandit:lint:scripts/release.py:HEAD] running linter (cache-key:f5cd58a119b75de074ee5837c26af4a0)
+[2025-08-22 16:24:47.155] [global] [info] [cache.cc:974] [on-demand] [black:format:scripts/release.py:HEAD] running linter (cache-key:e84d4efbeea26390b73aa032f661108d)
+[2025-08-22 16:24:47.158] [global] [info] [cache.cc:974] [on-demand] [codespell:lint:scripts/release.py:HEAD] running linter (cache-key:b8eaacbd5ce48758f12ecce06d112dac)
+[2025-08-22 16:24:47.158] [global] [info] [cache.cc:1117] [on-demand] [git-diff-check:lint:scripts/release.py:HEAD] Linter ran in 14ms
+[2025-08-22 16:24:47.167] [global] [info] [cache.cc:978] [on-demand] [isort:format:scripts/release.py:HEAD] running linter (uncacheable)
+[2025-08-22 16:24:47.172] [global] [info] [cache.cc:978] [on-demand] [mypy:lint:scripts/release.py:HEAD] running linter (uncacheable)
+[2025-08-22 16:24:47.333] [global] [info] [cache.cc:1117] [on-demand] [isort:format:scripts/release.py:HEAD] Linter ran in 151ms
+[2025-08-22 16:24:47.335] [global] [info] [cache.cc:978] [on-demand] [ruff:lint:scripts/release.py:HEAD] running linter (uncacheable)
+[2025-08-22 16:24:47.397] [global] [info] [cache.cc:1117] [on-demand] [bandit:lint:scripts/release.py:HEAD] Linter ran in 241ms
+[2025-08-22 16:24:47.407] [global] [info] [cache.cc:1117] [on-demand] [codespell:lint:scripts/release.py:HEAD] Linter ran in 241ms
+[2025-08-22 16:24:47.409] [global] [info] [cache.cc:1117] [on-demand] [ruff:lint:scripts/release.py:HEAD] Linter ran in 73ms
+[2025-08-22 16:24:47.640] [global] [info] [git_source_control.cc:517] Computing merge base between 68eed961e48f49f80d060747c581657dbeb60c81 and 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:24:47.640] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:24:47.651] [global] [info] [cache.cc:959] [monitor] [trufflehog:lint:scripts/release.py:HEAD] linting in progress, waiting (cache-key:7d0302fdf54c107bd475609ed1b36942)
+[2025-08-22 16:24:47.651] [global] [info] [cache.cc:934] [monitor] [codespell:lint:scripts/release.py:HEAD] already cached, not running linter
+[2025-08-22 16:24:47.651] [global] [info] [cache.cc:934] [monitor] [bandit:lint:scripts/release.py:HEAD] already cached, not running linter
+[2025-08-22 16:24:47.652] [global] [info] [cache.cc:959] [monitor] [black:format:scripts/release.py:HEAD] linting in progress, waiting (cache-key:e84d4efbeea26390b73aa032f661108d)
+[2025-08-22 16:24:47.771] [global] [info] [cache.cc:1117] [on-demand] [mypy:lint:scripts/release.py:HEAD] Linter ran in 598ms
+[2025-08-22 16:24:47.903] [global] [info] [cache.cc:1117] [on-demand] [black:format:scripts/release.py:HEAD] Linter ran in 746ms
+[2025-08-22 16:24:49.538] [global] [info] [cache.cc:1117] [monitor] [trufflehog:lint:pyproject.toml:HEAD] Linter ran in 3179ms
+[2025-08-22 16:24:50.295] [global] [info] [cache.cc:1117] [on-demand] [trufflehog:lint:scripts/release.py:HEAD] Linter ran in 3144ms
+[2025-08-22 16:24:50.497] [global] [info] [service.cc:528] [user-agent=cli/check sid=13] TX:virtual grpc::Status trunk::cli::lint::Service::Lint(grpc::ServerContext *, const proto::v1::LintRequest *, grpc::ServerWriter<proto::v1::LintResponse> *) status=OK
+[2025-08-22 16:24:50.498] [global] [info] [service.cc:607] [user-agent=cli/check sid=13] RX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *)
+[2025-08-22 16:24:50.498] [global] [info] [service.cc:607] [user-agent=cli/check sid=13] TX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *) status=OK
+[2025-08-22 16:24:50.499] [global] [info] [service.cc:573] [user-agent=cli/check sid=13] RX:virtual grpc::Status trunk::cli::lint::Service::Discard(grpc::ServerContext *, const proto::v1::DiscardRequest *, proto::v1::DiscardResponse *)
+[2025-08-22 16:24:50.499] [global] [info] [service.cc:573] [user-agent=cli/check sid=13] TX:virtual grpc::Status trunk::cli::lint::Service::Discard(grpc::ServerContext *, const proto::v1::DiscardRequest *, proto::v1::DiscardResponse *) status=OK
+[2025-08-22 16:24:50.499] [global] [info] [service.cc:607] [user-agent=cli/check sid=13] RX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *)
+[2025-08-22 16:24:50.499] [global] [info] [service.cc:607] [user-agent=cli/check sid=13] TX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *) status=OK
+[2025-08-22 16:24:50.500] [global] [info] [service.cc:573] [user-agent=cli/check sid=13] RX:virtual grpc::Status trunk::cli::lint::Service::Discard(grpc::ServerContext *, const proto::v1::DiscardRequest *, proto::v1::DiscardResponse *)
+[2025-08-22 16:24:50.500] [global] [info] [service.cc:573] [user-agent=cli/check sid=13] TX:virtual grpc::Status trunk::cli::lint::Service::Discard(grpc::ServerContext *, const proto::v1::DiscardRequest *, proto::v1::DiscardResponse *) status=OK
+[2025-08-22 16:24:50.500] [global] [info] [service.cc:607] [user-agent=cli/check sid=13] RX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *)
+[2025-08-22 16:24:50.500] [global] [info] [service.cc:607] [user-agent=cli/check sid=13] TX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *) status=OK
+[2025-08-22 16:24:50.501] [global] [info] [service.cc:573] [user-agent=cli/check sid=13] RX:virtual grpc::Status trunk::cli::lint::Service::Discard(grpc::ServerContext *, const proto::v1::DiscardRequest *, proto::v1::DiscardResponse *)
+[2025-08-22 16:24:50.501] [global] [info] [service.cc:573] [user-agent=cli/check sid=13] TX:virtual grpc::Status trunk::cli::lint::Service::Discard(grpc::ServerContext *, const proto::v1::DiscardRequest *, proto::v1::DiscardResponse *) status=OK
+[2025-08-22 16:24:50.501] [global] [info] [service.cc:607] [user-agent=cli/check sid=13] RX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *)
+[2025-08-22 16:24:50.502] [global] [info] [service.cc:607] [user-agent=cli/check sid=13] TX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *) status=OK
+[2025-08-22 16:24:50.502] [global] [info] [service.cc:562] [user-agent=cli/check sid=13] RX:virtual grpc::Status trunk::cli::lint::Service::Apply(grpc::ServerContext *, const proto::v1::ApplyRequest *, proto::v1::ApplyResponse *)
+[2025-08-22 16:24:50.502] [global] [info] [service.cc:562] [user-agent=cli/check sid=13] TX:virtual grpc::Status trunk::cli::lint::Service::Apply(grpc::ServerContext *, const proto::v1::ApplyRequest *, proto::v1::ApplyResponse *) status=OK
+[2025-08-22 16:24:50.503] [global] [info] [service.cc:607] [user-agent=cli/check sid=13] RX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *)
+[2025-08-22 16:24:50.503] [global] [info] [service.cc:607] [user-agent=cli/check sid=13] TX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *) status=OK
+[2025-08-22 16:24:50.503] [global] [info] [service.cc:562] [user-agent=cli/check sid=13] RX:virtual grpc::Status trunk::cli::lint::Service::Apply(grpc::ServerContext *, const proto::v1::ApplyRequest *, proto::v1::ApplyResponse *)
+[2025-08-22 16:24:50.504] [global] [info] [service.cc:562] [user-agent=cli/check sid=13] TX:virtual grpc::Status trunk::cli::lint::Service::Apply(grpc::ServerContext *, const proto::v1::ApplyRequest *, proto::v1::ApplyResponse *) status=OK
+[2025-08-22 16:24:50.504] [global] [info] [service.cc:607] [user-agent=cli/check sid=13] RX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *)
+[2025-08-22 16:24:50.504] [global] [info] [service.cc:607] [user-agent=cli/check sid=13] TX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *) status=OK
+[2025-08-22 16:24:50.505] [global] [info] [service.cc:562] [user-agent=cli/check sid=13] RX:virtual grpc::Status trunk::cli::lint::Service::Apply(grpc::ServerContext *, const proto::v1::ApplyRequest *, proto::v1::ApplyResponse *)
+[2025-08-22 16:24:50.505] [global] [info] [service.cc:562] [user-agent=cli/check sid=13] TX:virtual grpc::Status trunk::cli::lint::Service::Apply(grpc::ServerContext *, const proto::v1::ApplyRequest *, proto::v1::ApplyResponse *) status=OK
+[2025-08-22 16:24:50.506] [global] [info] [service.cc:607] [user-agent=cli/check sid=13] RX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *)
+[2025-08-22 16:24:50.506] [global] [info] [service.cc:607] [user-agent=cli/check sid=13] TX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *) status=OK
+[2025-08-22 16:24:50.506] [global] [info] [service.cc:562] [user-agent=cli/check sid=13] RX:virtual grpc::Status trunk::cli::lint::Service::Apply(grpc::ServerContext *, const proto::v1::ApplyRequest *, proto::v1::ApplyResponse *)
+[2025-08-22 16:24:50.507] [global] [info] [service.cc:562] [user-agent=cli/check sid=13] TX:virtual grpc::Status trunk::cli::lint::Service::Apply(grpc::ServerContext *, const proto::v1::ApplyRequest *, proto::v1::ApplyResponse *) status=OK
+[2025-08-22 16:24:50.507] [global] [info] [service.cc:607] [user-agent=cli/check sid=13] RX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *)
+[2025-08-22 16:24:50.508] [global] [info] [service.cc:607] [user-agent=cli/check sid=13] TX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *) status=OK
+[2025-08-22 16:24:50.508] [global] [info] [service.cc:562] [user-agent=cli/check sid=13] RX:virtual grpc::Status trunk::cli::lint::Service::Apply(grpc::ServerContext *, const proto::v1::ApplyRequest *, proto::v1::ApplyResponse *)
+[2025-08-22 16:24:50.508] [global] [info] [service.cc:562] [user-agent=cli/check sid=13] TX:virtual grpc::Status trunk::cli::lint::Service::Apply(grpc::ServerContext *, const proto::v1::ApplyRequest *, proto::v1::ApplyResponse *) status=OK
+[2025-08-22 16:24:50.509] [global] [info] [service.cc:607] [user-agent=cli/check sid=13] RX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *)
+[2025-08-22 16:24:50.509] [global] [info] [service.cc:607] [user-agent=cli/check sid=13] TX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *) status=OK
+[2025-08-22 16:24:50.510] [global] [info] [service.cc:562] [user-agent=cli/check sid=13] RX:virtual grpc::Status trunk::cli::lint::Service::Apply(grpc::ServerContext *, const proto::v1::ApplyRequest *, proto::v1::ApplyResponse *)
+[2025-08-22 16:24:50.510] [global] [info] [service.cc:562] [user-agent=cli/check sid=13] TX:virtual grpc::Status trunk::cli::lint::Service::Apply(grpc::ServerContext *, const proto::v1::ApplyRequest *, proto::v1::ApplyResponse *) status=OK
+[2025-08-22 16:24:50.511] [global] [info] [service.cc:607] [user-agent=cli/check sid=13] RX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *)
+[2025-08-22 16:24:50.511] [global] [info] [service.cc:607] [user-agent=cli/check sid=13] TX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *) status=OK
+[2025-08-22 16:24:50.512] [global] [info] [service.cc:562] [user-agent=cli/check sid=13] RX:virtual grpc::Status trunk::cli::lint::Service::Apply(grpc::ServerContext *, const proto::v1::ApplyRequest *, proto::v1::ApplyResponse *)
+[2025-08-22 16:24:50.512] [global] [info] [service.cc:562] [user-agent=cli/check sid=13] TX:virtual grpc::Status trunk::cli::lint::Service::Apply(grpc::ServerContext *, const proto::v1::ApplyRequest *, proto::v1::ApplyResponse *) status=OK
+[2025-08-22 16:24:50.512] [global] [info] [service.cc:607] [user-agent=cli/check sid=13] RX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *)
+[2025-08-22 16:24:50.512] [global] [info] [service.cc:607] [user-agent=cli/check sid=13] TX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *) status=OK
+[2025-08-22 16:24:50.513] [global] [info] [service.cc:562] [user-agent=cli/check sid=13] RX:virtual grpc::Status trunk::cli::lint::Service::Apply(grpc::ServerContext *, const proto::v1::ApplyRequest *, proto::v1::ApplyResponse *)
+[2025-08-22 16:24:50.513] [global] [info] [service.cc:562] [user-agent=cli/check sid=13] TX:virtual grpc::Status trunk::cli::lint::Service::Apply(grpc::ServerContext *, const proto::v1::ApplyRequest *, proto::v1::ApplyResponse *) status=OK
+[2025-08-22 16:24:50.514] [global] [info] [service.cc:607] [user-agent=cli/check sid=13] RX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *)
+[2025-08-22 16:24:50.514] [global] [info] [service.cc:607] [user-agent=cli/check sid=13] TX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *) status=OK
+[2025-08-22 16:24:50.514] [global] [info] [service.cc:562] [user-agent=cli/check sid=13] RX:virtual grpc::Status trunk::cli::lint::Service::Apply(grpc::ServerContext *, const proto::v1::ApplyRequest *, proto::v1::ApplyResponse *)
+[2025-08-22 16:24:50.515] [global] [info] [service.cc:562] [user-agent=cli/check sid=13] TX:virtual grpc::Status trunk::cli::lint::Service::Apply(grpc::ServerContext *, const proto::v1::ApplyRequest *, proto::v1::ApplyResponse *) status=OK
+[2025-08-22 16:24:50.515] [global] [info] [service.cc:607] [user-agent=cli/check sid=13] RX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *)
+[2025-08-22 16:24:50.515] [global] [info] [service.cc:607] [user-agent=cli/check sid=13] TX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *) status=OK
+[2025-08-22 16:24:50.516] [global] [info] [service.cc:562] [user-agent=cli/check sid=13] RX:virtual grpc::Status trunk::cli::lint::Service::Apply(grpc::ServerContext *, const proto::v1::ApplyRequest *, proto::v1::ApplyResponse *)
+[2025-08-22 16:24:50.516] [global] [info] [service.cc:562] [user-agent=cli/check sid=13] TX:virtual grpc::Status trunk::cli::lint::Service::Apply(grpc::ServerContext *, const proto::v1::ApplyRequest *, proto::v1::ApplyResponse *) status=OK
+[2025-08-22 16:24:50.516] [global] [info] [service.cc:607] [user-agent=cli/check sid=13] RX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *)
+[2025-08-22 16:24:50.517] [global] [info] [service.cc:607] [user-agent=cli/check sid=13] TX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *) status=OK
+[2025-08-22 16:24:50.517] [global] [info] [service.cc:562] [user-agent=cli/check sid=13] RX:virtual grpc::Status trunk::cli::lint::Service::Apply(grpc::ServerContext *, const proto::v1::ApplyRequest *, proto::v1::ApplyResponse *)
+[2025-08-22 16:24:50.517] [global] [info] [service.cc:562] [user-agent=cli/check sid=13] TX:virtual grpc::Status trunk::cli::lint::Service::Apply(grpc::ServerContext *, const proto::v1::ApplyRequest *, proto::v1::ApplyResponse *) status=OK
+[2025-08-22 16:24:50.518] [global] [info] [service.cc:607] [user-agent=cli/check sid=13] RX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *)
+[2025-08-22 16:24:50.518] [global] [info] [service.cc:607] [user-agent=cli/check sid=13] TX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *) status=OK
+[2025-08-22 16:24:50.518] [global] [info] [service.cc:562] [user-agent=cli/check sid=13] RX:virtual grpc::Status trunk::cli::lint::Service::Apply(grpc::ServerContext *, const proto::v1::ApplyRequest *, proto::v1::ApplyResponse *)
+[2025-08-22 16:24:50.518] [global] [info] [service.cc:562] [user-agent=cli/check sid=13] TX:virtual grpc::Status trunk::cli::lint::Service::Apply(grpc::ServerContext *, const proto::v1::ApplyRequest *, proto::v1::ApplyResponse *) status=OK
+[2025-08-22 16:24:50.519] [global] [info] [service.cc:607] [user-agent=cli/check sid=13] RX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *)
+[2025-08-22 16:24:50.519] [global] [info] [service.cc:607] [user-agent=cli/check sid=13] TX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *) status=OK
+[2025-08-22 16:24:50.519] [global] [info] [service.cc:562] [user-agent=cli/check sid=13] RX:virtual grpc::Status trunk::cli::lint::Service::Apply(grpc::ServerContext *, const proto::v1::ApplyRequest *, proto::v1::ApplyResponse *)
+[2025-08-22 16:24:50.520] [global] [info] [service.cc:562] [user-agent=cli/check sid=13] TX:virtual grpc::Status trunk::cli::lint::Service::Apply(grpc::ServerContext *, const proto::v1::ApplyRequest *, proto::v1::ApplyResponse *) status=OK
+[2025-08-22 16:24:50.520] [global] [info] [service.cc:607] [user-agent=cli/check sid=13] RX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *)
+[2025-08-22 16:24:50.520] [global] [info] [service.cc:607] [user-agent=cli/check sid=13] TX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *) status=OK
+[2025-08-22 16:24:50.520] [global] [info] [service.cc:409] [user-agent=cli/check sid=13] RX:virtual grpc::Status trunk::cli::lint::Service::Queue(grpc::ServerContext *, const proto::v1::QueueRequest *, proto::v1::QueueResponse *)
+[2025-08-22 16:24:50.520] [global] [info] [service.cc:409] [user-agent=cli/check sid=13] TX:virtual grpc::Status trunk::cli::lint::Service::Queue(grpc::ServerContext *, const proto::v1::QueueRequest *, proto::v1::QueueResponse *) status=OK
+[2025-08-22 16:24:50.521] [global] [info] [service.cc:452] [user-agent=cli/check sid=13] RX:virtual grpc::Status trunk::cli::lint::Service::DoneLinting(grpc::ServerContext *, const proto::v1::DoneLintingRequest *, proto::v1::DoneLintingResponse *)
+[2025-08-22 16:24:50.521] [global] [info] [service.cc:452] [user-agent=cli/check sid=13] TX:virtual grpc::Status trunk::cli::lint::Service::DoneLinting(grpc::ServerContext *, const proto::v1::DoneLintingRequest *, proto::v1::DoneLintingResponse *) status=OK
+[2025-08-22 16:24:50.521] [global] [info] [service.cc:528] [user-agent=cli/check sid=13] RX:virtual grpc::Status trunk::cli::lint::Service::Lint(grpc::ServerContext *, const proto::v1::LintRequest *, grpc::ServerWriter<proto::v1::LintResponse> *)
+[2025-08-22 16:24:50.523] [global] [info] [cache.cc:978] [on-demand] [git-diff-check:lint:scripts/release.py:HEAD] running linter (uncacheable)
+[2025-08-22 16:24:50.528] [global] [info] [cache.cc:974] [on-demand] [trufflehog:lint:scripts/release.py:HEAD] running linter (cache-key:5c1020eda8d0895b192281f46aff28b3)
+[2025-08-22 16:24:50.530] [global] [info] [cache.cc:974] [on-demand] [codespell:lint:scripts/release.py:HEAD] running linter (cache-key:9d0ec7b3a97b095410bb93933e32ba6f)
+[2025-08-22 16:24:50.534] [global] [info] [cache.cc:974] [on-demand] [bandit:lint:scripts/release.py:HEAD] running linter (cache-key:c4c2dc9f6c3af0600216d3d274ce2d9d)
+[2025-08-22 16:24:50.535] [global] [info] [cache.cc:978] [on-demand] [isort:format:scripts/release.py:HEAD] running linter (uncacheable)
+[2025-08-22 16:24:50.540] [global] [info] [cache.cc:1117] [on-demand] [git-diff-check:lint:scripts/release.py:HEAD] Linter ran in 16ms
+[2025-08-22 16:24:50.541] [global] [info] [cache.cc:974] [on-demand] [black:format:scripts/release.py:HEAD] running linter (cache-key:b49e13d87357716da9c1c846f6f0bd42)
+[2025-08-22 16:24:50.541] [global] [info] [cache.cc:978] [on-demand] [mypy:lint:scripts/release.py:HEAD] running linter (uncacheable)
+[2025-08-22 16:24:50.687] [global] [info] [cache.cc:1117] [on-demand] [isort:format:scripts/release.py:HEAD] Linter ran in 141ms
+[2025-08-22 16:24:50.689] [global] [info] [cache.cc:978] [on-demand] [ruff:lint:scripts/release.py:HEAD] running linter (uncacheable)
+[2025-08-22 16:24:50.716] [global] [info] [runner.cc:106] Writing mypy predecessor error to /home/will/Projects/duckdantic/.trunk/out/tS7rL.yaml
+[2025-08-22 16:24:50.743] [global] [info] [cache.cc:1117] [on-demand] [bandit:lint:scripts/release.py:HEAD] Linter ran in 204ms
+[2025-08-22 16:24:50.764] [global] [info] [cache.cc:1117] [on-demand] [ruff:lint:scripts/release.py:HEAD] Linter ran in 74ms
+[2025-08-22 16:24:50.788] [global] [info] [cache.cc:1117] [on-demand] [codespell:lint:scripts/release.py:HEAD] Linter ran in 256ms
+[2025-08-22 16:24:51.020] [global] [info] [git_source_control.cc:517] Computing merge base between 68eed961e48f49f80d060747c581657dbeb60c81 and 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:24:51.020] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:24:51.030] [global] [info] [cache.cc:959] [monitor] [trufflehog:lint:scripts/release.py:HEAD] linting in progress, waiting (cache-key:5c1020eda8d0895b192281f46aff28b3)
+[2025-08-22 16:24:51.031] [global] [info] [cache.cc:934] [monitor] [codespell:lint:scripts/release.py:HEAD] already cached, not running linter
+[2025-08-22 16:24:51.031] [global] [info] [cache.cc:959] [monitor] [black:format:scripts/release.py:HEAD] linting in progress, waiting (cache-key:b49e13d87357716da9c1c846f6f0bd42)
+[2025-08-22 16:24:51.031] [global] [info] [cache.cc:934] [monitor] [bandit:lint:scripts/release.py:HEAD] already cached, not running linter
+[2025-08-22 16:24:51.032] [global] [info] [runner.cc:106] Writing black predecessor error to /home/will/Projects/duckdantic/.trunk/out/usgQo.yaml
+[2025-08-22 16:24:53.523] [global] [info] [cache.cc:1117] [on-demand] [trufflehog:lint:scripts/release.py:HEAD] Linter ran in 2992ms
+[2025-08-22 16:24:53.525] [global] [info] [runner.cc:106] Writing black predecessor error to /home/will/Projects/duckdantic/.trunk/out/DSU9W.yaml
+[2025-08-22 16:24:53.525] [global] [info] [runner.cc:106] Writing mypy predecessor error to /home/will/Projects/duckdantic/.trunk/out/2Ag3W.yaml
+[2025-08-22 16:24:53.725] [global] [info] [service.cc:528] [user-agent=cli/check sid=13] TX:virtual grpc::Status trunk::cli::lint::Service::Lint(grpc::ServerContext *, const proto::v1::LintRequest *, grpc::ServerWriter<proto::v1::LintResponse> *) status=OK
+[2025-08-22 16:24:53.726] [global] [info] [service.cc:607] [user-agent=cli/check sid=13] RX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *)
+[2025-08-22 16:24:53.726] [global] [info] [service.cc:607] [user-agent=cli/check sid=13] TX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *) status=OK
+[2025-08-22 16:24:53.726] [global] [info] [service.cc:573] [user-agent=cli/check sid=13] RX:virtual grpc::Status trunk::cli::lint::Service::Discard(grpc::ServerContext *, const proto::v1::DiscardRequest *, proto::v1::DiscardResponse *)
+[2025-08-22 16:24:53.726] [global] [info] [service.cc:573] [user-agent=cli/check sid=13] TX:virtual grpc::Status trunk::cli::lint::Service::Discard(grpc::ServerContext *, const proto::v1::DiscardRequest *, proto::v1::DiscardResponse *) status=OK
+[2025-08-22 16:24:53.727] [global] [info] [service.cc:607] [user-agent=cli/check sid=13] RX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *)
+[2025-08-22 16:24:53.727] [global] [info] [service.cc:607] [user-agent=cli/check sid=13] TX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *) status=OK
+[2025-08-22 16:24:53.728] [global] [info] [service.cc:409] [user-agent=cli/check sid=13] RX:virtual grpc::Status trunk::cli::lint::Service::Queue(grpc::ServerContext *, const proto::v1::QueueRequest *, proto::v1::QueueResponse *)
+[2025-08-22 16:24:53.728] [global] [info] [service.cc:409] [user-agent=cli/check sid=13] TX:virtual grpc::Status trunk::cli::lint::Service::Queue(grpc::ServerContext *, const proto::v1::QueueRequest *, proto::v1::QueueResponse *) status=OK
+[2025-08-22 16:24:53.728] [global] [info] [service.cc:452] [user-agent=cli/check sid=13] RX:virtual grpc::Status trunk::cli::lint::Service::DoneLinting(grpc::ServerContext *, const proto::v1::DoneLintingRequest *, proto::v1::DoneLintingResponse *)
+[2025-08-22 16:24:53.728] [global] [info] [service.cc:452] [user-agent=cli/check sid=13] TX:virtual grpc::Status trunk::cli::lint::Service::DoneLinting(grpc::ServerContext *, const proto::v1::DoneLintingRequest *, proto::v1::DoneLintingResponse *) status=OK
+[2025-08-22 16:24:53.729] [global] [info] [service.cc:585] [user-agent=cli/check sid=13] RX:virtual grpc::Status trunk::cli::lint::Service::GetLandingState(grpc::ServerContext *, const proto::v1::GetLandingStateRequest *, proto::v1::GetLandingStateResponse *)
+[2025-08-22 16:24:53.730] [global] [info] [runner.cc:1128] Git-ignored path: .trunk/configs/.isort.cfg
+[2025-08-22 16:24:53.730] [global] [info] [service.cc:585] [user-agent=cli/check sid=13] TX:virtual grpc::Status trunk::cli::lint::Service::GetLandingState(grpc::ServerContext *, const proto::v1::GetLandingStateRequest *, proto::v1::GetLandingStateResponse *) status=OK
+[2025-08-22 16:24:53.731] [global] [info] [service.cc:256] lint session ended sid=13
+[2025-08-22 16:24:53.731] [global] [info] [service.cc:258] [user-agent=cli/check sid=13] RX:virtual grpc::Status trunk::cli::lint::Service::End(grpc::ServerContext *, const proto::v1::EndRequest *, proto::v1::EndResponse *)
+[2025-08-22 16:24:53.731] [global] [info] [service.cc:258] [user-agent=cli/check sid=13] TX:virtual grpc::Status trunk::cli::lint::Service::End(grpc::ServerContext *, const proto::v1::EndRequest *, proto::v1::EndResponse *) status=OK
+[2025-08-22 16:24:53.731] [global] [info] [service.cc:325] [user-agent=cli/check sid=n/a] RX:virtual grpc::Status trunk::cli::lint::Service::End(grpc::ServerContext *, const proto::v1::EndRequest *, proto::v1::EndResponse *)
+[2025-08-22 16:24:53.739] [global] [info] [service.cc:325] [user-agent=cli/check sid=n/a] TX:virtual grpc::Status trunk::cli::lint::Service::End(grpc::ServerContext *, const proto::v1::EndRequest *, proto::v1::EndResponse *) status=OK
+[2025-08-22 16:24:53.741] [global] [info] [grpc.cc:22] RX:virtual grpc::Status trunk::cli::actions::Service::GetNotifications(grpc::ServerContext *, const proto::v1::GetNotificationsRequest *, proto::v1::GetNotificationsResponse *)
+[2025-08-22 16:24:53.741] [global] [info] [service.cc:162] Writing notification state to file
+[2025-08-22 16:24:53.741] [global] [info] [grpc.cc:26] TX:virtual grpc::Status trunk::cli::actions::Service::GetNotifications(grpc::ServerContext *, const proto::v1::GetNotificationsRequest *, proto::v1::GetNotificationsResponse *) status=OK
+[2025-08-22 16:24:54.336] [global] [info] [git_source_control.cc:517] Computing merge base between 68eed961e48f49f80d060747c581657dbeb60c81 and 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:24:54.337] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:24:54.350] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:pyproject.toml:HEAD] running linter (cache-key:fb999346881cb5e0237f472c73bc7e4b)
+[2025-08-22 16:24:54.351] [global] [info] [cache.cc:974] [monitor] [codespell:lint:pyproject.toml:HEAD] running linter (cache-key:0f958bafd8cda4151218ceec3b1ea670)
+[2025-08-22 16:24:54.617] [global] [info] [cache.cc:1117] [monitor] [codespell:lint:pyproject.toml:HEAD] Linter ran in 259ms
+[2025-08-22 16:24:57.351] [global] [info] [cache.cc:1117] [monitor] [trufflehog:lint:pyproject.toml:HEAD] Linter ran in 2999ms
+[2025-08-22 16:25:02.973] [global] [info] [git_source_control.cc:517] Computing merge base between 68eed961e48f49f80d060747c581657dbeb60c81 and 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:25:02.974] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:25:04.414] [global] [info] [git_source_control.cc:517] Computing merge base between 68eed961e48f49f80d060747c581657dbeb60c81 and 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:25:04.414] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:25:04.426] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:scripts/release.py:HEAD] running linter (cache-key:b99567c84a5b979a444a21a5743eb0ba)
+[2025-08-22 16:25:04.426] [global] [info] [cache.cc:974] [monitor] [codespell:lint:scripts/release.py:HEAD] running linter (cache-key:48af2f772b4e5a0f9f8df39ac02e7076)
+[2025-08-22 16:25:04.439] [global] [info] [cache.cc:974] [monitor] [bandit:lint:scripts/release.py:HEAD] running linter (cache-key:405e6eaaff8f4bf3c0a87dea9527f243)
+[2025-08-22 16:25:04.441] [global] [info] [cache.cc:974] [monitor] [black:format:scripts/release.py:HEAD] running linter (cache-key:05617a881ca16debad08065c64421b6c)
+[2025-08-22 16:25:04.665] [global] [info] [cache.cc:1117] [monitor] [codespell:lint:scripts/release.py:HEAD] Linter ran in 237ms
+[2025-08-22 16:25:04.703] [global] [info] [cache.cc:1117] [monitor] [bandit:lint:scripts/release.py:HEAD] Linter ran in 260ms
+[2025-08-22 16:25:05.346] [global] [info] [cache.cc:1117] [monitor] [black:format:scripts/release.py:HEAD] Linter ran in 902ms
+[2025-08-22 16:25:07.767] [global] [info] [cache.cc:1117] [monitor] [trufflehog:lint:scripts/release.py:HEAD] Linter ran in 3339ms
+[2025-08-22 16:25:26.817] [global] [info] [git_source_control.cc:517] Computing merge base between 68eed961e48f49f80d060747c581657dbeb60c81 and 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:25:26.817] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:25:26.826] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:scripts/release.py:HEAD] running linter (cache-key:4db743be1b26073d5aaf7c575d9a8fa6)
+[2025-08-22 16:25:26.826] [global] [info] [cache.cc:974] [monitor] [codespell:lint:scripts/release.py:HEAD] running linter (cache-key:9290d82a9ffc6ca412f61c09f4a640e9)
+[2025-08-22 16:25:26.827] [global] [info] [cache.cc:974] [monitor] [bandit:lint:scripts/release.py:HEAD] running linter (cache-key:b534c5a6d489be74f2d361fc21dbc05d)
+[2025-08-22 16:25:26.836] [global] [info] [cache.cc:974] [monitor] [black:format:scripts/release.py:HEAD] running linter (cache-key:f1718101662ebe55d980a87a7775896e)
+[2025-08-22 16:25:27.062] [global] [info] [cache.cc:1117] [monitor] [bandit:lint:scripts/release.py:HEAD] Linter ran in 226ms
+[2025-08-22 16:25:27.080] [global] [info] [cache.cc:1117] [monitor] [codespell:lint:scripts/release.py:HEAD] Linter ran in 246ms
+[2025-08-22 16:25:27.468] [global] [info] [cache.cc:1117] [monitor] [black:format:scripts/release.py:HEAD] Linter ran in 626ms
+[2025-08-22 16:25:29.738] [global] [info] [cache.cc:1117] [monitor] [trufflehog:lint:scripts/release.py:HEAD] Linter ran in 2910ms
+[2025-08-22 16:25:33.115] [global] [info] [service.cc:145] [user-agent=cli/check sid=n/a] RX:virtual grpc::Status trunk::cli::lint::Service::Start(grpc::ServerContext *, const proto::v1::StartRequest *, grpc::ServerWriter<proto::v1::StartResponse> *)
+[2025-08-22 16:25:33.122] [global] [info] [git_source_control.cc:517] Computing merge base between 68eed961e48f49f80d060747c581657dbeb60c81 and 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:25:33.122] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:25:33.122] [global] [info] [session_context.cc:167] Making commit info with id: 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:25:33.143] [global] [info] [service.cc:227] [user-agent=cli/check sid=n/a] lint session created sid=14 with the following options:
+cache_enabled: true, num_jobs: 6, session_type: 1, client_id: , scope: 1
+[2025-08-22 16:25:33.143] [global] [info] [service.cc:145] [user-agent=cli/check sid=n/a] TX:virtual grpc::Status trunk::cli::lint::Service::Start(grpc::ServerContext *, const proto::v1::StartRequest *, grpc::ServerWriter<proto::v1::StartResponse> *) status=OK
+[2025-08-22 16:25:33.143] [global] [info] [service.cc:409] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::Queue(grpc::ServerContext *, const proto::v1::QueueRequest *, proto::v1::QueueResponse *)
+[2025-08-22 16:25:33.144] [global] [info] [service.cc:409] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::Queue(grpc::ServerContext *, const proto::v1::QueueRequest *, proto::v1::QueueResponse *) status=OK
+[2025-08-22 16:25:33.144] [global] [info] [service.cc:528] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::Lint(grpc::ServerContext *, const proto::v1::LintRequest *, grpc::ServerWriter<proto::v1::LintResponse> *)
+[2025-08-22 16:25:33.172] [global] [info] [cache.cc:978] [on-demand] [git-diff-check:lint:.github/workflows/ci.yml:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:33.172] [global] [info] [cache.cc:978] [on-demand] [git-diff-check:lint:.github/workflows/docs.yml:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:33.172] [global] [info] [cache.cc:978] [on-demand] [git-diff-check:lint:.github/workflows/release-docs.yml:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:33.172] [global] [info] [cache.cc:978] [on-demand] [git-diff-check:lint:.github/workflows/release.yml:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:33.172] [global] [info] [cache.cc:978] [on-demand] [git-diff-check:lint:.gitignore:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:33.172] [global] [info] [cache.cc:978] [on-demand] [git-diff-check:lint:.readthedocs.yml:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:33.172] [global] [info] [cache.cc:978] [on-demand] [git-diff-check:lint:RELEASE.md:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:33.172] [global] [info] [cache.cc:978] [on-demand] [git-diff-check:lint:RELEASE_SETUP.md:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:33.172] [global] [info] [cache.cc:978] [on-demand] [git-diff-check:lint:docs/changelog.md:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:33.172] [global] [info] [cache.cc:978] [on-demand] [git-diff-check:lint:docs/contributing.md:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:33.172] [global] [info] [cache.cc:978] [on-demand] [git-diff-check:lint:docs/examples/index.md:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:33.172] [global] [info] [cache.cc:978] [on-demand] [git-diff-check:lint:docs/guide/duck-api.md:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:33.172] [global] [info] [cache.cc:978] [on-demand] [git-diff-check:lint:docs/guide/index.md:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:33.172] [global] [info] [cache.cc:978] [on-demand] [git-diff-check:lint:docs/guide/policies.md:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:33.172] [global] [info] [cache.cc:978] [on-demand] [git-diff-check:lint:docs/guide/traits.md:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:33.172] [global] [info] [cache.cc:978] [on-demand] [git-diff-check:lint:mkdocs.yml:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:33.172] [global] [info] [cache.cc:978] [on-demand] [git-diff-check:lint:pyproject.toml:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:33.172] [global] [info] [cache.cc:978] [on-demand] [git-diff-check:lint:scripts/release.py:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:33.172] [global] [info] [cache.cc:978] [on-demand] [git-diff-check:lint:src/duckdantic/__about__.py:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:33.172] [global] [info] [cache.cc:978] [on-demand] [git-diff-check:lint:.github/workflows/docs.yml:upstream] running linter (uncacheable)
+[2025-08-22 16:25:33.172] [global] [info] [cache.cc:978] [on-demand] [git-diff-check:lint:.github/workflows/release.yml:upstream] running linter (uncacheable)
+[2025-08-22 16:25:33.172] [global] [info] [cache.cc:978] [on-demand] [git-diff-check:lint:.gitignore:upstream] running linter (uncacheable)
+[2025-08-22 16:25:33.172] [global] [info] [cache.cc:978] [on-demand] [git-diff-check:lint:docs/examples/index.md:upstream] running linter (uncacheable)
+[2025-08-22 16:25:33.172] [global] [info] [cache.cc:978] [on-demand] [git-diff-check:lint:docs/guide/duck-api.md:upstream] running linter (uncacheable)
+[2025-08-22 16:25:33.172] [global] [info] [cache.cc:978] [on-demand] [git-diff-check:lint:docs/guide/index.md:upstream] running linter (uncacheable)
+[2025-08-22 16:25:33.172] [global] [info] [cache.cc:978] [on-demand] [git-diff-check:lint:mkdocs.yml:upstream] running linter (uncacheable)
+[2025-08-22 16:25:33.172] [global] [info] [cache.cc:978] [on-demand] [git-diff-check:lint:pyproject.toml:upstream] running linter (uncacheable)
+[2025-08-22 16:25:33.172] [global] [info] [cache.cc:978] [on-demand] [git-diff-check:lint:src/duckdantic/__about__.py:upstream] running linter (uncacheable)
+[2025-08-22 16:25:33.184] [global] [info] [cache.cc:978] [on-demand] [taplo:format:pyproject.toml:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:33.184] [global] [info] [cache.cc:978] [on-demand] [actionlint:lint:.github/workflows/ci.yml:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:33.184] [global] [info] [cache.cc:978] [on-demand] [yamllint:lint:.github/workflows/ci.yml:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:33.191] [global] [info] [cache.cc:1117] [on-demand] [git-diff-check:lint:.github/workflows/ci.yml... (19 files):HEAD] Linter ran in 19ms
+[2025-08-22 16:25:33.192] [global] [info] [cache.cc:1117] [on-demand] [git-diff-check:lint:.github/workflows/docs.yml... (9 files):upstream] Linter ran in 19ms
+[2025-08-22 16:25:33.192] [global] [info] [cache.cc:978] [on-demand] [mypy:lint:scripts/release.py:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:33.200] [global] [info] [cache.cc:1117] [on-demand] [actionlint:lint:.github/workflows/ci.yml:HEAD] Linter ran in 15ms
+[2025-08-22 16:25:33.229] [global] [info] [cache.cc:974] [on-demand] [codespell:lint:.github/workflows/ci.yml:HEAD] running linter (cache-key:b82b64f2a15d7b3fceb33469a0a26d80)
+[2025-08-22 16:25:33.229] [global] [info] [cache.cc:974] [on-demand] [codespell:lint:.github/workflows/docs.yml:HEAD] running linter (cache-key:a859eeee7b3d8939f99182472ca7695a)
+[2025-08-22 16:25:33.229] [global] [info] [cache.cc:974] [on-demand] [codespell:lint:.github/workflows/release-docs.yml:HEAD] running linter (cache-key:9419f6c4fe324a0edd98c02768e71567)
+[2025-08-22 16:25:33.229] [global] [info] [cache.cc:974] [on-demand] [codespell:lint:.github/workflows/release.yml:HEAD] running linter (cache-key:82c238c1a204958c9c6e0bc08ca13f39)
+[2025-08-22 16:25:33.229] [global] [info] [cache.cc:974] [on-demand] [codespell:lint:.gitignore:HEAD] running linter (cache-key:e432a938e39818eab377237870d7d005)
+[2025-08-22 16:25:33.229] [global] [info] [cache.cc:974] [on-demand] [codespell:lint:.readthedocs.yml:HEAD] running linter (cache-key:7a66f832a797cc4201c2eda8a6b02f23)
+[2025-08-22 16:25:33.229] [global] [info] [cache.cc:974] [on-demand] [codespell:lint:RELEASE.md:HEAD] running linter (cache-key:db14ee1a2080f5732fdd5f95a373f30e)
+[2025-08-22 16:25:33.229] [global] [info] [cache.cc:974] [on-demand] [codespell:lint:RELEASE_SETUP.md:HEAD] running linter (cache-key:c458a4f1911f848f08991f500ec5daea)
+[2025-08-22 16:25:33.229] [global] [info] [cache.cc:974] [on-demand] [codespell:lint:docs/changelog.md:HEAD] running linter (cache-key:40f076b908a074d6a73b89efd2584ed2)
+[2025-08-22 16:25:33.229] [global] [info] [cache.cc:974] [on-demand] [codespell:lint:docs/contributing.md:HEAD] running linter (cache-key:5086b03645b2435f8cb843cc4c2fef6f)
+[2025-08-22 16:25:33.229] [global] [info] [cache.cc:974] [on-demand] [codespell:lint:docs/examples/index.md:HEAD] running linter (cache-key:d6dc4768ebeb0b323f9ab7b09f2e0cdf)
+[2025-08-22 16:25:33.229] [global] [info] [cache.cc:974] [on-demand] [codespell:lint:docs/guide/duck-api.md:HEAD] running linter (cache-key:0cbfeb106a3b524f1814df8e54613fc2)
+[2025-08-22 16:25:33.229] [global] [info] [cache.cc:974] [on-demand] [codespell:lint:docs/guide/index.md:HEAD] running linter (cache-key:0a6a7b7e12625e04cc4133f2d27d16b0)
+[2025-08-22 16:25:33.229] [global] [info] [cache.cc:974] [on-demand] [codespell:lint:docs/guide/policies.md:HEAD] running linter (cache-key:21f0a9dcfbbf958d24b96815401b93b5)
+[2025-08-22 16:25:33.229] [global] [info] [cache.cc:974] [on-demand] [codespell:lint:docs/guide/traits.md:HEAD] running linter (cache-key:ee1f649e6543afa8ca43df1cd59fa8a6)
+[2025-08-22 16:25:33.230] [global] [info] [cache.cc:974] [on-demand] [codespell:lint:mkdocs.yml:HEAD] running linter (cache-key:a48f1cf417f6075ffebafd779b756c06)
+[2025-08-22 16:25:33.230] [global] [info] [cache.cc:934] [on-demand] [codespell:lint:pyproject.toml:HEAD] already cached, not running linter
+[2025-08-22 16:25:33.230] [global] [info] [cache.cc:934] [on-demand] [codespell:lint:scripts/release.py:HEAD] already cached, not running linter
+[2025-08-22 16:25:33.230] [global] [info] [cache.cc:974] [on-demand] [codespell:lint:src/duckdantic/__about__.py:HEAD] running linter (cache-key:0d9b6bf9e32f10b3663c0e1c3676fc01)
+[2025-08-22 16:25:33.237] [global] [info] [cache.cc:974] [on-demand] [codespell:lint:.github/workflows/docs.yml:upstream] running linter (cache-key:88de3bf8a7c1c645018d3b6d99681277)
+[2025-08-22 16:25:33.237] [global] [info] [cache.cc:974] [on-demand] [codespell:lint:.github/workflows/release.yml:upstream] running linter (cache-key:d05d202921bdebde1cf5f603af0a15c3)
+[2025-08-22 16:25:33.237] [global] [info] [cache.cc:974] [on-demand] [codespell:lint:.gitignore:upstream] running linter (cache-key:d349f35c243b960be9dafdead34cba6b)
+[2025-08-22 16:25:33.237] [global] [info] [cache.cc:974] [on-demand] [codespell:lint:docs/examples/index.md:upstream] running linter (cache-key:e872f37cd967f5744ae5afc1a7f4077c)
+[2025-08-22 16:25:33.237] [global] [info] [cache.cc:974] [on-demand] [codespell:lint:docs/guide/duck-api.md:upstream] running linter (cache-key:3e39894d0a0061f2e6c8263f696a5f5c)
+[2025-08-22 16:25:33.237] [global] [info] [cache.cc:974] [on-demand] [codespell:lint:docs/guide/index.md:upstream] running linter (cache-key:ea727cfaa50e425d8169c8e2c2cec89b)
+[2025-08-22 16:25:33.237] [global] [info] [cache.cc:974] [on-demand] [codespell:lint:mkdocs.yml:upstream] running linter (cache-key:2f098937937876f00270c5555fd96726)
+[2025-08-22 16:25:33.237] [global] [info] [cache.cc:934] [on-demand] [codespell:lint:pyproject.toml:upstream] already cached, not running linter
+[2025-08-22 16:25:33.237] [global] [info] [cache.cc:974] [on-demand] [codespell:lint:src/duckdantic/__about__.py:upstream] running linter (cache-key:2e728f79eee7e183ee5406f6bfeea557)
+[2025-08-22 16:25:33.239] [global] [info] [cache.cc:934] [on-demand] [trufflehog:lint:.github/workflows/ci.yml:HEAD] already cached, not running linter
+[2025-08-22 16:25:33.239] [global] [info] [cache.cc:934] [on-demand] [trufflehog:lint:.github/workflows/docs.yml:HEAD] already cached, not running linter
+[2025-08-22 16:25:33.239] [global] [info] [cache.cc:934] [on-demand] [trufflehog:lint:.github/workflows/release-docs.yml:HEAD] already cached, not running linter
+[2025-08-22 16:25:33.239] [global] [info] [cache.cc:934] [on-demand] [trufflehog:lint:.github/workflows/release.yml:HEAD] already cached, not running linter
+[2025-08-22 16:25:33.239] [global] [info] [cache.cc:934] [on-demand] [trufflehog:lint:.gitignore:HEAD] already cached, not running linter
+[2025-08-22 16:25:33.239] [global] [info] [cache.cc:934] [on-demand] [trufflehog:lint:.readthedocs.yml:HEAD] already cached, not running linter
+[2025-08-22 16:25:33.239] [global] [info] [cache.cc:934] [on-demand] [trufflehog:lint:RELEASE.md:HEAD] already cached, not running linter
+[2025-08-22 16:25:33.239] [global] [info] [cache.cc:934] [on-demand] [trufflehog:lint:RELEASE_SETUP.md:HEAD] already cached, not running linter
+[2025-08-22 16:25:33.239] [global] [info] [cache.cc:934] [on-demand] [trufflehog:lint:docs/changelog.md:HEAD] already cached, not running linter
+[2025-08-22 16:25:33.239] [global] [info] [cache.cc:934] [on-demand] [trufflehog:lint:docs/contributing.md:HEAD] already cached, not running linter
+[2025-08-22 16:25:33.239] [global] [info] [cache.cc:934] [on-demand] [trufflehog:lint:docs/examples/index.md:HEAD] already cached, not running linter
+[2025-08-22 16:25:33.239] [global] [info] [cache.cc:934] [on-demand] [trufflehog:lint:docs/guide/duck-api.md:HEAD] already cached, not running linter
+[2025-08-22 16:25:33.239] [global] [info] [cache.cc:934] [on-demand] [trufflehog:lint:docs/guide/index.md:HEAD] already cached, not running linter
+[2025-08-22 16:25:33.239] [global] [info] [cache.cc:934] [on-demand] [trufflehog:lint:docs/guide/policies.md:HEAD] already cached, not running linter
+[2025-08-22 16:25:33.239] [global] [info] [cache.cc:934] [on-demand] [trufflehog:lint:docs/guide/traits.md:HEAD] already cached, not running linter
+[2025-08-22 16:25:33.239] [global] [info] [cache.cc:934] [on-demand] [trufflehog:lint:mkdocs.yml:HEAD] already cached, not running linter
+[2025-08-22 16:25:33.246] [global] [info] [cache.cc:934] [on-demand] [trufflehog:lint:pyproject.toml:HEAD] already cached, not running linter
+[2025-08-22 16:25:33.246] [global] [info] [cache.cc:934] [on-demand] [trufflehog:lint:scripts/release.py:HEAD] already cached, not running linter
+[2025-08-22 16:25:33.246] [global] [info] [cache.cc:934] [on-demand] [trufflehog:lint:src/duckdantic/__about__.py:HEAD] already cached, not running linter
+[2025-08-22 16:25:33.257] [global] [info] [cache.cc:934] [on-demand] [trufflehog:lint:.github/workflows/docs.yml:upstream] already cached, not running linter
+[2025-08-22 16:25:33.257] [global] [info] [cache.cc:934] [on-demand] [trufflehog:lint:.github/workflows/release.yml:upstream] already cached, not running linter
+[2025-08-22 16:25:33.258] [global] [info] [cache.cc:934] [on-demand] [trufflehog:lint:.gitignore:upstream] already cached, not running linter
+[2025-08-22 16:25:33.258] [global] [info] [cache.cc:934] [on-demand] [trufflehog:lint:docs/examples/index.md:upstream] already cached, not running linter
+[2025-08-22 16:25:33.258] [global] [info] [cache.cc:934] [on-demand] [trufflehog:lint:docs/guide/duck-api.md:upstream] already cached, not running linter
+[2025-08-22 16:25:33.258] [global] [info] [cache.cc:934] [on-demand] [trufflehog:lint:docs/guide/index.md:upstream] already cached, not running linter
+[2025-08-22 16:25:33.258] [global] [info] [cache.cc:934] [on-demand] [trufflehog:lint:mkdocs.yml:upstream] already cached, not running linter
+[2025-08-22 16:25:33.258] [global] [info] [cache.cc:934] [on-demand] [trufflehog:lint:pyproject.toml:upstream] already cached, not running linter
+[2025-08-22 16:25:33.258] [global] [info] [cache.cc:934] [on-demand] [trufflehog:lint:src/duckdantic/__about__.py:upstream] already cached, not running linter
+[2025-08-22 16:25:33.259] [global] [info] [cache.cc:978] [on-demand] [actionlint:lint:.github/workflows/docs.yml:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:33.277] [global] [info] [cache.cc:1117] [on-demand] [actionlint:lint:.github/workflows/docs.yml:HEAD] Linter ran in 18ms
+[2025-08-22 16:25:33.278] [global] [info] [cache.cc:978] [on-demand] [actionlint:lint:.github/workflows/docs.yml:upstream] running linter (uncacheable)
+[2025-08-22 16:25:33.296] [global] [info] [cache.cc:1117] [on-demand] [actionlint:lint:.github/workflows/docs.yml:upstream] Linter ran in 17ms
+[2025-08-22 16:25:33.297] [global] [info] [cache.cc:978] [on-demand] [actionlint:lint:.github/workflows/release-docs.yml:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:33.309] [global] [info] [cache.cc:1117] [on-demand] [actionlint:lint:.github/workflows/release-docs.yml:HEAD] Linter ran in 11ms
+[2025-08-22 16:25:33.309] [global] [info] [cache.cc:978] [on-demand] [actionlint:lint:.github/workflows/release.yml:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:33.322] [global] [info] [cache.cc:1117] [on-demand] [yamllint:lint:.github/workflows/ci.yml:HEAD] Linter ran in 129ms
+[2025-08-22 16:25:33.323] [global] [info] [cache.cc:1117] [on-demand] [actionlint:lint:.github/workflows/release.yml:HEAD] Linter ran in 13ms
+[2025-08-22 16:25:33.324] [global] [info] [cache.cc:978] [on-demand] [actionlint:lint:.github/workflows/release.yml:upstream] running linter (uncacheable)
+[2025-08-22 16:25:33.328] [global] [info] [cache.cc:978] [on-demand] [taplo:lint:pyproject.toml:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:33.329] [global] [info] [cache.cc:1117] [on-demand] [taplo:format:pyproject.toml:HEAD] Linter ran in 137ms
+[2025-08-22 16:25:33.334] [global] [info] [cache.cc:978] [on-demand] [taplo:lint:pyproject.toml:upstream] running linter (uncacheable)
+[2025-08-22 16:25:33.338] [global] [info] [cache.cc:1117] [on-demand] [actionlint:lint:.github/workflows/release.yml:upstream] Linter ran in 14ms
+[2025-08-22 16:25:33.339] [global] [info] [cache.cc:978] [on-demand] [checkov:lint:.github/workflows/ci.yml:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:33.339] [global] [info] [cache.cc:978] [on-demand] [checkov:lint:.github/workflows/docs.yml:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:33.339] [global] [info] [cache.cc:978] [on-demand] [checkov:lint:.github/workflows/release-docs.yml:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:33.339] [global] [info] [cache.cc:978] [on-demand] [checkov:lint:.github/workflows/release.yml:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:33.339] [global] [info] [cache.cc:978] [on-demand] [checkov:lint:.readthedocs.yml:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:33.339] [global] [info] [cache.cc:978] [on-demand] [checkov:lint:mkdocs.yml:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:33.352] [global] [info] [cache.cc:1117] [on-demand] [taplo:lint:pyproject.toml:HEAD] Linter ran in 23ms
+[2025-08-22 16:25:33.354] [global] [info] [cache.cc:978] [on-demand] [checkov:lint:.github/workflows/docs.yml:upstream] running linter (uncacheable)
+[2025-08-22 16:25:33.354] [global] [info] [cache.cc:978] [on-demand] [checkov:lint:.github/workflows/release.yml:upstream] running linter (uncacheable)
+[2025-08-22 16:25:33.354] [global] [info] [cache.cc:978] [on-demand] [checkov:lint:mkdocs.yml:upstream] running linter (uncacheable)
+[2025-08-22 16:25:33.453] [global] [info] [cache.cc:1117] [on-demand] [taplo:lint:pyproject.toml:upstream] Linter ran in 119ms
+[2025-08-22 16:25:33.458] [global] [info] [cache.cc:978] [on-demand] [prettier:format:.github/workflows/ci.yml:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:33.458] [global] [info] [cache.cc:978] [on-demand] [prettier:format:.github/workflows/docs.yml:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:33.458] [global] [info] [cache.cc:978] [on-demand] [prettier:format:.github/workflows/release-docs.yml:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:33.458] [global] [info] [cache.cc:978] [on-demand] [prettier:format:.github/workflows/release.yml:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:33.458] [global] [info] [cache.cc:978] [on-demand] [prettier:format:.readthedocs.yml:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:33.458] [global] [info] [cache.cc:978] [on-demand] [prettier:format:mkdocs.yml:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:33.481] [global] [info] [cache.cc:1117] [on-demand] [codespell:lint:.github/workflows/docs.yml... (9 files):upstream] Linter ran in 230ms
+[2025-08-22 16:25:33.486] [global] [info] [cache.cc:978] [on-demand] [prettier:format:RELEASE.md:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:33.486] [global] [info] [cache.cc:978] [on-demand] [prettier:format:RELEASE_SETUP.md:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:33.486] [global] [info] [cache.cc:978] [on-demand] [prettier:format:docs/changelog.md:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:33.486] [global] [info] [cache.cc:978] [on-demand] [prettier:format:docs/contributing.md:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:33.486] [global] [info] [cache.cc:978] [on-demand] [prettier:format:docs/examples/index.md:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:33.486] [global] [info] [cache.cc:978] [on-demand] [prettier:format:docs/guide/duck-api.md:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:33.486] [global] [info] [cache.cc:978] [on-demand] [prettier:format:docs/guide/index.md:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:33.486] [global] [info] [cache.cc:978] [on-demand] [prettier:format:docs/guide/policies.md:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:33.486] [global] [info] [cache.cc:978] [on-demand] [prettier:format:docs/guide/traits.md:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:33.507] [global] [info] [cache.cc:1117] [on-demand] [codespell:lint:.github/workflows/ci.yml... (19 files):HEAD] Linter ran in 268ms
+[2025-08-22 16:25:33.513] [global] [info] [cache.cc:978] [on-demand] [yamllint:lint:.github/workflows/docs.yml:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:33.640] [global] [info] [cache.cc:1117] [on-demand] [yamllint:lint:.github/workflows/docs.yml:HEAD] Linter ran in 123ms
+[2025-08-22 16:25:33.642] [global] [info] [cache.cc:978] [on-demand] [yamllint:lint:.github/workflows/docs.yml:upstream] running linter (uncacheable)
+[2025-08-22 16:25:33.690] [global] [info] [git_source_control.cc:517] Computing merge base between 68eed961e48f49f80d060747c581657dbeb60c81 and 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:25:33.690] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:25:33.759] [global] [info] [cache.cc:1117] [on-demand] [yamllint:lint:.github/workflows/docs.yml:upstream] Linter ran in 112ms
+[2025-08-22 16:25:33.760] [global] [info] [cache.cc:1117] [on-demand] [mypy:lint:scripts/release.py:HEAD] Linter ran in 568ms
+[2025-08-22 16:25:33.761] [global] [info] [cache.cc:978] [on-demand] [yamllint:lint:.github/workflows/release-docs.yml:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:33.762] [global] [info] [cache.cc:978] [on-demand] [yamllint:lint:.github/workflows/release.yml:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:33.876] [global] [info] [cache.cc:1117] [on-demand] [yamllint:lint:.github/workflows/release-docs.yml:HEAD] Linter ran in 110ms
+[2025-08-22 16:25:33.879] [global] [info] [cache.cc:978] [on-demand] [yamllint:lint:.github/workflows/release.yml:upstream] running linter (uncacheable)
+[2025-08-22 16:25:33.887] [global] [info] [cache.cc:1117] [on-demand] [prettier:format:.github/workflows/ci.yml... (6 files):HEAD] Linter ran in 418ms
+[2025-08-22 16:25:33.891] [global] [info] [cache.cc:978] [on-demand] [yamllint:lint:.readthedocs.yml:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:33.930] [global] [info] [cache.cc:1117] [on-demand] [yamllint:lint:.github/workflows/release.yml:HEAD] Linter ran in 160ms
+[2025-08-22 16:25:33.932] [global] [info] [cache.cc:978] [on-demand] [yamllint:lint:mkdocs.yml:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:33.988] [global] [info] [cache.cc:1117] [on-demand] [yamllint:lint:.github/workflows/release.yml:upstream] Linter ran in 105ms
+[2025-08-22 16:25:33.990] [global] [info] [cache.cc:978] [on-demand] [yamllint:lint:mkdocs.yml:upstream] running linter (uncacheable)
+[2025-08-22 16:25:33.992] [global] [info] [cache.cc:1117] [on-demand] [yamllint:lint:.readthedocs.yml:HEAD] Linter ran in 97ms
+[2025-08-22 16:25:33.994] [global] [info] [cache.cc:934] [on-demand] [black:format:scripts/release.py:HEAD] already cached, not running linter
+[2025-08-22 16:25:33.994] [global] [info] [cache.cc:974] [on-demand] [black:format:src/duckdantic/__about__.py:HEAD] running linter (cache-key:c15f3eb412d20b8c561bbac336afe83e)
+[2025-08-22 16:25:34.007] [global] [info] [cache.cc:1117] [on-demand] [prettier:format:RELEASE.md... (9 files):HEAD] Linter ran in 512ms
+[2025-08-22 16:25:34.011] [global] [info] [cache.cc:978] [on-demand] [isort:format:scripts/release.py:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:34.011] [global] [info] [cache.cc:978] [on-demand] [isort:format:src/duckdantic/__about__.py:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:34.070] [global] [info] [cache.cc:1117] [on-demand] [yamllint:lint:mkdocs.yml:HEAD] Linter ran in 133ms
+[2025-08-22 16:25:34.072] [global] [info] [cache.cc:934] [on-demand] [bandit:lint:scripts/release.py:HEAD] already cached, not running linter
+[2025-08-22 16:25:34.073] [global] [info] [cache.cc:934] [on-demand] [bandit:lint:src/duckdantic/__about__.py:HEAD] already cached, not running linter
+[2025-08-22 16:25:34.073] [global] [info] [cache.cc:934] [on-demand] [bandit:lint:src/duckdantic/__about__.py:upstream] already cached, not running linter
+[2025-08-22 16:25:34.073] [global] [info] [cache.cc:978] [on-demand] [mypy:lint:src/duckdantic/__about__.py:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:34.102] [global] [info] [cache.cc:1117] [on-demand] [yamllint:lint:mkdocs.yml:upstream] Linter ran in 108ms
+[2025-08-22 16:25:34.104] [global] [info] [cache.cc:978] [on-demand] [mypy:lint:src/duckdantic/__about__.py:upstream] running linter (uncacheable)
+[2025-08-22 16:25:34.129] [global] [info] [cache.cc:1117] [on-demand] [isort:format:scripts/release.py... (2 files):HEAD] Linter ran in 111ms
+[2025-08-22 16:25:34.132] [global] [info] [cache.cc:978] [on-demand] [ruff:lint:scripts/release.py:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:34.132] [global] [info] [cache.cc:978] [on-demand] [ruff:lint:src/duckdantic/__about__.py:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:34.213] [global] [info] [cache.cc:1117] [on-demand] [ruff:lint:scripts/release.py... (2 files):HEAD] Linter ran in 80ms
+[2025-08-22 16:25:34.214] [global] [info] [cache.cc:978] [on-demand] [ruff:lint:src/duckdantic/__about__.py:upstream] running linter (uncacheable)
+[2025-08-22 16:25:34.287] [global] [info] [cache.cc:1117] [on-demand] [ruff:lint:src/duckdantic/__about__.py:upstream] Linter ran in 72ms
+[2025-08-22 16:25:34.289] [global] [info] [cache.cc:934] [on-demand] [markdownlint:lint:RELEASE.md:HEAD] already cached, not running linter
+[2025-08-22 16:25:34.289] [global] [info] [cache.cc:934] [on-demand] [markdownlint:lint:RELEASE_SETUP.md:HEAD] already cached, not running linter
+[2025-08-22 16:25:34.289] [global] [info] [cache.cc:934] [on-demand] [markdownlint:lint:docs/changelog.md:HEAD] already cached, not running linter
+[2025-08-22 16:25:34.289] [global] [info] [cache.cc:934] [on-demand] [markdownlint:lint:docs/contributing.md:HEAD] already cached, not running linter
+[2025-08-22 16:25:34.289] [global] [info] [cache.cc:934] [on-demand] [markdownlint:lint:docs/examples/index.md:HEAD] already cached, not running linter
+[2025-08-22 16:25:34.289] [global] [info] [cache.cc:934] [on-demand] [markdownlint:lint:docs/guide/duck-api.md:HEAD] already cached, not running linter
+[2025-08-22 16:25:34.289] [global] [info] [cache.cc:934] [on-demand] [markdownlint:lint:docs/guide/index.md:HEAD] already cached, not running linter
+[2025-08-22 16:25:34.289] [global] [info] [cache.cc:934] [on-demand] [markdownlint:lint:docs/guide/policies.md:HEAD] already cached, not running linter
+[2025-08-22 16:25:34.289] [global] [info] [cache.cc:934] [on-demand] [markdownlint:lint:docs/guide/traits.md:HEAD] already cached, not running linter
+[2025-08-22 16:25:34.291] [global] [info] [cache.cc:934] [on-demand] [markdownlint:lint:docs/examples/index.md:upstream] already cached, not running linter
+[2025-08-22 16:25:34.291] [global] [info] [cache.cc:934] [on-demand] [markdownlint:lint:docs/guide/duck-api.md:upstream] already cached, not running linter
+[2025-08-22 16:25:34.291] [global] [info] [cache.cc:934] [on-demand] [markdownlint:lint:docs/guide/index.md:upstream] already cached, not running linter
+[2025-08-22 16:25:34.305] [global] [info] [cache.cc:1117] [on-demand] [mypy:lint:src/duckdantic/__about__.py:upstream] Linter ran in 200ms
+[2025-08-22 16:25:34.640] [global] [info] [cache.cc:1117] [on-demand] [mypy:lint:src/duckdantic/__about__.py:HEAD] Linter ran in 567ms
+[2025-08-22 16:25:34.672] [global] [info] [cache.cc:1117] [on-demand] [black:format:scripts/release.py... (2 files):HEAD] Linter ran in 673ms
+[2025-08-22 16:25:37.280] [global] [info] [git_source_control.cc:517] Computing merge base between 68eed961e48f49f80d060747c581657dbeb60c81 and 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:25:37.281] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:25:37.343] [global] [info] [cache.cc:1117] [on-demand] [checkov:lint:.github/workflows/ci.yml... (6 files):HEAD] Linter ran in 4003ms
+[2025-08-22 16:25:37.361] [global] [info] [cache.cc:1117] [on-demand] [checkov:lint:.github/workflows/docs.yml... (3 files):upstream] Linter ran in 4007ms
+[2025-08-22 16:25:37.563] [global] [info] [service.cc:528] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::Lint(grpc::ServerContext *, const proto::v1::LintRequest *, grpc::ServerWriter<proto::v1::LintResponse> *) status=OK
+[2025-08-22 16:25:37.565] [global] [info] [service.cc:585] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::GetLandingState(grpc::ServerContext *, const proto::v1::GetLandingStateRequest *, proto::v1::GetLandingStateResponse *)
+[2025-08-22 16:25:37.565] [global] [info] [runner.cc:1128] Git-ignored path: .trunk/configs/.yamllint.yaml
+[2025-08-22 16:25:37.565] [global] [info] [runner.cc:1128] Git-ignored path: .trunk/configs/.markdownlint.yaml
+[2025-08-22 16:25:37.565] [global] [info] [runner.cc:1128] Git-ignored path: .trunk/configs/.isort.cfg
+[2025-08-22 16:25:37.566] [global] [info] [service.cc:585] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::GetLandingState(grpc::ServerContext *, const proto::v1::GetLandingStateRequest *, proto::v1::GetLandingStateResponse *) status=OK
+[2025-08-22 16:25:37.567] [global] [info] [service.cc:607] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *)
+[2025-08-22 16:25:37.567] [global] [info] [service.cc:607] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *) status=OK
+[2025-08-22 16:25:37.567] [global] [info] [service.cc:573] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::Discard(grpc::ServerContext *, const proto::v1::DiscardRequest *, proto::v1::DiscardResponse *)
+[2025-08-22 16:25:37.567] [global] [info] [service.cc:573] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::Discard(grpc::ServerContext *, const proto::v1::DiscardRequest *, proto::v1::DiscardResponse *) status=OK
+[2025-08-22 16:25:37.568] [global] [info] [service.cc:607] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *)
+[2025-08-22 16:25:37.568] [global] [info] [service.cc:607] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *) status=OK
+[2025-08-22 16:25:37.568] [global] [info] [service.cc:562] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::Apply(grpc::ServerContext *, const proto::v1::ApplyRequest *, proto::v1::ApplyResponse *)
+[2025-08-22 16:25:37.569] [global] [info] [service.cc:562] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::Apply(grpc::ServerContext *, const proto::v1::ApplyRequest *, proto::v1::ApplyResponse *) status=OK
+[2025-08-22 16:25:37.570] [global] [info] [service.cc:607] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *)
+[2025-08-22 16:25:37.570] [global] [info] [service.cc:607] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *) status=OK
+[2025-08-22 16:25:37.570] [global] [info] [service.cc:573] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::Discard(grpc::ServerContext *, const proto::v1::DiscardRequest *, proto::v1::DiscardResponse *)
+[2025-08-22 16:25:37.570] [global] [info] [service.cc:573] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::Discard(grpc::ServerContext *, const proto::v1::DiscardRequest *, proto::v1::DiscardResponse *) status=OK
+[2025-08-22 16:25:37.571] [global] [info] [service.cc:607] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *)
+[2025-08-22 16:25:37.571] [global] [info] [service.cc:607] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *) status=OK
+[2025-08-22 16:25:37.572] [global] [info] [service.cc:573] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::Discard(grpc::ServerContext *, const proto::v1::DiscardRequest *, proto::v1::DiscardResponse *)
+[2025-08-22 16:25:37.572] [global] [info] [service.cc:573] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::Discard(grpc::ServerContext *, const proto::v1::DiscardRequest *, proto::v1::DiscardResponse *) status=OK
+[2025-08-22 16:25:37.572] [global] [info] [service.cc:607] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *)
+[2025-08-22 16:25:37.572] [global] [info] [service.cc:607] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *) status=OK
+[2025-08-22 16:25:37.573] [global] [info] [service.cc:562] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::Apply(grpc::ServerContext *, const proto::v1::ApplyRequest *, proto::v1::ApplyResponse *)
+[2025-08-22 16:25:37.573] [global] [info] [service.cc:562] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::Apply(grpc::ServerContext *, const proto::v1::ApplyRequest *, proto::v1::ApplyResponse *) status=OK
+[2025-08-22 16:25:37.573] [global] [info] [service.cc:607] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *)
+[2025-08-22 16:25:37.573] [global] [info] [service.cc:607] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *) status=OK
+[2025-08-22 16:25:37.574] [global] [info] [service.cc:573] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::Discard(grpc::ServerContext *, const proto::v1::DiscardRequest *, proto::v1::DiscardResponse *)
+[2025-08-22 16:25:37.574] [global] [info] [service.cc:573] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::Discard(grpc::ServerContext *, const proto::v1::DiscardRequest *, proto::v1::DiscardResponse *) status=OK
+[2025-08-22 16:25:37.574] [global] [info] [service.cc:607] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *)
+[2025-08-22 16:25:37.574] [global] [info] [service.cc:607] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *) status=OK
+[2025-08-22 16:25:37.574] [global] [info] [service.cc:409] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::Queue(grpc::ServerContext *, const proto::v1::QueueRequest *, proto::v1::QueueResponse *)
+[2025-08-22 16:25:37.574] [global] [info] [service.cc:409] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::Queue(grpc::ServerContext *, const proto::v1::QueueRequest *, proto::v1::QueueResponse *) status=OK
+[2025-08-22 16:25:37.575] [global] [info] [service.cc:452] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::DoneLinting(grpc::ServerContext *, const proto::v1::DoneLintingRequest *, proto::v1::DoneLintingResponse *)
+[2025-08-22 16:25:37.575] [global] [info] [service.cc:452] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::DoneLinting(grpc::ServerContext *, const proto::v1::DoneLintingRequest *, proto::v1::DoneLintingResponse *) status=OK
+[2025-08-22 16:25:37.575] [global] [info] [service.cc:528] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::Lint(grpc::ServerContext *, const proto::v1::LintRequest *, grpc::ServerWriter<proto::v1::LintResponse> *)
+[2025-08-22 16:25:37.577] [global] [info] [cache.cc:978] [on-demand] [git-diff-check:lint:docs/guide/traits.md:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:37.578] [global] [info] [cache.cc:978] [on-demand] [git-diff-check:lint:scripts/release.py:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:37.582] [global] [info] [cache.cc:934] [on-demand] [markdownlint:lint:docs/guide/traits.md:HEAD] already cached, not running linter
+[2025-08-22 16:25:37.584] [global] [info] [cache.cc:978] [on-demand] [prettier:format:docs/guide/traits.md:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:37.585] [global] [info] [cache.cc:974] [on-demand] [bandit:lint:scripts/release.py:HEAD] running linter (cache-key:ee341ee9d12deb85c33b9e24e4584338)
+[2025-08-22 16:25:37.586] [global] [info] [cache.cc:974] [on-demand] [black:format:scripts/release.py:HEAD] running linter (cache-key:116d755aef30922e13cf2fa6423b63ef)
+[2025-08-22 16:25:37.586] [global] [info] [cache.cc:978] [on-demand] [isort:format:scripts/release.py:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:37.586] [global] [info] [cache.cc:978] [on-demand] [mypy:lint:scripts/release.py:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:37.594] [global] [info] [cache.cc:1117] [on-demand] [git-diff-check:lint:docs/guide/traits.md... (2 files):HEAD] Linter ran in 16ms
+[2025-08-22 16:25:37.605] [global] [info] [cache.cc:978] [on-demand] [ruff:lint:scripts/release.py:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:37.670] [global] [info] [cache.cc:1117] [on-demand] [ruff:lint:scripts/release.py:HEAD] Linter ran in 64ms
+[2025-08-22 16:25:37.671] [global] [info] [cache.cc:934] [on-demand] [trufflehog:lint:docs/guide/traits.md:HEAD] already cached, not running linter
+[2025-08-22 16:25:37.671] [global] [info] [cache.cc:974] [on-demand] [trufflehog:lint:scripts/release.py:HEAD] running linter (cache-key:3bbcdb5379ed3a3b7a53ee7dc57d0618)
+[2025-08-22 16:25:37.711] [global] [info] [cache.cc:1117] [on-demand] [isort:format:scripts/release.py:HEAD] Linter ran in 111ms
+[2025-08-22 16:25:37.713] [global] [info] [cache.cc:974] [on-demand] [codespell:lint:docs/guide/traits.md:HEAD] running linter (cache-key:829f090d76cc2694004b734a891c538d)
+[2025-08-22 16:25:37.713] [global] [info] [cache.cc:974] [on-demand] [codespell:lint:scripts/release.py:HEAD] running linter (cache-key:989cf681eca41d1f09277c0295d4b33d)
+[2025-08-22 16:25:37.762] [global] [info] [cache.cc:1117] [on-demand] [bandit:lint:scripts/release.py:HEAD] Linter ran in 175ms
+[2025-08-22 16:25:37.901] [global] [info] [cache.cc:1117] [on-demand] [prettier:format:docs/guide/traits.md:HEAD] Linter ran in 297ms
+[2025-08-22 16:25:37.938] [global] [info] [cache.cc:1117] [on-demand] [codespell:lint:docs/guide/traits.md... (2 files):HEAD] Linter ran in 221ms
+[2025-08-22 16:25:38.073] [global] [info] [git_source_control.cc:517] Computing merge base between 68eed961e48f49f80d060747c581657dbeb60c81 and 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:25:38.073] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:25:38.087] [global] [info] [cache.cc:934] [monitor] [bandit:lint:scripts/release.py:HEAD] already cached, not running linter
+[2025-08-22 16:25:38.087] [global] [info] [cache.cc:934] [monitor] [markdownlint:lint:docs/guide/traits.md:HEAD] already cached, not running linter
+[2025-08-22 16:25:38.088] [global] [info] [cache.cc:934] [monitor] [codespell:lint:docs/guide/traits.md:HEAD] already cached, not running linter
+[2025-08-22 16:25:38.088] [global] [info] [cache.cc:934] [monitor] [codespell:lint:scripts/release.py:HEAD] already cached, not running linter
+[2025-08-22 16:25:38.088] [global] [info] [cache.cc:934] [monitor] [trufflehog:lint:docs/guide/traits.md:HEAD] already cached, not running linter
+[2025-08-22 16:25:38.088] [global] [info] [cache.cc:959] [monitor] [trufflehog:lint:scripts/release.py:HEAD] linting in progress, waiting (cache-key:3bbcdb5379ed3a3b7a53ee7dc57d0618)
+[2025-08-22 16:25:38.088] [global] [info] [cache.cc:959] [monitor] [black:format:scripts/release.py:HEAD] linting in progress, waiting (cache-key:116d755aef30922e13cf2fa6423b63ef)
+[2025-08-22 16:25:38.176] [global] [info] [cache.cc:1117] [on-demand] [mypy:lint:scripts/release.py:HEAD] Linter ran in 589ms
+[2025-08-22 16:25:38.368] [global] [info] [cache.cc:1117] [on-demand] [black:format:scripts/release.py:HEAD] Linter ran in 777ms
+[2025-08-22 16:25:40.591] [global] [info] [cache.cc:1117] [on-demand] [trufflehog:lint:docs/guide/traits.md... (2 files):HEAD] Linter ran in 2919ms
+[2025-08-22 16:25:40.793] [global] [info] [service.cc:528] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::Lint(grpc::ServerContext *, const proto::v1::LintRequest *, grpc::ServerWriter<proto::v1::LintResponse> *) status=OK
+[2025-08-22 16:25:40.794] [global] [info] [service.cc:607] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *)
+[2025-08-22 16:25:40.794] [global] [info] [service.cc:607] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *) status=OK
+[2025-08-22 16:25:40.794] [global] [info] [service.cc:573] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::Discard(grpc::ServerContext *, const proto::v1::DiscardRequest *, proto::v1::DiscardResponse *)
+[2025-08-22 16:25:40.794] [global] [info] [service.cc:573] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::Discard(grpc::ServerContext *, const proto::v1::DiscardRequest *, proto::v1::DiscardResponse *) status=OK
+[2025-08-22 16:25:40.795] [global] [info] [service.cc:607] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *)
+[2025-08-22 16:25:40.795] [global] [info] [service.cc:607] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *) status=OK
+[2025-08-22 16:25:40.795] [global] [info] [service.cc:573] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::Discard(grpc::ServerContext *, const proto::v1::DiscardRequest *, proto::v1::DiscardResponse *)
+[2025-08-22 16:25:40.795] [global] [info] [service.cc:573] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::Discard(grpc::ServerContext *, const proto::v1::DiscardRequest *, proto::v1::DiscardResponse *) status=OK
+[2025-08-22 16:25:40.796] [global] [info] [service.cc:607] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *)
+[2025-08-22 16:25:40.796] [global] [info] [service.cc:607] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *) status=OK
+[2025-08-22 16:25:40.796] [global] [info] [service.cc:573] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::Discard(grpc::ServerContext *, const proto::v1::DiscardRequest *, proto::v1::DiscardResponse *)
+[2025-08-22 16:25:40.796] [global] [info] [service.cc:573] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::Discard(grpc::ServerContext *, const proto::v1::DiscardRequest *, proto::v1::DiscardResponse *) status=OK
+[2025-08-22 16:25:40.796] [global] [info] [service.cc:607] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *)
+[2025-08-22 16:25:40.797] [global] [info] [service.cc:607] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *) status=OK
+[2025-08-22 16:25:40.797] [global] [info] [service.cc:562] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::Apply(grpc::ServerContext *, const proto::v1::ApplyRequest *, proto::v1::ApplyResponse *)
+[2025-08-22 16:25:40.797] [global] [info] [service.cc:562] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::Apply(grpc::ServerContext *, const proto::v1::ApplyRequest *, proto::v1::ApplyResponse *) status=OK
+[2025-08-22 16:25:40.798] [global] [info] [service.cc:607] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *)
+[2025-08-22 16:25:40.798] [global] [info] [service.cc:607] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *) status=OK
+[2025-08-22 16:25:40.798] [global] [info] [service.cc:573] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::Discard(grpc::ServerContext *, const proto::v1::DiscardRequest *, proto::v1::DiscardResponse *)
+[2025-08-22 16:25:40.798] [global] [info] [service.cc:573] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::Discard(grpc::ServerContext *, const proto::v1::DiscardRequest *, proto::v1::DiscardResponse *) status=OK
+[2025-08-22 16:25:40.798] [global] [info] [service.cc:607] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *)
+[2025-08-22 16:25:40.798] [global] [info] [service.cc:607] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *) status=OK
+[2025-08-22 16:25:40.799] [global] [info] [service.cc:562] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::Apply(grpc::ServerContext *, const proto::v1::ApplyRequest *, proto::v1::ApplyResponse *)
+[2025-08-22 16:25:40.799] [global] [info] [service.cc:562] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::Apply(grpc::ServerContext *, const proto::v1::ApplyRequest *, proto::v1::ApplyResponse *) status=OK
+[2025-08-22 16:25:40.800] [global] [info] [service.cc:607] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *)
+[2025-08-22 16:25:40.800] [global] [info] [service.cc:607] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *) status=OK
+[2025-08-22 16:25:40.800] [global] [info] [service.cc:562] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::Apply(grpc::ServerContext *, const proto::v1::ApplyRequest *, proto::v1::ApplyResponse *)
+[2025-08-22 16:25:40.801] [global] [info] [service.cc:562] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::Apply(grpc::ServerContext *, const proto::v1::ApplyRequest *, proto::v1::ApplyResponse *) status=OK
+[2025-08-22 16:25:40.801] [global] [info] [service.cc:607] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *)
+[2025-08-22 16:25:40.801] [global] [info] [service.cc:607] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *) status=OK
+[2025-08-22 16:25:40.802] [global] [info] [service.cc:562] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::Apply(grpc::ServerContext *, const proto::v1::ApplyRequest *, proto::v1::ApplyResponse *)
+[2025-08-22 16:25:40.802] [global] [info] [service.cc:562] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::Apply(grpc::ServerContext *, const proto::v1::ApplyRequest *, proto::v1::ApplyResponse *) status=OK
+[2025-08-22 16:25:40.802] [global] [info] [service.cc:607] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *)
+[2025-08-22 16:25:40.802] [global] [info] [service.cc:607] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *) status=OK
+[2025-08-22 16:25:40.803] [global] [info] [service.cc:409] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::Queue(grpc::ServerContext *, const proto::v1::QueueRequest *, proto::v1::QueueResponse *)
+[2025-08-22 16:25:40.803] [global] [info] [service.cc:409] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::Queue(grpc::ServerContext *, const proto::v1::QueueRequest *, proto::v1::QueueResponse *) status=OK
+[2025-08-22 16:25:40.803] [global] [info] [service.cc:452] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::DoneLinting(grpc::ServerContext *, const proto::v1::DoneLintingRequest *, proto::v1::DoneLintingResponse *)
+[2025-08-22 16:25:40.803] [global] [info] [service.cc:452] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::DoneLinting(grpc::ServerContext *, const proto::v1::DoneLintingRequest *, proto::v1::DoneLintingResponse *) status=OK
+[2025-08-22 16:25:40.804] [global] [info] [service.cc:528] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::Lint(grpc::ServerContext *, const proto::v1::LintRequest *, grpc::ServerWriter<proto::v1::LintResponse> *)
+[2025-08-22 16:25:40.805] [global] [info] [cache.cc:978] [on-demand] [git-diff-check:lint:scripts/release.py:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:40.811] [global] [info] [cache.cc:974] [on-demand] [trufflehog:lint:scripts/release.py:HEAD] running linter (cache-key:6dc045b7f215bd8f2ee31e834b1ef1e6)
+[2025-08-22 16:25:40.811] [global] [info] [cache.cc:974] [on-demand] [black:format:scripts/release.py:HEAD] running linter (cache-key:87afec07605f9301f11489960fc8d48d)
+[2025-08-22 16:25:40.811] [global] [info] [cache.cc:974] [on-demand] [bandit:lint:scripts/release.py:HEAD] running linter (cache-key:4a0943a8a40580aa19798d47d04e9f8c)
+[2025-08-22 16:25:40.813] [global] [info] [cache.cc:974] [on-demand] [codespell:lint:scripts/release.py:HEAD] running linter (cache-key:5d2357916ca0dca207383e3e6ab513f5)
+[2025-08-22 16:25:40.814] [global] [info] [cache.cc:978] [on-demand] [isort:format:scripts/release.py:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:40.831] [global] [info] [cache.cc:1117] [on-demand] [git-diff-check:lint:scripts/release.py:HEAD] Linter ran in 25ms
+[2025-08-22 16:25:40.840] [global] [info] [cache.cc:978] [on-demand] [mypy:lint:scripts/release.py:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:40.956] [global] [info] [cache.cc:1117] [on-demand] [isort:format:scripts/release.py:HEAD] Linter ran in 124ms
+[2025-08-22 16:25:40.958] [global] [info] [cache.cc:978] [on-demand] [ruff:lint:scripts/release.py:HEAD] running linter (uncacheable)
+[2025-08-22 16:25:41.024] [global] [info] [cache.cc:1117] [on-demand] [bandit:lint:scripts/release.py:HEAD] Linter ran in 207ms
+[2025-08-22 16:25:41.029] [global] [info] [cache.cc:1117] [on-demand] [ruff:lint:scripts/release.py:HEAD] Linter ran in 71ms
+[2025-08-22 16:25:41.032] [global] [info] [runner.cc:106] Writing mypy predecessor error to /home/will/Projects/duckdantic/.trunk/out/NbohJ.yaml
+[2025-08-22 16:25:41.049] [global] [info] [cache.cc:1117] [on-demand] [codespell:lint:scripts/release.py:HEAD] Linter ran in 231ms
+[2025-08-22 16:25:41.237] [global] [info] [runner.cc:106] Writing black predecessor error to /home/will/Projects/duckdantic/.trunk/out/kobnU.yaml
+[2025-08-22 16:25:41.302] [global] [info] [git_source_control.cc:517] Computing merge base between 68eed961e48f49f80d060747c581657dbeb60c81 and 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:25:41.302] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:25:41.312] [global] [info] [cache.cc:959] [monitor] [trufflehog:lint:scripts/release.py:HEAD] linting in progress, waiting (cache-key:6dc045b7f215bd8f2ee31e834b1ef1e6)
+[2025-08-22 16:25:41.313] [global] [info] [cache.cc:934] [monitor] [codespell:lint:scripts/release.py:HEAD] already cached, not running linter
+[2025-08-22 16:25:41.313] [global] [info] [cache.cc:934] [monitor] [bandit:lint:scripts/release.py:HEAD] already cached, not running linter
+[2025-08-22 16:25:41.314] [global] [info] [cache.cc:974] [monitor] [black:format:scripts/release.py:HEAD] running linter (cache-key:87afec07605f9301f11489960fc8d48d)
+[2025-08-22 16:25:43.795] [global] [info] [cache.cc:1117] [on-demand] [trufflehog:lint:scripts/release.py:HEAD] Linter ran in 2982ms
+[2025-08-22 16:25:43.798] [global] [info] [runner.cc:106] Writing black predecessor error to /home/will/Projects/duckdantic/.trunk/out/cCiho.yaml
+[2025-08-22 16:25:43.798] [global] [info] [runner.cc:106] Writing mypy predecessor error to /home/will/Projects/duckdantic/.trunk/out/KdbuZ.yaml
+[2025-08-22 16:25:43.998] [global] [info] [service.cc:528] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::Lint(grpc::ServerContext *, const proto::v1::LintRequest *, grpc::ServerWriter<proto::v1::LintResponse> *) status=OK
+[2025-08-22 16:25:43.999] [global] [info] [service.cc:607] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *)
+[2025-08-22 16:25:43.999] [global] [info] [service.cc:607] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *) status=OK
+[2025-08-22 16:25:43.999] [global] [info] [service.cc:573] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::Discard(grpc::ServerContext *, const proto::v1::DiscardRequest *, proto::v1::DiscardResponse *)
+[2025-08-22 16:25:43.999] [global] [info] [service.cc:573] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::Discard(grpc::ServerContext *, const proto::v1::DiscardRequest *, proto::v1::DiscardResponse *) status=OK
+[2025-08-22 16:25:44.000] [global] [info] [service.cc:607] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *)
+[2025-08-22 16:25:44.000] [global] [info] [service.cc:607] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *) status=OK
+[2025-08-22 16:25:44.000] [global] [info] [service.cc:573] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::Discard(grpc::ServerContext *, const proto::v1::DiscardRequest *, proto::v1::DiscardResponse *)
+[2025-08-22 16:25:44.000] [global] [info] [service.cc:573] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::Discard(grpc::ServerContext *, const proto::v1::DiscardRequest *, proto::v1::DiscardResponse *) status=OK
+[2025-08-22 16:25:44.000] [global] [info] [service.cc:607] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *)
+[2025-08-22 16:25:44.000] [global] [info] [service.cc:607] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *) status=OK
+[2025-08-22 16:25:44.001] [global] [info] [service.cc:573] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::Discard(grpc::ServerContext *, const proto::v1::DiscardRequest *, proto::v1::DiscardResponse *)
+[2025-08-22 16:25:44.001] [global] [info] [service.cc:573] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::Discard(grpc::ServerContext *, const proto::v1::DiscardRequest *, proto::v1::DiscardResponse *) status=OK
+[2025-08-22 16:25:44.001] [global] [info] [service.cc:607] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *)
+[2025-08-22 16:25:44.001] [global] [info] [service.cc:607] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *) status=OK
+[2025-08-22 16:25:44.002] [global] [info] [service.cc:573] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::Discard(grpc::ServerContext *, const proto::v1::DiscardRequest *, proto::v1::DiscardResponse *)
+[2025-08-22 16:25:44.002] [global] [info] [service.cc:573] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::Discard(grpc::ServerContext *, const proto::v1::DiscardRequest *, proto::v1::DiscardResponse *) status=OK
+[2025-08-22 16:25:44.002] [global] [info] [service.cc:607] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *)
+[2025-08-22 16:25:44.002] [global] [info] [service.cc:607] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *) status=OK
+[2025-08-22 16:25:44.003] [global] [info] [service.cc:573] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::Discard(grpc::ServerContext *, const proto::v1::DiscardRequest *, proto::v1::DiscardResponse *)
+[2025-08-22 16:25:44.003] [global] [info] [service.cc:573] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::Discard(grpc::ServerContext *, const proto::v1::DiscardRequest *, proto::v1::DiscardResponse *) status=OK
+[2025-08-22 16:25:44.003] [global] [info] [service.cc:607] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *)
+[2025-08-22 16:25:44.003] [global] [info] [service.cc:607] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::GetCurrentDiagnostic(grpc::ServerContext *, const proto::v1::GetCurrentDiagnosticRequest *, proto::v1::GetCurrentDiagnosticResponse *) status=OK
+[2025-08-22 16:25:44.004] [global] [info] [service.cc:409] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::Queue(grpc::ServerContext *, const proto::v1::QueueRequest *, proto::v1::QueueResponse *)
+[2025-08-22 16:25:44.004] [global] [info] [service.cc:409] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::Queue(grpc::ServerContext *, const proto::v1::QueueRequest *, proto::v1::QueueResponse *) status=OK
+[2025-08-22 16:25:44.004] [global] [info] [service.cc:452] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::DoneLinting(grpc::ServerContext *, const proto::v1::DoneLintingRequest *, proto::v1::DoneLintingResponse *)
+[2025-08-22 16:25:44.004] [global] [info] [service.cc:452] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::DoneLinting(grpc::ServerContext *, const proto::v1::DoneLintingRequest *, proto::v1::DoneLintingResponse *) status=OK
+[2025-08-22 16:25:44.005] [global] [info] [service.cc:585] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::GetLandingState(grpc::ServerContext *, const proto::v1::GetLandingStateRequest *, proto::v1::GetLandingStateResponse *)
+[2025-08-22 16:25:44.005] [global] [info] [runner.cc:1128] Git-ignored path: .trunk/configs/.yamllint.yaml
+[2025-08-22 16:25:44.005] [global] [info] [runner.cc:1128] Git-ignored path: .trunk/configs/.markdownlint.yaml
+[2025-08-22 16:25:44.005] [global] [info] [runner.cc:1128] Git-ignored path: .trunk/configs/.isort.cfg
+[2025-08-22 16:25:44.006] [global] [info] [service.cc:585] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::GetLandingState(grpc::ServerContext *, const proto::v1::GetLandingStateRequest *, proto::v1::GetLandingStateResponse *) status=OK
+[2025-08-22 16:25:44.007] [global] [info] [service.cc:256] lint session ended sid=14
+[2025-08-22 16:25:44.007] [global] [info] [service.cc:258] [user-agent=cli/check sid=14] RX:virtual grpc::Status trunk::cli::lint::Service::End(grpc::ServerContext *, const proto::v1::EndRequest *, proto::v1::EndResponse *)
+[2025-08-22 16:25:44.007] [global] [info] [service.cc:258] [user-agent=cli/check sid=14] TX:virtual grpc::Status trunk::cli::lint::Service::End(grpc::ServerContext *, const proto::v1::EndRequest *, proto::v1::EndResponse *) status=OK
+[2025-08-22 16:25:44.007] [global] [info] [service.cc:325] [user-agent=cli/check sid=n/a] RX:virtual grpc::Status trunk::cli::lint::Service::End(grpc::ServerContext *, const proto::v1::EndRequest *, proto::v1::EndResponse *)
+[2025-08-22 16:25:44.013] [global] [info] [service.cc:325] [user-agent=cli/check sid=n/a] TX:virtual grpc::Status trunk::cli::lint::Service::End(grpc::ServerContext *, const proto::v1::EndRequest *, proto::v1::EndResponse *) status=OK

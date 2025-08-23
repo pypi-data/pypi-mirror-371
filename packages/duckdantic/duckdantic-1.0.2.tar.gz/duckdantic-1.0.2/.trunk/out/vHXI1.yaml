@@ -1,0 +1,4 @@
+trunk_cli_version: 1.25.0
+title: Check loop aborted after 10 iterations
+report:
+  - Unable to resolve autofixes from incompatible linters. Please check your configuration and try again.

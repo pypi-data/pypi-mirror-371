@@ -1,0 +1,428 @@
+[2025-08-22 16:25:44.014] [global] [info] [grpc.cc:22] RX:virtual grpc::Status trunk::cli::actions::Service::GetNotifications(grpc::ServerContext *, const proto::v1::GetNotificationsRequest *, proto::v1::GetNotificationsResponse *)
+[2025-08-22 16:25:44.015] [global] [info] [service.cc:162] Writing notification state to file
+[2025-08-22 16:25:44.015] [global] [info] [grpc.cc:26] TX:virtual grpc::Status trunk::cli::actions::Service::GetNotifications(grpc::ServerContext *, const proto::v1::GetNotificationsRequest *, proto::v1::GetNotificationsResponse *) status=OK
+[2025-08-22 16:25:54.936] [global] [info] [git_source_control.cc:517] Computing merge base between 68eed961e48f49f80d060747c581657dbeb60c81 and 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:25:54.936] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:25:54.944] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:scripts/release.py:HEAD] running linter (cache-key:99ef0e26cce0d7699027164fc0951fb0)
+[2025-08-22 16:25:54.945] [global] [info] [cache.cc:974] [monitor] [codespell:lint:scripts/release.py:HEAD] running linter (cache-key:dc678b20227dc389bf544eda800293ee)
+[2025-08-22 16:25:54.945] [global] [info] [cache.cc:974] [monitor] [black:format:scripts/release.py:HEAD] running linter (cache-key:7d1d2e318773076558ea96c89e986290)
+[2025-08-22 16:25:54.945] [global] [info] [cache.cc:974] [monitor] [bandit:lint:scripts/release.py:HEAD] running linter (cache-key:ecddc47db899a33ea0ecacd40d092e32)
+[2025-08-22 16:25:55.146] [global] [info] [cache.cc:1117] [monitor] [codespell:lint:scripts/release.py:HEAD] Linter ran in 193ms
+[2025-08-22 16:25:55.170] [global] [info] [cache.cc:1117] [monitor] [bandit:lint:scripts/release.py:HEAD] Linter ran in 217ms
+[2025-08-22 16:25:55.587] [global] [info] [cache.cc:1117] [monitor] [black:format:scripts/release.py:HEAD] Linter ran in 633ms
+[2025-08-22 16:25:57.693] [global] [info] [cache.cc:1117] [monitor] [trufflehog:lint:scripts/release.py:HEAD] Linter ran in 2747ms
+[2025-08-22 16:25:59.738] [global] [info] [git_source_control.cc:517] Computing merge base between 68eed961e48f49f80d060747c581657dbeb60c81 and 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:25:59.739] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:25:59.747] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:scripts/release.py:HEAD] running linter (cache-key:609584e14a42aa492a399bffb2311bb6)
+[2025-08-22 16:25:59.748] [global] [info] [cache.cc:974] [monitor] [codespell:lint:scripts/release.py:HEAD] running linter (cache-key:4ca4bac90b47ea5ed3aee321757bb373)
+[2025-08-22 16:25:59.748] [global] [info] [cache.cc:974] [monitor] [bandit:lint:scripts/release.py:HEAD] running linter (cache-key:02263740a50a24a2a9cbcf5f8bb84e00)
+[2025-08-22 16:25:59.749] [global] [info] [cache.cc:974] [monitor] [black:format:scripts/release.py:HEAD] running linter (cache-key:0e6e01c2d76bfd8bb89d260c2e921b6c)
+[2025-08-22 16:25:59.933] [global] [info] [cache.cc:1117] [monitor] [bandit:lint:scripts/release.py:HEAD] Linter ran in 179ms
+[2025-08-22 16:25:59.958] [global] [info] [cache.cc:1117] [monitor] [codespell:lint:scripts/release.py:HEAD] Linter ran in 208ms
+[2025-08-22 16:26:00.331] [global] [info] [cache.cc:1117] [monitor] [black:format:scripts/release.py:HEAD] Linter ran in 577ms
+[2025-08-22 16:26:02.492] [global] [info] [cache.cc:1117] [monitor] [trufflehog:lint:scripts/release.py:HEAD] Linter ran in 2742ms
+[2025-08-22 16:26:30.787] [global] [info] [git_source_control.cc:517] Computing merge base between 68eed961e48f49f80d060747c581657dbeb60c81 and 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:26:30.787] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:26:30.796] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:pyproject.toml:HEAD] running linter (cache-key:c45820125dcdcab4a0a9337c244c1722)
+[2025-08-22 16:26:30.796] [global] [info] [cache.cc:974] [monitor] [codespell:lint:pyproject.toml:HEAD] running linter (cache-key:42799afd1ea2cb8ff5e94a45c8e29968)
+[2025-08-22 16:26:31.021] [global] [info] [cache.cc:1117] [monitor] [codespell:lint:pyproject.toml:HEAD] Linter ran in 222ms
+[2025-08-22 16:26:33.682] [global] [info] [cache.cc:1117] [monitor] [trufflehog:lint:pyproject.toml:HEAD] Linter ran in 2885ms
+[2025-08-22 16:26:41.466] [global] [info] [git_source_control.cc:517] Computing merge base between 68eed961e48f49f80d060747c581657dbeb60c81 and 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:26:41.466] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:26:41.474] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:pyproject.toml:HEAD] running linter (cache-key:06d2417d12ba603b266a04f0449ad9a3)
+[2025-08-22 16:26:41.475] [global] [info] [cache.cc:974] [monitor] [codespell:lint:pyproject.toml:HEAD] running linter (cache-key:d567bb2ebcc4d46ad79ff3166136716c)
+[2025-08-22 16:26:41.696] [global] [info] [cache.cc:1117] [monitor] [codespell:lint:pyproject.toml:HEAD] Linter ran in 220ms
+[2025-08-22 16:26:44.370] [global] [info] [cache.cc:1117] [monitor] [trufflehog:lint:pyproject.toml:HEAD] Linter ran in 2894ms
+[2025-08-22 16:26:50.041] [global] [info] [git_source_control.cc:517] Computing merge base between 68eed961e48f49f80d060747c581657dbeb60c81 and 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:26:50.041] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:26:55.633] [global] [info] [git_source_control.cc:517] Computing merge base between 68eed961e48f49f80d060747c581657dbeb60c81 and 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:26:55.633] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:26:55.650] [global] [info] [cache.cc:974] [monitor] [black:format:src/duckdantic/__about__.py:HEAD] running linter (cache-key:409341f365c7441accd43078ee9d1ed6)
+[2025-08-22 16:26:55.651] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:src/duckdantic/__about__.py:HEAD] running linter (cache-key:c7c455ec86d5f36e3ed6beca25850da0)
+[2025-08-22 16:26:55.651] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:uv.lock:HEAD] running linter (cache-key:3b1c91b5e5be001fd11599024bb8f8ee)
+[2025-08-22 16:26:55.652] [global] [info] [cache.cc:974] [monitor] [codespell:lint:src/duckdantic/__about__.py:HEAD] running linter (cache-key:7bc0214b407660ed689cf9a9990e08fb)
+[2025-08-22 16:26:55.652] [global] [info] [cache.cc:974] [monitor] [codespell:lint:uv.lock:HEAD] running linter (cache-key:f7805719c48a3011c6e9b3f95119b9bb)
+[2025-08-22 16:26:55.654] [global] [info] [cache.cc:974] [monitor] [bandit:lint:src/duckdantic/__about__.py:HEAD] running linter (cache-key:f1e1a7129c38b132e19577e0850780c2)
+[2025-08-22 16:26:55.921] [global] [info] [cache.cc:1117] [monitor] [bandit:lint:src/duckdantic/__about__.py:HEAD] Linter ran in 265ms
+[2025-08-22 16:26:56.014] [global] [info] [cache.cc:1117] [monitor] [codespell:lint:src/duckdantic/__about__.py... (2 files):HEAD] Linter ran in 332ms
+[2025-08-22 16:26:56.373] [global] [info] [cache.cc:1117] [monitor] [black:format:src/duckdantic/__about__.py:HEAD] Linter ran in 719ms
+[2025-08-22 16:26:56.529] [global] [info] [git_source_control.cc:517] Computing merge base between 68eed961e48f49f80d060747c581657dbeb60c81 and 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:26:56.529] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:26:58.939] [global] [info] [cache.cc:1117] [monitor] [trufflehog:lint:src/duckdantic/__about__.py... (2 files):HEAD] Linter ran in 3238ms
+[2025-08-22 16:27:01.255] [global] [info] [git_source_control.cc:517] Computing merge base between 68eed961e48f49f80d060747c581657dbeb60c81 and 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:27:01.255] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:27:14.270] [global] [info] [git_source_control.cc:517] Computing merge base between 68eed961e48f49f80d060747c581657dbeb60c81 and 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:27:14.270] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:27:14.279] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:.github/workflows/release.yml:HEAD] running linter (cache-key:a5f94fb53acbf0e17f5971079ddf438f)
+[2025-08-22 16:27:14.280] [global] [info] [cache.cc:974] [monitor] [codespell:lint:.github/workflows/release.yml:HEAD] running linter (cache-key:5215671f7811eb500f14e4e2b0062423)
+[2025-08-22 16:27:14.499] [global] [info] [cache.cc:1117] [monitor] [codespell:lint:.github/workflows/release.yml:HEAD] Linter ran in 216ms
+[2025-08-22 16:27:17.225] [global] [info] [cache.cc:1117] [monitor] [trufflehog:lint:.github/workflows/release.yml:HEAD] Linter ran in 2943ms
+[2025-08-22 16:27:34.585] [global] [info] [git_source_control.cc:517] Computing merge base between 68eed961e48f49f80d060747c581657dbeb60c81 and 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:27:34.585] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:27:34.595] [global] [info] [cache.cc:974] [monitor] [markdownlint:lint:RELEASE_READY.md:HEAD] running linter (cache-key:c1d87891af9ed28cd9170a13ba92a5f3)
+[2025-08-22 16:27:34.595] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:RELEASE_READY.md:HEAD] running linter (cache-key:e586fed4c98bdc176c294a758dad0178)
+[2025-08-22 16:27:34.596] [global] [info] [cache.cc:974] [monitor] [codespell:lint:RELEASE_READY.md:HEAD] running linter (cache-key:739442a2bf79c4d1147e1e2e3eff33b2)
+[2025-08-22 16:27:34.796] [global] [info] [cache.cc:1117] [monitor] [codespell:lint:RELEASE_READY.md:HEAD] Linter ran in 198ms
+[2025-08-22 16:27:34.988] [global] [info] [cache.cc:1117] [monitor] [markdownlint:lint:RELEASE_READY.md:HEAD] Linter ran in 385ms
+[2025-08-22 16:27:37.664] [global] [info] [cache.cc:1117] [monitor] [trufflehog:lint:RELEASE_READY.md:HEAD] Linter ran in 3066ms
+[2025-08-22 16:29:55.584] [global] [info] [git_source_control.cc:517] Computing merge base between 68eed961e48f49f80d060747c581657dbeb60c81 and 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:29:55.585] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:30:50.561] [global] [info] [git_source_control.cc:517] Computing merge base between 68eed961e48f49f80d060747c581657dbeb60c81 and 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:30:50.561] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:31:27.151] [global] [info] [git_source_control.cc:517] Computing merge base between 68eed961e48f49f80d060747c581657dbeb60c81 and 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:31:27.151] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:31:34.192] [global] [info] [git_source_control.cc:517] Computing merge base between 68eed961e48f49f80d060747c581657dbeb60c81 and 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:31:34.192] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:31:34.205] [global] [info] [cache.cc:934] [monitor] [trufflehog:lint:src/duckdantic/__about__.py:HEAD] already cached, not running linter
+[2025-08-22 16:31:34.206] [global] [info] [cache.cc:934] [monitor] [codespell:lint:src/duckdantic/__about__.py:HEAD] already cached, not running linter
+[2025-08-22 16:31:34.206] [global] [info] [cache.cc:934] [monitor] [bandit:lint:src/duckdantic/__about__.py:HEAD] already cached, not running linter
+[2025-08-22 16:31:34.207] [global] [info] [cache.cc:934] [monitor] [black:format:src/duckdantic/__about__.py:HEAD] already cached, not running linter
+[2025-08-22 16:32:02.414] [global] [info] [git_source_control.cc:517] Computing merge base between 68eed961e48f49f80d060747c581657dbeb60c81 and 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:32:02.414] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:32:07.244] [global] [info] [git_source_control.cc:517] Computing merge base between 68eed961e48f49f80d060747c581657dbeb60c81 and 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:32:07.245] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:32:38.573] [global] [info] [git_source_control.cc:517] Computing merge base between 68eed961e48f49f80d060747c581657dbeb60c81 and 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:32:38.573] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:33:31.543] [global] [info] [git_source_control.cc:517] Computing merge base between 68eed961e48f49f80d060747c581657dbeb60c81 and 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:33:31.543] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:34:03.737] [global] [info] [git_source_control.cc:517] Computing merge base between 788ff239fc47507c1cb3348858f5c6fda2a6aab6 and 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:34:03.738] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:34:31.947] [global] [info] [git_source_control.cc:517] Computing merge base between 788ff239fc47507c1cb3348858f5c6fda2a6aab6 and 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:34:31.948] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 68eed961e48f49f80d060747c581657dbeb60c81
+[2025-08-22 16:35:31.053] [global] [info] [git_source_control.cc:517] Computing merge base between 788ff239fc47507c1cb3348858f5c6fda2a6aab6 and 788ff239fc47507c1cb3348858f5c6fda2a6aab6
+[2025-08-22 16:35:31.053] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 788ff239fc47507c1cb3348858f5c6fda2a6aab6
+[2025-08-22 16:35:36.818] [global] [info] [git_source_control.cc:517] Computing merge base between 788ff239fc47507c1cb3348858f5c6fda2a6aab6 and 788ff239fc47507c1cb3348858f5c6fda2a6aab6
+[2025-08-22 16:35:36.818] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 788ff239fc47507c1cb3348858f5c6fda2a6aab6
+[2025-08-22 16:35:54.959] [global] [info] [git_source_control.cc:517] Computing merge base between 788ff239fc47507c1cb3348858f5c6fda2a6aab6 and 788ff239fc47507c1cb3348858f5c6fda2a6aab6
+[2025-08-22 16:35:54.959] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 788ff239fc47507c1cb3348858f5c6fda2a6aab6
+[2025-08-22 16:36:19.272] [global] [info] [git_source_control.cc:517] Computing merge base between 788ff239fc47507c1cb3348858f5c6fda2a6aab6 and 788ff239fc47507c1cb3348858f5c6fda2a6aab6
+[2025-08-22 16:36:19.272] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 788ff239fc47507c1cb3348858f5c6fda2a6aab6
+[2025-08-22 16:39:31.441] [global] [info] [git_source_control.cc:517] Computing merge base between 788ff239fc47507c1cb3348858f5c6fda2a6aab6 and 788ff239fc47507c1cb3348858f5c6fda2a6aab6
+[2025-08-22 16:39:31.441] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 788ff239fc47507c1cb3348858f5c6fda2a6aab6
+[2025-08-22 16:42:36.012] [global] [info] [git_source_control.cc:517] Computing merge base between 788ff239fc47507c1cb3348858f5c6fda2a6aab6 and 788ff239fc47507c1cb3348858f5c6fda2a6aab6
+[2025-08-22 16:42:36.012] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 788ff239fc47507c1cb3348858f5c6fda2a6aab6
+[2025-08-22 16:43:00.770] [global] [info] [git_source_control.cc:517] Computing merge base between 788ff239fc47507c1cb3348858f5c6fda2a6aab6 and 788ff239fc47507c1cb3348858f5c6fda2a6aab6
+[2025-08-22 16:43:00.770] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 788ff239fc47507c1cb3348858f5c6fda2a6aab6
+[2025-08-22 16:43:35.556] [global] [info] [git_source_control.cc:517] Computing merge base between 788ff239fc47507c1cb3348858f5c6fda2a6aab6 and 788ff239fc47507c1cb3348858f5c6fda2a6aab6
+[2025-08-22 16:43:35.556] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 788ff239fc47507c1cb3348858f5c6fda2a6aab6
+[2025-08-22 16:43:36.359] [global] [info] [git_source_control.cc:517] Computing merge base between 788ff239fc47507c1cb3348858f5c6fda2a6aab6 and 788ff239fc47507c1cb3348858f5c6fda2a6aab6
+[2025-08-22 16:43:36.359] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 788ff239fc47507c1cb3348858f5c6fda2a6aab6
+[2025-08-22 16:43:39.793] [global] [info] [git_source_control.cc:517] Computing merge base between 788ff239fc47507c1cb3348858f5c6fda2a6aab6 and 788ff239fc47507c1cb3348858f5c6fda2a6aab6
+[2025-08-22 16:43:39.793] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 788ff239fc47507c1cb3348858f5c6fda2a6aab6
+[2025-08-22 16:43:42.462] [global] [info] [git_source_control.cc:517] Computing merge base between 788ff239fc47507c1cb3348858f5c6fda2a6aab6 and 788ff239fc47507c1cb3348858f5c6fda2a6aab6
+[2025-08-22 16:43:42.462] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 788ff239fc47507c1cb3348858f5c6fda2a6aab6
+[2025-08-22 16:43:42.473] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:src/duckdantic/__about__.py:HEAD] running linter (cache-key:ba6952295b45612955feac6782a96c22)
+[2025-08-22 16:43:42.473] [global] [info] [cache.cc:974] [monitor] [codespell:lint:src/duckdantic/__about__.py:HEAD] running linter (cache-key:a398141290ca41801e2d40d6900db921)
+[2025-08-22 16:43:42.473] [global] [info] [cache.cc:974] [monitor] [bandit:lint:src/duckdantic/__about__.py:HEAD] running linter (cache-key:bd718cf39846abf17e9e89655b89faa7)
+[2025-08-22 16:43:42.474] [global] [info] [cache.cc:974] [monitor] [black:format:src/duckdantic/__about__.py:HEAD] running linter (cache-key:e17b39693565328a4b5abd962496c5ba)
+[2025-08-22 16:43:42.665] [global] [info] [cache.cc:1117] [monitor] [bandit:lint:src/duckdantic/__about__.py:HEAD] Linter ran in 185ms
+[2025-08-22 16:43:42.677] [global] [info] [cache.cc:1117] [monitor] [codespell:lint:src/duckdantic/__about__.py:HEAD] Linter ran in 201ms
+[2025-08-22 16:43:43.132] [global] [info] [cache.cc:1117] [monitor] [black:format:src/duckdantic/__about__.py:HEAD] Linter ran in 652ms
+[2025-08-22 16:43:45.335] [global] [info] [cache.cc:1117] [monitor] [trufflehog:lint:src/duckdantic/__about__.py:HEAD] Linter ran in 2859ms
+[2025-08-22 16:48:56.602] [global] [info] [git_source_control.cc:517] Computing merge base between 788ff239fc47507c1cb3348858f5c6fda2a6aab6 and 788ff239fc47507c1cb3348858f5c6fda2a6aab6
+[2025-08-22 16:48:56.603] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 788ff239fc47507c1cb3348858f5c6fda2a6aab6
+[2025-08-22 16:48:57.303] [global] [info] [git_source_control.cc:517] Computing merge base between 788ff239fc47507c1cb3348858f5c6fda2a6aab6 and 788ff239fc47507c1cb3348858f5c6fda2a6aab6
+[2025-08-22 16:48:57.303] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 788ff239fc47507c1cb3348858f5c6fda2a6aab6
+[2025-08-22 16:48:57.318] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:src/duckdantic/__about__.py:HEAD] running linter (cache-key:8bb8b902fbf6a67b6af1dab9a4cc4071)
+[2025-08-22 16:48:57.319] [global] [info] [cache.cc:974] [monitor] [codespell:lint:src/duckdantic/__about__.py:HEAD] running linter (cache-key:ce0a88e427e702f709c70fc3ab534a18)
+[2025-08-22 16:48:57.319] [global] [info] [cache.cc:974] [monitor] [bandit:lint:src/duckdantic/__about__.py:HEAD] running linter (cache-key:bb18a85deff6827ef87db2f7495a1457)
+[2025-08-22 16:48:57.320] [global] [info] [cache.cc:974] [monitor] [black:format:src/duckdantic/__about__.py:HEAD] running linter (cache-key:dacca0f16ee04f37dccc941198574167)
+[2025-08-22 16:48:57.547] [global] [info] [cache.cc:1117] [monitor] [bandit:lint:src/duckdantic/__about__.py:HEAD] Linter ran in 222ms
+[2025-08-22 16:48:57.570] [global] [info] [cache.cc:1117] [monitor] [codespell:lint:src/duckdantic/__about__.py:HEAD] Linter ran in 248ms
+[2025-08-22 16:48:58.143] [global] [info] [cache.cc:1117] [monitor] [black:format:src/duckdantic/__about__.py:HEAD] Linter ran in 812ms
+[2025-08-22 16:49:00.604] [global] [info] [cache.cc:1117] [monitor] [trufflehog:lint:src/duckdantic/__about__.py:HEAD] Linter ran in 3283ms
+[2025-08-22 16:49:09.398] [global] [info] [git_source_control.cc:517] Computing merge base between 788ff239fc47507c1cb3348858f5c6fda2a6aab6 and 788ff239fc47507c1cb3348858f5c6fda2a6aab6
+[2025-08-22 16:49:09.398] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 788ff239fc47507c1cb3348858f5c6fda2a6aab6
+[2025-08-22 16:50:16.011] [global] [info] [git_source_control.cc:517] Computing merge base between 788ff239fc47507c1cb3348858f5c6fda2a6aab6 and 788ff239fc47507c1cb3348858f5c6fda2a6aab6
+[2025-08-22 16:50:16.011] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 788ff239fc47507c1cb3348858f5c6fda2a6aab6
+[2025-08-22 16:50:16.022] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:pyproject.toml:HEAD] running linter (cache-key:d0b70df4b9d53e8faedb90f45636ca44)
+[2025-08-22 16:50:16.022] [global] [info] [cache.cc:974] [monitor] [codespell:lint:pyproject.toml:HEAD] running linter (cache-key:b565132b3b63adac351f75e0df99206a)
+[2025-08-22 16:50:16.305] [global] [info] [cache.cc:1117] [monitor] [codespell:lint:pyproject.toml:HEAD] Linter ran in 281ms
+[2025-08-22 16:50:19.344] [global] [info] [cache.cc:1117] [monitor] [trufflehog:lint:pyproject.toml:HEAD] Linter ran in 3320ms
+[2025-08-22 16:50:19.541] [global] [info] [git_source_control.cc:517] Computing merge base between 788ff239fc47507c1cb3348858f5c6fda2a6aab6 and 788ff239fc47507c1cb3348858f5c6fda2a6aab6
+[2025-08-22 16:50:19.541] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 788ff239fc47507c1cb3348858f5c6fda2a6aab6
+[2025-08-22 16:50:20.315] [global] [info] [git_source_control.cc:517] Computing merge base between 788ff239fc47507c1cb3348858f5c6fda2a6aab6 and 788ff239fc47507c1cb3348858f5c6fda2a6aab6
+[2025-08-22 16:50:20.315] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 788ff239fc47507c1cb3348858f5c6fda2a6aab6
+[2025-08-22 16:50:20.324] [global] [info] [cache.cc:934] [monitor] [trufflehog:lint:src/duckdantic/__about__.py:HEAD] already cached, not running linter
+[2025-08-22 16:50:20.324] [global] [info] [cache.cc:974] [monitor] [codespell:lint:src/duckdantic/__about__.py:HEAD] running linter (cache-key:785f533dddb45aabd53a71c1676ac429)
+[2025-08-22 16:50:20.325] [global] [info] [cache.cc:934] [monitor] [bandit:lint:src/duckdantic/__about__.py:HEAD] already cached, not running linter
+[2025-08-22 16:50:20.325] [global] [info] [cache.cc:974] [monitor] [black:format:src/duckdantic/__about__.py:HEAD] running linter (cache-key:d78fab7dd3a56d248227036a90bc25e8)
+[2025-08-22 16:50:20.564] [global] [info] [cache.cc:1117] [monitor] [codespell:lint:src/duckdantic/__about__.py:HEAD] Linter ran in 237ms
+[2025-08-22 16:50:20.971] [global] [info] [cache.cc:1117] [monitor] [black:format:src/duckdantic/__about__.py:HEAD] Linter ran in 639ms
+[2025-08-22 16:52:19.222] [global] [info] [git_source_control.cc:517] Computing merge base between 788ff239fc47507c1cb3348858f5c6fda2a6aab6 and 788ff239fc47507c1cb3348858f5c6fda2a6aab6
+[2025-08-22 16:52:19.222] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 788ff239fc47507c1cb3348858f5c6fda2a6aab6
+[2025-08-22 16:53:09.583] [global] [info] [git_source_control.cc:517] Computing merge base between 788ff239fc47507c1cb3348858f5c6fda2a6aab6 and 788ff239fc47507c1cb3348858f5c6fda2a6aab6
+[2025-08-22 16:53:09.583] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 788ff239fc47507c1cb3348858f5c6fda2a6aab6
+[2025-08-22 16:53:17.388] [global] [info] [git_source_control.cc:517] Computing merge base between a6deb276a26334de3fd81add7de5e3f658a1ccec and 788ff239fc47507c1cb3348858f5c6fda2a6aab6
+[2025-08-22 16:53:17.388] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 788ff239fc47507c1cb3348858f5c6fda2a6aab6
+[2025-08-22 16:53:19.807] [global] [info] [git_source_control.cc:517] Computing merge base between a6deb276a26334de3fd81add7de5e3f658a1ccec and 788ff239fc47507c1cb3348858f5c6fda2a6aab6
+[2025-08-22 16:53:19.808] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 788ff239fc47507c1cb3348858f5c6fda2a6aab6
+[2025-08-22 16:53:42.168] [global] [info] [git_source_control.cc:517] Computing merge base between a6deb276a26334de3fd81add7de5e3f658a1ccec and a6deb276a26334de3fd81add7de5e3f658a1ccec
+[2025-08-22 16:53:42.168] [global] [info] [git_source_control.cc:519] Resolved divergent commit as a6deb276a26334de3fd81add7de5e3f658a1ccec
+[2025-08-22 16:53:42.176] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:.readthedocs.yml:HEAD] running linter (cache-key:3f92e834a1a3739684b2e9c86d9b468b)
+[2025-08-22 16:53:42.176] [global] [info] [cache.cc:974] [monitor] [codespell:lint:.readthedocs.yml:HEAD] running linter (cache-key:78be6524b3b17c839042b08fed3c6d29)
+[2025-08-22 16:53:42.402] [global] [info] [cache.cc:1117] [monitor] [codespell:lint:.readthedocs.yml:HEAD] Linter ran in 224ms
+[2025-08-22 16:53:45.815] [global] [info] [cache.cc:1117] [monitor] [trufflehog:lint:.readthedocs.yml:HEAD] Linter ran in 3637ms
+[2025-08-22 16:53:51.367] [global] [info] [git_source_control.cc:517] Computing merge base between 61ead54e29a9104c73f3541fadac518b05650259 and a6deb276a26334de3fd81add7de5e3f658a1ccec
+[2025-08-22 16:53:51.367] [global] [info] [git_source_control.cc:519] Resolved divergent commit as a6deb276a26334de3fd81add7de5e3f658a1ccec
+[2025-08-22 16:55:24.684] [global] [info] [git_source_control.cc:517] Computing merge base between 61ead54e29a9104c73f3541fadac518b05650259 and 61ead54e29a9104c73f3541fadac518b05650259
+[2025-08-22 16:55:24.684] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 61ead54e29a9104c73f3541fadac518b05650259
+[2025-08-22 16:55:33.003] [global] [info] [git_source_control.cc:517] Computing merge base between 1e6562d877e549e22ef0d5dba8e2c17a29f15cf6 and 61ead54e29a9104c73f3541fadac518b05650259
+[2025-08-22 16:55:33.003] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 61ead54e29a9104c73f3541fadac518b05650259
+[2025-08-22 16:55:57.253] [global] [info] [git_source_control.cc:517] Computing merge base between 1e6562d877e549e22ef0d5dba8e2c17a29f15cf6 and 1e6562d877e549e22ef0d5dba8e2c17a29f15cf6
+[2025-08-22 16:55:57.253] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 1e6562d877e549e22ef0d5dba8e2c17a29f15cf6
+[2025-08-22 16:57:06.963] [global] [info] [service.cc:118] Notifications config has not changed
+[2025-08-22 16:57:06.966] [global] [info] [runner.cc:54] Config file changed, rebuilding DAG
+[2025-08-22 16:57:07.003] [global] [info] [service.cc:49] Tools config updated; updating tools
+[2025-08-22 16:57:07.023] [global] [info] [git_source_control.cc:517] Computing merge base between 1e6562d877e549e22ef0d5dba8e2c17a29f15cf6 and 1e6562d877e549e22ef0d5dba8e2c17a29f15cf6
+[2025-08-22 16:57:07.023] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 1e6562d877e549e22ef0d5dba8e2c17a29f15cf6
+[2025-08-22 16:57:07.093] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:.gitignore:HEAD] running linter (cache-key:3aabfe9eaacb6037269c355628b8eabf)
+[2025-08-22 16:57:07.093] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:tests/test_normalize_model_fields_duck.py:HEAD] running linter (cache-key:7df54db4ad1ca60c3f0df3495c384d84)
+[2025-08-22 16:57:07.093] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:.hypothesis/constants/0b6630fb09e65e1e:HEAD] running linter (cache-key:321b9c2907e76fcbc936331c7ab91d53)
+[2025-08-22 16:57:07.093] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:tests/test_numeric_widening_chain.py:HEAD] running linter (cache-key:17e26009c711c266d3b19481fd929f9c)
+[2025-08-22 16:57:07.094] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:.hypothesis/constants/122f12d5754a72a9:HEAD] running linter (cache-key:a51b7d30e2715e2f5963e2ba28c95010)
+[2025-08-22 16:57:07.094] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:tests/test_optional_union_policy.py:HEAD] running linter (cache-key:693c0a8cc894fd157fc30d1cb1269724)
+[2025-08-22 16:57:07.094] [global] [info] [cache.cc:974] [monitor] [markdownlint:lint:DOCUMENTATION_SUMMARY.md:HEAD] running linter (cache-key:7abe13a788c26f67354b537382b2f07c)
+[2025-08-22 16:57:07.094] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:.hypothesis/constants/146d42382b18c1bc:HEAD] running linter (cache-key:6f9ed3daac78fd20cce0b88e7be980dd)
+[2025-08-22 16:57:07.094] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:tests/test_providers_detect.py:HEAD] running linter (cache-key:46b50cdea9c73e128f5f1e8503532fcd)
+[2025-08-22 16:57:07.094] [global] [info] [cache.cc:974] [monitor] [markdownlint:lint:FINAL_RELEASE_STATUS.md:HEAD] running linter (cache-key:18ce9b477d36709b43507f0f30de3e18)
+[2025-08-22 16:57:07.094] [global] [info] [cache.cc:974] [monitor] [markdownlint:lint:PROJECT_STATUS.md:HEAD] running linter (cache-key:f6e82dd44246f0d4246b56e3d9545657)
+[2025-08-22 16:57:07.094] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:tests/test_pydantic_v2_aliases.py:HEAD] running linter (cache-key:575aa9cd44459973550f25be0d58d02e)
+[2025-08-22 16:57:07.094] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:tests/test_pydantic_v2_root_model.py:HEAD] running linter (cache-key:395d461e31fee5a0fa79d1baf6ba2b99)
+[2025-08-22 16:57:07.094] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:tests/test_pydantic_v2_types.py:HEAD] running linter (cache-key:8598655120e3dc76d6a16f268b56a002)
+[2025-08-22 16:57:07.094] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:tests/test_registry.py:HEAD] running linter (cache-key:bd84fac74dc16cf030d31b7f15d45e59)
+[2025-08-22 16:57:07.094] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:tests/test_root_model_like.py:HEAD] running linter (cache-key:ef1c49f654fbe806f6641e73633d54e7)
+[2025-08-22 16:57:07.094] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:.hypothesis/constants/1ca23c2dbe2babc2:HEAD] running linter (cache-key:70348f6ba11bb6b27a78281609b34a67)
+[2025-08-22 16:57:07.094] [global] [info] [cache.cc:974] [monitor] [markdownlint:lint:RELEASE_SETUP_SUMMARY.md:HEAD] running linter (cache-key:5538722226d5e29dea1cc7ee28ebf9cd)
+[2025-08-22 16:57:07.094] [global] [info] [cache.cc:974] [monitor] [markdownlint:lint:WORKFLOWS_SUMMARY.md:HEAD] running linter (cache-key:0a9029fa910f8d27e5561565fd97169a)
+[2025-08-22 16:57:07.094] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:tests/test_root_model_trait.py:HEAD] running linter (cache-key:6888b93ed7eee9929a641c746c21142e)
+[2025-08-22 16:57:07.094] [global] [info] [cache.cc:974] [monitor] [markdownlint:lint:docs/api/core.md:HEAD] running linter (cache-key:423b1916c5610d5a766a42acac829703)
+[2025-08-22 16:57:07.094] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:tests/test_sequence_covariance.py:HEAD] running linter (cache-key:febe1d3f89feb05e531f75de4288af69)
+[2025-08-22 16:57:07.094] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:.hypothesis/constants/224a9341add3b3b6:HEAD] running linter (cache-key:1e4f4523cf9c93bc6ce023be18a773ba)
+[2025-08-22 16:57:07.094] [global] [info] [cache.cc:974] [monitor] [markdownlint:lint:docs/api/index.md:HEAD] running linter (cache-key:90f74cc1bf530833797559545216e485)
+[2025-08-22 16:57:07.095] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:tests/test_shape_id_tokens_stable.py:HEAD] running linter (cache-key:ba7d0774a2f80e89ca4976b48d2372fa)
+[2025-08-22 16:57:07.095] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:.hypothesis/constants/249f7b1f84315036:HEAD] running linter (cache-key:ecc57e2e8df079829c3ef6689b1fb870)
+[2025-08-22 16:57:07.095] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:tests/test_traits_presence_only.py:HEAD] running linter (cache-key:1d1cd10c39cd99e7fd6cc1165398dbbf)
+[2025-08-22 16:57:07.095] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:.hypothesis/constants/29d1bde6d412fa28:HEAD] running linter (cache-key:ed390790f6da7979db0f8cbf74f3acc7)
+[2025-08-22 16:57:07.095] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:tests/test_traits_type_checking.py:HEAD] running linter (cache-key:2e18156cc36a83cb25e9340eb9af062c)
+[2025-08-22 16:57:07.095] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:tests/test_typeddict_required_optional.py:HEAD] running linter (cache-key:0d0230b2854a0c30c2cbc17ffc824bee)
+[2025-08-22 16:57:07.095] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:.hypothesis/constants/335b31b4d1447b37:HEAD] running linter (cache-key:e6a5e0dcf71e0530e09e34f843439cde)
+[2025-08-22 16:57:07.095] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:.hypothesis/constants/364b5e2b9ad877cc:HEAD] running linter (cache-key:7bd0de24c83a9e1aee6612d5c7209653)
+[2025-08-22 16:57:07.095] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:.hypothesis/constants/36a4e196363302b5:HEAD] running linter (cache-key:b6117526108a5e649c58e8cf0f599e49)
+[2025-08-22 16:57:07.095] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:.hypothesis/constants/37e5a13ad55bb6d7:HEAD] running linter (cache-key:5c5baf8414b4839dc7c88f77e9ab7528)
+[2025-08-22 16:57:07.095] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:.hypothesis/constants/46415cd8c3e480e3:HEAD] running linter (cache-key:ee0d5d30c3360f049b045c4bd0e2a877)
+[2025-08-22 16:57:07.095] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:.hypothesis/constants/4e21599a0be76eea:HEAD] running linter (cache-key:da56ef83ac74d7adf11540fe35cf16e0)
+[2025-08-22 16:57:07.095] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:.hypothesis/constants/5f9d8d8703841560:HEAD] running linter (cache-key:8da5aef879069778b0b7c8f8dd44bb6d)
+[2025-08-22 16:57:07.095] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:.hypothesis/constants/67b0a8ccf18bf5d2:HEAD] running linter (cache-key:ec26e7bb5283de700e899f4c25de9429)
+[2025-08-22 16:57:07.095] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:.hypothesis/constants/6aac8d6e81093047:HEAD] running linter (cache-key:e181091a626a384f19193882b71b30b8)
+[2025-08-22 16:57:07.095] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:.hypothesis/constants/73775db95ce377d4:HEAD] running linter (cache-key:ac0e70791717c2186cdb6448e51eb425)
+[2025-08-22 16:57:07.095] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:.hypothesis/constants/73fbfa5b9a651b52:HEAD] running linter (cache-key:f35c468079c771c6411b6458f0e82548)
+[2025-08-22 16:57:07.095] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:.hypothesis/constants/7d1c11cad8948ac1:HEAD] running linter (cache-key:2832545bf9ef8c6c91a1df1f380e0d6b)
+[2025-08-22 16:57:07.095] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:.hypothesis/constants/7fe100552e617482:HEAD] running linter (cache-key:df3ecdd728668b3aef20d6c5a40a5706)
+[2025-08-22 16:57:07.095] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:.hypothesis/constants/87ada6565a2d9731:HEAD] running linter (cache-key:efee20611332508d8d25779b50bdbc9f)
+[2025-08-22 16:57:07.095] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:.hypothesis/constants/8b3b095ff9add730:HEAD] running linter (cache-key:19194c8a43f0f5e8691a3f37d211f9d3)
+[2025-08-22 16:57:07.095] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:.hypothesis/constants/921588635200fa48:HEAD] running linter (cache-key:66190386c17406d0e42bce1016f1c218)
+[2025-08-22 16:57:07.095] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:.hypothesis/constants/a7ce7e9d3a30281b:HEAD] running linter (cache-key:401a91ced0540acd6db76cb8b997703d)
+[2025-08-22 16:57:07.095] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:.hypothesis/constants/b27adf2cd450a630:HEAD] running linter (cache-key:ab17e8ed5136ca968f0584e33e4fa487)
+[2025-08-22 16:57:07.095] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:.hypothesis/constants/b68d1e34a4caccf3:HEAD] running linter (cache-key:cf6d870e7ebb12d4d97c3b81813e8609)
+[2025-08-22 16:57:07.095] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:.hypothesis/constants/b74c3aa81df1ac9f:HEAD] running linter (cache-key:4cc3f9cb0fb4704d5d330b7649d88ec1)
+[2025-08-22 16:57:07.095] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:.hypothesis/constants/b967c4418e3d9be8:HEAD] running linter (cache-key:464b58b7f0a6fb3b4316f66bee310150)
+[2025-08-22 16:57:07.095] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:.hypothesis/constants/bf3f4d140390fc13:HEAD] running linter (cache-key:ff3098732bfeb295e1b981b339485cce)
+[2025-08-22 16:57:07.095] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:.hypothesis/constants/c0645d72504a0e4f:HEAD] running linter (cache-key:ad23a7fe49b674ca2642d845e76010eb)
+[2025-08-22 16:57:07.095] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:.hypothesis/constants/d24ba3c07727bbde:HEAD] running linter (cache-key:e9d30525d93aa546072e911104c324fb)
+[2025-08-22 16:57:07.095] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:.hypothesis/constants/d5da6a3a435a0a69:HEAD] running linter (cache-key:c9bafa893f01d134f0245ce6007c8ecd)
+[2025-08-22 16:57:07.096] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:.hypothesis/constants/d72d1dce98d1c04c:HEAD] running linter (cache-key:968cc2f4e4ca7f6c3b74847d53db571f)
+[2025-08-22 16:57:07.096] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:.hypothesis/constants/e166aacce10ed12e:HEAD] running linter (cache-key:e8a660dcdd53e4ff76535e6754302f0c)
+[2025-08-22 16:57:07.096] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:.hypothesis/constants/e22621763ca3b261:HEAD] running linter (cache-key:1547a8d2ebd4a28d6098abe672cadd38)
+[2025-08-22 16:57:07.096] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:.hypothesis/constants/e8d422272fd2b7c5:HEAD] running linter (cache-key:9c076f748a7e5c2e99cbf0f37b9ffb20)
+[2025-08-22 16:57:07.096] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:.hypothesis/constants/f24fdd790e0526f2:HEAD] running linter (cache-key:aac3e5105566b7bf33e531f8a3b26608)
+[2025-08-22 16:57:07.096] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:DOCUMENTATION_SUMMARY.md:HEAD] running linter (cache-key:986f3a037673ab7ca7e5b49f07c4c1ab)
+[2025-08-22 16:57:07.096] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:FINAL_RELEASE_STATUS.md:HEAD] running linter (cache-key:9be47528aa0c1832e5bd385808513355)
+[2025-08-22 16:57:07.096] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:PROJECT_STATUS.md:HEAD] running linter (cache-key:594f0f87c2aa69c8dca31c18f0863a7c)
+[2025-08-22 16:57:07.096] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:RELEASE_SETUP_SUMMARY.md:HEAD] running linter (cache-key:0bdcaf5a4781cf45245978821a60f044)
+[2025-08-22 16:57:07.096] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:WORKFLOWS_SUMMARY.md:HEAD] running linter (cache-key:f0a82cabb4454b2179b4aa7b7b4f4c91)
+[2025-08-22 16:57:07.096] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:docs/api/core.md:HEAD] running linter (cache-key:fb53fdb43ca0505a4165cf8b1d600667)
+[2025-08-22 16:57:07.096] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:docs/api/index.md:HEAD] running linter (cache-key:5716c4b1e0955ebe7c208efa98b28864)
+[2025-08-22 16:57:07.096] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:tests/test_abc_adapter.py:HEAD] running linter (cache-key:f22b00a86051abad1d02a62a9a385fa3)
+[2025-08-22 16:57:07.096] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:tests/test_algebra_invariants.py:HEAD] running linter (cache-key:064ec65a9d750e105107a34f257debf3)
+[2025-08-22 16:57:07.096] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:tests/test_algebra_properties_hypothesis.py:HEAD] running linter (cache-key:0e92a44fe32ca164e3345c790c0deaa9)
+[2025-08-22 16:57:07.096] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:tests/test_alias_matching.py:HEAD] running linter (cache-key:15f49a57ef88f0917da30ac49e09c8e9)
+[2025-08-22 16:57:07.096] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:tests/test_alias_policy_modes.py:HEAD] running linter (cache-key:5102afc529754ba9a1195a3c579a8f1b)
+[2025-08-22 16:57:07.096] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:tests/test_annotated_strict_metadata.py:HEAD] running linter (cache-key:49728508a281a713b7d849a199e725f0)
+[2025-08-22 16:57:07.096] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:tests/test_attrs_annotations.py:HEAD] running linter (cache-key:5e3169ee82f1c665fa4e1925566a150f)
+[2025-08-22 16:57:07.096] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:tests/test_compare_relations.py:HEAD] running linter (cache-key:f607fb4d7bc37054b835e1e18e5afbfd)
+[2025-08-22 16:57:07.096] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:tests/test_dataclass_annotations.py:HEAD] running linter (cache-key:51adc741c562105b7c69f2afac09cdd1)
+[2025-08-22 16:57:07.096] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:tests/test_duck_api.py:HEAD] running linter (cache-key:ad7b00a5a3248fca850d78acabe76bc4)
+[2025-08-22 16:57:07.096] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:tests/test_explain_type_conflict_details.py:HEAD] running linter (cache-key:e20b6489e820d98b463e9ef5ef9ae7bb)
+[2025-08-22 16:57:07.096] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:tests/test_instance_and_generics.py:HEAD] running linter (cache-key:9ac3856c0f92fdf3040e975ff310045d)
+[2025-08-22 16:57:07.096] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:tests/test_literal_modes.py:HEAD] running linter (cache-key:18f6ff7b4fa0a3cc58e46b9f9b32a5d8)
+[2025-08-22 16:57:07.096] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:tests/test_methods_satisfy.py:HEAD] running linter (cache-key:9a4fbb97c131b1d02d8877c09d012deb)
+[2025-08-22 16:57:07.096] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:tests/test_naming.py:HEAD] running linter (cache-key:24840fa60ee2e93dc849511af778ed2a)
+[2025-08-22 16:57:07.096] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:tests/test_normalize_cache_hit.py:HEAD] running linter (cache-key:e97a1fdc4eacced251cb2d03d0fce3d6)
+[2025-08-22 16:57:07.096] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:tests/test_normalize_class_annotations.py:HEAD] running linter (cache-key:e5712488a71c506825975577b77cd1d5)
+[2025-08-22 16:57:07.096] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:tests/test_normalize_mapping_fieldinfo_like.py:HEAD] running linter (cache-key:8be7d4773bdf3b027eb0ae3d097455bf)
+[2025-08-22 16:57:07.096] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:tests/test_normalize_mapping_types.py:HEAD] running linter (cache-key:5009cd13404c0058db567ab402e007f9)
+[2025-08-22 16:57:07.097] [global] [info] [cache.cc:974] [monitor] [codespell:lint:.gitignore:HEAD] running linter (cache-key:8783456920f87e83fc2c8fc5dff4eeb0)
+[2025-08-22 16:57:07.097] [global] [info] [cache.cc:974] [monitor] [codespell:lint:.hypothesis/constants/0b6630fb09e65e1e:HEAD] running linter (cache-key:9b1aeccc1e4a6c367a795b56742915de)
+[2025-08-22 16:57:07.097] [global] [info] [cache.cc:974] [monitor] [codespell:lint:.hypothesis/constants/122f12d5754a72a9:HEAD] running linter (cache-key:41834b38f85b0bc2ceee4297f0b77b33)
+[2025-08-22 16:57:07.097] [global] [info] [cache.cc:974] [monitor] [codespell:lint:.hypothesis/constants/146d42382b18c1bc:HEAD] running linter (cache-key:104eb94715bd7c3711fc0cb04c5f5174)
+[2025-08-22 16:57:07.097] [global] [info] [cache.cc:974] [monitor] [codespell:lint:.hypothesis/constants/1ca23c2dbe2babc2:HEAD] running linter (cache-key:f5bff6f13bf98e823d02803035f79446)
+[2025-08-22 16:57:07.097] [global] [info] [cache.cc:974] [monitor] [codespell:lint:.hypothesis/constants/224a9341add3b3b6:HEAD] running linter (cache-key:5222482b56d0a2fc727e6c3b0e44ff5f)
+[2025-08-22 16:57:07.097] [global] [info] [cache.cc:974] [monitor] [codespell:lint:.hypothesis/constants/249f7b1f84315036:HEAD] running linter (cache-key:a7a35f08b08b9c8d37d4f708127b7a79)
+[2025-08-22 16:57:07.097] [global] [info] [cache.cc:974] [monitor] [codespell:lint:.hypothesis/constants/29d1bde6d412fa28:HEAD] running linter (cache-key:0680d4295516987545299370db9403e1)
+[2025-08-22 16:57:07.097] [global] [info] [cache.cc:974] [monitor] [codespell:lint:.hypothesis/constants/335b31b4d1447b37:HEAD] running linter (cache-key:de2959becc9a84a69fbb6e2569989703)
+[2025-08-22 16:57:07.097] [global] [info] [cache.cc:974] [monitor] [codespell:lint:.hypothesis/constants/364b5e2b9ad877cc:HEAD] running linter (cache-key:95f41a260eb231964013c6102bdf4951)
+[2025-08-22 16:57:07.097] [global] [info] [cache.cc:974] [monitor] [codespell:lint:.hypothesis/constants/36a4e196363302b5:HEAD] running linter (cache-key:bc475bc52fdb5fc1b5d67379c3cb644e)
+[2025-08-22 16:57:07.097] [global] [info] [cache.cc:974] [monitor] [codespell:lint:.hypothesis/constants/37e5a13ad55bb6d7:HEAD] running linter (cache-key:327a2e94fa882a96b4145b62124cc3c5)
+[2025-08-22 16:57:07.097] [global] [info] [cache.cc:974] [monitor] [codespell:lint:.hypothesis/constants/46415cd8c3e480e3:HEAD] running linter (cache-key:3cadb36ebc19332bd200837e7058fe22)
+[2025-08-22 16:57:07.098] [global] [info] [cache.cc:974] [monitor] [codespell:lint:.hypothesis/constants/4e21599a0be76eea:HEAD] running linter (cache-key:da2b640a74fe52652809389e118cea55)
+[2025-08-22 16:57:07.098] [global] [info] [cache.cc:974] [monitor] [codespell:lint:.hypothesis/constants/5f9d8d8703841560:HEAD] running linter (cache-key:177d096ca561b96afc978d3de34e8c13)
+[2025-08-22 16:57:07.098] [global] [info] [cache.cc:974] [monitor] [codespell:lint:.hypothesis/constants/67b0a8ccf18bf5d2:HEAD] running linter (cache-key:03893fc7311f8530116e6de4f3d39ae6)
+[2025-08-22 16:57:07.098] [global] [info] [cache.cc:974] [monitor] [codespell:lint:.hypothesis/constants/6aac8d6e81093047:HEAD] running linter (cache-key:54d5d8d615e5e896069254285487f4d2)
+[2025-08-22 16:57:07.098] [global] [info] [cache.cc:974] [monitor] [codespell:lint:.hypothesis/constants/73775db95ce377d4:HEAD] running linter (cache-key:5771f16c3122203970c0c9200cb0f62c)
+[2025-08-22 16:57:07.098] [global] [info] [cache.cc:974] [monitor] [codespell:lint:.hypothesis/constants/73fbfa5b9a651b52:HEAD] running linter (cache-key:cedb79b20ebc9a76be8d02fd14b9d563)
+[2025-08-22 16:57:07.098] [global] [info] [cache.cc:974] [monitor] [codespell:lint:.hypothesis/constants/7d1c11cad8948ac1:HEAD] running linter (cache-key:00a45a9e9cb91a59226144307e157048)
+[2025-08-22 16:57:07.098] [global] [info] [cache.cc:974] [monitor] [codespell:lint:.hypothesis/constants/7fe100552e617482:HEAD] running linter (cache-key:c1afb56dfb7c8b635b8f000726cd6f1d)
+[2025-08-22 16:57:07.098] [global] [info] [cache.cc:974] [monitor] [codespell:lint:.hypothesis/constants/87ada6565a2d9731:HEAD] running linter (cache-key:00da0d151023ed5ebc967efb87474dac)
+[2025-08-22 16:57:07.098] [global] [info] [cache.cc:974] [monitor] [codespell:lint:.hypothesis/constants/8b3b095ff9add730:HEAD] running linter (cache-key:d8e069aecb3c023c5c11fe870406ff7c)
+[2025-08-22 16:57:07.098] [global] [info] [cache.cc:974] [monitor] [codespell:lint:.hypothesis/constants/921588635200fa48:HEAD] running linter (cache-key:df729ba2d9a952dc3f48ac8417c88aa3)
+[2025-08-22 16:57:07.098] [global] [info] [cache.cc:974] [monitor] [codespell:lint:.hypothesis/constants/a7ce7e9d3a30281b:HEAD] running linter (cache-key:7557b02f8cb6039103ccc97c32023c54)
+[2025-08-22 16:57:07.098] [global] [info] [cache.cc:974] [monitor] [codespell:lint:.hypothesis/constants/b27adf2cd450a630:HEAD] running linter (cache-key:dbe8178db2788fd81f92637e4b18a602)
+[2025-08-22 16:57:07.098] [global] [info] [cache.cc:974] [monitor] [codespell:lint:.hypothesis/constants/b68d1e34a4caccf3:HEAD] running linter (cache-key:a8a868aa6bb6a3d4f8273cb1f84137ac)
+[2025-08-22 16:57:07.098] [global] [info] [cache.cc:974] [monitor] [codespell:lint:.hypothesis/constants/b74c3aa81df1ac9f:HEAD] running linter (cache-key:16b7fed60efbdfb1ca5e4fc1a223b57a)
+[2025-08-22 16:57:07.098] [global] [info] [cache.cc:974] [monitor] [codespell:lint:.hypothesis/constants/b967c4418e3d9be8:HEAD] running linter (cache-key:a89245f3370058dad469bdcf23cab57a)
+[2025-08-22 16:57:07.098] [global] [info] [cache.cc:974] [monitor] [codespell:lint:.hypothesis/constants/bf3f4d140390fc13:HEAD] running linter (cache-key:1dc690c40db13192878f2975d4fa25e3)
+[2025-08-22 16:57:07.098] [global] [info] [cache.cc:974] [monitor] [codespell:lint:.hypothesis/constants/c0645d72504a0e4f:HEAD] running linter (cache-key:1cb7c1cfa43d47ee22661bdec781118d)
+[2025-08-22 16:57:07.098] [global] [info] [cache.cc:974] [monitor] [codespell:lint:.hypothesis/constants/d24ba3c07727bbde:HEAD] running linter (cache-key:66003b815afd20c447a4f1e3941139e5)
+[2025-08-22 16:57:07.098] [global] [info] [cache.cc:974] [monitor] [codespell:lint:.hypothesis/constants/d5da6a3a435a0a69:HEAD] running linter (cache-key:5e87d696965582e6d166acf684463215)
+[2025-08-22 16:57:07.098] [global] [info] [cache.cc:974] [monitor] [codespell:lint:.hypothesis/constants/d72d1dce98d1c04c:HEAD] running linter (cache-key:57bfd356d1f85ec906ba09ea38d56c4c)
+[2025-08-22 16:57:07.098] [global] [info] [cache.cc:974] [monitor] [codespell:lint:.hypothesis/constants/e166aacce10ed12e:HEAD] running linter (cache-key:898d2a6ecef46dfe817c42f8d09f9375)
+[2025-08-22 16:57:07.098] [global] [info] [cache.cc:974] [monitor] [codespell:lint:.hypothesis/constants/e22621763ca3b261:HEAD] running linter (cache-key:2e274ad2d5aab2fb9655aa4132356659)
+[2025-08-22 16:57:07.098] [global] [info] [cache.cc:974] [monitor] [codespell:lint:.hypothesis/constants/e8d422272fd2b7c5:HEAD] running linter (cache-key:95054f9755fa4eb1c74d648951c1fff3)
+[2025-08-22 16:57:07.098] [global] [info] [cache.cc:974] [monitor] [codespell:lint:.hypothesis/constants/f24fdd790e0526f2:HEAD] running linter (cache-key:d5630ea40f75ef5dcfa7ad0fa61858d5)
+[2025-08-22 16:57:07.098] [global] [info] [cache.cc:974] [monitor] [codespell:lint:DOCUMENTATION_SUMMARY.md:HEAD] running linter (cache-key:4b1b1e324d7ac79f9bff02311cd98efb)
+[2025-08-22 16:57:07.098] [global] [info] [cache.cc:974] [monitor] [codespell:lint:FINAL_RELEASE_STATUS.md:HEAD] running linter (cache-key:99c0c9ae6b86733d6076437d09ac2354)
+[2025-08-22 16:57:07.098] [global] [info] [cache.cc:974] [monitor] [codespell:lint:PROJECT_STATUS.md:HEAD] running linter (cache-key:be99c7d13a1d984803addd05b41720fb)
+[2025-08-22 16:57:07.098] [global] [info] [cache.cc:974] [monitor] [codespell:lint:RELEASE_SETUP_SUMMARY.md:HEAD] running linter (cache-key:8f047c9645cac670a3beda6a87fea057)
+[2025-08-22 16:57:07.098] [global] [info] [cache.cc:974] [monitor] [codespell:lint:WORKFLOWS_SUMMARY.md:HEAD] running linter (cache-key:ba058e8c30ceb8a9b722663c3fe12888)
+[2025-08-22 16:57:07.098] [global] [info] [cache.cc:974] [monitor] [codespell:lint:docs/api/core.md:HEAD] running linter (cache-key:5a6bc19dbfac59a6b40c41682ea7f2d3)
+[2025-08-22 16:57:07.098] [global] [info] [cache.cc:974] [monitor] [codespell:lint:docs/api/index.md:HEAD] running linter (cache-key:68eb8abe93b64b10e917e2b8b3e27bf6)
+[2025-08-22 16:57:07.098] [global] [info] [cache.cc:974] [monitor] [codespell:lint:tests/test_abc_adapter.py:HEAD] running linter (cache-key:1d4613dcf8124b52d6e78aadc5a95335)
+[2025-08-22 16:57:07.098] [global] [info] [cache.cc:974] [monitor] [codespell:lint:tests/test_algebra_invariants.py:HEAD] running linter (cache-key:2dc9a2bf0a0db563ff8251accbb89cb1)
+[2025-08-22 16:57:07.098] [global] [info] [cache.cc:974] [monitor] [codespell:lint:tests/test_algebra_properties_hypothesis.py:HEAD] running linter (cache-key:034871351500544262f48119e5efa5cc)
+[2025-08-22 16:57:07.098] [global] [info] [cache.cc:974] [monitor] [codespell:lint:tests/test_alias_matching.py:HEAD] running linter (cache-key:861a7d7ec819023dbd796f9fd89e4c67)
+[2025-08-22 16:57:07.098] [global] [info] [cache.cc:974] [monitor] [codespell:lint:tests/test_alias_policy_modes.py:HEAD] running linter (cache-key:362ad25ede9ae18adb4e1b951615c903)
+[2025-08-22 16:57:07.098] [global] [info] [cache.cc:974] [monitor] [codespell:lint:tests/test_annotated_strict_metadata.py:HEAD] running linter (cache-key:efb44d2f1b52553cd78fafd1a4b9356c)
+[2025-08-22 16:57:07.098] [global] [info] [cache.cc:974] [monitor] [codespell:lint:tests/test_normalize_model_fields_duck.py:HEAD] running linter (cache-key:3d4128674ccd261575be24bb70b42570)
+[2025-08-22 16:57:07.099] [global] [info] [cache.cc:974] [monitor] [codespell:lint:tests/test_attrs_annotations.py:HEAD] running linter (cache-key:b7a2fb59a3358821ce931e51e01b60e4)
+[2025-08-22 16:57:07.099] [global] [info] [cache.cc:974] [monitor] [codespell:lint:tests/test_numeric_widening_chain.py:HEAD] running linter (cache-key:7f0df91e94bb5f6359bdd0fd9f5e35c2)
+[2025-08-22 16:57:07.099] [global] [info] [cache.cc:974] [monitor] [codespell:lint:tests/test_compare_relations.py:HEAD] running linter (cache-key:ba3aadba2a528a0256c76924a478b338)
+[2025-08-22 16:57:07.099] [global] [info] [cache.cc:974] [monitor] [codespell:lint:tests/test_optional_union_policy.py:HEAD] running linter (cache-key:f8a63cb406c7f2f65d97222af85b7785)
+[2025-08-22 16:57:07.099] [global] [info] [cache.cc:974] [monitor] [codespell:lint:tests/test_providers_detect.py:HEAD] running linter (cache-key:2165bdc6e9d7f9536b21f556ffdf1cc3)
+[2025-08-22 16:57:07.099] [global] [info] [cache.cc:974] [monitor] [codespell:lint:tests/test_pydantic_v2_aliases.py:HEAD] running linter (cache-key:a5f432183a2a766470f99dc546431788)
+[2025-08-22 16:57:07.099] [global] [info] [cache.cc:974] [monitor] [codespell:lint:tests/test_pydantic_v2_root_model.py:HEAD] running linter (cache-key:78e35eb5726ade623b6935eebd38fa85)
+[2025-08-22 16:57:07.099] [global] [info] [cache.cc:974] [monitor] [codespell:lint:tests/test_pydantic_v2_types.py:HEAD] running linter (cache-key:1c58cd7915872debec6f658632a8b8ee)
+[2025-08-22 16:57:07.099] [global] [info] [cache.cc:974] [monitor] [codespell:lint:tests/test_dataclass_annotations.py:HEAD] running linter (cache-key:90bcfc99608284b3471db0d4692a6d04)
+[2025-08-22 16:57:07.099] [global] [info] [cache.cc:974] [monitor] [codespell:lint:tests/test_registry.py:HEAD] running linter (cache-key:a272259cf0f659734f021f7e419df38e)
+[2025-08-22 16:57:07.099] [global] [info] [cache.cc:974] [monitor] [codespell:lint:tests/test_duck_api.py:HEAD] running linter (cache-key:dfcc9c83bde2403d96c67d948cbc5f6a)
+[2025-08-22 16:57:07.099] [global] [info] [cache.cc:974] [monitor] [codespell:lint:tests/test_explain_type_conflict_details.py:HEAD] running linter (cache-key:a4d30a4e8ce8cee4aa38299f43caefe9)
+[2025-08-22 16:57:07.099] [global] [info] [cache.cc:974] [monitor] [codespell:lint:tests/test_root_model_like.py:HEAD] running linter (cache-key:11ffcdf96ddac7b096a1a3631d8470de)
+[2025-08-22 16:57:07.099] [global] [info] [cache.cc:974] [monitor] [codespell:lint:tests/test_instance_and_generics.py:HEAD] running linter (cache-key:17a40bef64582e3f8b32552297d7ddb3)
+[2025-08-22 16:57:07.099] [global] [info] [cache.cc:974] [monitor] [codespell:lint:tests/test_root_model_trait.py:HEAD] running linter (cache-key:adde95fd33e3962bac3530b7bc88e251)
+[2025-08-22 16:57:07.099] [global] [info] [cache.cc:974] [monitor] [codespell:lint:tests/test_literal_modes.py:HEAD] running linter (cache-key:d20c9d9b83760030c69c77ea86cb262a)
+[2025-08-22 16:57:07.099] [global] [info] [cache.cc:974] [monitor] [codespell:lint:tests/test_sequence_covariance.py:HEAD] running linter (cache-key:112edde3f643a19d7acdaf780cdf6d70)
+[2025-08-22 16:57:07.099] [global] [info] [cache.cc:974] [monitor] [codespell:lint:tests/test_methods_satisfy.py:HEAD] running linter (cache-key:be62b682b59bf971536765a032d06c25)
+[2025-08-22 16:57:07.099] [global] [info] [cache.cc:974] [monitor] [codespell:lint:tests/test_shape_id_tokens_stable.py:HEAD] running linter (cache-key:e67b61b1a2914e140f62dbdfb8c54ed9)
+[2025-08-22 16:57:07.099] [global] [info] [cache.cc:974] [monitor] [codespell:lint:tests/test_traits_presence_only.py:HEAD] running linter (cache-key:a91e314ef39737f466d175c8cb0bb084)
+[2025-08-22 16:57:07.099] [global] [info] [cache.cc:974] [monitor] [codespell:lint:tests/test_naming.py:HEAD] running linter (cache-key:8f32fd0727fd520ed62cc103ca2eea53)
+[2025-08-22 16:57:07.099] [global] [info] [cache.cc:974] [monitor] [codespell:lint:tests/test_normalize_cache_hit.py:HEAD] running linter (cache-key:dc8d049fa16df3fc1d96905620daf56e)
+[2025-08-22 16:57:07.099] [global] [info] [cache.cc:974] [monitor] [codespell:lint:tests/test_traits_type_checking.py:HEAD] running linter (cache-key:bb535e7bff409677652b3a634adfe8d6)
+[2025-08-22 16:57:07.099] [global] [info] [cache.cc:974] [monitor] [codespell:lint:tests/test_normalize_class_annotations.py:HEAD] running linter (cache-key:c7c30b094c392a14be9cc416709643c6)
+[2025-08-22 16:57:07.099] [global] [info] [cache.cc:974] [monitor] [codespell:lint:tests/test_normalize_mapping_fieldinfo_like.py:HEAD] running linter (cache-key:a74084cecbcf610d887853db4006b3b7)
+[2025-08-22 16:57:07.099] [global] [info] [cache.cc:974] [monitor] [codespell:lint:tests/test_typeddict_required_optional.py:HEAD] running linter (cache-key:b74805827788369a4cddd08d255435ed)
+[2025-08-22 16:57:07.099] [global] [info] [cache.cc:974] [monitor] [codespell:lint:tests/test_normalize_mapping_types.py:HEAD] running linter (cache-key:c3d7294d64a803e17f88574e071b2418)
+[2025-08-22 16:57:07.100] [global] [info] [cache.cc:974] [monitor] [bandit:lint:tests/test_abc_adapter.py:HEAD] running linter (cache-key:1c05a7431296551d98815d949e6ae20e)
+[2025-08-22 16:57:07.100] [global] [info] [cache.cc:974] [monitor] [bandit:lint:tests/test_algebra_invariants.py:HEAD] running linter (cache-key:54b4c8b025014bd3f6b3763961cae019)
+[2025-08-22 16:57:07.100] [global] [info] [cache.cc:974] [monitor] [bandit:lint:tests/test_algebra_properties_hypothesis.py:HEAD] running linter (cache-key:bea6fbbff12799cc0d8ee9bf95665ada)
+[2025-08-22 16:57:07.100] [global] [info] [cache.cc:974] [monitor] [bandit:lint:tests/test_alias_matching.py:HEAD] running linter (cache-key:5a50c748ae8644987f723f0631e3a02b)
+[2025-08-22 16:57:07.100] [global] [info] [cache.cc:974] [monitor] [bandit:lint:tests/test_alias_policy_modes.py:HEAD] running linter (cache-key:6a524587f491b1c7be5608cb33474832)
+[2025-08-22 16:57:07.100] [global] [info] [cache.cc:974] [monitor] [bandit:lint:tests/test_annotated_strict_metadata.py:HEAD] running linter (cache-key:65f41a5c9f41d504682879f926e6cd91)
+[2025-08-22 16:57:07.100] [global] [info] [cache.cc:974] [monitor] [bandit:lint:tests/test_attrs_annotations.py:HEAD] running linter (cache-key:9d78911e063e22f70a05a0fdd7391eac)
+[2025-08-22 16:57:07.100] [global] [info] [cache.cc:974] [monitor] [bandit:lint:tests/test_compare_relations.py:HEAD] running linter (cache-key:992eddd2b91ab7e8aa4d761f3fd9dff3)
+[2025-08-22 16:57:07.100] [global] [info] [cache.cc:974] [monitor] [bandit:lint:tests/test_dataclass_annotations.py:HEAD] running linter (cache-key:8e190707d29a8d0e5f638174f3d09a5a)
+[2025-08-22 16:57:07.100] [global] [info] [cache.cc:974] [monitor] [bandit:lint:tests/test_duck_api.py:HEAD] running linter (cache-key:aa3e829945b4ba2fac609afd9d58af83)
+[2025-08-22 16:57:07.100] [global] [info] [cache.cc:974] [monitor] [bandit:lint:tests/test_explain_type_conflict_details.py:HEAD] running linter (cache-key:776b69176fe996d24310f1c6dae34dd8)
+[2025-08-22 16:57:07.100] [global] [info] [cache.cc:974] [monitor] [bandit:lint:tests/test_instance_and_generics.py:HEAD] running linter (cache-key:703f70b14de740282a0797fe1bff75e6)
+[2025-08-22 16:57:07.100] [global] [info] [cache.cc:974] [monitor] [bandit:lint:tests/test_literal_modes.py:HEAD] running linter (cache-key:3a9743c2a0ee889eda60cd27b84ca23c)
+[2025-08-22 16:57:07.100] [global] [info] [cache.cc:974] [monitor] [bandit:lint:tests/test_methods_satisfy.py:HEAD] running linter (cache-key:7177c6a7996addc9c7230e8ae51c63f8)
+[2025-08-22 16:57:07.100] [global] [info] [cache.cc:974] [monitor] [bandit:lint:tests/test_naming.py:HEAD] running linter (cache-key:aa9af872309fcd311b66e12f40baf9c2)
+[2025-08-22 16:57:07.100] [global] [info] [cache.cc:974] [monitor] [bandit:lint:tests/test_normalize_cache_hit.py:HEAD] running linter (cache-key:51fdad7f206bb2483432b51f40006e68)
+[2025-08-22 16:57:07.100] [global] [info] [cache.cc:974] [monitor] [bandit:lint:tests/test_normalize_class_annotations.py:HEAD] running linter (cache-key:108c29dbba1b988e01a0462be0f6a93f)
+[2025-08-22 16:57:07.100] [global] [info] [cache.cc:974] [monitor] [bandit:lint:tests/test_normalize_mapping_fieldinfo_like.py:HEAD] running linter (cache-key:e272bd3fd972d55adb1e3931a1c25b07)
+[2025-08-22 16:57:07.100] [global] [info] [cache.cc:974] [monitor] [bandit:lint:tests/test_normalize_mapping_types.py:HEAD] running linter (cache-key:742fbe2d4a1587cf1d27c4f4e090ae8f)
+[2025-08-22 16:57:07.100] [global] [info] [cache.cc:974] [monitor] [bandit:lint:tests/test_normalize_model_fields_duck.py:HEAD] running linter (cache-key:6deb4f118883365ad28476f4cea98563)
+[2025-08-22 16:57:07.100] [global] [info] [cache.cc:974] [monitor] [bandit:lint:tests/test_numeric_widening_chain.py:HEAD] running linter (cache-key:f93cac04dbd8bd0dcd1e6c77ff517d65)
+[2025-08-22 16:57:07.100] [global] [info] [cache.cc:974] [monitor] [bandit:lint:tests/test_optional_union_policy.py:HEAD] running linter (cache-key:58df02b99fbf936fa335aee773adfec1)
+[2025-08-22 16:57:07.100] [global] [info] [cache.cc:974] [monitor] [bandit:lint:tests/test_providers_detect.py:HEAD] running linter (cache-key:ed095b937074b741ae6bbf84713d81b0)
+[2025-08-22 16:57:07.100] [global] [info] [cache.cc:974] [monitor] [bandit:lint:tests/test_pydantic_v2_aliases.py:HEAD] running linter (cache-key:8e91fc393efaa68170b54ca7e31ef42f)
+[2025-08-22 16:57:07.100] [global] [info] [cache.cc:974] [monitor] [bandit:lint:tests/test_pydantic_v2_root_model.py:HEAD] running linter (cache-key:46820b63fc6297f37c6ab9da0b1a325e)
+[2025-08-22 16:57:07.104] [global] [info] [cache.cc:974] [monitor] [bandit:lint:tests/test_pydantic_v2_types.py:HEAD] running linter (cache-key:ac0312f33880f8393fd485ba54faf458)
+[2025-08-22 16:57:07.105] [global] [info] [cache.cc:974] [monitor] [bandit:lint:tests/test_registry.py:HEAD] running linter (cache-key:a3704a554e2f3d89c5809f86b699c7b3)
+[2025-08-22 16:57:07.105] [global] [info] [cache.cc:974] [monitor] [bandit:lint:tests/test_root_model_like.py:HEAD] running linter (cache-key:0ab5dab35212b3601a5e7f4537a0158d)
+[2025-08-22 16:57:07.105] [global] [info] [cache.cc:974] [monitor] [bandit:lint:tests/test_root_model_trait.py:HEAD] running linter (cache-key:8104e0762e70e6cdc560cb7951d30612)
+[2025-08-22 16:57:07.105] [global] [info] [cache.cc:974] [monitor] [bandit:lint:tests/test_sequence_covariance.py:HEAD] running linter (cache-key:144e82b6758ce1feba7034e1e71f4073)
+[2025-08-22 16:57:07.105] [global] [info] [cache.cc:974] [monitor] [bandit:lint:tests/test_shape_id_tokens_stable.py:HEAD] running linter (cache-key:9e496af2cc0a495d6b19ccb52ddc6639)
+[2025-08-22 16:57:07.105] [global] [info] [cache.cc:974] [monitor] [bandit:lint:tests/test_traits_presence_only.py:HEAD] running linter (cache-key:dafd8e3bacf3efbce2ed3e7008167aae)
+[2025-08-22 16:57:07.105] [global] [info] [cache.cc:974] [monitor] [bandit:lint:tests/test_traits_type_checking.py:HEAD] running linter (cache-key:5883955d000cdc9833de6cc7dfd38c7a)
+[2025-08-22 16:57:07.105] [global] [info] [cache.cc:974] [monitor] [bandit:lint:tests/test_typeddict_required_optional.py:HEAD] running linter (cache-key:d43b9275ab5761f0322ab159dcf865a6)
+[2025-08-22 16:57:07.355] [global] [info] [cache.cc:1117] [monitor] [codespell:lint:tests/test_normalize_model_fields_duck.py... (15 files):HEAD] Linter ran in 238ms
+[2025-08-22 16:57:07.378] [global] [info] [cache.cc:974] [monitor] [black:format:tests/test_abc_adapter.py:HEAD] running linter (cache-key:e357349b5e70332aa2d015478621d8aa)
+[2025-08-22 16:57:07.378] [global] [info] [cache.cc:974] [monitor] [black:format:tests/test_algebra_invariants.py:HEAD] running linter (cache-key:08b10f083841fab31ed0cb13eab3da62)
+[2025-08-22 16:57:07.378] [global] [info] [cache.cc:974] [monitor] [black:format:tests/test_algebra_properties_hypothesis.py:HEAD] running linter (cache-key:19a77a04b9eecf43864ae81536f69900)
+[2025-08-22 16:57:07.378] [global] [info] [cache.cc:974] [monitor] [black:format:tests/test_alias_matching.py:HEAD] running linter (cache-key:88bcbff84d6b75aa32b5ceea2ace74fd)
+[2025-08-22 16:57:07.378] [global] [info] [cache.cc:974] [monitor] [black:format:tests/test_alias_policy_modes.py:HEAD] running linter (cache-key:e6f59b7a75d21a52b9ef0be667716e3b)
+[2025-08-22 16:57:07.378] [global] [info] [cache.cc:974] [monitor] [black:format:tests/test_annotated_strict_metadata.py:HEAD] running linter (cache-key:a2e42d8e3f0c821a95fde0e3c1cde8fb)
+[2025-08-22 16:57:07.378] [global] [info] [cache.cc:974] [monitor] [black:format:tests/test_attrs_annotations.py:HEAD] running linter (cache-key:31268c4d6f05687d63f4a439c407ee27)
+[2025-08-22 16:57:07.378] [global] [info] [cache.cc:974] [monitor] [black:format:tests/test_compare_relations.py:HEAD] running linter (cache-key:77120221d8a16fd61492bccf228fd9a6)
+[2025-08-22 16:57:07.378] [global] [info] [cache.cc:974] [monitor] [black:format:tests/test_dataclass_annotations.py:HEAD] running linter (cache-key:3f838bb5dd7f4c137bf484da60eead11)
+[2025-08-22 16:57:07.378] [global] [info] [cache.cc:974] [monitor] [black:format:tests/test_duck_api.py:HEAD] running linter (cache-key:acfacba518daa404fc143011cb85b16c)
+[2025-08-22 16:57:07.378] [global] [info] [cache.cc:974] [monitor] [black:format:tests/test_explain_type_conflict_details.py:HEAD] running linter (cache-key:3afc4eba1c9a0113b1f3c90cadb80068)
+[2025-08-22 16:57:07.378] [global] [info] [cache.cc:974] [monitor] [black:format:tests/test_instance_and_generics.py:HEAD] running linter (cache-key:fb19d9084cd93d1be94061e0c4eab67a)
+[2025-08-22 16:57:07.379] [global] [info] [cache.cc:974] [monitor] [black:format:tests/test_literal_modes.py:HEAD] running linter (cache-key:545f664ed24697a15d44269b20e753a2)
+[2025-08-22 16:57:07.379] [global] [info] [cache.cc:974] [monitor] [black:format:tests/test_methods_satisfy.py:HEAD] running linter (cache-key:78c68bac3bd5568b1978b699455657f3)
+[2025-08-22 16:57:07.379] [global] [info] [cache.cc:974] [monitor] [black:format:tests/test_naming.py:HEAD] running linter (cache-key:8e7aa9c8dd93d831c9cf33f0336f44f0)
+[2025-08-22 16:57:07.379] [global] [info] [cache.cc:974] [monitor] [black:format:tests/test_normalize_cache_hit.py:HEAD] running linter (cache-key:2d4cdd49aa70c9e3529150ad54bd463b)
+[2025-08-22 16:57:07.379] [global] [info] [cache.cc:974] [monitor] [black:format:tests/test_normalize_class_annotations.py:HEAD] running linter (cache-key:f16f7ec0efc2f0df22836a9d49702a58)
+[2025-08-22 16:57:07.379] [global] [info] [cache.cc:974] [monitor] [black:format:tests/test_normalize_mapping_fieldinfo_like.py:HEAD] running linter (cache-key:0ce9d2677469c33b02c8a3f3aea0533a)
+[2025-08-22 16:57:07.379] [global] [info] [cache.cc:974] [monitor] [black:format:tests/test_normalize_mapping_types.py:HEAD] running linter (cache-key:7751caa2333813c3cc00c1d88a362bb2)
+[2025-08-22 16:57:07.379] [global] [info] [cache.cc:974] [monitor] [black:format:tests/test_normalize_model_fields_duck.py:HEAD] running linter (cache-key:97f2f12b28fbd622ffe3fa325a407c7f)
+[2025-08-22 16:57:07.379] [global] [info] [cache.cc:974] [monitor] [black:format:tests/test_numeric_widening_chain.py:HEAD] running linter (cache-key:16e6fe6495eafd97974e1c742b74a55a)
+[2025-08-22 16:57:07.379] [global] [info] [cache.cc:974] [monitor] [black:format:tests/test_optional_union_policy.py:HEAD] running linter (cache-key:cb81ea0d89817b686cc327f4175215b6)
+[2025-08-22 16:57:07.379] [global] [info] [cache.cc:974] [monitor] [black:format:tests/test_providers_detect.py:HEAD] running linter (cache-key:c9455da6e666d8928f37b09969869dc6)
+[2025-08-22 16:57:07.379] [global] [info] [cache.cc:974] [monitor] [black:format:tests/test_pydantic_v2_aliases.py:HEAD] running linter (cache-key:4b0304d97064ec79edaab441500fc614)
+[2025-08-22 16:57:07.379] [global] [info] [cache.cc:974] [monitor] [black:format:tests/test_pydantic_v2_root_model.py:HEAD] running linter (cache-key:0b1c384ff6b4512340b786eba3e070d8)
+[2025-08-22 16:57:07.379] [global] [info] [cache.cc:974] [monitor] [black:format:tests/test_pydantic_v2_types.py:HEAD] running linter (cache-key:61b923851eb0915d476a21bf49d20f81)
+[2025-08-22 16:57:07.379] [global] [info] [cache.cc:974] [monitor] [black:format:tests/test_registry.py:HEAD] running linter (cache-key:6c0657bd7912fb2345e4258d7e9ac0b2)
+[2025-08-22 16:57:07.379] [global] [info] [cache.cc:974] [monitor] [black:format:tests/test_root_model_like.py:HEAD] running linter (cache-key:d6a21e752bb59c5fb75134adeef1159c)
+[2025-08-22 16:57:07.379] [global] [info] [cache.cc:974] [monitor] [black:format:tests/test_root_model_trait.py:HEAD] running linter (cache-key:0adb90be1bd52c6feab02fa1973656ff)
+[2025-08-22 16:57:07.379] [global] [info] [cache.cc:974] [monitor] [black:format:tests/test_sequence_covariance.py:HEAD] running linter (cache-key:9adb6d03247bc2c6d162c6512e03ba32)
+[2025-08-22 16:57:07.379] [global] [info] [cache.cc:974] [monitor] [black:format:tests/test_shape_id_tokens_stable.py:HEAD] running linter (cache-key:e4c3842868fa57a2f4c66452c4220745)
+[2025-08-22 16:57:07.379] [global] [info] [cache.cc:974] [monitor] [black:format:tests/test_traits_presence_only.py:HEAD] running linter (cache-key:34c2a8aa9c548a04d171ec7bd388d5af)
+[2025-08-22 16:57:07.379] [global] [info] [cache.cc:974] [monitor] [black:format:tests/test_traits_type_checking.py:HEAD] running linter (cache-key:6aa7070cbff6a3f2877e30bb7647f864)
+[2025-08-22 16:57:07.379] [global] [info] [cache.cc:974] [monitor] [black:format:tests/test_typeddict_required_optional.py:HEAD] running linter (cache-key:9426a7012c5dd601322562876cbf31b2)
+[2025-08-22 16:57:07.407] [global] [info] [cache.cc:1117] [monitor] [codespell:lint:.gitignore... (64 files):HEAD] Linter ran in 252ms
+[2025-08-22 16:57:07.486] [global] [info] [cache.cc:1117] [monitor] [bandit:lint:tests/test_abc_adapter.py... (34 files):HEAD] Linter ran in 350ms
+[2025-08-22 16:57:07.615] [global] [info] [cache.cc:1117] [monitor] [markdownlint:lint:DOCUMENTATION_SUMMARY.md... (7 files):HEAD] Linter ran in 510ms
+[2025-08-22 16:57:08.926] [global] [info] [cache.cc:1117] [monitor] [black:format:tests/test_abc_adapter.py... (34 files):HEAD] Linter ran in 1540ms
+[2025-08-22 16:57:11.027] [global] [info] [cache.cc:1117] [monitor] [trufflehog:lint:tests/test_normalize_model_fields_duck.py... (15 files):HEAD] Linter ran in 3926ms
+[2025-08-22 16:57:11.069] [global] [info] [cache.cc:1117] [monitor] [trufflehog:lint:.gitignore... (64 files):HEAD] Linter ran in 3945ms
+[2025-08-22 16:57:11.469] [global] [info] [git_source_control.cc:517] Computing merge base between 1e6562d877e549e22ef0d5dba8e2c17a29f15cf6 and 1e6562d877e549e22ef0d5dba8e2c17a29f15cf6
+[2025-08-22 16:57:11.469] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 1e6562d877e549e22ef0d5dba8e2c17a29f15cf6
+[2025-08-22 16:57:11.481] [global] [info] [cache.cc:974] [monitor] [codespell:lint:pyproject.toml:HEAD] running linter (cache-key:9723abf0adf6b631eaec52b65433c70b)
+[2025-08-22 16:57:11.482] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:pyproject.toml:HEAD] running linter (cache-key:1836662d03f22821efc7d324a831642c)
+[2025-08-22 16:57:11.714] [global] [info] [cache.cc:1117] [monitor] [codespell:lint:pyproject.toml:HEAD] Linter ran in 231ms
+[2025-08-22 16:57:14.428] [global] [info] [cache.cc:1117] [monitor] [trufflehog:lint:pyproject.toml:HEAD] Linter ran in 2933ms
+[2025-08-22 16:57:18.310] [global] [info] [git_source_control.cc:517] Computing merge base between 3166c25174696234de2897bca7939781b5e02146 and 1e6562d877e549e22ef0d5dba8e2c17a29f15cf6
+[2025-08-22 16:57:18.310] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 1e6562d877e549e22ef0d5dba8e2c17a29f15cf6
+[2025-08-22 16:57:32.338] [global] [info] [git_source_control.cc:517] Computing merge base between 3166c25174696234de2897bca7939781b5e02146 and 3166c25174696234de2897bca7939781b5e02146
+[2025-08-22 16:57:32.338] [global] [info] [git_source_control.cc:519] Resolved divergent commit as 3166c25174696234de2897bca7939781b5e02146

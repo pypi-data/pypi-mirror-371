@@ -1,0 +1,1 @@
+Possible overload variants:.     def get(self, ABCMeta, None = ..., /) -> type[Collection[_T_co]] | None.     def get(self, ABCMeta, type[Collection[_T_co]], /) -> type[Collection[_T_co]].     def [_T] get(self, ABCMeta, _T, /) -> type[Collection[_T_co]] | _T

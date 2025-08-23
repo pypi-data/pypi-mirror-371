@@ -1,0 +1,4 @@
+trunk_cli_version: 1.25.0
+title: Exception occurred while installing mypy
+report:
+  - HTTP 404 'https://github.com/astral-sh/python-build-standalone/releases/download/20250517/cpython-3.12.3+20250517-x86_64-unknown-linux-gnu-install_only.tar.gz'

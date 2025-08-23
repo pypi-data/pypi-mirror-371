@@ -1,0 +1,16 @@
+action_id: pre-commit-commit-msg
+date: 2025-08-20 20:06:04
+run: "bash -lc '\n  uv run pre-commit run --hook-stage commit-msg --commit-msg-filename \"\\${1}\" || \\\n  uv run python -m pre_commit run --hook-stage commit-msg --commit-msg-filename \"\\${1}\"\n'\n"
+args:
+  - .git/COMMIT_EDITMSG
+run_from: ""
+trigger: commit-msg
+result:
+  exit_code: 0
+  out: ""
+  err: ""
+timestamp: 1755720364
+full_timestamp:
+  nanos: 942113000
+  seconds: 1755720364
+trunk_version: 1.25.0

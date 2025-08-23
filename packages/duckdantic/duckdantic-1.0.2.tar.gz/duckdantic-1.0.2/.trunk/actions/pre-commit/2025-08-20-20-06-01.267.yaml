@@ -1,0 +1,14 @@
+action_id: pre-commit
+date: 2025-08-20 20:06:01
+run: "bash -lc '\n  echo \"🚀 Running pre-commit hooks first...\"\n  uv run pre-commit run --hook-stage pre-commit --all-files || \\\n  uv run python -m pre_commit run --hook-stage pre-commit --all-files\n  git add -u\n  echo \"✅ Pre-commit completed, trunk will do final formatting...\"\n'\n"
+run_from: ""
+trigger: pre-commit
+result:
+  exit_code: 0
+  out: ""
+  err: ""
+timestamp: 1755720361
+full_timestamp:
+  nanos: 267527000
+  seconds: 1755720361
+trunk_version: 1.25.0

@@ -1,0 +1,24 @@
+trunk_cli_version: 1.25.0
+title: mypy exited with exit_code=2
+report:
+  - mypy exited with exit_code=2
+  - linter:
+      command: |
+        /home/will/.cache/trunk/tools/mypy/1.17.1-38b7405dc61993437bedd576dfbf45bc/bin/mypy --ignore-missing-imports --follow-imports=silent --show-error-codes --show-column-numbers scripts/release.py
+      stdin_path: (none)
+      run_from: /home/will/Projects/duckdantic
+      timeout: 10m
+      rerun: (cd /home/will/Projects/duckdantic; env -i PATH=/home/will/.cache/trunk/tools/mypy/1.17.1-38b7405dc61993437bedd576dfbf45bc/bin:/home/will/.cache/trunk/tools/mypy/1.17.1-38b7405dc61993437bedd576dfbf45bc/Scripts:/home/will/.cache/trunk/tools/python/3.10.8-b6e96641f2c120698c300f1bdd98bc0e/bin:/home/will/.cache/trunk/tools/python/3.10.8-b6e96641f2c120698c300f1bdd98bc0e VIRTUAL_ENV=/home/will/.cache/trunk/tools/mypy/1.17.1-38b7405dc61993437bedd576dfbf45bc HOME=/home/will PYTHONUTF8=1 /home/will/.cache/trunk/tools/mypy/1.17.1-38b7405dc61993437bedd576dfbf45bc/bin/mypy --ignore-missing-imports --follow-imports=silent --show-error-codes --show-column-numbers scripts/release.py)
+      affects_cache:
+        - pyproject.toml
+      direct_configs:
+        []
+      exit_status: exited
+      exit_code: 2
+      stdout: |
+        scripts/release.py:110:1: error: Expected an indented block after 'else' statement on line 107  [syntax]
+        Found 1 error in 1 file (errors prevented further checking)
+
+      stderr: (none)
+    parser: |
+      (none)

@@ -1,0 +1,23 @@
+trunk_cli_version: 1.25.0
+title: black exited with exit_code=123
+report:
+  - black exited with exit_code=123
+  - linter:
+      command: |
+        /home/will/.cache/trunk/tools/black/25.1.0-f986a8fe7aa918631d032e07b89da9fb/bin/black -q scripts/release.py
+      stdin_path: (none)
+      run_from: /tmp/trunk-1000/VeKlXb
+      timeout: 10m
+      rerun: (cd /tmp/trunk-1000/VeKlXb; env -i PATH=/home/will/.cache/trunk/tools/black/25.1.0-f986a8fe7aa918631d032e07b89da9fb/bin:/home/will/.cache/trunk/tools/black/25.1.0-f986a8fe7aa918631d032e07b89da9fb/Scripts:/home/will/.cache/trunk/tools/python/3.10.8-b6e96641f2c120698c300f1bdd98bc0e/bin:/home/will/.cache/trunk/tools/python/3.10.8-b6e96641f2c120698c300f1bdd98bc0e HOME=/home/will VIRTUAL_ENV=/home/will/.cache/trunk/tools/black/25.1.0-f986a8fe7aa918631d032e07b89da9fb PYTHONUTF8=1 /home/will/.cache/trunk/tools/black/25.1.0-f986a8fe7aa918631d032e07b89da9fb/bin/black -q scripts/release.py)
+      affects_cache:
+        - pyproject.toml
+      direct_configs:
+        []
+      exit_status: exited
+      exit_code: 123
+      stdout: (none)
+      stderr: |
+        error: cannot format scripts/release.py: Cannot parse: 103:12:         pass")
+
+    parser: |
+      (none)

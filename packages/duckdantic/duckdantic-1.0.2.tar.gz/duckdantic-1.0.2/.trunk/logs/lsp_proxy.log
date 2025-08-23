@@ -1,0 +1,5 @@
+[08-20 09:48:07] [login.cc:52] GetUserRequest failed with status 16: No session provided 
+[08-20 15:45:47] [login.cc:52] GetUserRequest failed with status 16: No session provided 
+[08-22 13:22:46] [login.cc:52] GetUserRequest failed with status 16: No session provided 
+[08-22 14:54:52] [client.cc:19] GRPC Failed (error code UNAVAILABLE): failed to connect to all addresses; last error: UNKNOWN: ipv4:127.0.0.1:40291: Failed to connect to remote host: Connection refused
+[08-22 14:54:52] [shared_server_context.hh:133] Message processing failed: trunk daemon is not running

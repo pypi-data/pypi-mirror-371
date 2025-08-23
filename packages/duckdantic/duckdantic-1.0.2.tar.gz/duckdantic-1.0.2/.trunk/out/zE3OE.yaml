@@ -1,0 +1,36 @@
+trunk_cli_version: 1.25.0
+title: "Error while executing: src/duckdantic/providers/base.py"
+report:
+  - No diagnostics found in mypy output, but exit code was non-zero.
+  - linter:
+      command: |
+        /home/will/.cache/trunk/tools/mypy/1.17.1-38b7405dc61993437bedd576dfbf45bc/bin/mypy --ignore-missing-imports --follow-imports=silent --show-error-codes --show-column-numbers src/duckdantic/providers/base.py
+      stdin_path: (none)
+      run_from: /home/will/Projects/duckdantic
+      timeout: 10m
+      rerun: (cd /home/will/Projects/duckdantic; env -i PATH=/home/will/.cache/trunk/tools/mypy/1.17.1-38b7405dc61993437bedd576dfbf45bc/bin:/home/will/.cache/trunk/tools/mypy/1.17.1-38b7405dc61993437bedd576dfbf45bc/Scripts:/home/will/.cache/trunk/tools/python/3.10.8-b6e96641f2c120698c300f1bdd98bc0e/bin:/home/will/.cache/trunk/tools/python/3.10.8-b6e96641f2c120698c300f1bdd98bc0e PYTHONUTF8=1 HOME=/home/will VIRTUAL_ENV=/home/will/.cache/trunk/tools/mypy/1.17.1-38b7405dc61993437bedd576dfbf45bc /home/will/.cache/trunk/tools/mypy/1.17.1-38b7405dc61993437bedd576dfbf45bc/bin/mypy --ignore-missing-imports --follow-imports=silent --show-error-codes --show-column-numbers src/duckdantic/providers/base.py)
+      affects_cache:
+        - pyproject.toml
+      direct_configs:
+        []
+      exit_status: exited
+      exit_code: 1
+      stdout: (none)
+      stderr: |
+        Traceback (most recent call last):
+          File "/home/will/.cache/trunk/tools/mypy/1.17.1-38b7405dc61993437bedd576dfbf45bc/bin/mypy", line 7, in <module>
+            sys.exit(console_entry())
+          File "/home/will/.cache/trunk/tools/mypy/1.17.1-38b7405dc61993437bedd576dfbf45bc/lib/python3.10/site-packages/mypy/__main__.py", line 15, in console_entry
+            main()
+          File "mypy/main.py", line 127, in main
+          File "mypy/main.py", line 211, in run_build
+          File "mypy/build.py", line 191, in build
+          File "mypy/build.py", line 267, in _build
+          File "mypy/build.py", line 2939, in dispatch
+          File "mypy/build.py", line 3330, in process_graph
+          File "mypy/build.py", line 3411, in process_fresh_modules
+          File "mypy/build.py", line 2104, in fix_cross_refs
+        AssertionError: Internal error: method must be called on parsed file only
+
+    parser: |
+      (none)

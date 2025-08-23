@@ -1,0 +1,30 @@
+action_id: pre-commit-commit-msg
+date: 2025-08-20 19:56:02
+run: "bash -lc '\n  uv run pre-commit run --hook-stage commit-msg --commit-msg-filename \"\\${1}\" || \\\n  uv run python -m pre_commit run --hook-stage commit-msg --commit-msg-filename \"\\${1}\"\n'\n"
+args:
+  - .git/COMMIT_EDITMSG
+run_from: ""
+trigger: commit-msg
+result:
+  exit_code: 1
+  out: ""
+  err: ""
+timestamp: 1755719762
+full_timestamp:
+  nanos: 447169000
+  seconds: 1755719762
+trunk_version: 1.25.0
+action_output:
+  notifications:
+    - commands:
+        - run: trunk actions history pre-commit-commit-msg
+          title: Show history
+      full_timestamp:
+        nanos: 447169000
+        seconds: 1755719762
+      id: pre-commit-commit-msg_git_hook_commit-msg-failure
+      message: A recent run of action 'pre-commit-commit-msg' failed.
+      priority: low
+      rendered: "\x1b[1m\x1b[31m✖ A recent run of action 'pre-commit-commit-msg' failed. Run `trunk actions history pre-commit-commit-msg` to see the full log.\x1b[0m\n"
+      timestamp: 1755719762
+      title: pre-commit-commit-msg failed

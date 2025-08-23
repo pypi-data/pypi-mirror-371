@@ -1,0 +1,17 @@
+action_id: pre-commit-pre-push
+date: 2025-08-22 19:25:01
+run: "bash -lc '\n  uv run pre-commit run --hook-stage pre-push || \\\n  uv run python -m pre_commit run --hook-stage pre-push\n'\n"
+args:
+  - origin
+  - https://github.com/pr1m8/duckdantic.git
+run_from: ""
+trigger: pre-push
+result:
+  exit_code: 0
+  out: ""
+  err: ""
+timestamp: 1755890701
+full_timestamp:
+  nanos: 368383000
+  seconds: 1755890701
+trunk_version: 1.25.0
