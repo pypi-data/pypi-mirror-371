@@ -1,0 +1,47 @@
+Metadata-Version: 2.4
+Name: neat-railroad-diagrams
+Version: 0.0.0
+Summary: A library for generating railroad syntax diagrams
+Author-email: Tamika Nomara <taminomara@gmail.com>
+License-Expression: MIT
+Project-URL: Documentation, https://neat-railroad-diagrams.readthedocs.io/en/stable/
+Project-URL: Issues, https://github.com/taminomara/neat-railroad-diagrams/issues
+Project-URL: Source, https://github.com/taminomara/neat-railroad-diagrams/
+Project-URL: Changelog, https://github.com/taminomara/neat-railroad-diagrams/blob/main/CHANGELOG.md
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Documentation
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Typing :: Typed
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: grapheme~=0.6
+Requires-Dist: wcwidth~=0.2
+Provides-Extra: dev
+Requires-Dist: pytest-cov==6.2.1; extra == "dev"
+Requires-Dist: neat-railroad-diagrams[doc,lint,test]; extra == "dev"
+Provides-Extra: test
+Requires-Dist: pyright==1.1.404; extra == "test"
+Requires-Dist: pytest==7.4.4; extra == "test"
+Requires-Dist: sybil==9.2.0; extra == "test"
+Requires-Dist: reportlab[pycairo]==4.4.3; extra == "test"
+Requires-Dist: svglib==1.5.1; extra == "test"
+Requires-Dist: pytest-image-diff==0.0.14; extra == "test"
+Provides-Extra: lint
+Requires-Dist: black==25.1.0; extra == "lint"
+Requires-Dist: isort==6.0.1; extra == "lint"
+Requires-Dist: pre-commit==4.3.0; extra == "lint"
+Provides-Extra: doc
+Requires-Dist: sybil==9.2.0; extra == "doc"
+Requires-Dist: furo==2025.7.19; extra == "doc"
+Requires-Dist: sphinx_design==0.6.1; extra == "doc"
+Dynamic: license-file
+
+# Railroad diagrams
+
+...
