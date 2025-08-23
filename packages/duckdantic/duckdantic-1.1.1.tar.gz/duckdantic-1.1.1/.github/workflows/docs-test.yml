@@ -1,0 +1,48 @@
+name: Test Documentation Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  test-docs:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install .[docs]
+      
+      - name: Build documentation (MkDocs)
+        run: |
+          mkdocs build --strict --verbose
+      
+      - name: Test with Read the Docs style build
+        run: |
+          # Simulate Read the Docs environment
+          export READTHEDOCS=True
+          export READTHEDOCS_OUTPUT=$PWD/rtd_output
+          mkdir -p $READTHEDOCS_OUTPUT/html
+          python -m mkdocs build --clean --site-dir $READTHEDOCS_OUTPUT/html --config-file mkdocs.yml
+      
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: docs-build-logs
+          path: |
+            rtd_output/
+            site/
