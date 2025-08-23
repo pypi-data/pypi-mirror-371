@@ -1,0 +1,3 @@
+[console_scripts]
+stats-cli = statistics_toolkit_cli.cli:main
+statstoolkit = statistics_toolkit_cli.cli:main
