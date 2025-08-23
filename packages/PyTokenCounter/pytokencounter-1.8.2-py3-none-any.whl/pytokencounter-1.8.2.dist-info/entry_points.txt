@@ -1,0 +1,3 @@
+[console_scripts]
+tc = PyTokenCounter.cli:main
+tokencount = PyTokenCounter.cli:main
