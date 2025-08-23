@@ -1,0 +1,10 @@
+piqp-0.6.1.dist-info/RECORD,,
+piqp-0.6.1.dist-info/WHEEL,sha256=D4zkig7myRo-PtmsMRlUMig6nHYU2stCF2eBfj8l_6M,143
+piqp-0.6.1.dist-info/METADATA,sha256=D6jRa_f1uUA29LZC-lrOhzT-RNc6OLAyg1Do2pLEJew,6804
+piqp-0.6.1.dist-info/licenses/LICENSE,sha256=Ql0WXOWsYrw_0c74NzT6Z4C8hEZYv8XpBMpFoBHf7HA,1313
+piqp/piqp_python_avx512.cpython-312-darwin.so,sha256=9akgdbYWANS2yS2IY26i_Rf1Aso1juwijdBEU1b347g,1577248
+piqp/piqp_python_avx2.cpython-312-darwin.so,sha256=eIvr9kMvHQfvTLYEeMbxjYqXtVBERHgHFqF5bSQOoW0,1742336
+piqp/__init__.pyi,sha256=e1ZXQ-kmN733Ojd6pIW7jFevN8qLDThjKMmaN0WQzFM,10510
+piqp/__init__.py,sha256=Wjb2QcsWaVeit-n248L7l7u603eEeamLdQOmJPjiE2Q,965
+piqp/piqp_python.cpython-312-darwin.so,sha256=yAgpgi3JM53vqrxkZOGInWEgWGzHVgaEyrKJ9KdBnAw,1483112
+piqp/instruction_set.cpython-312-darwin.so,sha256=DCUZy-ogoP2QZy765cXYnRirzVVJyxF0Xz1X0Y-Mwzw,147832
