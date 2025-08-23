@@ -1,0 +1,8 @@
+Metadata-Version: 2.3
+Name: data-builder-tool
+Version: 0.1.0
+Summary: A simple data builder tool
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+
+# Log Builder
