@@ -1,0 +1,8 @@
+gradnorm_pytorch/__init__.py,sha256=6k8mI9kQ6qt7ainCtT78dVE0Ds050EUQP9gERXIn0bo,132
+gradnorm_pytorch/gradnorm_pytorch.py,sha256=mfvjjb1ew_ymly3pg4phPimXqkTg_VP6t16F2BFJ8J0,9742
+gradnorm_pytorch/mocks.py,sha256=wgAa_gn8w5LFlMN2NbrGK1b6O6QzuQCI1mKNyUGYti4,679
+gradnorm_pytorch-0.2.0.dist-info/licenses/LICENSE,sha256=JCo3d2HvOFPGYvaXfnYX4-qjRyQvVElop5ZRITXMg-U,1066
+gradnorm_pytorch-0.2.0.dist-info/METADATA,sha256=rOSRGj1E1GV5AcV10wm79cFIuOuAGQZNyd29fS2DIl0,932
+gradnorm_pytorch-0.2.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+gradnorm_pytorch-0.2.0.dist-info/top_level.txt,sha256=xNMSsiQgAKhtv2fxmkBvL5Qp8Zq-RGf6Ri_BhTFjsnI,17
+gradnorm_pytorch-0.2.0.dist-info/RECORD,,
