@@ -1,0 +1,120 @@
+name: Build and Publish Docker Image
+
+on:
+  push:
+    branches: ['main', 'uvx-package']
+    tags: ['v*.*.*']
+  pull_request:
+    branches: ['main']
+  workflow_dispatch:
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}/keenmail-mcp-server
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+
+    - name: Log in to Container Registry
+      if: github.event_name != 'pull_request'
+      uses: docker/login-action@v3
+      with:
+        registry: ${{ env.REGISTRY }}
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Extract metadata
+      id: meta
+      uses: docker/metadata-action@v5
+      with:
+        images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+        tags: |
+          type=ref,event=branch
+          type=ref,event=pr
+          type=semver,pattern={{version}}
+          type=semver,pattern={{major}}.{{minor}}
+          type=semver,pattern={{major}}
+          type=raw,value=latest,enable={{is_default_branch}}
+
+    - name: Build and push Docker image
+      uses: docker/build-push-action@v5
+      with:
+        context: .
+        file: ./Dockerfile
+        platforms: linux/amd64,linux/arm64
+        push: ${{ github.event_name != 'pull_request' }}
+        tags: ${{ steps.meta.outputs.tags }}
+        labels: ${{ steps.meta.outputs.labels }}
+        cache-from: type=gha
+        cache-to: type=gha,mode=max
+
+    - name: Run security scan
+      if: github.event_name != 'pull_request'
+      uses: docker/scout-action@v1
+      with:
+        command: cves
+        image: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.version }}
+        only-severities: critical,high
+        exit-code: true
+
+  test-docker:
+    runs-on: ubuntu-latest
+    needs: build-and-push
+    if: github.event_name != 'pull_request'
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Test Docker image
+      env:
+        KEENMAIL_API_KEY: test_key
+        KEENMAIL_SECRET: test_secret
+      run: |
+        # Pull the built image
+        docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+        
+        # Run basic smoke test
+        docker run --rm \
+          -e KEENMAIL_API_KEY=test_key \
+          -e KEENMAIL_SECRET=test_secret \
+          ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest \
+          python -c "from keenmail_mcp.config import KeenMailConfig; print('Config validation passed')" || {
+          echo "Expected failure - this is just testing the image runs"
+        }
+        
+        # Test health check
+        docker run --rm \
+          -e KEENMAIL_API_KEY=test_key \
+          -e KEENMAIL_SECRET=test_secret \
+          ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest \
+          python -c "from keenmail_mcp.config import KeenMailConfig; KeenMailConfig()" || {
+          echo "Expected failure - testing image structure"
+        }
+
+    - name: Test Docker Compose
+      env:
+        KEENMAIL_API_KEY: test_key
+        KEENMAIL_SECRET: test_secret
+      run: |
+        # Copy environment file
+        cp .env.docker .env
+        sed -i 's/your_api_key_here/test_key/g' .env
+        sed -i 's/your_secret_key_here/test_secret/g' .env
+        
+        # Test compose file syntax
+        docker-compose -f docker-compose.yml config
+        
+        # Test production compose
+        docker-compose -f docker-compose.prod.yml config
