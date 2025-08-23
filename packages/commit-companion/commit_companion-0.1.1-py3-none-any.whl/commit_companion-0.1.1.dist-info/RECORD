@@ -1,0 +1,11 @@
+commit_companion/__init__.py,sha256=vHUc15e5cixDSJLLuH6eT8MiZzT9HqauAynpCfExwPc,84
+commit_companion/ai_utils.py,sha256=s0H2HCnxA2R80-uMbDbh1_tYhQXhTzxIcjkCsuZKOwg,860
+commit_companion/cli.py,sha256=yB7cE6OZcXAVPmbufq24rSuX4GLgyK8xhOhNbrpe8Po,3024
+commit_companion/git_utils.py,sha256=opuV89P8tLMeaQHIOzHHqEkJZZH0c8cN22lfaC2k5lI,351
+commit_companion/main.py,sha256=194vBwrIBXRmJ_szn05B17xaxIIh-7PNTeLEQybIVc0,1114
+commit_companion/utils.py,sha256=1vgFJ608Oarrx70IqkPe4I1UPjUclSR0uiuvxvfAFY8,125
+commit_companion-0.1.1.dist-info/entry_points.txt,sha256=K3pulwMYuEEJmvcGRDjd07XbnRDQ3Bj956ueEfJhMeo,61
+commit_companion-0.1.1.dist-info/licenses/LICENSE,sha256=c21IcLCFhxhQvIPtvA49VKsBUUoQBGjX9p_j08gb7J4,1067
+commit_companion-0.1.1.dist-info/WHEEL,sha256=G2gURzTEtmeR8nrdXUJfNiB3VYVxigPQ-bEQujpNiNs,82
+commit_companion-0.1.1.dist-info/METADATA,sha256=apVG4Qz9O3kOAjlbSLsGJHsmMEIJKS7pzq24WXPdH2U,5077
+commit_companion-0.1.1.dist-info/RECORD,,

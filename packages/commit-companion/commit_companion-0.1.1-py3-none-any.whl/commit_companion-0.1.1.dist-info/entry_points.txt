@@ -1,0 +1,3 @@
+[console_scripts]
+commit-companion=commit_companion.cli:cli
+
