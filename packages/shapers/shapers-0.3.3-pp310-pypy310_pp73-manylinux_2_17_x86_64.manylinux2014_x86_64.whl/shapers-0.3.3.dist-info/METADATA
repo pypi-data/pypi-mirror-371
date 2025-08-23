@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: shapers
+Version: 0.3.3
+Classifier: Programming Language :: Rust
+Classifier: Intended Audience :: Science/Research
+License-File: LICENSE
+Keywords: circle,shapes,geometry
+Requires-Python: >=3.8
+Project-URL: Homepage, https://github.com/borgesaugusto/shapers
