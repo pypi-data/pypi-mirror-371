@@ -1,0 +1,7 @@
+dist
+docs
+kubelingo
+misc
+questions
+scripts
+tests
