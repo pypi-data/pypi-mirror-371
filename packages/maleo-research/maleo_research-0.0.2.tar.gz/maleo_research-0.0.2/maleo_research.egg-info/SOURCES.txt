@@ -1,0 +1,12 @@
+README.md
+pyproject.toml
+maleo/research/__init__.py
+maleo/research/common/db.py
+maleo/research/common/dtos/configuration.py
+maleo/research/common/dtos/settings.py
+maleo/research/imaging/__init__.py
+maleo_research.egg-info/PKG-INFO
+maleo_research.egg-info/SOURCES.txt
+maleo_research.egg-info/dependency_links.txt
+maleo_research.egg-info/requires.txt
+maleo_research.egg-info/top_level.txt
