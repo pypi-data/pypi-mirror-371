@@ -1,0 +1,206 @@
+Metadata-Version: 2.4
+Name: logwatchdog
+Version: 1.0.0
+Summary: Comprehensive Windows log monitoring and management solution
+Home-page: https://github.com/pandiyarajk/logwatchdog
+Download-URL: https://github.com/pandiyarajk/logwatchdog/releases
+Author: Pandiyaraj Karuppasamy
+Author-email: pandiyarajk@live.com
+License: MIT
+Project-URL: Bug Reports, https://github.com/pandiyarajk/logwatchdog/issues
+Project-URL: Source, https://github.com/pandiyarajk/logwatchdog
+Project-URL: Documentation, https://github.com/pandiyarajk/logwatchdog/blob/main/README.md
+Project-URL: Changelog, https://github.com/pandiyarajk/logwatchdog/blob/main/CHANGELOG.md
+Project-URL: Download, https://github.com/pandiyarajk/logwatchdog/releases
+Keywords: log,monitoring,windows,notifications,alerts,system-administration,security,auditing,real-time,watchdog,monitoring-tool,log-analysis,event-logging,system-monitoring
+Platform: win32
+Platform: win_amd64
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: Intended Audience :: Information Technology
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: Operating System :: Microsoft :: Windows :: Windows 11
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: System :: Logging
+Classifier: Topic :: System :: Monitoring
+Classifier: Topic :: System :: Networking :: Monitoring
+Classifier: Topic :: Utilities
+Classifier: Topic :: System :: Systems Administration
+Classifier: Topic :: Security
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: plyer>=2.0.0
+Requires-Dist: python-dotenv>=0.19.0
+Requires-Dist: psutil>=5.8.0
+Requires-Dist: watchdog>=2.1.0
+Requires-Dist: email-validator>=1.1.3
+Provides-Extra: dev
+Requires-Dist: pytest>=6.0.0; extra == "dev"
+Requires-Dist: pytest-cov>=2.10.0; extra == "dev"
+Requires-Dist: black>=21.0.0; extra == "dev"
+Requires-Dist: flake8>=3.8.0; extra == "dev"
+Requires-Dist: mypy>=0.800; extra == "dev"
+Requires-Dist: pre-commit>=2.15.0; extra == "dev"
+Requires-Dist: tox>=3.20.0; extra == "dev"
+Requires-Dist: sphinx>=4.0.0; extra == "dev"
+Requires-Dist: sphinx-rtd-theme>=0.5.0; extra == "dev"
+Provides-Extra: test
+Requires-Dist: pytest>=6.0.0; extra == "test"
+Requires-Dist: pytest-cov>=2.10.0; extra == "test"
+Provides-Extra: docs
+Requires-Dist: sphinx>=4.0.0; extra == "docs"
+Requires-Dist: sphinx-rtd-theme>=0.5.0; extra == "docs"
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: download-url
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: license
+Dynamic: license-file
+Dynamic: platform
+Dynamic: project-url
+Dynamic: provides-extra
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# LogWatchdog
+
+[![Python 3.7+](https://img.shields.io/badge/python-3.7+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![PyPI version](https://badge.fury.io/py/logwatchdog.svg)](https://badge.fury.io/py/logwatchdog)
+[![GitHub release](https://img.shields.io/github/release/pandiyarajk/logwatchdog.svg)](https://github.com/pandiyarajk/logwatchdog/releases)
+
+**LogWatchdog** is a production-ready Windows log monitoring solution that provides real-time monitoring, notifications, and automated log management capabilities.
+
+## 🚀 Features
+
+- **Real-time Log Monitoring**: Monitor single files, multiple files, or entire folders
+- **Smart Notifications**: Email alerts and system tray notifications for critical events
+- **Configurable Alerts**: Customizable exception keywords and notification rules
+- **File Discovery**: Automatic detection of new log files
+- **Windows Native**: Designed specifically for Windows 10/11 systems
+
+## 📋 Requirements
+
+- **Python 3.7+**
+- **Windows 10/11** (primary target)
+
+## 🛠️ Installation
+
+### From PyPI (Recommended)
+
+```bash
+pip install logwatchdog
+```
+
+### From Source
+
+```bash
+git clone https://github.com/pandiyarajk/logwatchdog.git
+cd logwatchdog
+pip install -r requirements.txt
+```
+
+## 🚀 Quick Start
+
+### 1. Configuration Files
+
+Create `log_config.ini` for monitoring settings:
+
+```ini
+[monitoring]
+monitor_mode = folder                    # single, multiple, or folder
+log_folder_path = C:\logs               # Folder to monitor
+log_file_extensions = *.log,*.txt       # File extensions to monitor
+file_discovery_interval = 30            # Check for new files every 30 seconds
+empty_monitor_delay = 10                # Delay when no files found
+
+[notifications]
+email_enabled = true
+smtp_server = smtp.gmail.com
+smtp_port = 587
+receiver_group = admin@company.com
+system_tray_notifications = true
+
+[alerts]
+exception_keywords = Exception,Error,Failure,Fail,Fatal,Issue,Crash
+```
+
+### 2. Email Credentials
+
+Create `.env` file for email authentication:
+
+```bash
+# Copy env_example.txt to .env and fill in your credentials
+EMAIL_USER=your-email@gmail.com
+EMAIL_PASSWORD=your-app-password
+```
+
+**Security Note**: Never commit the `.env` file to version control.
+
+### 3. Start Monitoring
+
+```bash
+python log_monitor.py
+```
+
+## 📁 Monitoring Modes
+
+- **Single File**: Monitor one specific log file
+- **Multiple Files**: Monitor multiple specific log files simultaneously  
+- **Folder**: Monitor all log files in a folder with automatic file detection
+
+## 🔧 Configuration
+
+### Main Settings (`log_config.ini`)
+
+- Monitoring mode and file paths
+- SMTP server configuration
+- Alert keywords and notification settings
+- File discovery intervals
+
+### Email Credentials (`.env`)
+
+- `EMAIL_USER`: Your email address
+- `EMAIL_PASSWORD`: Your email password or app password
+
+## 📚 Documentation
+
+- **User Guide**: See the code comments and configuration examples
+- **Issues**: [GitHub Issues](https://github.com/pandiyarajk/logwatchdog/issues)
+- **Support**: pandiyarajk@live.com
+
+## 🤝 Contributing
+
+We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details.
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🔄 Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) for version history.
+
+---
+
+**Made with ❤️ by [Pandiyaraj Karuppasamy](https://github.com/pandiyarajk)**
+
+*LogWatchdog - Your Windows Log Monitoring Companion*
