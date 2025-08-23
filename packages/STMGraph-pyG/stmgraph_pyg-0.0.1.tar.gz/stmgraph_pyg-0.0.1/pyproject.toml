@@ -1,0 +1,23 @@
+[project]
+name = "STMGraph_pyG"
+version = "0.0.1"
+authors = [
+  { name = "Lixian Lin", email = "llx_1910@163.com" },
+]
+dependencies = []
+description = "A spatial-context-aware of spatial transcriptomes package"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[build-system]
+requires = ["setuptools>=63.1.0"]
+build-backend = "setuptools.build_meta"
+
+[project.urls]
+"Homepage" = "https://github.com/binbin_coder/STMGraph_pyg"
+"Bug Tracker" = "https://github.com/binbin_coder/STMGraph_pyg/issues"

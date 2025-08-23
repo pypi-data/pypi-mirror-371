@@ -1,0 +1,14 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+pyproject.toml
+src/STMGraph_pyG.egg-info/PKG-INFO
+src/STMGraph_pyG.egg-info/SOURCES.txt
+src/STMGraph_pyG.egg-info/dependency_links.txt
+src/STMGraph_pyG.egg-info/top_level.txt
+src/STMGraph_pyG0/STMGraph.py
+src/STMGraph_pyG0/Train_STMGraph.py
+src/STMGraph_pyG0/__init__.py
+src/STMGraph_pyG0/gat_conv.py
+src/STMGraph_pyG0/gatv2_conv.py
+src/STMGraph_pyG0/utils.py

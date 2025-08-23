@@ -1,0 +1,7 @@
+# 包含所有文件和目录
+include *
+
+# 排除不需要的文件和目录
+exclude /home/llx/software/STMGraph_pyG0_main/src/STMGraph_pyG0/__pycache__/
+exclude *.txt
+
