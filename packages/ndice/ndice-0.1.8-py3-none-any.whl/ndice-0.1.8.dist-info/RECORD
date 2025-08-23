@@ -1,0 +1,13 @@
+ndice/__init__.py,sha256=3L1Y-qV_0FoWkdzra8Q1DcFksI8y38LaIcr7muP0XFs,507
+ndice/constants.py,sha256=A4SXfr2NklDxyBR-QnjPDf8pAHmDx4Gq5JKMdx4oIEk,184
+ndice/dice.py,sha256=pa9tXj6Z9vQNrk-Ra_4NAGIbN_wsiU6cYFweJcgwwRI,1744
+ndice/find_version.py,sha256=uuPpZB3DX_0-bevXdU2W6UcMguz3I37dktdOVGZJKuM,643
+ndice/interned.py,sha256=4m_Z3LHfL95u_jCAqAmAuH5Z-OAvkknFQrrWZ4E_ljI,1032
+ndice/mods.py,sha256=t1oWYMLMzd98bnuDR_h-H2gcxRXG6lREeeZ9usLYFYk,407
+ndice/op.py,sha256=DeS0k2Zvdt9HmUPjD0iSa8ndN2LCzaTbHUWEJd4BAGs,760
+ndice/rng.py,sha256=PErsqC3v-xRS9TItaRJl_y-25yTnMqnVqtKLZLvdXuY,915
+ndice/roll.py,sha256=C9UKGeWQqFuPAmjRHqmATGirLebqoPRb2nBoYJDD5Bw,736
+ndice-0.1.8.dist-info/licenses/LICENSE,sha256=vwy1wDwPe7X_Er2zN5P71d8zbT2DOf7hN8tNsb5ZQgE,1303
+ndice-0.1.8.dist-info/WHEEL,sha256=4n27za1eEkOnA7dNjN6C5-O2rUiw6iapszm14Uj-Qmk,79
+ndice-0.1.8.dist-info/METADATA,sha256=y7NqMFli3tXFJwWluyoQonfS2rIp4k04RH2dxe-CdVE,5196
+ndice-0.1.8.dist-info/RECORD,,
