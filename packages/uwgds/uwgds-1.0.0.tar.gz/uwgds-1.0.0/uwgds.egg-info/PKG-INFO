@@ -1,0 +1,15 @@
+Metadata-Version: 2.4
+Name: uwgds
+Version: 1.0.0
+Summary: uwgds: A Python package for creating GDS files
+Author: Ameya Velankar
+Author-email: <velankar@uw.edu>
+Keywords: python,gds
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Requires-Dist: gdsfactory
+Dynamic: author
+Dynamic: author-email
+Dynamic: keywords
+Dynamic: requires-dist
+Dynamic: summary

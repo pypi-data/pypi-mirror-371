@@ -1,0 +1,7 @@
+README.md
+setup.py
+uwgds.egg-info/PKG-INFO
+uwgds.egg-info/SOURCES.txt
+uwgds.egg-info/dependency_links.txt
+uwgds.egg-info/requires.txt
+uwgds.egg-info/top_level.txt
