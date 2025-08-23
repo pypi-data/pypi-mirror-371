@@ -1,0 +1,3 @@
+[console_scripts]
+rzw-mcp = rzw_mcp:main
+
