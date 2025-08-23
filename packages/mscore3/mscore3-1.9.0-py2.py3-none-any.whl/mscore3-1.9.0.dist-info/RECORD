@@ -1,0 +1,16 @@
+mscore/__init__.py,sha256=0JByFx-ya_JUv_gNYIxX5CxdPshuBPmZuSFO3SDuzBM,13638
+mscore/fuzzy.py,sha256=u9UygkLLhTJckAbArYc9XEIvCEWdPAZGmmZkMGO2ijU,4560
+mscore/instruments.py,sha256=DyPML008NG4bS5s3h2T_GmElE78fHZeiMnfX1uyZtv4,2596
+mscore/test.py,sha256=VFm9K3PC387r0yDyvkq98JL59dXQwuFplB-F5NCGclc,2506
+mscore/res/score.mscx,sha256=WQfqJRkjyxmIs6Fw4oceUwp43V6-9IpM3n9Vaj16SdQ,147973
+mscore/res/score.mscz,sha256=mioQgqpwxIK5uAqbnLC3nGI4XH5m1B1QNSn9EPpaogI,11892
+mscore/scripts/__init__.py,sha256=muXEE20G2RgjhqPGDq-PwSiBXutco4vSK5Grkyerqdg,811
+mscore/scripts/ms_clear_synth.py,sha256=SKGM9cl58NG7SldlGd1bI7d6X3-vidnGZU8KnLHzNPg,1559
+mscore/scripts/ms_colorize.py,sha256=duAelt_RBFWwVYZVou7bq9xZH9cBQ-cwnP4VjUvueOk,2234
+mscore/scripts/ms_info.py,sha256=jdJO_Ofz-8kI0-D-UAmJl_zkbd0oXmSbSRWVSXVrLRc,2311
+mscore/scripts/ms_port_partition.py,sha256=Q4aDBTatYRLLWSlQWN_6UKY9awqTIy-o_FzcxaZ0arI,2781
+mscore3-1.9.0.dist-info/entry_points.txt,sha256=16ACn-NrTii2guwfG85rFARBrEwqrFrv8eXpNszmUk0,205
+mscore3-1.9.0.dist-info/LICENSE,sha256=ljOS4DjXvqEo5VzGfdaRwgRZPbNScGBmfwyC8PChvmQ,32422
+mscore3-1.9.0.dist-info/WHEEL,sha256=j3d_2VkBU36k09xOc4O9RZyJJ8uFqn4BR2AtKD7MOp8,99
+mscore3-1.9.0.dist-info/METADATA,sha256=9qqye7QS8p3R47ZJn3v47SmGN6qbpWhskYpL2S9i1yI,1190
+mscore3-1.9.0.dist-info/RECORD,,
