@@ -1,0 +1,3 @@
+[console_scripts]
+duyi-mcp-demo-java152 = duyi_mcp_demo_java152:main
+
