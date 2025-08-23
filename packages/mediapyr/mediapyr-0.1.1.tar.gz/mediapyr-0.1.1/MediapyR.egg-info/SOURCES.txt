@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+MediapyR.egg-info/PKG-INFO
+MediapyR.egg-info/SOURCES.txt
+MediapyR.egg-info/dependency_links.txt
+MediapyR.egg-info/top_level.txt
+mediapyR/__init__.py
+mediapyR/mediator.py
+mediapyr.egg-info/PKG-INFO
+mediapyr.egg-info/SOURCES.txt
+mediapyr.egg-info/dependency_links.txt
+mediapyr.egg-info/top_level.txt
