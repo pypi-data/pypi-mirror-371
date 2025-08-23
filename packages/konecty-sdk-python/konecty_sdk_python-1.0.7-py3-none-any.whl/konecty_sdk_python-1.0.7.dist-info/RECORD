@@ -1,0 +1,16 @@
+KonectySdkPython/__init__.py,sha256=E8bSSpoh-XogtSp4oDAhhID0J0UtctOlGS9LhI5F5d0,1022
+KonectySdkPython/cli/__init__.py,sha256=Ap83UThRejLC44VaM-l31NhKcpkzx0Y4CgT042OJCBE,761
+KonectySdkPython/cli/apply.py,sha256=LyPoNcsU3oz9P_eTAi4BdtJHWkbp-sNK_SP9W8Xua04,17923
+KonectySdkPython/cli/backup.py,sha256=rcla3EWfPsy-vWgmDK844EaM5u3h7JF-u7-b2HUBMgA,4785
+KonectySdkPython/cli/pull.py,sha256=n4gIkKtuEpPKULb3zcYu5tZlBLbt_4oNQDeu2l6tHxU,9529
+KonectySdkPython/lib/__init__.py,sha256=-9-14cRd2QsB68gLsa5EfyIXlMYEmhIRBpiWX213VFQ,951
+KonectySdkPython/lib/client.py,sha256=ugjgQVwPVa4ZHhgPyFOXPwphnQ5q0VQWOamTnDWfLgw,15031
+KonectySdkPython/lib/file_manager.py,sha256=CLpOJWdA1tb2iq0qOIeRyEEIuACRq9tIo7Rls1YT2ig,9986
+KonectySdkPython/lib/filters.py,sha256=PsFaUFCEyKgxgzD566LdTLvuMJevoF_i9U1WnpJZzPQ,4482
+KonectySdkPython/lib/model.py,sha256=8ok1VzPGpXQklz2fJwjP8HT0aKOzhtE93BzcgfVw4zY,2846
+KonectySdkPython/lib/settings.py,sha256=cueZQIVfKBqBufUSYBM0auD9StsPLVN6KMQsYLGPbhQ,4122
+KonectySdkPython/lib/types.py,sha256=W6CHL36ucya34KaxtgQpIDWUVxZHm_vodzceo80K7D4,11895
+konecty_sdk_python-1.0.7.dist-info/METADATA,sha256=EaNRC7GuUg3IHhabULH174IOiHae_Qc9NpiHfSM4Dlk,1622
+konecty_sdk_python-1.0.7.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+konecty_sdk_python-1.0.7.dist-info/entry_points.txt,sha256=awf962DamFgy791G3PsJ354edBMLJg16Dqi-2Y1tb9s,58
+konecty_sdk_python-1.0.7.dist-info/RECORD,,
