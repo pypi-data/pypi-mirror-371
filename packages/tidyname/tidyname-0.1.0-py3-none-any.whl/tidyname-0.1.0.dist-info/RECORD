@@ -1,0 +1,11 @@
+tidyname/__init__.py,sha256=sNONr_ALdiJO-07HgHSCD-Bq6AQ33DwzpMY3atc_aV0,221
+tidyname/cleaner.py,sha256=qA6RDcyu3g3mgqCWeO5q9l5dzOEDm3ZL5tb8r11pQ-I,2303
+tidyname/logic.py,sha256=XbVGuSn1d4hdSWMK24etKUYoUWO88N1mk4lX23gl1no,8908
+tidyname/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tidyname/terms.py,sha256=km-xreItwX9Wtj9VR9vGd9oMw6S2cqAttTPVK7L5DHI,6398
+tidyname/types.py,sha256=q7iOKO8jV7Z3kSJRzjq8CqNDSQK6Dk5PWH4lXRi2xTc,920
+tidyname-0.1.0.dist-info/licenses/LICENSE,sha256=LNjZ0SwDSA27QDrX5AX0WQZtbGkfNW3_zpw3mo1moS0,1071
+tidyname-0.1.0.dist-info/METADATA,sha256=Ur-odIlahTGYBS_5p2npPDBteXkYlKytWXP2qyeBalA,6674
+tidyname-0.1.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+tidyname-0.1.0.dist-info/top_level.txt,sha256=IUxZEOX1mhX4BQEysHr0e__M-0blyH8F8uGl0zT1iIA,9
+tidyname-0.1.0.dist-info/RECORD,,
