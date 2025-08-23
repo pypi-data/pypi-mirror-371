@@ -1,0 +1,76 @@
+Metadata-Version: 2.4
+Name: kyg-guessing-game-kit
+Version: 0.1
+Summary: KYG: Guessing Game Kit – Playful Python Learning by Ashok Sir and Sathish Ramanujam
+Home-page: https://www.ashokbakthavathsalam.com/
+Author: Ashok Bakthavathsalam, Sathish Ramanujam
+Author-email: ashok@kgisl.com, sathishse13@gmail.com
+Keywords: python education game guessing tkinter induction zero2hero
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Education
+Classifier: Topic :: Games/Entertainment
+Classifier: Intended Audience :: Education
+Classifier: Natural Language :: English
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: requires-python
+Dynamic: summary
+
+# Co-Kreate Your Genius: KYG Guessing Game Kit
+
+An interactive, gamified toolkit for learning Python fundamentals—built on a proven method by [Ashok Bakthavathsalam](https://www.ashokbakthavathsalam.com/) and created by [Sathish Ramanujam](https://professor-sathish.github.io/).
+
+## What is KYG Guessing Game Kit?
+
+This is a fun, hands-on way for students to experience Python’s five core constructs—**print statements, function calls, variable input, import, GUI basics**—in a real game.
+
+* Designed for “Zero2Hero” Python induction events.
+* Lets students play the classic “guess my number!” challenge.
+* All logic shown in code—and explained interactively through gameplay.
+* Perfect for classroom, online exercises, coding clubs, or self-learning.
+
+## Why Use This Kit?
+
+* Developed by Python educators for rapid onboarding and retention.
+* Play, explore, then dive into code: students see the GUI first, then relate it to Python logic.
+* Each step introduces a core Python concept in context.
+
+## How to Play
+
+* Open the game GUI, let students choose a range, and let the computer try to guess.
+* Students respond with HIGHER/LOWER/YES buttons as the computer guesses their number.
+* Behind the scenes: binary and linear search strategies are explained in code and gameplay.
+* Replay as needed, experiment, and learn.
+
+See the included \[readme.md] for complete instructions!
+
+## Authors
+
+* [Ashok Bakthavatchalam](https://www.ashokbakthavathsalam.com/)
+* [Sathish Ramanujam](professor-sathish.github.io)
+
+## Features
+
+* Clean Tkinter GUI
+* Reinforces fundamental Python constructs
+* Replayable and easily customizable
+* Well-documented gameplay and code
+
+## Installation
+
+* pip install kyg-guessing-game-kit
+* **After installation, you can run the game with**
+
+  * python -m kyg\_ggk or kyg\_ggk
+
+
+
