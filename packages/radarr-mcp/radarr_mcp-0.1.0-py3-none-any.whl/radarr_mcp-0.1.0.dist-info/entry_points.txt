@@ -1,0 +1,2 @@
+[console_scripts]
+radarr-mcp = radarr_mcp_server:main
