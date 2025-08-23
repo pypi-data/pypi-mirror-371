@@ -1,0 +1,78 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-03-28 18:44+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: C:\Users\Luca Allulli\Documents\dev\songpress\master\src\Transpose.py:74
+msgid "American (C D E... B)"
+msgstr ""
+
+#: C:\Users\Luca Allulli\Documents\dev\songpress\master\src\Transpose.py:82
+msgid "Italian (Do Re Mi... Si)"
+msgstr ""
+
+#: C:\Users\Luca Allulli\Documents\dev\songpress\master\src\Transpose.py:98
+msgid "French (Do Ré Mi... Si)"
+msgstr ""
+
+#: C:\Users\Luca Allulli\Documents\dev\songpress\master\src\Transpose.py:112
+msgid "Portuguese (Dó Ré Mi... Si)"
+msgstr ""
+
+#: C:\Users\Luca Allulli\Documents\dev\songpress\master\src\Transpose.py:133
+msgid "Basic chords (A, E, D)"
+msgstr ""
+
+#: C:\Users\Luca Allulli\Documents\dev\songpress\master\src\Transpose.py:134
+msgid "50s progr. in C (C, Am, Dm, G7)"
+msgstr ""
+
+#: C:\Users\Luca Allulli\Documents\dev\songpress\master\src\Transpose.py:135
+msgid "F chord"
+msgstr ""
+
+#: C:\Users\Luca Allulli\Documents\dev\songpress\master\src\Transpose.py:136
+msgid "50s progr. in G (G, Em, Am, D7)"
+msgstr ""
+
+#: C:\Users\Luca Allulli\Documents\dev\songpress\master\src\Transpose.py:137
+msgid "50s progr. in D (D, Bm, Em, A7)"
+msgstr ""
+
+#: C:\Users\Luca Allulli\Documents\dev\songpress\master\src\Transpose.py:138
+msgid "50s progr. in A (A, F#m, Bm, E7)"
+msgstr ""
+
+#: C:\Users\Luca Allulli\Documents\dev\songpress\master\src\Transpose.py:139
+msgid "C#, C#m, C#7 chords"
+msgstr ""
+
+#: C:\Users\Luca Allulli\Documents\dev\songpress\master\src\Transpose.py:140
+msgid "50s progr. in F (F, Dm, Gm, C7)"
+msgstr ""
+
+#: C:\Users\Luca Allulli\Documents\dev\songpress\master\src\Transpose.py:141
+msgid "B and B7 chords"
+msgstr ""
+
+#: C:\Users\Luca Allulli\Documents\dev\songpress\master\src\Transpose.py:195
+msgid "German/Sacandinavian (C C#/Db D... Bb H)"
+msgstr ""
+
+#: C:\Users\Luca Allulli\Documents\dev\songpress\master\src\Transpose.py:204
+msgid "Traditional German (C Cis/Des D... B H)"
+msgstr ""

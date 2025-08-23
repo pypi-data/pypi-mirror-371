@@ -1,0 +1,18 @@
+Metadata-Version: 2.3
+Name: Songpress
+Version: 1.9.0.dev1
+Summary: Songpress is a free, easy to use song typeset program for Windows and Linux, that generates high-quality songbooks.
+License: GNU GPL v2
+Author: Luca Allulli
+Author-email: luca@skeed.it
+Requires-Python: >=3.9
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: python-pptx (>=1.0.2,<2.0.0)
+Requires-Dist: requests (>=2.32.4,<3.0.0)
+Requires-Dist: wxPython (>=4.2.3,<5.0.0)
