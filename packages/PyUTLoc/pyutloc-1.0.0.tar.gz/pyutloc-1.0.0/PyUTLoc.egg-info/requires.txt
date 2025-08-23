@@ -1,0 +1,10 @@
+geopy
+requests
+geocoder
+pygeodesy
+mgrs
+utm
+pyproj
+openlocationcode
+geohash2
+maidenhead
