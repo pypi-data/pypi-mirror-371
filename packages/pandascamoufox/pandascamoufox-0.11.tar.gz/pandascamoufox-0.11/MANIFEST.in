@@ -1,0 +1,6 @@
+include pandascamoufox/requirements.txt
+include pandascamoufox/thirdparty.json
+include pandascamoufox/uiev.pyx
+include pandascamoufox/uiev_compile.py
+include pandascamoufox/LICENSE
+include pandascamoufox/README.MD
