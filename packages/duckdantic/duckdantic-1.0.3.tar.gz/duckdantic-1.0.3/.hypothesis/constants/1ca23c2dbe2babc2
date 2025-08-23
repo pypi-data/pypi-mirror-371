@@ -1,0 +1,4 @@
+# file: /home/will/Projects/duckdantic/src/duckdantic/build/methods.py
+# hypothesis_version: 6.136.6
+
+['__class__', '__func__', '__name__', 'actual', 'arity_mismatch', 'cls', 'desired', 'expected', 'missing', 'name', 'ok', 'param', 'param_conflicts', 'return', 'return_conflicts', 'self']

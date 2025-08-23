@@ -1,0 +1,4 @@
+# file: /home/will/Projects/duckdantic/src/duckdantic/__init__.py
+# hypothesis_version: 6.136.6
+
+['0.0.3', 'AliasMode', 'Duck', 'DuckModel', 'DuckRootModel', 'DuckType', 'FieldAliasSet', 'FieldOrigin', 'FieldSpec', 'FieldView', 'MethodSpec', 'POLICY_PRAGMATIC', 'ShapeOrigin', 'TraitRegistry', 'TraitRelation', 'TraitSpec', 'TypeCompatPolicy', 'abc_for', 'as_duck', 'auto_name', 'clear_cache', 'compare_traits', 'duckisinstance', 'duckissubclass', 'explain', 'get_cache_stats', 'intersect', 'is_duck_of', 'methods_explain', 'methods_satisfy', 'minus', 'normalize_fields', 'satisfies', 'shape_id_token', 'short_type_token', 'union']

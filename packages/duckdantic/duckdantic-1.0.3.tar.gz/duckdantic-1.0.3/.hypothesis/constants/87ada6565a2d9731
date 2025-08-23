@@ -1,0 +1,4 @@
+# file: /home/will/Projects/duckdantic/src/duckdantic/build/__init__.py
+# hypothesis_version: 6.136.6
+
+['MethodSpec', 'methods_explain', 'methods_satisfy']
