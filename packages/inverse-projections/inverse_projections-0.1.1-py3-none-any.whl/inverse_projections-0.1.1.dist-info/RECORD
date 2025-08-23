@@ -1,0 +1,10 @@
+inverse_projections/__init__.py,sha256=dFnwaN9zqqstZ5uAkiPzhw8INIDPMHExp6OHlYTPSlw,615
+inverse_projections/gradient_map.py,sha256=rSgq0XofPYLybAKht_OU0vPnH4dfyvRTCdhEFQhFvXA,2137
+inverse_projections/lamp.py,sha256=i_7Y8luE1vUcTw5ngqQeg0O8XGy-rS5egL9O0EATFUg,9693
+inverse_projections/multilateration.py,sha256=1BAKZ-T44Uhg85T71atfveDRzjV5QTEszaoxbuh_d60,9549
+inverse_projections/nninv.py,sha256=ZFpVQnSQ28KiiLMM_cP6EdH41_9ZC6_fhTFjWhXRc_Q,3788
+inverse_projections/rbf.py,sha256=rQTSKPTkW39BttdNEEhEAJk4gUdK0wpWXCIk1oz7FvA,2488
+inverse_projections-0.1.1.dist-info/WHEEL,sha256=4n27za1eEkOnA7dNjN6C5-O2rUiw6iapszm14Uj-Qmk,79
+inverse_projections-0.1.1.dist-info/entry_points.txt,sha256=A0xRge_CeOX6N4wGWwxlOQqBtIXAYPPbDnFC7Esd_XQ,66
+inverse_projections-0.1.1.dist-info/METADATA,sha256=yU_Myj4RFyLXRTZXylYQKGQk3j6qVHgLckD8NrSrYfs,3501
+inverse_projections-0.1.1.dist-info/RECORD,,
