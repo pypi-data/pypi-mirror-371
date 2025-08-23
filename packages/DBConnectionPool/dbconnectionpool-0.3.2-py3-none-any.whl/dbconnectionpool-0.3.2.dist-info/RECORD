@@ -1,0 +1,11 @@
+DBConnectionPool/__init__.py,sha256=ML02DLn1T9HlTMe_4jjzz6WcocOvU5a4XtJRDMxZmSI,24
+DBConnectionPool/database.py,sha256=lw71WyjDza5jLdOUAYSV0EnSfNUR9vWkVeUQfcCkjpM,3082
+DBConnectionPool/interfaces.py,sha256=99U3j2Wnm02AFYN4NKgtJVPi2q87LnTfAVtZ2VSg2BQ,2567
+DBConnectionPool/sql.py,sha256=YLC5-CdGTibeq0net2tHtFSk4EFQhD1o5uq9KLguljs,2965
+DBConnectionPool/testconn.py,sha256=FBAyWjeD8Oar-Plz9BL_ItCTbgMzFFOd6BTt8eYS-0c,863
+dbconnectionpool-0.3.2.dist-info/licenses/LICENSE,sha256=yt3Yw4i1txlFNfs93a6fBFIpr8nfugEJfwkyAycMpp0,1261
+dbconnectionpool-0.3.2.dist-info/METADATA,sha256=nQeH5iCMn8P0cEasRhSPqDB9dMDHT7glIeiPRRVmxwc,1834
+dbconnectionpool-0.3.2.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+dbconnectionpool-0.3.2.dist-info/entry_points.txt,sha256=Ac7mAqVpVKS22hOPUUkWKH5pllbhVBn1XLY2AtyW8xI,92
+dbconnectionpool-0.3.2.dist-info/top_level.txt,sha256=M0BY2xwj1zh7AadYiOYSRci506YTeLXOYICBbN9NHB0,17
+dbconnectionpool-0.3.2.dist-info/RECORD,,
