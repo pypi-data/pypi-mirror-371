@@ -1,0 +1,1 @@
+import{_ as t}from"./index-I1VDlN4g.js";const n={getComponentsInformation(){return t.get("/admin/components/")},getNotifications(){return t.get("/admin/notifications/")},getNewsFeed(){return t.get("/admin/news_feed/")},getStatistics(){return t.get("/admin/statistics/")}};export{n as a};
