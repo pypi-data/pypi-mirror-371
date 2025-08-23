@@ -1,0 +1,17 @@
+thermomechanical_step/__init__.py,sha256=o_CtdqIdtWvfDDogEiKroLbAZuF2VM8PsObEDhzxDC8,811
+thermomechanical_step/_version.py,sha256=ybzX0t9cdv8pAwudMlXU_bWh6UAmQhZVHbvw30L4dRY,501
+thermomechanical_step/metadata.py,sha256=2R0jZZn365K7hRphHmv8Pm43ZvZ8tKzjFZnFY-4u1kI,7811
+thermomechanical_step/thermomechanical.py,sha256=HIpP37vbpXaBq8NUt4bFc1DqCi3ExMm5QMCaWIAUrhI,23114
+thermomechanical_step/thermomechanical_parameters.py,sha256=CNp1uihwzJHt6rVglyk_ahT2DfHWZ2PbTkUawiDdWPE,6487
+thermomechanical_step/thermomechanical_step.py,sha256=6M-MwggMZDjw1ZGXyl2YwuzuAQ_tORYHyVsVNFEPdZY,3150
+thermomechanical_step/tk_thermomechanical.py,sha256=2eTQvIn0hy14Edz0gTPWw26NTn2VKQ25LE_IoslHaAQ,7913
+thermomechanical_step/data/properties.csv,sha256=Ic772bFoNq242bBMTyyz_twI4whYLPGWZ-Jw5g3jfnY,36
+thermomechanical_step/data/references.bib,sha256=GQpljdAB-w99griGljL0Jbts0Kyb1lDycX0Rgh4CxPU,1610
+thermomechanical_step-2025.8.22.dist-info/licenses/AUTHORS.rst,sha256=HKy1QAUcENUPZZIAeLClJTLLQ0m438MWROo7bvLs41Q,126
+thermomechanical_step-2025.8.22.dist-info/licenses/LICENSE,sha256=5qnJhyGpiLKP9IvG46o6b-24WQXTN8_sdbKRZNBzPPU,1519
+thermomechanical_step-2025.8.22.dist-info/METADATA,sha256=bx8NibAqanmRnp99sAYt7KP2FV5CPJefGIrfqE8RFwM,3636
+thermomechanical_step-2025.8.22.dist-info/WHEEL,sha256=JNWh1Fm1UdwIQV075glCn4MVuCRs0sotJIq-J6rbxCU,109
+thermomechanical_step-2025.8.22.dist-info/entry_points.txt,sha256=PPuaX1kyvQQei3eX-JZCVCVSoQRspnwJW582CuJM4n8,166
+thermomechanical_step-2025.8.22.dist-info/top_level.txt,sha256=MJBpkX8tt4hdJU2U2Sf8iP-CgmxkQhy2oahNvcjl69w,22
+thermomechanical_step-2025.8.22.dist-info/zip-safe,sha256=AbpHGcgLb-kRsJGnwFEktk7uzpZOCcBY74-YBdrKVGs,1
+thermomechanical_step-2025.8.22.dist-info/RECORD,,
