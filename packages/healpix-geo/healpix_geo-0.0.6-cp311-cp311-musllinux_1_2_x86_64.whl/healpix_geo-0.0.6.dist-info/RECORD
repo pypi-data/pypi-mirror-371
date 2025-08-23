@@ -1,0 +1,17 @@
+healpix_geo-0.0.6.dist-info/METADATA,sha256=oF5iTjtlZpD2GwZkueXnW3xfhZ1TBhmZoPiudqEgCoQ,783
+healpix_geo-0.0.6.dist-info/WHEEL,sha256=LbvAbs9-_KvYfVGEtrPJm_e9316WJpRONTwHHfyBYqs,107
+healpix_geo-0.0.6.dist-info/licenses/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+healpix_geo.libs/libgcc_s-1e52349c.so.1,sha256=Ani0u_W_tB8ESsFePO4D2mn2lrgWLhyFdw6RETxBTYM,437537
+healpix_geo/__init__.py,sha256=kNZCWvilFNNTzDjCfbzHI-IeyzifQl4S_qRferX0UJk,85
+healpix_geo/healpix_geo.cpython-311-x86_64-linux-musl.so,sha256=2H1efwPfwdyosEnLT_O3e5vh7RIvmIv_FyCjd6zry7I,1863017
+healpix_geo/nested.py,sha256=j10mOG6-tYnwA_ITvOFu1MUbe3pOXQdq2MoeRaeAxUY,12613
+healpix_geo/ring.py,sha256=twROKO2DobvBZLPdudAOwXIZEK5Hitb0kYGmdUFFxj0,10315
+healpix_geo/slices.py,sha256=Xw_URF5IF9hYZaPmcZeXX_11Wji7DDEemnE_3-vpk0w,143
+healpix_geo/tests/test_distances.py,sha256=2_0sya91zXHNskfgcyVl6baVtQFnAngff71IhzmxKKY,2502
+healpix_geo/tests/test_index.py,sha256=2xvAYsPBGuL5fJ9Cl5eDuVnXJb6ZNW6xfexn-BQ8omw,7832
+healpix_geo/tests/test_inference.py,sha256=OJ06XHO26_ZKD8DUgRB7NjO4u3CsGmY09ixexm0wQDQ,7182
+healpix_geo/tests/test_neighbours.py,sha256=r4P8KE_B4Yp5yXWCUiEHIE0PUqD6PyQqoqHaEHtpsYs,1187
+healpix_geo/tests/test_slices.py,sha256=SNKjFOnvE25JoeFhRvVVZt31lpDiPHXpwgMBmjRj2Yc,3122
+healpix_geo/tests/test_zoom.py,sha256=lua0ylP7kr_YlB_-H38P4toMXsPR-BgnwxJD-Dvoulk,2263
+healpix_geo/utils.py,sha256=ZBJaXk-asV4ivdWKan65PiEUK3WWYIBuGWARW43rEj8,721
+healpix_geo-0.0.6.dist-info/RECORD,,
