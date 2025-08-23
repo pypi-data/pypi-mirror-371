@@ -1,0 +1,13 @@
+from _typeshed import Incomplete
+from shops_payment_processing.logging_config import logger as logger
+from shops_payment_processing.models.order import OrderResponseModel as OrderResponseModel, UserBasketResponseModel as UserBasketResponseModel
+
+def configure_description(basket: UserBasketResponseModel): ...
+
+class LifePayAPI:
+    url: str
+    http_client: Incomplete
+    CALLBACK_BASE_URL: Incomplete
+    def __init__(self, callback_base_url: str) -> None: ...
+    async def create_sbp_invoice(self, shop_name: str, login: str, api_key: str, order: OrderResponseModel): ...
+    async def get_invoice_status(self, login: str, api_key: str, invoice_id: str): ...
