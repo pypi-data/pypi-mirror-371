@@ -1,0 +1,8 @@
+README.md
+pyproject.toml
+acemagic_ledctl.egg-info/PKG-INFO
+acemagic_ledctl.egg-info/SOURCES.txt
+acemagic_ledctl.egg-info/dependency_links.txt
+acemagic_ledctl.egg-info/entry_points.txt
+acemagic_ledctl.egg-info/requires.txt
+acemagic_ledctl.egg-info/top_level.txt
