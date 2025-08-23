@@ -1,0 +1,16 @@
+palletjack/cpalletjack.pxd,sha256=XTLLTPl__kG5_q0_SEvfEryQwNql5vYsbOEQRdq2JKA,840
+palletjack/package_metadata.py,sha256=bpEYmTRbKPMndRJySkSwST6rEm3LxGSaBnTxa1hRTFc,126
+palletjack/palletjack.h,sha256=mrPJGSZgBrs-qvJBCw3LhMp2Wnf7EZHFhKk0Nfoxee4,1092
+palletjack/palletjack_cython.cp39-win_amd64.pyd,sha256=Km_BA0JboQbXaV9FbcKnxgLAzWS2rYAVY9Z7q1vpzC8,348160
+palletjack/palletjack_cython.pyx,sha256=UGcwhpWCfmNXXBO-XmV-0fNru8I9r_0XQvKrR1S06pw,2058
+palletjack/parquet_types_palletjack.h,sha256=FFwqSQwBcL4C6dcH4zNlgATRY2q9vRHkhU8XX3KTCIQ,89210
+palletjack/windows_fixup.h,sha256=EI9YPIdBoaCz1XRBE3hRHoD_0jR8fSsy1n1kNfNacGY,209
+palletjack/__init__.py,sha256=mQBNwPngFQIMnIAVnMComaTkH2LrvGzJE_d7hS3lg-Q,2216
+palletjack-2.8.0.dist-info/DELVEWHEEL,sha256=-lKJtLs4h7q8CmokM6cA2Iik9K1Xthil2L-SqBnyJVI,452
+palletjack-2.8.0.dist-info/METADATA,sha256=jkFwUGSxlf1A0YgITHaCFha5UDsoDqNGozqNS5TQcYY,3897
+palletjack-2.8.0.dist-info/RECORD,,
+palletjack-2.8.0.dist-info/top_level.txt,sha256=YNUveproyFeyOcUwfDVZzW8eHQC69PHFPPTIPRWxUv0,11
+palletjack-2.8.0.dist-info/WHEEL,sha256=XkFE14KmFh7mutkkb-qn_ueuH2lwfT8rLdfc5xpQ7wE,99
+palletjack-2.8.0.dist-info/licenses/LICENSE,sha256=HrhfyXIkWY2tGFK11kg7vPCqhgh5DcxleloqdhrpyMY,11558
+palletjack.libs/.load-order-palletjack-2.8.0,sha256=rGeBVS44JFOQfD3-7hS9ba6t4li6_9a3jX2WznDgOhU,46
+palletjack.libs/msvcp140-a4c2229bdc2a2a630acdc095b4d86008.dll,sha256=pMIim9wqKmMKzcCVtNhgCOXD47x3cxdDVPPaT1vrnN4,575056
