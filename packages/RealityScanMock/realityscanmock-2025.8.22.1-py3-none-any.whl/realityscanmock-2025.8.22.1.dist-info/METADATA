@@ -1,0 +1,41 @@
+Metadata-Version: 2.3
+Name: RealityScanMock
+Version: 2025.8.22.1
+Summary: Mock of REST-API of RealityScan Node (fka Reality Capture rc node)
+License: MIT
+Author: basejumpa
+Author-email: alexander.mannwahrenberg@gmail.com
+Requires-Python: >=3.9,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Project-URL: Homepage, https://github.com/basejumpa/RealityScanNodeMock
+Description-Content-Type: text/markdown
+
+<!---
+################################################################
+#                                                              #
+#  This file is part of RealityScanMock                        #
+#                                                              #
+#      https://github.com/basejumpa/RealityScanMock            #
+#                                                              #
+#  Copyright (c) 2025 Alexander Mann-Wahrenberg (basejumpa)    #
+#                                                              #
+#  License                                                     #
+#                                                              #
+#  - MIT for contents used as software                         #
+#                                                              #
+################################################################
+-->
+
+# RealityScanMock
+
+Mock of REST-API of RealityScan Node (fka Reality Capture rc node)
+
+The REST-API is documented at https://rshelp.capturingreality.com/en-US/tools/api.htm
+
+
