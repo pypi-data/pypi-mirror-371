@@ -1,0 +1,13 @@
+llm_fallbacks/__init__.py,sha256=Fw8fwr3vXm9lsL0hBq77h-oiCbqeI8RGXBq2hB9USKY,1664
+llm_fallbacks/__main__.py,sha256=OVrMrygEvSgeo82wS4vKOdLsNFdqt4cu9wZbeCwgSKE,12102
+llm_fallbacks/config.py,sha256=hWgivXHtBtw7upo8JYwusbG44ZeHoTo2dWG41Z-LF7Y,26108
+llm_fallbacks/core.py,sha256=baJyOXPiOgZGVQtvLBXlxj42pbdKUvJO1UGYmUHXZiA,22686
+llm_fallbacks/filter_litellm.py,sha256=Grpwrqu7xWScnHQ6UdYe4R-QJDdZPUAFJK2KNjTh5-s,10292
+llm_fallbacks/generate_configs.py,sha256=_ztIiZsLbwvNcnyuZ7nnHbVGvq4ffVD9U9HRZXc5eQ4,10493
+llm_fallbacks-0.1.0.dist-info/licenses/LICENSE,sha256=37QU_n8ZlRnGPHQuMRmeNN8lrv8Dv8Px1BxnGNKavZ8,1122
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/test_core.py,sha256=DspTH5Ja7eLUAoipceAgi6MTVQf6CJNQr8MuRcGIVzI,2247
+llm_fallbacks-0.1.0.dist-info/METADATA,sha256=OiTjmqtooQMOQpog0r3vZPT6CMkKKGbGy03KvfRNgYg,10620
+llm_fallbacks-0.1.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+llm_fallbacks-0.1.0.dist-info/top_level.txt,sha256=l9EYU-ZycPXQQLm_bO3GG3RFoEcnjJy71L09u2gRdV4,20
+llm_fallbacks-0.1.0.dist-info/RECORD,,
