@@ -1,0 +1,8 @@
+simple_winservice-0.1.0.dist-info/METADATA,sha256=wx-n6NZLg3XLR_2DZVN-HEhwkdc5qN4sOGlNbCCFw48,2403
+simple_winservice-0.1.0.dist-info/WHEEL,sha256=HF3aUMilrtO42xS_fBzOVaPE8OtiNjP_RotLatII7HM,96
+simple_winservice-0.1.0.dist-info/licenses/LICENSE,sha256=z8d0m5b2O9McPEK1xHG_dWgUBT6EfBDz6wA0F7xSPTA,11358
+simple_winservice/__init__.py,sha256=92ocLbQUOQBasPOLrRkIN3V6eDxmGVQed5RigLf7a9k,947
+simple_winservice/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+simple_winservice/simple_winservice.cp312-win_amd64.pyd,sha256=bwrONV2SFULIzTH9YH2CHvX1VwkwTB9oIIOwc1OPgt4,320000
+simple_winservice/simple_winservice.pyi,sha256=UFsKOy29bhrUAVB6FeNOUAuFUIOzSrvvqFMIIOYlcDo,1763
+simple_winservice-0.1.0.dist-info/RECORD,,
