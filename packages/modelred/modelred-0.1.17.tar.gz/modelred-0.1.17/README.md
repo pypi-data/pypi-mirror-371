@@ -1,0 +1,721 @@
+# ModelRed Python SDK
+
+[![PyPI version](https://badge.fury.io/py/modelred.svg)](https://badge.fury.io/py/modelred)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+Enterprise-ready Python SDK for ModelRed AI security testing platform. Provides both synchronous and asynchronous clients with comprehensive error handling, subscription limit awareness, and full API coverage.
+
+## 🚀 Features
+
+- **🔄 Dual Interface**: Both sync (`ModelRed`) and async (`AsyncModelRed`) clients
+- **🛡️ Enterprise Security**: Comprehensive error handling and subscription limits
+- **🏗️ Full API Coverage**: Models, assessments, API keys, and subscription management
+- **📊 Rich Data Types**: Strongly-typed data classes with proper parsing
+- **⚡ Provider Support**: OpenAI, Anthropic, Azure, HuggingFace, and custom REST APIs
+- **🔍 Progress Tracking**: Real-time assessment progress with callbacks
+- **📝 Comprehensive Logging**: Built-in logging for debugging and monitoring
+
+## 📦 Installation
+
+```bash
+pip install modelred
+```
+
+Or install from source:
+
+```bash
+git clone https://github.com/modelred-ai/modelred-python
+cd modelred-python
+pip install -e .
+```
+
+## 🔧 Requirements
+
+- Python 3.8+
+- `requests` (for sync client)
+- `aiohttp` (for async client)
+
+## 🔑 Authentication
+
+Get your API key from [ModelRed Dashboard](https://app.modelred.ai/api-keys) and set it as an environment variable:
+
+```bash
+export MODELRED_API_KEY="mr_your_api_key_here"
+```
+
+Or pass it directly to the client:
+
+```python
+from modelred import ModelRed
+
+client = ModelRed(api_key="mr_your_api_key_here")
+```
+
+## 📖 Quick Start
+
+### Synchronous Client
+
+```python
+from modelred import ModelRed, ProviderConfig, Priority
+
+# Initialize client
+client = ModelRed()
+
+# Create an OpenAI model
+model = client.create_openai_model(
+    model_id="my-gpt4-model",
+    display_name="GPT-4 Production Model",
+    api_key="sk-your-openai-key",
+    model_name="gpt-4",
+    description="Our production GPT-4 model for customer support"
+)
+
+# List all models
+models = client.list_models()
+print(f"You have {len(models)} registered models")
+
+# Run a security assessment
+assessment = client.run_assessment_sync(
+    model_id="my-gpt4-model",
+    test_types=["jailbreak", "prompt_injection", "toxicity"],
+    priority=Priority.HIGH,
+    wait_for_completion=True,
+    timeout_minutes=30
+)
+
+print(f"Assessment completed with {assessment.progress}% progress")
+print(f"Status: {assessment.status}")
+```
+
+### Asynchronous Client
+
+```python
+import asyncio
+from modelred import AsyncModelRed, Priority
+
+async def main():
+    async with AsyncModelRed() as client:
+        # Create an Anthropic model
+        model = await client.create_anthropic_model(
+            model_id="claude-prod",
+            display_name="Claude Production Model",
+            api_key="sk-ant-your-key",
+            model_name="claude-3-sonnet-20240229"
+        )
+
+        # Run assessment with progress callback
+        def progress_callback(assessment):
+            print(f"Progress: {assessment.progress}%")
+
+        assessment = await client.run_assessment(
+            model_id="claude-prod",
+            test_types=["jailbreak", "bias_fairness"],
+            wait_for_completion=True,
+            progress_callback=progress_callback
+        )
+
+        print(f"Final status: {assessment.status}")
+
+asyncio.run(main())
+```
+
+## 🏗️ Supported Providers
+
+### OpenAI
+
+```python
+# Using convenience method
+model = client.create_openai_model(
+    model_id="gpt4-prod",
+    display_name="GPT-4 Production",
+    api_key="sk-your-key",
+    model_name="gpt-4",
+    base_url="https://api.openai.com/v1",  # Optional
+    organization="org-123"  # Optional
+)
+
+# Using provider config
+from modelred import ProviderConfig, ModelProvider
+
+config = ProviderConfig.openai(
+    api_key="sk-your-key",
+    model_name="gpt-4-turbo"
+)
+
+model = client.create_model(
+    model_id="gpt4-turbo",
+    provider=ModelProvider.OPENAI,
+    display_name="GPT-4 Turbo",
+    provider_config=config
+)
+```
+
+### Anthropic
+
+```python
+model = client.create_anthropic_model(
+    model_id="claude-prod",
+    display_name="Claude Production",
+    api_key="sk-ant-your-key",
+    model_name="claude-3-opus-20240229"
+)
+```
+
+### Azure OpenAI
+
+```python
+model = client.create_azure_model(
+    model_id="azure-gpt4",
+    display_name="Azure GPT-4",
+    api_key="your-azure-key",
+    endpoint="https://your-resource.openai.azure.com",
+    deployment_name="gpt-4-deployment",
+    api_version="2024-06-01"
+)
+```
+
+### HuggingFace
+
+```python
+config = ProviderConfig.huggingface(
+    model_name="microsoft/DialoGPT-large",
+    api_key="hf_your-token",
+    use_inference_api=True
+)
+
+model = client.create_model(
+    model_id="dialogpt-large",
+    provider=ModelProvider.HUGGINGFACE,
+    display_name="DialoGPT Large",
+    provider_config=config
+)
+```
+
+### Custom REST API
+
+The REST API provider allows you to connect any custom model endpoint with comprehensive configuration options:
+
+```python
+# Basic REST API configuration
+config = ProviderConfig.rest_api(
+    uri="https://api.yourmodel.com/v1/chat/completions",
+    method="POST",
+    headers={"Authorization": "Bearer your-token"},
+    response_json_field="choices.0.message.content"
+)
+
+model = client.create_model(
+    model_id="custom-model",
+    provider=ModelProvider.REST,
+    display_name="Custom REST Model",
+    provider_config=config
+)
+```
+
+#### Advanced REST API Configuration
+
+```python
+# Advanced configuration with JSON template
+config = ProviderConfig.rest_api(
+    uri="https://api.example.com/v1/completions",
+    name="Custom API",
+    method="POST",
+    headers={
+        "Authorization": "Bearer your-api-token",
+        "Content-Type": "application/json",
+        "X-Custom-Header": "value"
+    },
+    # Use JSON template for complex request structures
+    req_template_json_object={
+        "model": "gpt-3.5-turbo",
+        "messages": [
+            {"role": "system", "content": "You are a helpful assistant."},
+            {"role": "user", "content": "$INPUT"}  # $INPUT will be replaced with test prompts
+        ],
+        "max_tokens": 150,
+        "temperature": 0.7
+    },
+    # Response configuration
+    response_json=True,
+    response_json_field="choices.0.message.content",  # JSON path to response text
+    
+    # Network configuration
+    request_timeout=30,
+    verify_ssl=True,
+    proxies={"https": "https://proxy.company.com:8080"},
+    
+    # Error handling
+    ratelimit_codes=[429, 503],  # HTTP codes to treat as rate limits
+    skip_codes=[404],            # HTTP codes to skip/ignore
+    
+    # Authentication
+    api_key="your-api-key",      # Optional API key
+    key_env_var="CUSTOM_API_KEY" # Environment variable for API key
+)
+```
+
+#### REST API Template Options
+
+**String Template (simple):**
+```python
+# Simple string template
+config = ProviderConfig.rest_api(
+    uri="https://api.example.com/generate",
+    req_template="prompt=$INPUT&model=gpt-3.5&max_tokens=100"
+)
+```
+
+**JSON Template (recommended):**
+```python
+# Structured JSON template
+config = ProviderConfig.rest_api(
+    uri="https://api.example.com/v1/chat",
+    req_template_json_object={
+        "input": "$INPUT",           # Security test prompts
+        "model": "your-model-name",
+        "parameters": {
+            "max_length": 100,
+            "temperature": 0.1
+        },
+        "api_key": "$KEY"            # Your API key from config
+    }
+)
+```
+
+#### Template Variables
+
+- **`$INPUT`**: Replaced with security test prompts during assessments
+- **`$KEY`**: Replaced with the API key from configuration
+
+#### Response Field Paths
+
+Support for nested JSON response parsing:
+
+```python
+# Simple field
+response_json_field="text"
+
+# Nested field
+response_json_field="data.response.content"
+
+# Array access
+response_json_field="choices.0.message.content"
+
+# Complex path
+response_json_field="result.outputs.0.generated_text"
+```
+
+#### Common REST API Examples
+
+**OpenAI-Compatible API:**
+```python
+config = ProviderConfig.rest_api(
+    uri="https://api.openai.com/v1/chat/completions",
+    headers={"Authorization": "Bearer sk-your-key"},
+    req_template_json_object={
+        "model": "gpt-3.5-turbo",
+        "messages": [{"role": "user", "content": "$INPUT"}],
+        "max_tokens": 150
+    },
+    response_json_field="choices.0.message.content"
+)
+```
+
+**Hugging Face Inference API:**
+```python
+config = ProviderConfig.rest_api(
+    uri="https://api-inference.huggingface.co/models/microsoft/DialoGPT-large",
+    headers={"Authorization": "Bearer hf_your-token"},
+    req_template_json_object={
+        "inputs": "$INPUT",
+        "parameters": {"max_length": 100}
+    },
+    response_json_field="0.generated_text"
+)
+```
+
+**Anthropic Claude API:**
+```python
+config = ProviderConfig.rest_api(
+    uri="https://api.anthropic.com/v1/messages",
+    headers={
+        "Authorization": "Bearer sk-ant-your-key",
+        "anthropic-version": "2023-06-01"
+    },
+    req_template_json_object={
+        "model": "claude-3-sonnet-20240229",
+        "max_tokens": 150,
+        "messages": [{"role": "user", "content": "$INPUT"}]
+    },
+    response_json_field="content.0.text"
+)
+```
+
+**Custom API with Authentication:**
+```python
+config = ProviderConfig.rest_api(
+    uri="https://your-company-api.com/v1/generate",
+    method="POST",
+    headers={"X-API-Key": "$KEY"},  # Will use api_key parameter
+    req_template_json_object={
+        "prompt": "$INPUT",
+        "model_id": "company-model-v1",
+        "settings": {
+            "max_tokens": 200,
+            "temperature": 0.3
+        }
+    },
+    response_json_field="generated_text",
+    api_key="your-company-api-key",
+    request_timeout=45,
+    verify_ssl=True
+)
+```
+
+#### Error Handling Configuration
+
+```python
+config = ProviderConfig.rest_api(
+    uri="https://api.example.com/generate",
+    # Treat these HTTP codes as temporary rate limits (will retry)
+    ratelimit_codes=[429, 503, 502],
+    
+    # Skip these HTTP codes (don't treat as errors)
+    skip_codes=[404, 410],
+    
+    # SSL verification options
+    verify_ssl=True,              # Default: verify certificates
+    # verify_ssl=False,           # Disable SSL verification (not recommended)
+    # verify_ssl="/path/to/cert", # Use custom certificate file
+    
+    # Proxy configuration
+    proxies={
+        "http": "http://proxy.company.com:8080",
+        "https": "https://proxy.company.com:8080"
+    }
+)
+```
+
+## 🧪 Running Assessments
+
+### Basic Assessment
+
+```python
+# Create assessment
+assessment = client.create_assessment(
+    model_id="my-model",
+    test_types=["jailbreak", "prompt_injection"],
+    priority=Priority.MEDIUM
+)
+
+# Check status
+current_status = client.get_assessment(assessment.id)
+print(f"Status: {current_status.status}, Progress: {current_status.progress}%")
+```
+
+### Assessment with Progress Tracking
+
+```python
+def progress_handler(assessment):
+    print(f"Assessment {assessment.id}: {assessment.progress}% complete")
+    if assessment.status == AssessmentStatus.FAILED:
+        print(f"Error: {assessment.errorMessage}")
+
+# Run and wait for completion
+assessment = client.run_assessment_sync(
+    model_id="my-model",
+    test_types=["comprehensive_security"],
+    wait_for_completion=True,
+    timeout_minutes=60,
+    progress_callback=progress_handler
+)
+
+if assessment.status == AssessmentStatus.COMPLETED:
+    print("Assessment completed successfully!")
+    print(f"Results: {assessment.results}")
+```
+
+### Available Test Types
+
+Common test types include:
+
+- `"jailbreak"` - Jailbreak attempt detection
+- `"prompt_injection"` - Prompt injection vulnerabilities
+- `"toxicity"` - Toxic content generation
+- `"bias_fairness"` - Bias and fairness evaluation
+- `"privacy_leakage"` - Privacy information leakage
+- `"comprehensive_security"` - Full security suite
+
+> **Note**: Available test types depend on your subscription tier. Use `client.get_subscription_info()` to see available options.
+
+## 🔐 API Key Management
+
+```python
+# Create new API key
+new_key = client.create_api_key(
+    name="Production API Key",
+    expires_at="2024-12-31T23:59:59Z"  # Optional expiration
+)
+print(f"New API key: {new_key.key}")  # Only shown on creation
+
+# List all API keys
+keys = client.list_api_keys()
+for key in keys:
+    print(f"{key.name}: {key.id} (Active: {key.isActive})")
+
+# Delete API key
+client.delete_api_key(key_id="key_123")
+```
+
+## 📊 Subscription Management
+
+```python
+# Get current usage stats
+stats = client.get_usage_stats()
+print(f"Models: {stats.models}/{stats.modelsLimit}")
+print(f"Assessments: {stats.assessments}/{stats.assessmentsLimit}")
+print(f"Tier: {stats.tier}")
+
+# Check for warnings
+for warning in stats.warnings:
+    print(f"Warning: {warning['message']}")
+
+# Get detailed subscription info (requires organization ID)
+sub_info = client.get_subscription_info("org_123")
+print(f"Plan: {sub_info.tier}")
+print(f"Limits: {sub_info.limits}")
+```
+
+## 🛠️ Error Handling
+
+The SDK provides comprehensive error handling with specific exception types:
+
+```python
+from modelred import (
+    ModelRedError,
+    AuthenticationError,
+    SubscriptionLimitError,
+    ValidationError,
+    NotFoundError,
+    NetworkError
+)
+
+try:
+    model = client.create_openai_model(
+        model_id="test-model",
+        display_name="Test Model",
+        api_key="invalid-key"
+    )
+except AuthenticationError as e:
+    print(f"Authentication failed: {e.message}")
+except SubscriptionLimitError as e:
+    print(f"Subscription limit exceeded: {e.message}")
+    print(f"Current tier: {e.tier}")
+except ValidationError as e:
+    print(f"Validation error: {e.message}")
+except NetworkError as e:
+    print(f"Network error: {e.message}")
+except ModelRedError as e:
+    print(f"General error: {e.message}")
+    print(f"Status code: {e.status_code}")
+```
+
+## 🔄 Async Usage Patterns
+
+### Concurrent Operations
+
+```python
+import asyncio
+from modelred import AsyncModelRed
+
+async def create_multiple_models():
+    async with AsyncModelRed() as client:
+        # Create multiple models concurrently
+        tasks = [
+            client.create_openai_model("gpt3", "GPT-3.5", model_name="gpt-3.5-turbo"),
+            client.create_openai_model("gpt4", "GPT-4", model_name="gpt-4"),
+            client.create_anthropic_model("claude", "Claude", model_name="claude-3-sonnet-20240229")
+        ]
+
+        models = await asyncio.gather(*tasks)
+        print(f"Created {len(models)} models")
+        return models
+
+# Run concurrent assessments
+async def run_multiple_assessments():
+    async with AsyncModelRed() as client:
+        models = ["gpt3", "gpt4", "claude"]
+
+        tasks = [
+            client.create_assessment(
+                model_id=model_id,
+                test_types=["jailbreak"],
+                priority=Priority.HIGH
+            ) for model_id in models
+        ]
+
+        assessments = await asyncio.gather(*tasks)
+
+        # Wait for all to complete
+        completion_tasks = [
+            client.wait_for_completion(assessment.id)
+            for assessment in assessments
+        ]
+
+        completed = await asyncio.gather(*completion_tasks)
+        return completed
+
+asyncio.run(create_multiple_models())
+```
+
+## 📚 Data Classes
+
+### Model
+
+```python
+@dataclass
+class Model:
+    id: str                              # Internal model ID
+    modelId: str                         # Your model identifier
+    provider: str                        # Provider type (openai, anthropic, etc.)
+    modelName: str                       # Provider's model name
+    displayName: str                     # Human-readable name
+    description: Optional[str] = None    # Model description
+    isActive: bool = True                # Whether model is active
+    lastTested: Optional[datetime] = None # Last assessment date
+    testCount: int = 0                   # Total assessments run
+    createdAt: Optional[datetime] = None # Creation timestamp
+    createdByUser: Optional[Dict] = None # Creator information
+```
+
+### Assessment
+
+```python
+@dataclass
+class Assessment:
+    id: str                              # Assessment ID
+    modelId: str                         # Target model ID
+    status: AssessmentStatus             # Current status
+    testTypes: List[str]                 # Test types being run
+    priority: Priority                   # Assessment priority
+    progress: int = 0                    # Completion percentage (0-100)
+    results: Optional[Dict] = None       # Assessment results (when complete)
+    errorMessage: Optional[str] = None   # Error message (if failed)
+    createdAt: Optional[datetime] = None # Start time
+    completedAt: Optional[datetime] = None # Completion time
+    estimatedDuration: Optional[int] = None # Estimated duration in minutes
+```
+
+## 🎯 Best Practices
+
+### 1. Use Context Managers
+
+```python
+# ✅ Good - Ensures proper cleanup
+async with AsyncModelRed() as client:
+    models = await client.list_models()
+
+# ❌ Bad - May leak connections
+client = AsyncModelRed()
+models = await client.list_models()  # Session not properly closed
+```
+
+### 2. Handle Subscription Limits
+
+```python
+from modelred import SubscriptionLimitError
+
+try:
+    model = client.create_model(...)
+except SubscriptionLimitError as e:
+    if "model limit" in e.message.lower():
+        print(f"You've reached your model limit on {e.tier} plan")
+        print("Consider upgrading or deleting unused models")
+    elif "assessment limit" in e.message.lower():
+        print("Monthly assessment limit reached")
+```
+
+### 3. Use Progress Callbacks for Long Assessments
+
+```python
+def detailed_progress(assessment):
+    print(f"Assessment {assessment.id}")
+    print(f"  Status: {assessment.status}")
+    print(f"  Progress: {assessment.progress}%")
+    if assessment.estimatedDuration:
+        print(f"  Estimated duration: {assessment.estimatedDuration}min")
+
+assessment = client.run_assessment_sync(
+    model_id="large-model",
+    test_types=["comprehensive_security"],
+    wait_for_completion=True,
+    progress_callback=detailed_progress
+)
+```
+
+## 🐛 Debugging
+
+Enable debug logging:
+
+```python
+import logging
+logging.basicConfig(level=logging.DEBUG)
+
+# The SDK will now output detailed request/response information
+client = ModelRed()
+```
+
+## 🔗 API Reference
+
+### ModelRed (Sync Client)
+
+#### Models
+
+- `create_model(model_id, provider, display_name, provider_config, description=None) -> Model`
+- `create_openai_model(model_id, display_name, **kwargs) -> Model`
+- `create_anthropic_model(model_id, display_name, **kwargs) -> Model`
+- `create_azure_model(model_id, display_name, **kwargs) -> Model`
+- `list_models() -> List[Model]`
+- `get_model(model_id) -> Model`
+- `delete_model(model_id) -> bool`
+
+#### Assessments
+
+- `create_assessment(model_id, test_types, priority=Priority.MEDIUM) -> Assessment`
+- `get_assessment(assessment_id) -> Assessment`
+- `list_assessments(limit=None) -> List[Assessment]`
+- `run_assessment_sync(model_id, test_types, **kwargs) -> Assessment`
+- `wait_for_completion(assessment_id, timeout_minutes=60, **kwargs) -> Assessment`
+
+#### API Keys
+
+- `create_api_key(name, expires_at=None) -> ApiKey`
+- `list_api_keys() -> List[ApiKey]`
+- `delete_api_key(key_id) -> bool`
+
+#### Subscription
+
+- `get_usage_stats() -> UsageStats`
+- `get_subscription_info(organization_id) -> SubscriptionInfo`
+
+### AsyncModelRed (Async Client)
+
+Same methods as `ModelRed` but with `async`/`await`:
+
+```python
+async with AsyncModelRed() as client:
+    model = await client.create_model(...)
+    assessment = await client.run_assessment(...)
+    stats = await client.get_usage_stats()
+```
+
+## 📄 License
+
+MIT License
+
+## 🤝 Support
+
+- 📧 Email: [support@modelred.com](mailto:support@modelred.com)
+- 📚 Documentation: [https://docs.modelred.com](https://docs.modelred.com)
+- 💬 Support: Available in the ModelRed dashboard
