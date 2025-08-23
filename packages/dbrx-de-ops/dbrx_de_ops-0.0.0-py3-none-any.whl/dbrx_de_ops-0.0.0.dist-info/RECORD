@@ -1,0 +1,16 @@
+dbrx_ops/__init__.py,sha256=scbUGjzY61I6LvF4PnT3MDmhX35vi_Pgw9Y3RU188Gg,113
+dbrx_ops/errors.py,sha256=mMVfO03CgaZBHtPpKMV3RzguilQj_7gJHNr3jG2Xywk,1147
+dbrx_ops/main.py,sha256=ZXio6xyQHDT_3HJbWzR8kBV0yK36U858X5RIsWiuADE,2324
+dbrx_ops/routes.py,sha256=GgvmV1CHUqynhQAvMFhH5Cnl64fCIDC5THVPtVIB-3E,6827
+dbrx_ops/s3.py,sha256=1B5zEn3Id7Dgj020uGBpKx3SADfLo4eHRdojWNSHtEE,593
+dbrx_ops/schemas.py,sha256=KTGTfOmpsSMvgAVJqO57OkAPTf40olrWFxIobdy-xM0,3161
+dbrx_ops/settings.py,sha256=kbtC4MuFDl3TLa1XSAKrxxjK1DN0c3tE6pPQ4YbSa4c,465
+dbrx_ops/monitoring/logger.py,sha256=EVENXtDApXaJUJDwlx6ikVqiUp6OTELA2ECv_v32FiM,4636
+dbrx_ops/s3/__init__.py,sha256=5DxwMArVDTq4-Lh5oYUcUF3GxHm9Vn5bczFlROYC5d4,16
+dbrx_ops/s3/delete_objects.py,sha256=lxBz--pFdcrRps7aUBqdOi5qhsOynKho3c68hOmHsr4,699
+dbrx_ops/s3/read_objects.py,sha256=du0XRVAypHF_JGqEMfThwHEEBJsotRU_7beJ7g1Giww,4147
+dbrx_ops/s3/write_objects.py,sha256=mU8B6m-qFP6V_OU_z2ATxeDn9L8PM5CqLyPOorx45is,1075
+dbrx_de_ops-0.0.0.dist-info/METADATA,sha256=gJFruHTGGzpcKqLZlO3vfmxtz3OYWRKIUKO8nkWfLC8,2344
+dbrx_de_ops-0.0.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+dbrx_de_ops-0.0.0.dist-info/top_level.txt,sha256=LVDj4WMlakP7W643IXPnCp5MaujN6OFokur4J_cM1ag,9
+dbrx_de_ops-0.0.0.dist-info/RECORD,,
