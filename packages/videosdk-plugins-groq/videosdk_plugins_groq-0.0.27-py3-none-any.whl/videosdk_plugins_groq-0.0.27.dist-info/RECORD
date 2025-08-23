@@ -1,0 +1,6 @@
+videosdk/plugins/groq/__init__.py,sha256=pL4TNS4tKMyUyxjDenPMK5e57InVM5F98XOfz3KCO5U,55
+videosdk/plugins/groq/tts.py,sha256=_kHnFFhzDRNTGH8szDsT2xDs6xitupVYuPi6POxzxz0,7141
+videosdk/plugins/groq/version.py,sha256=wG_L368kts8CwFF4jsHZcxJ8KpBLf_UH2EJrz_VZae8,23
+videosdk_plugins_groq-0.0.27.dist-info/METADATA,sha256=c2cXSvA69y6aziYx2jekMGmBi7jc5J8bY82rn-0aA8s,758
+videosdk_plugins_groq-0.0.27.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+videosdk_plugins_groq-0.0.27.dist-info/RECORD,,
