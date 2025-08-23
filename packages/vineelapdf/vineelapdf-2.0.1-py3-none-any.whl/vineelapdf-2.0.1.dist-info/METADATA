@@ -1,0 +1,14 @@
+Metadata-Version: 2.4
+Name: vineelapdf
+Version: 2.0.1
+Summary: This will convert pdf to image and text
+Author-email: Srinath Reddy <srinathreddy438@gmail.com>
+License-Expression: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: license-file
+
+This is the homepage for our project.
