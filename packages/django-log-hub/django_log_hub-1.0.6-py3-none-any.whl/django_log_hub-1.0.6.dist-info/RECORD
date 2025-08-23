@@ -1,0 +1,14 @@
+django_log_hub-1.0.6.dist-info/licenses/LICENSE,sha256=3fVa0PkSe8ImbengEWFp-CUbrKggBRfh7cNfSR5vD3Q,1088
+log_hub/__init__.py,sha256=240XhfV_AN8SMRrPG1u4GEPzyzUPFobJqHfFLuDJ2Xs,168
+log_hub/apps.py,sha256=JQ-Rx6A7xQXb4MR7qE59yCdLcRLhKvUcX8y2Cbil3zg,269
+log_hub/services.py,sha256=cYI-HDQ6Kt-v_XDX0hfhtSdls16ZsiQ5WlV1M9qmVYU,12581
+log_hub/urls.py,sha256=BSJMq4YpV_L8a1h_2D0apO_yYxYdzS2gvb-QSIZeVHM,728
+log_hub/views.py,sha256=6gy6clEauQqZm1tLQVBQZzDw-nFU-ES-EBkGRieSEMY,26459
+log_hub/locale/tr/LC_MESSAGES/django.mo,sha256=kAZ8IvAnhOr5XOZnn09XDoztfeun_NU8RDGMwbUPaW0,3469
+log_hub/locale/tr/LC_MESSAGES/django.po,sha256=Tk4IVT-0O3tQ58FNncJv9AyoQ1YmhyDm1wwBUSCh2SQ,5586
+log_hub/templates/log_hub/logging.html,sha256=zxSJBbQlC7swkvO4Oy4QIh-ltx_zN-5lA41abYLkQUY,22461
+log_hub/templates/log_hub/test_logging.html,sha256=p6FZownkIVCwzoHWAw2jRut2_YLHJtndtR4yNYxy1-c,13116
+django_log_hub-1.0.6.dist-info/METADATA,sha256=aTZHvSvoN_0J4YtLficPR6wLKuGn29j-d2izPiUQk_Y,9598
+django_log_hub-1.0.6.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+django_log_hub-1.0.6.dist-info/top_level.txt,sha256=yv1yDAh7XCJ63-5Gq1ikH1nZG0kIq5b9zGWHyRwEES8,8
+django_log_hub-1.0.6.dist-info/RECORD,,
