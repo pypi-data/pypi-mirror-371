@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: fixedfig
+Version: 0.1.0
+Summary: Global configuration of figure window size and position when using matplotlib.show()
+Requires-Python: >=3.8
+Requires-Dist: matplotlib
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
