@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "orcamentobr"
+version = "1.0.0" 
+description = "Download Official Data on Brazil's Federal Budget" 
+readme = "README.md" 
+requires-python = ">=3.7" 
+license = {text = "GPL-3.0-or-later"} 
+authors = [ 
+    {name = "Daniel Gersten Reiss", email = "daniel.reiss@planejamento.gov.br"},
+    {name = "Gabriel Soares Vera", email = "gabriel-soares.vera@planejamento.gov.br"}
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Operating System :: OS Independent"
+]
+dependencies = [
+    "pandas>=2.1",
+    "requests>=2.30"
+]
+
+[project.urls] 
+Technical_information = "https://www1.siop.planejamento.gov.br/mto/"
+
+[tool.setuptools.packages.find] #
+where = ["src"]
+
+[tool.setuptools.package-data]
+orcamentobr = ["certs/*.pem"]
+
+keywords = [
+    "orcamento", "brasil", "dados abertos", "siop", "despesa pública",
+    "budget", "brazil", "open data", "public expenditure", "transparência", "governo"
+]

@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+src/orcamentobr/__init__.py
+src/orcamentobr/despesa_detalhada.py
+src/orcamentobr/quais_dimensoes.py
+src/orcamentobr/siop_utils.py
+src/orcamentobr.egg-info/PKG-INFO
+src/orcamentobr.egg-info/SOURCES.txt
+src/orcamentobr.egg-info/dependency_links.txt
+src/orcamentobr.egg-info/requires.txt
+src/orcamentobr.egg-info/top_level.txt
+src/orcamentobr/certs/fullchainsiop.pem
+tests/test_basic.py
