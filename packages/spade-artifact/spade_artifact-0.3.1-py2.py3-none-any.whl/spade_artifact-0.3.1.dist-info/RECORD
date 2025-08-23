@@ -1,0 +1,9 @@
+spade_artifact/__init__.py,sha256=0DTigy6KsK7U9r4hT-FZbOAQaDkvn6_vUZfnjPRD-Uc,264
+spade_artifact/agent.py,sha256=lMHXYBj_zksP4xsS6p2LYnaMjDk2YMsCuxWzgUUBkd4,1645
+spade_artifact/artifact.py,sha256=pvhezEj_dd5fsfOauXwxGZqdqwhNdn4jF_WQZ6poATQ,13119
+spade_artifact-0.3.1.dist-info/licenses/AUTHORS.rst,sha256=ow4fMkDTPaDISrauSoLiqM_sBMmckoSQiYs_JQrMIjA,223
+spade_artifact-0.3.1.dist-info/licenses/LICENSE,sha256=qWpxttMvCWja0P3yovgi4St19X0sCDXcL0-6h-xot_g,1071
+spade_artifact-0.3.1.dist-info/METADATA,sha256=RPnLI1DPwtRURK-dUBbe786f1sDwDB0ehUKzqKO0dXY,4372
+spade_artifact-0.3.1.dist-info/WHEEL,sha256=7wAbZI8A1UjN-j4-aYf66qBxOZ0Ioy0QNykkY5NcGJo,109
+spade_artifact-0.3.1.dist-info/top_level.txt,sha256=zdxHuOOu7zmXYVhs7u3RBoVAfnDWEYAbHRZi_XjwHF8,15
+spade_artifact-0.3.1.dist-info/RECORD,,
