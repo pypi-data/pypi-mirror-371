@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "django-user-status"
+version = "0.1.0"
+authors = [
+  { name="Hossein Tajfirouz", email="hosseintajfirouz@gmail.com" },
+]
+description = "A Django package to show online/offline status and last seen time."
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Framework :: Django",
+    "Framework :: Django :: 4.0",
+]
+dependencies = [
+    "Django>=4.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/ht21992/django-user-status"
+Issues = "https://github.com/ht21992/django-user-status/issues"
+
+[tool.setuptools]
+packages = ["django-user-status"]

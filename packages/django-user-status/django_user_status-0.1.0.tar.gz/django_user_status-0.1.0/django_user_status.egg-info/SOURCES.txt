@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+django-user-status/__init__.py
+django-user-status/middleware.py
+django_user_status.egg-info/PKG-INFO
+django_user_status.egg-info/SOURCES.txt
+django_user_status.egg-info/dependency_links.txt
+django_user_status.egg-info/requires.txt
+django_user_status.egg-info/top_level.txt

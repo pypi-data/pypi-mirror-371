@@ -1,0 +1,51 @@
+# Django User Status
+
+A simple Django package to track and display a user's online/offline status and last seen time using Django's caching framework.
+
+## Installation
+
+1. Install the package:
+   `pip install django-user-status`
+
+2. Add the middleware to your `settings.py`:
+   ```python
+   MIDDLEWARE = [
+       # ... other middleware
+       'django_user_status.middleware.UserStatusMiddleware',
+   ]
+   ```
+
+Load the template tags in your templates:
+
+```
+{% load user_status_tags %}
+```
+
+Configuration (Optional)
+You can customize the package's behavior by adding the following settings to your settings.py file.
+
+- USER_STATUS_CACHE_DURATION: The time in seconds that a user is considered "online" after their last request. Defaults to 300 (5 minutes).
+- USER_STATUS_CACHE_KEY_PREFIX: The prefix for the cache key. Useful to avoid key collisions. Defaults to 'last_seen'.
+  Example settings.py:
+
+# Set the user to be "online" for 10 minutes
+
+USER_STATUS_CACHE_DURATION = 600
+
+# Use a different cache key prefix
+
+USER_STATUS_CACHE_KEY_PREFIX = 'user_activity'
+
+Usage
+In your templates:
+To show a user's status:
+
+```
+{% get_user_status user %}
+```
+
+To show the last seen time:
+
+```
+{% get_last_seen user %}
+```
