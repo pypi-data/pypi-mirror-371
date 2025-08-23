@@ -1,0 +1,43 @@
+Metadata-Version: 2.4
+Name: pyfibot
+Version: 1.0.0
+Summary: A Python IRC bot with modular plugin system
+License-File: LICENSE
+Requires-Python: >=3.8
+Requires-Dist: beautifulsoup4
+Requires-Dist: dataset
+Requires-Dist: feedparser>=5.1.3
+Requires-Dist: gitpython>=3.1.0
+Requires-Dist: httplib2>=0.8.0
+Requires-Dist: jsonschema>=1.0.0
+Requires-Dist: lxml>=4.6.0
+Requires-Dist: ndg-httpsclient
+Requires-Dist: pyasn1
+Requires-Dist: pydantic>=2.0.0
+Requires-Dist: pygeoip
+Requires-Dist: pyopenssl
+Requires-Dist: python-dateutil>=2.2
+Requires-Dist: python-instagram
+Requires-Dist: pytvmaze
+Requires-Dist: pytz
+Requires-Dist: pyyaml
+Requires-Dist: repoze-lru
+Requires-Dist: requests
+Requires-Dist: requests-cache>=1.0.0
+Requires-Dist: service-identity
+Requires-Dist: simplejson>=3.0.0
+Requires-Dist: sqlalchemy
+Requires-Dist: tenacity>=8.0.0
+Requires-Dist: tvdb-api
+Requires-Dist: twisted>=24.0.0
+Provides-Extra: dev
+Requires-Dist: autopep8; extra == 'dev'
+Requires-Dist: black; extra == 'dev'
+Requires-Dist: coverage; extra == 'dev'
+Requires-Dist: flake8; extra == 'dev'
+Requires-Dist: mypy; extra == 'dev'
+Requires-Dist: pep8; extra == 'dev'
+Requires-Dist: pylint; extra == 'dev'
+Requires-Dist: pytest; extra == 'dev'
+Requires-Dist: pytest-cov; extra == 'dev'
+Requires-Dist: vcrpy; extra == 'dev'

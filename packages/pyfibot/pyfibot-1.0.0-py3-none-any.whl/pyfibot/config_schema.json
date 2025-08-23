@@ -1,0 +1,128 @@
+{
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "$id": "https://pyfibot.org/config-schema.json",
+    "title": "PyFiBot Configuration Schema",
+    "description": "Schema for PyFiBot configuration files",
+    "type": "object",
+    "required": ["networks"],
+    "properties": {
+        "admins": {
+            "type": "array",
+            "description": "List of admin users (nick!user@host format)",
+            "items": {
+                "type": "string",
+                "pattern": "^.+!.+@.+$"
+            }
+        },
+        "nick": {
+            "type": "string",
+            "description": "Default nickname for the bot"
+        },
+        "logging": {
+            "type": "object",
+            "description": "Logging configuration",
+            "properties": {
+                "debug": {
+                    "type": "boolean",
+                    "description": "Enable debug logging"
+                }
+            },
+            "additionalProperties": false
+        },
+        "module_urltitle": {
+            "type": "object",
+            "description": "URL title module configuration",
+            "properties": {
+                "ignore_urls": {
+                    "type": "array",
+                    "description": "List of URL patterns to ignore",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "ignore_users": {
+                    "type": "array",
+                    "description": "List of users to ignore for URL title fetching",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "youtube_devid": {
+                    "type": "string",
+                    "description": "YouTube API developer ID"
+                },
+                "check_redundant": {
+                    "type": "boolean",
+                    "description": "Check for redundant URL titles"
+                }
+            },
+            "additionalProperties": false
+        },
+        "module_wolfram_alpha": {
+            "type": "object",
+            "description": "Wolfram Alpha module configuration",
+            "properties": {
+                "appid": {
+                    "type": "string",
+                    "description": "Wolfram Alpha application ID"
+                }
+            },
+            "additionalProperties": false
+        },
+        "networks": {
+            "type": "object",
+            "description": "Network configurations",
+            "patternProperties": {
+                "^[a-zA-Z0-9_-]+$": {
+                    "type": "object",
+                    "required": ["server"],
+                    "properties": {
+                        "server": {
+                            "type": "string",
+                            "description": "IRC server hostname"
+                        },
+                        "port": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 65535,
+                            "default": 6667,
+                            "description": "IRC server port"
+                        },
+                        "ssl": {
+                            "type": "boolean",
+                            "default": false,
+                            "description": "Use SSL connection"
+                        },
+                        "channels": {
+                            "type": "array",
+                            "description": "List of channels to join",
+                            "items": {
+                                "type": "string",
+                                "pattern": "^#.+"
+                            }
+                        },
+                        "nickname": {
+                            "type": "string",
+                            "description": "Nickname for this network"
+                        },
+                        "password": {
+                            "type": "string",
+                            "description": "Server password"
+                        },
+                        "authname": {
+                            "type": "string",
+                            "description": "Authentication username"
+                        },
+                        "authpass": {
+                            "type": "string",
+                            "description": "Authentication password"
+                        }
+                    },
+                    "additionalProperties": false
+                }
+            },
+            "additionalProperties": false
+        }
+    },
+    "additionalProperties": true
+}
