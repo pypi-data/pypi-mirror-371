@@ -1,0 +1,11 @@
+{
+	"inputs": [],
+	"servers": {
+        "vcosmos-mcp-server": {
+			"type": "stdio",
+			"command": "python",
+			"args": ["-m", "vcosmos_mcp_server"],
+			"cwd": "D:/Dev/thin_mcp"
+        }
+	}
+}
