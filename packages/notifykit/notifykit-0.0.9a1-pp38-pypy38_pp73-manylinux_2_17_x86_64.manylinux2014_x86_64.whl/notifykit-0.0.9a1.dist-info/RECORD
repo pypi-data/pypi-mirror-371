@@ -1,0 +1,12 @@
+notifykit-0.0.9a1.dist-info/METADATA,sha256=1zoLjAwAVhg_d8sS5bPnADrrzhAg_7ot4Al2YboB6J0,2697
+notifykit-0.0.9a1.dist-info/WHEEL,sha256=nW0w6nt4fq8QHTjx_Lesi9rooDLo20CHqZsS2MjuAM4,134
+notifykit-0.0.9a1.dist-info/licenses/LICENSE,sha256=JjJAG7JVYBaV_HgsyZRdPY8N3HYzl6hCVr_3pFbW2ck,11343
+notifykit/__init__.py,sha256=o0tYk57frd4CiWGLghxup_ml_cispspc_RCDmGOyWQw,912
+notifykit/_filters.py,sha256=kaAPXx9ov1LxHVaQeeHyE6vLuOUOfuqGsPW9cWTaIn4,2614
+notifykit/_notifier.py,sha256=IbCvEmzEMGZ3s8fInkkB5Jsyv3U2-mYuRsx62r7ubrY,3509
+notifykit/_notifykit_lib.pyi,sha256=Z5IzMWmwvA9A3UAieOOlftkxVa_7LX8DoQkk5D4r5IY,2446
+notifykit/_notifykit_lib.pypy38-pp73-x86_64-linux-gnu.so,sha256=xaMpVdsr0UL3E6jWTKX2yT0VownBritvZbr9cngJya4,1189096
+notifykit/_testing.py,sha256=hmotyHeUxCrNdD045GsQ5DpYV0YDvRg94yFKHSGAKa0,1747
+notifykit/_typing.py,sha256=YzOZNi1dnp82BMWw-cNymZylirzenFTwSUfLb1tCz9g,299
+notifykit/py.typed,sha256=n25sCZioOD-7kINs40a2c5i3lbOI1yWf0do7rEXdPFY,68
+notifykit-0.0.9a1.dist-info/RECORD,,
