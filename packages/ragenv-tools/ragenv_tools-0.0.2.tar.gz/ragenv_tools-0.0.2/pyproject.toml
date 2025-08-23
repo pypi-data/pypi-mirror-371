@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "ragenv_tools"
+version = "0.0.2"
+authors = [
+    { name = "ScottHu", email = "scotthu1999@foxmail.com"}
+]
+description = "Useful Tools for Database, RAG and LLM"
+requires-python = ">=3.11"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent"
+]
