@@ -1,0 +1,3 @@
+[console_scripts]
+logwatchdog = logwatchdog.cli.main:main
+lwd = logwatchdog.cli.main:main
