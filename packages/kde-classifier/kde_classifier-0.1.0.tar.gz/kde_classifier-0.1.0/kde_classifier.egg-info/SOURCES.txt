@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+kde_classifier/KDEClassifier.py
+kde_classifier/__init__.py
+kde_classifier.egg-info/PKG-INFO
+kde_classifier.egg-info/SOURCES.txt
+kde_classifier.egg-info/dependency_links.txt
+kde_classifier.egg-info/requires.txt
+kde_classifier.egg-info/top_level.txt
+tests/test_consistency.py
