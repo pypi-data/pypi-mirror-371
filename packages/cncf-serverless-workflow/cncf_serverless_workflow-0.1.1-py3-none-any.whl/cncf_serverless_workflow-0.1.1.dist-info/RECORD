@@ -1,0 +1,12 @@
+cncf_serverless_workflow/__init__.py,sha256=nLO6oTgh4n1JoUT9sbsCC5SIe2KCw-vxVYf0ZTUpsME,289
+cncf_serverless_workflow/test_workflow_engine.py,sha256=mfzuiUZLZM2aXj4i3hvbZ8fCzSc5VJoFqbI0D4Ig4Yc,12369
+cncf_serverless_workflow/test_workflow_validator.py,sha256=iqEYxF5mS1pJSUFl2w1KjfgSybwn9sTaxqijwbHg0MA,6875
+cncf_serverless_workflow/workflow_engine.py,sha256=XcSLhIh0jrSCCHCaPpBUhblGCMkg_kPL9xY2-VZDYPU,15950
+cncf_serverless_workflow/workflow_example.yaml,sha256=jzse8XnO3S6Ylhy_Tc5HO1133pSJeUS4fTkfHfAsyt8,6277
+cncf_serverless_workflow/workflow_schema.yaml,sha256=zYJqnqkFhQk5tNoP2y8wKRQXQCqfc1QnRKFCF5-KS0g,12717
+cncf_serverless_workflow/workflow_validator.py,sha256=T4IoX22Vd7w-bjW8rKsEwDG_qKaAzS3SW_ecKQi3uL8,3444
+cncf_serverless_workflow-0.1.1.dist-info/licenses/LICENSE,sha256=3Qee1EPwej_nusovTbyIQ8LvD2rXHdM0c6LNwk_D8Kc,1067
+cncf_serverless_workflow-0.1.1.dist-info/METADATA,sha256=mBekEXZ8J4UYjSTQIlMcBuRsBd3ejL7QjKrtL9JbywI,4833
+cncf_serverless_workflow-0.1.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+cncf_serverless_workflow-0.1.1.dist-info/top_level.txt,sha256=YxEWR-qOKrENfnC1aJTNPuVl-as7m9Z-5VZgxnNxso0,25
+cncf_serverless_workflow-0.1.1.dist-info/RECORD,,
