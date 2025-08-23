@@ -1,0 +1,14 @@
+rnet-3.0.0rc1.dist-info/METADATA,sha256=rYGLCg3DZhLAh_7Cyy_YRob3BWFrr8xhdruqXhzsp14,10206
+rnet-3.0.0rc1.dist-info/WHEEL,sha256=KOVWxfqI8pN4RR7Qj5iG0f3_sKbuuaNJ8VQIrKoBUWE,91
+rnet-3.0.0rc1.dist-info/licenses/LICENSE,sha256=5kQS3sJhKesKmvxcoxk0YHWru2aLDDl9rZ1vIczCp6I,35827
+rnet/__init__.py,sha256=rCluCdsKKp_tnOimCnBRyTUwqHf6fCG5bEJvEroLVd8,336
+rnet/__init__.pyi,sha256=44nCa3GpwVKvWulNEuZiI8_9YwiUswmwQAwd_8_Lwj8,30695
+rnet/blocking.py,sha256=UBx6-kqMiuPq7cHwrgvpVKoTEWKssNiY1LVoeu6sQxQ,14047
+rnet/cookie.py,sha256=Ob8cFXdcWIxkzzYdiYYiTZuCSjqhXsGBwOm25qvcxEQ,3007
+rnet/emulation.py,sha256=URe3Y1d1e9Od8iDQO24zVVMYeKJBCki1wkPLbp-stk8,5214
+rnet/exceptions.py,sha256=VACr1hk3RKCuj8ThQoljlsf-qN3d28-YgxQzxpIGvgc,6120
+rnet/header.py,sha256=M2xlcs8FZN7pi5bs5IqMF9hS7UtGhnkGuw4GojTaHaI,13386
+rnet/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+rnet/rnet.pyd,sha256=IPrxrICVhREdVrpkJQYxzo9yFzL9s3XdqnLJ2ZZanwY,7668224
+rnet/tls.py,sha256=Rz9efKe6f4vnCC69dNg0e_BeRkhBygBz6WPjy5x4UKI,4972
+rnet-3.0.0rc1.dist-info/RECORD,,
