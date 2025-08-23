@@ -1,0 +1,9 @@
+magcal/__init__.py,sha256=-vRm_Cmw1Y-x71ssONgBBYxOn2Fg7bXMiZlhl0vO7xw,168
+magcal/cli.py,sha256=dJKtYB6aJKsQeI26N_Iswf7lv9dTrq6MUAJPUwF2DEE,39354
+magcal/core.py,sha256=L5LuypSq2Eb5KPj5f7J1PRVKZfMfFQSMoP8MXyx-a4A,22912
+magcal-1.0.1.dist-info/licenses/LICENSE,sha256=6RTY7NLn73L_32vogoOeQ8Oj9xBtJYjc8xvFSoFyW5c,1071
+magcal-1.0.1.dist-info/METADATA,sha256=aVo47T7tT4nqZnTLKaIJEjvVFN8PiA9rsBZrZJ-hES4,11311
+magcal-1.0.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+magcal-1.0.1.dist-info/entry_points.txt,sha256=zSgJIc9aLxj_E2CiA0oZQ7OmnjQ4h7Kw4yUnS0aLTkk,43
+magcal-1.0.1.dist-info/top_level.txt,sha256=WVNvoJeYp9uNEMfBCl7KIp-ez3vRGFMgMEwrnlY2C8k,7
+magcal-1.0.1.dist-info/RECORD,,
