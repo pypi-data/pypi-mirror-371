@@ -1,0 +1,10 @@
+intervaltree
+matplotlib
+networkx>=3.4.2
+pandas
+rich
+seaborn
+snakemake>=8.24
+snakemake-executor-plugin-slurm
+sqlalchemy>=2.0
+typer>=0.12
