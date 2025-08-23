@@ -1,0 +1,22 @@
+name: ps_test
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - gdal>=2.4
+  - geoalchemy2<0.14.0
+  - libgdal
+  - libspatialite>=5.1.0
+  - lxml
+  - numpy<2.0
+  - packaging
+  - pillow
+  - progressbar2
+  - psycopg2
+  - python>=3.8
+  - pyyaml
+  - requests
+  - shapely
+  - spatialist>=0.15.2
+  - sqlalchemy>=1.4,<2.0
+  - sqlalchemy-utils>=0.37
