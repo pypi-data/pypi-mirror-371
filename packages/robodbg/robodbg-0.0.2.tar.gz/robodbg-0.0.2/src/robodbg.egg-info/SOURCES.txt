@@ -1,0 +1,12 @@
+LICENSE.TXT
+README.md
+pyproject.toml
+setup.py
+src/robodbg/__init__.py
+src/robodbg/dbg.cp313-win_amd64.pyd
+src/robodbg/debugger.py
+src/robodbg.egg-info/PKG-INFO
+src/robodbg.egg-info/SOURCES.txt
+src/robodbg.egg-info/dependency_links.txt
+src/robodbg.egg-info/not-zip-safe
+src/robodbg.egg-info/top_level.txt
