@@ -1,0 +1,32 @@
+Metadata-Version: 2.2
+Name: LLM4TS
+Version: 0.0.1
+Summary: LLM4TS
+Home-page: https://github.com/reml-lab/llm4ts/
+Author: REML lab developer
+Author-email: remlabdeveloper@gmail.com
+License: MIT
+Keywords: mHealth machine-learning reinforcement-learning jitai llm
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Healthcare Industry
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Topic :: System :: Distributed Computing
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: gymnasium
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: summary
+
+LLM4TS and StepCountJITAI+LLM from paper: Enhancing Adaptive Behavioral Interventions with LLM Inference from Participant-Described States, by Karine and Marlin, 2025
