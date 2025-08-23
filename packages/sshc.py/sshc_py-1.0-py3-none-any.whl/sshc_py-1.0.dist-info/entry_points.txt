@@ -1,0 +1,2 @@
+[console_scripts]
+pytty = pytty.sshshell:run
