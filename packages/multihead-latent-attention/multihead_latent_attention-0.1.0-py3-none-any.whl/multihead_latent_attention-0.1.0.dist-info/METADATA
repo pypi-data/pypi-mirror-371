@@ -1,0 +1,32 @@
+Metadata-Version: 2.4
+Name: multihead-latent-attention
+Version: 0.1.0
+Summary: Multi-head Latent Attention (MLA) - PyTorch
+Home-page: https://github.com/Nemesis-12/multihead-latent-attention
+Author: Farhan Mohammed
+Author-email: mfa200312@gmail.com
+License: MIT
+Keywords: artificial intelligence,attention,attention mechanism,deep learning,natural language processing,pytorch,transformer
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: rotary-embedding-torch
+Requires-Dist: torch
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: license
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: summary
