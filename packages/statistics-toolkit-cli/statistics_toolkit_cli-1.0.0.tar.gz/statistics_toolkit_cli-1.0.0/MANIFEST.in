@@ -1,0 +1,10 @@
+include README.md
+include LICENSE
+include MANIFEST.in
+include pyproject.toml
+include requirements.txt
+recursive-include statistics_toolkit_cli *.py
+recursive-include examples *.py *.csv
+recursive-include tests *.py
+global-exclude __pycache__
+global-exclude *.py[co]

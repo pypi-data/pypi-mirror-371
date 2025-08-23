@@ -1,0 +1,79 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "statistics-toolkit-cli"
+version = "1.0.0"
+description = "A comprehensive command-line statistics learning tool with step-by-step explanations"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "Connor O'Dea", email = "connorodea@users.noreply.github.com"}
+]
+maintainers = [
+    {name = "Connor O'Dea", email = "connorodea@users.noreply.github.com"}
+]
+keywords = ["statistics", "education", "cli", "mathematics", "learning", "data-analysis"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Education",
+    "Intended Audience :: Science/Research", 
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9", 
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Mathematics",
+    "Topic :: Education",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Environment :: Console",
+]
+dependencies = [
+    "numpy>=1.21.0",
+    "pandas>=1.3.0", 
+    "scipy>=1.7.0",
+    "matplotlib>=3.4.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0",
+    "pytest-cov",
+    "black",
+    "flake8",
+    "mypy",
+    "build",
+    "twine",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/connorodea/statistics-toolkit-cli"
+"Bug Reports" = "https://github.com/connorodea/statistics-toolkit-cli/issues"
+"Source" = "https://github.com/connorodea/statistics-toolkit-cli"
+"Documentation" = "https://github.com/connorodea/statistics-toolkit-cli#readme"
+
+[project.scripts]
+statstoolkit = "statistics_toolkit_cli.cli:main"
+stats-cli = "statistics_toolkit_cli.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["statistics_toolkit_cli*"]
+
+[tool.setuptools.package-data]
+"statistics_toolkit_cli" = ["*.txt", "*.md"]
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_classes = "Test*"
+python_functions = "test_*"
+addopts = "-v --cov=statistics_toolkit_cli --cov-report=term-missing"
