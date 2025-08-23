@@ -1,0 +1,51 @@
+Metadata-Version: 2.4
+Name: lightcurves
+Version: 1.1.1
+Summary: A package to analyze any kind of light curve/time series, e.g. with Bayesian Blocks, flare fitting (HOP), and a stochastic processe
+Author-email: Sarah Wagner <sarahwagner1602@gmail.com>
+Maintainer-email: Sarah Wagner <sarahwagner1602@gmail.com>
+License: MIT
+License-File: LICENSE.txt
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Scientific/Engineering :: Astronomy
+Classifier: Topic :: Scientific/Engineering :: Physics
+Requires-Python: >=3.10
+Requires-Dist: astropy
+Requires-Dist: lmfit
+Requires-Dist: matplotlib
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: scipy
+Requires-Dist: tqdm
+Provides-Extra: test
+Requires-Dist: pytest; extra == 'test'
+Description-Content-Type: text/markdown
+
+# lightcurves
+
+This is the lightcurves repository. Check it out: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/swagner-astro/lightcurves/blob/main/illustration_lightcurve.ipynb) <br>
+
+See here for scientific application of this code:
+https://pos.sissa.it/395/868
+
+## lc.py
+Initialize a LightCurve object based on time, flux and flux_error.
+Study its Bayesian block representation (based on Scargle et al. 2013  https://ui.adsabs.harvard.edu/abs/2013arXiv1304.2818S/abstract ).<br>
+Characterize flares (start, peak, end time) with the HOP algorithm (following Meyer et al. 2019 https://ui.adsabs.harvard.edu/abs/2019ApJ...877...39M/abstract ). There are four different methods to define flares (baseline, half, flip, sharp) as illustrated in the Jupyter Notebook.
+
+## hop.py
+Initialize a Hopject to consider parameters of an individual flare.
+
+## lc_set
+Initialize a (large) sample of light curves to study the distribution of flare parameters whithin that sample.<br>
+
+
+## Reference
+If you use this code please cite: <br>
+Wagner, S. M., Burd, P., Dorner, D., et al. 2021, PoS, ICRC2021, 868
+<url>https://ui.adsabs.harvard.edu/abs/2022icrc.confE.868W/abstract</url>
