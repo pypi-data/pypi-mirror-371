@@ -1,0 +1,29 @@
+Metadata-Version: 2.4
+Name: hanifx
+Version: 21.0.0
+Summary: Professional OTP module with backup codes and QR generation
+Home-page: https://github.com/hanifx-540
+Author: Hanif
+Author-email: sajim4653@gmail.com
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: qrcode[pil]
+Dynamic: author
+Dynamic: author-email
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# Hanifx OTP Module
+Professional OTP module with backup codes and QR generation.
+
+# pip install hanifx
+
+# use
+
+
