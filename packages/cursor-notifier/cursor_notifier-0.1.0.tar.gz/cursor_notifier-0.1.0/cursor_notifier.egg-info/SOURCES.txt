@@ -1,0 +1,10 @@
+LICENSE
+README.md
+cursor_notifier.py
+pyproject.toml
+cursor_notifier.egg-info/PKG-INFO
+cursor_notifier.egg-info/SOURCES.txt
+cursor_notifier.egg-info/dependency_links.txt
+cursor_notifier.egg-info/entry_points.txt
+cursor_notifier.egg-info/requires.txt
+cursor_notifier.egg-info/top_level.txt
