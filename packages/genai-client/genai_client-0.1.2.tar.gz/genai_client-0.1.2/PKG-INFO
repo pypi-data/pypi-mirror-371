@@ -1,0 +1,79 @@
+Metadata-Version: 2.4
+Name: genai-client
+Version: 0.1.2
+Summary: Unified minimal client for OpenAI and Google Gemini responses
+Author: indumathi
+License: MIT
+License-File: LICENSE
+Requires-Python: >=3.10
+Requires-Dist: google-genai>=1.31.0
+Requires-Dist: openai>=1.101.0
+Requires-Dist: python-dotenv>=1.1.1
+Requires-Dist: twine>=6.1.0
+Description-Content-Type: text/markdown
+
+# genai-client
+
+A tiny Python wrapper that unifies calls to OpenAI and Google Gemini with a simple, consistent interface.
+
+[![PyPI - Version](https://img.shields.io/pypi/v/genai-client.svg)](https://pypi.org/project/genai-client/) [![Python Versions](https://img.shields.io/pypi/pyversions/genai-client.svg)](https://pypi.org/project/genai-client/)
+
+## Features
+- **Unified interface**: `OpenAIClient` and `GoogleAIClient` share a similar API
+- **Batteries-included examples**: minimal scripts and tests to verify setup
+- **Type hints**: ships `py.typed`
+
+## Installation
+
+```bash
+pip install genai-client
+```
+
+## Requirements
+- Python >= 3.10
+- API keys
+  - **OpenAI**: `OPENAI_API_KEY` — get one at [OpenAI API keys](https://platform.openai.com/api-keys)
+  - **Google Gemini**: `GEMINI_API_KEY` — create at [Google AI Studio API keys](https://aistudio.google.com/app/apikey)
+
+Put keys in a `.env` at the project root (optional):
+
+```env
+OPENAI_API_KEY=sk-...
+GEMINI_API_KEY=...
+```
+
+## Quick start
+
+```python
+from genai_client import OpenAIClient, GoogleAIClient
+
+openai_client = OpenAIClient(api_key="<OPENAI_API_KEY>")
+print(openai_client.get_response("Say hi in one word"))
+
+google_client = GoogleAIClient(api_key="<GEMINI_API_KEY>")
+print(google_client.get_response("Say hi in one word"))
+```
+
+Or run the included example (loads `.env` automatically):
+
+```bash
+python example.py
+```
+
+## API
+- **`OpenAIClient(api_key: str)`**
+  - `get_response(prompt: str) -> str` (uses OpenAI Responses API with model `o4-mini`)
+  - Official docs: [OpenAI Python SDK](https://github.com/openai/openai-python), [Responses API](https://platform.openai.com/docs/api-reference/responses)
+- **`GoogleAIClient(api_key: str)`**
+  - `get_response(prompt: str) -> str` (streams text from `gemini-2.5-flash`)
+  - Official docs: [Gemini API for Python](https://ai.google.dev/gemini-api/docs/get-started/python), [google-genai SDK](https://github.com/google-gemini/generative-ai-python)
+
+## Tests / smoke checks
+
+```bash
+# ensure .env has required keys
+python tests/test_openai.py
+python tests/test_gemini.py
+```
+## License
+MIT
