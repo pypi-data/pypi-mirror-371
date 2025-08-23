@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+docforest/__init__.py
+docforest/main.py
+docforest.egg-info/PKG-INFO
+docforest.egg-info/SOURCES.txt
+docforest.egg-info/dependency_links.txt
+docforest.egg-info/top_level.txt
+tests/test_chunking.py

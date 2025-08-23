@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "docforest"
+version = "0.1.0"
+authors = [
+  { name="Yuseok William Kang", email="willysk73@outlook.com" },
+]
+description = "A package for intelligently chunking structured documents into a hierarchical, contextual tree."
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/willysk73/docforest"
+Issues = "https://github.com/willysk73/docforest/issues"
