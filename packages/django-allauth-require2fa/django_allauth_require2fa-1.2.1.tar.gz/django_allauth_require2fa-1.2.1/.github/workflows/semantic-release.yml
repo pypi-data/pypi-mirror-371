@@ -1,0 +1,204 @@
+name: Semantic Release
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:  # Allow manual triggering
+
+concurrency:
+  group: release
+  cancel-in-progress: false  # Don't cancel release workflows
+
+permissions:
+  contents: write    # Required for creating releases and pushing tags
+  id-token: write    # Required for trusted publishing to PyPI
+  issues: write      # Required for creating GitHub releases
+  pull-requests: write
+
+env:
+  PYTHONUNBUFFERED: "1"
+  FORCE_COLOR: "1"
+
+jobs:
+  # Quality gate before release
+  pre-release-checks:
+    name: Pre-Release Quality Checks
+    runs-on: ubuntu-latest
+    outputs:
+      should-release: ${{ steps.check-commits.outputs.should-release }}
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0  # Fetch full history for semantic analysis
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+          cache-dependency-glob: "uv.lock"
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: uv sync --dev
+
+      - name: Check if release is needed
+        id: check-commits
+        run: |
+          echo "Checking if semantic release is needed..."
+          # Use semantic-release to check if a release should be made
+          if NEW_VERSION=$(uv run semantic-release version --print --no-commit --no-tag --no-push --no-vcs-release 2>/dev/null); then
+            if [ "$NEW_VERSION" != "0.1.0" ]; then
+              echo "should-release=true" >> $GITHUB_OUTPUT
+              echo "new-version=$NEW_VERSION" >> $GITHUB_OUTPUT
+              echo "✅ Release should be created: $NEW_VERSION"
+            else
+              echo "should-release=false" >> $GITHUB_OUTPUT
+              echo "ℹ️ No release needed - no significant commits found"
+            fi
+          else
+            echo "should-release=false" >> $GITHUB_OUTPUT  
+            echo "ℹ️ No release needed - semantic-release found no changes"
+          fi
+
+      - name: Run all quality checks
+        if: steps.check-commits.outputs.should-release == 'true'
+        run: |
+          echo "🔍 Running linting..."
+          uv run --extra dev ruff check .
+          echo "🎨 Checking formatting..."
+          uv run --extra dev ruff format --check .
+          echo "🔒 Running security checks..."
+          uv run --extra dev bandit -r require2fa/ --exclude require2fa/tests/
+          echo "🔍 Running type checks..."
+          uv run --extra dev mypy require2fa/
+
+      - name: Run tests
+        if: steps.check-commits.outputs.should-release == 'true'
+        run: uv run python -m django test require2fa.tests --settings=require2fa.tests.settings --verbosity=2
+
+  # Main release job
+  semantic-release:
+    name: Semantic Release
+    runs-on: ubuntu-latest
+    needs: pre-release-checks
+    if: needs.pre-release-checks.outputs.should-release == 'true'
+    timeout-minutes: 15
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0  # Fetch full history for semantic analysis
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+          cache-dependency-glob: "uv.lock"
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: uv sync --dev
+
+      - name: Configure Git
+        run: |
+          git config --global user.email "351998+heysamtexas@users.noreply.github.com"
+          git config --global user.name "heysamtexas"
+
+      - name: Run Semantic Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "🚀 Running semantic release..."
+          uv run semantic-release version --push --vcs-release
+          echo "✅ Semantic release completed successfully"
+
+  # PyPI publishing job (triggered after successful semantic release)
+  pypi-publish:
+    name: Publish to PyPI
+    runs-on: ubuntu-latest
+    needs: semantic-release
+    if: needs.semantic-release.result == 'success'
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout code (latest)
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          ref: master
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+          cache-dependency-glob: "uv.lock"
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: uv sync --dev
+
+      - name: Build package with hatchling
+        run: |
+          echo "📦 Building package with hatchling via uv..."
+          uv build
+          echo "📋 Package contents:"
+          ls -la dist/
+          echo "📦 Built files:"
+          find dist/ -name "*.whl" -o -name "*.tar.gz" | xargs ls -lh
+
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          print-hash: true
+          verify-metadata: true
+
+      - name: Update GitHub Release with PyPI info
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Get the latest tag
+          LATEST_TAG=$(git describe --tags --abbrev=0)
+          echo "📦 Package published successfully!"
+          echo "🔗 PyPI: https://pypi.org/project/django-allauth-require2fa/"
+          
+          # Update the release description
+          gh release edit "$LATEST_TAG" --notes-file - <<EOF
+          🚀 **django-allauth-require2fa $LATEST_TAG** is now available on PyPI!
+          
+          ## 📦 Installation
+          \`\`\`bash
+          pip install django-allauth-require2fa
+          # or with uv (recommended)
+          uv add django-allauth-require2fa
+          \`\`\`
+          
+          ## 🔗 Links
+          - 📦 **[PyPI Package](https://pypi.org/project/django-allauth-require2fa/)**
+          - 📋 [Documentation](https://github.com/heysamtexas/django-allauth-require2fa#readme)
+          - 🐛 [Report Issues](https://github.com/heysamtexas/django-allauth-require2fa/issues)
+          
+          ## 🔒 Security
+          This package enforces site-wide Two-Factor Authentication for Django applications using django-allauth.
+          
+          ## ✨ What's New
+          $(gh release view "$LATEST_TAG" --json body -q .body)
+          
+          ---
+          🤖 Automated release with [semantic-release](https://github.com/semantic-release/semantic-release)
+          EOF
