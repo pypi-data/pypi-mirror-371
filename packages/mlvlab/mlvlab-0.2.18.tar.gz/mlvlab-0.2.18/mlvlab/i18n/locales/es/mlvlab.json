@@ -1,0 +1,227 @@
+{
+  "cli": {
+    "help": {
+      "main": "[bold green]MLV-Lab CLI[/bold green]: Ecosistema de aprendizaje de IA Visual.",
+      "list": "Lista unidades disponibles o los entornos de una unidad concreta.",
+      "play": "Juega interactivamente a un entorno (render_mode=human).",
+      "train": "Entrena un agente. Si no se especifica una semilla, se genera una aleatoria.",
+      "eval": "Evalúa un agente en modo interactivo por defecto; usa --rec para grabar.",
+      "view": "Lanza la vista interactiva asociada a un entorno.",
+      "shell": "Inicia una sesión interactiva (REPL) para ejecutar comandos de mlvlab.",
+      "help": "Muestra la ficha técnica y un enlace a la documentación del entorno.",
+      "docs": "Muestra las especificaciones técnicas y abre la documentación en el navegador.",
+      "config": "Gestiona la configuración de MLV-Lab (idioma, etc.)",
+      "commands_for_env": "Comandos para {env_cmd}"
+    },
+    "config": {
+      "no_config_file": "No se encontró archivo de configuración. Usando valores por defecto.",
+      "key_not_found": "Clave '{config_key}' no encontrada en la configuración.",
+      "current_configuration": "Configuración actual:",
+      "error_reading_config": "Error leyendo configuración: {error}",
+      "key_value_required": "Tanto la clave como el valor son requeridos para la acción 'set'.",
+      "invalid_locale": "Locale inválido. Usa 'en' para inglés o 'es' para español.",
+      "config_updated": "Configuración actualizada: {config_key} = {value}",
+      "language_changed": "Idioma cambiado a: {value}",
+      "error_updating_config": "Error actualizando configuración: {error}",
+      "config_reset": "Configuración reiniciada a valores por defecto.",
+      "no_config_to_reset": "No hay archivo de configuración para reiniciar.",
+      "unknown_action": "Acción desconocida: {action}. Usa: get, set, o reset"
+    },
+    "view": {
+      "opening_view": "🖥️  Abriendo view para [bold cyan]{env_id}[/bold cyan]..."
+    },
+    "messages": {
+      "launching": "🚀 Lanzando [bold cyan]{env_id}[/bold cyan]...",
+      "error_env_not_found": "❌ [bold red]Error:[/bold red] Entorno '{env_id}' no encontrado.",
+      "error_no_keymap": "❌ [bold red]Error:[/bold red] No se encontró un mapeo de teclas para {env_id}.",
+      "working_dir": "📂 Trabajando en el directorio: [bold yellow]{run_dir}[/bold yellow]",
+      "no_seed_random": "🌱 No se especificó semilla. Usando una aleatoria: [bold yellow]{seed}[/bold yellow]",
+      "searching_last_training": "ℹ️ No se especificó semilla. Buscando el último entrenamiento...",
+      "evaluating_from": "🎬 Evaluando desde [bold yellow]{run_dir}[/bold yellow]...",
+      "use_list_unit": "Usa: [bold]list <unidad>[/bold] para ver entornos de una unidad (ej. list ants)",
+      "error_no_algorithm": "❌ Error: No hay algoritmo de referencia definido para {env_id}.",
+      "error_training": "❌ Error al entrenar con algoritmo '{algorithm_key}': {error}",
+      "error_evaluation": "❌ Error al evaluar con algoritmo '{algorithm_key}': {error}",
+      "error_no_training": "❌ Error: No se encontró un entrenamiento válido. Ejecuta 'train' primero.",
+      "error_cannot_extract_seed": "⚠️ No se pudo extraer la semilla del nombre de la carpeta '{folder_name}'. La evaluación usará un mapa aleatorio.",
+      "error_cannot_start_view": "❌ [bold red]Error:[/bold red] No se pudo iniciar la vista: {error}",
+      "error_no_main_function": "❌ [bold red]Error:[/bold red] El módulo '{module_path}' no expone función main().",
+      "error_plugin_load": "❌ [red]Error al cargar plugin '{plugin_name}':[/red] {error}",
+      "game_started": "Juego iniciado. Usa las teclas definidas. ESC para salir.",
+      "docs_browser_opened": "📖 [bold green]Documentación abierta en el navegador[/bold green]",
+      "docs_browser_error": "⚠️  [yellow]No se pudo abrir el navegador: {error}[/yellow]",
+      "docs_full_documentation": "Documentación Online:",
+      "docs_observation_space": "Observation Space:",
+      "docs_action_space": "Action Space:"
+    },
+    "options": {
+      "seed": "Semilla para reproducibilidad (si no se da, se genera una).",
+      "episodes": "Sobrescribir el número de episodios.",
+      "render": "Renderizar el entrenamiento en tiempo real (lento).",
+      "speed": "Multiplicador de velocidad (e.g., 0.5 para mitad de velocidad).",
+      "record": "Graba y genera un vídeo de la evaluación en lugar de solo visualizar.",
+      "unit_filter": "Filtra por unidad (ej.: ants)"
+    },
+    "repl": {
+      "welcome": "Bienvenido a la sesión interactiva de MLV-Lab.",
+      "exit_tip": "Escribe 'exit' o 'quit' (o pulsa Ctrl+D) para salir.",
+      "goodbye": "Mantente al día de las novedades en nuestra web. ¡Hasta luego!"
+    },
+    "shell": {
+      "venv_not_found": "Error: No se encontró el entorno virtual en '.venv'.",
+      "starting": "Iniciando un sub-shell dentro del entorno virtual...",
+      "exit_tip": "Escribe 'exit' para volver al shell original.",
+      "error": "Error al iniciar el sub-shell: {error}"
+    },
+    "tables": {
+      "unit_id": "ID de la Unidad",
+      "collection": "Colección",
+      "description": "Descripción",
+      "name_mlv": "Nombre (MLV)",
+      "id_gymnasium": "ID (Gymnasium)",
+      "baseline_agent": "Agente de Referencia",
+      "unit_description": "Descripción de la Unidad"
+    },
+    "units": {
+      "ants": "🐜",
+      "ql": "🧠",
+      "sarsa": "🔄",
+      "dqn": "🕸️",
+      "dqnp": "🚀"
+    },
+    "unit_names": {
+      "ants": "Saga de las hormigas",
+      "ql": "Simulaciones de Q-Learning",
+      "sarsa": "Simulaciones de SARSA",
+      "dqn": "Simulaciones de DQN",
+      "dqnp": "Simulaciones DQN Plus (avanzado)"
+    },
+    "unit_descriptions": {
+      "ants": "Simulaciones de Q-Learning",
+      "ql": "Simulaciones de Q-Learning",
+      "sarsa": "Simulaciones de SARSA",
+      "dqn": "Simulaciones de DQN",
+      "dqnp": "Simulaciones DQN Plus (avanzado)"
+    },
+    "errors": {
+      "player_entry_not_found": "Error: No se pudo encontrar el script de entrada del jugador en '{path}'",
+      "play_launch_failed": "Error al lanzar el modo de juego: {error}",
+      "view_script_not_found": "Error: No se pudo encontrar el archivo de la vista para el módulo '{module_name}'",
+      "train_entry_not_found": "Error: No se pudo encontrar el script de entrada de entrenamiento en '{path}'",
+      "train_launch_failed": "Error al lanzar el modo de entrenamiento: {error}",
+      "eval_entry_not_found": "Error: No se pudo encontrar el script de entrada de evaluación en '{path}'",
+      "eval_launch_failed": "Error al lanzar el modo de evaluación: {error}"
+    },
+    "entry": {
+      "no_keymap": "Error: No se encontró mapa de teclas para el entorno '{env_id}'.",
+      "play_error": "Ocurrió un error durante el juego interactivo: {error}",
+      "no_algorithm": "Error: No se ha definido un algoritmo para el entorno '{env_id}'.",
+      "train_error": "Ocurrió un error durante el entrenamiento: {error}",
+      "no_valid_training": "Error: No se encontró un entrenamiento válido para '{env_id}'.",
+      "eval_error": "Ocurrió un error durante la evaluación: {error}"
+    }
+  },
+  "ui": {
+    "components": {
+      "simulation_controls": {
+        "title": "Controles de Simulación",
+        "close_confirm": "¿Estás seguro de que quieres cerrar la aplicación?",
+        "yes_close": "Sí, cerrar",
+        "no_cancel": "No, cancelar",
+        "turbo": "Turbo",
+        "speed_multiplier": "Multi (x{speed})"
+      },
+      "agent_hyperparameters": {
+        "title": "Configuración del Agente"
+      },
+      "metrics_dashboard": {
+        "title": "Métricas en Tiempo Real",
+        "current_reward": "Recompensa Actual: {reward}",
+        "episodes_completed": "Episodios Completados: {episodes}",
+        "map_seed": "Semilla del Mapa: {seed}",
+        "epsilon_exploration": "Epsilon Exploración: {epsilon}",
+        "steps_per_second": "Acciones por Segundo: {steps}",
+        "last_rewards": "Últimas {count} recompensas",
+        "episode": "Episodio",
+        "reward": "Recompensa"
+      },
+      "model_persistence": {
+        "title": "Gestión del Modelo",
+        "save": "Guardar",
+        "load": "Cargar",
+        "agent_no_save_method": "El agente no tiene el método 'save'.",
+        "save_must_return_dict": "El método 'save' debe devolver un diccionario.",
+        "error_agent_save": "Error en agent.save(): {error}",
+        "opening_save_dialog": "Abriendo diálogo de guardado...",
+        "agent_no_load_method": "El agente no tiene método 'load'.",
+        "model_loaded_synced": "Modelo '{filename}' cargado y sincronizado.",
+        "error_loading_model": "Error al cargar el modelo: {error}"
+      },
+      "dynamic_table": {
+        "title": "Tabla Dinámica"
+      },
+      "info_panel": {
+        "title": "Panel de Información"
+      }
+    }
+  },
+  "environments": {
+    "descriptions": {
+      "ant_scout": "Encuentra la colonia perdida"
+    }
+  },
+  "helpers": {
+    "video": {
+      "no_videos_found": "ℹ️ No se encontraron vídeos para unir.",
+      "processing_videos": "📹 Procesando {total_episodes} vídeos para añadir texto...",
+      "error_processing_clip": "- {filename:25} | ❌ Error al procesar clip: {error}",
+      "error_processing_videos": "🛑 No se pudieron procesar los vídeos.",
+      "merging_videos": "🎞️ Uniendo {count} vídeos en '{output_path}'...",
+      "error_creating_video": "🛑 Error durante la creación del vídeo final: {error}",
+      "video_created_success": "✅ Vídeo unificado y con texto creado con éxito.",
+      "error_final_video": "❌ Error: El vídeo final no se pudo crear."
+    },
+    "train": {
+      "random_respawn": "ℹ️ Configurado respawn aleatorio (unseeded) para entrenamiento.",
+      "training": "Entrenando...",
+      "training_completed": "✅ Entrenamiento completado. Q-Table guardada en: {q_path}",
+      "training_no_qtable": "⚠️ Entrenamiento completado, pero el agente no expone q_table. No se guardó archivo."
+    },
+    "eval": {
+      "deterministic_respawn": "ℹ️ Configurado respawn determinista (seeded) para evaluación.",
+      "agent_state_loaded": "🧠 Cargado estado del agente desde {agent_file}.",
+      "error_loading_agent": "⚠️ No se pudo cargar el estado del agente: {error}",
+      "evaluating": "Evaluando...",
+      "recording_final_scene": "Grabando escena final cinemática...",
+      "video_saved": "✅ Vídeo guardado exitosamente: {video_path}",
+      "error_saving_video": "❌ Error al guardar el vídeo con imageio: {error}",
+      "no_frames_generated": "⚠️ No se generaron frames para el vídeo.",
+      "evaluation_completed": "✅ Evaluación completada en modo interactivo."
+    },
+    "ng": {
+      "audio_assets_not_found": "⚠️ Advertencia: No se encontró carpeta de assets para audio. El sonido no funcionará.{debug}",
+      "audio_served_from": "🔊 Recursos de audio servidos desde: {assets_dir}"
+    }
+  },
+  "analytics": {
+    "render_thread_started": "🎥 Hilo de Renderizado [ID: {thread_id}] iniciado.",
+    "render_thread_stopped": "⏹️ Hilo de Renderizado [ID: {thread_id}] detenido.",
+    "model_saved": "💾 Modelo guardado exitosamente en: {filepath}",
+    "error_saving_file": "❌ Error al guardar el fichero: {error}",
+    "client_connected": "🔌 Cliente {client_id} conectado al stream de video.",
+    "app_startup": "🔥 Iniciando aplicación `on_startup`.",
+    "creating_threads": "🧵 Creando nuevos hilos de simulación/renderizado.",
+    "startup_completed": "🚩 Startup de hilos completado.",
+    "app_shutdown": "⛔ Deteniendo aplicación `on_shutdown`.",
+    "shutdown_cleanup": "✅ Limpieza de shutdown completada.",
+    "startup_failed": "❌ Startup falló: {error}",
+    "showing_native_window": "🚀 Mostrando ventana nativa con PySide6: Cargando {url}."
+  },
+  "common": {
+    "not_available": "N/A",
+    "no_description": "N/D",
+    "custom_unit": "Unidad personalizada",
+    "other": "Otros",
+    "dash": "—"
+  }
+}
