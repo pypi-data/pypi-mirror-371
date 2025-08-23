@@ -1,0 +1,11 @@
+mcodac/__init__.py,sha256=oDr-Pjmj2MwMEbh84jGZr1ZgQdVTVbbauJ7cO3Y5Kvc,1085
+mcodac/_mcodac.cpython-312-x86_64-linux-gnu.so,sha256=9uQgW_Aak_8G5hOhc7G2qcH0SE8nsQ38EXiFieH3SGA,6191025
+mcodac.libs/libblas-357956a1.so.3.4.2,sha256=eLqolYX0nkk2PP64pkqa0Nif8hllaovrJMGbx8jU5W0,374265
+mcodac.libs/libgfortran-040039e1.so.5.0.0,sha256=FK-zEpsai1C8QKOwggx_EVLqm8EBIaqxUpQ_cFdHKIY,2686065
+mcodac.libs/libgfortran-91cc3cb1.so.3.0.0,sha256=VePrZzBsL_F-b4oIEOqg3LJulM2DkkxQZdUEDoeBRgg,1259665
+mcodac.libs/liblapack-1ad85175.so.3.4.2,sha256=wrfEW65bG_XaXB2gB_JZR24uf8UxvWTrvVe6nIqfwu4,5682809
+mcodac.libs/libquadmath-96973f99.so.0.0.0,sha256=k0wi3tDn0WnE1GeIdslgUa3z2UVF2pYvYLQWWbB12js,247609
+mcodac-1.2.0.dist-info/LICENSE,sha256=XpanYE5WWAG5sshNB0G7dXuBAz_SsZ5A644vJpwQtak,1349
+mcodac-1.2.0.dist-info/METADATA,sha256=TXvuR_Y9EDVqGPJWgyInqdYfqyMC58QTmaXaY5WAO1o,4381
+mcodac-1.2.0.dist-info/WHEEL,sha256=VuXfanCU4NeF4WX6ZgjaqbcCplhvn9O22MHFJ5-UsmM,149
+mcodac-1.2.0.dist-info/RECORD,,
