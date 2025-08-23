@@ -1,0 +1,12 @@
+sourcemeta_jsonschema/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+sourcemeta_jsonschema/__main__.py,sha256=36eBvGngcHPjsBJZVMky1H_4IrVQr3Rng-ACD9h2fpA,506
+sourcemeta_jsonschema/jsonschema-darwin-arm64,sha256=A4535hk4W8AVg2WxLTUfxzOcbFrswlTZI-g5IKWdtlo,3399064
+sourcemeta_jsonschema/jsonschema-darwin-x86_64,sha256=4XUwWQ_fkV40pDnbDDPh0t3cy_FfK5VmwG2CrS5oGVs,3769424
+sourcemeta_jsonschema/jsonschema-linux-arm64,sha256=bDQRrn2GuYQjGhOX6gfY3PGUTEGuvNO2ppI1zbeNL0k,4449552
+sourcemeta_jsonschema/jsonschema-linux-x86_64,sha256=pb04Mvc8gHnQGd5-S9RhBzz6_Msm6CiBgv8zUpfbWR8,5292848
+sourcemeta_jsonschema/jsonschema-windows-x86_64.exe,sha256=Ukn_5FGtIueIctorzkBqzdEnEFIq1VIZdR-EQ-SXToE,2975232
+sourcemeta_jsonschema-11.3.0.dist-info/METADATA,sha256=GBcoce31yQvsvU91q5g1gGv9ju95J_fbJiI8RAxdF5c,474
+sourcemeta_jsonschema-11.3.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+sourcemeta_jsonschema-11.3.0.dist-info/entry_points.txt,sha256=rDMOsvsXgScs1CMHTPSpNwb_1pZjgoNGHaBHZO74C50,67
+sourcemeta_jsonschema-11.3.0.dist-info/top_level.txt,sha256=RM8Cvr1ERjL0V44CFy7Kw4wGLZ_oGv8R6ndpHez2fTU,22
+sourcemeta_jsonschema-11.3.0.dist-info/RECORD,,
