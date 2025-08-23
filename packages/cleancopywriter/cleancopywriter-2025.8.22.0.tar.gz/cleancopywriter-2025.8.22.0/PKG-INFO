@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: cleancopywriter
+Version: 2025.8.22.0
+Summary: Document generation tools for the cleancopy lightweight markup language
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+
+See [here](/README.clc) for more.
+
+TODO: auto-generate this from distilled cleancopy.
