@@ -1,0 +1,16 @@
+tinyrag/__init__.py,sha256=GZ-C8KWR8SM4d6QcAYNP2zIYy-NYsMyopxm1Gc6IgTk,194
+tinyrag/core/__init__.py,sha256=PfDpSiOI7MQ7-PUiHtXwx6-RcwLu_NYovbaz0F6dvIQ,184
+tinyrag/core/provider.py,sha256=lbgXmu3go5bgY5agBvkpN9FV1JCNgBcrMT3cDARM0cE,2575
+tinyrag/core/text_utils.py,sha256=dsYSOZOzyJHWb0_gUeJk0rgOq4dNmk5SEUJ6-SNUT9Y,2789
+tinyrag/core/tinyrag.py,sha256=reOyk6pRFzpzC2WyAOgxs3cDXLSz2swUBQK65F72v9o,9602
+tinyrag/vector_stores/__init__.py,sha256=16qGjHjpR5VwgHeOS1FTnxihzUo1-txIyryJwfj-cSg,394
+tinyrag/vector_stores/base.py,sha256=h8gjuYOXQMBoMbekT2VZcTLZpUJK-0rbiuxj_1HAvQo,1229
+tinyrag/vector_stores/chroma_store.py,sha256=WVIoMX2S7iOXSHDO4islv1T7Wcuw3elq7V0d3bSPMVE,4276
+tinyrag/vector_stores/faiss_store.py,sha256=WRBCWnkhlz88BTIResZveAp-mWX-gptuPydZiMK5zgU,3048
+tinyrag/vector_stores/memory_store.py,sha256=FQtE30MMZm2PxuN2YpmuvDra7-_uXGH7Vcf-ixhNVT4,2966
+tinyrag/vector_stores/pickle_store.py,sha256=Td0JGFr7Jf43Pv5dt-6saKd2GMELvkyYvnpmTt16g9E,2192
+tinyrag-0.2.0.dist-info/licenses/LICENSE,sha256=mLhamQxnJzt-24qpkH-N6hmBsVjCFqIQSSvIqR4Y0wk,1063
+tinyrag-0.2.0.dist-info/METADATA,sha256=LJyn-cj8yEUgxtSjyi5_4cMRzCtV5UR0pKULo9Vw0wE,10620
+tinyrag-0.2.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+tinyrag-0.2.0.dist-info/top_level.txt,sha256=pnXXz2CG0_piH4E0VS2Po1OoBhh4h2HCgR-CE8pz25U,8
+tinyrag-0.2.0.dist-info/RECORD,,
