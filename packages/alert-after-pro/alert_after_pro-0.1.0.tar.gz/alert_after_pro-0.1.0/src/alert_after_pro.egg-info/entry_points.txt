@@ -1,0 +1,2 @@
+[console_scripts]
+aa = alert_after_pro.main:main
