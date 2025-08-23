@@ -1,0 +1,15 @@
+ppt_translator/__init__.py,sha256=nKvd0zPadAOnJvBp5cbxNjOJZVgejs_lMIeiFWvHWPU,468
+ppt_translator/bedrock_client.py,sha256=yi-8hwCafotpyAoGBX7Thd9uWmQPw9HYjDtLiNmacUs,2674
+ppt_translator/cli.py,sha256=0GK7qB-mf3DQGzezlqdVl2TjIn2uTUU93V81_K41u8U,827
+ppt_translator/config.py,sha256=ynouWSyRTbfvkctD8z_fDGS7Vi16N1pkCkEW1Nq6zGg,11348
+ppt_translator/dependencies.py,sha256=WSOiPgWjT0jDA0xWOzz8fYmoS_Ed32_xlh_iWEQPoqU,2582
+ppt_translator/post_processing.py,sha256=oBEeV_GuzKXoSzZ4V9wiQDMUdq9sxcFWg-SBtgtenPM,7771
+ppt_translator/ppt_handler.py,sha256=ulhILpBeQM2uhyei7egMhJAN_atkN-3m1mbRqIUc5Pw,58035
+ppt_translator/prompts.py,sha256=FuL4m57_QzmrViLFZgjqJhGTfS7U6obN14MNfiZsX_o,5996
+ppt_translator/text_utils.py,sha256=zUOGdL8wMOhQb015sfEMfW-N60QlqH5Ig6OpZ-FZr7c,10042
+ppt_translator/translation_engine.py,sha256=rGp40djCPQwV0Vn3Ofg0ZDeICIpIVSzXh9t97EHo84k,7979
+ppt_translator-0.1.0.dist-info/METADATA,sha256=vyif32_3EQdQx34vSlEYrrilDZOLa8LSz0ZhLY90SZ4,15976
+ppt_translator-0.1.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+ppt_translator-0.1.0.dist-info/entry_points.txt,sha256=5Nn9DvOaxxuG55qNd5SqMluZ6wdKjXxa8igoanh42IY,99
+ppt_translator-0.1.0.dist-info/licenses/LICENSE,sha256=4gdWdCpUsfYdZJG9mT9KGvSCQU-ivCCsJpRKhAlNm70,1068
+ppt_translator-0.1.0.dist-info/RECORD,,
