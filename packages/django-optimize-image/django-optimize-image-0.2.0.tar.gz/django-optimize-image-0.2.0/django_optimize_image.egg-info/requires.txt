@@ -1,0 +1,11 @@
+Pillow
+Django
+
+[django32]
+Django<4.0,>=3.2
+
+[django42]
+Django<5.0,>=4.2
+
+[django50]
+Django<6.0,>=5.0
