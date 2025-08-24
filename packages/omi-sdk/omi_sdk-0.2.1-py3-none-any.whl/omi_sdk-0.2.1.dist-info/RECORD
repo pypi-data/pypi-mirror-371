@@ -1,0 +1,11 @@
+omi/__init__.py,sha256=-E-opeFknAmKThU5j3t5Vvs27TEuBel126AlhfCRm1E,418
+omi/bluetooth.py,sha256=UhIDFQvUs4Q9J5JswwC28K9tS5Vna6NOc3JLd5dnwow,938
+omi/decoder.py,sha256=EyGcolRMAvy9roIQr5e9qp03EvbV4dJK__66uunNvhk,991
+omi/discover_characteristics.py,sha256=UyoeZE4rr-fUy82luVN0pqgvFeA_Eeo1NK_CdSdVhGM,942
+omi/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+omi/transcribe.py,sha256=ENoFRkZbcWvdoUrjpOdNskioMY0ZFf6VfLDGf5pLPt4,3551
+omi_sdk-0.2.1.dist-info/METADATA,sha256=X2MYF3A3lLGGGqHFViKS9Vagowme-1723KumDbTKR_I,6665
+omi_sdk-0.2.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+omi_sdk-0.2.1.dist-info/entry_points.txt,sha256=wpvPNBNkqC0ac5dGv71Fr_rPzSU9-Mcir1JmQ5lCV8Y,57
+omi_sdk-0.2.1.dist-info/top_level.txt,sha256=ZBul8U9NAmSPPAbbs3E5Fr3yeaez2rH8HaikC1uze6k,4
+omi_sdk-0.2.1.dist-info/RECORD,,
