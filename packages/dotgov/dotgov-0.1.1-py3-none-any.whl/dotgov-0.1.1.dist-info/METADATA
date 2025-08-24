@@ -1,0 +1,15 @@
+Metadata-Version: 2.3
+Name: dotgov
+Version: 0.1.1
+Summary: A library for accessing government Open Data
+Author: Germán Muñoz
+Author-email: Germán Muñoz <46906587+munozbravo@users.noreply.github.com>
+Requires-Dist: pydantic>=2.11.7
+Requires-Dist: python-dotenv>=1.1.1
+Requires-Dist: requests>=2.32.4
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+
+# dotgov
+
+## A library for accessing government Open Data
