@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: entari-plugin-arkgacha
+Version: 0.2.0
+Summary: Entari plugin for arknights gacha
+Author-Email: RF-Tar-Railt <rf_tar_railt@qq.com>
+License: MIT
+Requires-Python: >=3.9
+Requires-Dist: arclet-entari<0.16.0,>=0.15.0
+Requires-Dist: arknights-toolkit>=0.7.7
+Description-Content-Type: text/markdown
+
+# entari-plugin-arkgacha
+Entari plugin for Arknights gacha
