@@ -1,0 +1,43 @@
+[project]
+name = "mkdocs-md-preview"
+version = "1.0.0"
+description = "MkDocs plugin for side-by-side markdown preview"
+readme = "README.md"
+requires-python = ">=3.7"
+license = {text = "MIT"}
+authors = [
+    {name = "Paul Liu", email = "20290410+Paulkm2006@users.noreply.github.com"},
+]
+keywords = ["mkdocs", "plugin", "markdown", "preview", "side-by-side"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Documentation",
+    "Topic :: Software Development :: Documentation",
+    "Topic :: Text Processing :: Markup :: Markdown",
+]
+dependencies = [
+    "mkdocs>=1.0",
+    "markdown>=3.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/Paulkm2006/mkdocs-md-preview"
+
+[project.entry-points."mkdocs.plugins"]
+md-preview = "mkdocs_md_preview:MarkdownPreviewPlugin"
+
+[tool.setuptools.packages.find]
+include = ["mkdocs_md_preview*"]
+
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"

@@ -1,0 +1,214 @@
+﻿# MkDocs Markdown Preview Plugin
+
+A MkDocs plugin that renders markdown code blocks with md preview syntax into side-by-side boxes, showing both the original source code and the rendered output.
+
+## Features
+
+-  **Side-by-side preview**: Shows markdown source and rendered output simultaneously
+-  **Customizable headers**: Configure titles for source and rendered sections
+-  **Responsive design**: Automatically adapts to mobile devices
+-  **Easy integration**: Simple setup with existing MkDocs projects
+-  **Horizontal scrolling**: Handles wide content without truncation
+-  **Nested code blocks**: Properly handles code blocks within preview blocks
+
+## Installation
+
+Install the plugin using pip:
+
+```bash
+pip install mkdocs-md-preview
+```
+
+## Usage
+
+### 1. Add to MkDocs configuration
+
+Add the plugin to your mkdocs.yml file:
+
+```yaml
+plugins:
+  - md-preview
+```
+
+### 2. Configure (optional)
+
+You can customize the plugin with these options:
+
+```yaml
+plugins:
+  - md-preview:
+      enable: true
+      left_title: "Markdown Source"
+      right_title: "Rendered Output"
+```
+
+### 3. Add CSS (recommended)
+
+Add the CSS styles to your extra.css file:
+
+```css
+/* Markdown Preview Plugin Styles */
+.markdown-preview-container {
+    margin: 1.5em 0;
+    border: 1px solid var(--md-default-fg-color--lighter);
+    border-radius: 0.2rem;
+    background-color: var(--md-code-bg-color);
+    overflow: hidden;
+}
+
+.markdown-preview-wrapper {
+    display: flex;
+    min-height: 200px;
+    overflow-x: auto;
+    min-width: 100%;
+}
+
+.markdown-preview-left,
+.markdown-preview-right {
+    flex: 1;
+    min-width: 300px;
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+    white-space: nowrap;
+}
+
+.markdown-preview-left {
+    border-right: 1px solid var(--md-default-fg-color--lighter);
+}
+
+.markdown-preview-header {
+    background-color: var(--md-default-fg-color--lightest);
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-bottom: 1px solid var(--md-default-fg-color--lighter);
+    color: var(--md-default-fg-color--light);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.markdown-preview-content {
+    flex: 1;
+    padding: 1rem;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+.markdown-preview-left .markdown-preview-content {
+    background-color: var(--md-code-bg-color);
+}
+
+.markdown-preview-left .markdown-preview-content pre {
+    margin: 0;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    white-space: pre;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+.markdown-preview-left .markdown-preview-content code {
+    background-color: transparent;
+    padding: 0;
+    font-size: 0.85em;
+    line-height: 1.4;
+    white-space: pre;
+    display: block;
+    overflow-x: auto;
+}
+
+.markdown-preview-right .markdown-preview-content {
+    background-color: var(--md-default-bg-color);
+    white-space: normal;
+}
+
+.markdown-preview-rendered {
+    min-width: 100%;
+    overflow-x: auto;
+}
+
+.markdown-preview-rendered > *:first-child {
+    margin-top: 0 !important;
+}
+
+.markdown-preview-rendered > *:last-child {
+    margin-bottom: 0 !important;
+}
+
+.markdown-preview-rendered table {
+    min-width: 100%;
+    white-space: nowrap;
+}
+
+.markdown-preview-rendered pre {
+    overflow-x: auto;
+    white-space: pre;
+}
+
+.markdown-preview-rendered code {
+    white-space: pre;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+    .markdown-preview-wrapper {
+        flex-direction: column;
+        overflow-x: visible;
+    }
+    
+    .markdown-preview-left,
+    .markdown-preview-right {
+        max-width: none;
+        min-width: 100%;
+    }
+    
+    .markdown-preview-left {
+        border-right: none;
+        border-bottom: 1px solid var(--md-default-fg-color--lighter);
+    }
+    
+    .markdown-preview-content {
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    
+    .markdown-preview-right .markdown-preview-content {
+        white-space: normal;
+    }
+}
+```
+
+### 4. Use in your markdown files
+
+Use the md preview syntax in your markdown files:
+
+```markdown
+```md preview
+# Example Heading
+
+This is **bold text** and this is *italic text*.
+
+- List item 1
+- List item 2
+- List item 3
+
+```python
+def hello_world():
+    print("Hello, World!")
+
+\```
+
+This will render as a side-by-side view showing both the markdown source and the rendered HTML output.
+
+## Configuration Options
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| enable | bool | 	rue | Enable or disable the plugin |
+| left_title | string | "Markdown Source" | Title for the source code panel |
+| 
+ight_title | string | "Rendered Output" | Title for the rendered output panel |
+```
