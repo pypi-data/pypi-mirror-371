@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: gamezone
+Version: 0.0.1
+Summary: A collection of classic arcade games built with Python and Turtle Graphics.
+Home-page: https://github.com/shreeya2424/pygamezone
+Author: Shreeya Singh
+Author-email: shreeyasingh2404@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: turtle
+
+## GameZone ðŸŽ®
+A collection of classic arcade games built with Python and Turtle Graphics.
+
+### Installation
+You can install the library directly from PyPI:
+
+```bash
+pip install gamezone-library
+```
+### How to Play
+Once installed, you can play the Snake game from your Python script:
+
+```bash
+from gamezone import run_snake_game
+run_snake_game()
+``` 
+### How to View Available Games
+To see a list of all games in the library, use the list_games function:
+```bash
+from gamezone import list_games
+list_games()
+```
