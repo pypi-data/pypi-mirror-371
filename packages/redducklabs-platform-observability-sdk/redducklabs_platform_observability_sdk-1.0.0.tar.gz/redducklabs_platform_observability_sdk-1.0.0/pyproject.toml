@@ -1,0 +1,86 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "redducklabs-platform-observability-sdk"
+version = "1.0.0"
+description = "Python SDK for Platform Observability log ingestion and analytics"
+readme = "README.md"
+requires-python = ">=3.8"
+license = "MIT"
+authors = [
+  {name = "Red Duck Labs", email = "support@redducklabs.com"}
+]
+keywords = ["observability", "logging", "monitoring", "analytics", "platform"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Topic :: System :: Logging",
+  "Topic :: System :: Monitoring",
+]
+dependencies = [
+  "requests>=2.25.0",
+  "urllib3>=1.26.0",
+  "python-dateutil>=2.8.0",
+  "typing-extensions>=4.0.0; python_version < '3.10'",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=7.0.0",
+  "pytest-cov>=4.0.0",
+  "pytest-asyncio>=0.21.0",
+  "black>=22.0.0",
+  "isort>=5.10.0",
+  "flake8>=5.0.0",
+  "mypy>=1.0.0",
+  "pre-commit>=2.20.0",
+]
+async = [
+  "aiohttp>=3.8.0",
+  "asyncio>=3.8.0",
+]
+structured = [
+  "structlog>=22.0.0",
+  "rich>=12.0.0",
+]
+
+[project.scripts]
+obs-cli = "platform_observability.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/redducklabs/platform-observability"
+Repository = "https://github.com/redducklabs/platform-observability"
+Issues = "https://github.com/redducklabs/platform-observability/issues"
+Documentation = "https://docs.redducklabs.com/platform-observability"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["platform_observability*"]
+
+[tool.black]
+line-length = 120
+target-version = ['py38']
+
+[tool.isort]
+profile = "black"
+line_length = 120
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--tb=short --strict-markers"
