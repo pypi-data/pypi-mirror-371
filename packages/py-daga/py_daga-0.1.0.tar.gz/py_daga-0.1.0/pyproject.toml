@@ -1,0 +1,35 @@
+[project]
+name = "py-daga"
+version = "0.1.0"
+description = "Py-Daga: Saga DAGs Made Easy"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [
+    { name = "River Studio", email = "git@river-studio.net" }
+]
+classifiers = [
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3.13"
+]
+requires-python = ">=3.13"
+dependencies = [
+    "networkx>=3.5",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.1",
+    "pytest-asyncio>=1.1.0",
+]
+docs = [
+    "pdoc3>=0.11.6",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["test"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = ["-v", "--tb=short"]
+pythonpath = ["src"]
