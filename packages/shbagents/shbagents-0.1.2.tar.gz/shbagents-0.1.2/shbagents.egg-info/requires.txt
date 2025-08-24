@@ -1,0 +1,11 @@
+jinja2>=3.1.4
+rich>=13.9.4
+requests>=2.32.3
+openai
+
+[dev]
+pytest>=6.0
+pytest-cov>=2.0
+black>=22.0
+isort>=5.0
+flake8>=4.0
