@@ -1,0 +1,2 @@
+[console_scripts]
+ml-jupyter-mcp = jupyter_mcp.server:main

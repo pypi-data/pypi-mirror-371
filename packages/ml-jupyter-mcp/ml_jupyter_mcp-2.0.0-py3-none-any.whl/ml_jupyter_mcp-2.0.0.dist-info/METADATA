@@ -1,0 +1,23 @@
+Metadata-Version: 2.4
+Name: ml-jupyter-mcp
+Version: 2.0.0
+Summary: UV-centric Jupyter kernel execution for Claude via MCP with enhanced error handling
+Author: Mayank Ketkar
+Project-URL: Homepage, https://github.com/mayankketkar/ml-jupyter-mcp
+Project-URL: Repository, https://github.com/mayankketkar/ml-jupyter-mcp
+Project-URL: Issues, https://github.com/mayankketkar/ml-jupyter-mcp/issues
+Requires-Python: >=3.11
+Requires-Dist: fastmcp>=2.11.0
+Requires-Dist: jupyter
+Requires-Dist: ipykernel
+Requires-Dist: nbformat
+Requires-Dist: jupyter_client
+Provides-Extra: dev
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: black; extra == "dev"
+Requires-Dist: isort; extra == "dev"
+Requires-Dist: ruff; extra == "dev"
+Requires-Dist: mypy; extra == "dev"
+Provides-Extra: formatting
+Requires-Dist: black; extra == "formatting"
+Requires-Dist: isort; extra == "formatting"
