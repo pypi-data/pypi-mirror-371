@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+ComponentCalc/__init__.py
+ComponentCalc/cli.py
+ComponentCalc.egg-info/PKG-INFO
+ComponentCalc.egg-info/SOURCES.txt
+ComponentCalc.egg-info/dependency_links.txt
+ComponentCalc.egg-info/entry_points.txt
+ComponentCalc.egg-info/top_level.txt
