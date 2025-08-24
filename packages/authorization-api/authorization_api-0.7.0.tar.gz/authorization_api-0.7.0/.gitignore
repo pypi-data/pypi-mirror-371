@@ -1,0 +1,7 @@
+dist/
+venv/
+*.pyc
+.vscode/
+temp/
+.coverage
+*.code-workspace
