@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: universal-uicreator
+Version: 1.0.0
+Summary: Universal UI Creator Model: ultra-lightweight, futuristic, cross-language UI framework.
+Home-page: 
+Author: Raymond Flanary
+Author-email: 
+License: Proprietary
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: License :: Other/Proprietary License
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: User Interfaces
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown

@@ -1,0 +1,5 @@
+setup.py
+universal_uicreator.egg-info/PKG-INFO
+universal_uicreator.egg-info/SOURCES.txt
+universal_uicreator.egg-info/dependency_links.txt
+universal_uicreator.egg-info/top_level.txt
