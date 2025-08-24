@@ -1,0 +1,81 @@
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[project]
+name = "smbcrawler"
+dynamic = ["version"]
+authors = [
+    {name = "Adrian Vollmer", email = "adrian.vollmer@syss.de"},
+]
+description = 'Search SMB shares for interesting files'
+readme = "README.md"
+requires-python = ">=3.10"
+keywords = ["pentest", "smb", "shares", "reconnaissance"]
+license = {text = "MIT License"}
+classifiers = [
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+dependencies = [
+    'impacket>=0.9.20',
+    'python-libnmap',
+    'lxml',
+    'python-magic',
+    'peewee',
+    'click',
+    'xdg_base_dirs',
+    'pyyaml',
+    'zundler>=0.2.1',
+]
+
+[project.optional-dependencies]
+binary-conversion = ["markitdown"]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.1",
+    "mypy>=1.0.0",
+    "ruff>=0.0.243",
+    "types-pyyaml",
+    "pytest-stub",
+    "pip",
+    "pre-commit",
+]
+
+[tool.setuptools]
+packages = ["smbcrawler"]
+
+[tool.setuptools-git-versioning]
+enabled = true
+
+[project.urls]
+"Homepage" = 'https://github.com/SySS-Research/smbcrawler'
+"Bug Tracker" = 'https://github.com/SySS-Research/smbcrawler/issues'
+
+[project.scripts]
+smbcrawler = "smbcrawler.__main__:main"
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.build.hooks.vcs]
+version-file = "_version.py"
+
+[tool.hatch.build.targets.sdist]
+include = ["src"]
+
+[tool.pytest.ini_options]
+norecursedirs = "tests/shares"
+filterwarnings = "ignore::DeprecationWarning"
+minversion = "8.0"
+addopts = "-ra -q"
+pythonpath = "src tests"
+testpaths = [
+    "tests",
+]
