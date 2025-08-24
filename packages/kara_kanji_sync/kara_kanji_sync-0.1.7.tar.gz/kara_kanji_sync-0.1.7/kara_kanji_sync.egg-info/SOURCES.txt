@@ -1,0 +1,7 @@
+README.md
+pyproject.toml
+kara_kanji_sync.egg-info/PKG-INFO
+kara_kanji_sync.egg-info/SOURCES.txt
+kara_kanji_sync.egg-info/dependency_links.txt
+kara_kanji_sync.egg-info/requires.txt
+kara_kanji_sync.egg-info/top_level.txt
