@@ -1,0 +1,41 @@
+Metadata-Version: 2.4
+Name: classiloom
+Version: 0.1.1
+Summary: CLI image classification trainer with Gemini-driven hyperparameters and modern Keras backbones
+Author: You
+License: MIT
+Project-URL: Homepage, https://pypi.org/project/classiloom/
+Project-URL: Source, https://example.com/classiloom
+Keywords: machine-learning,deep-learning,image-classification,tensorflow,cli,gemini
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: typer>=0.12.0
+Requires-Dist: rich>=13.7.1
+Requires-Dist: numpy>=1.23
+Requires-Dist: pillow>=10.0.0
+Requires-Dist: pandas>=2.0.0
+Requires-Dist: scikit-learn>=1.3.0
+Requires-Dist: matplotlib>=3.7.0
+Requires-Dist: google-generativeai>=0.7.0
+Requires-Dist: python-dotenv>=1.0.0
+Requires-Dist: tqdm>=4.66.0
+Requires-Dist: tensorflow<3.0,>=2.16; platform_system != "Darwin" or platform_machine != "arm64"
+Requires-Dist: tensorflow-macos<3.0,>=2.16; platform_system == "Darwin" and platform_machine == "arm64"
+
+# classiloom
+
+CLI trainer for image classification. Gemini proposes hyperparameters. Keras backbones (MobileNetV2, EfficientNetB0, ResNet50) or a compact CNN. No database. Artifacts and metrics saved under `runs/`.
+
+## Commands
+
+- `classiloom set gemini_api <token>`
+- `classiloom set gemini_model <name>`
+- `classiloom scan <dataset_dir> --out runs`
+- `classiloom suggest <scan_json> --trials 8 --out runs`
+- `classiloom train <dataset_dir> <configs_json> --idx 0 --out runs [--mixed-precision] [--fine-tune]`
+- `classiloom predict <image_path> <model_dir>`
