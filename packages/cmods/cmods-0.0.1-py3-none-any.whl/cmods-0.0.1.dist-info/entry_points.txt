@@ -1,0 +1,2 @@
+[console_scripts]
+cmods = cmods.cli:main
