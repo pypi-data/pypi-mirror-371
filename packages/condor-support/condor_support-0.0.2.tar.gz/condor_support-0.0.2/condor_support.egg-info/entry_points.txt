@@ -1,0 +1,3 @@
+[console_scripts]
+condor-history-scraper = condor_support.condor_history_scraper:main
+condor-log-scraper = condor_support.log_scraper:main
