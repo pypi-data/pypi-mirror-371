@@ -1,0 +1,136 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "schema-dataclass"
+version = "0.0.2"
+description = "Python 2/3 兼容的 DataClass 库，支持完整的数据校验功能和自定义错误消息"
+readme = "README.md"
+license = "GPL-3.0-or-later"
+authors = [
+    {name = "Schemas DataClass Team", email = "bb.qnyd@gmail.com"}
+]
+maintainers = [
+    {name = "Schemas DataClass Team", email = "bb.qnyd@gmail.com"}
+]
+keywords = ["dataclass", "validation", "python2", "python3", "schema", "fields"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 2",
+    "Programming Language :: Python :: 2.7",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.4",
+    "Programming Language :: Python :: 3.5",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Utilities",
+]
+requires-python = ">=3.8"
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0.0",
+    "pytest-cov>=3.10.0",
+    "pytest-mock>=3.0.0",
+    "pytest-xdist>=2.0.0",
+    "flake8>=4.0.0",
+    "black>=22.0.0",
+    "tox>=3.20.0",
+]
+test = [
+    "pytest>=6.0.0",
+    "pytest-cov>=3.10.0",
+    "pytest-mock>=3.14.1",
+]
+docs = [
+    "sphinx>=4.0.0",
+    "sphinx-rtd-theme>=1.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/b40yd/schemas-python"
+Documentation = "https://github.com/b40yd/schemas-python/blob/main/README.md"
+Repository = "https://github.com/b40yd/schemas-python.git"
+"Bug Reports" = "https://github.com/b40yd/schemas-python/issues"
+Changelog = "https://github.com/b40yd/schemas-python/blob/main/CHANGELOG.md"
+
+
+
+[tool.hatch.build.targets.wheel]
+packages = ["schema_dataclass"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/schema_dataclass",
+    "/tests",
+    "/examples",
+    "/docs",
+    "/README.md",
+    "/CHANGELOG.md",
+    "/LICENSE",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+    "-v",
+    "--tb=short",
+    "--strict-markers",
+    "--disable-warnings",
+    "--cov=schema_dataclass",
+    "--cov-report=term-missing",
+    "--cov-report=html:htmlcov",
+    "--cov-report=xml",
+]
+markers = [
+    "unit: 单元测试",
+    "integration: 集成测试",
+    "slow: 慢速测试",
+    "python2: Python 2 特定测试",
+    "python3: Python 3 特定测试",
+    "error_messages: 自定义错误消息测试",
+    "validation: 验证功能测试",
+    "dataclass: dataclass 功能测试",
+]
+minversion = "3.0"
+filterwarnings = [
+    "ignore::DeprecationWarning",
+    "ignore::PendingDeprecationWarning",
+]
+
+[tool.coverage.run]
+source = ["schema_dataclass"]
+omit = [
+    "*/tests/*",
+    "*/test_*.py",
+    "setup.py",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if self.debug:",
+    "if settings.DEBUG",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if 0:",
+    "if __name__ == .__main__.:",
+    "class .*\\bProtocol\\):",
+    "@(abc\\.)?abstractmethod",
+]
