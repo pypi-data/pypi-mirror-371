@@ -1,0 +1,11 @@
+[console_scripts]
+rag-orchestrator = rag_orchestrator.__main__:main
+
+[rag_orchestrator.agents]
+compressor = rag_orchestrator.agents.builtin.compressor:factory
+coordinator = rag_orchestrator.agents.builtin.coordinator:factory
+dialogue = rag_orchestrator.agents.builtin.dialogue:factory
+drafting = rag_orchestrator.agents.builtin.drafting:factory
+reranker = rag_orchestrator.agents.builtin.reranker:factory
+retriever = rag_orchestrator.agents.builtin.retriever:factory
+validator = rag_orchestrator.agents.builtin.validator:factory
