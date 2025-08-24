@@ -1,0 +1,14 @@
+rlottie_python-1.3.8.dist-info/RECORD,,
+rlottie_python-1.3.8.dist-info/LICENSE,sha256=IMF9i4xIpgCADf0U-V1cuf9HBmqWQd3qtI3FSuyW4zE,26526
+rlottie_python-1.3.8.dist-info/METADATA,sha256=PRUJdhO2SNdTkyD246OgDb0V1KfpLM7a7F_khiZYt7w,36540
+rlottie_python-1.3.8.dist-info/entry_points.txt,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+rlottie_python-1.3.8.dist-info/WHEEL,sha256=A7ugo3K74YVjUSKkLPOfUnO5wBvISWSCOMOm0nMdM8E,102
+rlottie_python.libs/libgcc_s-8b50eaaa.so.1,sha256=WXj_FYQE1MDIyb-nN8siUALdxit6NHma0p9UxemQV8o,101649
+rlottie_python.libs/libstdc++-8baf04f9.so.6.0.28,sha256=yrzOxg1heyJ9Y-43YCLLn04Cpl_A68FN0D2Q1iBTMcY,2428961
+rlottie_python/librlottie.so.0.2,sha256=TPEFceZwn3DZDUEhMqm0AaF8kRCxntUPYUTnaDxfD7k,675133
+rlottie_python/librlottie.so.0,sha256=TPEFceZwn3DZDUEhMqm0AaF8kRCxntUPYUTnaDxfD7k,675133
+rlottie_python/_rlottiecommon.py,sha256=ykL-F2-DuB8jlzggbZoGzaGegGmTJE89yelVSpvHIVA,3917
+rlottie_python/librlottie.so,sha256=TPEFceZwn3DZDUEhMqm0AaF8kRCxntUPYUTnaDxfD7k,675133
+rlottie_python/rlottie_wrapper.py,sha256=MotsPIz9MuhXolLkwDdSLK_jQ1xUJGEXutj6_QEGc88,31305
+rlottie_python/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+rlottie_python/__init__.py,sha256=e1HSumJWvGtkcF1G3vTSRA9quXdIJyBGJ1wH1a9Ge9A,224
