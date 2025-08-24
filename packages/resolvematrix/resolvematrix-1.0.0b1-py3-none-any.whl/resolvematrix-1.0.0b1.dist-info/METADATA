@@ -1,0 +1,117 @@
+Metadata-Version: 2.4
+Name: resolvematrix
+Version: 1.0.0b1
+Summary: Matrix server resolver library for Python
+Author-email: Nexus <pip@nexy7574.co.uk>
+License-Expression: MPL-2.0
+Project-URL: Source, https://codeberg.org/timedout/resolvematrix
+Project-URL: Tracker, https://codeberg.org/timedout/resolvematrix/issues
+Project-URL: Matrix Room, https://matrix.to/#/#ontopic:timedout.uk
+Project-URL: Funding, https://ko-fi.com/nexy7574
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Communications
+Classifier: Topic :: Internet
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Classifier: Topic :: Utilities
+Requires-Python: <3.14,>=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: httpx~=0.28
+Requires-Dist: dnspython~=2.7
+Requires-Dist: pydantic~=2.11
+Provides-Extra: dev
+Requires-Dist: pytest~=8.4; extra == "dev"
+Requires-Dist: twine~=6.1; extra == "dev"
+Requires-Dist: build~=1.3; extra == "dev"
+Dynamic: license-file
+
+# ResolveMatrix
+
+ResolveMatrix is a Python library providing the utilities required to resolve both client and server to server
+API endpoints. It fully conforms to the Matrix specification outlined
+[in the client-to-server specification](https://spec.matrix.org/v1.15/client-server-api/#server-discovery) and
+[server-to-server specification](https://spec.matrix.org/v1.15/server-server-api/#server-discovery).
+
+## Installing
+
+You can install the latest release from PyPI:
+
+```bash
+pip install --pre resolvematrix
+```
+
+Or get the latest via Git:
+
+```bash
+pip install git+https://codeberg.org/timedout/resolvematrix.git
+```
+
+## Usage
+
+### Command line
+
+You can use the command `mxresolve` to resolve a server name from the command line:
+
+```bash
+$ mxresolve example.com
+https://matrix.example.com
+```
+
+### Client to Server
+
+You can resolve a server name as follows:
+
+```python
+import resolvematrix
+
+resolver = resolvematrix.ClientResolver()
+result = resolver.resolve("example.com")
+print(result)  # "https://matrix.example.com"
+
+# You can also use the server_from_user_id helper utility to extract the server name from a user ID:
+result = resolver.resolve(resolvematrix.server_from_user_id("@alice:example.com"))
+print(result)  # "https://matrix.example.com"
+
+# And even manually pass a server URL!
+result = resolver.resolve("https://matrix.example.com")
+print(result)  # "https://matrix.example.com"
+```
+
+### Server to Server
+
+You can resolve a server name as follows:
+
+```python
+import resolvematrix
+
+resolver = resolvematrix.ServerResolver()
+result = resolver.resolve("matrix.org")
+print(repr(result))  # "ServerDestination(hostname='matrix-federation.matrix.org:443', host_header='matrix-federation.matrix.org:443', sni='matrix-federation.matrix.org')"
+
+# You then need to do a little bit of wrangling to get an actual connection.
+import httpx
+
+response = resolver.client.get(
+    f"{result.base_url}/_matrix/federation/v1/version",
+    headers={"Host": result.host_header},
+    extensions={"sni_hostname": result.sni} if result.sni else {},
+).raise_for_status()
+
+# Other libraries may have different ways of specifying SNI and custom Host headers.
+# See also: https://stackoverflow.com/a/77743443
+```
+
+## Contact
+
+Talk to me in my matrix room: [#ontopic:timedout.uk](https://matrix.to/#/#ontopic:timedout.uk).
