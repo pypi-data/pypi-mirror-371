@@ -1,0 +1,2 @@
+[console_scripts]
+inmemory = inmemory.cli:main
