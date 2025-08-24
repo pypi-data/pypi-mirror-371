@@ -1,0 +1,152 @@
+Metadata-Version: 2.4
+Name: LLMEvaluationFramework
+Version: 0.0.1
+Summary: End-to-End LLM Evaluation and Auto-Suggestion Framework
+Home-page: https://github.com/isathish/LLMEvaluationFramework
+Author: Sathishkumar Nagarajan
+Author-email: mail@sathishkumarnagarajan.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-python
+Dynamic: summary
+
+# LLM Evaluation Framework
+
+## Overview
+The **LLM Evaluation Framework** is an end-to-end Python package for evaluating Large Language Models (LLMs) across multiple dimensions and automatically suggesting the most suitable model for specific use cases.  
+It evaluates models based on **performance**, **efficiency**, **cost**, and **suitability** metrics.
+
+---
+
+## Features
+- **Model Registry**: Centralized storage of model metadata, capabilities, and pricing.
+- **Test Dataset Generator**: Automatically generates test prompts based on use case requirements.
+- **Model Inference Engine**: Runs evaluations, measures response time, cost, and quality.
+- **Auto-Suggestion Engine**: Recommends the best model for a given use case based on weighted scoring.
+- **Extensible**: Easily add new models, evaluation criteria, and scoring logic.
+
+---
+
+## Installation
+
+### From PyPI
+```bash
+pip install llm-evaluation-framework
+```
+
+### From Source
+```bash
+git clone https://github.com/isathish/LLMEvaluationFramework.git
+cd LLMEvaluationFramework/llm_evaluation_framework
+pip install .
+```
+
+---
+
+## Quick Start
+
+```python
+from llm_evaluation_framework.model_registry import ModelRegistry
+from llm_evaluation_framework.test_dataset_generator import TestDatasetGenerator
+from llm_evaluation_framework.model_inference_engine import ModelInferenceEngine
+from llm_evaluation_framework.auto_suggestion_engine import AutoSuggestionEngine
+
+# Step 1: Initialize components
+registry = ModelRegistry()
+dataset_gen = TestDatasetGenerator()
+inference_engine = ModelInferenceEngine(registry)
+suggestion_engine = AutoSuggestionEngine(registry)
+
+# Step 2: Define use case requirements
+use_case = {
+    "domain": "finance",
+    "required_capabilities": ["reasoning", "factual"],
+    "max_response_time": 5,
+    "budget": 2.0
+}
+
+# Step 3: Generate test cases
+test_cases = dataset_gen.generate_test_cases(use_case, num_cases=5)
+
+# Step 4: Evaluate models
+evaluation_results = []
+for model_id in registry.list_models():
+    result = inference_engine.evaluate_model(model_id, test_cases, use_case)
+    evaluation_results.append(result)
+
+# Step 5: Get model suggestions
+suggestions = suggestion_engine.suggest_model(evaluation_results, use_case)
+
+# Step 6: Print top recommendation
+best_model = suggestions[0]
+print(f"Recommended Model: {best_model['model_info']['name']}")
+print(f"Score: {best_model['score']}")
+print(f"Strengths: {best_model['strengths']}")
+print(f"Weaknesses: {best_model['weaknesses']}")
+```
+
+---
+
+## Project Structure
+```
+llm_evaluation_framework/
+│
+├── llm_evaluation_framework/
+│   ├── __init__.py
+│   ├── model_registry.py
+│   ├── test_dataset_generator.py
+│   ├── model_inference_engine.py
+│   ├── auto_suggestion_engine.py
+│
+├── tests/
+│   └── __init__.py
+│
+├── setup.py
+├── README.md
+├── LICENSE
+```
+
+---
+
+## Developer Guide
+
+### Adding a New Model
+1. Open `model_registry.py`
+2. Add a new entry to the `self.models` dictionary with:
+   - `name`
+   - `provider`
+   - `capabilities`
+   - `context_window`
+   - `modalities`
+   - `api_cost_input` / `api_cost_output`
+   - `max_tokens`
+   - `rate_limits`
+
+### Adding a New Evaluation Criterion
+1. Update `_get_evaluation_criteria` in `test_dataset_generator.py`
+2. Implement the evaluation logic in `model_inference_engine.py`
+
+### Modifying Scoring Weights
+- Update `self.weights` in `auto_suggestion_engine.py`
+
+---
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## Author
+**Sathish Kumar N**  
+GitHub: [isathish](https://github.com/isathish)
