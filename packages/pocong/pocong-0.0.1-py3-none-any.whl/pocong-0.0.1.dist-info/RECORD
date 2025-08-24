@@ -1,0 +1,10 @@
+pocong/__init__.py,sha256=Hl0PkSkg6LV6IRLzXnGc0K2GY-drxkZEpt5qTAVDUkY,109
+pocong/_version.py,sha256=lFdQvQoFDy2FCOX2FKmyIeFP2PdDGvhHWi5UPkmnr7U,497
+pocong/cli.py,sha256=_f_aU4pckbQ_baF9oHwbqwmBFiQFn5Irvi-v5rDZ70o,529
+pocong/pocong.py,sha256=h0hwdogXGFqerm-5ZPeT-irPn91pCcQRjiHThXsRzEk,19
+pocong/utils.py,sha256=MAbbL9PXRWnBpJKgI869ZfY42Eph73zcbJyK0jH2Nak,35
+pocong-0.0.1.dist-info/METADATA,sha256=lEEGvo2_VbsPf3vKd0Jwyt6TMX8WwX3NwDen4Qn9YGU,1925
+pocong-0.0.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+pocong-0.0.1.dist-info/entry_points.txt,sha256=Q3F4OQIZJzlnS2tnEuTzcn2tN4S5Btd08o_9Otdb4bM,43
+pocong-0.0.1.dist-info/top_level.txt,sha256=ZMo2AlCPGpM4N7hHVSNoIjbM1D90yjFhRra0YmCfTO4,7
+pocong-0.0.1.dist-info/RECORD,,
