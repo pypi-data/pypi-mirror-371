@@ -1,0 +1,10 @@
+boabem-0.2.0.dist-info/METADATA,sha256=Uk3YSRkQ7_a_It4TFKxR3qVzsv0BQ59ZbkQ5ovt_DOg,4231
+boabem-0.2.0.dist-info/WHEEL,sha256=t07xY19Z7thuaqXI0ZB_djYM6zRWcCtJv2Oi7G5sIOE,105
+boabem-0.2.0.dist-info/licenses/LICENSE-APACHE,sha256=Ykl5ow-cV--aVQBMfxC7bq-MU8pBPTjUkbcpdXshOp0,10925
+boabem-0.2.0.dist-info/licenses/LICENSE-MIT,sha256=7O6lf2nE_qHapKnY44ZaGx-PevK8iiH6MtDcl_vXk5Q,1062
+boabem.libs/libgcc_s-1e52349c.so.1,sha256=Ani0u_W_tB8ESsFePO4D2mn2lrgWLhyFdw6RETxBTYM,437537
+boabem/__init__.py,sha256=DoeC7o2G5vZxQwOYZW5ITFb9m9sx67_3JMCRnfWjeIg,137
+boabem/boabem.abi3.so,sha256=9yGhdJWVJ5SsDO4DPNcOvWM3dW8kexOSbc6rwE6JZnU,25521033
+boabem/boabem.pyi,sha256=LOIn6H6F10Ka9Xcq79TjptHFY-QjqQD9nRJkcwy1Dec,306
+boabem/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+boabem-0.2.0.dist-info/RECORD,,
