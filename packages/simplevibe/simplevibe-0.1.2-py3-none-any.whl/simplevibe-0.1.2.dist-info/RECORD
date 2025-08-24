@@ -1,0 +1,11 @@
+simplevibe/__init__.py,sha256=7w4ZZN9SWeeMUduMzmGcvtuN3rCZVafrf0l15KgdnzM,5149
+simplevibe/api.py,sha256=2ziSGSCgNY3gKcymzT3YVmCemJsPjqOpMlIdgPW5824,2782
+simplevibe/cli.py,sha256=6ev-icjOqzu75ASLIaPZrrx7S-zvU4f2VRWl1dBgBwQ,3565
+simplevibe/core.py,sha256=AkavtzYvGvRxoXf0yba197mkpwboOKQ4mRwrgbp8u_4,3098
+simplevibe/vibe_source.py,sha256=k-2SNZ4fUP_38vTOASgOXqy77dCS5OurTnKyYn5Iebw,4562
+simplevibe-0.1.2.dist-info/licenses/LICENSE,sha256=OphKV48tcMv6ep-7j-8T6nycykPT0g8ZlMJ9zbGvdPs,1066
+simplevibe-0.1.2.dist-info/METADATA,sha256=5gtTnA5HGxRkkW1VnJYZ8xYpcwoKaNUg74A1KZfGYWY,5433
+simplevibe-0.1.2.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+simplevibe-0.1.2.dist-info/entry_points.txt,sha256=v2S2_HxrphSfsB1le_bZZaN2t5CabyiyoevfYLDpZqk,51
+simplevibe-0.1.2.dist-info/top_level.txt,sha256=yzppD2YA30NkWTWMyy_S4_-6ep8nNUXGkW3vIF3HKaY,11
+simplevibe-0.1.2.dist-info/RECORD,,
