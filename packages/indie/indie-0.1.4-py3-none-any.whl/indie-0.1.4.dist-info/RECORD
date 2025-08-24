@@ -1,0 +1,9 @@
+indie/__init__.py,sha256=Wzf5T3NBDfhQoTnhnRNHSlAsE0XMqbclXG-M81Vas70,22
+indie/__main__.py,sha256=Risj3kjvXmkb8M42JnD3d6HiCtN_6CisG5sz2KVXp58,14087
+indie/proxmox_http_response_server.py,sha256=QznL2H7gQmB4gngD6vN7WUghSR2-0X1ny0XFzL0XbP8,3175
+indie-0.1.4.dist-info/licenses/LICENSE,sha256=-Y6jhXKguXq700veV1PeGnKCmJzzVfbQ08zPg3T_ghQ,1079
+indie-0.1.4.dist-info/METADATA,sha256=_zOiPVSoSA19hDjqg1fW4k3Sw3yZ_-cmXkaVh06GZ4U,2286
+indie-0.1.4.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+indie-0.1.4.dist-info/entry_points.txt,sha256=h4VETZaKIU7BgWoHJN0BXgd1oT6hPy-z6uiWmZ6fOi8,46
+indie-0.1.4.dist-info/top_level.txt,sha256=QwiGsDaPtnHak4dMX60a9i9xgBwqSvuDiUc8QgRYxGY,6
+indie-0.1.4.dist-info/RECORD,,
