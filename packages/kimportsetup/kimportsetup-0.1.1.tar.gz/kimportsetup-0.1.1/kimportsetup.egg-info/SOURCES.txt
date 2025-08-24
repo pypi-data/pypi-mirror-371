@@ -1,0 +1,9 @@
+pyproject.toml
+setup.py
+kimportsetup/__init__.py
+kimportsetup/main.py
+kimportsetup.egg-info/PKG-INFO
+kimportsetup.egg-info/SOURCES.txt
+kimportsetup.egg-info/dependency_links.txt
+kimportsetup.egg-info/entry_points.txt
+kimportsetup.egg-info/top_level.txt
