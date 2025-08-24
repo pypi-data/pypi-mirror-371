@@ -1,0 +1,2 @@
+[console_scripts]
+snapkit = snapkit.utils.cli.cli_handler:main
