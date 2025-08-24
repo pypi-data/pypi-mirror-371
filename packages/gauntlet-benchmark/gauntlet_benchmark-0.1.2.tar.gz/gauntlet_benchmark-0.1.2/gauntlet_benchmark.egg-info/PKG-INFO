@@ -1,0 +1,190 @@
+Metadata-Version: 2.4
+Name: gauntlet-benchmark
+Version: 0.1.2
+Summary: A next-generation MARL evaluation framework for comprehensive robustness testing.
+Author-email: Tanvish Desai <tanvishdesai.05@gmail.com>
+License-Expression: MIT
+Project-URL: Homepage, https://github.com/tanvishdesai/gauntlet-benchmark
+Project-URL: Bug Tracker, https://github.com/tanvishdesai/gauntlet-benchmark/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: torch
+Requires-Dist: numpy
+Requires-Dist: gymnasium
+Requires-Dist: hydra-core
+Requires-Dist: omegaconf
+Requires-Dist: matplotlib
+Requires-Dist: seaborn
+Requires-Dist: wandb
+Provides-Extra: nash
+Requires-Dist: nashpy; extra == "nash"
+Provides-Extra: openspiel
+Requires-Dist: open_spiel; extra == "openspiel"
+Provides-Extra: pettingzoo
+Requires-Dist: pettingzoo; extra == "pettingzoo"
+Provides-Extra: dev
+Requires-Dist: build; extra == "dev"
+Requires-Dist: twine; extra == "dev"
+Requires-Dist: pytest; extra == "dev"
+Dynamic: license-file
+
+# Gauntlet MARL Benchmark
+
+A next-generation MARL evaluation framework for comprehensive robustness testing of multi-agent reinforcement learning policies. This library provides a unified approach to evaluating agents against diverse adversarial strategies, environmental variations, and temporal challenges.
+
+## Features
+
+- **Comprehensive Adversarial Testing**: Evaluate policies against neural adversaries, adaptive opponents, and strategic challengers
+- **Environmental Robustness**: Test across multiple environment configurations and domain shifts
+- **Temporal Evaluation**: Assess continual learning capabilities and catastrophic forgetting
+- **Rich Visualization**: Generate detailed plots and reports for analysis
+- **Extensible Architecture**: Easy to add new environments, challengers, and evaluation metrics
+
+## Installation
+
+Install the core library from PyPI:
+```bash
+pip install gauntlet-benchmark
+```
+
+For additional features, you can install optional dependencies:
+```bash
+# For Nash Equilibrium metrics
+pip install gauntlet-benchmark[nash]
+
+# For OpenSpiel environments
+pip install gauntlet-benchmark[openspiel]
+
+# For PettingZoo environments
+pip install gauntlet-benchmark[pettingzoo]
+
+# For development tools
+pip install gauntlet-benchmark[dev]
+```
+
+### Development Installation
+
+If you're installing from source or in development mode:
+
+```bash
+# Install in development mode
+pip install -e .
+```
+
+**Note**: After installation, import the package as `from gauntlet import ...`, not `from gauntlet_benchmark import ...`
+
+## Quickstart
+
+Here's a simple example of how to evaluate a basic policy:
+
+```python
+import torch
+import torch.nn as nn
+from gauntlet import EnhancedGauntletBenchmark, EvaluationConfig
+
+# 1. Define your policy
+class SimpleRPSPolicy(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.network = nn.Sequential(
+            nn.Linear(6, 32),
+            nn.ReLU(),
+            nn.Linear(32, 3)
+        )
+    def forward(self, x):
+        return self.network(x)
+
+# 2. Configure the benchmark
+config = EvaluationConfig(
+    num_episodes=100,
+    parallel_workers=4,
+    save_visualizations=True
+)
+gauntlet = EnhancedGauntletBenchmark(config)
+
+# 3. Instantiate your policy
+my_policy = SimpleRPSPolicy()
+my_policy.to(torch.device(config.device))
+
+# 4. Run the evaluation!
+# By default, Gauntlet has an RPS environment registered.
+print("Running evaluation against the built-in challenger suite...")
+metrics = gauntlet.evaluate_policy(my_policy, "SimpleRPSPolicy")
+
+# 5. Generate a report
+report = gauntlet.generate_report("my_policy_report.json")
+print(f"Evaluation complete! Robustness Score: {metrics.robustness_score:.3f}")
+print("Report and visualizations saved to current directory.")
+```
+
+## Advanced Usage
+
+### Custom Challenger Agents
+
+Create your own adversarial agents by subclassing `ChallengerAgent`:
+
+```python
+from gauntlet import ChallengerAgent
+import torch.nn as nn
+
+class MyCustomChallenger(ChallengerAgent):
+    def __init__(self, strategy="aggressive"):
+        super().__init__(name=f"CustomChallenger-{strategy}")
+        self.strategy = strategy
+        # Initialize your custom model here
+
+    def act(self, observation, legal_actions=None):
+        # Implement your adversarial strategy
+        return self.model(observation)
+```
+
+### Environment Integration
+
+Add new environments by implementing the `Environment` interface:
+
+```python
+from gauntlet import Environment
+
+class MyCustomEnvironment(Environment):
+    def __init__(self, config):
+        super().__init__(config)
+        # Initialize your environment
+
+    def reset(self):
+        # Reset environment state
+        return initial_observation
+
+    def step(self, actions):
+        # Execute actions and return next state
+        return observation, rewards, done, info
+```
+
+## Documentation
+
+For detailed documentation, API reference, and advanced examples, visit our [GitHub repository](https://github.com/tanvishdesai/gauntlet-benchmark).
+
+## Contributing
+
+We welcome contributions! Please see our [contributing guidelines](CONTRIBUTING.md) for details on how to get involved.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Citation
+
+If you use this library in your research, please cite:
+
+```bibtex
+@software{gauntlet_benchmark,
+  title={Gauntlet Benchmark},
+  author={Tanvish Desai},
+  year={2024},
+  url={https://github.com/tanvishdesai/gauntlet-benchmark}
+}
+```
