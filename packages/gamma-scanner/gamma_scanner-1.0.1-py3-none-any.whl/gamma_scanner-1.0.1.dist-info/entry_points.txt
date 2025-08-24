@@ -1,0 +1,3 @@
+[console_scripts]
+gamma = gamma_scanner.cli:main
+gamma-scanner = gamma_scanner.cli:main
