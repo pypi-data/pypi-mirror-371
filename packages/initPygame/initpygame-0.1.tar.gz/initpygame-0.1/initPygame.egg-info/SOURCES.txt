@@ -1,0 +1,8 @@
+setup.py
+initPygame/__init__.py
+initPygame/core.py
+initPygame.egg-info/PKG-INFO
+initPygame.egg-info/SOURCES.txt
+initPygame.egg-info/dependency_links.txt
+initPygame.egg-info/requires.txt
+initPygame.egg-info/top_level.txt
