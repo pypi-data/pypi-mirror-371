@@ -1,0 +1,17 @@
+autoterminal/__init__.py,sha256=mcNgUSlGq4ARiNa7WAAjzJuDCWXVasp2z73rp-0DPA4,155
+autoterminal/history.py,sha256=-ATLYeOTKggxmHJshUxIQrE3YuEiygsV9iDSUtDqR0Q,2753
+autoterminal/main.py,sha256=PMzw87lpJv7LUalEiG-CuDYAd1HRiGrLDsNnCsDRDzY,5725
+autoterminal/config/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+autoterminal/config/loader.py,sha256=W9JCo9Q2zETLL5wj5W_S50lxrvNNWccz0QUgBirjoyg,1042
+autoterminal/config/manager.py,sha256=FIZW5SG-WZmToXjiBRT4R2r455s9N5t5TDP_YSBzGw8,4393
+autoterminal/history/__init__.py,sha256=qDe3ORmZQ5cGkIC6tEMGa26jADssNZw4DUQVZIYBHDQ,97
+autoterminal/history/history.py,sha256=y20N12qdZ-NXzMp2uM9ePNQgVsplQNotwg7xucp4pAo,3023
+autoterminal/llm/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+autoterminal/llm/client.py,sha256=oOj0ihY6PRQYyeY51EaSdpvJfjWU0eC7M6I5kQgnzLU,3597
+autoterminal/utils/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+autoterminal/utils/helpers.py,sha256=pFbdA1EeX4ymFzTpQ9nqkGQG_8cFPHZoPBwUE3Xs7fo,352
+autoterminal-0.1.1.dist-info/METADATA,sha256=7fVxbiE6Nj2Gs01293mSsYModDbIhSiMWWWWTiTRpXM,4134
+autoterminal-0.1.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+autoterminal-0.1.1.dist-info/entry_points.txt,sha256=VDNURiyEu0V9sc4V6cn_azcS7LwOG5HnMFGaqB29HzQ,46
+autoterminal-0.1.1.dist-info/top_level.txt,sha256=xO1lMS0kQkKO2GS9LKLHsemU9E9BApZgUSOsv5T_HD0,13
+autoterminal-0.1.1.dist-info/RECORD,,
