@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: creality-k1-api
+Version: 0.0.1
+Summary: A Python API for the Creality K1 3D printer
+Home-page: https://github.com/hurricaneb/creality_k1_api
+Author: hurricaneb
+Author-email: hurricaneb@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: websockets
+
+# Creality K1 API
+
+A Python package to communicate with the Creality K1 3D printer.
+
+## Installation
+
+```bash
+pip install creality_k1_api
+```
+
+## Usage
+
+```python
+import asyncio
+from creality_k1_api import CrealityK1Client
+
+async def main():
+    client = CrealityK1Client("192.168.1.100", 9999)
+    await client.connect()
+
+    # Your code here
+
+    await client.disconnect()
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
