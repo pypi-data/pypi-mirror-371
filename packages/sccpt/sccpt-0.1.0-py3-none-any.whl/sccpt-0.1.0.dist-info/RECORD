@@ -1,0 +1,12 @@
+sccpt/__init__.py,sha256=rgrYZFMZubc9bWmoRo1QMhhm1XrR8pDyskilC9EEiqo,1238
+sccpt/capture.py,sha256=i4hOA8liETKJFSy6IUdPrcCDFmhz2FZtj-Ph9aeba3U,19487
+sccpt/gif.py,sha256=kE3tw1-ZatoKnthGqLbo9IBolJMQuX7LMdzqgynFRb4,11789
+sccpt/utils.py,sha256=ipgou0T_4pGM9d4u3JDpLRf4Tv8Sb5Z_tJUMXCNe6dI,11963
+tests/__init__.py,sha256=jO-fDmnr4nlUD25bGwk5ySxSHuBPTGBLCO3VuOGOPRM,30
+tests/conftest.py,sha256=6YF0JgBU8QIh7A-NJ3Qm21xGPmHw1u8I4HWW8MoQH2E,892
+tests/test_sccpt.py,sha256=JgaV-z1ZXW5d2eWXvrLonejmu_yJFI0mWTjVO-tniqQ,5448
+sccpt-0.1.0.dist-info/METADATA,sha256=wJm0SntzZfVsh5UAY27ExpxROQJIELgiS0R-vfyCbvU,9731
+sccpt-0.1.0.dist-info/WHEEL,sha256=tZoeGjtWxWRfdplE7E3d45VPlLNQnvbKiYnx7gwAy8A,92
+sccpt-0.1.0.dist-info/entry_points.txt,sha256=_16FIShVb4d3OrZul5NWYHFCZpGNVMF5MXvz4bcwA7k,42
+sccpt-0.1.0.dist-info/top_level.txt,sha256=G99C4i8TBKDPqltOtl2kxgdDnGrW656lDkWN2Zu4g4c,12
+sccpt-0.1.0.dist-info/RECORD,,
