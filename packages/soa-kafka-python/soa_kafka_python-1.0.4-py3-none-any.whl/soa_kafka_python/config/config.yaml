@@ -1,0 +1,176 @@
+# Kafka Configuration
+connections:
+  kafka:
+    zookeeper: "localhost:2181"
+    bootstrap_servers: "kafka-soa-dev-kafka-bootstrap.dev.svc:9092"
+    schema_registry_url: "http://10.51.245.36:32514"
+
+  rtsp:
+    camera1:
+#      url: "rtsp://localhost:8554/stream"
+       url: "rtsp://127.0.0.1:8554/video"
+
+  smtp:
+    server: "10.1.66.149"
+
+  plc:
+    broadcast_plc_address: "opc.tcp://10.95.95.230:4840"
+
+  database:
+    nonv_postgres_db:
+      dbtype: "postgresql"
+      host: "stj-mi-general.cabgj6i1daee.eu-central-1.rds.amazonaws.com"
+      db_name: "postgres"
+      port: 5432
+      username: "postgres"
+      password: "postgres"
+
+    nonv_mssql_db:
+      dbtype: "mssql"
+      host: "pointcpweumsqlprd.3ca18ceb27a6.database.windows.net"
+      db_name: "pointdb"
+      port: 1433
+      username: "STJFinance"
+      password: "NmTIG8tNTaPQ6Qa2JfmuEcfgpGsPXnjt"
+    
+    nonv_aws_db:
+      dbtype: "aws_timestream"
+      access_key: "AKIA2HW4B45BCGR3PDPJ"
+      access_secret: "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" 
+
+producers_configs:
+  camera1_integration:
+    pub_topic: "camera1.video.jpeg.integration.v1.dev"
+    schema_subject_name: "camera.video.jpeg.dev-value_avro"
+    frame_quality: 100
+    acks: 'all' # '0', '1', 'all'
+    compression_type: "lz4"   # 'none', 'gzip', 'snappy', 'lz4', 'zstd'
+    retries: 3
+    retry_backoff_ms: 1000
+    batch_size: 16384
+    linger_ms: 20
+    enable_idempotence: true
+
+  camera1_process:
+    pub_topic: "camera1.video.jpeg.process.v1.dev"
+    schema_subject_name: "camera.video.jpeg.dev-value_avro"
+    frame_quality: 100
+    acks: 'all' # '0', '1', 'all'
+    compression_type: "lz4"   # 'none', 'gzip', 'snappy', 'lz4', 'zstd'
+    retries: 3
+    retry_backoff_ms: 1000
+    batch_size: 16384
+    linger_ms: 20
+    enable_idempotence: true
+
+  query_request:
+    pub_topic: "adhoc.query.request.v1.dev"
+    schema_subject_name: "adhoc.query.request.v1.dev-value_avro"
+    acks: 'all'
+    compression_type: "lz4"
+    retries: 3
+    retry_backoff_ms: 1000
+    batch_size: 16384
+    linger_ms: 20
+    enable_idempotence: true
+
+  query_response:
+    pub_topic: "adhoc.query.response.v1.dev"
+    schema_subject_name: "adhoc.query.response.v1.dev-value_avro"
+    acks: 'all'
+    compression_type: "lz4"
+    retries: 3
+    retry_backoff_ms: 1000
+    batch_size: 16384
+    linger_ms: 20
+    enable_idempotence: true
+
+  notification:
+    pub_topic: "soa.notification.json.broadcast.v1.dev"
+    schema_subject_name: "soa.notification.json.broadcast.v1.dev-value_avro"
+    acks: 'all'
+    compression_type: "lz4"
+    retries: 3
+    retry_backoff_ms: 1000
+    batch_size: 16384
+    linger_ms: 20
+    enable_idempotence: true
+
+consumers_configs:
+  camera1_integration:
+    sub_topic: "camera1.video.jpeg.integration.v1.dev"
+    schema_subject_name: "camera.video.jpeg.dev-value_avro"
+    group_id: "camera1_video_integration"
+    auto_offset_reset: "earliest" # 'earliest', 'latest'
+    enable_auto_commit: true
+    max_poll_interval_ms: 600000
+    max_poll_records: 100000
+    heartbeat_interval_ms: 10000
+    session_timeout_ms: 30000
+
+  camera1_process:
+    sub_topic: "camera1.video.jpeg.integration.v1.dev"
+    schema_subject_name: "camera.video.jpeg.dev-value_avro"
+    group_id: "camera1_video_process"
+    auto_offset_reset: "earliest" # 'earliest', 'latest'
+    enable_auto_commit: true
+    max_poll_interval_ms: 600000
+    max_poll_records: 100000
+    heartbeat_interval_ms: 10000
+    session_timeout_ms: 30000
+
+  camera1_process_saver:
+    sub_topic: "camera1.video.jpeg.process.v1.dev"
+    schema_subject_name: "camera.video.jpeg.dev-value_avro"
+    group_id: "camera1_video_saver"
+    auto_offset_reset: "earliest" # 'earliest', 'latest'
+    enable_auto_commit: true
+    max_poll_interval_ms: 600000
+    max_poll_records: 100000
+    heartbeat_interval_ms: 10000
+    session_timeout_ms: 30000
+
+  query_request:
+    sub_topic: "adhoc.query.request.v1.dev"
+    schema_subject_name: "adhoc.query.request.v1.dev-value_avro"
+    group_id: "query_request_processor"
+    auto_offset_reset: "earliest"
+    enable_auto_commit: true
+    max_poll_interval_ms: 600000
+    max_poll_records: 100000
+    heartbeat_interval_ms: 10000
+    session_timeout_ms: 30000
+
+  query_response:
+    sub_topic: "adhoc.query.response.v1.dev"
+    schema_subject_name: "adhoc.query.response.v1.dev-value_avro"
+    group_id: "query_response_consumer"
+    auto_offset_reset: "earliest"
+    enable_auto_commit: true
+    max_poll_interval_ms: 600000
+    max_poll_records: 100000
+    heartbeat_interval_ms: 10000
+    session_timeout_ms: 30000
+
+  notification:
+    sub_topic: "soa.notification.json.broadcast.v1.dev"
+    schema_subject_name: "soa.notification.json.broadcast.v1.dev-value_avro"
+    group_id: "notification_processor"
+    auto_offset_reset: "earliest"
+    enable_auto_commit: true
+    max_poll_interval_ms: 600000
+    max_poll_records: 100000
+    heartbeat_interval_ms: 10000
+    session_timeout_ms: 30000
+
+app_controls:
+  demo_app:
+    enabled: true
+    query_partition_id: 0
+  cv_second_filter:
+    enabled: false
+    query_partition_id: 1
+  ts_root_cause_analysis:
+    enabled: false
+    query_artition_id: 2
+
