@@ -1,0 +1,125 @@
+[build-system]
+requires = ["hatchling", "maturin>=1.8.7", "setuptools-rust>=1.11.1"]
+build-backend = "hatchling.build"
+
+[project]
+name = "mcp-sqlserver-filesystem"
+version = "0.2.2"
+description = "Enhanced MCP server for SQL Server and filesystem access with dual interface support (Web UI and Desktop Application)"
+authors = [
+    {name = "PJ", email = "peng.it@qq.com"}
+]
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.11"
+keywords = ["mcp", "sqlserver", "filesystem", "web-ui", "desktop-app", "interactive", "database", "cross-platform", "dual-interface", "native-app", "precompiled-binaries"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: User Interfaces",
+    "Topic :: Desktop Environment",
+    "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+    "Topic :: Database",
+    "Topic :: System :: Filesystems",
+    "Operating System :: OS Independent",
+    "Environment :: Web Environment",
+    "Environment :: X11 Applications",
+    "Environment :: Win32 (MS Windows)",
+    "Environment :: MacOS X",
+]
+
+dependencies = [
+    "fastmcp>=2.0.0",
+    "pyodbc>=5.0.0",
+    "sqlalchemy>=2.0.0",
+    "pydantic>=2.0.0",
+    "python-dotenv>=1.0.0",
+    "aiofiles>=23.0.0",
+    "fastapi>=0.115.0",
+    "uvicorn>=0.30.0",
+    "jinja2>=3.1.0",
+    "websockets>=13.0.0",
+    "aiohttp>=3.8.0",
+    "psutil>=7.0.0",
+    "mcp>=1.9.3",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "pytest-cov>=4.0.0",
+    "pytest-timeout>=2.1.0",
+    "black>=23.0.0",
+    "isort>=5.12.0",
+    "flake8>=6.0.0",
+    "mypy>=1.0.0",
+    "pre-commit>=3.0.0",
+    "ruff>=0.11.0",
+    "twine>=6.1.0",
+    "bump2version>=1.0.1",
+    "maturin>=1.8.7",
+    "setuptools-rust>=1.11.1",
+    "pillow>=11.2.1",
+]
+desktop = [
+    "psutil>=7.0.0",
+]
+
+[project.scripts]
+mcp-sqlserver-filesystem = "mcp_sqlserver_filesystem.__main__:main"
+
+[project.urls]
+Homepage = "https://github.com/ppengit/mcp-sqlserver-filesystem"
+Repository = "https://github.com/ppengit/mcp-sqlserver-filesystem"
+Issues = "https://github.com/ppengit/mcp-sqlserver-filesystem/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/mcp_sqlserver_filesystem"]
+include = [
+    "/src/mcp_sqlserver_filesystem/desktop_binaries/*",
+]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/src",
+    "/src-tauri",
+    "/scripts",
+    "/tests",
+    "/README.md",
+    "/README_EN.md",
+    "/LICENSE",
+    "/Makefile",
+    "/build.bat",
+    "/pyproject.toml",
+    "/src/mcp_sqlserver_filesystem/desktop_binaries",
+]
+
+# 桌面应用程序二进制文件现在直接存储在 Git 中
+# 由 build-desktop.yml 工作流程自动构建并提交
+
+# Desktop Application Configuration
+[tool.desktop]
+name = "MCP SQL Server Filesystem"
+version = "0.2.2"
+identifier = "com.penjay.mcp-sqlserver-filesystem"
+author = "PJ"
+email = "peng.it@qq.com"
+description = "Enhanced MCP server for SQL Server and filesystem access with dual interface support"
+
+[tool.desktop.build]
+tauri_dir = "src-tauri"
+dist_dir = "dist/desktop"
+targets = ["windows", "macos", "linux"]
+
+[tool.desktop.features]
+web_ui = true
+desktop_app = true
+websocket_communication = true
+sql_server_support = true
+filesystem_operations = true
