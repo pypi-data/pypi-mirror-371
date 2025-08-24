@@ -1,0 +1,2 @@
+[console_scripts]
+obsidian-tmdb-cover = obsidian_tmdb_cover.cli:main
