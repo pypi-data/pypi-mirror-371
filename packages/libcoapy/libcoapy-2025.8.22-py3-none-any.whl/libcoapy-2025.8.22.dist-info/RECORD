@@ -1,0 +1,10 @@
+libcoapy/__init__.py,sha256=0Cl9ZM75UAMRyVO-rgPwYQ3w3X3mK3tMUMuY4QFs8Lg,25
+libcoapy/libcoapy.py,sha256=3hj-X4tKmVTH23mFSmC7-sGDoF1dG94Y9vfkPcDrMi8,43107
+libcoapy/llapi.py,sha256=Qru_q7WYsvXfPNDCUPA8bLJFUiy-aHMeNK4goT76wUA,93805
+libcoapy-2025.8.22.data/scripts/coap-gui,sha256=yRikChLWzfLMER6sV1jx6eQz5ZWKubbzxJI5vAKtFDw,7126
+libcoapy-2025.8.22.data/scripts/coarl,sha256=vCOPwVfbXBMVrZW6Z9g8mtPwDcIrdE3spO1BFlFD1L0,1514
+libcoapy-2025.8.22.dist-info/licenses/LICENSE.txt,sha256=-cTHe6o4KABO5UuKTy2y6I7USmI3pJOWW_VR-sD8ti0,1023
+libcoapy-2025.8.22.dist-info/METADATA,sha256=wo4pjieFyHQPGgouHP6UazA01JMgxQsTP1eLnIkYyLM,4527
+libcoapy-2025.8.22.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+libcoapy-2025.8.22.dist-info/top_level.txt,sha256=KAAXOJCQ-oY2hWilUbbKfOjjjdqU21VNxg9HQeyP9iM,9
+libcoapy-2025.8.22.dist-info/RECORD,,
