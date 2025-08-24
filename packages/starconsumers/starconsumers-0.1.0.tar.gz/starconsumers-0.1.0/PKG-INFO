@@ -1,0 +1,20 @@
+Metadata-Version: 2.3
+Name: starconsumers
+Version: 0.1.0
+Summary: A high performance FastAPI-based message consumer framework for PubSub
+Requires-Dist: click>=8.2.1
+Requires-Dist: fastapi>=0.116.1
+Requires-Dist: google-api-core>=2.25.1
+Requires-Dist: google-cloud-pubsub>=2.31.1
+Requires-Dist: orjson>=3.11.2
+Requires-Dist: psutil>=7.0.0
+Requires-Dist: pydantic-settings>=2.10.1
+Requires-Dist: rich-toolkit>=0.15.0
+Requires-Dist: typer>=0.16.0
+Requires-Dist: uvicorn>=0.35.0
+Requires-Dist: newrelic[infinite-tracing]>=10.15.0 ; extra == 'newrelic'
+Requires-Python: >=3.13
+Provides-Extra: newrelic
+Description-Content-Type: text/markdown
+
+# starconsumers
