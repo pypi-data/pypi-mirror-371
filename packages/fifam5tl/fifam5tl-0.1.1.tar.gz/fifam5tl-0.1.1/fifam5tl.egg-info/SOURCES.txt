@@ -1,0 +1,9 @@
+pyproject.toml
+setup.py
+fifam5tl/__init__.py
+fifam5tl/main.py
+fifam5tl.egg-info/PKG-INFO
+fifam5tl.egg-info/SOURCES.txt
+fifam5tl.egg-info/dependency_links.txt
+fifam5tl.egg-info/entry_points.txt
+fifam5tl.egg-info/top_level.txt
