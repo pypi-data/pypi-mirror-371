@@ -1,0 +1,10 @@
+lcl_xhs_mcp-0.4.0.dist-info/licenses/LICENCE,sha256=-dUIPVEt_QuSiWSk5ZkCg8oJzZf804pchOiQdXQoncM,1086
+xhs_mcp/__init__.py,sha256=gb8xfIHKA6u6UB4Fyew6Re5xP4GDeVPkq-QRvvGPVlA,415
+xhs_mcp/image_generate.py,sha256=oRQGujrM9SQNrUp4W2MVSd5tTV7dj9rpd-n8QmTeOAE,9950
+xhs_mcp/mcp_server.py,sha256=ieVgkK2c2I10u91uHqVazDO6dMu8nA0hrgM673YCpQQ,2567
+xhs_mcp/mcp_util.py,sha256=305rh7xA7Yt_UcruboGRsRE5pw_gl5BqzINL_BEg1lw,17451
+lcl_xhs_mcp-0.4.0.dist-info/METADATA,sha256=477olpvDYv42PprA_3YZQVYbkw-Ok6L18r9qIl9MnvI,2993
+lcl_xhs_mcp-0.4.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+lcl_xhs_mcp-0.4.0.dist-info/entry_points.txt,sha256=WUjRLnk_d_5mz6BT-zIiAHmv5jT62ByXuXDbKsXpEx8,55
+lcl_xhs_mcp-0.4.0.dist-info/top_level.txt,sha256=FWj7QbddbG31DOcAlcEqZjFM7GrdeNNQYWWvANgyD4U,8
+lcl_xhs_mcp-0.4.0.dist-info/RECORD,,
