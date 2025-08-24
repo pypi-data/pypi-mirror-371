@@ -1,0 +1,9 @@
+nage/__init__.py,sha256=etaqPf-h2TmAYBmCM8wf4fYj4cerlOhizS2EyYvf6G4,66
+nage/ai_client.py,sha256=STms_nwH8kclxUjDjV-tCT01VDcwlr92OXLTq5-yBM4,3059
+nage/main.py,sha256=SECvwaaLocHaTSKaRb8AvHpnR51dlmQzK9nu3kMZ4nQ,3075
+nage/parse.py,sha256=T6QSrsBJdr0Il6pVw7RXnsuxs5M9Skvich81WE3FyO4,685
+nage/setting.py,sha256=pWk2DFAdvu40wnzJ8hcLFCNqshMgeFwmVmMry_HgIdQ,2206
+nage-1.1.0.dist-info/METADATA,sha256=w5bJFQf6lGbm_epp8Iec1XDXcg_Qhi4H8pqry4ELKg4,2250
+nage-1.1.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+nage-1.1.0.dist-info/entry_points.txt,sha256=x21vXrJ7EOVMbfA41nvohejLf7ZNJ-m3iEfvgGb56b4,39
+nage-1.1.0.dist-info/RECORD,,
