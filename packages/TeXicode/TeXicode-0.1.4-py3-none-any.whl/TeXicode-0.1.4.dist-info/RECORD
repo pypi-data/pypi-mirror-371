@@ -1,0 +1,11 @@
+arts.py,sha256=gfRmxlSCLlVNQjN-aDF6oyt1MTnPStF7YVq6ehJUZFg,6584
+lexer.py,sha256=TbweFy5g1Q7qC2QjQZhILYPhvg_Xp51YMNuL_DANE3Q,2013
+main.py,sha256=-gLX4wlAgs-7QoCD8OLfSGxSMie2Bp7_TR-YF2ATqqs,2843
+parser.py,sha256=fLt0hNL5bRxyT4XKCsIBCL109RxMCcRXhsdTrLcAWZE,12307
+renderer.py,sha256=jl8rfjqi_KxJRS55a0iKHJPA1awF24PvCToTzB2RAP8,16529
+symbols_art.py,sha256=lFBcN9Mfwwxn35-2kINSy_53qEoRximzZsIj2i_PCVY,5291
+TeXicode-0.1.4.dist-info/METADATA,sha256=xZ4TbYt9wxSMggAOFr9dB3AQ1vCmLtCDW60fwe3oM5E,2847
+TeXicode-0.1.4.dist-info/WHEEL,sha256=PZUExdf71Ui_so67QXpySuHtCi3-J3wvF4ORK6k_S8U,91
+TeXicode-0.1.4.dist-info/entry_points.txt,sha256=F4sZ11qupaywg_ZIKAkJ5E46FfZBGlSJXKDqss_RCYM,34
+TeXicode-0.1.4.dist-info/top_level.txt,sha256=z5prot2iW8Usu2tyV8G_8TidiPVtEVqbhKL2igbTx70,44
+TeXicode-0.1.4.dist-info/RECORD,,
