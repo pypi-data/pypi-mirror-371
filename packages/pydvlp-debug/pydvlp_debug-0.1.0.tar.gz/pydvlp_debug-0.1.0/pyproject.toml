@@ -1,0 +1,240 @@
+[build-system]
+requires = [
+    "pdm-backend>=2.4",
+]
+build-backend = "pdm.backend"
+
+[project]
+name = "pydvlp-debug"
+version = "0.1.0"
+description = "Professional Python development utilities with advanced debugging, profiling, tracing, benchmarking, and code analysis tools"
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [
+    { name = "William R. Astley", email = "william.astley@algebraicwealth.com" },
+]
+keywords = [
+    "debugging",
+    "profiling",
+    "development",
+    "analysis",
+    "tracing",
+    "benchmarking",
+    "logging",
+    "code-quality",
+    "performance",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+    "Topic :: Software Development :: Debuggers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: Quality Assurance",
+    "Topic :: Software Development :: Testing",
+    "Topic :: System :: Monitoring",
+    "Operating System :: OS Independent",
+]
+dependencies = []
+
+[project.license]
+text = "MIT"
+
+[project.optional-dependencies]
+rich = [
+    "rich>=13.0.0",
+]
+profiling = [
+    "line-profiler>=4.0.0",
+    "memory-profiler>=0.60.0",
+    "pyinstrument>=4.6.0",
+    "psutil>=5.9.0",
+]
+analysis = [
+    "mypy>=1.5.0",
+    "pyflakes>=3.0.0",
+]
+debugging = [
+    "icecream>=2.1.0",
+]
+tracing = [
+    "py-spy>=0.3.14 ; sys_platform != 'win32'",
+]
+all = [
+    "pydvlp-debug[rich,profiling,analysis,debugging,tracing]",
+]
+dev = [
+    "black>=23.0.0",
+    "isort>=5.12.0",
+    "mypy>=1.5.0",
+    "ruff>=0.1.0",
+    "bandit>=1.7.5",
+    "pre-commit>=3.0.0",
+]
+test = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "pytest-asyncio>=0.21.0",
+    "pytest-benchmark>=4.0.0",
+    "pytest-html>=4.0.0",
+    "pytest-clarity>=1.0.0",
+    "pytest-sugar>=0.9.7",
+]
+docs = [
+    "mkdocs>=1.5.0",
+    "mkdocs-material>=9.2.0",
+    "mkdocs-autorefs>=0.5.0",
+    "mkdocstrings[python]>=0.22.0",
+    "pymdown-extensions>=10.2.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/pr1m8/pydvlp-debug"
+Documentation = "https://pydvlp-debug.readthedocs.io"
+Repository = "https://github.com/pr1m8/pydvlp-debug"
+Issues = "https://github.com/pr1m8/pydvlp-debug/issues"
+Changelog = "https://github.com/pr1m8/pydvlp-debug/blob/main/CHANGELOG.md"
+
+[tool.pdm]
+packages = [
+    { include = "pydvlp", from = "src" },
+]
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "black>=23.0.0",
+    "isort>=5.12.0",
+    "mypy>=1.5.0",
+    "ruff>=0.1.0",
+    "bandit>=1.7.5",
+    "pre-commit>=3.0.0",
+]
+test = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "pytest-asyncio>=0.21.0",
+    "pytest-benchmark>=4.0.0",
+    "pytest-html>=4.0.0",
+    "pytest-clarity>=1.0.0",
+    "pytest-sugar>=0.9.7",
+]
+
+[tool.black]
+line-length = 88
+target-version = [
+    "py38",
+    "py39",
+    "py310",
+    "py311",
+    "py312",
+]
+include = "\\.pyi?$"
+extend-exclude = "/(\n  # Exclude auto-generated files\n  \\.eggs\n  | \\.git\n  | \\.mypy_cache\n  | \\.tox\n  | \\.venv\n  | _build\n  | build\n  | dist\n)/\n"
+
+[tool.isort]
+profile = "black"
+line_length = 88
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+ensure_newline_before_comments = true
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+strict_equality = true
+show_error_codes = true
+
+[[tool.mypy.overrides]]
+module = [
+    "icecream.*",
+    "line_profiler.*",
+    "memory_profiler.*",
+    "pyinstrument.*",
+    "psutil.*",
+]
+ignore_missing_imports = true
+
+[tool.ruff]
+target-version = "py38"
+line-length = 88
+select = [
+    "E",
+    "W",
+    "F",
+    "I",
+    "B",
+    "C4",
+    "UP",
+]
+ignore = [
+    "E501",
+    "B008",
+    "C901",
+]
+
+[tool.ruff.per-file-ignores]
+"__init__.py" = [
+    "F401",
+]
+"tests/**/*.py" = [
+    "S101",
+    "ARG",
+    "FBT",
+]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = [
+    "--strict-markers",
+    "--strict-config",
+    "--disable-warnings",
+    "-ra",
+]
+testpaths = [
+    "tests",
+]
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "integration: marks tests as integration tests",
+    "unit: marks tests as unit tests",
+]
+
+[tool.coverage.run]
+source = [
+    "src",
+]
+branch = true
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if self.debug:",
+    "if settings.DEBUG",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if 0:",
+    "if __name__ == .__main__.:",
+    "class .*\\bProtocol\\):",
+    "@(abc\\.)?abstractmethod",
+]
