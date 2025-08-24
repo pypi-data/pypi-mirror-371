@@ -1,0 +1,17 @@
+LICENSE
+README.md
+pyproject.toml
+pyshallow/__init__.py
+pyshallow/__main__.py
+pyshallow/version.py
+pyshallow.egg-info/PKG-INFO
+pyshallow.egg-info/SOURCES.txt
+pyshallow.egg-info/dependency_links.txt
+pyshallow.egg-info/entry_points.txt
+pyshallow.egg-info/requires.txt
+pyshallow.egg-info/top_level.txt
+pyshallow/gen_evt/__init__.py
+pyshallow/gen_evt/_android.py
+pyshallow/gen_evt/_osx.py
+pyshallow/gen_evt/_win.py
+pyshallow/gen_evt/_x11.py
