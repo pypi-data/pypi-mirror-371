@@ -1,0 +1,2 @@
+[console_scripts]
+bitfinex-maker-kit = bitfinex_maker_kit.cli:main
