@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tanish-graph"            
+version = "0.1.0"
+description = "ASCII/Unicode terminal graphs (bar/line) with a tiny CLI."
+readme = "README.md"
+authors = [{ name = "Tanish Tirpathi", email = "tanishtirpathi0@gmail.com" }]
+license = { file = "LICENSE" }
+requires-python = ">=3.9"
+keywords = ["ascii", "terminal", "graph", "chart", "cli"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "License :: OSI Approved :: MIT License",
+  "Environment :: Console",
+  "Topic :: Terminals",
+  "Topic :: Utilities",
+]
+
+dependencies = []  
+[project.optional-dependencies]
+image = ["pillow>=10.0.0"]
+
+[project.scripts]
+holograph = "holograph.cli:main"  
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["holograph*"]
+
+[project.urls]
+Homepage = "https://github.com/tanishtirpathi/holograph"
+Issues = "https://github.com/tanishtirpathi/holograph/issues"
