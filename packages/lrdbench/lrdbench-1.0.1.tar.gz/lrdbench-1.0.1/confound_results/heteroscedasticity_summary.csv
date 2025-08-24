@@ -1,0 +1,13 @@
+,success_rate,mean_error,mean_time
+DFA,0.0,inf,0.0
+R/S,1.0,0.11231809436406553,0.08009093072679307
+Higuchi,0.0,inf,0.0
+DMA,0.0,inf,0.0
+Periodogram,0.0,inf,0.0
+Whittle,0.0,inf,0.0
+GPH,0.0,inf,0.0
+Wavelet Log Variance,1.0,,0.002268346150716146
+Wavelet Variance,1.0,,0.002310625712076823
+Wavelet Whittle,0.0,inf,0.0
+CWT,1.0,,0.008335685729980469
+MFDFA,1.0,,0.8796493212381998
