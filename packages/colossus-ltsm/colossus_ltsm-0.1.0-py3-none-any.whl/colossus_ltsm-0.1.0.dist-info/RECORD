@@ -1,0 +1,11 @@
+colossus_ltsm/__init__.py,sha256=9wxcOzVT_ZQWEDHmkRoP1Xtg_6ONeFrJ-PiV3bXkn3Q,92
+colossus_ltsm/colossus_main.py,sha256=LUcKgPPek9_qwoT52LkMwP1uzvpDLPNsrPa3Qfks2LA,9800
+colossus_ltsm/font_converter.py,sha256=jFxygvjwrVgnZ6Udmpx2W5mpeU5mEg1oxH0wHF14eQo,10820
+colossus_ltsm/font_viewer.py,sha256=LlQEQWZZGCDmCsj5IF4aYz5UqltD7ZDl8DhvKRwkKsI,8585
+colossus_ltsm/settings.py,sha256=5Od5Yo5f1pFpcEgGLRBw2rmPprezR3jVss-e9gzDdz8,2081
+colossus_ltsm-0.1.0.dist-info/LICENSE,sha256=U6IsAZHWfP4uyWLqsefUYAzDtv3MN22WHbrHbPfuC4w,1055
+colossus_ltsm-0.1.0.dist-info/METADATA,sha256=rpdA1MSYwQ4JdM8HkcGO4NcEbMGs6jqyGs5jTLGLUBA,3443
+colossus_ltsm-0.1.0.dist-info/WHEEL,sha256=tZoeGjtWxWRfdplE7E3d45VPlLNQnvbKiYnx7gwAy8A,92
+colossus_ltsm-0.1.0.dist-info/entry_points.txt,sha256=PIwiIw82wpLoE1tm_FNVPq_9l5IWXSPg84mfu6RiA38,62
+colossus_ltsm-0.1.0.dist-info/top_level.txt,sha256=ncpr1pQu6jCXjtFyFpXHEXDv-brDVW4s1djMIciyDvc,14
+colossus_ltsm-0.1.0.dist-info/RECORD,,
