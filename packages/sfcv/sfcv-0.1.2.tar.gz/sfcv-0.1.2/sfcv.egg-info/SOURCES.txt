@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+sfcv/__init__.py
+sfcv/datasplit.py
+sfcv/logdmodel.txt
+sfcv/utils.py
+sfcv.egg-info/PKG-INFO
+sfcv.egg-info/SOURCES.txt
+sfcv.egg-info/dependency_links.txt
+sfcv.egg-info/requires.txt
+sfcv.egg-info/top_level.txt
