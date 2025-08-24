@@ -1,0 +1,10 @@
+segee/__init__.py,sha256=_AZW-jZjq7gbaA1gyBPHPc-olBpi81tFGMMNahfPBnE,1511
+segee/_types.py,sha256=eppvIoCag3zf3B-IfMsvdo3O1C_nwCSTRtN6lwkIcms,998
+segee/exceptions.py,sha256=5x3T2OArT_q3W4zD7q8zOzGDciAjB0X_thZA4xC7O40,1467
+segee/segment_tree/__init__.py,sha256=CwjVns47I8k5DGZnuUd04lFVNoF6Xm4iuVNIY7RL_oY,289
+segee/segment_tree/segment_tree.py,sha256=EeTx3sLmSC1xu6ImflCRfTGt0o4ReZqax2h4H-xtFEI,14026
+segee/segment_tree/specialized.py,sha256=EwLyiaPDegV4amdM3hxeAg48SsDoT1SmRPJTrWxR2ho,5045
+segee-0.1.0.dist-info/METADATA,sha256=XrrqI-uaCqv0skabeAuPirRG4J4v7MsQVaK-4teeXlE,5187
+segee-0.1.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+segee-0.1.0.dist-info/licenses/LICENSE,sha256=K4BrX2enCRk1tZz9uhIg7isxwBOTlV6A7UYNGHlW1aE,1065
+segee-0.1.0.dist-info/RECORD,,
