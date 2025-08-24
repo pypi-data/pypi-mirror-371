@@ -1,0 +1,180 @@
+<h1 align="center">🚀 LLMEvaluationFramework</h1>
+
+<p align="center">
+  <i>Advanced Python framework for evaluating, testing, and benchmarking Large Language Models (LLMs)</i><br>
+  <a href="https://isathish.github.io/llmevaluationframework/"><b>📚 View Full Documentation</b></a>
+</p>
+
+<p align="center">
+  <a href="https://pypi.org/project/llm-evaluation-framework/"><img src="https://img.shields.io/pypi/v/llm-evaluation-framework?color=blue&label=PyPI&logo=python" alt="PyPI"></a>
+  <a href="https://github.com/isathish/LLMEvaluationFramework/actions"><img src="https://img.shields.io/github/actions/workflow/status/isathish/LLMEvaluationFramework/python-app.yml?label=CI&logo=github" alt="Build Status"></a>
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License"></a>
+  <a href="https://github.com/isathish/LLMEvaluationFramework/stargazers"><img src="https://img.shields.io/github/stars/isathish/LLMEvaluationFramework?style=social" alt="Stars"></a>
+</p>
+
+---
+
+## 📖 Overview
+
+**LLMEvaluationFramework** is a **production-grade** toolkit for **evaluating, testing, and benchmarking LLMs**.  
+It provides a modular architecture with model inference, automated suggestions, model registry management, and synthetic dataset generation — all in one package.
+
+---
+
+## ✨ Key Features
+
+| Feature | Description |
+|---------|-------------|
+| ⚡ **Model Inference Engine** | Evaluate prompts against multiple LLMs with ease |
+| 💡 **Auto Suggestion Engine** | Generate intelligent prompt suggestions |
+| 📚 **Model Registry** | Manage and register multiple LLM configurations |
+| 🧪 **Test Dataset Generator** | Create synthetic datasets for evaluation |
+| 🔌 **Extensible** | Easily integrate with new models and datasets |
+| ✅ **Testable** | Designed with 100% test coverage in mind |
+
+### 🆕 Latest Additions
+- 🚀 **Async Inference Engine** — Concurrent model evaluations for faster benchmarking.
+- 📏 **Custom Scoring Strategies** — Plug in your own evaluation metrics.
+- 💾 **Persistent Storage** — JSON/DB backends for saving configurations and results.
+- 🖥 **CLI Support** — Manage models and run evaluations from the terminal.
+- 📜 **Enhanced Logging** — Detailed logs for debugging and performance tracking.
+
+---
+
+## 📦 Installation
+
+**From PyPI**
+```bash
+pip install llm-evaluation-framework
+```
+
+**From Source**
+```bash
+git clone https://github.com/isathish/LLMEvaluationFramework.git
+cd LLMEvaluationFramework
+pip install -e .[dev]
+```
+
+---
+
+## 🚀 Quick Start
+
+<details>
+<summary>🔍 Model Inference</summary>
+
+```python
+from llm_evaluation_framework import ModelInferenceEngine
+
+engine = ModelInferenceEngine(model_name="gpt-4")
+result = engine.evaluate("What is the capital of France?")
+print(result)
+```
+</details>
+
+<details>
+<summary>💡 Auto Suggestions</summary>
+
+```python
+from llm_evaluation_framework import AutoSuggestionEngine
+
+suggestion_engine = AutoSuggestionEngine(model_name="gpt-4")
+suggestions = suggestion_engine.suggest("Write a poem about the ocean.")
+print(suggestions)
+```
+</details>
+
+<details>
+<summary>📚 Model Registry</summary>
+
+```python
+from llm_evaluation_framework import ModelRegistry
+
+ModelRegistry.register("gpt-4", {"provider": "OpenAI", "max_tokens": 4096})
+print(ModelRegistry.list_models())
+```
+</details>
+
+<details>
+<summary>🧪 Test Dataset Generation</summary>
+
+```python
+from llm_evaluation_framework import TestDatasetGenerator
+
+generator = TestDatasetGenerator()
+dataset = generator.generate(num_samples=5, topic="math problems")
+print(dataset)
+```
+</details>
+
+---
+
+## 📸 Screenshots
+
+<p align="center">
+  <img src="https://via.placeholder.com/800x400?text=CLI+Demo" alt="CLI Demo">
+</p>
+
+<p align="center">
+  <img src="https://via.placeholder.com/800x400?text=Evaluation+Results" alt="Evaluation Results">
+</p>
+
+---
+
+## ⚙️ Advanced Configuration
+
+You can customize the framework by:
+- Adding new model backends
+- Defining custom scoring strategies
+- Configuring persistent storage (JSON/DB)
+- Extending CLI commands
+
+Example:
+```python
+from llm_evaluation_framework.evaluation import CustomScoringStrategy
+
+class MyScore(CustomScoringStrategy):
+    def score(self, prediction, reference):
+        return custom_logic(prediction, reference)
+```
+
+---
+
+## 🏗 Project Structure
+
+```
+LLMEvaluationFramework/
+├── llm_evaluation_framework/   # Core framework code
+├── docs/                       # Documentation
+├── tests/                      # Unit tests
+├── setup.py                    # Installation script
+└── README.md                   # Project overview
+```
+
+---
+
+## 📄 Documentation
+
+Full documentation is available at **[📚 Online Documentation](https://isathish.github.io/llmevaluationframework/)**.
+
+You can also explore the local [`docs/`](docs/) folder:
+
+- 📘 [Getting Started](docs/getting-started.md)
+- 📖 [Usage Guide](docs/usage.md)
+- 🤝 [Contributing Guide](docs/contributing.md)
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions!  
+Please read the [Contributing Guide](docs/contributing.md) for details.
+
+---
+
+## 📜 License
+
+This project is licensed under the **MIT License**.
+
+---
+
+<p align="center">Made with ❤️ for the LLM community</p>
