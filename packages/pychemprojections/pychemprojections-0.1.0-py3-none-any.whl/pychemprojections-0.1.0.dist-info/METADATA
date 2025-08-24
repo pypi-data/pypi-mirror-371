@@ -1,0 +1,10 @@
+Metadata-Version: 2.4
+Name: pychemprojections
+Version: 0.1.0
+Summary: A package for visualizing 2D projections of molecules
+Author-email: Vandan Revanur <vandanrevanur@gmail.com>
+License-File: LICENSE.txt
+Requires-Python: >=3.9
+Requires-Dist: matplotlib>=3.7.0
+Requires-Dist: pubchempy>=1.0.4
+Requires-Dist: rdkit>=2022.9.4
