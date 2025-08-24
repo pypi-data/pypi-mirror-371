@@ -1,0 +1,10 @@
+dfrobot_environmental_sensor/__init__.py,sha256=y-44VW-dZXNdTLhNT5C7ZOYa_J78skR_WuVTdrvkXgI,666
+dfrobot_environmental_sensor/constants.py,sha256=g5uDmg7D7xDSdDzTmsFHo9na4BuxFR2twvdPxz9DpMw,2066
+dfrobot_environmental_sensor/core.py,sha256=d1FiOjOyfosqW9TJcN-39wgIvHtRO9Xjn3ocmFPZxjM,10441
+dfrobot_environmental_sensor/transports.py,sha256=7jU7CuygHJiJ1EXVX3RHJ7A6YvXl38okJWfOQ3zc0V4,4523
+dfrobot_environmental_sensor-2.1.1.dist-info/licenses/LICENSE,sha256=WQKl4q0AFJP_1CKC7teVD2k5Y8NhMzBXght5phdnx_E,1071
+examples/read_all.py,sha256=1eBDM-oQbbtNInS3LwrPp1_pmGXc1X1M9R6k-NfV314,1498
+dfrobot_environmental_sensor-2.1.1.dist-info/METADATA,sha256=-tbkw9yHHPQ8NOBRkwMj7iR68V6Ka2AYpKmFCnsxqT8,6531
+dfrobot_environmental_sensor-2.1.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+dfrobot_environmental_sensor-2.1.1.dist-info/top_level.txt,sha256=GOE2qyK2Ix4r3h5MyxTcTDr7RAoOUeGxk8DJ6nq0Ke0,38
+dfrobot_environmental_sensor-2.1.1.dist-info/RECORD,,
