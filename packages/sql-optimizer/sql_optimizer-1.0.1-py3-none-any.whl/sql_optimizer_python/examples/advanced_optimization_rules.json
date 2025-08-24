@@ -1,0 +1,161 @@
+[
+  {
+    "name": "join_reordering",
+    "description": "Reorder joins for optimal execution",
+    "priority": 120,
+    "enabled": true,
+    "conditions": [
+      {
+        "type": "node_type",
+        "operator": "contains",
+        "value": "Join"
+      }
+    ],
+    "transformations": [
+      {
+        "action": "reorder",
+        "target": "join",
+        "parameters": {
+          "strategy": "cost_based",
+          "algorithm": "dynamic_programming"
+        },
+        "cost_reduction": 50.0
+      }
+    ],
+    "metadata": {
+      "category": "join_optimization",
+      "author": "advanced_user",
+      "version": "2.0",
+      "complexity": "high"
+    }
+  },
+  {
+    "name": "predicate_pushdown",
+    "description": "Push predicates through joins and unions",
+    "priority": 110,
+    "enabled": true,
+    "conditions": [
+      {
+        "type": "node_type",
+        "operator": "contains",
+        "value": "LogicalTableScan"
+      }
+    ],
+    "transformations": [
+      {
+        "action": "push_down",
+        "target": "predicate",
+        "parameters": {
+          "through_joins": true,
+          "through_unions": true
+        },
+        "cost_reduction": 35.0
+      }
+    ],
+    "metadata": {
+      "category": "predicate_optimization",
+      "author": "advanced_user",
+      "version": "2.0"
+    }
+  },
+  {
+    "name": "aggregate_pushdown",
+    "description": "Push aggregation operations closer to data source",
+    "priority": 90,
+    "enabled": true,
+    "conditions": [
+      {
+        "type": "node_type",
+        "operator": "contains",
+        "value": "Aggregate"
+      },
+      {
+        "type": "cost_threshold",
+        "operator": "greater_than",
+        "value": 100.0
+      }
+    ],
+    "transformations": [
+      {
+        "action": "push_down",
+        "target": "aggregate",
+        "parameters": {
+          "partial_aggregation": true,
+          "distribute_by": "key"
+        },
+        "cost_reduction": 45.0
+      }
+    ],
+    "metadata": {
+      "category": "aggregate_optimization",
+      "author": "advanced_user",
+      "version": "2.0",
+      "complexity": "medium"
+    }
+  },
+  {
+    "name": "materialized_view_matching",
+    "description": "Match queries with existing materialized views",
+    "priority": 150,
+    "enabled": false,
+    "conditions": [
+      {
+        "type": "table_name",
+        "operator": "contains",
+        "value": "employees"
+      }
+    ],
+    "transformations": [
+      {
+        "action": "replace",
+        "target": "scan",
+        "parameters": {
+          "materialized_view": "mv_employees_summary",
+          "rewrite_query": true
+        },
+        "cost_reduction": 70.0
+      }
+    ],
+    "metadata": {
+      "category": "materialized_view_optimization",
+      "author": "dba_team",
+      "version": "1.5",
+      "complexity": "very_high",
+      "experimental": true
+    }
+  },
+  {
+    "name": "index_recommendation",
+    "description": "Recommend index usage for table scans",
+    "priority": 70,
+    "enabled": true,
+    "conditions": [
+      {
+        "type": "node_type",
+        "operator": "equals",
+        "value": "LogicalTableScan"
+      },
+      {
+        "type": "field_count",
+        "operator": "less_than",
+        "value": 10
+      }
+    ],
+    "transformations": [
+      {
+        "action": "recommend",
+        "target": "index",
+        "parameters": {
+          "index_type": "btree",
+          "columns": ["id", "name"]
+        },
+        "cost_reduction": 30.0
+      }
+    ],
+    "metadata": {
+      "category": "index_optimization",
+      "author": "performance_team",
+      "version": "1.2"
+    }
+  }
+]
