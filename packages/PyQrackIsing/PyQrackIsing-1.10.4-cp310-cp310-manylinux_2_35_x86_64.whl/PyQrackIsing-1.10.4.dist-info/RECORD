@@ -1,0 +1,13 @@
+tfim_sampler.cpython-310-x86_64-linux-gnu.so,sha256=v9BHuksNfYqnJhwBj6kweCXrdXYXvTo4E5a9Yuzn4yc,188064
+PyQrackIsing/__init__.py,sha256=WWqkcK_X713i60wAzU9lzi-7mPrrTkL2p63mOS_jwqc,300
+PyQrackIsing/generate_tfim_samples.py,sha256=5d3DhhDIT6eMAnzbLgeJOqsot5MRKH_Bs_1YryIT4CQ,232
+PyQrackIsing/maxcut_tfim.py,sha256=Loub9BZ64NDo0zdDfdpNglRCGMEQ_cneUd_JjhMOBqU,4144
+PyQrackIsing/spin_glass_solver.py,sha256=XJEKh2_A7IKY9MAHdDpB0SRNeSVIDVlyZSeYhLKecLU,3537
+PyQrackIsing/tfim_magnetization.py,sha256=82JYJxxEoccjVYWlkO7BVqVh8FvNGcAL2S9yfoZcj8I,190
+PyQrackIsing/tfim_square_magnetization.py,sha256=T6M1d-3_kz93zhZcy6KG3sPZoPUckItpgMPT1FcBqBk,204
+PyQrackIsing/tsp_symmetric.py,sha256=eKChj3NzQBJGStgC_yNTL3ZurSWCGDRRyR-XgO1NulQ,2535
+PyQrackIsing-1.10.4.dist-info/LICENSE.md,sha256=46mU2C5kSwOnkqkw9XQAJlhBL2JAf1_uCD8lVcXyMRg,7652
+PyQrackIsing-1.10.4.dist-info/METADATA,sha256=WwFxwgDj6jpeW0c04Sf26PjpTDaGjF94pS_NO5T-Hrg,6021
+PyQrackIsing-1.10.4.dist-info/WHEEL,sha256=56fCscEUYpkk_y55-780nOwYe6IHu1hjKYHjnNY-jJM,114
+PyQrackIsing-1.10.4.dist-info/top_level.txt,sha256=orNUlp_CImpezVhr9Sgs988fXwi356oqxCvZdtbe3kM,26
+PyQrackIsing-1.10.4.dist-info/RECORD,,
