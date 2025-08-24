@@ -1,0 +1,7 @@
+README.md
+setup.py
+src/TeXicode.egg-info/PKG-INFO
+src/TeXicode.egg-info/SOURCES.txt
+src/TeXicode.egg-info/dependency_links.txt
+src/TeXicode.egg-info/entry_points.txt
+src/TeXicode.egg-info/top_level.txt
