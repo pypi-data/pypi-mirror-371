@@ -1,0 +1,16 @@
+*.json
+main.py
+venv
+.idea
+.DS_Store
+*.zip
+*.pyc
+test.py
+.venv
+build
+dist
+*.build
+*.dist
+*.egg-info
+*.cpython-312.pyc
+example-socket-export.py
