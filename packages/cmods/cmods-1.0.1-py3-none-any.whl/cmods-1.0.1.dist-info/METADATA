@@ -1,0 +1,43 @@
+Metadata-Version: 2.4
+Name: cmods
+Version: 1.0.1
+Summary: A package manager for C projects
+Project-URL: Documentation, https://github.com/Guille-ux/cmods#readme
+Project-URL: Issues, https://github.com/Guille-ux/cmods/issues
+Project-URL: Source, https://github.com/Guille-ux/cpak
+Author-email: Guille-ux <guilleleiratemes@gmail.com>
+License-Expression: MIT
+License-File: LICENSE.txt
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+# cpak
+
+[![PyPI - Version](https://img.shields.io/pypi/v/cpak.svg)](https://pypi.org/project/cpak)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/cpak.svg)](https://pypi.org/project/cpak)
+
+-----
+
+## Table of Contents
+
+- [Installation](#installation)
+- [License](#license)
+
+## Installation
+
+```console
+pip install cpak
+```
+
+## License
+
+`cpak` is distributed under the terms of the [MIT](https://spdx.org/licenses/MIT.html) license.
