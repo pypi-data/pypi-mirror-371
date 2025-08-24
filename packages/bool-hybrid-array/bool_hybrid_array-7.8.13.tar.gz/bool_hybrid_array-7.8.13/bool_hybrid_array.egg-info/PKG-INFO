@@ -1,0 +1,13 @@
+Metadata-Version: 2.4
+Name: bool-hybrid-array
+Version: 7.8.13
+Summary: Efficient boolean hybrid array library
+Author: Cai Jingjie
+Author-email: 1289270215@qq.com
+Requires: numpy (>=1.21.0)
+License-File: LICENSE
+Dynamic: author
+Dynamic: author-email
+Dynamic: license-file
+Dynamic: requires
+Dynamic: summary
