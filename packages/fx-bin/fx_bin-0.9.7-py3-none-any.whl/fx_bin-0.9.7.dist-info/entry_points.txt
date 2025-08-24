@@ -1,0 +1,8 @@
+[console_scripts]
+fx_ff=fx_bin.find_files:main
+fx_files=fx_bin.files:main
+fx_grab_json_api_to_excel=fx_bin.pd:main
+fx_replace=fx_bin.replace:main
+fx_size=fx_bin.size:main
+fx_upgrade=fx_bin.run_upgrade_program:main
+
