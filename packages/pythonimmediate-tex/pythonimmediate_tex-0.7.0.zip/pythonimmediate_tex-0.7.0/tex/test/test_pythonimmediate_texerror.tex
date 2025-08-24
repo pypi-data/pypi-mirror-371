@@ -1,0 +1,24 @@
+%! TEX program = pdflatex
+\documentclass{article}
+\errorcontextlines=5
+\usepackage{prettytok}
+\ExplSyntaxOn
+\pretty:n{going to load}
+\ExplSyntaxOff
+\usepackage[args={--mode=unnamed-pipe}]{pythonimmediate}
+
+\ExplSyntaxOn
+\begin{pycode}
+import pythonimmediate
+x="xxx"
+pythonimmediate.run_tokenized_line_peek(r'\relax \errmessage{test~error} \relax\pythonimmediatecontinue')
+\end{pycode}
+\ExplSyntaxOff
+
+
+\begin{document}
+
+
+
+\end{document}
+
