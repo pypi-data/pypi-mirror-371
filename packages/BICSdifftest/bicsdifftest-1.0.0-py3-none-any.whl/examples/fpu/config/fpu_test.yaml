@@ -1,0 +1,88 @@
+# FPU Test Configuration
+# This configuration file defines the test setup for the FPU differential testing
+
+# Test identification
+name: "fpu"
+description: "Differential testing configuration for FPU design"
+version: "1.0"
+
+# DUT configuration
+top_module: "FPU"
+verilog_sources:
+  - "examples/fpu/rtl/fpu.sv"
+
+include_dirs:
+  - "examples/fpu/rtl"
+
+defines:
+  SIMULATION: "1"
+  DATA_WIDTH: "32"
+
+# Golden model configuration
+golden_model_class: "golden_model.models.FPUGoldenModel"
+golden_model_config:
+  data_width: 32
+
+# Test execution
+test_sequences:
+  - "simple_test"
+  - "corner_cases"
+  - "random_tests"
+
+# Tool configurations
+verilator:
+  optimization_level: "O3"
+  enable_waves: true
+  wave_format: "fst"
+  trace_depth: 99
+  threads: 1
+  compile_args:
+    - "-Wall"
+    - "-Wno-TIMESCALEMOD"
+    - "-Wno-DECLFILENAME"
+    - "-Wno-UNUSEDSIGNAL"
+    - "-Wno-UNUSEDPARAM"
+    - "--trace"
+    - "-O3"
+    - "--x-assign fast"
+    - "--x-initial fast"
+  coverage: false
+  debug_mode: false
+
+cocotb:
+  log_level: "INFO"
+  reduced_log_fmt: true
+  random_seed: 42
+  test_timeout: 300  # 5 minutes for simple FPU tests
+  sim_timeout: 600   # 10 minutes
+
+comparison:
+  mode: "exact"
+  absolute_tolerance: 0  # Exact match required for integer operations
+  relative_tolerance: 0
+  ulp_tolerance: 0
+  ignore_x_z: false
+
+# Output configuration
+work_dir: "sim_work/fpu"
+reports_dir: "reports/fpu"
+logs_dir: "logs/fpu"
+waves_dir: "waves/fpu"
+
+# Execution options
+parallel_jobs: 1
+continue_on_error: false
+cleanup_on_success: false
+
+# FPU specific configuration
+fpu:
+  data_width: 32
+  max_value: 4294967295  # 2^32 - 1
+  
+  # Test parameters
+  random_test_count: 20
+  corner_case_count: 12
+  
+  # Timing constraints
+  max_computation_cycles: 10  # Simple combinational logic should be fast
+  timeout_cycles: 50

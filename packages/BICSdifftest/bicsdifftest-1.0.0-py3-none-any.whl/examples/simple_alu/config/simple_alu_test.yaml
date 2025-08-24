@@ -1,0 +1,72 @@
+# Simple ALU Test Configuration
+# This configuration file defines the test setup for the Simple ALU differential testing
+
+# Test identification
+name: "simple_alu"
+description: "Differential testing configuration for Simple ALU design"
+version: "1.0"
+
+# DUT configuration
+top_module: "simple_alu"
+verilog_sources:
+  - "examples/simple_alu/rtl/simple_alu.sv"
+
+include_dirs:
+  - "examples/simple_alu/rtl"
+
+defines:
+  SIMULATION: "1"
+  DATA_WIDTH: "32"
+
+# Golden model configuration
+golden_model_class: "golden_model.models.SimpleALUGoldenModel"
+golden_model_config:
+  data_width: 32
+  device: "cpu"
+
+# Test execution
+test_sequences:
+  - "corner_cases"
+  - "random_tests"
+  - "targeted_tests"
+
+# Tool configurations
+verilator:
+  optimization_level: "Os"
+  enable_waves: true
+  wave_format: "vcd"
+  trace_depth: 99
+  threads: 1
+  compile_args:
+    - "-Wall"
+    - "-Wno-TIMESCALEMOD"
+    - "-Wno-DECLFILENAME"
+    - "--trace"
+  coverage: false
+  debug_mode: false
+
+cocotb:
+  log_level: "INFO"
+  reduced_log_fmt: true
+  random_seed: 42
+  test_timeout: 300
+  sim_timeout: 600
+
+comparison:
+  mode: "bit_exact"
+  absolute_tolerance: 0.0
+  relative_tolerance: 0.0
+  ulp_tolerance: 0
+  ignore_x_z: false
+  signal_overrides: {}
+
+# Output configuration
+work_dir: "sim_work/simple_alu"
+reports_dir: "reports/simple_alu"
+logs_dir: "logs/simple_alu"
+waves_dir: "waves/simple_alu"
+
+# Execution options
+parallel_jobs: 1
+continue_on_error: false
+cleanup_on_success: false

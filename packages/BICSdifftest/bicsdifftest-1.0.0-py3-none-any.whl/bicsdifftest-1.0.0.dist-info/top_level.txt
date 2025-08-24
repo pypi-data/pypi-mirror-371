@@ -1,0 +1,6 @@
+config
+examples
+golden_model
+scripts
+sim
+testbench

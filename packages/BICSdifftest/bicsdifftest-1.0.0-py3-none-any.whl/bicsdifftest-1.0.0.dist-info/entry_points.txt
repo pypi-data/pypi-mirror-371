@@ -1,0 +1,3 @@
+[console_scripts]
+BICSdifftest = cli:main
+bicsdifftest = cli:main

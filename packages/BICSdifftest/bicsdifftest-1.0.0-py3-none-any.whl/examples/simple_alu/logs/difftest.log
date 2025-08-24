@@ -1,0 +1,180 @@
+2025-08-22 16:20:14 [    INFO] main:304: Starting test discovery
+2025-08-22 16:20:14 [    INFO] TestRunner:304: Discovering tests in: ['examples/simple_alu']
+2025-08-22 16:20:14 [ WARNING] TestRunner:304: Test directory not found: examples/simple_alu
+2025-08-22 16:20:14 [    INFO] TestRunner:304: Discovered 0 tests
+2025-08-22 16:20:14 [    INFO] main:304: Starting test execution
+2025-08-22 16:20:14 [    INFO] TestRunner:304: Discovering tests in: ['examples', 'testbench/tests']
+2025-08-22 16:20:14 [ WARNING] TestRunner:304: Test directory not found: examples
+2025-08-22 16:20:14 [ WARNING] TestRunner:304: Test directory not found: testbench/tests
+2025-08-22 16:20:14 [    INFO] TestRunner:304: Discovered 0 tests
+2025-08-22 16:20:14 [    INFO] TestRunner:304: Running 0 tests
+2025-08-22 16:20:14 [    INFO] TestRunner:304: No tests executed
+2025-08-22 16:29:11 [    INFO] BICSdifftest:304: Starting test: ALU Corner Cases
+2025-08-22 16:29:11 [   ERROR] BICSdifftest:304: Test ALU Corner Cases: FAIL
+2025-08-22 16:29:11 [   ERROR] test_alu_corner_cases:304: Test failed with exception: Corner case test failed: 0/2 passed
+assert 0 == 2
+2025-08-22 16:29:11 [   ERROR] BICSdifftest:304: Test ALU Corner Cases: FAIL
+2025-08-22 16:29:11 [    INFO] BICSdifftest:304: Starting test: ALU Random Tests
+2025-08-22 16:29:11 [   ERROR] BICSdifftest:304: Test ALU Random Tests: FAIL
+2025-08-22 16:29:11 [   ERROR] test_alu_random:304: Test failed with exception: Random test failed: 0/2 passed
+assert 0 == 2
+2025-08-22 16:29:11 [   ERROR] BICSdifftest:304: Test ALU Random Tests: FAIL
+2025-08-22 16:29:11 [    INFO] BICSdifftest:304: Starting test: ALU Targeted Tests
+2025-08-22 16:29:11 [   ERROR] BICSdifftest:304: Test ALU Targeted Tests: FAIL
+2025-08-22 16:29:11 [   ERROR] test_alu_targeted:304: Test failed with exception: Targeted test failed: 0/2 passed
+assert 0 == 2
+2025-08-22 16:29:11 [   ERROR] BICSdifftest:304: Test ALU Targeted Tests: FAIL
+2025-08-22 16:29:12 [    INFO] BICSdifftest:304: Starting test: ALU Comprehensive Test
+2025-08-22 16:29:12 [   ERROR] BICSdifftest:304: Test ALU Comprehensive Test: FAIL
+2025-08-22 16:29:12 [    INFO] test_alu_comprehensive:304: Sequence corner_cases: 0/2 passed
+2025-08-22 16:29:12 [    INFO] test_alu_comprehensive:304: Sequence random_tests: 0/0 passed
+2025-08-22 16:29:12 [    INFO] test_alu_comprehensive:304: Sequence targeted_tests: 0/0 passed
+2025-08-22 16:29:12 [   ERROR] test_alu_comprehensive:304: Test failed with exception: Comprehensive test failed: 0/2 passed
+assert 0 == 2
+2025-08-22 16:29:12 [   ERROR] BICSdifftest:304: Test ALU Comprehensive Test: FAIL
+2025-08-22 16:31:50 [    INFO] BICSdifftest:304: Starting test: ALU Corner Cases
+2025-08-22 16:31:50 [   ERROR] BICSdifftest:304: Test ALU Corner Cases: FAIL
+2025-08-22 16:31:50 [   ERROR] test_alu_corner_cases:304: Test failed with exception: Corner case test failed: 0/3 passed
+assert 0 == 3
+2025-08-22 16:31:50 [   ERROR] BICSdifftest:304: Test ALU Corner Cases: FAIL
+2025-08-22 16:31:50 [    INFO] BICSdifftest:304: Starting test: ALU Random Tests
+2025-08-22 16:31:50 [   ERROR] BICSdifftest:304: Test ALU Random Tests: FAIL
+2025-08-22 16:31:50 [   ERROR] test_alu_random:304: Test failed with exception: Random test failed: 0/3 passed
+assert 0 == 3
+2025-08-22 16:31:50 [   ERROR] BICSdifftest:304: Test ALU Random Tests: FAIL
+2025-08-22 16:31:50 [    INFO] BICSdifftest:304: Starting test: ALU Targeted Tests
+2025-08-22 16:31:50 [   ERROR] BICSdifftest:304: Test ALU Targeted Tests: FAIL
+2025-08-22 16:31:50 [   ERROR] test_alu_targeted:304: Test failed with exception: Targeted test failed: 0/3 passed
+assert 0 == 3
+2025-08-22 16:31:50 [   ERROR] BICSdifftest:304: Test ALU Targeted Tests: FAIL
+2025-08-22 16:31:50 [    INFO] BICSdifftest:304: Starting test: ALU Comprehensive Test
+2025-08-22 16:31:50 [   ERROR] BICSdifftest:304: Test ALU Comprehensive Test: FAIL
+2025-08-22 16:31:50 [    INFO] test_alu_comprehensive:304: Sequence corner_cases: 0/3 passed
+2025-08-22 16:31:50 [    INFO] test_alu_comprehensive:304: Sequence random_tests: 0/0 passed
+2025-08-22 16:31:50 [    INFO] test_alu_comprehensive:304: Sequence targeted_tests: 0/0 passed
+2025-08-22 16:31:50 [   ERROR] test_alu_comprehensive:304: Test failed with exception: Comprehensive test failed: 0/3 passed
+assert 0 == 3
+2025-08-22 16:31:50 [   ERROR] BICSdifftest:304: Test ALU Comprehensive Test: FAIL
+2025-08-22 16:32:57 [    INFO] BICSdifftest:304: Starting test: ALU Corner Cases
+2025-08-22 16:32:57 [   ERROR] BICSdifftest:304: Test ALU Corner Cases: FAIL
+2025-08-22 16:32:57 [   ERROR] test_alu_corner_cases:304: Test failed with exception: Corner case test failed: 0/2 passed
+assert 0 == 2
+2025-08-22 16:32:57 [   ERROR] BICSdifftest:304: Test ALU Corner Cases: FAIL
+2025-08-22 16:32:57 [    INFO] BICSdifftest:304: Starting test: ALU Random Tests
+2025-08-22 16:32:57 [   ERROR] BICSdifftest:304: Test ALU Random Tests: FAIL
+2025-08-22 16:32:57 [   ERROR] test_alu_random:304: Test failed with exception: Random test failed: 0/2 passed
+assert 0 == 2
+2025-08-22 16:32:57 [   ERROR] BICSdifftest:304: Test ALU Random Tests: FAIL
+2025-08-22 16:32:57 [    INFO] BICSdifftest:304: Starting test: ALU Targeted Tests
+2025-08-22 16:32:57 [   ERROR] BICSdifftest:304: Test ALU Targeted Tests: FAIL
+2025-08-22 16:32:57 [   ERROR] test_alu_targeted:304: Test failed with exception: Targeted test failed: 0/2 passed
+assert 0 == 2
+2025-08-22 16:32:57 [   ERROR] BICSdifftest:304: Test ALU Targeted Tests: FAIL
+2025-08-22 16:32:57 [    INFO] BICSdifftest:304: Starting test: ALU Comprehensive Test
+2025-08-22 16:32:57 [   ERROR] BICSdifftest:304: Test ALU Comprehensive Test: FAIL
+2025-08-22 16:32:57 [    INFO] test_alu_comprehensive:304: Sequence corner_cases: 0/2 passed
+2025-08-22 16:32:57 [    INFO] test_alu_comprehensive:304: Sequence random_tests: 0/0 passed
+2025-08-22 16:32:57 [    INFO] test_alu_comprehensive:304: Sequence targeted_tests: 0/0 passed
+2025-08-22 16:32:57 [   ERROR] test_alu_comprehensive:304: Test failed with exception: Comprehensive test failed: 0/2 passed
+assert 0 == 2
+2025-08-22 16:32:57 [   ERROR] BICSdifftest:304: Test ALU Comprehensive Test: FAIL
+2025-08-22 16:33:44 [    INFO] BICSdifftest:304: Starting test: ALU Corner Cases
+2025-08-22 16:33:44 [   ERROR] BICSdifftest:304: Test ALU Corner Cases: FAIL
+2025-08-22 16:33:44 [   ERROR] test_alu_corner_cases:304: Test failed with exception: Corner case test failed: 0/3 passed
+assert 0 == 3
+2025-08-22 16:33:44 [   ERROR] BICSdifftest:304: Test ALU Corner Cases: FAIL
+2025-08-22 16:33:44 [    INFO] BICSdifftest:304: Starting test: ALU Random Tests
+2025-08-22 16:33:44 [   ERROR] BICSdifftest:304: Test ALU Random Tests: FAIL
+2025-08-22 16:33:44 [   ERROR] test_alu_random:304: Test failed with exception: Random test failed: 0/3 passed
+assert 0 == 3
+2025-08-22 16:33:44 [   ERROR] BICSdifftest:304: Test ALU Random Tests: FAIL
+2025-08-22 16:33:44 [    INFO] BICSdifftest:304: Starting test: ALU Targeted Tests
+2025-08-22 16:33:44 [   ERROR] BICSdifftest:304: Test ALU Targeted Tests: FAIL
+2025-08-22 16:33:44 [   ERROR] test_alu_targeted:304: Test failed with exception: Targeted test failed: 1/4 passed
+assert 1 == 4
+2025-08-22 16:33:44 [   ERROR] BICSdifftest:304: Test ALU Targeted Tests: FAIL
+2025-08-22 16:33:44 [    INFO] BICSdifftest:304: Starting test: ALU Comprehensive Test
+2025-08-22 16:33:44 [   ERROR] BICSdifftest:304: Test ALU Comprehensive Test: FAIL
+2025-08-22 16:33:44 [    INFO] test_alu_comprehensive:304: Sequence corner_cases: 0/3 passed
+2025-08-22 16:33:44 [    INFO] test_alu_comprehensive:304: Sequence random_tests: 0/0 passed
+2025-08-22 16:33:44 [    INFO] test_alu_comprehensive:304: Sequence targeted_tests: 0/0 passed
+2025-08-22 16:33:44 [   ERROR] test_alu_comprehensive:304: Test failed with exception: Comprehensive test failed: 0/3 passed
+assert 0 == 3
+2025-08-22 16:33:44 [   ERROR] BICSdifftest:304: Test ALU Comprehensive Test: FAIL
+2025-08-22 16:35:15 [    INFO] BICSdifftest:304: Starting test: ALU Corner Cases
+2025-08-22 16:35:15 [   ERROR] BICSdifftest:304: Test ALU Corner Cases: FAIL
+2025-08-22 16:35:15 [   ERROR] test_alu_corner_cases:304: Test failed with exception: Corner case test failed: 1/4 passed
+assert 1 == 4
+2025-08-22 16:35:15 [   ERROR] BICSdifftest:304: Test ALU Corner Cases: FAIL
+2025-08-22 16:35:15 [    INFO] BICSdifftest:304: Starting test: ALU Random Tests
+2025-08-22 16:35:15 [   ERROR] BICSdifftest:304: Test ALU Random Tests: FAIL
+2025-08-22 16:35:15 [   ERROR] test_alu_random:304: Test failed with exception: Random test failed: 1/4 passed
+assert 1 == 4
+2025-08-22 16:35:15 [   ERROR] BICSdifftest:304: Test ALU Random Tests: FAIL
+2025-08-22 16:35:15 [    INFO] BICSdifftest:304: Starting test: ALU Targeted Tests
+2025-08-22 16:35:15 [   ERROR] BICSdifftest:304: Test ALU Targeted Tests: FAIL
+2025-08-22 16:35:15 [   ERROR] test_alu_targeted:304: Test failed with exception: Targeted test failed: 1/4 passed
+assert 1 == 4
+2025-08-22 16:35:15 [   ERROR] BICSdifftest:304: Test ALU Targeted Tests: FAIL
+2025-08-22 16:35:15 [    INFO] BICSdifftest:304: Starting test: ALU Comprehensive Test
+2025-08-22 16:35:15 [   ERROR] BICSdifftest:304: Test ALU Comprehensive Test: FAIL
+2025-08-22 16:35:15 [    INFO] test_alu_comprehensive:304: Sequence corner_cases: 1/4 passed
+2025-08-22 16:35:15 [    INFO] test_alu_comprehensive:304: Sequence random_tests: 0/0 passed
+2025-08-22 16:35:15 [    INFO] test_alu_comprehensive:304: Sequence targeted_tests: 0/0 passed
+2025-08-22 16:35:15 [   ERROR] test_alu_comprehensive:304: Test failed with exception: Comprehensive test failed: 1/4 passed
+assert 1 == 4
+2025-08-22 16:35:15 [   ERROR] BICSdifftest:304: Test ALU Comprehensive Test: FAIL
+2025-08-22 16:35:53 [    INFO] BICSdifftest:304: Starting test: ALU Corner Cases
+2025-08-22 16:35:53 [   ERROR] BICSdifftest:304: Test ALU Corner Cases: FAIL
+2025-08-22 16:35:53 [   ERROR] test_alu_corner_cases:304: Test failed with exception: Corner case test failed: 1/4 passed
+assert 1 == 4
+2025-08-22 16:35:53 [   ERROR] BICSdifftest:304: Test ALU Corner Cases: FAIL
+2025-08-22 16:37:14 [    INFO] BICSdifftest:304: Starting test: ALU Corner Cases
+2025-08-22 16:37:14 [   ERROR] BICSdifftest:304: Test ALU Corner Cases: FAIL
+2025-08-22 16:37:14 [   ERROR] test_alu_corner_cases:304: Test failed with exception: Corner case test failed: 0/2 passed
+assert 0 == 2
+2025-08-22 16:37:14 [   ERROR] BICSdifftest:304: Test ALU Corner Cases: FAIL
+2025-08-22 16:38:12 [    INFO] BICSdifftest:304: Starting test: ALU Corner Cases
+2025-08-22 16:38:12 [   ERROR] BICSdifftest:304: Test ALU Corner Cases: FAIL
+2025-08-22 16:38:12 [   ERROR] test_alu_corner_cases:304: Test failed with exception: Corner case test failed: 1/4 passed
+assert 1 == 4
+2025-08-22 16:38:12 [   ERROR] BICSdifftest:304: Test ALU Corner Cases: FAIL
+2025-08-22 16:39:00 [    INFO] BICSdifftest:304: Starting test: ALU Corner Cases
+2025-08-22 16:39:00 [   ERROR] BICSdifftest:304: Test ALU Corner Cases: FAIL
+2025-08-22 16:39:00 [   ERROR] test_alu_corner_cases:304: Test failed with exception: Corner case test failed: 1/4 passed
+assert 1 == 4
+2025-08-22 16:39:00 [   ERROR] BICSdifftest:304: Test ALU Corner Cases: FAIL
+2025-08-22 16:39:57 [    INFO] BICSdifftest:304: Starting test: ALU Corner Cases
+2025-08-22 16:39:57 [   ERROR] BICSdifftest:304: Test ALU Corner Cases: FAIL
+2025-08-22 16:39:57 [   ERROR] test_alu_corner_cases:304: Test failed with exception: Corner case test failed: 1/4 passed
+assert 1 == 4
+2025-08-22 16:39:57 [   ERROR] BICSdifftest:304: Test ALU Corner Cases: FAIL
+2025-08-22 16:40:39 [    INFO] BICSdifftest:304: Starting test: ALU Corner Cases
+2025-08-22 16:40:39 [   ERROR] BICSdifftest:304: Test ALU Corner Cases: FAIL
+2025-08-22 16:40:39 [   ERROR] test_alu_corner_cases:304: Test failed with exception: Corner case test failed: 1/4 passed
+assert 1 == 4
+2025-08-22 16:40:39 [   ERROR] BICSdifftest:304: Test ALU Corner Cases: FAIL
+2025-08-22 16:41:15 [    INFO] BICSdifftest:304: Starting test: ALU Corner Cases
+2025-08-22 16:41:57 [    INFO] BICSdifftest:304: Starting test: ALU Corner Cases
+2025-08-22 16:43:16 [    INFO] BICSdifftest:304: Starting test: ALU Corner Cases
+2025-08-22 16:44:46 [    INFO] BICSdifftest:304: Starting test: ALU Corner Cases
+2025-08-22 16:46:41 [    INFO] BICSdifftest:304: Starting test: ALU Corner Cases
+2025-08-22 16:46:41 [   ERROR] test_alu_corner_cases:304: Test failed with exception: 'SimpleALUDiffTest' object has no attribute 'results'
+2025-08-22 16:46:41 [   ERROR] BICSdifftest:304: Test ALU Corner Cases: FAIL
+2025-08-22 16:47:42 [    INFO] BICSdifftest:304: Starting test: ALU Corner Cases
+2025-08-22 16:47:42 [    INFO] BICSdifftest:304: Test ALU Corner Cases: PASS
+2025-08-22 16:47:42 [    INFO] test_alu_corner_cases:304: Corner case results: 20/20 passed
+2025-08-22 16:52:40 [    INFO] BICSdifftest:304: Starting test: ALU Corner Cases
+2025-08-22 16:52:40 [    INFO] BICSdifftest:304: Test ALU Corner Cases: PASS
+2025-08-22 16:52:40 [    INFO] test_alu_corner_cases:304: Corner case results: 20/20 passed
+2025-08-23 08:57:49 [    INFO] BICSdifftest:304: Starting test: ALU Corner Cases
+2025-08-23 08:57:49 [    INFO] BICSdifftest:304: Test ALU Corner Cases: PASS
+2025-08-23 08:57:49 [    INFO] test_alu_corner_cases:304: Corner case results: 20/20 passed
+2025-08-23 09:03:22 [    INFO] BICSdifftest:304: Starting test: ALU Corner Cases
+2025-08-23 09:03:22 [    INFO] BICSdifftest:304: Test ALU Corner Cases: PASS
+2025-08-23 09:03:22 [    INFO] test_alu_corner_cases:304: Corner case results: 20/20 passed
+2025-08-23 09:03:22 [    INFO] test_alu_corner_cases:304: Test completed successfully - skipping cleanup to avoid simulator shutdown
+2025-08-23 09:04:53 [    INFO] BICSdifftest:304: Starting test: ALU Corner Cases
+2025-08-23 09:04:53 [    INFO] BICSdifftest:304: Test ALU Corner Cases: PASS
+2025-08-23 09:04:53 [    INFO] test_alu_corner_cases:304: Corner case results: 20/20 passed
+2025-08-23 09:04:53 [    INFO] test_alu_corner_cases:304: Test completed successfully - skipping cleanup to avoid simulator shutdown

@@ -1,0 +1,10 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1755952850" />
+    <testcase name="test_fc_layer_weight_loading" classname="testbench.test_fc_layer" file="/home/yanggl/code/BICSdifftest/examples/fc_layer/testbench/test_fc_layer.py" lineno="494" time="0.7509517669677734" sim_time_ns="50660.001" ratio_time="67461.05839068361" />
+    <testcase name="test_fc_layer_inference" classname="testbench.test_fc_layer" file="/home/yanggl/code/BICSdifftest/examples/fc_layer/testbench/test_fc_layer.py" lineno="534" time="5.451812982559204" sim_time_ns="653350.0009999999" ratio_time="119840.8681827715" />
+    <testcase name="test_fc_layer_corner_cases" classname="testbench.test_fc_layer" file="/home/yanggl/code/BICSdifftest/examples/fc_layer/testbench/test_fc_layer.py" lineno="581" time="3.2610437870025635" sim_time_ns="377590.00100000005" ratio_time="115788.08064612572" />
+    <testcase name="test_fc_layer_comprehensive" classname="testbench.test_fc_layer" file="/home/yanggl/code/BICSdifftest/examples/fc_layer/testbench/test_fc_layer.py" lineno="628" time="5.601229667663574" sim_time_ns="683990.0009999999" ratio_time="122114.25732973218" />
+    <testcase name="test_hardware_debug_corner3" classname="testbench.test_fc_layer" file="/home/yanggl/code/BICSdifftest/examples/fc_layer/testbench/test_fc_layer.py" lineno="698" time="0.19187617301940918" sim_time_ns="20355.00099999993" ratio_time="106084.04722529527" />
+  </testsuite>
+</testsuites>

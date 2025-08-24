@@ -1,0 +1,444 @@
+Metadata-Version: 2.4
+Name: BICSdifftest
+Version: 1.0.0
+Summary: Differential Testing Framework for Verilog Hardware Verification
+Author-email: Guolin Yang <curryfromuestc@gmail.com>
+Maintainer-email: Guolin Yang <curryfromuestc@gmail.com>
+License: MIT
+Project-URL: Homepage, https://github.com/curryfromuestc/BICSdifftest
+Project-URL: Documentation, https://bicsdifftest.readthedocs.io/
+Project-URL: Repository, https://github.com/curryfromuestc/BICSdifftest.git
+Project-URL: Bug Reports, https://github.com/curryfromuestc/BICSdifftest/issues
+Project-URL: Changelog, https://github.com/curryfromuestc/BICSdifftest/blob/main/CHANGELOG.md
+Keywords: hardware verification,differential testing,verilog,cocotb,verilator,pytorch,golden model,rtl verification,hardware testing,eda
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Electronic Design Automation (EDA)
+Classifier: Topic :: Software Development :: Testing
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: torch>=1.10.0
+Requires-Dist: numpy>=1.20.0
+Requires-Dist: PyYAML>=5.4.0
+Requires-Dist: cocotb>=1.6.0
+Requires-Dist: cocotb-test>=0.2.0
+Requires-Dist: click>=8.0.0
+Requires-Dist: jinja2>=3.0.0
+Provides-Extra: dev
+Requires-Dist: pytest>=6.0.0; extra == "dev"
+Requires-Dist: pytest-cov>=2.10.0; extra == "dev"
+Requires-Dist: flake8>=3.8.0; extra == "dev"
+Requires-Dist: black>=21.0.0; extra == "dev"
+Requires-Dist: pre-commit>=2.10.0; extra == "dev"
+Requires-Dist: mypy>=0.910; extra == "dev"
+Requires-Dist: isort>=5.9.0; extra == "dev"
+Provides-Extra: docs
+Requires-Dist: sphinx>=4.0.0; extra == "docs"
+Requires-Dist: sphinx-rtd-theme>=1.0.0; extra == "docs"
+Requires-Dist: myst-parser>=0.15.0; extra == "docs"
+Provides-Extra: reporting
+Requires-Dist: jinja2>=3.0.0; extra == "reporting"
+Requires-Dist: matplotlib>=3.3.0; extra == "reporting"
+Requires-Dist: plotly>=4.14.0; extra == "reporting"
+Requires-Dist: pandas>=1.3.0; extra == "reporting"
+Provides-Extra: all
+Requires-Dist: BICSdifftest[dev,docs,reporting]; extra == "all"
+
+# BICSdifftest - Differential Testing Framework for Verilog Hardware Verification
+
+A comprehensive differential testing framework that enables systematic verification of Verilog hardware designs against PyTorch golden models using cocotb and Verilator.
+
+## Overview
+
+BICSdifftest provides a complete solution for differential testing of hardware designs, comparing RTL implementations against software reference models at multiple checkpoint stages. The framework integrates PyTorch for golden model implementation, cocotb for testbench development, and Verilator for RTL simulation.
+
+## Key Features
+
+- **PyTorch Golden Models**: Implement reference models with checkpoint functionality for progressive debugging
+- **Cocotb Integration**: Write testbenches in Python with full access to the differential testing framework
+- **Verilator Backend**: High-performance RTL simulation with comprehensive build system
+- **Multi-level Comparison**: Compare outputs at multiple pipeline stages and checkpoints
+- **Comprehensive Reporting**: Generate detailed HTML, JSON, and JUnit XML reports
+- **Parallel Execution**: Run multiple tests in parallel for faster verification
+- **Advanced Logging**: Structured logging with performance monitoring and debug utilities
+- **Configuration Management**: Flexible YAML/JSON configuration with environment overrides
+
+## Architecture
+
+```
+BICSdifftest/
+├── golden_model/          # PyTorch golden models
+│   ├── base/             # Base classes and utilities
+│   └── models/           # Specific golden model implementations
+├── testbench/            # Cocotb testbench infrastructure
+│   ├── base/             # Base testbench classes
+│   ├── tests/            # Test implementations
+│   └── utils/            # Testing utilities
+├── sim/                  # Simulation backend
+│   └── verilator/        # Verilator integration
+├── config/               # Configuration management
+├── scripts/              # Automation and utilities
+├── examples/             # Example designs and tests
+│   └── simple_alu/       # Simple ALU example
+└── docs/                 # Documentation
+```
+
+## Quick Start
+
+### Installation
+
+#### Option 1: Install from PyPI (Recommended when published)
+```bash
+# Install BICSdifftest
+pip install BICSdifftest
+
+# Or install with all optional dependencies
+pip install BICSdifftest[all]
+```
+
+#### Option 2: Install from Source
+```bash
+# Clone the repository
+git clone https://github.com/BICS/BICSdifftest.git
+cd BICSdifftest
+
+# Install in development mode
+pip install -e .[all]
+```
+
+### Prerequisites
+
+- **Python 3.8+**
+- **Verilator 4.0+** (RTL simulator)
+- **PyTorch** (automatically installed)
+- **CocoTB** (automatically installed)
+
+### Create Your First Project
+
+```bash
+# Create a new workspace
+bicsdifftest build my_hardware_project
+
+# Navigate to the workspace
+cd my_hardware_project
+
+# Run the included counter example
+make test-counter
+```
+
+### What You Get
+
+The workspace includes:
+- **Complete example designs** (Counter, ALU, FPU)
+- **PyTorch golden models** with checkpoint functionality
+- **CocoTB testbenches** for hardware simulation
+- **Automated build system** with Makefile
+- **Configuration templates** for easy customization
+
+## Usage
+
+### Creating a Golden Model
+
+```python
+from golden_model.base import PipelinedGoldenModel
+import torch
+
+class MyDesignGoldenModel(PipelinedGoldenModel):
+    def __init__(self, data_width=32):
+        super().__init__("MyDesignGoldenModel")
+        self.data_width = data_width
+        
+        # Add pipeline stages
+        self.add_stage(Stage1(), "preprocessing")
+        self.add_stage(Stage2(), "computation")
+        self.add_stage(Stage3(), "postprocessing")
+    
+    def _forward_impl(self, inputs):
+        # Implement your design logic here
+        result = self.process_inputs(inputs)
+        
+        # Add checkpoints for debugging
+        self.add_checkpoint('intermediate_result', result)
+        
+        return result
+```
+
+### Writing a Testbench
+
+```python
+import cocotb
+from testbench.base import DiffTestBase, TestSequence, TestVector
+
+class MyDesignDiffTest(DiffTestBase):
+    def __init__(self, dut):
+        golden_model = MyDesignGoldenModel()
+        super().__init__(dut, golden_model, "MyDesignDiffTest")
+    
+    async def setup_dut(self):
+        # Initialize your DUT
+        pass
+    
+    async def apply_custom_stimulus(self, test_vector):
+        # Apply test inputs to DUT
+        self.dut.input_data.value = test_vector.inputs['data']
+        await RisingEdge(self.dut.clk)
+    
+    async def capture_dut_outputs(self):
+        # Capture DUT outputs
+        return {
+            'result': int(self.dut.result.value),
+            'valid': bool(int(self.dut.valid.value))
+        }
+
+@cocotb.test()
+async def test_my_design(dut):
+    diff_test = MyDesignDiffTest(dut)
+    
+    # Create test sequence
+    test_vectors = [
+        TestVector(inputs={'data': 0x12345678}, test_id="test_0"),
+        TestVector(inputs={'data': 0xDEADBEEF}, test_id="test_1"),
+    ]
+    sequence = TestSequence("basic_tests", test_vectors)
+    
+    # Run differential test
+    results = await diff_test.run_test([sequence])
+    
+    # Verify results
+    assert all(r.passed for r in results)
+```
+
+### Configuration
+
+Create a test configuration file:
+
+```yaml
+# my_design_test.yaml
+name: "my_design"
+description: "Test configuration for my design"
+
+top_module: "my_design"
+verilog_sources:
+  - "rtl/my_design.sv"
+
+golden_model_class: "golden_model.models.MyDesignGoldenModel"
+
+verilator:
+  enable_waves: true
+  trace_depth: 99
+  compile_args: ["--trace", "-Wall"]
+
+cocotb:
+  log_level: "INFO"
+  test_timeout: 300
+
+comparison:
+  mode: "bit_exact"
+```
+
+### Running Tests
+
+```bash
+# Run specific tests
+python scripts/test_runner.py --test-dirs examples/my_design
+
+# Run in parallel
+python scripts/test_runner.py --parallel 4
+
+# Run with filtering
+python scripts/test_runner.py --test-filter my_design --log-level DEBUG
+
+# Generate only reports (after tests have run)
+make reports
+```
+
+## Examples
+
+### Simple ALU
+
+The framework includes a complete Simple ALU example demonstrating:
+
+- **RTL Design** (`examples/simple_alu/rtl/simple_alu.sv`): 32-bit ALU with multiple operations
+- **Golden Model** (`golden_model/models/simple_alu_model.py`): PyTorch implementation with checkpoints
+- **Testbench** (`examples/simple_alu/testbench/test_simple_alu.py`): Comprehensive cocotb testbench
+- **Configuration** (`examples/simple_alu/config/simple_alu_test.yaml`): Complete test configuration
+
+Features demonstrated:
+- Multi-cycle operations (multiplication, division)
+- Pipeline stage verification
+- Corner case testing
+- Random test generation
+- Comprehensive error reporting
+
+Run the example:
+```bash
+make test-alu
+```
+
+## Advanced Features
+
+### Checkpoint-based Verification
+
+The framework supports multi-level verification by comparing intermediate results:
+
+```python
+# Golden model creates checkpoints
+def forward(self, inputs):
+    stage1_result = self.stage1(inputs)
+    self.add_checkpoint('stage1', stage1_result)
+    
+    stage2_result = self.stage2(stage1_result)  
+    self.add_checkpoint('stage2', stage2_result)
+    
+    return final_result
+
+# Testbench compares at each checkpoint
+async def compare_checkpoints(self, golden_checkpoints, hardware_outputs):
+    comparisons = []
+    
+    # Compare stage 1
+    stage1_comparison = self.comparator.compare(
+        golden_checkpoints['stage1'],
+        hardware_outputs['debug_stage1'],
+        name="stage1_verification"
+    )
+    comparisons.append(stage1_comparison)
+    
+    return comparisons
+```
+
+### Parallel Test Execution
+
+Run tests in parallel for faster verification:
+
+```bash
+# Use 4 parallel workers
+make test-parallel PARALLEL_JOBS=4
+
+# Or with the test runner directly
+python scripts/test_runner.py --parallel 8 --continue-on-error
+```
+
+### Advanced Comparison Modes
+
+Support for different comparison strategies:
+
+```yaml
+comparison:
+  mode: "absolute_tolerance"  # bit_exact, absolute_tolerance, relative_tolerance, ulp_tolerance
+  absolute_tolerance: 1e-6
+  
+  # Signal-specific overrides
+  signal_overrides:
+    critical_output:
+      mode: "bit_exact"
+    approximate_result:
+      mode: "relative_tolerance"
+      relative_tolerance: 0.01
+```
+
+### Performance Monitoring
+
+Built-in performance monitoring and reporting:
+
+```python
+with logger.timer("simulation_phase"):
+    result = await run_simulation()
+    
+logger.log_comparison_result(
+    signal_name="output",
+    expected=golden_value,
+    actual=hw_value,
+    passed=comparison_passed
+)
+```
+
+## Report Generation
+
+The framework generates comprehensive reports:
+
+- **HTML Reports**: Interactive reports with test summaries, detailed results, and error analysis
+- **JSON Reports**: Machine-readable test data for integration with other tools
+- **JUnit XML**: Compatible with CI/CD systems like Jenkins, GitHub Actions
+
+Access reports in the `reports/` directory after running tests.
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests for new functionality
+5. Run the test suite: `make test`
+6. Submit a pull request
+
+### Development Setup
+
+```bash
+make dev-setup
+```
+
+This installs additional development tools including linting, formatting, and pre-commit hooks.
+
+## Troubleshooting
+
+### Common Issues
+
+**Verilator not found**: Install Verilator and ensure it's in your PATH
+```bash
+# Ubuntu/Debian
+sudo apt-get install verilator
+
+# macOS with Homebrew
+brew install verilator
+```
+
+**PyTorch installation issues**: Use conda for complex dependencies
+```bash
+conda install pytorch torchvision -c pytorch
+```
+
+**Cocotb import errors**: Ensure cocotb is properly installed
+```bash
+pip install cocotb cocotb-test
+```
+
+### Debug Mode
+
+Run tests with maximum verbosity for troubleshooting:
+
+```bash
+make debug
+```
+
+This preserves all build artifacts and generates detailed debug logs.
+
+### Getting Help
+
+- Check the `logs/` directory for detailed execution logs
+- Use `make status` to check framework installation
+- Enable debug logging with `--log-level DEBUG`
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- Built on top of excellent open-source tools: Verilator, Cocotb, and PyTorch
+- Inspired by industry best practices in hardware verification
+- Designed for the BICS research community and hardware verification engineers
+
+---
+
+**BICSdifftest** - Bringing software-style testing methodologies to hardware verification.
