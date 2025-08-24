@@ -1,0 +1,11 @@
+desktop_access_mcp_server/__init__.py,sha256=RSljLxhMwRmd3Ty016knWAsCrGvNENJcz1u_br0UTDo,105
+desktop_access_mcp_server/__main__.py,sha256=64ouxu1qZKCNozuafinfoMCHX0IdKIJu1lKq5aYT-n0,6209
+desktop_access_mcp_server/cli.py,sha256=E_k8xcYpIlv5GUdQ1tS_zSRL6vjKyn0PcvwffbgvkOg,6254
+desktop_access_mcp_server/cli_entry_point.py,sha256=ShSGyMWL2TjeInhlsRZa6tqznz5RK38QjnsdQqY-4XM,590
+desktop_access_mcp_server/desktop_controller.py,sha256=-Rl6J44bfeL7sQBxvmMFtN2mkXOP5Ju31BXP0OE8bZo,32588
+desktop_access_mcp_server/entry_point.py,sha256=BTWe1oXGfcTA7SQ-dDnnJivUZUAWBEjzLs_s_0t4rCI,572
+desktop_access_mcp_server-0.1.0.dist-info/entry_points.txt,sha256=ZAcC-31JjOY85QKaTLWqK_nv5xImcHrn9WQioLwOJps,156
+desktop_access_mcp_server-0.1.0.dist-info/licenses/LICENSE,sha256=QUJTroYzQ4qKBb6xJ8iOYRr3VCN7jfVsKbBgL5kg27s,1067
+desktop_access_mcp_server-0.1.0.dist-info/WHEEL,sha256=G2gURzTEtmeR8nrdXUJfNiB3VYVxigPQ-bEQujpNiNs,82
+desktop_access_mcp_server-0.1.0.dist-info/METADATA,sha256=xSFwuvDSswOh3tJvdEr3Xgin_wUxZXU6FL_c4h5JrLs,16173
+desktop_access_mcp_server-0.1.0.dist-info/RECORD,,
