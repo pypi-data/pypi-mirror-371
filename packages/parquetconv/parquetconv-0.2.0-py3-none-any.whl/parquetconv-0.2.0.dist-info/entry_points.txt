@@ -1,0 +1,2 @@
+[console_scripts]
+parquetconv = parquetconv.cli:main
