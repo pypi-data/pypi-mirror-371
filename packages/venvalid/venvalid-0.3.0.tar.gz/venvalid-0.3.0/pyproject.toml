@@ -1,0 +1,33 @@
+[project]
+name = "venvalid"
+version = "0.3.0"
+description = "A minimal and developer-friendly environment variable validator for Python, inspired by envalid."
+authors = [{ name = "PinnLabs", email = "it@pinnlabs.online" }]
+license = "MIT"
+readme = "README.md"
+requires-python = ">=3.8"
+keywords = ["env", "dotenv", "validation", "envalid", "configuration"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent"
+]
+dependencies = [
+    "build>=1.2.2.post1",
+    "pytest>=8.3.5",
+    "rich>=14.1.0",
+    "twine>=6.1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+]
+
+[project.urls]
+Homepage = "https://github.com/pinnlabs/venvalid"
+Repository = "https://github.com/pinnlabs/venvalid"
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
