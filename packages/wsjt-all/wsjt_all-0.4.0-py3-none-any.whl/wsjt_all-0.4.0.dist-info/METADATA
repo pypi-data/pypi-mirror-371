@@ -1,0 +1,17 @@
+Metadata-Version: 2.4
+Name: wsjt_all
+Version: 0.4.0
+Summary: Automated plots and analysis from the WSJT-X ALL.txt file
+Author-email: G1OJS <g1ojs@yahoo.com>
+License-Expression: MIT
+Project-URL: Homepage, https://github.com/G1OJS/wsjt_all
+Project-URL: Issues, https://github.com/G1OJS/wsjt_all/issues
+Keywords: hamradio,WSJT,WSJT-X
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Utilities
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: license-file
+
+# wsjt-all
