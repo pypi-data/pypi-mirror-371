@@ -1,0 +1,72 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "toolmockers"
+version = "1.0.0"
+description = "LLM-powered mocking library for generating realistic mock responses in AI agent tools"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.9"
+authors = [
+    {name = "Alessandro Clerici Lorenzini", email = "foss@aclerici.me"},
+]
+maintainers = [
+    {name = "Alessandro Clerici Lorenzini", email = "foss@aclerici.me"},
+]
+keywords = ["mock", "testing", "llm", "ai", "langchain", "development", "agents", "tools"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Software Development :: Testing :: Mocking",
+    "Typing :: Typed",
+]
+dependencies = [
+    "langchain-core>=0.3.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "black>=22.0.0",
+    "isort>=5.0.0",
+]
+examples = [
+    "langchain-openai>=0.1.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/sgorblex/toolmockers"
+Documentation = "https://github.com/sgorblex/toolmockers#readme"
+Repository = "https://github.com/sgorblex/toolmockers.git"
+Issues = "https://github.com/sgorblex/toolmockers/issues"
+Changelog = "https://github.com/sgorblex/toolmockers/releases"
+
+[tool.hatch.version]
+path = "toolmockers.py"
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/toolmockers.py",
+    "/README.md",
+    "/example.py",
+]
+
+[tool.black]
+line-length = 88
+target-version = ['py39']
+include = '\.pyi?$'
+
+[tool.isort]
+profile = "black"
+line_length = 88

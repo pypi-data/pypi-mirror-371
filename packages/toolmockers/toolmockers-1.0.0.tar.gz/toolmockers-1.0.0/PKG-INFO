@@ -1,0 +1,294 @@
+Metadata-Version: 2.4
+Name: toolmockers
+Version: 1.0.0
+Summary: LLM-powered mocking library for generating realistic mock responses in AI agent tools
+Project-URL: Homepage, https://github.com/sgorblex/toolmockers
+Project-URL: Documentation, https://github.com/sgorblex/toolmockers#readme
+Project-URL: Repository, https://github.com/sgorblex/toolmockers.git
+Project-URL: Issues, https://github.com/sgorblex/toolmockers/issues
+Project-URL: Changelog, https://github.com/sgorblex/toolmockers/releases
+Author-email: Alessandro Clerici Lorenzini <foss@aclerici.me>
+Maintainer-email: Alessandro Clerici Lorenzini <foss@aclerici.me>
+License-Expression: MIT
+License-File: LICENSE
+Keywords: agents,ai,development,langchain,llm,mock,testing,tools
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Software Development :: Testing
+Classifier: Topic :: Software Development :: Testing :: Mocking
+Classifier: Typing :: Typed
+Requires-Python: >=3.9
+Requires-Dist: langchain-core>=0.3.0
+Provides-Extra: dev
+Requires-Dist: black>=22.0.0; extra == 'dev'
+Requires-Dist: isort>=5.0.0; extra == 'dev'
+Provides-Extra: examples
+Requires-Dist: langchain-openai>=0.1.0; extra == 'examples'
+Description-Content-Type: text/markdown
+
+# ToolMockers
+
+[![Python 3.13+](https://img.shields.io/badge/python-3.13+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+**ToolMockers** is a Python library that automatically generates realistic mock responses for functions using Large Language Models (LLMs). Perfect for development, testing, and prototyping when you need intelligent mocks that understand context and generate meaningful data.
+
+## 🚀 Features
+
+- **LLM-Powered Mocking**: Generate contextually appropriate mock responses using any LangChain-compatible LLM
+- **Flexible Configuration**: Control what context to include (docstrings, source code, examples)
+- **Easy Integration**: Simple decorator-based API that works with existing code
+- **Smart Parsing**: Automatic parsing of LLM responses into proper Python objects
+- **Comprehensive Logging**: Built-in logging for debugging and monitoring
+- **Type-Safe**: Full type hints for better IDE support and code quality
+
+## 📦 Installation
+
+### Using pip
+```bash
+pip install toolmockers
+```
+
+### Using uv (recommended)
+```bash
+uv add toolmockers
+```
+
+For development:
+```bash
+uv add toolmockers --dev
+```
+
+## 🔧 Quick Start
+
+```python
+from langchain_openai import ChatOpenAI
+from toolmockers import get_mock_decorator
+
+# Initialize your LLM
+llm = ChatOpenAI(model="gpt-4")
+
+# Create a mock decorator
+mock = get_mock_decorator(llm=llm, enabled=True)
+
+@mock
+def fetch_user_profile(user_id: str) -> dict:
+    """Fetch user profile from the database.
+
+    Args:
+        user_id: The unique identifier for the user
+
+    Returns:
+        A dictionary containing user profile information
+    """
+    # This would normally make a database call
+    # But when mocked, the LLM generates a realistic response
+    pass
+
+# The function now returns LLM-generated mock data
+profile = fetch_user_profile("user123")
+print(profile)
+# Output: {'id': 'user123', 'name': 'John Smith', 'email': 'john.smith@email.com', ...}
+```
+
+## 💡 Advanced Usage
+
+### Custom Examples
+
+Provide examples to guide the LLM's responses:
+
+```python
+@mock(examples=[
+    {
+        "input": "analyze_sentiment('I love this!')",
+        "output": {"sentiment": "positive", "confidence": 0.95}
+    },
+    {
+        "input": "analyze_sentiment('This is awful')",
+        "output": {"sentiment": "negative", "confidence": 0.87}
+    }
+])
+def analyze_sentiment(text: str) -> dict:
+    """Analyze sentiment of text."""
+    pass
+```
+
+### Including Source Code
+
+Include function source code for better context:
+
+```python
+@mock(use_code=True)
+def complex_calculation(data: list) -> float:
+    """Perform complex statistical calculation."""
+    # The LLM can see this implementation
+    return sum(x**2 for x in data) / len(data)
+```
+
+### Conditional Mocking
+
+Enable/disable mocking based on environment:
+
+```python
+import os
+
+mock = get_mock_decorator(
+    llm=llm,
+    enabled=os.getenv("ENVIRONMENT") == "development"
+)
+```
+
+### Custom Response Parser
+
+Create custom parsers for specific response formats:
+
+```python
+def custom_parser(response_str, func, args, kwargs):
+    """Custom parser that always returns a specific format."""
+    try:
+        import json
+        return json.loads(response_str)
+    except:
+        return {"error": "parsing_failed", "raw": response_str}
+
+mock = get_mock_decorator(llm=llm, parser=custom_parser)
+```
+
+## 🛠️ Configuration Options
+
+The `get_mock_decorator` function accepts these parameters:
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `llm` | `BaseChatModel` | Required | The LangChain LLM to use for generation |
+| `enabled` | `bool` | `False` | Whether mocking is enabled |
+| `use_docstring` | `bool` | `True` | Include function docstrings in prompts |
+| `use_code` | `bool` | `False` | Include source code in prompts |
+| `use_examples` | `bool` | `True` | Include examples when provided |
+| `parser` | `Callable` | `default_mock_response_parser` | Function to parse LLM responses |
+
+Individual functions can override these settings:
+
+```python
+@mock(
+    enabled=True,           # Override global enabled setting
+    use_code=True,          # Include source code for this function
+    use_examples=False,     # Don't use examples
+    examples=[...]          # Provide specific examples
+)
+def my_function():
+    pass
+```
+
+## 🔍 Logging
+
+ToolMockers includes comprehensive logging. Configure it to see what's happening:
+
+```python
+import logging
+
+# Basic configuration
+logging.basicConfig(level=logging.INFO)
+
+# More detailed logging
+logging.getLogger("toolmockers").setLevel(logging.DEBUG)
+```
+
+Log levels:
+- **INFO**: Function mocking events, generation success/failure
+- **DEBUG**: Detailed prompt generation, response parsing, decorator application
+- **WARNING**: Parsing fallbacks, missing source code
+- **ERROR**: LLM invocation failures, parsing errors
+
+## 🧪 Testing
+
+ToolMockers is perfect for testing scenarios where you need realistic data without external dependencies:
+
+```python
+import pytest
+from toolmockers import get_mock_decorator
+
+@pytest.fixture
+def mock_decorator():
+    return get_mock_decorator(llm=your_test_llm, enabled=True)
+
+def test_user_service(mock_decorator):
+    @mock_decorator
+    def get_user_data(user_id):
+        """Get user data from external API."""
+        pass
+
+    # Test with mocked data
+    result = get_user_data("test123")
+    assert "id" in result
+    assert result["id"] == "test123"
+```
+
+## 🎯 Use Cases
+
+- **API Development**: Mock external service calls during development
+- **Testing**: Generate realistic test data without setting up databases
+- **Prototyping**: Quickly build working prototypes with smart mocks
+- **Load Testing**: Replace slow external calls with fast LLM-generated responses
+- **Documentation**: Generate example outputs for API documentation
+
+## 🛠️ Development
+
+This project uses [uv](https://github.com/astral-sh/uv) for dependency management.
+
+### Setup
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/toolmockers.git
+cd toolmockers
+
+# Install dependencies
+uv sync
+
+# Run tests
+uv run python -m pytest
+
+# Run the example
+uv run python example.py
+
+# Format code
+uv run black .
+uv run isort .
+```
+
+### Building
+```bash
+# Build the package
+uv build
+
+# Publish to PyPI
+uv publish
+```
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- Built on top of [LangChain](https://github.com/langchain-ai/langchain) for LLM integration
+- Inspired by the need for intelligent mocking in AI agent development
+
+## 📚 Related Projects
+
+- [LangChain](https://github.com/langchain-ai/langchain) - Framework for developing applications with LLMs
+- [unittest.mock](https://docs.python.org/3/library/unittest.mock.html) - Python's built-in mocking library
+- [pytest-mock](https://github.com/pytest-dev/pytest-mock/) - Pytest plugin for mocking
