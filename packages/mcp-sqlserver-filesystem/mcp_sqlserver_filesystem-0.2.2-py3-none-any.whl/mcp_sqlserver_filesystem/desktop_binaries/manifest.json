@@ -1,0 +1,10 @@
+{
+  "platform": "multi-platform",
+  "architecture": "multi-arch",
+  "files": [],
+  "build_time": "2025-08-23T21:09:00",
+  "version": "0.2.2",
+  "note": "预编译桌面二进制文件将通过GitHub Actions自动构建并包含在PyPI包中。用户无需安装Rust工具链即可使用桌面功能。",
+  "ci_status": "waiting_for_first_build",
+  "build_workflow": ".github/workflows/build-desktop.yml"
+}
