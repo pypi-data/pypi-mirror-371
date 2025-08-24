@@ -1,0 +1,16 @@
+MANIFEST.in
+README.md
+setup.py
+sccpt/__init__.py
+sccpt/capture.py
+sccpt/gif.py
+sccpt/utils.py
+sccpt.egg-info/PKG-INFO
+sccpt.egg-info/SOURCES.txt
+sccpt.egg-info/dependency_links.txt
+sccpt.egg-info/entry_points.txt
+sccpt.egg-info/requires.txt
+sccpt.egg-info/top_level.txt
+tests/__init__.py
+tests/conftest.py
+tests/test_sccpt.py
