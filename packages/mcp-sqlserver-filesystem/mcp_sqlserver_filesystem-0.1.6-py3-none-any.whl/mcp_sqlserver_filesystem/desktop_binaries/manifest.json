@@ -1,0 +1,8 @@
+{
+  "platform": "windows",
+  "architecture": "x86_64", 
+  "files": [],
+  "build_time": "2025-08-23T21:09:00",
+  "version": "0.1.5",
+  "note": "Desktop binaries will be available in the next release with pre-compiled executables"
+}
