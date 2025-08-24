@@ -1,0 +1,3 @@
+[console_scripts]
+brand-ad-cover-generator = mcp_plus:main
+generate-brand-ad-cover = mcp_plus:main
