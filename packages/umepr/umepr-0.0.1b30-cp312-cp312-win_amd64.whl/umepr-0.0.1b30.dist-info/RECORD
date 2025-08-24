@@ -1,0 +1,13 @@
+umepr-0.0.1b30.dist-info/METADATA,sha256=TUNsM33BNH9LjQi-6DgkPq9DC8ZDlMlB44M7Vy2RWG4,3780
+umepr-0.0.1b30.dist-info/WHEEL,sha256=HF3aUMilrtO42xS_fBzOVaPE8OtiNjP_RotLatII7HM,96
+umepr-0.0.1b30.dist-info/licenses/LICENSE,sha256=gcuuhKKc5-dwvyvHsXjlC9oM6N5gZ6umYbC8ewW1Yvg,35821
+umepr/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+umepr/functions/daily_shading.py,sha256=_6zEV85CXi2nC9AuMLNoHQxxKGyUVj93M8oTk0QwdG4,7189
+umepr/functions/solweig.py,sha256=yAxg1uJmg5GHX1p1d29jqYEc2caf5N2_maZPgABXCZ8,25089
+umepr/hybrid/svf.py,sha256=7xoblBKDiA_VqY8V3w3vDfa4pSJAQXJ7pAwI6qjcmW0,8496
+umepr/parametersforsolweig.json,sha256=xyqsLdymwBO9qOZ0G5l5EZJRAnFTdVwPSo8vXNVLrxc,7507
+umepr/rustalgos.cp312-win_amd64.pyd,sha256=bZCLsmGdLVXvLS87cIcepneiJOdVO8A76W0LybouMKQ,1769472
+umepr/shadows.py,sha256=uVH4MHi34VT_mk6onVX0rSF-fLw_JuoHQjOXi2FjGTU,4716
+umepr/solweig_runner_rust.py,sha256=qUnQuntg8paLrUs12Qlj7O6axMibgKa9LtuQgVxRn6g,4567
+umepr/svf.py,sha256=38jaJY6REEwS4JR3YaCx9lvHRu6HfTtcIY4j6B3F-ok,8348
+umepr-0.0.1b30.dist-info/RECORD,,
