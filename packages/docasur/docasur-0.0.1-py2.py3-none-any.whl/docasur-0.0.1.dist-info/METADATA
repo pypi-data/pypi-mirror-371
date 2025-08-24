@@ -1,0 +1,19 @@
+Metadata-Version: 2.4
+Name: docasur
+Version: 0.0.1
+Summary: A Static Site Generator for Technical Writing
+Project-URL: Source, https://githug.com/docasur-org/docasur
+Author-email: Jayesh Badwaik <jayesh@ambhora.com>
+License-Expression: Apache-2.0
+Requires-Dist: livereload
+Requires-Dist: semver
+Description-Content-Type: text/markdown
+
+<!--
+- SPDX-License-Identifier: Apache-2.0
+- Copyright (C) 2024 Jayesh Badwaik <jayesh@ambhora.com>
+-->
+
+# docasur
+
+docasur is a document typesetting system.
