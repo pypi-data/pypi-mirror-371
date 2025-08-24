@@ -1,0 +1,2 @@
+[console_scripts]
+rem = remove_the_bg.cli:main
