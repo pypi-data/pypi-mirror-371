@@ -1,0 +1,17 @@
+bitfinex-api-py>=3.0.0
+python-dotenv>=1.0.0
+asyncio>=3.4.3
+aiohttp>=3.8.0
+click>=8.0.0
+psutil>=5.9.0
+
+[dev]
+ruff>=0.6.0
+mypy>=1.5.0
+types-psutil
+pytest>=7.4.0
+pytest-cov>=4.1.0
+bandit>=1.7.5
+hypothesis>=6.0.0
+pytest-asyncio>=0.21.0
+pytest-benchmark>=4.0.0
