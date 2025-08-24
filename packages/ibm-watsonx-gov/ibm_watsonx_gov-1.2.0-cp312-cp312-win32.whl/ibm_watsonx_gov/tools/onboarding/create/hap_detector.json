@@ -1,0 +1,67 @@
+{
+    "display_name": "HAP Detector",
+    "tool_name": "hap_detector",
+    "service_provider_type": "IBM",
+    "description": "Tool to detect Hate, Abuse and Profanity content in text",
+    "inventory_id": "<attribute_value>",
+    "reusable": "true",
+    "category": [
+        "Guardrails"
+    ],
+    "framework": [
+        "langchain",
+        "langgraph"
+    ],
+    "code": {
+        "source_code_url": "",
+        "run_time_details": {
+            "engine": "Python >=3.11"
+        }
+    },
+    "config": {
+        "description": "Threshold value for HAP detection",
+        "properties": {
+            "threshold": {
+                "description": "Threshold",
+                "title": "Threshold",
+                "type": "float"
+            },
+            "title": "HAPConfig",
+            "type": "object"
+        }
+    },
+    "schema": {
+        "properties": {
+            "input": {
+                "description": "Input text",
+                "title": "Input",
+                "type": "string"
+            },
+            "threshold": {
+                "description": "Threshold for calling the tool",
+                "title": "Threshold",
+                "type": "float"
+            }
+        },
+        "required": [
+            "input"
+        ],
+        "title": "HAPInput",
+        "type": "object"
+    },
+    "environment_variables": [
+        "WXG_SERVICE_INSTANCE_ID",
+        "WATSONX_REGION"
+    ],
+    "regions": [
+        "ys1dev",
+        "ypqa",
+        "mcspdev",
+        "mcspqa",
+        "us-south",
+        "eu-de",
+        "ca-tor",
+        "au-syd",
+        "jp-tok"
+    ]
+}
