@@ -1,0 +1,2 @@
+[console_scripts]
+lunchkey = lunchkey.main:main
