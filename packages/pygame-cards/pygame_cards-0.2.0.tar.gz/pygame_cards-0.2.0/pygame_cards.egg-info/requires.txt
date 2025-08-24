@@ -1,0 +1,7 @@
+pygame
+pygame_emojis>=0.2
+numpy
+
+[doc]
+sphinx
+furo
