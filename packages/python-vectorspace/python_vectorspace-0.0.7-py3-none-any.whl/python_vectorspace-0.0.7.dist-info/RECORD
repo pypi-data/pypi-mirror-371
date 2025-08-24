@@ -1,0 +1,10 @@
+vectorspace/chunking.py,sha256=QcXHX4GfXSBbjrecXlkbcOxLfRTl1wfBtlGESFYqi_g,3535
+vectorspace/core.py,sha256=dE_9hCo6k8-VCbrZuofvcVxssPMQNpRcNuhhdlznk9Q,7460
+vectorspace/http_server.py,sha256=4lvjIMiP4TeER7jxAbKjhvKbdiKGK_Qh-cLI8h--di4,1558
+vectorspace/logger.py,sha256=YzNK0tw31V_SlW2dx0HfWVDBU77YkQKUKqRhQjGnTlw,387
+vectorspace/mcp_server.py,sha256=CJiCcBw0ATnmCXWL7LrdVMMLkdUU_ViahnKAS0uNnFw,1683
+python_vectorspace-0.0.7.dist-info/METADATA,sha256=AmBQsLT4bl3y6-9Z__vJEM8NQQLKDjYI_51x1mvVKlg,1164
+python_vectorspace-0.0.7.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+python_vectorspace-0.0.7.dist-info/entry_points.txt,sha256=Jyr4hvC_JhVmSvHk0loMyaeXpCYL354g4yLfd89GeeQ,107
+python_vectorspace-0.0.7.dist-info/top_level.txt,sha256=wvWSW8pHlTc3OcZ2Fjip4M4ahELfwEb_WuhQEgI08Bo,12
+python_vectorspace-0.0.7.dist-info/RECORD,,
