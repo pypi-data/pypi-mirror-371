@@ -1,0 +1,4 @@
+aiohttp
+xmltodict
+python-socketio-v4
+websocket-client
