@@ -1,0 +1,49 @@
+name: Docs (MkDocs)
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'mkdocs.yml'
+      - 'requirements-docs.txt'
+      - 'docs/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write   # required to push to gh-pages
+
+concurrency:
+  group: docs-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+          cache-dependency-path: |
+            requirements-docs.txt
+
+      - name: Install MkDocs + theme
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-docs.txt
+
+      - name: Build site
+        run: mkdocs build --strict
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./site
+          commit_message: "docs: deploy MkDocs site"
