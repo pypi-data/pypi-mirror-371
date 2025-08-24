@@ -1,0 +1,2 @@
+wsjt_all
+wsjt_all_live
