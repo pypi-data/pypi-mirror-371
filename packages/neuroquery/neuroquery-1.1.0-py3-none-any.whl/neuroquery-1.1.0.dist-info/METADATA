@@ -1,0 +1,99 @@
+Metadata-Version: 2.4
+Name: neuroquery
+Version: 1.1.0
+Summary: Meta-analysis of neuroimaging studies.
+Project-URL: Source code, https://github.com/neuroquery/neuroquery
+Author-email: Jérôme Dockès <jerome@dockes.org>
+License-File: LICENSE
+Keywords: meta-analysis,neuroimaging
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Software Development :: Libraries
+Requires-Python: >=3.10
+Requires-Dist: joblib>=1.1.1
+Requires-Dist: lxml
+Requires-Dist: nilearn>=0.9.2
+Requires-Dist: numpy>=1.23.5
+Requires-Dist: pandas>=1.5.3
+Requires-Dist: regex
+Requires-Dist: requests
+Requires-Dist: scikit-learn>=1.2.1
+Requires-Dist: scipy>=1.9.3
+Provides-Extra: dev
+Requires-Dist: coverage; extra == 'dev'
+Requires-Dist: nltk>=3.4.5; extra == 'dev'
+Requires-Dist: pytest; extra == 'dev'
+Requires-Dist: pytest-cov; extra == 'dev'
+Provides-Extra: stemming
+Requires-Dist: nltk>=3.4.5; extra == 'stemming'
+Description-Content-Type: text/markdown
+
+[![build](https://github.com/neuroquery/neuroquery/actions/workflows/testing.yml/badge.svg)](https://github.com/neuroquery/neuroquery/actions/workflows/testing.yml)[![codecov](https://codecov.io/gh/neuroquery/neuroquery/branch/main/graph/badge.svg)](https://codecov.io/gh/neuroquery/neuroquery)
+
+
+# NeuroQuery
+
+NeuroQuery is a tool and a statistical model for meta-analysis of the functional
+neuroimaging literature.
+
+Given a text query, it can produce a brain map of the most relevant anatomical
+structures according to the current scientific literature.
+
+It can be used through a web interface: https://neuroquery.org
+
+Technical details and extensive validation are provided in [this paper](https://elifesciences.org/articles/53385).
+
+This Python package permits using NeuroQuery offline or integrating it in other
+applications.
+
+## Getting started
+
+[Quick demo](https://nbviewer.jupyter.org/github/neuroquery/neuroquery/blob/main/examples/minimal_example.ipynb)
+
+### Dependencies
+
+NeuroQuery requires Python 3, numpy, scipy, scikit-learn, nilearn, pandas,
+regex, lxml, and requests.
+
+nltk is an optional dependency needed only if you use stemming or lemmatization
+for tokenization of input text.
+
+python-Levenshtein is an optional dependency used only in some parts of
+tokenization. If you use the vocabulary lists provided with `neuroquery` or in
+`neuroquery_data` it is not needed.
+
+### Installation
+
+`neuroquery` can be installed with
+
+```
+pip install neuroquery
+```
+
+### Usage
+
+In the `examples` folder,
+[`minimal_example.ipynb`](https://nbviewer.jupyter.org/github/neuroquery/neuroquery/blob/main/examples/minimal_example.ipynb)
+shows basic usage of `neuroquery`.
+
+`neuroquery` has a function to download a trained model so that users can get
+started right away:
+
+```python
+from neuroquery import fetch_neuroquery_model, NeuroQueryModel
+from nilearn.plotting import view_img
+
+encoder = NeuroQueryModel.from_data_dir(fetch_neuroquery_model())
+# encoder returns a dictionary containing a brain map and more,
+# see examples or documentation for details
+view_img(
+    encoder("Parkinson's disease")["brain_map"], threshold=3.).open_in_browser()
+```
+
+`neuroquery` also provides classes to train new models from scientific
+publications' text and stereotactic peak activation coordinates (see
+[`training_neuroquery.ipynb`](https://nbviewer.jupyter.org/github/neuroquery/neuroquery/blob/main/examples/training_neuroquery.ipynb)
+in the examples).
