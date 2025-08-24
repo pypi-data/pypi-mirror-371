@@ -1,0 +1,15 @@
+styro/__init__.py,sha256=Jq7e1LcKcQSNVg4EOJ-acPyPgs8Os5cYEZWXrQsI7Pg,23
+styro/__main__.py,sha256=55Z039m_uTkREQ7qOd72tpTK1PDGNNDVgLPuyl2NbwE,1617
+styro/_git.py,sha256=Su6uTc75zpzmqKN3TuH2T0OXHpvVTCGKxkOzLkMWRlI,1904
+styro/_openfoam.py,sha256=ANWrr26_urbRe0P1RmhGC7qlJg7CK5vQ7O7geSFJe6w,2027
+styro/_packages.py,sha256=RzlvPGS3fOOiecZou-zObG-_ggkFB-6yBn2pK0h_1W4,26632
+styro/_self.py,sha256=9LO6kGzcI1eBrqq4Q2zpJeftoNsDc8_gx45I1Inkh5k,2522
+styro/_status.py,sha256=Wi2YP4WBEr7C7p0-VjuPIPNELv2FDoc1VanrYnwAEb8,2564
+styro/_subprocess.py,sha256=b2uR7KuD0o540nAwvO47HUuBxUFmf_i78oQsfhBeyys,2234
+styro/_util.py,sha256=e6GHRb5aISt14jKa_zWWoGXZww5WjJqrLno5osr7YAw,3365
+styro/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+styro-0.1.24.dist-info/METADATA,sha256=98255YXiDI3Fhysb99h7JdpUstkwduE0NGfKE4vGSkc,4728
+styro-0.1.24.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+styro-0.1.24.dist-info/entry_points.txt,sha256=Y_EmGhVhdc_K_BWXbXJS15svWBeNZcrezK0JM_rbj14,45
+styro-0.1.24.dist-info/licenses/LICENSE.txt,sha256=fYhGIyxjyNXACgpNQS3xxpxDOaVOWRVxZMCRbsDv8k0,35130
+styro-0.1.24.dist-info/RECORD,,
