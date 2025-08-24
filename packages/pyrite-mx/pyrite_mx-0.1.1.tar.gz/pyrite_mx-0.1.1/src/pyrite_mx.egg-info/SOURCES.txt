@@ -1,0 +1,8 @@
+LICENSE
+README.md
+pyproject.toml
+src/pyrite/monolith/__init__.py
+src/pyrite_mx.egg-info/PKG-INFO
+src/pyrite_mx.egg-info/SOURCES.txt
+src/pyrite_mx.egg-info/dependency_links.txt
+src/pyrite_mx.egg-info/top_level.txt

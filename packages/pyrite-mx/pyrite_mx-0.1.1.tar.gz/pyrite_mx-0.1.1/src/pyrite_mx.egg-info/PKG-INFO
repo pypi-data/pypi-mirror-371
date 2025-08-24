@@ -1,0 +1,17 @@
+Metadata-Version: 2.4
+Name: pyrite-mx
+Version: 0.1.1
+Summary: Pyrite-MX: Focus only on what truly matters. No boilerplate. No distractions.
+Author: Sauro Abbondanzieri
+License-Expression: Apache-2.0
+Project-URL: Repository, https://github.com/quadrantica/pyrite-mx
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: license-file
+
+# Pyrite-MX
+
+**Pyrite-MX: Focus only on what truly matters. No boilerplate. No distractions.**
+
+Coming soon...
