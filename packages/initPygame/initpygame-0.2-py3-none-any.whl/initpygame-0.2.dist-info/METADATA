@@ -1,0 +1,5 @@
+Metadata-Version: 2.4
+Name: initPygame
+Version: 0.2
+Requires-Dist: pygame-ce
+Dynamic: requires-dist
