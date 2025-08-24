@@ -1,0 +1,14 @@
+durusai/__init__.py,sha256=LbSBpmhU2-A7smYVWG2G9GcdQYsnch_iGkanO5ybLtY,1158
+durusai/__main__.py,sha256=VdZfLO-_N9bjBAd4l8ILusunNseQ9-YrNb5h_Y6wKq8,106
+durusai/api_client.py,sha256=9brXnQfAbPffbJnYp3DNndBa7NkYg7fEVoZApYdRz7o,14622
+durusai/auth.py,sha256=edn2dqYiGyZXyCRx3UPqJEiktiSzfbGbTU4pFqgETVA,7174
+durusai/cli.py,sha256=Q3SxtXKcEs8MbrZuJ1Ly6ZC-o3eyZIOXnc0SaCa2qkA,22565
+durusai/config.py,sha256=1ppHKxKwc9tnVB2qo8MkIF1w7FWi_XTMl1BR6lOz-6M,10599
+durusai/exceptions.py,sha256=Igzgvkfz0E7Yfg82ENcARTq6okBwXzCYe8iuiN5N8gQ,711
+durusai/interactive.py,sha256=iKqSYlANPpAozRTZy4PV4-H5CNuo97hwPpr2aFdd-GI,15766
+durusai/updater.py,sha256=QkUEH6egD4RazPKPj3GgxuicCq8hoHV2ASJjOwbOwVo,14835
+durusai_cli-2.1.0.dist-info/METADATA,sha256=AHkSCc2rpw9EnA-8gqaXRG8UKdSc7tofkrXTdTemqqc,8062
+durusai_cli-2.1.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+durusai_cli-2.1.0.dist-info/entry_points.txt,sha256=wC1KfCnsIJNCetwmNs3Wi9YFM1uUTo281IV0XFmfSyQ,76
+durusai_cli-2.1.0.dist-info/top_level.txt,sha256=T7-k9JcoNTdu9v-SWxcRSN2D8pwpX9k6naaBjUR8X3Y,8
+durusai_cli-2.1.0.dist-info/RECORD,,
