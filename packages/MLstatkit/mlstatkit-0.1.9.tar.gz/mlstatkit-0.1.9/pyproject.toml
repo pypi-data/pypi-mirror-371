@@ -1,0 +1,67 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "MLstatkit"
+version = "0.1.9"
+description = "MLstatkit integrates established statistical methods into ML workflows (DeLong test, bootstrapping CI, AUC2OR, permutation test, etc.)."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+
+authors = [
+  { name = "Yong-Zhen Huang", email = "m946111005@tmu.edu.tw" }
+]
+
+keywords = [
+  "python",
+  "statistics",
+  "DeLong test",
+  "bootstrapping",
+  "AUC2OR",
+  "machine learning",
+  "permutation test"
+]
+
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Natural Language :: English",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering",
+  "Topic :: Software Development :: Libraries :: Python Modules"
+]
+
+dependencies = [
+  "numpy>=1.20.0",
+  "scipy>=1.7.0",
+  "scikit-learn>=1.0.0",
+  "tqdm>=4.0.0"
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=7.0",
+  "pytest-cov>=4.0",
+  "ruff>=0.5.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/Brritany/MLstatkit"
+Issues = "https://github.com/Brritany/MLstatkit/issues"
+Documentation = "https://github.com/Brritany/MLstatkit#readme"
+
+[tool.setuptools.packages.find]
+exclude = ["tests*", "examples*", "docs*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
