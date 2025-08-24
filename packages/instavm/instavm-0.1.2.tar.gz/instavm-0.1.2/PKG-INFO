@@ -1,0 +1,49 @@
+Metadata-Version: 2.4
+Name: instavm
+Version: 0.1.2
+Summary: A simple API client for code execution
+Home-page: http://instavm.io
+Author: InstaVM Team
+Author-email: hello@instavm.io
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: requests
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# InstaVM Client
+
+A Python client library for interacting with a simple API.
+
+## Installation
+
+You can install the package using pip:
+     ```
+     pip install instavm
+     ```
+
+## Usage
+
+     ```python
+    from instavm import InstaVM
+
+    client = InstaVM(api_key='your_api_key', base_url='https://api.instavm.io')
+
+    # Execute a command
+    result = client.execute("print(100**100)")
+    print(result)
+
+    # Get usage info for the session
+    usage = client.get_usage()
+    print(usage)
+     ```
