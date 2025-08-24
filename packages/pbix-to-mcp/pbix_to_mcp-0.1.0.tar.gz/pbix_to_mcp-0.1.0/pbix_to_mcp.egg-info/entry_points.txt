@@ -1,0 +1,2 @@
+[console_scripts]
+pbix-to-mcp = pbix_to_mcp.cli:main
