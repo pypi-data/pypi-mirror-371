@@ -1,0 +1,5 @@
+dist
+docs
+img
+safire
+tests
