@@ -1,0 +1,3 @@
+mcp[cli]>=0.9.1
+metagpt==0.8.1
+semantic-kernel==0.4.3.dev0

@@ -1,0 +1,11 @@
+Metadata-Version: 2.4
+Name: mcp-software-company
+Version: 0.1.1
+Summary: A model context protocol server to create software projects by following the workflow of a software company
+Author: OptimusAI
+Maintainer-email: Saquib Mehmood <climatexai@proton.me>
+Keywords: automation,http,llm,mcp,software
+Requires-Python: ==3.11.11
+Requires-Dist: mcp[cli]>=0.9.1
+Requires-Dist: metagpt==0.8.1
+Requires-Dist: semantic-kernel==0.4.3.dev0

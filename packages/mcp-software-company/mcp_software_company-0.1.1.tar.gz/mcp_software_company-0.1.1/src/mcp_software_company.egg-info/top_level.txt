@@ -1,0 +1,4 @@
+config
+logs
+mcp_software_company
+metagpt

@@ -1,0 +1,2 @@
+[console_scripts]
+mcp-software-company = mcp_software_company:main
