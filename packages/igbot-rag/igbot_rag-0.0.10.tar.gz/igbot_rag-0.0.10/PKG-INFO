@@ -1,0 +1,13 @@
+Metadata-Version: 2.4
+Name: igbot_rag
+Version: 0.0.10
+Summary: RAG utilities for igbot
+Author-email: Igor Kopeć <igor.kopec95@gmail.com>
+License: LGPL-3.0-or-later
+Requires-Python: >=3.12
+Requires-Dist: igbot-base
+Requires-Dist: igbot-implementation
+Requires-Dist: langchain
+Requires-Dist: langchain_chroma
+Requires-Dist: langchain_huggingface
+Requires-Dist: openai
