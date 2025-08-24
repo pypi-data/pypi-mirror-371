@@ -1,0 +1,74 @@
+Metadata-Version: 2.3
+Name: sightengine-async
+Version: 0.2.0
+Summary: Asynchronous Python client for the SightEngine API
+License: MIT
+Keywords: sightengine,async,aiohttp,api
+Author: Nate Shoffner
+Author-email: nate.shoffner@gmail.com
+Requires-Python: >=3.10,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: aiohttp (>=3.11.11,<4.0.0)
+Requires-Dist: pydantic (>=2.10.4,<3.0.0)
+Requires-Dist: python-dotenv (>=1.1.1,<2.0.0)
+Project-URL: Bug Tracker, https://github.com/NateShoffner/sightengine-python-async/issues
+Project-URL: Homepage, https://github.com/NateShoffner/sightengine-python-async
+Description-Content-Type: text/markdown
+
+# Async Sight Engine Wrapper
+
+[![Python package](https://github.com/NateShoffner/sightengine-python-async/actions/workflows/python-package.yml/badge.svg?branch=master)](https://github.com/NateShoffner/sightengine-python-async/actions/workflows/python-package.yml)
+[![PyPI - Version](https://img.shields.io/pypi/v/sightengine-async)](https://pypi.org/project/sightengine-async/)
+
+Async Python wrapper for the Sight Engine API.
+
+Currently a work in progress.
+
+## Example Usage
+
+```python
+import asyncio
+import os
+from dotenv import load_dotenv
+
+from sightengine.client import SightEngineClient
+from sightengine.models import CheckRequest
+
+load_dotenv()
+
+
+async def main():
+    client = SightEngineClient(
+        api_user=os.getenv("SIGHTENGINE_API_USER"),
+        api_secret=os.getenv("SIGHTENGINE_API_SECRET"),
+    )
+
+    request = CheckRequest(
+        models=[
+            "nudity-2.1",
+            "weapon",
+            "alcohol",
+            "medical",
+            "gambling",
+        ],
+        url="https://sightengine.com/assets/img/examples/example5.jpg",
+    )
+
+    response = await client.check(request)
+    print(response)
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+## TODO
+
+[] Feedback endpoint
+[] Genai opt_generators
+
