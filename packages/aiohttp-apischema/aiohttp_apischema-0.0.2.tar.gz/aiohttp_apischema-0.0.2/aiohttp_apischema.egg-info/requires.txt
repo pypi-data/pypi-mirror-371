@@ -1,0 +1,5 @@
+aiohttp>=3.9
+pydantic>=2
+
+[:python_version < "3.13"]
+typing-extensions
