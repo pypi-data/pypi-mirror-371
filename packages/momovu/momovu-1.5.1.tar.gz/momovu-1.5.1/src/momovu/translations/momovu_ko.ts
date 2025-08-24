@@ -1,0 +1,1129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="ko_KR">
+<context>
+    <name>AboutDialog</name>
+    <message>
+        <location filename="../views/components/about_dialog.py" line="42"/>
+        <source>About Momovu</source>
+        <translation type="unfinished">모모부에 관하여</translation>
+    </message>
+    <message>
+        <location filename="../views/components/about_dialog.py" line="54"/>
+        <source>&lt;h2&gt;Momovu&lt;/h2&gt;</source>
+        <translation type="unfinished">&lt;h2&gt;Momovu&lt;/h2&gt;</translation>
+    </message>
+    <message>
+        <location filename="../views/components/about_dialog.py" line="62"/>
+        <source>Version {version}</source>
+        <translation type="unfinished">버전 {version}</translation>
+    </message>
+    <message>
+        <location filename="../views/components/about_dialog.py" line="77"/>
+        <source>A PDF viewer for book publishing workflows.
+
+Preview and validate book layouts with precise margin visualization, trim lines, and specialized viewing modes for interior pages, covers, and dust jackets.</source>
+        <translation type="unfinished">책 출판 워크플로용 PDF 뷰어입니다.
+
+정확한 여백 시각화, 자르기 라인, 내지, 표지, 더스트 재킷을 위한 전용 보기 모드로 책 레이아웃을 미리 보고 검증할 수 있습니다.</translation>
+    </message>
+    <message>
+        <location filename="../views/components/about_dialog.py" line="93"/>
+        <source>&lt;p&gt;&lt;b&gt;Features:&lt;/b&gt;&lt;/p&gt;
+        &lt;ul&gt;
+        &lt;li&gt;Interior, Cover, and Dustjacket viewing modes&lt;/li&gt;
+        &lt;li&gt;Margin and trim line visualization&lt;/li&gt;
+        &lt;li&gt;Side-by-side page viewing&lt;/li&gt;
+        &lt;li&gt;Presentation mode&lt;/li&gt;
+        &lt;li&gt;Barcode area display&lt;/li&gt;
+        &lt;li&gt;Fold line indicators&lt;/li&gt;
+        &lt;/ul&gt;</source>
+        <translation type="unfinished">&lt;p&gt;&lt;b&gt;특징:&lt;/b&gt;&lt;/p&gt;
+        &lt;ul&gt;
+        &lt;li&gt;본문, 표지, 더스트 재킷 보기 모드&lt;/li&gt;
+        &lt;li&gt;여백 및 재단선 시각화&lt;/li&gt;
+        &lt;li&gt;나란히 페이지 보기&lt;/li&gt;
+        &lt;li&gt;프레젠테이션 모드&lt;/li&gt;
+        &lt;li&gt;바코드 영역 표시&lt;/li&gt;
+        &lt;li&gt;접는 선 표시&lt;/li&gt;
+        &lt;/ul&gt;</translation>
+    </message>
+    <message>
+        <location filename="../views/components/about_dialog.py" line="103"/>
+        <source>&lt;p&gt;&lt;b&gt;Links:&lt;/b&gt;&lt;/p&gt;
+        &lt;p&gt;• Main page: &lt;a href=&quot;https://momovu.org&quot;&gt;https://momovu.org&lt;/a&gt;&lt;/p&gt;
+        &lt;p&gt;• Source code: &lt;a href=&quot;https://spacecruft.org/books/momovu&quot;&gt;https://spacecruft.org/books/momovu&lt;/a&gt;&lt;/p&gt;</source>
+        <translation type="unfinished">&lt;p&gt;&lt;b&gt;링크:&lt;/b&gt;&lt;/p&gt;
+        &lt;p&gt;• 메인 페이지: &lt;a href=&quot;https://momovu.org&quot;&gt;https://momovu.org&lt;/a&gt;&lt;/p&gt;
+        &lt;p&gt;• 소스 코드: &lt;a href=&quot;https://spacecruft.org/books/momovu&quot;&gt;https://spacecruft.org/books/momovu&lt;/a&gt;&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <location filename="../views/components/about_dialog.py" line="113"/>
+        <source>&lt;p&gt;&lt;b&gt;System Information:&lt;/b&gt;&lt;/p&gt;
+        &lt;p&gt;• Python version: {python_version}&lt;/p&gt;
+        &lt;p&gt;• PySide6 version: {pyside_version}&lt;/p&gt;</source>
+        <translation type="unfinished">&lt;p&gt;&lt;b&gt;시스템 정보:&lt;/b&gt;&lt;/p&gt;
+        &lt;p&gt;• 파이썬 버전: {python_version}&lt;/p&gt;
+        &lt;p&gt;• PySide6 버전: {pyside_version}&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <location filename="../views/components/about_dialog.py" line="124"/>
+        <source>&lt;p&gt;&lt;b&gt;Legal:&lt;/b&gt;&lt;/p&gt;
+        &lt;p&gt;Copyright © 2025 Jeff Moe&lt;br&gt;
+        Licensed under the Apache License, Version 2.0&lt;/p&gt;</source>
+        <translation type="unfinished">&lt;p&gt;&lt;b&gt;법적 정보:&lt;/b&gt;&lt;/p&gt;
+        &lt;p&gt;저작권 © 2025 제프 모&lt;br&gt;
+        아파치 라이선스, 버전 2.0에 따라 라이선스가 부여됨&lt;/p&gt;</translation>
+    </message>
+</context>
+<context>
+    <name>DialogManager</name>
+    <message>
+        <location filename="../views/components/dialog_manager.py" line="62"/>
+        <source>Open PDF</source>
+        <translation type="unfinished">PDF 열기</translation>
+    </message>
+    <message>
+        <location filename="../views/components/dialog_manager.py" line="64"/>
+        <source>PDF Files (*.pdf)</source>
+        <translation type="unfinished">PDF 파일 (*.pdf)</translation>
+    </message>
+    <message>
+        <location filename="../views/components/dialog_manager.py" line="109"/>
+        <source>Go to Page</source>
+        <translation type="unfinished">페이지로 이동</translation>
+    </message>
+    <message>
+        <location filename="../views/components/dialog_manager.py" line="112"/>
+        <source>Enter page number (1-{total_pages}):</source>
+        <translation type="unfinished">페이지 번호 입력 (1-{total_pages}):</translation>
+    </message>
+</context>
+<context>
+    <name>MainWindow</name>
+    <message>
+        <source>Page: 0/0</source>
+        <translation type="obsolete">페이지: 0/0</translation>
+    </message>
+    <message>
+        <location filename="../views/main_window.py" line="303"/>
+        <location filename="../views/main_window.py" line="757"/>
+        <source>Momovu</source>
+        <translation type="unfinished">Momovu</translation>
+    </message>
+    <message>
+        <location filename="../views/main_window.py" line="408"/>
+        <source>Load Error</source>
+        <translation type="unfinished">로드 오류</translation>
+    </message>
+    <message>
+        <location filename="../views/main_window.py" line="454"/>
+        <source>Rendering Error</source>
+        <translation type="unfinished">렌더링 오류</translation>
+    </message>
+    <message>
+        <location filename="../views/main_window.py" line="455"/>
+        <source>Failed to render page:
+{error}</source>
+        <translation type="unfinished">페이지 렌더링에 실패했습니다:  
+{error}</translation>
+    </message>
+    <message>
+        <source>Page: {current}/{total}</source>
+        <translation type="obsolete">페이지: {current}/{total}</translation>
+    </message>
+    <message>
+        <location filename="../views/main_window.py" line="520"/>
+        <source>File Dialog Error</source>
+        <translation type="unfinished">파일 대화상자 오류</translation>
+    </message>
+    <message>
+        <location filename="../views/main_window.py" line="521"/>
+        <source>Failed to open file dialog:
+{error}</source>
+        <translation type="unfinished">파일 대화상자를 열 수 없습니다:
+{error}</translation>
+    </message>
+    <message>
+        <location filename="../views/main_window.py" line="1190"/>
+        <source>File Not Found</source>
+        <translation type="unfinished">파일을 찾을 수 없습니다.</translation>
+    </message>
+    <message>
+        <location filename="../views/main_window.py" line="1191"/>
+        <source>The file could not be found:
+{path}</source>
+        <translation type="unfinished">파일을 찾을 수 없습니다:  
+{path}</translation>
+    </message>
+    <message>
+        <location filename="../views/components/menu_builder.py" line="41"/>
+        <source>&amp;File</source>
+        <translation type="unfinished">&amp;파일</translation>
+    </message>
+    <message>
+        <location filename="../views/components/menu_builder.py" line="45"/>
+        <source>&amp;Open...</source>
+        <translation type="unfinished">&amp;열기...</translation>
+    </message>
+    <message>
+        <location filename="../views/components/menu_builder.py" line="73"/>
+        <source>Open a PDF file (Ctrl+O)</source>
+        <translation type="unfinished">PDF 파일 열기 (Ctrl+O)</translation>
+    </message>
+    <message>
+        <location filename="../views/components/menu_builder.py" line="80"/>
+        <source>Open &amp;Recent</source>
+        <translation type="unfinished">&amp;최근 열기</translation>
+    </message>
+    <message>
+        <location filename="../views/components/menu_builder.py" line="83"/>
+        <source>Open recently used files</source>
+        <translation type="unfinished">최근 사용한 파일 열기</translation>
+    </message>
+    <message>
+        <location filename="../views/components/menu_builder.py" line="90"/>
+        <source>&amp;Close</source>
+        <translation type="unfinished">&amp;닫기</translation>
+    </message>
+    <message>
+        <location filename="../views/components/menu_builder.py" line="96"/>
+        <source>Close the current document (Ctrl+W)</source>
+        <translation type="unfinished">현재 문서 닫기 (Ctrl+W)</translation>
+    </message>
+    <message>
+        <location filename="../views/components/menu_builder.py" line="107"/>
+        <source>&amp;Preferences...</source>
+        <translation type="unfinished">&amp;환경 설정...</translation>
+    </message>
+    <message>
+        <location filename="../views/components/menu_builder.py" line="112"/>
+        <source>Open preferences dialog</source>
+        <translation type="unfinished">환경 설정 대화상자 열기</translation>
+    </message>
+    <message>
+        <location filename="../views/components/menu_builder.py" line="119"/>
+        <source>E&amp;xit</source>
+        <translation type="unfinished">&amp;종료</translation>
+    </message>
+    <message>
+        <location filename="../views/components/menu_builder.py" line="128"/>
+        <source>&amp;View</source>
+        <translation type="unfinished">&amp;보기</translation>
+    </message>
+    <message>
+        <location filename="../views/components/menu_builder.py" line="131"/>
+        <source>&amp;Fullscreen</source>
+        <translation type="unfinished">&amp;전체 화면</translation>
+    </message>
+    <message>
+        <location filename="../views/components/menu_builder.py" line="138"/>
+        <source>&amp;Presentation Mode</source>
+        <translation type="unfinished">&amp;프레젠테이션 모드</translation>
+    </message>
+    <message>
+        <location filename="../views/components/menu_builder.py" line="148"/>
+        <source>&amp;Side by Side</source>
+        <translation type="unfinished">&amp;나란히 보기</translation>
+    </message>
+    <message>
+        <location filename="../views/components/menu_builder.py" line="157"/>
+        <source>Show &amp;Margins</source>
+        <translation type="unfinished">&amp;여백 표시</translation>
+    </message>
+    <message>
+        <location filename="../views/components/menu_builder.py" line="165"/>
+        <source>Show &amp;Trim Lines</source>
+        <translation type="unfinished">&amp;트림 라인 표시</translation>
+    </message>
+    <message>
+        <location filename="../views/components/menu_builder.py" line="174"/>
+        <source>Show &amp;Barcode</source>
+        <translation type="unfinished">&amp;바코드 표시</translation>
+    </message>
+    <message>
+        <location filename="../views/components/menu_builder.py" line="182"/>
+        <source>Show Fo&amp;ld Lines</source>
+        <translation type="unfinished">&amp;접힘선 표시</translation>
+    </message>
+    <message>
+        <location filename="../views/components/menu_builder.py" line="191"/>
+        <source>Show Bl&amp;eed Lines</source>
+        <translation type="unfinished">&amp;재단선 표시</translation>
+    </message>
+    <message>
+        <location filename="../views/components/menu_builder.py" line="201"/>
+        <source>Show bleed lines at page edges (Ctrl+R)</source>
+        <translation type="unfinished">페이지 가장자리에 재단선 표시(Ctrl+R)</translation>
+    </message>
+    <message>
+        <location filename="../views/components/menu_builder.py" line="205"/>
+        <source>Show G&amp;utter</source>
+        <translation type="unfinished">제&amp;본 여백 표시</translation>
+    </message>
+    <message>
+        <location filename="../views/components/menu_builder.py" line="215"/>
+        <source>Show gutter margin for interior documents (Ctrl+U)</source>
+        <translation type="unfinished">본문 문서의 제본 여백 표시 (Ctrl+U)</translation>
+    </message>
+    <message>
+        <location filename="../views/components/menu_builder.py" line="224"/>
+        <source>&amp;Document</source>
+        <translation type="unfinished">&amp;문서</translation>
+    </message>
+    <message>
+        <location filename="../views/components/menu_builder.py" line="227"/>
+        <source>&amp;Interior</source>
+        <translation type="unfinished">&amp;본문</translation>
+    </message>
+    <message>
+        <location filename="../views/components/menu_builder.py" line="233"/>
+        <source>&amp;Cover</source>
+        <translation type="unfinished">&amp;표지</translation>
+    </message>
+    <message>
+        <location filename="../views/components/menu_builder.py" line="239"/>
+        <source>&amp;Dustjacket</source>
+        <translation type="unfinished">&amp;더스트 재킷</translation>
+    </message>
+    <message>
+        <location filename="../views/components/menu_builder.py" line="247"/>
+        <source>&amp;Calculator...</source>
+        <translation>계산기(&amp;C)...</translation>
+    </message>
+    <message>
+        <location filename="../views/components/menu_builder.py" line="254"/>
+        <source>Calculate spine width and document dimensions</source>
+        <translation>책등 너비 및 문서 크기 계산</translation>
+    </message>
+    <message>
+        <source>&amp;Spine Width Calculator...</source>
+        <translation type="obsolete">&amp;책등 너비 계산기...</translation>
+    </message>
+    <message>
+        <source>Calculate spine width based on page count</source>
+        <translation type="obsolete">페이지 수를 기준으로 책등 두께 계산</translation>
+    </message>
+    <message>
+        <location filename="../views/components/menu_builder.py" line="262"/>
+        <source>&amp;Help</source>
+        <translation type="unfinished">도&amp;움</translation>
+    </message>
+    <message>
+        <location filename="../views/components/menu_builder.py" line="265"/>
+        <source>&amp;About</source>
+        <translation type="unfinished">&amp;정보</translation>
+    </message>
+    <message>
+        <location filename="../views/components/menu_builder.py" line="270"/>
+        <source>&amp;Keyboard Shortcuts</source>
+        <translation type="unfinished">&amp;키보드 단축키</translation>
+    </message>
+    <message>
+        <location filename="../views/components/menu_builder.py" line="357"/>
+        <location filename="../views/components/menu_builder.py" line="395"/>
+        <source>No Recent Files</source>
+        <translation type="unfinished">최근 파일 없음</translation>
+    </message>
+    <message>
+        <location filename="../views/components/menu_builder.py" line="390"/>
+        <source>&amp;Clear Recent Files</source>
+        <translation type="unfinished">최&amp;근 파일 지우기</translation>
+    </message>
+    <message>
+        <location filename="../views/components/toolbar_builder.py" line="106"/>
+        <source>First</source>
+        <translation type="unfinished">첫 번째</translation>
+    </message>
+    <message>
+        <location filename="../views/components/toolbar_builder.py" line="124"/>
+        <source>Go to first page (Home)</source>
+        <translation type="unfinished">첫 페이지로 가기(홈)</translation>
+    </message>
+    <message>
+        <location filename="../views/components/toolbar_builder.py" line="129"/>
+        <source>Previous</source>
+        <translation type="unfinished">이전</translation>
+    </message>
+    <message>
+        <location filename="../views/components/toolbar_builder.py" line="149"/>
+        <source>Go to previous page</source>
+        <translation type="unfinished">이전 페이지로 가기</translation>
+    </message>
+    <message>
+        <location filename="../views/components/toolbar_builder.py" line="154"/>
+        <source>Next</source>
+        <translation type="unfinished">다음</translation>
+    </message>
+    <message>
+        <location filename="../views/components/toolbar_builder.py" line="172"/>
+        <source>Go to next page</source>
+        <translation type="unfinished">다음 페이지로 이동하세요</translation>
+    </message>
+    <message>
+        <location filename="../views/components/toolbar_builder.py" line="177"/>
+        <source>Last</source>
+        <translation type="unfinished">마지막</translation>
+    </message>
+    <message>
+        <location filename="../views/components/toolbar_builder.py" line="195"/>
+        <source>Go to last page (End)</source>
+        <translation type="unfinished">마지막 페이지로 이동(끝)</translation>
+    </message>
+    <message>
+        <location filename="../views/components/toolbar_builder.py" line="202"/>
+        <source>Page:</source>
+        <translation type="unfinished">페이지:</translation>
+    </message>
+    <message>
+        <location filename="../views/components/toolbar_builder.py" line="211"/>
+        <source>Current page number</source>
+        <translation type="unfinished">현재 페이지 번호</translation>
+    </message>
+    <message>
+        <location filename="../views/components/toolbar_builder.py" line="221"/>
+        <source>Pages:</source>
+        <translation type="unfinished">페이지:</translation>
+    </message>
+    <message>
+        <location filename="../views/components/toolbar_builder.py" line="232"/>
+        <source>Number of pages for spine width calculation</source>
+        <translation type="unfinished">등두께 계산을 위한 페이지 수</translation>
+    </message>
+    <message>
+        <location filename="../views/components/toolbar_builder.py" line="242"/>
+        <source>Zoom In</source>
+        <translation type="unfinished">확대</translation>
+    </message>
+    <message>
+        <location filename="../views/components/toolbar_builder.py" line="251"/>
+        <source>Zoom in (Ctrl++)</source>
+        <translation type="unfinished">확대(Ctrl++)</translation>
+    </message>
+    <message>
+        <location filename="../views/components/toolbar_builder.py" line="256"/>
+        <source>Zoom Out</source>
+        <translation type="unfinished">축소</translation>
+    </message>
+    <message>
+        <location filename="../views/components/toolbar_builder.py" line="265"/>
+        <source>Zoom out (Ctrl+-)</source>
+        <translation type="unfinished">축소(Ctrl+-)</translation>
+    </message>
+    <message>
+        <location filename="../views/components/toolbar_builder.py" line="270"/>
+        <source>Fit Page</source>
+        <translation type="unfinished">페이지 맞춤</translation>
+    </message>
+    <message>
+        <location filename="../views/components/toolbar_builder.py" line="288"/>
+        <source>Fit page to window (Ctrl+0)</source>
+        <translation type="unfinished">페이지를 창에 맞추기(Ctrl+0)</translation>
+    </message>
+</context>
+<context>
+    <name>PreferencesDialog</name>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="79"/>
+        <source>Preferences</source>
+        <translation type="unfinished">환경 설정</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="98"/>
+        <source>General</source>
+        <translation type="unfinished">일반</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="99"/>
+        <source>Language</source>
+        <translation type="unfinished">언어</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="100"/>
+        <source>Colors</source>
+        <translation type="unfinished">색상</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="101"/>
+        <source>Formulas</source>
+        <translation>수식</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="102"/>
+        <source>Recent Files</source>
+        <translation type="unfinished">최근 파일</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="118"/>
+        <source>Reset all settings to default values</source>
+        <translation type="unfinished">모든 설정을 기본값으로 재설정합니다.</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="133"/>
+        <source>Auto-fit on document load</source>
+        <translation type="unfinished">문서 로드 시 자동 맞춤</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="134"/>
+        <source>Fit Options:</source>
+        <translation type="unfinished">맞춤 옵션:</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="136"/>
+        <source>Auto-fit on window resize</source>
+        <translation type="unfinished">창 크기 조정 시 자동 맞춤</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="145"/>
+        <source>Zoom Increment:</source>
+        <translation type="unfinished">확대 단위:</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="148"/>
+        <source>Enable smooth scrolling</source>
+        <translation type="unfinished">부드러운 스크롤링 활성화</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="149"/>
+        <source>Scrolling:</source>
+        <translation type="unfinished">스크롤링:</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="153"/>
+        <source> pixels</source>
+        <translation type="unfinished"> 픽셀</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="154"/>
+        <source>Scroll Speed:</source>
+        <translation type="unfinished">스크롤 속도:</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="157"/>
+        <source>&lt;b&gt;Performance&lt;/b&gt;</source>
+        <translation type="unfinished">&lt;b&gt;성능&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="161"/>
+        <source> pages</source>
+        <translation type="unfinished"> 페이지</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="162"/>
+        <source>Max Cached Pages:</source>
+        <translation type="unfinished">최대 캐시 페이지 수:</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="167"/>
+        <source>Max Cache Memory:</source>
+        <translation type="unfinished">최대 캐시 메모리:</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="185"/>
+        <source>Margin Overlay</source>
+        <translation type="unfinished">마진 오버레이</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="186"/>
+        <source>Barcode Area</source>
+        <translation type="unfinished">바코드 영역</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="187"/>
+        <location filename="../views/components/preferences_dialog.py" line="220"/>
+        <source>Fold Lines</source>
+        <translation type="unfinished">접는 선</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="188"/>
+        <location filename="../views/components/preferences_dialog.py" line="221"/>
+        <source>Trim Lines</source>
+        <translation type="unfinished">재단선</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="189"/>
+        <location filename="../views/components/preferences_dialog.py" line="222"/>
+        <source>Bleed Lines</source>
+        <translation type="unfinished">재단선</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="190"/>
+        <source>Gutter</source>
+        <translation type="unfinished">제본 여백</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="209"/>
+        <source>Opacity:</source>
+        <translation type="unfinished">불투명도:</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="213"/>
+        <location filename="../views/components/preferences_dialog.py" line="230"/>
+        <source>{label}:</source>
+        <translation type="unfinished">{label}:</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="216"/>
+        <source>&lt;b&gt;Line Widths&lt;/b&gt;</source>
+        <translation type="unfinished">&lt;b&gt;선 두께&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="239"/>
+        <source>Protanopia</source>
+        <translation type="unfinished">프로타노피아</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="242"/>
+        <source>Apply colors optimized for red-blind vision</source>
+        <translation type="unfinished">적색맹 시력에 최적화된 색상 적용</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="248"/>
+        <source>Deuteranopia</source>
+        <translation type="unfinished">제2색각이상</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="251"/>
+        <source>Apply colors optimized for green-blind vision</source>
+        <translation type="unfinished">녹색맹 시력에 최적화된 색상 적용</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="257"/>
+        <source>Tritanopia</source>
+        <translation type="unfinished">제3색각이상</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="260"/>
+        <source>Apply colors optimized for blue-blind vision</source>
+        <translation type="unfinished">청색맹 시력에 최적화된 색상 적용</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="281"/>
+        <source>Recently opened PDF files:</source>
+        <translation type="unfinished">최근에 열린 PDF 파일:</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="292"/>
+        <source>Remove Selected</source>
+        <translation type="unfinished">선택 항목 제거</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="300"/>
+        <source>Clear All Recent Files</source>
+        <translation type="unfinished">최근 파일 모두 지우기</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="336"/>
+        <source>Interface Language:</source>
+        <translation type="unfinished">인터페이스 언어:</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="343"/>
+        <source>&lt;i&gt;Note: Changing the language requires restarting the application.&lt;/i&gt;</source>
+        <translation type="unfinished">&lt;i&gt;참고: 언어를 변경하려면 애플리케이션을 다시 시작해야 합니다.&lt;/i&gt;</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="355"/>
+        <source>&lt;b&gt;Supported Languages:&lt;/b&gt;&lt;br&gt;• Right-to-left languages (Arabic) are fully supported&lt;br&gt;• CJK languages (Chinese, Japanese, Korean) use system fonts&lt;br&gt;• All number and date formatting follows the selected locale</source>
+        <translation type="unfinished">&lt;b&gt;지원 언어:&lt;/b&gt;&lt;br&gt;• 우에서 좌로 읽는 언어(아랍어)는 완전히 지원됨&lt;br&gt;• CJK 언어(중국어, 일본어, 한국어)는 시스템 폰트 사용&lt;br&gt;• 모든 숫자 및 날짜 서식은 선택한 로케일에 따라 적용됨</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="377"/>
+        <source>&lt;i&gt;&lt;b&gt;Disclaimer:&lt;/b&gt; These formulas are approximations based on publicly available information. This application is not affiliated with or endorsed by Lulu, Lightning Source, or any printing service. Always verify calculations with your printer&apos;s official tools before submitting files for production.&lt;/i&gt;</source>
+        <translation>&lt;i&gt;&lt;b&gt;면책 조항:&lt;/b&gt; 이 수식들은 공개적으로 이용 가능한 정보를 기반으로 한 근사치입니다. 이 애플리케이션은 Lulu, Lightning Source 또는 어떤 인쇄 서비스와도 제휴하거나 승인받지 않았습니다. 제작용 파일을 제출하기 전에 항상 인쇄업체의 공식 도구로 계산을 확인하십시오.&lt;/i&gt;</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="394"/>
+        <source>&lt;b&gt;Printer Formula Selection&lt;/b&gt;</source>
+        <translation>&lt;b&gt;프린터 수식 선택&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="402"/>
+        <source>Select the printer formula to use for calculating spine width. Different printers use different formulas based on their paper and binding methods.</source>
+        <translation>책등 너비 계산에 사용할 프린터 수식을 선택하세요. 프린터마다 용지와 제본 방법에 따라 다른 수식을 사용합니다.</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="410"/>
+        <source>Printer Formula</source>
+        <translation>프린터 수식</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="414"/>
+        <source>Lulu</source>
+        <translation>Lulu</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="420"/>
+        <source>Standard Lulu formula: (pages / 17.48) + 1.524mm
+Works for all Lulu paper types</source>
+        <translation>표준 Lulu 수식: (페이지 / 17.48) + 1.524mm
+모든 Lulu 용지 유형에 적용</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="424"/>
+        <source>Lightning Source</source>
+        <translation>Lightning Source</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="430"/>
+        <source>Lightning Source formula with variable paper weights.
+Requires selecting paper weight for accurate calculation.</source>
+        <translation>가변 용지 무게를 사용하는 Lightning Source 수식.
+정확한 계산을 위해 용지 무게 선택이 필요합니다.</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="438"/>
+        <source>Paper Weight (Lightning Source)</source>
+        <translation>용지 무게 (Lightning Source)</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="442"/>
+        <source>38 lb (Groundwood)</source>
+        <translation>38파운드 (그라운드우드)</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="443"/>
+        <source>50 lb (Standard White/Creme)</source>
+        <translation>50파운드 (표준 흰색/크림색)</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="444"/>
+        <source>70 lb (Thick White)</source>
+        <translation>70파운드 (두꺼운 흰색)</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="446"/>
+        <source>Paper Weight:</source>
+        <translation>용지 무게:</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="456"/>
+        <source>&lt;b&gt;Paper Weight Guide:&lt;/b&gt;&lt;br&gt;• &lt;b&gt;38 lb:&lt;/b&gt; Thinner groundwood paper (~550 pages/inch)&lt;br&gt;• &lt;b&gt;50 lb:&lt;/b&gt; Standard white or creme paper (~472 pages/inch)&lt;br&gt;• &lt;b&gt;70 lb:&lt;/b&gt; Thicker white paper (~340 pages/inch)</source>
+        <translation>&lt;b&gt;용지 무게 가이드:&lt;/b&gt;&lt;br&gt;• &lt;b&gt;38파운드:&lt;/b&gt; 얇은 그라운드우드 용지 (~550페이지/인치)&lt;br&gt;• &lt;b&gt;50파운드:&lt;/b&gt; 표준 흰색 또는 크림색 용지 (~472페이지/인치)&lt;br&gt;• &lt;b&gt;70파운드:&lt;/b&gt; 두꺼운 흰색 용지 (~340페이지/인치)</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="530"/>
+        <source>Choose {type} Color</source>
+        <translation type="unfinished">{type} 색상 선택</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="601"/>
+        <source>Clear Recent Files</source>
+        <translation type="unfinished">최근 파일 지우기</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="602"/>
+        <source>Are you sure you want to clear all recent files?</source>
+        <translation type="unfinished">최근 파일을 모두 지우시겠습니까?</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="615"/>
+        <source>Reset to Defaults</source>
+        <translation type="unfinished">기본값으로 재설정</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="618"/>
+        <source>Are you sure you want to reset all settings to their default values?
+
+This action cannot be undone.</source>
+        <translation type="unfinished">모든 설정을 기본값으로 재설정하시겠습니까?  
+이 작업은 되돌릴 수 없습니다.</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="630"/>
+        <source>Settings Reset</source>
+        <translation type="unfinished">설정 초기화</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="631"/>
+        <source>All settings have been reset to their default values.</source>
+        <translation type="unfinished">모든 설정이 기본값으로 초기화되었습니다.</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="815"/>
+        <source>Restart Required</source>
+        <translation type="unfinished">재시작 필요</translation>
+    </message>
+    <message>
+        <location filename="../views/components/preferences_dialog.py" line="818"/>
+        <source>The language change will take effect after restarting the application.</source>
+        <translation type="unfinished">애플리케이션을 다시 시작하면 언어 변경이 적용됩니다.</translation>
+    </message>
+</context>
+<context>
+    <name>ShortcutsDialog</name>
+    <message>
+        <location filename="../lib/shortcuts_dialog.py" line="38"/>
+        <location filename="../lib/shortcuts_dialog.py" line="50"/>
+        <source>Keyboard Shortcuts</source>
+        <translation type="unfinished">키보드 단축키</translation>
+    </message>
+    <message>
+        <location filename="../lib/shortcuts_dialog.py" line="58"/>
+        <source>Category</source>
+        <translation type="unfinished">카테고리</translation>
+    </message>
+    <message>
+        <location filename="../lib/shortcuts_dialog.py" line="58"/>
+        <source>Action</source>
+        <translation type="unfinished">액션</translation>
+    </message>
+    <message>
+        <location filename="../lib/shortcuts_dialog.py" line="59"/>
+        <source>Shortcut</source>
+        <translation type="unfinished">단축키</translation>
+    </message>
+    <message>
+        <location filename="../lib/shortcuts_dialog.py" line="90"/>
+        <location filename="../lib/shortcuts_dialog.py" line="91"/>
+        <location filename="../lib/shortcuts_dialog.py" line="92"/>
+        <source>File</source>
+        <translation type="unfinished">파일</translation>
+    </message>
+    <message>
+        <location filename="../lib/shortcuts_dialog.py" line="90"/>
+        <source>Open Document</source>
+        <translation type="unfinished">문서 열기</translation>
+    </message>
+    <message>
+        <location filename="../lib/shortcuts_dialog.py" line="91"/>
+        <source>Close Document</source>
+        <translation type="unfinished">문서 닫기</translation>
+    </message>
+    <message>
+        <location filename="../lib/shortcuts_dialog.py" line="92"/>
+        <source>Exit Application</source>
+        <translation type="unfinished">애플리케이션 종료</translation>
+    </message>
+    <message>
+        <location filename="../lib/shortcuts_dialog.py" line="94"/>
+        <location filename="../lib/shortcuts_dialog.py" line="95"/>
+        <location filename="../lib/shortcuts_dialog.py" line="96"/>
+        <location filename="../lib/shortcuts_dialog.py" line="98"/>
+        <location filename="../lib/shortcuts_dialog.py" line="102"/>
+        <location filename="../lib/shortcuts_dialog.py" line="103"/>
+        <location filename="../lib/shortcuts_dialog.py" line="104"/>
+        <location filename="../lib/shortcuts_dialog.py" line="105"/>
+        <location filename="../lib/shortcuts_dialog.py" line="107"/>
+        <location filename="../lib/shortcuts_dialog.py" line="112"/>
+        <location filename="../lib/shortcuts_dialog.py" line="117"/>
+        <location filename="../lib/shortcuts_dialog.py" line="121"/>
+        <source>Navigation</source>
+        <translation type="unfinished">네비게이션</translation>
+    </message>
+    <message>
+        <location filename="../lib/shortcuts_dialog.py" line="94"/>
+        <source>Next Page</source>
+        <translation type="unfinished">다음 페이지</translation>
+    </message>
+    <message>
+        <location filename="../lib/shortcuts_dialog.py" line="95"/>
+        <source>Next Page (alternative)</source>
+        <translation type="unfinished">다음 페이지(대안)</translation>
+    </message>
+    <message>
+        <location filename="../lib/shortcuts_dialog.py" line="96"/>
+        <source>Previous Page</source>
+        <translation type="unfinished">이전 페이지</translation>
+    </message>
+    <message>
+        <location filename="../lib/shortcuts_dialog.py" line="99"/>
+        <source>Previous Page (alternative)</source>
+        <translation type="unfinished">이전 페이지(대안)</translation>
+    </message>
+    <message>
+        <location filename="../lib/shortcuts_dialog.py" line="102"/>
+        <source>First Page</source>
+        <translation type="unfinished">첫 페이지</translation>
+    </message>
+    <message>
+        <location filename="../lib/shortcuts_dialog.py" line="103"/>
+        <source>Last Page</source>
+        <translation type="unfinished">마지막 페이지</translation>
+    </message>
+    <message>
+        <location filename="../lib/shortcuts_dialog.py" line="104"/>
+        <source>Go to Page (Interior only)</source>
+        <translation type="unfinished">페이지로 이동(본문만)</translation>
+    </message>
+    <message>
+        <location filename="../lib/shortcuts_dialog.py" line="105"/>
+        <source>Navigate with Arrow Keys</source>
+        <translation type="unfinished">화살표 키로 이동하세요</translation>
+    </message>
+    <message>
+        <location filename="../lib/shortcuts_dialog.py" line="108"/>
+        <source>  • When zoomed</source>
+        <translation type="unfinished">  • 확대할 때</translation>
+    </message>
+    <message>
+        <location filename="../lib/shortcuts_dialog.py" line="109"/>
+        <source>Arrow Keys = Pan document</source>
+        <translation type="unfinished">화살표 키 = 문서 이동</translation>
+    </message>
+    <message>
+        <location filename="../lib/shortcuts_dialog.py" line="113"/>
+        <source>  • Interior (not zoomed)</source>
+        <translation type="unfinished">  • 본문(줌 아님)</translation>
+    </message>
+    <message>
+        <location filename="../lib/shortcuts_dialog.py" line="114"/>
+        <source>Left/Right = Previous/Next page</source>
+        <translation type="unfinished">왼쪽/오른쪽 = 이전/다음 페이지</translation>
+    </message>
+    <message>
+        <location filename="../lib/shortcuts_dialog.py" line="118"/>
+        <source>  • Cover/Dustjacket</source>
+        <translation type="unfinished">  • 표지/더스트 재킷</translation>
+    </message>
+    <message>
+        <location filename="../lib/shortcuts_dialog.py" line="119"/>
+        <source>Arrow Keys = No action</source>
+        <translation type="unfinished">화살표 키 = 동작 없음</translation>
+    </message>
+    <message>
+        <location filename="../lib/shortcuts_dialog.py" line="121"/>
+        <source>Navigate Pages</source>
+        <translation type="unfinished">페이지 이동</translation>
+    </message>
+    <message>
+        <location filename="../lib/shortcuts_dialog.py" line="123"/>
+        <location filename="../lib/shortcuts_dialog.py" line="124"/>
+        <location filename="../lib/shortcuts_dialog.py" line="125"/>
+        <location filename="../lib/shortcuts_dialog.py" line="126"/>
+        <source>View</source>
+        <translation type="unfinished">보기</translation>
+    </message>
+    <message>
+        <location filename="../lib/shortcuts_dialog.py" line="123"/>
+        <source>Fullscreen</source>
+        <translation type="unfinished">전체 화면</translation>
+    </message>
+    <message>
+        <location filename="../lib/shortcuts_dialog.py" line="124"/>
+        <source>Presentation Mode</source>
+        <translation type="unfinished">프레젠테이션 모드</translation>
+    </message>
+    <message>
+        <location filename="../lib/shortcuts_dialog.py" line="125"/>
+        <source>Exit Presentation/Fullscreen</source>
+        <translation type="unfinished">프레젠테이션/전체 화면 종료</translation>
+    </message>
+    <message>
+        <location filename="../lib/shortcuts_dialog.py" line="126"/>
+        <source>Side by Side View</source>
+        <translation type="unfinished">나란히 보기</translation>
+    </message>
+    <message>
+        <location filename="../lib/shortcuts_dialog.py" line="128"/>
+        <source>Document</source>
+        <translation type="unfinished">문서</translation>
+    </message>
+    <message>
+        <location filename="../lib/shortcuts_dialog.py" line="128"/>
+        <source>Spine Width Calculator</source>
+        <translation type="unfinished">책등 너비 계산기</translation>
+    </message>
+    <message>
+        <location filename="../lib/shortcuts_dialog.py" line="130"/>
+        <location filename="../lib/shortcuts_dialog.py" line="131"/>
+        <location filename="../lib/shortcuts_dialog.py" line="133"/>
+        <location filename="../lib/shortcuts_dialog.py" line="137"/>
+        <location filename="../lib/shortcuts_dialog.py" line="139"/>
+        <location filename="../lib/shortcuts_dialog.py" line="144"/>
+        <source>Display</source>
+        <translation type="unfinished">표시</translation>
+    </message>
+    <message>
+        <location filename="../lib/shortcuts_dialog.py" line="130"/>
+        <source>Show/Hide Margins</source>
+        <translation type="unfinished">여백 표시/숨기기</translation>
+    </message>
+    <message>
+        <location filename="../lib/shortcuts_dialog.py" line="131"/>
+        <source>Show/Hide Trim Lines</source>
+        <translation type="unfinished">자르기 선 표시/숨기기</translation>
+    </message>
+    <message>
+        <location filename="../lib/shortcuts_dialog.py" line="134"/>
+        <source>Show/Hide Barcode</source>
+        <translation type="unfinished">바코드 표시/숨기기</translation>
+    </message>
+    <message>
+        <location filename="../lib/shortcuts_dialog.py" line="135"/>
+        <source>Ctrl+B (Cover/Dustjacket only)</source>
+        <translation type="unfinished">Ctrl+B (표지/겉표지만)</translation>
+    </message>
+    <message>
+        <location filename="../lib/shortcuts_dialog.py" line="137"/>
+        <source>Show/Hide Fold Lines</source>
+        <translation type="unfinished">접이선 표시/숨기기</translation>
+    </message>
+    <message>
+        <location filename="../lib/shortcuts_dialog.py" line="140"/>
+        <source>Show/Hide Bleed Lines</source>
+        <translation type="unfinished">재단선 표시/숨기기</translation>
+    </message>
+    <message>
+        <location filename="../lib/shortcuts_dialog.py" line="141"/>
+        <source>Ctrl+R (Cover/Dustjacket only)</source>
+        <translation type="unfinished">Ctrl+R (표지/더스트 재킷만)</translation>
+    </message>
+    <message>
+        <location filename="../lib/shortcuts_dialog.py" line="145"/>
+        <source>Show/Hide Gutter</source>
+        <translation type="unfinished">제본 여백 표시/숨기기</translation>
+    </message>
+    <message>
+        <location filename="../lib/shortcuts_dialog.py" line="146"/>
+        <source>Ctrl+U (Interior only)</source>
+        <translation type="unfinished">Ctrl+U (본문만)</translation>
+    </message>
+    <message>
+        <location filename="../lib/shortcuts_dialog.py" line="149"/>
+        <location filename="../lib/shortcuts_dialog.py" line="150"/>
+        <location filename="../lib/shortcuts_dialog.py" line="151"/>
+        <location filename="../lib/shortcuts_dialog.py" line="152"/>
+        <location filename="../lib/shortcuts_dialog.py" line="153"/>
+        <source>Zoom</source>
+        <translation type="unfinished">확대</translation>
+    </message>
+    <message>
+        <location filename="../lib/shortcuts_dialog.py" line="149"/>
+        <source>Zoom In</source>
+        <translation type="unfinished">확대</translation>
+    </message>
+    <message>
+        <location filename="../lib/shortcuts_dialog.py" line="150"/>
+        <source>Zoom Out</source>
+        <translation type="unfinished">축소</translation>
+    </message>
+    <message>
+        <location filename="../lib/shortcuts_dialog.py" line="151"/>
+        <source>Fit to Page</source>
+        <translation type="unfinished">페이지에 맞게 조정</translation>
+    </message>
+    <message>
+        <location filename="../lib/shortcuts_dialog.py" line="152"/>
+        <source>Fit to Page (alternative)</source>
+        <translation type="unfinished">페이지에 맞게 맞춤(대안)</translation>
+    </message>
+    <message>
+        <location filename="../lib/shortcuts_dialog.py" line="153"/>
+        <source>Zoom with Mouse</source>
+        <translation type="unfinished">마우스로 줌</translation>
+    </message>
+    <message>
+        <location filename="../lib/shortcuts_dialog.py" line="155"/>
+        <location filename="../lib/shortcuts_dialog.py" line="156"/>
+        <source>Help</source>
+        <translation type="unfinished">도움</translation>
+    </message>
+    <message>
+        <location filename="../lib/shortcuts_dialog.py" line="155"/>
+        <source>Show Keyboard Shortcuts</source>
+        <translation type="unfinished">키보드 단축키 표시</translation>
+    </message>
+    <message>
+        <location filename="../lib/shortcuts_dialog.py" line="156"/>
+        <source>About</source>
+        <translation type="unfinished">정보</translation>
+    </message>
+</context>
+<context>
+    <name>SpineWidthCalculatorDialog</name>
+    <message>
+        <source>Spine Width Calculator</source>
+        <translation type="obsolete">책등 너비 계산기</translation>
+    </message>
+    <message>
+        <location filename="../views/components/calculator_dialog.py" line="71"/>
+        <source>Calculator</source>
+        <translation>계산기</translation>
+    </message>
+    <message>
+        <location filename="../views/components/calculator_dialog.py" line="102"/>
+        <source>Calculate spine width based on page count and document type.
+Enter the number of pages and select the document type.</source>
+        <translation type="unfinished">페이지 수와 문서 유형에 따라 책등 너비를 계산합니다.
+페이지 수를 입력하고 문서 유형을 선택하십시오.</translation>
+    </message>
+    <message>
+        <location filename="../views/components/calculator_dialog.py" line="108"/>
+        <source>Number of Pages:</source>
+        <translation type="unfinished">총 페이지 수:</translation>
+    </message>
+    <message>
+        <location filename="../views/components/calculator_dialog.py" line="114"/>
+        <source>Enter the total number of pages (1-999)</source>
+        <translation type="unfinished">총 페이지 수를 입력하십시오 (1-999)</translation>
+    </message>
+    <message>
+        <location filename="../views/components/calculator_dialog.py" line="121"/>
+        <source>Document Type</source>
+        <translation type="unfinished">문서 유형</translation>
+    </message>
+    <message>
+        <location filename="../views/components/calculator_dialog.py" line="124"/>
+        <source>Cover</source>
+        <translation type="unfinished">표지</translation>
+    </message>
+    <message>
+        <location filename="../views/components/calculator_dialog.py" line="128"/>
+        <source>Dustjacket</source>
+        <translation type="unfinished">더스트 재킷</translation>
+    </message>
+    <message>
+        <location filename="../views/components/calculator_dialog.py" line="135"/>
+        <source>Calculated Spine Width</source>
+        <translation type="unfinished">계산된 책등 너비</translation>
+    </message>
+    <message>
+        <location filename="../views/components/calculator_dialog.py" line="139"/>
+        <location filename="../views/components/calculator_dialog.py" line="234"/>
+        <source>Spine Width: {width}mm</source>
+        <translation type="unfinished">책등 너비: {width}mm</translation>
+    </message>
+    <message>
+        <location filename="../views/components/calculator_dialog.py" line="155"/>
+        <source>Document Dimensions</source>
+        <translation>문서 크기</translation>
+    </message>
+    <message>
+        <location filename="../views/components/calculator_dialog.py" line="201"/>
+        <source>Minimum {pages} pages required for covers</source>
+        <translation type="unfinished">표지에 필요한 최소 {pages} 페이지 수</translation>
+    </message>
+    <message>
+        <location filename="../views/components/calculator_dialog.py" line="205"/>
+        <location filename="../views/components/calculator_dialog.py" line="216"/>
+        <location filename="../views/components/calculator_dialog.py" line="245"/>
+        <source>Spine Width: --</source>
+        <translation type="unfinished">책등 너비: --</translation>
+    </message>
+    <message>
+        <location filename="../views/components/calculator_dialog.py" line="244"/>
+        <source>Error calculating spine width</source>
+        <translation>책등 너비 계산 오류</translation>
+    </message>
+    <message>
+        <source>Note: Page count outside standard range</source>
+        <translation type="obsolete">참고: 표준 범위 외 페이지 수</translation>
+    </message>
+    <message>
+        <location filename="../views/components/calculator_dialog.py" line="257"/>
+        <source>Book Format</source>
+        <translation>책 형식</translation>
+    </message>
+    <message>
+        <location filename="../views/components/calculator_dialog.py" line="258"/>
+        <source>Trim Size</source>
+        <translation>재단 크기</translation>
+    </message>
+    <message>
+        <location filename="../views/components/calculator_dialog.py" line="259"/>
+        <source>Total Document Size</source>
+        <translation>전체 문서 크기</translation>
+    </message>
+</context>
+</TS>
