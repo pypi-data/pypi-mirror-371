@@ -1,0 +1,2 @@
+[console_scripts]
+colossus = colossus_ltsm.colossus_main:main

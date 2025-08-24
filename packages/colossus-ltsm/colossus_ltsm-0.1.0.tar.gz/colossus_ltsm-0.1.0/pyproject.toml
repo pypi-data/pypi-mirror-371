@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=61.0,<70.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "colossus-ltsm"
+version = "0.1.0"
+keywords = ["fonts", "bitmap", "converter", "embedded", "lcd", "gui"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Programming Language :: Python :: 3",
+  "Operating System :: OS Independent",
+]
+description = "Font, bitmap conversion and visualization tool for embedded systems"
+readme = { file = "README.md", content-type = "text/markdown" }
+authors = [
+  { name = "Gavin Lyons", email = "glyons66@hotmail.com" }
+]
+requires-python = ">=3.8"
+dependencies = [
+  "Pillow",
+]
+
+[project.scripts]
+colossus = "colossus_ltsm.colossus_main:main"
+
+[project.urls]
+Homepage = "https://github.com/gavinlyonsrepo/Colossus_LTSM"
+Issues = "https://github.com/gavinlyonsrepo/Colossus_LTSM/issues"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
