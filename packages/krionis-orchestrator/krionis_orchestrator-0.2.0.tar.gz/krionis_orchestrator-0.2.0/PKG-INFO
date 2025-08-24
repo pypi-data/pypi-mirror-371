@@ -1,0 +1,66 @@
+Metadata-Version: 2.4
+Name: krionis-orchestrator
+Version: 0.2.0
+Summary: Krionis Orchestrator — agentic batching and coordination on top of the Krionis Pipeline
+Home-page: https://github.com/pkbythebay29/ot-rag-llm-api
+Author: pkbythebay29
+Author-email: kannan@haztechrisk.org
+Project-URL: Homepage, https://pypi.org/project/krionis-orchestrator/
+Project-URL: Source, https://github.com/pkbythebay29/ot-rag-llm-api
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: project-url
+Dynamic: requires-python
+Dynamic: summary
+
+# Krionis Orchestrator
+
+A lightweight orchestration runtime built on top of **Krionis Pipeline**.  
+It enables **batching, multi-agent workflows, and coordination** for low-latency, multi-user RAG systems.
+
+---
+
+## 🤖 Key Features
+
+⚡ **Batching & Microbatching**  
+- Queueing + scheduling for efficient parallel queries  
+- Smooth multi-user handling (no “stuck at starting”)  
+
+🕹 **Agent Runtime**  
+- Built-in agents: Retriever, Compressor, Reranker, Drafting, Validator, Dialogue, Coordinator  
+- Agents communicate, self-optimize, and hand off state until human approval  
+
+🔗 **Provider Plug-ins**  
+- Pluggable backends (local LLMs, APIs, hybrid deployments)  
+- Bridges directly to [`krionis-pipeline`](https://pypi.org/project/krionis-pipeline/)  
+
+🌐 **API + Web Interface**  
+- REST endpoints for orchestration and multi-agent queries  
+- Minimal HTML UI for monitoring and interaction  
+
+🛡 **Resilient Runtime**  
+- Timeouts, retries, and cancellation built in  
+- Lightweight, works offline and in low-compute setups  
+
+---
+
+## 🚀 Quickstart
+
+Install:
+
+```bash
+pip install krionis-orchestrator
+```
