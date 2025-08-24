@@ -1,0 +1,134 @@
+// Gamma Scanner - Intuitive AI/Human-Friendly Syntax
+// Much easier to read and write than YARA!
+
+detect AdvancedMalwareScanner:
+    metadata:
+        author: "Security Research Team"
+        description: "Comprehensive malware detection with intuitive syntax"
+        version: "3.0"
+        category: "advanced_malware"
+        severity: "critical"
+        created: "2024-08-23"
+        
+    patterns:
+        // Text patterns with natural modifiers
+        malware_signature = text "malicious payload" ignore_case
+        backdoor_text = text "backdoor connection" whole_word
+        c2_server = text "command and control" case_insensitive
+        
+        // Regex patterns (more readable)
+        exec_function = regex /exec\([^)]+\)/ ignore_case  
+        eval_calls = regex /(eval|exec|system)\s*\(/
+        suspicious_urls = regex /https?:\/\/[0-9.]+\/[a-z]{8}/
+        
+        // Hex patterns with clear syntax
+        pe_signature = hex "4D 5A 90 00 03 00 00 00"  
+        call_instruction = hex "E8 ?? ?? ?? ?? 5D"
+        shellcode_pattern = hex "31 C0 50 68 2F 2F 73 68"
+        
+    conditions:
+        // Natural language conditions
+        file_size > 1024 bytes and file_size < 10MB
+        and (
+            contains malware_signature
+            or count_of exec_function > 2  
+            or any_of (pe_signature, call_instruction)
+        )
+        and not starts_with "MZ"  // Exclude some false positives
+
+detect PromptInjectionGuard:
+    metadata:
+        author: "AI Safety Team"  
+        description: "Detects prompt injection attempts with clear syntax"
+        version: "2.0"
+        category: "ai_security"
+        
+    patterns:
+        // Injection attempts
+        ignore_prompt = text "ignore all previous" ignore_case
+        disregard_prompt = text "disregard all previous" ignore_case
+        forget_prompt = text "forget all previous" ignore_case
+        
+        // Advanced injection patterns
+        injection_regex = regex /(?i)(ignore|disregard|forget).*(all|previous).*(instruction|prompt|rule)/
+        jailbreak_attempt = regex /(?i)(jailbreak|bypass|circumvent).*(safety|filter|restriction)/
+        
+        // Role-play attempts  
+        roleplay_start = text "you are now" ignore_case
+        pretend_instruction = text "pretend to be" ignore_case
+        
+    conditions:
+        // Simple, readable conditions
+        any_of (ignore_prompt, disregard_prompt, forget_prompt)
+        or matches_regex injection_regex
+        or matches_regex jailbreak_attempt  
+        or (contains roleplay_start and file_size < 2048)
+
+detect EncodingObfuscationDetector:
+    metadata:
+        author: "Encoding Analysis Team"
+        description: "Detects various encoding and obfuscation techniques"
+        version: "1.5" 
+        category: "encoding_detection"
+        
+    patterns:
+        // Base64 patterns
+        long_base64 = regex /[A-Za-z0-9+\/]{50,}={0,2}/
+        base64_chunk = regex /[A-Za-z0-9+\/]{20,}/
+        
+        // Hex encoding  
+        hex_escape = regex /\\x[0-9a-fA-F]{2}/
+        hex_string = regex /[0-9a-fA-F]{40,}/
+        
+        // URL encoding
+        url_encoded = regex /%[0-9a-fA-F]{2}/
+        
+        // Unicode escapes
+        unicode_escape = regex /\\u[0-9a-fA-F]{4}/
+        
+    conditions:
+        // Clear encoding detection logic
+        (count_of long_base64 > 3 and file_size > 500)
+        or all_of (base64_chunk, hex_string)  
+        or (count_of hex_escape > 10 and count_of url_encoded > 5)
+        or (contains unicode_escape and file_size > 200)
+
+detect WebShellHunter:
+    metadata:
+        author: "Web Security Team"
+        description: "Hunts for web shells with natural language syntax" 
+        version: "2.2"
+        category: "web_security"
+        
+    patterns:
+        // PHP web shell indicators
+        php_eval = text "eval(" 
+        php_exec = text "exec("
+        php_system = text "system("
+        php_shell = text "shell_exec("
+        
+        // Suspicious file operations
+        file_upload = regex /move_uploaded_file\s*\(/
+        file_write = regex /file_put_contents\s*\(/
+        
+        // Encoding functions
+        base64_decode = text "base64_decode(" ignore_case
+        
+        // Common web shell signatures  
+        c99_shell = text "c99shell" ignore_case
+        r57_shell = text "r57shell" ignore_case
+        wso_shell = text "WSO " ignore_case
+        
+    conditions:
+        // Intuitive web shell detection
+        file_size > 100 and file_size < 100KB
+        and (
+            // Execution functions present
+            any_of (php_eval, php_exec, php_system, php_shell)
+            and (
+                // File manipulation capabilities  
+                any_of (file_upload, file_write)
+                or contains base64_decode
+            )
+        )
+        or any_of (c99_shell, r57_shell, wso_shell)  // Known shells
