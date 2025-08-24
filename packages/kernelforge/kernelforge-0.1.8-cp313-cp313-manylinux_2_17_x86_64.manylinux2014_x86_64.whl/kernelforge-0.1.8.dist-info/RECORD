@@ -1,0 +1,10 @@
+kernelforge/__init__.py,sha256=Mrgrd2dW5VmLEBsP4zktA4sxIoDH_-PWWgGUcO7E0Bs,154
+kernelforge/_kernelforge.cpython-313-x86_64-linux-gnu.so,sha256=lGHI8sSeHeJm97qmvgJ8qBGwe4haa2-BNtwzfWM9GKc,274313
+kernelforge.libs/libgfortran-040039e1.so.5.0.0,sha256=FK-zEpsai1C8QKOwggx_EVLqm8EBIaqxUpQ_cFdHKIY,2686065
+kernelforge.libs/libgomp-a34b3233.so.1.0.0,sha256=On6uznIxkRvi-7Gz58tMtcLg-E4MK7c3OUcrWh_uyME,168193
+kernelforge.libs/libopenblasp-r0-01191904.3.27.so,sha256=m5H2uo_bqc92gjcf2lO7IodjvVBz_4JO28S4Hi3cRrw,34990041
+kernelforge.libs/libquadmath-96973f99.so.0.0.0,sha256=k0wi3tDn0WnE1GeIdslgUa3z2UVF2pYvYLQWWbB12js,247609
+kernelforge-0.1.8.dist-info/METADATA,sha256=2W6UDTMIgs4mScY66-GhuteraTNSUMLxQxMhFuw_MCQ,3800
+kernelforge-0.1.8.dist-info/WHEEL,sha256=OQU7f6Eehs5FLh7ScZTxrl7Bsxpxrrc5dpMsIXQLPhY,156
+kernelforge-0.1.8.dist-info/RECORD,,
+kernelforge-0.1.8.dist-info/licenses/LICENSE,sha256=yGiQhg840NPE4sgJ-kj7n-DC86zxDds2HktJYDSvpCY,1081
