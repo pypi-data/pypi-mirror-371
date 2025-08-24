@@ -1,0 +1,26 @@
+[project]
+name = "pomotracker"
+version = "0.1.0"
+description = "A Pomodoro tracker with a special 'borrow time' feature."
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+dependencies = [
+    "prompt-toolkit>=3.0.43",
+    "psutil>=5.9.8",
+]
+
+[project.scripts]
+pomotracker = "pomotracker.main:run"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.pytest.ini_options]
+pythonpath = "src"
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=8.4.1",
+]
