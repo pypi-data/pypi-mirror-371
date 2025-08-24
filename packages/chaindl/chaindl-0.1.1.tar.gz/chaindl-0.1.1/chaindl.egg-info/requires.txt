@@ -1,0 +1,8 @@
+requests
+pandas
+beautifulsoup4
+seleniumbase
+selenium
+selenium-wire
+blinker==1.7.0
+cloudscraper
