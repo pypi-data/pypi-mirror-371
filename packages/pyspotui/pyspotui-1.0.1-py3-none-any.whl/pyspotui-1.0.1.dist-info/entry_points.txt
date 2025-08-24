@@ -1,0 +1,2 @@
+[console_scripts]
+pyspotui = pyspotui.main:main

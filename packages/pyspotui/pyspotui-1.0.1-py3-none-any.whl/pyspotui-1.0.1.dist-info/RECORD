@@ -1,0 +1,11 @@
+pyspotui/__init__.py,sha256=4QxK1cGWR-X08fAaiitxLvMKvLB4bCUxBtt2DDgHwno,128
+pyspotui/__main__.py,sha256=x8eA-hSg3K2cu5aw6YAlyH8t-wtCcPNd6bmzxsjEIOE,470
+pyspotui/config.py,sha256=0RmzG18KAafBGiZyzVGA_i9tcmiRQyyRM07kGbWLw8c,3947
+pyspotui/helpers.py,sha256=XC2alBf4CcWFXY1pUxJ3mmJpce8VnzMhGo7tbF1Bcdw,3274
+pyspotui/main.py,sha256=KXUPDKTIIY_igxGKMZbEdcjaGXw1rvAWl-n04HCJYYQ,23954
+pyspotui/spotify_warper.py,sha256=NVYt6qXXxqJylPuH_vhRu4ARcO7jjB2Q0jrSR-6JrLo,4135
+pyspotui-1.0.1.dist-info/METADATA,sha256=jspOEXumnze-R_JnsK38OATawyViz5PhKfmULGcfu1k,297
+pyspotui-1.0.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+pyspotui-1.0.1.dist-info/entry_points.txt,sha256=RfxK2YiqPXXGlQmm4ABHoj2T0USDLu0eHDB6FRLD_04,48
+pyspotui-1.0.1.dist-info/top_level.txt,sha256=ePw-V3iHpxUAxj_kmsE3dgr6GgFAdzLVa3oEvV_Qtz8,9
+pyspotui-1.0.1.dist-info/RECORD,,
