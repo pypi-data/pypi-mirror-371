@@ -1,0 +1,15 @@
+{
+    "format_version": 1,
+    "header": {
+        "min_engine_version": [1, 18, 0],
+        "uuid": "[RESOURCE_PACK_HEADER_UUID]",
+        "version": [0, 0, 1]
+    },
+    "modules": [
+        {
+            "type": "resources",
+            "uuid": "[RESOURCE_PACK_MODULE_UUID]",
+            "version": [0, 0, 1]
+        }
+    ]
+}
