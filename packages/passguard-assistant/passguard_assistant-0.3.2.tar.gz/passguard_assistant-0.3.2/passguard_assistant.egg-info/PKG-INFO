@@ -1,0 +1,59 @@
+Metadata-Version: 2.4
+Name: passguard-assistant
+Version: 0.3.2
+Summary: Password health + hashing + security assistant: strength checks, smart suggestions, tokens, alerts.
+Author: Sathish J
+Author-email: Sathish J <jsathish587@gmail.com>
+License-Expression: MIT
+Project-URL: Homepage, https://github.com/sathishkevinmitnick
+Project-URL: Bug Tracker, https://github.com/sathishkevinmitnick/passguard-assistant/issues
+Keywords: password,security,entropy,strength,alert,email
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Security :: Cryptography
+Classifier: Intended Audience :: Developers
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: argon2-cffi>=23.1.0
+Requires-Dist: bcrypt>=4.0.1
+Dynamic: author
+Dynamic: license-file
+Dynamic: requires-python
+
+# PassGuard Assistant 🔐
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/sathishkevinmitnick/passguard-assistant/main/logo.png" width="180" alt="PassGuard Logo">
+</p>
+
+A privacy-friendly **Password Health + Security Assistant** library with an **interactive CLI** for terminal users.
+
+---
+
+## Features
+- ✅ Password strength checker with **entropy score (0–100)**
+- ✅ Detects **personal info** (name, DOB, phone numbers)
+- ✅ Strong password generator (symbols, uppercase, lowercase, digits)
+- ✅ If weak → auto-suggests **secure random password + SHA256 hash**
+- ✅ Rotation reminders (1, 3, 6 months)
+- ✅ Failed-attempt logging with optional email alerts
+- ✅ Secure password hashing (`argon2`, `bcrypt`, `pbkdf2`)
+- ✅ Password verification
+- ✅ Secure token generation (`urlsafe` and `hex`)
+- ✅ **Interactive CLI with terminal UI** (ready to guard!)
+
+---
+
+## Security & Privacy
+- 🚫 **No OS-level monitoring** (no keyloggers, no clipboard access)
+- ✅ Works only **inside your app/backend** with provided hooks
+- 🔒 Logs (failed attempts, reminders) are fully under your control
+- 📧 Email alerts are **optional** and use your SMTP credentials
+
+---
+
+## CLI Usage Example
+
+```bash
+passguard
