@@ -1,0 +1,8 @@
+LICENSE
+README.md
+setup.py
+cf_hash_cache/__init__.py
+cf_hash_cache.egg-info/PKG-INFO
+cf_hash_cache.egg-info/SOURCES.txt
+cf_hash_cache.egg-info/dependency_links.txt
+cf_hash_cache.egg-info/top_level.txt
