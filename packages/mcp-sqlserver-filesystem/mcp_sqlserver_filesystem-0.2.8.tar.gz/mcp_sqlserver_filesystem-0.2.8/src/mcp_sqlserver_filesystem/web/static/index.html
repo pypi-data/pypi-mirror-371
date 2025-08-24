@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCP SQL Server Results Display</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <h1>🗄️ MCP SQL Server Results</h1>
+                <div class="header-actions">
+                    <div class="server-status" id="serverStatus">
+                        <span class="status-indicator"></span>
+                        <span class="status-text">等待连接...</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="app-main">
+            <div class="content-area">
+                <!-- SQL Results Display -->
+                <div id="sqlDisplay" class="tab-content active">
+                    <div class="content-header">
+                        <h2>SQL 查询结果显示</h2>
+                        <div class="info-text">
+                            <p>当AI助手执行SQL查询时，结果将自动显示在下方</p>
+                        </div>
+                    </div>
+
+                    <div class="results-area">
+                        <div class="results-header">
+                            <h3 id="queryTitle">查询结果</h3>
+                            <div class="query-info" id="queryInfo" style="display: none;">
+                                <span class="query-time" id="queryTime"></span>
+                                <span class="row-count" id="rowCount"></span>
+                            </div>
+                        </div>
+                        <div id="sqlResults" class="results-content">
+                            <div class="empty-state">
+                                <div class="empty-icon">🔍</div>
+                                <h3>等待SQL查询结果</h3>
+                                <p>当AI助手执行SQL查询时，结果将在这里显示</p>
+                                <div class="feature-list">
+                                    <div class="feature-item">✅ 自动显示查询结果</div>
+                                    <div class="feature-item">✅ 支持大数据集分页</div>
+                                    <div class="feature-item">✅ 表结构信息展示</div>
+                                    <div class="feature-item">✅ 实时数据更新</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Notifications -->
+        <div id="notifications" class="notifications-container"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
