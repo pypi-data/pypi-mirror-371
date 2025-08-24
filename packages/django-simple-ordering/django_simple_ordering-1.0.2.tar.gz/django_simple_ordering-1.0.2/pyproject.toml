@@ -1,0 +1,31 @@
+[project]
+name = "django-simple-ordering"
+version = "1.0.2"
+authors = [
+    { name = "Amin Vassefpoor", email = "aminvassefpoor@gmail.com" },
+]
+description = "Simple Integer-based Ordering for Django Models"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "django>=4,<6",
+    "django-object-actions>=5,<6",
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+
+[project.optional-dependencies]
+test = [
+    "factory-boy>=3,<4",
+]
+
+[project.urls]
+Homepage = "https://github.com/aminvsf/django-simple-ordering"
+Issues = "https://github.com/aminvsf/django-simple-ordering/issues"
+
+[tool.setuptools]
+include-package-data = true
