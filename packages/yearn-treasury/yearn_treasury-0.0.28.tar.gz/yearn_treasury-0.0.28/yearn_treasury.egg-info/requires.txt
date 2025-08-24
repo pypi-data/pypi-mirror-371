@@ -1,0 +1,2 @@
+dao-treasury<0.1,>=0.0.45
+eth-brownie<1.22,>=1.21.0
