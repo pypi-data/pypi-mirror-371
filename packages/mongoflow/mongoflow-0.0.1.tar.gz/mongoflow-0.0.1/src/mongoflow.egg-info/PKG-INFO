@@ -1,0 +1,87 @@
+Metadata-Version: 2.4
+Name: mongoflow
+Version: 0.0.1
+Summary: Elegant MongoDB Object Document Mapper (ODM) for Python - fluent query builder included
+Author-email: Caio Norder <caio@caionorder.com>
+License: MIT
+Project-URL: Homepage, https://github.com/caionorder/mongoflow
+Project-URL: Bug Tracker, https://github.com/caionorder/mongoflow/issues
+Project-URL: Documentation, https://mongoflow.readthedocs.io
+Project-URL: Source Code, https://github.com/caionorder/mongoflow
+Project-URL: Changelog, https://github.com/caionorder/mongoflow/blob/main/CHANGELOG.md
+Keywords: mongodb,odm,orm,database,nosql,query-builder,mongoflow,motor,async,pymongo
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Database
+Classifier: Topic :: Database :: Database Engines/Servers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Operating System :: OS Independent
+Classifier: Framework :: AsyncIO
+Classifier: Typing :: Typed
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pymongo<5.0,>=4.0
+Requires-Dist: python-dateutil>=2.8.0
+Requires-Dist: typing-extensions>=4.0.0; python_version < "3.10"
+Provides-Extra: cache
+Requires-Dist: redis>=4.0.0; extra == "cache"
+Requires-Dist: hiredis>=2.0.0; extra == "cache"
+Provides-Extra: validation
+Requires-Dist: pydantic>=2.0.0; extra == "validation"
+Provides-Extra: async
+Requires-Dist: motor>=3.0.0; extra == "async"
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0.0; extra == "dev"
+Requires-Dist: pytest-cov>=4.0.0; extra == "dev"
+Requires-Dist: pytest-asyncio>=0.21.0; extra == "dev"
+Requires-Dist: mongomock>=4.0.0; extra == "dev"
+Requires-Dist: black>=23.0.0; extra == "dev"
+Requires-Dist: flake8>=6.0.0; extra == "dev"
+Requires-Dist: mypy>=1.0.0; extra == "dev"
+Requires-Dist: isort>=5.0.0; extra == "dev"
+Requires-Dist: pre-commit>=3.0.0; extra == "dev"
+Requires-Dist: sphinx>=6.0.0; extra == "dev"
+Requires-Dist: sphinx-rtd-theme>=1.0.0; extra == "dev"
+Requires-Dist: tox>=4.0.0; extra == "dev"
+Requires-Dist: twine>=4.0.0; extra == "dev"
+Requires-Dist: build>=0.10.0; extra == "dev"
+Provides-Extra: all
+Requires-Dist: mongoflow[async,cache,validation]; extra == "all"
+Dynamic: license-file
+
+# MongoFlow 🌊
+
+Elegant MongoDB Object Document Mapper (ODM) for Python - with a fluent query builder that makes working with MongoDB a breeze! 🚀
+
+## ✨ Features
+
+- 🎯 **Intuitive Query Builder** - Fluent, chainable queries that feel natural
+- ⚡ **High Performance** - Connection pooling, batch operations, and streaming
+- 🔧 **Flexible** - Use as simple queries or full ODM with models
+- 🎨 **Clean API** - Pythonic, fully typed, and well-documented
+- 🚀 **Production Ready** - Battle-tested patterns with automatic retries
+- 💾 **Smart Caching** - Optional Redis integration for blazing speed
+- 🔄 **Async Support** - Full async/await support with Motor
+- 📦 **Lightweight** - Minimal dependencies, maximum functionality
+
+## 📦 Installation
+
+```bash
+# Basic installation
+pip install mongoflow
+
+# With all features
+pip install mongoflow[all]
+
+# With specific features
+pip install mongoflow[cache]      # Redis caching
+pip install mongoflow[validation] # Pydantic validation
+pip install mongoflow[async]      # Async support
