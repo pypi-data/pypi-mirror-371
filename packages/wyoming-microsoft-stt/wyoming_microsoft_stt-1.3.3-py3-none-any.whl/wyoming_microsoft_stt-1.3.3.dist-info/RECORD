@@ -1,0 +1,16 @@
+tests/__init__.py,sha256=ZEU8_ARBRGIqaAOTcPRsjXxcfHSojBm-5-krYBN-68g,13
+tests/conftest.py,sha256=iSju8g6PiODcg9eY4_lZaVcubXMlfnx1CpyGVsmTAgY,340
+tests/test_microsoft_stt.py,sha256=CO6xyLHFcE1kqJ_XuGprRu0i28zTN2oHaKtomK_aJIU,594
+tests/test_multilanguage.py,sha256=wRtyWuhWBmA5Yf01JNbmgxqoVKmDcE6XHz9QcfSR700,3100
+tests/test_transcribe.py,sha256=BqT-KLZR6UM9RqNI43RZFz6WLkXFcjk2a2WLszhDgso,3674
+wyoming_microsoft_stt/__init__.py,sha256=92Kms90cxU6Zs5XjNZiYvIGLA3Yd-BizN-G8f7n506I,3365
+wyoming_microsoft_stt/__main__.py,sha256=gA0wM3OCLdEq7ewMRrlWs4TVpXvFlITMaX_4lP3ed7E,5577
+wyoming_microsoft_stt/download.py,sha256=mTWZl9kVaE7KGeO2d0SS7wztDN6tGo9AudXWhN8uKhg,3379
+wyoming_microsoft_stt/handler.py,sha256=dWm9etFANRU33IDU-p85enHmWtMtTtW522I3AJbTAxg,3330
+wyoming_microsoft_stt/languages.json,sha256=eDZuPJLzDjdZlh0I4081OTkLPt6nZdUY8ra45c7oMCc,1881
+wyoming_microsoft_stt/microsoft_stt.py,sha256=2Rb9uoOxGFpQfwXux5p3jwop_3poF-75U_84q5QRmt0,5357
+wyoming_microsoft_stt/version.py,sha256=iG_JqR_Z5wfSTlMqH9H1vmrmlcgyFJdbRBRllY0yDgU,50
+wyoming_microsoft_stt-1.3.3.dist-info/METADATA,sha256=Hh7h4BDS_hLd4t3Y8LOEpAMpRzGph7TwfPEliYQA6mA,5792
+wyoming_microsoft_stt-1.3.3.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+wyoming_microsoft_stt-1.3.3.dist-info/top_level.txt,sha256=aURyYXybYBAybkVTs2RFT5ctnPz5pRa_B7Gn9_SKhL8,28
+wyoming_microsoft_stt-1.3.3.dist-info/RECORD,,
