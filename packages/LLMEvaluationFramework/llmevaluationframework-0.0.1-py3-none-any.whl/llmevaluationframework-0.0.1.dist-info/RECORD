@@ -1,0 +1,13 @@
+llm_evaluation_framework/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+llm_evaluation_framework/auto_suggestion_engine.py,sha256=KzZlI405PPT84I69WhXXcXuS1g-PIFoYa3piANdZJ6E,3031
+llm_evaluation_framework/model_inference_engine.py,sha256=KDhqsl_cIDlr10l4-03b31JuMrHPr6p3GBs6xJ0mbO4,4318
+llm_evaluation_framework/model_registry.py,sha256=ggcybDn5lyIAEIIIMPgIX4_j7JDXc4LDZQmG303J-mc,2047
+llm_evaluation_framework/test_dataset_generator.py,sha256=t1n5JbV9Hgt6mcndNbiv5aEwjwU-uu-l5xJNX1erXwc,3139
+llmevaluationframework-0.0.1.dist-info/licenses/LICENSE,sha256=fKYjpVuxF75tWQhzLkN90tDG4knIjDZKUMiPJbKWxIw,1079
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/test_all_modules.py,sha256=qBD8VRrfHbkHRNMLQEusSefoujHTvO3fD5NVzqa25zA,4203
+tests/test_dataset_generator.py,sha256=alH1Y45J5RwPorF3ufG06o9WdCaoXlzmiVAbM3jnS5U,1954
+llmevaluationframework-0.0.1.dist-info/METADATA,sha256=uo9HzLqVr2Px6MjHZababLw70EvkdbmZqvHwVGtqDtk,4335
+llmevaluationframework-0.0.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+llmevaluationframework-0.0.1.dist-info/top_level.txt,sha256=8vYvOk7VQOWBTWQPUz0twt4YqByA2pdNVD4uJM44XNQ,31
+llmevaluationframework-0.0.1.dist-info/RECORD,,
