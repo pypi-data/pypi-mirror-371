@@ -1,0 +1,15 @@
+Metadata-Version: 2.4
+Name: ec_tools_cli
+Version: 0.0.1
+Summary: A collection of tool cli for EC.
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Requires-Dist: black; extra == "dev"
+
+# ec-tools-cli
+

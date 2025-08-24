@@ -1,0 +1,37 @@
+
+[build-system]
+requires = [
+    "setuptools>=61.0",
+    "wheel", 
+    "colorama==0.4.6", 
+    "ec_tools==2.8"
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ec_tools_cli"
+version = "0.0.1"
+description = "A collection of tool cli for EC."
+readme = "README.md"
+requires-python = ">=3.7"
+license = { text = "MIT" }
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent"
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["black"]
+
+[project.scripts]
+ec-enc = "ec_rasp_tools.enc.cli:main"
+ec-sql = "ec_rasp_tools.db.cli:main"
+ec-vault = "ec_rasp_tools.vault.cli:main"
+ec-backup = "ec_rasp_tools.backup_machine.cli:main"
+auto-run = "ec_rasp_tools.auto_run.cli:main"
+
+[tool.black]
+line-length = 120
+
