@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+src/rapidapi_mcp_server/__init__.py
+src/rapidapi_mcp_server/chrome_client.py
+src/rapidapi_mcp_server/server.py
+src/rapidapi_mcp_server.egg-info/PKG-INFO
+src/rapidapi_mcp_server.egg-info/SOURCES.txt
+src/rapidapi_mcp_server.egg-info/dependency_links.txt
+src/rapidapi_mcp_server.egg-info/entry_points.txt
+src/rapidapi_mcp_server.egg-info/requires.txt
+src/rapidapi_mcp_server.egg-info/top_level.txt

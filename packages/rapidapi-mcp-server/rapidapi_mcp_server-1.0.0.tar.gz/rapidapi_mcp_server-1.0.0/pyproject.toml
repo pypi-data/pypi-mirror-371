@@ -1,0 +1,92 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rapidapi-mcp-server"
+version = "1.0.0"
+description = "RapidAPI marketplace discovery and assessment MCP server using undetected-chromedriver for anti-bot detection bypass"
+authors = [
+    {name = "Andrew Lewin", email = "andrewlwn77@users.noreply.github.com"}
+]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.8"
+keywords = ["mcp", "rapidapi", "api", "discovery", "chrome", "automation", "claude", "ai"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Internet :: WWW/HTTP :: Browsers",
+    "Topic :: System :: Networking",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+    "Environment :: Console",
+    "Framework :: AsyncIO",
+]
+dependencies = [
+    "mcp>=1.0.0",
+    "undetected-chromedriver>=3.5.0",
+    "selenium>=4.15.0",
+    "beautifulsoup4>=4.12.0",
+    "python-dotenv>=1.0.0",
+    "aiohttp>=3.8.0",
+    "typing-extensions>=4.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "black>=23.0.0",
+    "isort>=5.12.0",
+    "mypy>=1.0.0",
+    "ruff>=0.1.0",
+]
+
+[project.scripts]
+rapidapi-mcp-server = "rapidapi_mcp_server.server:cli_main"
+
+[project.urls]
+Homepage = "https://github.com/andrewlwn77/rapidapi-mcp-server"
+Repository = "https://github.com/andrewlwn77/rapidapi-mcp-server.git"
+Issues = "https://github.com/andrewlwn77/rapidapi-mcp-server/issues"
+Documentation = "https://github.com/andrewlwn77/rapidapi-mcp-server#readme"
+Changelog = "https://github.com/andrewlwn77/rapidapi-mcp-server/blob/main/CHANGELOG.md"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+
+[tool.isort]
+profile = "black"
+line_length = 88
+
+[tool.mypy]
+python_version = "3.8"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+
+[tool.ruff]
+line-length = 88
+target-version = "py38"
+select = ["E", "F", "I", "N", "W", "UP"]
+ignore = []
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v --tb=short"
