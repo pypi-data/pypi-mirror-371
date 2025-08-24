@@ -1,0 +1,13 @@
+jacobi_poly/__init__.py,sha256=42TeS2UtIFpdDCDrmmMQmLVPnHPiADG-u_sFLENUnmA,465
+jacobi_poly/__main__.py,sha256=o0QCxUV0As4pBVGfyvWgJaY12gdxIXlKVc0pvK-pcag,109
+jacobi_poly/_lgamma.py,sha256=-SOHPD8LroJIodz_8rTKqtU86KdETMlxJ013ZrDYShc,2115
+jacobi_poly/_main.py,sha256=e6v4PUtulY63nsqc4mqTuxE0iH9W0srJZEsQHlpbGUo,6561
+jacobi_poly/_triplet.py,sha256=Xkl-k3tHlsDXANG5fC2sFoGt88AXIYMsiqC3E6Utq2Q,4289
+jacobi_poly/cli.py,sha256=WDFkPAKef3lR5r82_c1tjTdPCUaFduDL5hh0r44_Q5g,130
+jacobi_poly/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+jacobi_poly-1.0.1.dist-info/licenses/LICENSE,sha256=Otwb96xcK4QBqXXVdBKpLZVnc4mJuFTa8rsMUEpphMM,1061
+jacobi_poly-1.0.1.dist-info/METADATA,sha256=7B8226nmn1K6EDUvRbawl4mo15dX04p1BPPdNnZyAkg,5423
+jacobi_poly-1.0.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+jacobi_poly-1.0.1.dist-info/entry_points.txt,sha256=jQ7amYZWIW-pz7HxcFyQ8inkwogl1HKKRci2YatOktE,52
+jacobi_poly-1.0.1.dist-info/top_level.txt,sha256=KqbV4NlV5rDTsgSvSxWtjBZJkRCDE4md9kSCViZvgMw,12
+jacobi_poly-1.0.1.dist-info/RECORD,,
