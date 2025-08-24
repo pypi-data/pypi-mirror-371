@@ -1,0 +1,43 @@
+[tool.poetry]
+name = "manaisys-style-guide"
+version = "0.1.0"
+description = "Company-wide Python linting & formatting standards"
+authors = ["Pranjal Singh Rajput <pranjalsrajput@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{ include = "style_guide", from = "src" }]
+
+[[tool.poetry.source]]
+name = "github"
+url = "https://pypi.pkg.github.com/WhiteAILabs"
+priority = "supplemental"
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.12"
+black = "^23.0"
+ruff = "^0.1.0"
+mypy = "^1.0"
+isort = "^5.0"
+pre-commit = "^3.0"
+typer = { extras = ["all"], version = "^0.9.0" }
+
+[tool.poetry.scripts]
+python-style-guide = "style_guide.cli:app"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+# Optional: centralize configs here
+[tool.black]
+line-length = 88
+
+[tool.isort]
+profile = "black"
+
+[tool.ruff]
+line-length = 88
+select = ["E", "F", "I"]  # errors, formatting, imports
+
+[tool.mypy]
+strict = true
