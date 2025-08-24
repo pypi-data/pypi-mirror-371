@@ -1,0 +1,5 @@
+[console_scripts]
+github2gerrit = github2gerrit_python.cli:app
+
+[gui_scripts]
+
