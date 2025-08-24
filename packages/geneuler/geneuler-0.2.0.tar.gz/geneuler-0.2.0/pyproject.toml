@@ -1,0 +1,34 @@
+[build-system]
+requires = ["hatchling>=1.5"]
+build-backend = "hatchling.build"
+
+[project]
+name = "geneuler"                 # if taken, try "geneuler-mesh"
+version = "0.2.0"
+description = "Lightweight mesh generation and I/O (Gmsh+meshio) for GenEuler."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { file = "LICENSE" }
+authors = [{ name = "Mohamad Kokh", email = "mohamad.kokh@gmail.com" }]
+keywords = ["mesh", "gmsh", "tetrahedral", "xdmf", "stl", "step"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering",
+]
+
+dependencies = ["numpy", "meshio", "gmsh", "scikit-fem", "scipy", "pyamg"]
+
+[project.urls]
+Homepage = "https://github.com/your-org/geneuler"
+Issues   = "https://github.com/your-org/geneuler/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/geneuler"]
