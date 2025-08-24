@@ -1,0 +1,13 @@
+shomei/__init__.py,sha256=mpZvOHJZ6BRk4r6y0p3XIfNNpMsilvgYOenWwZ-As0c,487
+shomei/art.py,sha256=dn02j6fY7y2iTWS-WUNorrfv4Ti9Gpijw-qlKI15kVE,3754
+shomei/cli.py,sha256=h9yl8OLafSWTTxPlfPZgf8v7HJyzfIh9ALO3Pv59CSk,5592
+shomei/config.py,sha256=lkVSHzRJ0p46kUE1EUs6Vc3cYYOWQ_cz3IzjYL93Ly4,3242
+shomei/core.py,sha256=KQfZs2HrB6T58f-IhxQ_nUsT9iqGHVgf7AhHVFc0r5s,11431
+shomei/git_utils.py,sha256=wnF1NwqFLiTrxqu0VP1euAZf41qfTqU__SqPxfA9Hr4,6353
+shomei/utils.py,sha256=5OnIY_dRVwaXkb2gplkTbPz5mJ-TwnP4vNpYOkslULQ,3333
+shomei-0.2.5.dist-info/licenses/LICENSE,sha256=7ip2esboGNOdaSdQZmr_cNdnpis5taCf8tqRfCYurUs,1077
+shomei-0.2.5.dist-info/METADATA,sha256=J4Y-zFz-N0DL5iWMaQJLh_TqVKU-H2B0oX0tnDlM7r0,9899
+shomei-0.2.5.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+shomei-0.2.5.dist-info/entry_points.txt,sha256=R9CNAdKS0zg0LJXVcwKgBEeZuRwMPSwAlI0toTOl6og,42
+shomei-0.2.5.dist-info/top_level.txt,sha256=vG9JjN_1X_VqV3cAMhRgjBhfjhqSqfD8WzEUHx4E_-s,7
+shomei-0.2.5.dist-info/RECORD,,
