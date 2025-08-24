@@ -1,0 +1,357 @@
+Metadata-Version: 2.4
+Name: tradata-core
+Version: 0.2.3
+Summary: Professional core framework for trading applications
+Author-email: Tradata Team <team@tradata.com>
+License: MIT
+Project-URL: Homepage, https://github.com/TradataTech/tradata-core-py
+Project-URL: Repository, https://github.com/TradataTech/tradata-core-py
+Project-URL: Documentation, https://github.com/TradataTech/tradata-core-py/tree/main/docs
+Project-URL: Changelog, https://github.com/TradataTech/tradata-core-py/blob/main/CHANGELOG.md
+Project-URL: Issues, https://github.com/TradataTech/tradata-core-py/issues
+Project-URL: Discussions, https://github.com/TradataTech/tradata-core-py/discussions
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: System :: Monitoring
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Internet :: WWW/HTTP :: HTTP Servers
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: fastapi>=0.68.0
+Requires-Dist: starlette>=0.14.0
+Requires-Dist: pydantic>=1.8.0
+Requires-Dist: python-json-logger>=2.0.0
+Requires-Dist: httpx>=0.27.0
+Provides-Extra: dev
+Requires-Dist: pytest>=6.0; extra == "dev"
+Requires-Dist: pytest-cov; extra == "dev"
+Requires-Dist: pytest-benchmark; extra == "dev"
+Requires-Dist: pytest-asyncio; extra == "dev"
+Requires-Dist: black; extra == "dev"
+Requires-Dist: flake8; extra == "dev"
+Requires-Dist: mypy; extra == "dev"
+Requires-Dist: build; extra == "dev"
+Provides-Extra: test
+Requires-Dist: pytest>=7.0.0; extra == "test"
+Requires-Dist: pytest-cov>=4.0.0; extra == "test"
+Requires-Dist: pytest-asyncio>=0.21.0; extra == "test"
+Requires-Dist: httpx>=0.24.0; extra == "test"
+Provides-Extra: docs
+Requires-Dist: sphinx>=5.0.0; extra == "docs"
+Requires-Dist: sphinx-rtd-theme>=1.0.0; extra == "docs"
+Requires-Dist: myst-parser>=0.18.0; extra == "docs"
+Dynamic: license-file
+
+# Tradata Core
+
+Professional core framework designed for trading and market data applications.
+
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![PyPI version](https://badge.fury.io/py/tradata-logger.svg)](https://badge.fury.io/py/tradata-logger)
+
+## Features
+
+- 🚀 **FastAPI Middleware** - Automatic request logging with trace IDs
+- 📊 **Structured JSON Logging** - Consistent, searchable log format
+- 🔗 **Request Correlation** - Track requests across microservices
+- ⚡ **High Performance** - Async-first design with minimal overhead
+- 🎯 **Trading-Specific** - Specialized logging for financial applications
+- 🔧 **Easy Configuration** - Environment variables and programmatic setup
+- 🎭 **Context Management** - Automatic operation and step tracking
+- 🏷️ **Decorators** - One-liner logging for API endpoints
+
+## Quick Start
+
+### Installation
+
+**This is a private package accessible only to your GitHub organization.**
+
+#### **Option 1: Automated Setup (Recommended)**
+```bash
+# Download and run the setup script
+curl -O https://raw.githubusercontent.com/your-org/tradata-core-py/main/setup_private_install.sh
+chmod +x setup_private_install.sh
+./setup_private_install.sh YOUR_GITHUB_TOKEN_HERE
+```
+
+#### **Option 2: Manual Installation**
+```bash
+# Install from private GitHub Packages
+pip install tradata-core-py
+
+# Or install directly from private repository
+pip install git+https://YOUR_TOKEN@github.com/your-org/tradata-core-py.git
+```
+
+**See [Private Package Setup Guide](PRIVATE_PACKAGE_README.md) for detailed instructions.**
+
+### Basic Usage
+
+```python
+from tradata_core import get_logger
+
+logger = get_logger("my-service")
+await logger.info("Service started", "Service", "Startup")
+```
+
+### FastAPI Integration
+
+```python
+from fastapi import FastAPI
+from tradata_core import LoggingMiddleware
+
+app = FastAPI()
+app.add_middleware(LoggingMiddleware)
+
+# Automatic request logging with trace IDs!
+```
+
+## Why Tradata Logger?
+
+### For Trading Applications
+
+- **Operation Tracking**: Log business operations (e.g., "QuoteRetrieval", "TradeExecution")
+- **Step Monitoring**: Track specific steps within operations (e.g., "Validation", "API_Call")
+- **Performance Metrics**: Built-in timing and performance logging
+- **Cache Operations**: Specialized logging for cache hits/misses
+- **Client Tracking**: Monitor external API usage and performance
+
+### For Microservices
+
+- **Trace ID Propagation**: Follow requests across service boundaries
+- **Request Correlation**: Link related operations with unique identifiers
+- **Structured Logging**: Consistent JSON format for log aggregation
+- **Middleware Integration**: Framework-specific middleware for automatic logging
+
+### For Development Teams
+
+- **Clean APIs**: Decorators and context managers for minimal code
+- **Comprehensive Coverage**: Automatic logging of requests, errors, and performance
+- **Flexible Configuration**: Environment-based and programmatic configuration
+- **Extensible Design**: Easy to add custom formatters and handlers
+
+## Core Concepts
+
+### Operation and Step Tracking
+
+Every log entry includes:
+- **Operation**: High-level business operation (e.g., "QuoteRetrieval")
+- **Step**: Specific step within the operation (e.g., "API_Call", "Validation")
+
+```python
+await logger.info("Quote retrieved", "QuoteRetrieval", "API_Call", symbol="AAPL")
+```
+
+### Context Variables
+
+Automatic tracking of:
+- **Trace ID**: Unique identifier for request chains
+- **Request ID**: Unique identifier for individual requests
+- **Client**: External service being used
+
+### Structured Logging
+
+All logs include structured data for easy searching and analysis:
+
+```json
+{
+  "timestamp": "2024-01-15T10:30:00Z",
+  "level": "INFO",
+  "message": "Quote retrieved successfully",
+  "operation": "QuoteRetrieval",
+  "step": "API_Call",
+  "trace_id": "trace_12345",
+  "request_id": "req_67890",
+  "client": "alpaca_api",
+  "symbol": "AAPL",
+  "duration_ms": 150.5
+}
+```
+
+## Usage Examples
+
+### Basic Logging
+
+```python
+from tradata_core import get_logger
+
+logger = get_logger("quotes-service")
+
+# Basic logging
+await logger.info("Processing started", "DataProcessing", "Validation")
+await logger.error("API call failed", "ExternalAPI", "Call", error="Connection timeout")
+
+# Specialized logging
+await logger.log_cache_operation("Cache_Get", True, "quote:AAPL", 5.0)
+await logger.log_client_operation("API_Call", "alpaca_api", "get_quote", 150.0)
+```
+
+### API Endpoint Logging
+
+```python
+from tradata_core.utils.decorators import log_endpoint
+
+@app.get("/quotes/{symbol}")
+@log_endpoint("/quotes/{symbol}", "quote_retrieval", "quotes_service")
+async def get_quote(symbol: str):
+    # Automatic logging of request, processing, and response
+    return {"symbol": symbol, "price": 150.00}
+```
+
+### Context Management
+
+```python
+from tradata_core.utils.context import logging_context
+
+async with logging_context("data_processing", "batch_validation") as ctx:
+    ctx.add_context(batch_size=1000, dataset="market_data")
+    
+    for item in data:
+        # Process item
+        pass
+    
+    # Automatic completion logging with duration
+```
+
+### FastAPI Middleware
+
+```python
+from tradata_core import LoggingMiddleware, PerformanceLoggingMiddleware
+
+app = FastAPI()
+
+# Basic logging middleware
+app.add_middleware(LoggingMiddleware)
+
+# Performance-focused middleware
+app.add_middleware(PerformanceLoggingMiddleware)
+```
+
+## Configuration
+
+### Environment Variables
+
+```bash
+LOG_LEVEL=INFO
+LOG_FORMAT=json
+LOG_INCLUDE_TRACE_ID=true
+LOG_PERFORMANCE=true
+LOG_CACHE_OPERATIONS=true
+```
+
+### Programmatic Configuration
+
+```python
+from tradata_core.config import LogConfig, HandlerConfig
+
+config = LogConfig(
+    level="DEBUG",
+    format="console",
+    handlers=[
+        HandlerConfig(type="console", level="DEBUG"),
+        HandlerConfig(type="file", filename="app.log", level="INFO")
+    ]
+)
+```
+
+## Installation
+
+### From PyPI
+
+```bash
+pip install tradata-logger
+```
+
+### From Source
+
+```bash
+git clone https://github.com/tradata/tradata-logger-py.git
+cd tradata-logger-py
+pip install -e .
+```
+
+### Development Dependencies
+
+```bash
+pip install -e ".[dev]"
+```
+
+## Testing
+
+```bash
+# Run all tests
+pytest
+
+# Run with coverage
+pytest --cov=tradata_core
+
+# Run specific test file
+pytest tests/test_logger.py
+```
+
+## Examples
+
+See the `examples/` directory for complete working examples:
+
+- `basic_usage.py` - Basic logger usage
+- `fastapi_example.py` - FastAPI integration
+- `flask_example.py` - Flask integration (placeholder)
+
+## Documentation
+
+Comprehensive documentation is available in the `docs/` directory:
+
+- [API Reference](docs/API.md)
+- [Examples](docs/examples.md)
+- [Configuration Guide](docs/README.md)
+
+## Contributing
+
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
+
+### Development Setup
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests
+5. Run the test suite
+6. Submit a pull request
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Support
+
+- **GitHub Issues**: [Report bugs or request features](https://github.com/tradata/tradata-logger-py/issues)
+- **Documentation**: [Comprehensive guides and examples](https://github.com/tradata/tradata-logger-py/tree/main/docs)
+- **Examples**: [Working code examples](https://github.com/tradata/tradata-logger-py/tree/main/examples)
+
+## Roadmap
+
+- [ ] Flask middleware implementation
+- [ ] Additional log formatters
+- [ ] Cloud logging integrations
+- [ ] Performance dashboard
+- [ ] Log aggregation tools
+- [ ] More specialized logging methods
+
+## Acknowledgments
+
+- Built for the trading and financial technology community
+- Inspired by modern logging practices and observability needs
+- Designed with microservices and distributed systems in mind
+
+---
+
+**Tradata Logger** - Professional logging for professional applications.
