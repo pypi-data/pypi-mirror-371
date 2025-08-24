@@ -1,0 +1,158 @@
+// Gamma Scanner - Completely Unique DSL Syntax
+// Unlike ANY programming language in the world!
+
+// Basic malware hunting with unique syntax
+HUNT MalwareThreats:
+    ABOUT:
+        author -> "Security Team"
+        purpose -> "Detect malicious software patterns"
+        severity -> critical
+        category -> malware_detection
+        
+    LOOK FOR:
+        evil_payload ~ text "malicious payload" IGNORE case
+        backdoor_call ~ text "backdoor connection" EXACT boundaries  
+        pe_signature ~ hex "4D 5A 90 00 03 00 00 00"
+        shell_code ~ hex "31 C0 50 68 2F 2F 73 68"
+        danger_regex ~ pattern /exec\([^)]+\)/ IGNORE case
+        
+    WHEN:
+        SIZE greater than 100 bytes
+        ALSO file HAS evil_payload 
+        EITHER content HOLDS backdoor_call
+        ELSE SEVERAL of {pe_signature, shell_code} found
+    
+    THEN:
+        ALERT "Malware detected!" with high_severity
+        MARK file as infected
+        CAPTURE evidence to quarantine
+
+// Advanced prompt injection detection
+SCAN PromptInjections:
+    ABOUT:
+        author -> "AI Safety Team"
+        description -> "Prevents prompt injection attacks" 
+        version -> 2.1
+        
+    SEARCH these patterns:
+        ignore_instruction ~ text "ignore all previous" IGNORE case
+        disregard_prompt ~ text "disregard instructions" IGNORE case  
+        forget_rules ~ text "forget everything" IGNORE case
+        jailbreak_attempt ~ pattern /(?i)(jailbreak|bypass).*(safety|filter)/
+        roleplay_injection ~ text "pretend to be" IGNORE case
+        
+    TRIGGER when:
+        input HAS ignore_instruction
+        EITHER content MATCHES jailbreak_attempt  
+        ALSO SEVERAL of {disregard_prompt, forget_rules} present
+        UNLESS SIZE less than 50 characters
+        
+    THEN:
+        FLAG as injection_attempt
+        REPORT to security_team
+        BLOCK further processing
+
+// Web shell hunting with flow syntax  
+FIND WebShells:
+    ABOUT:
+        team -> "Web Security Division"
+        target -> "PHP web shells and backdoors"
+        
+    SIGNATURES are:
+        php_eval ~ text "eval(" EXACT word
+        php_exec ~ text "exec(" EXACT word
+        php_system ~ text "system(" EXACT word
+        file_upload ~ pattern /move_uploaded_file\s*\(/
+        base64_decode ~ text "base64_decode(" IGNORE case
+        known_c99 ~ text "c99shell" IGNORE case
+        known_r57 ~ text "r57shell" IGNORE case
+        
+    ACTIVATE when:
+        SIZE between 100 bytes and 100KB
+        ALSO SOME of {php_eval, php_exec, php_system} found
+        ALSO EITHER file HOLDS file_upload
+             ELSE content HAS base64_decode
+        UNLESS filename BEGINS "wp-" // WordPress exception
+        
+    THEN:
+        ALERT "Web shell detected!"
+        EXTRACT malicious_code 
+        RECOMMEND immediate_removal
+
+// Encoding obfuscation detection with unique quantifiers
+SEEK ObfuscatedContent:
+    ABOUT:
+        purpose -> "Detect various encoding obfuscation techniques"
+        complexity -> advanced_heuristics
+        
+    LOOK FOR:
+        long_base64 ~ pattern /[A-Za-z0-9+\/]{50,}={0,2}/
+        hex_strings ~ pattern /[0-9a-fA-F]{40,}/  
+        url_encoded ~ pattern /%[0-9a-fA-F]{2}/
+        unicode_escape ~ pattern /\\u[0-9a-fA-F]{4}/
+        hex_escape ~ pattern /\\x[0-9a-fA-F]{2}/
+        
+    WHEN:
+        MANY instances of long_base64 found (more than 5)
+        ALSO content HAS hex_strings
+        EITHER FEW url_encoded present
+        ELSE SEVERAL unicode_escape detected
+        AVOID plain_text files
+        
+    THEN:
+        MARK as potentially_obfuscated
+        REPORT encoding_analysis_needed
+        CAPTURE samples for_analysis
+
+// Advanced threat intelligence correlation
+HUNT AdvancedThreats:
+    ABOUT:
+        classification -> apt_detection  
+        confidence -> machine_learning_enhanced
+        
+    SEARCH these indicators:
+        crypto_wallet ~ pattern /[13][a-km-zA-HJ-NP-Z1-9]{25,34}/
+        tor_address ~ pattern /[a-z2-7]{16}\.onion/
+        suspicious_ip ~ pattern /\b(?:[0-9]{1,3}\.){3}[0-9]{1,3}\b/
+        c2_beacon ~ text "heartbeat" IGNORE case
+        persistence_key ~ text "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run"
+        
+    TRIGGER when:
+        ALL of {crypto_wallet, suspicious_ip} present
+        ALSO content FITS /command.*control/ pattern
+        EITHER file HAS tor_address
+        ELSE MANY instances of c2_beacon (count > 3)
+        UNLESS SIZE less than 1KB // Too small for APT
+        
+    THEN:
+        FLAG as advanced_persistent_threat
+        ALERT security_operations_center  
+        CAPTURE full_forensics_package
+        RECOMMEND network_isolation
+
+// Multi-stage detection with conditional flows
+SCAN MultiStageAttack:
+    ABOUT:
+        methodology -> behavioral_analysis
+        stages -> {dropper, payload, persistence}
+        
+    LOOK FOR:
+        stage1_dropper ~ hex "FC 48 83 E4 F0 E8"
+        stage2_decrypt ~ pattern /\w{32,}\.decode\(/
+        stage3_persist ~ text "schtasks /create" IGNORE case
+        network_callback ~ pattern /https?:\/\/[^\/\s]+\/[a-z0-9]{32}/
+        mutex_creation ~ text "CreateMutex" EXACT word
+        
+    WHEN stage_detection_logic:
+        FIRST: file HAS stage1_dropper
+        THEN: EITHER content HOLDS stage2_decrypt
+              ELSE pattern MATCHES network_callback  
+        FINALLY: ALL of {stage3_persist, mutex_creation} found
+        AVOID: SIZE greater than 10MB // Likely legitimate software
+        
+    THEN comprehensive_response:
+        ALERT "Multi-stage attack detected!"
+        EXTRACT each_stage_separately
+        MARK entire_attack_chain
+        REPORT to_threat_intelligence
+        RECOMMEND full_system_scan

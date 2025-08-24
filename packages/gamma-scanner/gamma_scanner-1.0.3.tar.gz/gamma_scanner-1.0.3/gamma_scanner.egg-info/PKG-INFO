@@ -1,0 +1,135 @@
+Metadata-Version: 2.4
+Name: gamma-scanner
+Version: 1.0.3
+Summary: Advanced string manipulation and pattern matching engine with unique DSL syntax
+Home-page: https://github.com/gammascanner/gamma-scanner
+Author: Harish Santhanalakshmi Ganesan
+Author-email: Harish Santhanalakshmi Ganesan <harishsg99@gmail.com>
+Maintainer-email: Harish Santhanalakshmi Ganesan <harishsg99@gmail.com>
+License-Expression: MIT
+Project-URL: Homepage, https://github.com/gammascanner/gamma-scanner
+Project-URL: Bug Reports, https://github.com/gammascanner/gamma-scanner/issues
+Project-URL: Source, https://github.com/gammascanner/gamma-scanner
+Project-URL: Documentation, https://gamma-scanner.readthedocs.io/
+Keywords: security,pattern-matching,dsl,text-analysis,malware-detection
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Security
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Text Processing
+Classifier: Topic :: Utilities
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: build>=1.2.2.post1
+Requires-Dist: setuptools>=75.3.2
+Requires-Dist: twine>=6.1.0
+Provides-Extra: dev
+Requires-Dist: pytest>=6.0; extra == "dev"
+Requires-Dist: pytest-cov>=2.0; extra == "dev"
+Requires-Dist: black>=21.0; extra == "dev"
+Requires-Dist: flake8>=3.8; extra == "dev"
+Dynamic: author
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-python
+
+# Gamma Scanner
+
+Advanced string manipulation and pattern matching engine with unique DSL syntax.
+
+## Installation
+
+```bash
+pip install gamma-scanner
+```
+
+## Quick Start
+
+```bash
+# Run the CLI
+gamma-scanner --help
+
+# Or use the short command
+gamma --help
+
+# Interactive mode
+gamma interactive
+
+# Scan files for threats
+gamma scan rules.gamma target_file.txt
+
+# Show examples
+gamma examples
+```
+
+## Unique DSL Syntax
+
+Gamma Scanner features a completely original DSL syntax that uses natural language keywords:
+
+```gamma
+HUNT SQLInjection:
+    LOOK FOR:
+        sqli_pattern ~ text "' OR '1'='1" IGNORE case
+        union_attack ~ text "UNION SELECT" IGNORE case
+    WHEN:
+        file HAS sqli_pattern EITHER content HOLDS union_attack
+    THEN:
+        ALERT "SQL injection detected!"
+```
+
+## Features
+
+- **Unique DSL**: Natural language-like syntax for pattern matching
+- **Security Focus**: Built-in patterns for common security threats
+- **High Performance**: Optimized execution engine with caching
+- **CLI Tools**: Comprehensive command-line interface
+- **Pattern Library**: Extensible pattern matching capabilities
+
+## Commands
+
+- `scan` - Scan files/directories for security threats
+- `hunt` - Hunt for specific threats using rules
+- `detect` - Detect patterns in files
+- `validate` - Validate DSL rule syntax
+- `test` - Test rules against sample data
+- `compile` - Compile DSL rules
+- `analyze` - Comprehensive file analysis
+- `interactive` - Interactive DSL shell
+- `benchmark` - Benchmark rule performance
+- `examples` - Show DSL syntax examples
+
+## Python API
+
+```python
+from gamma_scanner import GammaScanner
+
+scanner = GammaScanner()
+
+# Compile a rule
+rule = '''
+HUNT TestRule:
+    LOOK FOR:
+        pattern ~ text "test" IGNORE case
+    WHEN:
+        content HAS pattern
+    THEN:
+        ALERT "Found test!"
+'''
+
+success = scanner.compile_rule(rule)
+if success:
+    results = scanner.match("This is a test string")
+    print(results)
+```
+
+## License
+
+MIT License - see LICENSE file for details.

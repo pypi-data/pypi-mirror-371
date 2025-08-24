@@ -1,0 +1,206 @@
+// Gamma Scanner - Programming Language Style
+// Looks like Python/JavaScript, not YARA at all!
+
+// Import pattern matching library
+import Pattern from "gamma"
+import Scanner, { Alert, Match } from "gamma.core"
+
+// Define pattern constants (like any programming language)
+const MALWARE_SIGNATURE = Pattern.text("malicious payload").ignoreCase()
+const BACKDOOR_PATTERN = Pattern.regex(/backdoor.*connection/i)
+const PE_HEADER = Pattern.hex("4D 5A 90 00 03 00 00 00")
+const SHELL_CODE = Pattern.hex("31 C0 50 68 2F 2F 73 68")
+
+// Suspicious URL patterns
+const SUSPICIOUS_URLS = [
+    Pattern.regex(/https?:\/\/[0-9.]+\/[a-z]{8}/),
+    Pattern.regex(/[a-z]{10}\.tk\/[0-9]+/),
+    Pattern.text("bit.ly/").wholeWord()
+]
+
+// Main scanning function (like any programming language)
+function scanForMalware(content) {
+    // File size check
+    if (content.size() < 100) {
+        return null
+    }
+    
+    let findings = []
+    
+    // Check for malware signatures
+    if (content.contains(MALWARE_SIGNATURE)) {
+        findings.push(new Alert({
+            message: "Malware signature detected",
+            severity: "critical",
+            pattern: "malicious_payload"
+        }))
+    }
+    
+    // Check backdoor patterns with counting
+    let backdoorCount = content.count(BACKDOOR_PATTERN)
+    if (backdoorCount > 2) {
+        findings.push(new Alert({
+            message: `Multiple backdoor patterns found: ${backdoorCount}`,
+            severity: "high",
+            pattern: "backdoor_connection"
+        }))
+    }
+    
+    // Check for PE header and shellcode combination  
+    if (content.contains(PE_HEADER) && content.contains(SHELL_CODE)) {
+        findings.push(new Alert({
+            message: "Executable with embedded shellcode",
+            severity: "critical", 
+            pattern: "pe_shellcode_combo"
+        }))
+    }
+    
+    return findings.length > 0 ? findings : null
+}
+
+// Advanced threat detection class
+class AdvancedThreatDetector {
+    constructor() {
+        this.patterns = {
+            injectionAttempts: [
+                Pattern.text("ignore all previous").ignoreCase(),
+                Pattern.text("disregard instructions").ignoreCase(),
+                Pattern.regex(/(?i)(ignore|forget).*(previous|prior).*(prompt|instruction)/)
+            ],
+            encodingPatterns: [
+                Pattern.regex(/[A-Za-z0-9+\/]{50,}={0,2}/),  // Base64
+                Pattern.regex(/\\x[0-9a-fA-F]{2}/),           // Hex escaped
+                Pattern.regex(/%[0-9a-fA-F]{2}/)              // URL encoded
+            ]
+        }
+        this.alertThreshold = 3
+    }
+    
+    // Method to scan for prompt injection
+    scanPromptInjection(input) {
+        for (let pattern of this.patterns.injectionAttempts) {
+            if (input.contains(pattern)) {
+                return new Alert({
+                    type: "prompt_injection",
+                    message: "Potential prompt injection detected",
+                    confidence: 0.85,
+                    source: input.substring(0, 100)
+                })
+            }
+        }
+        return null
+    }
+    
+    // Method to detect obfuscation
+    detectObfuscation(content) {
+        let encodingScore = 0
+        
+        this.patterns.encodingPatterns.forEach(pattern => {
+            encodingScore += content.count(pattern)
+        })
+        
+        if (encodingScore > this.alertThreshold) {
+            return new Finding({
+                type: "obfuscation",
+                score: encodingScore,
+                message: `High encoding activity detected (score: ${encodingScore})`,
+                recommendation: "Manual review recommended"
+            })
+        }
+        
+        return null
+    }
+    
+    // Comprehensive scan method
+    async scan(target) {
+        let results = {
+            malware: scanForMalware(target),
+            injection: this.scanPromptInjection(target),
+            obfuscation: this.detectObfuscation(target),
+            timestamp: Date.now(),
+            target_info: {
+                size: target.size(),
+                type: target.detectType(),
+                hash: target.hash("sha256")
+            }
+        }
+        
+        return results
+    }
+}
+
+// Web shell detection function
+function detectWebShell(fileContent) {
+    const webShellIndicators = {
+        phpFunctions: [
+            Pattern.text("eval(").wholeWord(),
+            Pattern.text("exec(").wholeWord(), 
+            Pattern.text("system(").wholeWord(),
+            Pattern.text("shell_exec(").wholeWord()
+        ],
+        suspiciousPatterns: [
+            Pattern.regex(/\$_GET\[.+\]/),
+            Pattern.regex(/\$_POST\[.+\]/),
+            Pattern.text("base64_decode("),
+            Pattern.regex(/move_uploaded_file\s*\(/),
+            Pattern.text("file_put_contents(")
+        ],
+        knownShells: [
+            Pattern.text("c99shell").ignoreCase(),
+            Pattern.text("r57shell").ignoreCase(),
+            Pattern.text("WSO ").ignoreCase()
+        ]
+    }
+    
+    // Check file constraints
+    if (fileContent.size() < 50 || fileContent.size() > 102400) { // 50 bytes to 100KB
+        return null
+    }
+    
+    let riskScore = 0
+    let detectedPatterns = []
+    
+    // Score PHP execution functions
+    webShellIndicators.phpFunctions.forEach(pattern => {
+        if (fileContent.contains(pattern)) {
+            riskScore += 25
+            detectedPatterns.push(pattern.toString())
+        }
+    })
+    
+    // Score suspicious patterns  
+    webShellIndicators.suspiciousPatterns.forEach(pattern => {
+        let count = fileContent.count(pattern)
+        if (count > 0) {
+            riskScore += (count * 15)
+            detectedPatterns.push(`${pattern.toString()}(${count}x)`)
+        }
+    })
+    
+    // Known shell signatures
+    webShellIndicators.knownShells.forEach(pattern => {
+        if (fileContent.contains(pattern)) {
+            riskScore += 50
+            detectedPatterns.push(pattern.toString())
+        }
+    })
+    
+    // Return results based on score
+    if (riskScore >= 40) {
+        return new Alert({
+            type: "webshell",
+            severity: riskScore >= 70 ? "critical" : "high",
+            message: `Web shell detected (risk score: ${riskScore})`,
+            patterns: detectedPatterns,
+            recommendation: riskScore >= 70 ? "Immediate removal required" : "Investigate further"
+        })
+    }
+    
+    return null
+}
+
+// Usage example (like any programming framework)
+const scanner = new AdvancedThreatDetector()
+
+export { scanForMalware, AdvancedThreatDetector, detectWebShell }
+export default scanner
