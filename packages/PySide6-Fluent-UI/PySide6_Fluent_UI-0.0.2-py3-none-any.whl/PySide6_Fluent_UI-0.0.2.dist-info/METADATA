@@ -1,0 +1,8 @@
+Metadata-Version: 2.2
+Name: PySide6-Fluent-UI
+Version: 0.0.2
+Author: Mikuas
+Requires-Dist: PySide6>=6.8.1.1
+Requires-Dist: PySide6-Fluent-Widgets[full]==1.8.1
+Dynamic: author
+Dynamic: requires-dist
