@@ -1,0 +1,2 @@
+[console_scripts]
+triyak-performance = triyak_react_performance.cli:main

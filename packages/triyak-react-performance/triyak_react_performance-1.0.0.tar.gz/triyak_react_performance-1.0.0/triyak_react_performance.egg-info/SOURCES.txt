@@ -1,0 +1,16 @@
+README.md
+setup.py
+triyak_react_performance/__init__.py
+triyak_react_performance/ai_optimizer.py
+triyak_react_performance/bundle_optimizer.py
+triyak_react_performance/core_web_vitals.py
+triyak_react_performance/memory_optimizer.py
+triyak_react_performance/performance_monitor.py
+triyak_react_performance/performance_suite.py
+triyak_react_performance.egg-info/PKG-INFO
+triyak_react_performance.egg-info/SOURCES.txt
+triyak_react_performance.egg-info/dependency_links.txt
+triyak_react_performance.egg-info/entry_points.txt
+triyak_react_performance.egg-info/not-zip-safe
+triyak_react_performance.egg-info/requires.txt
+triyak_react_performance.egg-info/top_level.txt
