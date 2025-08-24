@@ -1,0 +1,51 @@
+Metadata-Version: 2.4
+Name: nuxt-payload
+Version: 0.1.2
+Summary: A lightweight Python library to parse and lazily resolve Nuxt 3 _payload.json files.
+Author-email: Jean-Marie Favreau <jeanmarie.favreau@free.fr>
+License-Expression: AGPL-3.0
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+License-File: AUTHORS.md
+Dynamic: license-file
+
+# nuxt-payload
+
+A lightweight Python library to parse and lazily resolve Nuxt 3 _payload.json files.
+
+## Installation
+
+```bash
+pip install nuxt-payload
+```
+
+## Usage
+
+```python
+
+from nuxt_payload import load_payload
+
+# Load a Nuxt 3 _payload.json file
+data = load_payload("_payload.json")
+
+# Access elements lazily
+first_item = data[0]
+
+# If the item contains LazyRef, force resolution
+print(first_item["id"].resolve())
+
+# Iterate over a lazy dictionary
+for key, value in first_item.items():
+    print(key, value.resolve() if hasattr(value, "resolve") else value)
+```
+
+## License
+
+This project is licensed under the *GNU Affero General Public License v3.0 or later (AGPL-3.0)*.
+
+See [LICENSE](./LICENSE) for details.
+
+## Authors
+
+See [AUTHORS.md](./AUTHORS.md) for the list of contributors.
