@@ -1,0 +1,15 @@
+LICENSE
+README.md
+setup.py
+LLMEvaluationFramework.egg-info/PKG-INFO
+LLMEvaluationFramework.egg-info/SOURCES.txt
+LLMEvaluationFramework.egg-info/dependency_links.txt
+LLMEvaluationFramework.egg-info/top_level.txt
+llm_evaluation_framework/__init__.py
+llm_evaluation_framework/auto_suggestion_engine.py
+llm_evaluation_framework/model_inference_engine.py
+llm_evaluation_framework/model_registry.py
+llm_evaluation_framework/test_dataset_generator.py
+tests/__init__.py
+tests/test_all_modules.py
+tests/test_dataset_generator.py
