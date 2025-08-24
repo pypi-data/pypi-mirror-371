@@ -1,0 +1,3 @@
+[console_scripts]
+jiechau-mcp-vincent-says = jiechau_mcp_vincent_says:main
+
