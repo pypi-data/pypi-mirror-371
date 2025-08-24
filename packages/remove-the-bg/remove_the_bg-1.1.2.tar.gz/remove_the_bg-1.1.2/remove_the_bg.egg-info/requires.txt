@@ -1,0 +1,6 @@
+numpy<2.0.0,>=1.21.0
+Pillow>=8.0.0
+opencv-python-headless>=4.5.0
+
+[full]
+rembg>=2.0.0
