@@ -1,0 +1,3 @@
+[console_scripts]
+agentsdk = agentsdk.cli:main
+agentsdk2 = agentsdk.cli:main
