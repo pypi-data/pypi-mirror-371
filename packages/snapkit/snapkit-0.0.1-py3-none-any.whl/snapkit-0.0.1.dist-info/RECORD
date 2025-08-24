@@ -1,0 +1,12 @@
+snapkit/__init__.py,sha256=zd3dN8fz1u21OTGQpBwGHAZIJdt-n0_f4WJG1lMJrzY,110
+snapkit/utils/__init__.py,sha256=mhGnZOVO3bC1J_28BX4_DOYCEDJ2WmbDaw6rqhFyczg,108
+snapkit/utils/cli/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+snapkit/utils/cli/cli_handler.py,sha256=YluSUMyRl-2JzLHVgelIWqvg1EL_8JcG1oBqXIR4y1Q,909
+snapkit/utils/modules/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+snapkit/utils/modules/jpg_to_png.py,sha256=FfpzqxiITzc-2faPleV9LN20fzV9WBjanPefTqYGZxk,3144
+snapkit/utils/modules/overlay.py,sha256=ePXBYLLGOYa4kt7ng-RBtCfBxWvjFN1Kz8iNUhOVgqo,293
+snapkit-0.0.1.dist-info/METADATA,sha256=pX1TnWhmAeKWmt5s6SU_l3OxK2k9X1GzrlZPYotXPII,739
+snapkit-0.0.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+snapkit-0.0.1.dist-info/entry_points.txt,sha256=QrZKvHjZgxFgyVAECm_gv-mv7eKx_znYx4Hxt3dddEk,63
+snapkit-0.0.1.dist-info/top_level.txt,sha256=qTOBGnrdaER_dLugXDbfKqNyGlzoS4IYe1wtF8mi3HU,8
+snapkit-0.0.1.dist-info/RECORD,,
