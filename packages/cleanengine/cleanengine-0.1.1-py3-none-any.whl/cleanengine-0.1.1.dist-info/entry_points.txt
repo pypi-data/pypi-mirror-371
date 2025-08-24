@@ -1,0 +1,6 @@
+[console_scripts]
+ce = dataset_cleaner.cli:main
+cleanengine = dataset_cleaner.cli:main
+
+[gui_scripts]
+cleanengine-gui = dataset_cleaner.interfaces.streamlit_app:launch_streamlit
