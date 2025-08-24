@@ -1,0 +1,318 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "data_width": 32,
+    "max_value": 4294967295,
+    "test_count": 33,
+    "random_count": 20,
+    "seed": 42,
+    "operation": "max(a, b)"
+  },
+  "test_inputs": {
+    "simple_100_200": {
+      "a": 100,
+      "b": 200,
+      "test_type": "simple"
+    },
+    "corner_both_zero_0": {
+      "a": 0,
+      "b": 0,
+      "test_type": "corner_case"
+    },
+    "corner_zero_vs_one_1": {
+      "a": 0,
+      "b": 1,
+      "test_type": "corner_case"
+    },
+    "corner_one_vs_zero_2": {
+      "a": 1,
+      "b": 0,
+      "test_type": "corner_case"
+    },
+    "corner_max_vs_zero_3": {
+      "a": 4294967295,
+      "b": 0,
+      "test_type": "corner_case"
+    },
+    "corner_zero_vs_max_4": {
+      "a": 0,
+      "b": 4294967295,
+      "test_type": "corner_case"
+    },
+    "corner_both_max_5": {
+      "a": 4294967295,
+      "b": 4294967295,
+      "test_type": "corner_case"
+    },
+    "corner_equal_values_6": {
+      "a": 100,
+      "b": 100,
+      "test_type": "corner_case"
+    },
+    "corner_equal_mid_7": {
+      "a": 2147483647,
+      "b": 2147483647,
+      "test_type": "corner_case"
+    },
+    "corner_adjacent_low_high_8": {
+      "a": 100,
+      "b": 101,
+      "test_type": "corner_case"
+    },
+    "corner_adjacent_high_low_9": {
+      "a": 101,
+      "b": 100,
+      "test_type": "corner_case"
+    },
+    "corner_power_of_2_10": {
+      "a": 1024,
+      "b": 2048,
+      "test_type": "corner_case"
+    },
+    "corner_power_of_2_reverse_11": {
+      "a": 2048,
+      "b": 1024,
+      "test_type": "corner_case"
+    },
+    "random_0": {
+      "a": 1608637542,
+      "b": 3421126067,
+      "test_type": "random"
+    },
+    "random_1": {
+      "a": 4083286876,
+      "b": 787846414,
+      "test_type": "random"
+    },
+    "random_2": {
+      "a": 3143890026,
+      "b": 3348747335,
+      "test_type": "random"
+    },
+    "random_3": {
+      "a": 2571218620,
+      "b": 2563451924,
+      "test_type": "random"
+    },
+    "random_4": {
+      "a": 670094950,
+      "b": 1914837113,
+      "test_type": "random"
+    },
+    "random_5": {
+      "a": 669991378,
+      "b": 429389014,
+      "test_type": "random"
+    },
+    "random_6": {
+      "a": 249467210,
+      "b": 1972458954,
+      "test_type": "random"
+    },
+    "random_7": {
+      "a": 3720198231,
+      "b": 1433267572,
+      "test_type": "random"
+    },
+    "random_8": {
+      "a": 2581769315,
+      "b": 613608295,
+      "test_type": "random"
+    },
+    "random_9": {
+      "a": 3041148567,
+      "b": 2795544706,
+      "test_type": "random"
+    },
+    "random_10": {
+      "a": 88409749,
+      "b": 242285876,
+      "test_type": "random"
+    },
+    "random_11": {
+      "a": 4165731073,
+      "b": 3100961111,
+      "test_type": "random"
+    },
+    "random_12": {
+      "a": 3575313899,
+      "b": 4031053213,
+      "test_type": "random"
+    },
+    "random_13": {
+      "a": 911989541,
+      "b": 3344769,
+      "test_type": "random"
+    },
+    "random_14": {
+      "a": 780932287,
+      "b": 4261516219,
+      "test_type": "random"
+    },
+    "random_15": {
+      "a": 787716372,
+      "b": 2652062880,
+      "test_type": "random"
+    },
+    "random_16": {
+      "a": 1306710475,
+      "b": 2627030329,
+      "test_type": "random"
+    },
+    "random_17": {
+      "a": 2253811733,
+      "b": 30349564,
+      "test_type": "random"
+    },
+    "random_18": {
+      "a": 1855189739,
+      "b": 99052376,
+      "test_type": "random"
+    },
+    "random_19": {
+      "a": 1250819632,
+      "b": 2253890010,
+      "test_type": "random"
+    }
+  },
+  "reference_outputs": {
+    "simple_100_200": {
+      "result": 200,
+      "expected_max": 200
+    },
+    "corner_both_zero_0": {
+      "result": 0,
+      "expected_max": 0
+    },
+    "corner_zero_vs_one_1": {
+      "result": 1,
+      "expected_max": 1
+    },
+    "corner_one_vs_zero_2": {
+      "result": 1,
+      "expected_max": 1
+    },
+    "corner_max_vs_zero_3": {
+      "result": 4294967295,
+      "expected_max": 4294967295
+    },
+    "corner_zero_vs_max_4": {
+      "result": 4294967295,
+      "expected_max": 4294967295
+    },
+    "corner_both_max_5": {
+      "result": 4294967295,
+      "expected_max": 4294967295
+    },
+    "corner_equal_values_6": {
+      "result": 100,
+      "expected_max": 100
+    },
+    "corner_equal_mid_7": {
+      "result": 2147483647,
+      "expected_max": 2147483647
+    },
+    "corner_adjacent_low_high_8": {
+      "result": 101,
+      "expected_max": 101
+    },
+    "corner_adjacent_high_low_9": {
+      "result": 101,
+      "expected_max": 101
+    },
+    "corner_power_of_2_10": {
+      "result": 2048,
+      "expected_max": 2048
+    },
+    "corner_power_of_2_reverse_11": {
+      "result": 2048,
+      "expected_max": 2048
+    },
+    "random_0": {
+      "result": 3421126067,
+      "expected_max": 3421126067
+    },
+    "random_1": {
+      "result": 4083286876,
+      "expected_max": 4083286876
+    },
+    "random_2": {
+      "result": 3348747335,
+      "expected_max": 3348747335
+    },
+    "random_3": {
+      "result": 2571218620,
+      "expected_max": 2571218620
+    },
+    "random_4": {
+      "result": 1914837113,
+      "expected_max": 1914837113
+    },
+    "random_5": {
+      "result": 669991378,
+      "expected_max": 669991378
+    },
+    "random_6": {
+      "result": 1972458954,
+      "expected_max": 1972458954
+    },
+    "random_7": {
+      "result": 3720198231,
+      "expected_max": 3720198231
+    },
+    "random_8": {
+      "result": 2581769315,
+      "expected_max": 2581769315
+    },
+    "random_9": {
+      "result": 3041148567,
+      "expected_max": 3041148567
+    },
+    "random_10": {
+      "result": 242285876,
+      "expected_max": 242285876
+    },
+    "random_11": {
+      "result": 4165731073,
+      "expected_max": 4165731073
+    },
+    "random_12": {
+      "result": 4031053213,
+      "expected_max": 4031053213
+    },
+    "random_13": {
+      "result": 911989541,
+      "expected_max": 911989541
+    },
+    "random_14": {
+      "result": 4261516219,
+      "expected_max": 4261516219
+    },
+    "random_15": {
+      "result": 2652062880,
+      "expected_max": 2652062880
+    },
+    "random_16": {
+      "result": 2627030329,
+      "expected_max": 2627030329
+    },
+    "random_17": {
+      "result": 2253811733,
+      "expected_max": 2253811733
+    },
+    "random_18": {
+      "result": 1855189739,
+      "expected_max": 1855189739
+    },
+    "random_19": {
+      "result": 2253890010,
+      "expected_max": 2253890010
+    }
+  },
+  "statistics": {
+    "total_tests": 33,
+    "simple_tests": 1,
+    "corner_cases": 12,
+    "random_tests": 20
+  }
+}

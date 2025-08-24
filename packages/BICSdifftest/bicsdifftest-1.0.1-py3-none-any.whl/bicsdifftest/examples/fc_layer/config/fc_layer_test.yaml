@@ -1,0 +1,112 @@
+# Fully Connected Layer Test Configuration
+# This configuration file defines the test setup for the FC Layer differential testing
+
+# Test identification
+name: "fc_layer"
+description: "Differential testing configuration for Fully Connected Layer design"
+version: "1.0"
+
+# DUT configuration
+top_module: "fc_layer"
+verilog_sources:
+  - "examples/fc_layer/rtl/fc_layer.sv"
+
+include_dirs:
+  - "examples/fc_layer/rtl"
+
+defines:
+  SIMULATION: "1"
+  INPUT_SIZE: "100"
+  OUTPUT_SIZE: "10"
+  DATA_WIDTH: "16"
+  FRAC_BITS: "8"
+
+# Golden model configuration
+golden_model_class: "golden_model.models.FCLayerGoldenModel"
+golden_model_config:
+  input_size: 100
+  output_size: 10
+  data_width: 16
+  frac_bits: 8
+  device: "cpu"
+
+# Test execution
+test_sequences:
+  - "weight_loading"
+  - "inference_tests"
+  - "corner_cases"
+
+# Tool configurations
+verilator:
+  optimization_level: "O3"
+  enable_waves: true
+  wave_format: "fst"
+  trace_depth: 99
+  threads: 1
+  compile_args:
+    - "-Wall"
+    - "-Wno-TIMESCALEMOD"
+    - "-Wno-DECLFILENAME"
+    - "-Wno-UNUSEDSIGNAL"
+    - "-Wno-UNUSEDPARAM"
+    - "--trace"
+    - "-O3"
+    - "--x-assign fast"
+    - "--x-initial fast"
+  coverage: false
+  debug_mode: false
+
+cocotb:
+  log_level: "INFO"
+  reduced_log_fmt: true
+  random_seed: 42
+  test_timeout: 1200  # 20 minutes for complex FC layer tests
+  sim_timeout: 1800   # 30 minutes
+
+comparison:
+  mode: "absolute_tolerance"
+  absolute_tolerance: 2e-3  # Allow for fixed-point quantization error
+  relative_tolerance: 1e-3
+  ulp_tolerance: 2
+  ignore_x_z: false
+  signal_overrides:
+    output_data: 
+      tolerance: 3e-3  # Slightly higher tolerance for outputs
+    debug_accumulator:
+      tolerance: 1e-2  # Higher tolerance for intermediate values
+
+# Output configuration
+work_dir: "sim_work/fc_layer"
+reports_dir: "reports/fc_layer"
+logs_dir: "logs/fc_layer"
+waves_dir: "waves/fc_layer"
+
+# Execution options
+parallel_jobs: 1
+continue_on_error: false
+cleanup_on_success: false
+
+# FC Layer specific configuration
+fc_layer:
+  input_size: 100
+  output_size: 10
+  data_width: 16
+  frac_bits: 8
+  weight_width: 16
+  addr_width: 10
+  
+  # Test parameters
+  weight_loading_vectors: 1000  # INPUT_SIZE * OUTPUT_SIZE
+  bias_loading_vectors: 10      # OUTPUT_SIZE
+  inference_test_count: 50
+  corner_case_count: 15
+  
+  # Fixed-point parameters
+  max_positive: 32767    # (2^15 - 1)
+  min_negative: -32768   # (-2^15)
+  fractional_scale: 256  # (2^8)
+  
+  # Timing constraints
+  max_computation_cycles: 500  # Maximum cycles for one inference
+  weight_loading_timeout: 100
+  inference_timeout: 600
