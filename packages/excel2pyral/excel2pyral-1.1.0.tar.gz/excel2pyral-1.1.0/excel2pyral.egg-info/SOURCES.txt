@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+excel2pyral.egg-info/PKG-INFO
+excel2pyral.egg-info/SOURCES.txt
+excel2pyral.egg-info/dependency_links.txt
+excel2pyral.egg-info/entry_points.txt
+excel2pyral.egg-info/requires.txt
+excel2pyral.egg-info/top_level.txt
+excel_pyral/__init__.py
+excel_pyral/excel_importer.py
+excel_pyral/main.py
+excel_pyral/pyuvm_generator.py
+excel_pyral/systemrdl_compiler.py
