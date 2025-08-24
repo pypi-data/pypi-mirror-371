@@ -1,0 +1,16 @@
+pip3 install setuptools twine
+
+###find your file
+
+python setup.py sdist
+
+twine upload --repository-url https://upload.pypi.org/legacy/ dist/*
+
+#to update:
+
+#change version num
+
+pip install build
+python -m build
+
+twine upload dist/*
