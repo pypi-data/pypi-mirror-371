@@ -1,0 +1,13 @@
+matplotlib
+mlxtend
+numpy
+pandas
+requests
+scipy
+scikit-learn
+tqdm
+
+[optional]
+cvxpy
+gosdt-deprecated
+irf
