@@ -1,0 +1,2 @@
+[console_scripts]
+morsecode = morsecode.__main__:main
