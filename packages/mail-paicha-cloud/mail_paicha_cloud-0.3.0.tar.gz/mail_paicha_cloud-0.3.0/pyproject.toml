@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mail-paicha-cloud"
+version = "0.3.0"
+description = "Simple Python client for PaichaCloud disposable email API"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {file = "LICENSE"}
+authors = [
+  {name = "nyaa", email = "nyaa@paicha.cloud"}
+]
+dependencies = ["requests>=2.25.0"]
+
+[project.urls]
+Homepage = "https://github.com/yukisakuna/mail-paicha-cloud"
+Source = "https://github.com/yukisakuna/mail-paicha-cloud"
+
+[tool.setuptools.packages.find]
+include = ["paichacloud*"]        
