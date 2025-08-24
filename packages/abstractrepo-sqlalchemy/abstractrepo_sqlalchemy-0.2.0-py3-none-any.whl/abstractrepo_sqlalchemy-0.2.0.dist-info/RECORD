@@ -1,0 +1,10 @@
+abstractrepo_sqlalchemy/__init__.py,sha256=SWswtgJniM2TObAnUc-fTm7CX2H26cE54I9Br4R_ulU,141
+abstractrepo_sqlalchemy/order.py,sha256=wec4idcU5T8zvsLL5xWEon6ysDIZR7T7gfIey9CDDWw,1088
+abstractrepo_sqlalchemy/repo.py,sha256=qi0u7zaSzTisJBE3VNuwDPixRt6AUAcYUsfSzJxk-ZI,14273
+abstractrepo_sqlalchemy/specification.py,sha256=Z5LbDpvG8yay8I0VH7DLxvI4dPqFg-qB4lPE__njnF0,4702
+abstractrepo_sqlalchemy/types.py,sha256=X9zvYD_6MYXoK3UHD7tURA25Rlr9W5rSPXGcRA6kU7g,59
+abstractrepo_sqlalchemy-0.2.0.dist-info/licenses/LICENSE,sha256=Y4w1RuORRKLVxend0V2JxHGojEdJTMC_8khxhDTZPaE,1063
+abstractrepo_sqlalchemy-0.2.0.dist-info/METADATA,sha256=SxBwMGCfIJlyea4ckXlIMkqtxXl7miI2VF8d_fBcEGM,3003
+abstractrepo_sqlalchemy-0.2.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+abstractrepo_sqlalchemy-0.2.0.dist-info/top_level.txt,sha256=HjR7yONV_wWZ3ZaMuJBpMU2wDohzfs9S5d03WZYo0k4,24
+abstractrepo_sqlalchemy-0.2.0.dist-info/RECORD,,
