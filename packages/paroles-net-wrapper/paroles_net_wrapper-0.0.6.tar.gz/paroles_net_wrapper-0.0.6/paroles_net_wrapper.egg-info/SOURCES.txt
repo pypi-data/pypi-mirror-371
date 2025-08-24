@@ -1,0 +1,13 @@
+LICENSE
+README.md
+paroles_net.py
+pyproject.toml
+setup.py
+utils.py
+models/__init__.py
+models/song.py
+paroles_net_wrapper.egg-info/PKG-INFO
+paroles_net_wrapper.egg-info/SOURCES.txt
+paroles_net_wrapper.egg-info/dependency_links.txt
+paroles_net_wrapper.egg-info/requires.txt
+paroles_net_wrapper.egg-info/top_level.txt
