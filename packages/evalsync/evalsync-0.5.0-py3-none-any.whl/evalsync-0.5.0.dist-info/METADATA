@@ -1,0 +1,49 @@
+Metadata-Version: 2.3
+Name: evalsync
+Version: 0.5.0
+Summary: evalsync is a library used to synchronize applications under benchmark with an external manager
+Author-email: minhuw <wangmh15@gmail.com>
+Requires-Python: >=3.10
+Requires-Dist: jinja2>=3.1.5
+Requires-Dist: loguru>=0.7.3
+Requires-Dist: protobuf>=6.0.0
+Requires-Dist: pyzmq>=27
+Requires-Dist: typer>=0.15.1
+Description-Content-Type: text/markdown
+
+# EvalSync
+
+## Development
+
+### Setup
+
+Install dependencies:
+```bash
+uv sync --group dev
+```
+
+### Generate Protobuf Proto
+
+```bash
+protoc --proto_path=../proto --python_out=src/evalsync/proto --mypy_out=src/evalsync/proto ../proto/sync.proto
+```
+
+### Running Tests
+
+```bash
+uv run pytest
+```
+
+### Linting and Type Checking
+
+```bash
+uv run ruff check
+uv run mypy src/
+```
+
+### Submit to PyPI
+
+```bash
+uv build
+uv publish
+```

@@ -1,0 +1,15 @@
+evalsync/__init__.py,sha256=q1zp370VZVaxo_XgF-fvkvIR-_ZbvofkqfyQ1TRxH64,167
+evalsync/cli.py,sha256=curj0-IIM4puDkDV9nW6iyyC4bqVHvp3PzUkuCsV-kw,971
+evalsync/manager.py,sha256=pBhklZVH04xyiGobvadh5Y_vX_sl1o3aAiQlvPA0zF0,6907
+evalsync/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+evalsync/worker.py,sha256=EHCc1CKa-GBe2AUTGwzQtiu2Tl9SKXVfoPZxzbXDw9w,6682
+evalsync/aio/__init__.py,sha256=Q2O4N8QjdEumfiLTdWMZW09OGMq8l3dCF-tOkCRVyko,127
+evalsync/aio/manager.py,sha256=saJ407-J_FW3QrxFtJFPNjI76ocdFTA8L12N9TF97gI,9515
+evalsync/async/__init__.py,sha256=0Js5gF1v4MUZrW7QSusICpGKh_3dcvdHYkVi5UKuH74,125
+evalsync/async/manager.py,sha256=saJ407-J_FW3QrxFtJFPNjI76ocdFTA8L12N9TF97gI,9515
+evalsync/proto/sync_pb2.py,sha256=u-avZkR6pIeGTx6WIlLcmOdN5TazlPFDrR1dDmnk5Q8,2464
+evalsync/proto/sync_pb2.pyi,sha256=BMfGXOL198Z1Tdjqpu72ko-xqLyTKwiC8LSXL6bY_pY,4314
+evalsync-0.5.0.dist-info/METADATA,sha256=eSO9E6xVnSh0yLNz_m1AJFKw8r379Dm90m7JsXvVimQ,831
+evalsync-0.5.0.dist-info/WHEEL,sha256=C2FUgwZgiLbznR-k0b_5k3Ai_1aASOXDss3lzCUsUug,87
+evalsync-0.5.0.dist-info/entry_points.txt,sha256=_seqTegnnT8JOQX4---LFs4D3t26hhbYucTVa-Q5i2w,49
+evalsync-0.5.0.dist-info/RECORD,,
