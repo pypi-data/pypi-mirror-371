@@ -1,0 +1,12 @@
+lazycloud/__init__.py,sha256=kJ7xJfPGNLIvjVdetClDe2PY6Q4eeOw2wmjU5WJ7O70,66
+lazycloud/__main__.py,sha256=JgErYkiskih8Y6oRwowALtR-rwQhAAdqOYWjQraRIPI,59
+lazycloud/__version__.py,sha256=IMjkMO3twhQzluVTo8Z6rE7Eg-9U79_LGKMcsWLKBkY,22
+lazycloud/cli.py,sha256=B26mfuvSqUjdH0OQ2vNw2BvwH8sPBDZ0fn3cK4RYjs4,452
+lazycloud/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+lazycloud/aws/__init__.py,sha256=oGdB9giqosak0UoB1mMq4ZxYe_QUl4lm_i7BsjjnnBw,1808
+lazycloud/aws/tag_manager.py,sha256=f9KlTJ2FMOpgpTc4rsa8vcm9UlgDbn2ULsDfXUaZIeY,5062
+lazycloud-0.1.0.dist-info/METADATA,sha256=TwgghSg_IeyxRMGn_P4h5HxXAmsI7QbuKPFMghrB_PQ,8408
+lazycloud-0.1.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+lazycloud-0.1.0.dist-info/entry_points.txt,sha256=zwf_D-tdwHgNt-eCS3NmY9NjW6xfr5RhhGQIdgSoGZ4,48
+lazycloud-0.1.0.dist-info/licenses/LICENSE,sha256=yU2BVtBa14GTAN9NydSEsAYmq9eCvz1CTxfOMj8Ij9c,1072
+lazycloud-0.1.0.dist-info/RECORD,,
