@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+minimal_ecash_sender/__init__.py
+minimal_ecash_sender/cli.py
+minimal_ecash_sender/core.py
+minimal_ecash_sender.egg-info/PKG-INFO
+minimal_ecash_sender.egg-info/SOURCES.txt
+minimal_ecash_sender.egg-info/dependency_links.txt
+minimal_ecash_sender.egg-info/entry_points.txt
+minimal_ecash_sender.egg-info/requires.txt
+minimal_ecash_sender.egg-info/top_level.txt

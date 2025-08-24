@@ -1,0 +1,4 @@
+bip-utils>=2.9.3
+ecdsa>=0.18.0
+ecashaddress>=1.0.2
+base58>=2.1.1

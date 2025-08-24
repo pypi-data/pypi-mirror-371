@@ -1,0 +1,4 @@
+[console_scripts]
+ecash-send = minimal_ecash_sender.cli:main
+minimal-ecash-send = minimal_ecash_sender.cli:main
+xec-send = minimal_ecash_sender.cli:main
