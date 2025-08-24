@@ -1,0 +1,45 @@
+Metadata-Version: 2.3
+Name: onco-cola-utils
+Version: 0.2.1
+Summary: Мои общие утилиты для работы с Excel
+License: MIT
+Author: Volodin Alexandr Sergeevich
+Author-email: endocrinologist@ya.ru
+Requires-Python: >=3.9
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Dist: build (>=1.3.0,<2.0.0)
+Requires-Dist: deprecated (>=1.2)
+Requires-Dist: loguru
+Requires-Dist: openpyxl (>=3.0)
+Requires-Dist: pandas (>=1.5)
+Requires-Dist: twine (>=6.1.0,<7.0.0)
+Description-Content-Type: text/markdown
+
+# onco-cola-utils
+
+Мои общие утилиты для Python-проектов.
+
+## Возможности
+
+- `ReaderController` — работа с Excel-файлами
+- Поддержка `local_id`, фильтрации, переименования
+- Гибкое чтение и запись
+- Интеграция с AI-ответами
+
+## Установка
+
+```bash
+pip install onco-cola-utils
+```
+
+## Использование
+
+```bash
+from my_utils.reader_controller.core import ReaderController
+
+rc = ReaderController(file_path="data.xlsx", file_output="out.xlsx")
+rc.read_data()
+print(rc.get_data())
+```
