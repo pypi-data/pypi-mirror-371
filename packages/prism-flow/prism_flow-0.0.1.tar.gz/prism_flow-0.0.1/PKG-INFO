@@ -1,0 +1,13 @@
+Metadata-Version: 2.4
+Name: prism-flow
+Version: 0.0.1
+Summary: A minimal placeholder package to reserve the name on PyPI.
+Author-email: N R Navaneet <navaneetnr@gmail.com>
+License-Expression: MIT
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: license-file
+
+# prism
+AI-powered ETL/ELT automation. Generate, orchestrate, and monitor pipelines automatically from plain-language workflow descriptions. Features real-time monitoring, Dockerized execution, and Airflow orchestration.

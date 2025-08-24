@@ -1,0 +1,14 @@
+[project]
+name = "prism-flow"
+version = "0.0.1"
+description = "A minimal placeholder package to reserve the name on PyPI."
+authors = [
+    { name = "N R Navaneet", email = "navaneetnr@gmail.com" }
+]
+license = "MIT"
+readme = "README.md"
+requires-python = ">=3.7"
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
