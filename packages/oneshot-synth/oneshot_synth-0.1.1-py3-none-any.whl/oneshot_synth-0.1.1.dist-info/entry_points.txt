@@ -1,0 +1,2 @@
+[console_scripts]
+one-shot = one_shot_bench.cli:main
