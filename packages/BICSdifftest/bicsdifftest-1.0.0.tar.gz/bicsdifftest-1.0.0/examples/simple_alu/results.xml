@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1755911091" />
+    <testcase name="test_alu_corner_cases" classname="testbench.test_simple_alu" file="/home/yanggl/code/BICSdifftest/examples/simple_alu/testbench/test_simple_alu.py" lineno="272" time="0.04297804832458496" sim_time_ns="2680.001" ratio_time="62357.438377836836" />
+  </testsuite>
+</testsuites>

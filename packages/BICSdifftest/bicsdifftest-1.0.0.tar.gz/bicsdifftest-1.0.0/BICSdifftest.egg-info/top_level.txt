@@ -1,0 +1,9 @@
+config
+dist
+docs
+examples
+golden_model
+rtl
+scripts
+sim
+testbench

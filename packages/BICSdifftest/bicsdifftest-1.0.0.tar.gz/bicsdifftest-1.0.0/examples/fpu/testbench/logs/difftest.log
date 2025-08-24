@@ -1,0 +1,12 @@
+2025-08-24 08:55:01 [    INFO] BICSdifftest:304: Starting test: FPU Simple Test
+2025-08-24 08:55:01 [   ERROR] test_fpu_simple:304: Test failed with exception: FPU contains no object named clk
+2025-08-24 08:55:01 [   ERROR] BICSdifftest:304: Test FPU Simple Test: FAIL
+2025-08-24 08:55:01 [    INFO] BICSdifftest:304: Starting test: FPU Corner Cases
+2025-08-24 08:55:01 [   ERROR] test_fpu_corner_cases:304: Test failed with exception: FPU contains no object named clk
+2025-08-24 08:55:01 [   ERROR] BICSdifftest:304: Test FPU Corner Cases: FAIL
+2025-08-24 08:55:01 [    INFO] BICSdifftest:304: Starting test: FPU Random Tests
+2025-08-24 08:55:01 [   ERROR] test_fpu_random:304: Test failed with exception: FPU contains no object named clk
+2025-08-24 08:55:01 [   ERROR] BICSdifftest:304: Test FPU Random Tests: FAIL
+2025-08-24 08:55:01 [    INFO] BICSdifftest:304: Starting test: FPU Comprehensive Test
+2025-08-24 08:55:01 [   ERROR] test_fpu_comprehensive:304: Test failed with exception: FPU contains no object named clk
+2025-08-24 08:55:01 [   ERROR] BICSdifftest:304: Test FPU Comprehensive Test: FAIL

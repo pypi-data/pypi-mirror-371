@@ -1,0 +1,67 @@
+# MANIFEST.in for BICSdifftest
+# Specifies additional files to include in the distribution package
+
+# Include documentation files
+include README.md
+include README_ZH.md
+include LICENSE
+include CHANGELOG.md
+include MANIFEST.in
+include pyproject.toml
+include setup.py
+
+# Include configuration files
+recursive-include config *.yaml *.yml *.json
+recursive-include examples *.yaml *.yml *.json *.py *.sv *.v *.md
+
+# Include template files for workspace generation
+recursive-include templates *
+
+# Include RTL designs and test data
+recursive-include rtl *.sv *.v *.vh
+recursive-include testbench *.py
+recursive-include golden_model *.py
+
+# Include example designs and test data  
+recursive-include examples/fc_layer *.py *.sv *.yaml *.json *.pkl *.md
+recursive-include examples/fpu *.py *.sv *.yaml *.json *.pkl *.md  
+recursive-include examples/simple_alu *.py *.sv *.yaml *.json *.pkl *.md
+recursive-include examples/counter *.py *.sv *.yaml *.json *.md
+
+# Include scripts and utilities
+recursive-include scripts *.py
+recursive-include sim *.py
+
+# Documentation
+recursive-include docs *.md *.rst *.py *.html *.css *.js
+recursive-include docs/_static *
+recursive-include docs/_templates *
+
+# Exclude build artifacts and temporary files
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
+recursive-exclude * *.so
+recursive-exclude * .DS_Store
+recursive-exclude * .git*
+exclude .gitignore
+
+# Exclude simulation and test artifacts
+recursive-exclude * sim_build
+recursive-exclude * test_work  
+recursive-exclude * logs
+recursive-exclude * reports
+recursive-exclude * *.vcd
+recursive-exclude * *.fst
+recursive-exclude * *.ghw
+exclude results.xml
+
+# Exclude IDE and editor files
+recursive-exclude * .vscode
+recursive-exclude * .idea
+recursive-exclude * *.swp
+recursive-exclude * *.swo
+recursive-exclude * *~
+
+# Include package metadata files
+include *.cfg
+include tox.ini
