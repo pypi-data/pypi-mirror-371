@@ -1,0 +1,12 @@
+rubigram/__init__.py,sha256=IWNCN7oDaIBzaP54cGiA-4Sa31ehGBlqj0SuqhNQVgU,162
+rubigram/client.py,sha256=GDdlGzCeSwBAzEP3Truat1g2il5l3nPWbmFw2hRhYoc,6511
+rubigram/filters.py,sha256=EyrcKbEIwqDwf18lucusUoZYP0KIkaKkZc7PnaA0GcU,6218
+rubigram/method.py,sha256=B9uDuczkMyO0Zi_N54ZEPzO7btqbOXweqdn1Zgxl-lc,10427
+rubigram/models.py,sha256=hIr0UWaojdLO-2Hb-yW1f1OpTRreFJPwQ0RoLNI7EQ0,13613
+rubigram/network.py,sha256=ErrGwtKpMHN1Dq4IvPHSrMOcDN-TFjUk1CfU-2EuPAY,2364
+rubigram/state.py,sha256=oRk5xXuO4k-cK0qRI2Rz2mdoivJkANlo20zQAkdqFSY,4081
+rubigramclient-1.5.4.dist-info/licenses/LICENSE,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+rubigramclient-1.5.4.dist-info/METADATA,sha256=jkVF9ahQoXaaT6CjuSXAI2eu1ZtclPKnvL82T0bSo8o,2320
+rubigramclient-1.5.4.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+rubigramclient-1.5.4.dist-info/top_level.txt,sha256=Mhg5HfkL6rLec5sI4ClGmwoqYUANAZUz8sVa1sT_cas,9
+rubigramclient-1.5.4.dist-info/RECORD,,
