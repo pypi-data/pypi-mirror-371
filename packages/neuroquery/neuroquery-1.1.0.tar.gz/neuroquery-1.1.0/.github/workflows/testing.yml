@@ -1,0 +1,29 @@
+name: "build"
+
+on:
+  push:
+    branches:
+      - "main"
+  pull_request:
+    branches:
+      - "*"
+
+jobs:
+  run_tests:
+    name: ${{ matrix.os }} ${{ matrix.environment }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: ["ubuntu-latest", "windows-latest", "macos-latest"]
+        environment: ["py310-min-deps", "py313-latest-deps"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: prefix-dev/setup-pixi@v0.8.8
+        with:
+          pixi-version: v0.41.3
+          environments: ${{ matrix.environment }}
+          frozen: true
+      - name: "run tests"
+        run: pixi run -e ${{ matrix.environment }} test
+      - name: "upload coverage to CodeCov"
+        uses: codecov/codecov-action@v5.4.3
