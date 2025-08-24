@@ -1,0 +1,14 @@
+chunklet/__init__.py,sha256=vCIS3Nu-KrrDtYkyZKIcSwNniu6pQCNsxLXlYHWQYqk,817
+chunklet/cli.py,sha256=Juj7sf-79oGPSqzLPEdNOjGfW-RxU7hKJOq-ICV2j8I,5469
+chunklet/core.py,sha256=7Zn6lrDCJ1nG0bzDNgRGhDP9ewFSramgGADP151WzSY,23514
+chunklet/exceptions.py,sha256=ZtPqWrDr6sL-no-NO__je47uGHWk4QYGqFJEbkAxkpo,537
+chunklet/models.py,sha256=n1v98kTZ0mvuDiF7-0s2oHKkqKGkh2wIGhzhgB8tqWA,1387
+chunklet/utils/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+chunklet/utils/detect_text_language.py,sha256=GZoaVOc0KMucPWW4TPs9elrVW79mytH5HqPz8aCy8sQ,1109
+chunklet/utils/universal_splitter.py,sha256=mpdrhoaR7z7ILr0D7-GzNXICkEWW5pjnOdxon7XB97Q,3208
+chunklet-1.3.1.dist-info/licenses/LICENSE,sha256=PFiL-Z1VqwttpyuKU980ky-iFCM2UKSefgXcV8ggQnc,1068
+chunklet-1.3.1.dist-info/METADATA,sha256=9kli3NMaJkK427c216vgHtaiWYiscuoCT1th3XuN9UI,20022
+chunklet-1.3.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+chunklet-1.3.1.dist-info/entry_points.txt,sha256=KTL2f55qnkg2xxwirDnt6eOUp3IReEHu67x7tBEx-4Y,47
+chunklet-1.3.1.dist-info/top_level.txt,sha256=wzzBetRPIzZcc5hMz2uwByN9A9QEShvuBdvxg2CMArA,9
+chunklet-1.3.1.dist-info/RECORD,,
