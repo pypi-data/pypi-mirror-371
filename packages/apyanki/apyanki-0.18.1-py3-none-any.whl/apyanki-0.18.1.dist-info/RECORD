@@ -1,0 +1,15 @@
+apyanki/__init__.py,sha256=elOrhezfdUZAMnpLtG136j6mmeDLp8v1ui7ppdt7d8w,362
+apyanki/anki.py,sha256=3OUTXaJC3YMfJ-MlsdCUnCxRTtiyUqlvCGq_PpzMlYo,24815
+apyanki/cards.py,sha256=9ZqUfan1cXyaZLcdg6wC2M85w2c5pFFaIWHahjrnqNs,3240
+apyanki/cli.py,sha256=9OUN5pH7NAF0OdJq2Zw3zaND-6JlQmjnpPWN9W3XhYc,24339
+apyanki/config.py,sha256=kVgnnPN1RjYYBuRgEadU1HtagZCZoV4uqb_vYIATthU,2118
+apyanki/console.py,sha256=u_g_jv-Dhcjyc7dUQthvRCVN2ALBLqgYG2NC7cB4Gwg,1236
+apyanki/fields.py,sha256=ZJZefn2-vlv7-z3ZggroXKH_7OH1Yj2qQQk5vUQfrcM,9067
+apyanki/markdown_math.py,sha256=QOvfjXMjdJD_n0Dqr84gYFBvac-qIA8N9Vl-xChj3Uk,2578
+apyanki/note.py,sha256=Gj5uwwz7Zr1yyUwwHdX3ZxJf2evvGB03B9Ry-Qeq3iY,30525
+apyanki/utilities.py,sha256=wTCwvsX4F3ET2_vSG1rhHsnF_yreYEYEyDdv6Kn1Jqg,4197
+apyanki-0.18.1.dist-info/METADATA,sha256=VyXhcl26ZsbGxsrt3cYiPRQVAxDfIurkxPAsyoX0DrY,12586
+apyanki-0.18.1.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+apyanki-0.18.1.dist-info/entry_points.txt,sha256=DIJl49ca0yettMnuiDSF1Vp0xV7lcH31gQ-tt0aij1s,41
+apyanki-0.18.1.dist-info/licenses/LICENSE.md,sha256=KoMpOaET6aK8mw3G2Amq20CVKO1aEuNnLQBKibTvWkU,1075
+apyanki-0.18.1.dist-info/RECORD,,
