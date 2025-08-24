@@ -1,0 +1,91 @@
+# ParquetConv
+
+A command-line tool for converting between Parquet and CSV file formats using pandas.
+
+## Features
+
+- **Automatic format detection**: Automatically detects whether the input file is Parquet or CSV
+- **Bidirectional conversion**: Convert Parquet to CSV or CSV to Parquet
+- **Flexible output naming**: Auto-generates output filenames or allows custom naming
+- **Error handling**: Comprehensive error handling with informative messages
+- **Force conversion**: Option to force conversion even with uncertain file formats
+
+## Installation
+
+The project uses `uv` for dependency management. Install dependencies with:
+
+```bash
+uv sync
+```
+
+## Usage
+
+### Basic Usage
+
+Convert a Parquet file to CSV:
+```bash
+python main.py input.parquet
+```
+
+Convert a CSV file to Parquet:
+```bash
+python main.py input.csv
+```
+
+### Advanced Usage
+
+Specify a custom output filename:
+```bash
+python main.py input.parquet -o custom_output.csv
+python main.py input.csv -o custom_output.parquet
+```
+
+Force conversion (useful when file format detection is uncertain):
+```bash
+python main.py input_file --force
+```
+
+### Command Line Options
+
+- `input_file`: Path to the input file (required)
+- `-o, --output`: Custom output file path (optional)
+- `--force`: Force conversion even if file format detection is uncertain
+- `-h, --help`: Show help message
+
+## Examples
+
+```bash
+# Convert Parquet to CSV with auto-generated filename
+python main.py data.parquet
+# Output: data.csv
+
+# Convert CSV to Parquet with custom filename
+python main.py data.csv -o processed_data.parquet
+
+# Convert with force flag
+python main.py unknown_file --force
+```
+
+## Requirements
+
+- Python 3.9+
+- pandas >= 2.3.2
+- pyarrow >= 21.0.0
+
+## How It Works
+
+1. **File Detection**: The tool first checks the file extension, then attempts to read the file to determine its format
+2. **Format Conversion**: Uses pandas to read the input file and convert it to the opposite format
+3. **Output Generation**: Creates the output file with an appropriate extension if not specified
+
+## Error Handling
+
+The tool provides clear error messages for:
+- Missing input files
+- Unsupported file formats
+- Read/write errors during conversion
+- Invalid file content
+
+## License
+
+This project is open source and available under the MIT License.

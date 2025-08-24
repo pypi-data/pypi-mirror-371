@@ -1,0 +1,16 @@
+[project]
+name = "parquetconv"
+version = "0.1.0"
+description = "A utility for converting Parquet files into CSV and vice versa."
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [{name = "Sebastian Bassi", email = "sebastian@toyoko.io"}]
+license = "GPL-3.0-only"
+dependencies = [
+    "pandas>=2.3.2",
+    "pyarrow>=21.0.0",
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]

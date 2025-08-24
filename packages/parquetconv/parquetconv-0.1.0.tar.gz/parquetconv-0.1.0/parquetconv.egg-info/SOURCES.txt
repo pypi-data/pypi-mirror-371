@@ -1,0 +1,9 @@
+LICENSE
+README.md
+main.py
+pyproject.toml
+parquetconv.egg-info/PKG-INFO
+parquetconv.egg-info/SOURCES.txt
+parquetconv.egg-info/dependency_links.txt
+parquetconv.egg-info/requires.txt
+parquetconv.egg-info/top_level.txt
