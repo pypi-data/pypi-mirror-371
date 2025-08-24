@@ -1,0 +1,70 @@
+Metadata-Version: 2.4
+Name: wagtail-font-awesome-svg
+Version: 1.2
+Summary: Font Awesome 6 icons as SVG for Wagtail
+Author-email: Coen van der Kamp <coen@fourdigits.nl>
+License-Expression: MIT AND CC-BY-4.0
+Project-URL: Changelog, https://github.com/wagtail-nest/wagtail-font-awesome-svg/blob/main/CHANGELOG.md
+Project-URL: Homepage, https://github.com/wagtail-nest/wagtail-font-awesome-svg
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 4.2
+Classifier: Framework :: Django :: 5.1
+Classifier: Framework :: Django :: 5.2
+Classifier: Framework :: Wagtail
+Classifier: Framework :: Wagtail :: 5
+Classifier: Framework :: Wagtail :: 6
+Classifier: Framework :: Wagtail :: 7
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: Internet :: WWW/HTTP :: Site Management
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: wagtail
+Dynamic: license-file
+
+# Wagtail Font Awesome SVG
+
+Add [Font Awesome v6](https://fontawesome.com/v6/icons?m=free&d=gallery) SVG icons to your Wagtail project. Only the `solid`, `regular` and `brands` icons are included.
+
+## Install
+
+```sh
+pip install wagtail-font-awesome-svg
+```
+
+Add `wagtailfontawesomesvg` to your installed apps.
+
+```python
+INSTALLED_APPS = [
+    'wagtailfontawesomesvg',
+]
+```
+
+## Usage
+
+This is an [overview of available icons](https://fontawesome.com/v6/icons?m=free&d=gallery). 
+Choose an icon and add it via your `wagtail_hooks.py`:
+
+```python
+from wagtail import hooks
+
+@hooks.register("register_icons")
+def register_icons(icons):
+    return icons + [
+        'wagtailfontawesomesvg/brands/facebook.svg',
+        'wagtailfontawesomesvg/regular/face-laugh.svg',
+        'wagtailfontawesomesvg/solid/yin-yang.svg',
+        ...
+    ]
+```
