@@ -1,0 +1,51 @@
+Metadata-Version: 2.4
+Name: passguard-assistant
+Version: 0.2.0
+Summary: Password health + security assistant: strength checks, smart suggestions, reminders, and email alerts.
+Author-email: Sathish J <jsathish587@gmail.com>
+License: MIT License
+Project-URL: Homepage, https://github.com/sathishkevinmitnick
+Project-URL: Bug Tracker, https://github.com/sathishkevinmitnick/passguard-assistant/issues
+Keywords: password,security,entropy,strength,alert,email
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Security :: Cryptography
+Classifier: Intended Audience :: Developers
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: license-file
+
+# PassGuard Assistant 🔐
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/your-username/passguard-assistant/main/logo.png" width="180" alt="PassGuard Logo">
+</p>
+
+A privacy-friendly **Password Health + Security Assistant** library.
+
+---
+
+## Features
+- ✅ Password strength checker with **entropy score (0–100)**
+- ✅ Detects **personal info** (name, DOB, phone numbers)
+- ✅ Strong password generator (with symbols, uppercase, lowercase, digits)
+- ✅ If weak → auto-suggests **secure random password + SHA256 hash**
+- ✅ Rotation reminders (1, 3, 6 months)
+- ✅ Failed-attempt logging with optional email alerts
+- ✅ Simple CLI support (`passguard check`, `passguard suggest`, `passguard log`)
+
+---
+
+## Security & Privacy
+- 🚫 **No OS-level monitoring** (no keyloggers, no clipboard access).  
+- ✅ Works only **inside your app/backend** with provided hooks.  
+- 🔒 Logs (failed attempts, reminders) are fully under your control.  
+- 📧 Email alerts are **optional** and use your SMTP credentials.  
+
+---
+
+## Installation
+```bash
+pip install passguard-assistant

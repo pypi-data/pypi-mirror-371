@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "passguard-assistant"
+version = "0.2.0"
+description = "Password health + security assistant: strength checks, smart suggestions, reminders, and email alerts."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT License" }
+authors = [
+  { name = "Sathish J", email = "jsathish587@gmail.com" }
+]
+keywords = ["password", "security", "entropy", "strength", "alert", "email"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Topic :: Security :: Cryptography",
+  "Intended Audience :: Developers"
+]
+
+[project.urls]
+Homepage = "https://github.com/sathishkevinmitnick"
+"Bug Tracker" = "https://github.com/sathishkevinmitnick/passguard-assistant/issues"
+
+[project.scripts]
+passguard = "passguard_assistant.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
