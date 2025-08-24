@@ -1,0 +1,64 @@
+# --------------------------------------------------------------------------------------------------
+# SPDX-License-Identifier: Apache-2.0
+# Copyright (C) 2024 Jayesh Badwaik <jayesh@ambhora.com>
+# --------------------------------------------------------------------------------------------------
+[project]
+name = "docasur"
+dynamic = ["version"]
+description = 'A Static Site Generator for Technical Writing'
+readme = "readme.md"
+license = "Apache-2.0"
+authors = [
+{ name = "Jayesh Badwaik", email = "jayesh@ambhora.com" },
+]
+dependencies = [
+  "semver",
+  "livereload"
+]
+
+[project.urls]
+Source = "https://githug.com/docasur-org/docasur"
+
+[project.scripts]
+docasur = "docasur.cli:main"
+
+# --------------------------------------------------------------------------------------------------
+# Hatch configuration
+# --------------------------------------------------------------------------------------------------
+[tool.hatch.version]
+path = "src/docasur/metadata.py"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/docasur"]
+
+[tool.hatch.build.targets.wheel.shared-data]
+"share"="share"
+
+# --------------------------------------------------------------------------------------------------
+# PyTest configuration
+# --------------------------------------------------------------------------------------------------
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+addopts = "--cov --cov-report term-missing --cov-fail-under=80"
+
+[tool.black]
+line-length = 100
+
+[tool.hatch.envs.test]
+dependencies = [
+  "pytest>=6.3",
+  "pytest-cov"
+]
+
+
+[tool.hatch.envs.mypy]
+dependencies = [
+  "types-PyYAML",
+  "mypy",
+  "semver",
+  "pytest",
+]

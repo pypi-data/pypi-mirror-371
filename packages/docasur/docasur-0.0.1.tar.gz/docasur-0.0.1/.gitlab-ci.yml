@@ -1,0 +1,36 @@
+# --------------------------------------------------------------------------------------------------
+# SPDX-License-Identifier: Apache-2.0
+# SPDX-FileCopyrightText: (C) 2022 Jayesh Badwaik <j.badwaik@fz-juelich.de>
+# --------------------------------------------------------------------------------------------------
+
+quality.typecheck:
+  image: python:latest
+  before_script:
+    - python -m venv /root/venv
+    - source /root/venv/bin/activate
+    - pip install --upgrade pip
+    - pip install hatch
+    - hatch env create mypy
+  script:
+    - hatch env run --env mypy -- mypy .
+
+test:
+  image: python:latest
+  before_script:
+    - python -m venv /root/venv
+    - source /root/venv/bin/activate
+    - pip install --upgrade pip
+    - pip install hatch
+    - hatch env create test
+  script:
+    - hatch env run --env test --  pytest
+
+license.check:
+  stage: .post
+  dependencies: []
+  image:
+    name: fsfe/reuse
+    entrypoint: ["/bin/sh", "-c"]
+  script:
+    - reuse lint
+

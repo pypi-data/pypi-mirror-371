@@ -1,0 +1,51 @@
+# --------------------------------------------------------------------------------------------------
+# SPDX-License-Identifier: Apache-2.0
+# Copyright (C) 2024 Jayesh Badwaik <jayesh@ambhora.com>
+# --------------------------------------------------------------------------------------------------
+
+name: core
+on: push
+
+jobs:
+  pytest:
+    runs-on: ubuntu-24.04
+    container:
+      image: python:latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      - name: Run Pytest
+        run: |
+          python -m venv /root/venv
+          . /root/venv/bin/activate
+          pip install --upgrade pip
+          pip install hatch
+          hatch env create test
+          hatch env run --env test -- pytest
+
+  mypy:
+    runs-on: ubuntu-24.04
+    container:
+      image: python:latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      - name: Run MyPy
+        run: |
+          python -m venv /root/venv
+          . /root/venv/bin/activate
+          pip install --upgrade pip
+          pip install hatch
+          hatch env create mypy
+          hatch env run --env mypy -- mypy .
+
+  license:
+    runs-on: ubuntu-24.04
+    container:
+      image: fsfe/reuse
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      - name: Check License
+        run: reuse lint
+
