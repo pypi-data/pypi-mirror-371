@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agentsdk_ayush2"
+version = "0.1.3"
+description = "Multi-agent SDK with Bedrock, ReAct, parallel sub-agents"
+authors = [{name = "AgentSDK"}]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "boto3",
+  "click",
+  "python-frontmatter",
+  "requests",
+]
+license = {text = "Apache-2.0"}
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: Apache Software License",
+  "Operating System :: OS Independent",
+]
+urls = {"Homepage" = "https://example.com/agentsdk"}
+
+[project.scripts]
+agentsdk = "agentsdk.cli:main"
+agentsdk2 = "agentsdk.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["agentsdk", "agentsdk_ayush2"]
+
+
