@@ -1,0 +1,3 @@
+wsjt_all_AB
+wsjt_all_AB_live
+wsjt_all_core
