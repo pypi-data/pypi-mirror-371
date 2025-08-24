@@ -1,0 +1,11 @@
+Metadata-Version: 2.4
+Name: higgs-kernels
+Version: 0.3.0
+Summary: Kernels for higgs quantization
+Project-URL: Repository, https://github.com/galqiwi/higgs-kernels
+Author-email: Vladimir Malinovskii <galqiwi@gmail.com>
+License-File: LICENSE
+Requires-Python: >=3.9
+Requires-Dist: ninja>=1.13.0
+Requires-Dist: safetensors>=0.6.2
+Requires-Dist: torch>=2.8.0

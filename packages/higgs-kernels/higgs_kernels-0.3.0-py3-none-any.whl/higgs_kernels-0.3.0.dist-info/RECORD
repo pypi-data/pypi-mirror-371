@@ -1,0 +1,17 @@
+higgs_kernels/__init__.py,sha256=hXDaiQI9SIZnjzqBmNDut2iI7cRs69trp-pX5RR8MEM,107
+higgs_kernels/grids.py,sha256=1kOEEJSWUpOCO1pSWvIngHonr-oHiZYrd3xjWzWGtuo,337
+higgs_kernels/grids.safetensors,sha256=4npbr3AgY-VZaBz4lGW614Vi3etUvDeCt2DIczI4JIg,2128
+higgs_kernels/hadamard.py,sha256=F1c-fHz2vIDpVyfynPG4J0J0hjIokY4UINHeZiZX4j8,636
+higgs_kernels/kernels.py,sha256=mqVrZTIsDLgvtuh5zBbKVLTjpAFRmy6Tbd58Utjqatw,2248
+higgs_kernels/linear.py,sha256=xc9dMK8raLFwg6aiSqoQKHMqh5-5lSfm2QvgRQF_9qA,2136
+higgs_kernels/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+higgs_kernels/references.py,sha256=cAAmS1L77JLYdL0uR-g5PKPicOoOEcm-Vsi4kwpZ-eA,774
+higgs_kernels/csrc/portable/dequant.cpp,sha256=IbYuAxeYajAZFPtQBdezzSNSHi2qlQu2iBcVzNc0cE8,338
+higgs_kernels/csrc/portable/dequant.cu,sha256=bZFSPpKExv6JXtWf8lH3HvJhIJqg8HwTEWi7VRuqKUM,1389
+higgs_kernels/csrc/portable/quant.cpp,sha256=zo88uH2E3fuAhZs8mNYvZpWsYMKIzgSbGThbBKuSe1A,644
+higgs_kernels/csrc/portable/quant_bf16.cu,sha256=2Xw5t4ugYtgX2JKtlf9dlMkGIfyDHfndtTjsActbHSQ,3133
+higgs_kernels/csrc/portable/quant_f16.cu,sha256=QApovPEk5dZF0n3UUUUjZo2U5Q0wyvuNHK85HCv-EkI,2422
+higgs_kernels-0.3.0.dist-info/METADATA,sha256=fG1U2uWwZRJtoVb6Wc0-lEMDJbI3HeFaXXdjDZiX3JU,354
+higgs_kernels-0.3.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+higgs_kernels-0.3.0.dist-info/licenses/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+higgs_kernels-0.3.0.dist-info/RECORD,,
