@@ -1,0 +1,13 @@
+Metadata-Version: 2.4
+Name: pysnid
+Version: 0.6.0
+Summary: Tools to run and read SNID
+Home-page: https://github.com/MickaelRigault/pysnid
+Author: Mickael Rigault
+Author-email: m.rigault@ipnl.in2p3.fr
+License-File: LICENSE
+Dynamic: author
+Dynamic: author-email
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: summary
