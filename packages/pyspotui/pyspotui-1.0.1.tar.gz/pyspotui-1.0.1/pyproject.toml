@@ -1,0 +1,15 @@
+[project]
+name = "pyspotui"
+version = "1.0.1"
+description = "A Spotify terminal user interface written in Python."
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "requests>=2.32.5",
+    "rich>=14.1.0",
+    "spotipy>=2.25.1",
+    "dotenv<=1.0.0",
+]
+
+[project.scripts]
+pyspotui = "pyspotui.main:main"

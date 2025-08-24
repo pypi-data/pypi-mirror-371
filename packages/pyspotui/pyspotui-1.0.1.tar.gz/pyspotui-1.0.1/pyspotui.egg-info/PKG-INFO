@@ -1,0 +1,10 @@
+Metadata-Version: 2.4
+Name: pyspotui
+Version: 1.0.1
+Summary: A Spotify terminal user interface written in Python.
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: requests>=2.32.5
+Requires-Dist: rich>=14.1.0
+Requires-Dist: spotipy>=2.25.1
+Requires-Dist: dotenv<=1.0.0

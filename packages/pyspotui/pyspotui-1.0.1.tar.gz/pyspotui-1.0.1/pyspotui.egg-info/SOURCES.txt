@@ -1,0 +1,13 @@
+pyproject.toml
+pyspotui/__init__.py
+pyspotui/__main__.py
+pyspotui/config.py
+pyspotui/helpers.py
+pyspotui/main.py
+pyspotui/spotify_warper.py
+pyspotui.egg-info/PKG-INFO
+pyspotui.egg-info/SOURCES.txt
+pyspotui.egg-info/dependency_links.txt
+pyspotui.egg-info/entry_points.txt
+pyspotui.egg-info/requires.txt
+pyspotui.egg-info/top_level.txt
