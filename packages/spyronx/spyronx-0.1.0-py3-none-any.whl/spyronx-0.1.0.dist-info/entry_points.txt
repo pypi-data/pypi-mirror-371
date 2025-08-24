@@ -1,0 +1,2 @@
+[console_scripts]
+spyronx = spyronx.cli:main
