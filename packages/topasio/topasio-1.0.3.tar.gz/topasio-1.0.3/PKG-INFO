@@ -1,0 +1,20 @@
+Metadata-Version: 2.4
+Name: topasio
+Version: 1.0.3
+Summary: Automation of (Open)TOPAS scripts, allowing for type inference and better access to parameters
+Author-email: PinoLG01 <zuello.01@gmail.com>
+Requires-Python: >=3.10
+Requires-Dist: pandas>=2.3.0
+Requires-Dist: polars>=1.31.0
+Requires-Dist: pyarrow>=20.0.0
+Requires-Dist: python-calamine>=0.3.2
+Requires-Dist: quantities>=0.16.2
+Requires-Dist: rich>=14.0.0
+Requires-Dist: xlsxwriter>=3.2.5
+Description-Content-Type: text/markdown
+
+This is a python wrapper around [OpenTOPAS](https://github.com/OpenTOPAS/OpenTOPAS), which is a tool for radiation transport simulation that itself wraps around [Geant4](https://geant4.web.cern.ch/).
+
+The goal of this library is extend the Topas functionalities without forcing the user to rely on Geant. For example, this library implements python for-loops, conditionals, and all operations. It also extends functionalities by reducing the number of repeated code, implementing printing, and allowing interaction with the full python scientific computing suite. For example, one might have a single file that both launches a simulation and analyses its results, or even launches multiple simulations sequentially. 
+
+For more details, see the wiki at https://gchristille.github.io/topasio
