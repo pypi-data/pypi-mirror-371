@@ -1,0 +1,10 @@
+moviecolor/__init__.py,sha256=MFaDEfurYdmm0WCEzjBr7FhxLeXmbQ-ar9R99wgY27Y,62
+moviecolor/__main__.py,sha256=A7kJWZsoIQVq7AES5LX_QiPEbVmAtap5_KEK-jQb0pU,688
+moviecolor/core.py,sha256=8ZeOBYtTZMXT7RkNDY29xBuWYMS9bex8c-95gtP-pHo,3357
+moviecolor/ffmpeg_utils.py,sha256=PaKXU08vM-etl4WKBObRCs1MR0P7j5WVdcZhGxNdRLs,3472
+moviecolor-2.0.0.dist-info/licenses/LICENSE.md,sha256=IW1lALrO-zha4kEsV5gmisFgT6KyovnMID1ZvSuNUwk,1078
+moviecolor-2.0.0.dist-info/METADATA,sha256=l3WjCTXR5Zrds39UBmdjNAhi-ZyaBqvolXLZCSq2kHg,1739
+moviecolor-2.0.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+moviecolor-2.0.0.dist-info/entry_points.txt,sha256=wClwwD_L8LbnoUfLj0XYKyP37YPIuhC-NRI6QLmcrrw,56
+moviecolor-2.0.0.dist-info/top_level.txt,sha256=5xEnGZ3TRlt9ble5y3GPI7VPE_ugv_McfbqKHPThHIk,11
+moviecolor-2.0.0.dist-info/RECORD,,

@@ -1,0 +1,2 @@
+[console_scripts]
+moviecolor = moviecolor.__main__:main
