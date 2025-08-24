@@ -1,0 +1,12 @@
+nim_mmcif-0.0.17.dist-info/RECORD,,
+nim_mmcif-0.0.17.dist-info/WHEEL,sha256=SQ0RWtyPnHPLqVWH_Tib5lCSw2Mp1jiRR5LTh7CkGzY,110
+nim_mmcif-0.0.17.dist-info/top_level.txt,sha256=msg4vsyaswye01x3ndfrU337ixpJZTifmQHf4emGT08,10
+nim_mmcif-0.0.17.dist-info/METADATA,sha256=uLIU4UApnkhD6uiKX3ZkKPvTyiP0LrKOQSSCVvVImaE,12061
+nim_mmcif/_dummy.cpython-310-darwin.so,sha256=LfVOl01WZ-4XqKNDD4ETNodJbN_v9o7YTxLv8EijNYc,33408
+nim_mmcif/_version.py,sha256=m5t4eqMCcuPoX1NKQRRgLSmQONCHhBiDFGTeIGd5jGE,112
+nim_mmcif/__init__.py,sha256=Yi0tFcfexoOdiCMEtQq_pCCRmdbD-Skmp5A2qGRjMR0,15307
+nim_mmcif/nim_mmcif.so,sha256=kg1h8OZj9Hi9DO4rWa2YULGa_7Yy4RkJf1Prpa37fag,138784
+nim_mmcif/_dummy.c,sha256=ALoLHdQ7zi_XyhMhIXN1pEfoKzLbl98sXjHzrq7ChB8,336
+nim_mmcif/nim_mmcif.nim,sha256=nz7e7Ve1kakZ2X_zEbb8-KQbUuhPCH7fhcmvRTvoymk,2098
+nim_mmcif/mmcif.nim,sha256=SShhVXpztN79D7MC1dIMv7_ATBlawoTG5m4m9IPKwdw,6664
+nim_mmcif/dataclasses.py,sha256=gIRiBql5YwQUcg_zJJ_ayEP6qlSWkQsjd2Dpz4Z6Nso,7914
