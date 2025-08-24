@@ -1,0 +1,10 @@
+kernelforge/_kernelforge.cpython-313-darwin.so,sha256=cBNR5IvxcXPDvUGbApM_EXXA_kRU58CE3Fy0561yxzA,184960
+kernelforge/__init__.py,sha256=Mrgrd2dW5VmLEBsP4zktA4sxIoDH_-PWWgGUcO7E0Bs,154
+kernelforge/.dylibs/libgfortran.5.dylib,sha256=f3vwnbkMcaCMElsOWRbmKU9CVZh5h6Kptj8sk9uhcjc,1951888
+kernelforge/.dylibs/libquadmath.0.dylib,sha256=HP1cJDWIt0OZlYefbcnuEIIPT6mX6wR5Sl3SkK1rcPE,363552
+kernelforge/.dylibs/libgcc_s.1.1.dylib,sha256=va6TeyYXdCXFX3mqwE98ZBq8cI2EVRMIZxElc7kWAbo,221216
+kernelforge/.dylibs/libgomp.1.dylib,sha256=4wk1kQ7D4_mZPNSSwZLRO-qJDBZu4v8APkPljtYM6rc,422768
+kernelforge-0.1.8.dist-info/RECORD,,
+kernelforge-0.1.8.dist-info/WHEEL,sha256=_Fb8-ydQXDLVs5LO-8i0dmGnvu1Osho0yB_dV-fAWsk,141
+kernelforge-0.1.8.dist-info/METADATA,sha256=2W6UDTMIgs4mScY66-GhuteraTNSUMLxQxMhFuw_MCQ,3800
+kernelforge-0.1.8.dist-info/licenses/LICENSE,sha256=yGiQhg840NPE4sgJ-kj7n-DC86zxDds2HktJYDSvpCY,1081
