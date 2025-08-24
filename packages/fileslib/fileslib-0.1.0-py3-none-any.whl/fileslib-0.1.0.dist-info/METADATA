@@ -1,0 +1,33 @@
+Metadata-Version: 2.4
+Name: fileslib
+Version: 0.1.0
+Summary: Creating, Reading, Editing, and Executing files.
+Author: Aiden
+Description-Content-Type: text/markdown
+
+# FilesLib
+## What is fileslib?
+Fileslib is a module to create, read, edit, and execute files (see LICENSE for usage terms).
+## Installation
+To Install type into your terminal the following command  
+~~~Bash
+pip install fileslib
+~~~
+## Examples
+### Example 1 (Windows):
+~~~Python
+import fileslib  
+fileslib.file(r"C:\Users\Public\Downloads\hello_world.txt", msg="Hello World!")  
+# This creates a file in the Public user and writes "Hello World!" in it.
+~~~
+### Example 2 (MacOS):
+~~~Python
+import fileslib  
+fileslib.file("/Users/Joe/Documents/schedule.txt", msg="1:30 -> Work starts, 9:30 -> Work ends", execute=True)  
+# This creates a file in Joe's documents that has his work schedule in it, and then it runs it after
+~~~
+### Example 3 (Linux):
+~~~Python
+import fileslib
+fileslib.file("/home/Joe/Documents/how_fun_new_year_was.txt", "It was really fun")  
+# This creates a file in Joe's documents explaining how fun new year was.
