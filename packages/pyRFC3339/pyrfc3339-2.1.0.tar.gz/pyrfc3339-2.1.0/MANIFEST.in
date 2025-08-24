@@ -1,0 +1,4 @@
+prune pyrfc3339/tests
+prune .idea
+prune .github
+exclude .readthedocs.yml
