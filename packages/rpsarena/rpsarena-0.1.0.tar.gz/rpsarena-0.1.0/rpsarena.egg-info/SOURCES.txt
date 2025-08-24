@@ -1,0 +1,9 @@
+README.md
+pyproject.toml
+rpsarena/__init__.py
+rpsarena/__main__.py
+rpsarena.egg-info/PKG-INFO
+rpsarena.egg-info/SOURCES.txt
+rpsarena.egg-info/dependency_links.txt
+rpsarena.egg-info/entry_points.txt
+rpsarena.egg-info/top_level.txt
