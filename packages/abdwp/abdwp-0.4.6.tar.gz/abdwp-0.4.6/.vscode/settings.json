@@ -1,0 +1,23 @@
+{
+    "cSpell.words": [
+        "abdwp",
+        "allstar",
+        "chadwickbureau",
+        "cwevent",
+        "gamelog",
+        "gamelogs",
+        "mlbam",
+        "pushd",
+        "pybaseball",
+        "pytest",
+        "retrosheet",
+        "statcast",
+        "strikezone",
+        "zorder"
+    ],
+    "python.testing.pytestArgs": [
+        "tests"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
+}
