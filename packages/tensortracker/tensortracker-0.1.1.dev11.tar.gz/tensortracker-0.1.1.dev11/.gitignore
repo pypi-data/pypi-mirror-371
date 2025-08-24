@@ -1,0 +1,12 @@
+misc
+.venv
+target
+prompt
+benchmarks
+.github/instructions
+.gitignore
+*.safetensors
+*.gz
+*.tpatch
+examples/notebooks/data
+.vscode
