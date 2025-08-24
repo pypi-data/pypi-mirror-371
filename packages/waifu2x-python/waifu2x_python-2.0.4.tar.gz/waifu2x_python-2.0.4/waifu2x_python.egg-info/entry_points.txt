@@ -1,0 +1,2 @@
+[console_scripts]
+waifu2x = waifu2x_python.cli:main
