@@ -1,0 +1,3 @@
+[console_scripts]
+vectorspace = vectorspace.http_server:main
+vectorspace-mcp = vectorspace.mcp_server:main
