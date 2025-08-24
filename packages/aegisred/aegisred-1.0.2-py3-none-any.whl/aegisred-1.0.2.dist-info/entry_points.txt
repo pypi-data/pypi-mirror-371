@@ -1,0 +1,2 @@
+[console_scripts]
+aegisred = aegis.cli:app
