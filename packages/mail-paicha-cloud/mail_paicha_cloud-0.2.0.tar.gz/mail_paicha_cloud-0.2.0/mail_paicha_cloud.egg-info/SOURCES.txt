@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+mail_paicha_cloud.egg-info/PKG-INFO
+mail_paicha_cloud.egg-info/SOURCES.txt
+mail_paicha_cloud.egg-info/dependency_links.txt
+mail_paicha_cloud.egg-info/requires.txt
+mail_paicha_cloud.egg-info/top_level.txt
