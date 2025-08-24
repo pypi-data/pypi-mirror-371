@@ -1,0 +1,11 @@
+nim_mmcif-0.0.15.dist-info/RECORD,,
+nim_mmcif-0.0.15.dist-info/METADATA,sha256=3PlaLhQ5wMpVXXJWx49JFuAP_wg1CjINnikMT6BI8uw,9000
+nim_mmcif-0.0.15.dist-info/top_level.txt,sha256=msg4vsyaswye01x3ndfrU337ixpJZTifmQHf4emGT08,10
+nim_mmcif-0.0.15.dist-info/WHEEL,sha256=5iXtvL-Ee6MxEei7h3rrF-PfLYYJzI7hBjqY9zzRE3g,184
+nim_mmcif/mmcif.nim,sha256=_NWX8rszIOOJTxT2AOQevDxXBxdqJEWc43A_RbLUgjE,6229
+nim_mmcif/_version.py,sha256=Fxi4IlA9BV3J5WktzBlAXsbHypizd1ISYFZeucdwDfw,112
+nim_mmcif/nim_mmcif.so,sha256=61TKf-qTK1KV45WnKjsciKrGjJZbz-VZZyGWm9izVvo,360704
+nim_mmcif/nim_mmcif.nim,sha256=nz7e7Ve1kakZ2X_zEbb8-KQbUuhPCH7fhcmvRTvoymk,2098
+nim_mmcif/_dummy.c,sha256=ALoLHdQ7zi_XyhMhIXN1pEfoKzLbl98sXjHzrq7ChB8,336
+nim_mmcif/_dummy.cpython-39-x86_64-linux-gnu.so,sha256=ddMz8pHgn8wEAIGOOND2S36N5k0gjyl9p5u_N0eWv00,23456
+nim_mmcif/__init__.py,sha256=a7KyazeVpFkeNcx86SngaBIcP-rVxLXpd17Puh1Yrno,14181
