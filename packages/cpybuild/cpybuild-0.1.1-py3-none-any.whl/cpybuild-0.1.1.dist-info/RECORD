@@ -1,0 +1,13 @@
+cpybuild/__init__.py,sha256=fvgqVKld1pi6Mdxd0vzn2qFduFE6u-vIJoVIt9GOFaY,19
+cpybuild/cli.py,sha256=OWbE0W-IG5jhXVq55HQ3Qnhw02Q_sM7F932hndbfO9M,641
+cpybuild/core.py,sha256=ZR0fv9BMMWaHgHLQOu45_YCfapfbAMZkcIHc1LoSjrs,363
+cpybuild/tasks/__init__.py,sha256=OE7OE0NrFakubM15IZoLMDc_aHB2bkf7Xg9D-UJB9XI,28
+cpybuild/tasks/build.py,sha256=WMatrnlN3rnJ85FkP9TguMYmDhsgrT89LjNrX9DdmWM,3155
+cpybuild/tasks/clean.py,sha256=WLUmXi8T32AgWB4WbxMvTIS0ROIl3-AZ-XpmsIz1QYU,235
+cpybuild/tasks/init.py,sha256=PjZ1SbUCY5uZ9H51lbuYjMTcAPlIoMELsr-QGC51BM4,215
+cpybuild/tasks/test.py,sha256=85LtiXyY4BaKEL-SqM-gbkDBMUh1scm5XrBv_TsQDBo,780
+cpybuild-0.1.1.dist-info/licenses/LICENSE,sha256=QcgZEWRcMo6Hh2Pkaf6ILDWDgLBsklGlJoqYhywXOFg,1071
+cpybuild-0.1.1.dist-info/METADATA,sha256=axWWILMb43H8SgwJJn15BLcBUrtFsmQPE0-F4I2EN_o,2957
+cpybuild-0.1.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+cpybuild-0.1.1.dist-info/top_level.txt,sha256=eFtKV1NrtnYL0iRFV-xI5So1ndMmPbpuT53G6i8HPC0,9
+cpybuild-0.1.1.dist-info/RECORD,,
