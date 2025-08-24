@@ -1,0 +1,9 @@
+igbot_rag/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+igbot_rag/chroma_vectorstore.py,sha256=nSziQa25XknYDDB1MfqwTo81-e6Qfgg7u-dcpUN8U0k,2155
+igbot_rag/document_loader.py,sha256=ImySRtAwENluFkLMOkOyAdmQ6jN8XsC3w1PSsXyIrJ4,3243
+igbot_rag/document_loader_2.py,sha256=OSP9fmW9ngGOxCulHT62v9eQIr5qui1CJ37XTO5xJQQ,4005
+igbot_rag/metadata_functions.py,sha256=tZfvdrP8YXaAqYbIw0loFoGp9fduOjAx2YMRj6jXp8I,203
+igbot_rag-0.0.10.dist-info/METADATA,sha256=3ps21u8rTe-HA7_lRdAHCLWQ0E1HF3axgR2chhQDaC4,367
+igbot_rag-0.0.10.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+igbot_rag-0.0.10.dist-info/top_level.txt,sha256=TJQZzroL1wdyf6eKS7lp3xsKb0IknWWO_9MFvt_Gc9w,10
+igbot_rag-0.0.10.dist-info/RECORD,,
