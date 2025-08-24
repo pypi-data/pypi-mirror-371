@@ -1,0 +1,57 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_urls %}
+
+{% block extrahead %}
+    {{ block.super }}
+    <style>
+        .regenerate-ordering-form {
+            margin: 1rem 0;
+        }
+
+        .regenerate-ordering-form .button-cancel {
+            padding: 0.5rem 0.8rem !important;
+            background: var(--close-button-bg) !important;
+        }
+    </style>
+{% endblock %}
+
+{% block breadcrumbs %}
+    <div class="breadcrumbs">
+        <a href="{% url "admin:index" %}">{% trans "Home" %}</a>
+        &rsaquo;
+        <a href="{% url "admin:app_list" app_label=opts.app_label %}">
+            {{ opts.app_config.verbose_name }}
+        </a>
+        &rsaquo;
+        <a href="{% url opts|admin_urlname:"changelist" %}">
+            {{ opts.verbose_name_plural|capfirst }}
+        </a>
+        &rsaquo; {{ title }}
+    </div>
+{% endblock %}
+
+{% block content %}
+    <p>
+        {% blocktrans with verbose_name_plural=opts.verbose_name_plural %}
+            This process assigns new ordering numbers with a gap of 100 to {{ verbose_name_plural }} without touching
+            their current order to simplify inserting and moving them.
+        {% endblocktrans %}
+    </p>
+    <p>
+        {% blocktrans with verbose_name_plural=opts.verbose_name_plural %}
+            Are you sure you want to continue? This process can take a few seconds depending on the number of
+            {{ verbose_name_plural }} and the current load on the website.
+        {% endblocktrans %}
+    </p>
+    <div class="regenerate-ordering-form">
+        <form method="post">
+            {% csrf_token %}
+            <div>
+                <input type="submit" value="{% trans "Yes, I’m sure" %}">
+                <a href="{% url opts|admin_urlname:"changelist" %}" class="button button-cancel">
+                    {% trans "No, take me back" %}
+                </a>
+            </div>
+        </form>
+    </div>
+{% endblock content %}
