@@ -1,0 +1,10 @@
+unfake-1.0.4.dist-info/METADATA,sha256=jRjetOH3etVFSg1ngqs0m968zG5AXf_44cbcpJSv80w,9627
+unfake-1.0.4.dist-info/WHEEL,sha256=ZVGxA8yt9_vb48aMHrAuBUBZuM5pTkr3DlHD0kSTpS8,102
+unfake-1.0.4.dist-info/entry_points.txt,sha256=GZwV9H5GGa7ZwQaE0Dx1Zd5ar7JCnFtkJGeT7jqRjek,37
+unfake/__init__.py,sha256=htb0Gw92r2gIaIXxNBKF-tad4G4olZtgmr1RDJzCFQg,1739
+unfake/content_adaptive.py,sha256=zYqc6pC9XLTiFcgCrOygjp2yJGlfWsNAk1a--tMp1T8,8109
+unfake/pixel.py,sha256=YvhCAX0ZRMVziPMz7jP0lBj0fbVKd2q_UTA-dOkYX78,36345
+unfake/pixel_rust_integration.py,sha256=5s1ZkF-wBL7yO0W9lB9lESR-oGe8w5lYHany7fmVAN8,7964
+unfake/unfake.abi3.so,sha256=kQPP5hIloocrWyUoqERukf3hJlApEAv40Qduk5dPG4Y,639856
+unfake/wu_quantizer.py,sha256=S5gYcmMGotBR71uY6yIJxDnHi6pDeyDLl671G0b7TO8,13816
+unfake-1.0.4.dist-info/RECORD,,
