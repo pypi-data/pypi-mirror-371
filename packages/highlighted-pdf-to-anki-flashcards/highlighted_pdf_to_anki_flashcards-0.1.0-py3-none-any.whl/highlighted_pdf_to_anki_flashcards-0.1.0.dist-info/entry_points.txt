@@ -1,0 +1,2 @@
+[console_scripts]
+pdf2anki = highlighted_pdf_to_anki_flashcards.cli:main
