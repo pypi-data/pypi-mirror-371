@@ -1,0 +1,95 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "inferaapi"
+version = "0.1.0"
+description = "An open-source Python REST API framework with built-in Generative AI integration."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+    { name = "Pankaj Kumar", email = "inferaapi@gmail.com" },
+]
+license = { file = "LICENSE" }
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "License :: OSI Approved :: MIT License",
+]
+
+dependencies = [
+    "starlette>=0.27.0",
+    "uvicorn[standard]>=0.23.0",
+    "pydantic>=2.0.0",
+    "pydantic-settings>=2.0.0",
+    "openai>=1.0.0",
+    "anthropic>=0.7.0",
+    "transformers>=4.34.0",
+    "torch>=2.0.0",
+    "numpy>=1.21.0,<2.0.0",
+    "requests>=2.31.0",
+    "python-multipart>=0.0.6",
+    "python-jose>=3.3.0",
+    "passlib>=1.7.4",
+    "aiofiles>=23.2.0",
+    "python-dotenv>=1.0.0",
+    "httpx>=0.25.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/inferaapi/inferaapi"
+Documentation = "https://github.com/inferaapi/inferaapi#readme"
+Repository = "https://github.com/inferaapi/inferaapi"
+Issues = "https://github.com/inferaapi/inferaapi/issues"
+Changelog = "https://github.com/inferaapi/inferaapi/releases"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "pytest-cov>=4.0.0",
+    "pytest-httpx>=0.27.0",  # Add for async HTTP testing
+    "flake8>=6.0.0",
+    "black>=23.0.0",
+    "isort>=5.12.0",
+    "mypy>=1.0.0",
+    "build>=0.10.0",
+    "twine>=4.0.0",
+    "httpx>=0.25.0",  # Ensure httpx is available
+]
+
+[project.scripts]
+inferaapi = "inferaapi.app:main"
+
+[tool.black]
+line-length = 100
+target-version = ['py38']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--verbose --cov=inferaapi --cov-report=xml"

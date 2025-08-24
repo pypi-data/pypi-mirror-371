@@ -1,0 +1,135 @@
+Metadata-Version: 2.4
+Name: inferaapi
+Version: 0.1.0
+Summary: An open-source Python REST API framework with built-in Generative AI integration.
+Home-page: https://github.com/inferaapi/inferaapi
+Author: Pankaj Kumar
+Author-email: Pankaj Kumar <inferaapi@gmail.com>
+License: ```text
+        MIT License
+        
+        Copyright (c) 2023 Your Name
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+Project-URL: Homepage, https://github.com/inferaapi/inferaapi
+Project-URL: Documentation, https://github.com/inferaapi/inferaapi#readme
+Project-URL: Repository, https://github.com/inferaapi/inferaapi
+Project-URL: Issues, https://github.com/inferaapi/inferaapi/issues
+Project-URL: Changelog, https://github.com/inferaapi/inferaapi/releases
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: starlette>=0.27.0
+Requires-Dist: uvicorn[standard]>=0.23.0
+Requires-Dist: pydantic>=2.0.0
+Requires-Dist: pydantic-settings>=2.0.0
+Requires-Dist: openai>=1.0.0
+Requires-Dist: anthropic>=0.7.0
+Requires-Dist: transformers>=4.34.0
+Requires-Dist: torch>=2.0.0
+Requires-Dist: numpy<2.0.0,>=1.21.0
+Requires-Dist: requests>=2.31.0
+Requires-Dist: python-multipart>=0.0.6
+Requires-Dist: python-jose>=3.3.0
+Requires-Dist: passlib>=1.7.4
+Requires-Dist: aiofiles>=23.2.0
+Requires-Dist: python-dotenv>=1.0.0
+Requires-Dist: httpx>=0.25.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0.0; extra == "dev"
+Requires-Dist: pytest-asyncio>=0.21.0; extra == "dev"
+Requires-Dist: pytest-cov>=4.0.0; extra == "dev"
+Requires-Dist: pytest-httpx>=0.27.0; extra == "dev"
+Requires-Dist: flake8>=6.0.0; extra == "dev"
+Requires-Dist: black>=23.0.0; extra == "dev"
+Requires-Dist: isort>=5.12.0; extra == "dev"
+Requires-Dist: mypy>=1.0.0; extra == "dev"
+Requires-Dist: build>=0.10.0; extra == "dev"
+Requires-Dist: twine>=4.0.0; extra == "dev"
+Requires-Dist: httpx>=0.25.0; extra == "dev"
+Dynamic: author
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-python
+
+# InferaAPI 🚀  
+
+[![PyPI Version](https://img.shields.io/pypi/v/inferaapi.svg)](https://pypi.org/project/inferaapi/)
+[![Python Versions](https://img.shields.io/pypi/pyversions/inferaapi.svg)](https://pypi.org/project/inferaapi/)
+[![Tests](https://github.com/inferaapi/inferaapi/actions/workflows/test.yml/badge.svg)](https://github.com/inferaapi/inferaapi/actions/workflows/test.yml)
+[![License](https://img.shields.io/pypi/l/inferaapi.svg)](https://opensource.org/licenses/MIT)
+[![Code Coverage](https://codecov.io/gh/inferaapi/inferaapi/branch/main/graph/badge.svg)](https://codecov.io/gh/inferaapi/inferaapi)
+
+
+**High-speed Python framework with built-in Generative AI, ready for real-world scale.**
+
+**InferaAPI** is a blazing-fast, Python-based open-source REST API framework built from scratch, with native support for Generative AI models like **OpenAI (ChatGPT)**, **Grok**, and **Ollama**.
+
+- 🤖 Multiple LLM providers (OpenAI, Anthropic, HuggingFace, custom)
+- 📚 RESTful API with OpenAPI/Swagger documentation
+- ⚡ Streaming responses (SSE and WebSockets)
+- 🔄 Batch processing and model comparison
+- 🛠️ Custom model registration
+- 🔒 Rate limiting and authentication
+- 🧪 Designed for research and experimentation
+
+## Installation
+
+```bash
+# Install from source
+git clone https://github.com/yourusername/inferaapi.git
+cd inferaapi
+pip install -e .
+
+# Or install directly
+pip install inferaapi
+
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions of all kinds!  
+Please read the [CONTRIBUTING.md](CONTRIBUTING.md) for how to get started with development or submit an issue/PR.
+
+---
+
+## 🌐 Community & Links
+
+- 📘 Documentation: _Coming Soon_
+- 🧑‍💻 GitHub: [github.com/inferaapi/inferaapi](https://github.com/inferaapi/inferaapi)
+- 💬 Discord/Forum: _Coming Soon_
+
+---
+
+Built with ❤️ for the AI dev community.
