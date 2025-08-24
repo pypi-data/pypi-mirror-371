@@ -1,0 +1,33 @@
+Metadata-Version: 2.3
+Name: waykey
+Version: 0.1.0
+Summary: Wayland automation
+Keywords: wayland,automation,input
+Author: Nmstr
+Author-email: Nmstr <publicNamester@gmail.com>
+Classifier: Topic :: Utilities
+Classifier: Topic :: Other/Nonlisted Topic
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: End Users/Desktop
+Requires-Dist: evdev>=1.9.2
+Requires-Dist: screeninfo>=0.8.1
+Requires-Python: >=3.13
+Project-URL: Issues, https://github.com/Nmstr/WayKey/issues
+Project-URL: Source, https://github.com/Nmstr/WayKey
+Description-Content-Type: text/markdown
+
+<div align="center">
+
+# WayKey
+
+![Image](./docs/assets/WayKey.svg)
+
+![CI](https://github.com/Nmstr/WayKey/actions/workflows/run-ruff.yaml/badge.svg)
+![GitHub License](https://img.shields.io/github/license/Nmstr/WayKey)
+
+</div>
+
+WayKey is a wayland automation tool.
