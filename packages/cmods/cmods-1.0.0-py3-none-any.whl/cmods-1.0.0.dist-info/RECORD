@@ -1,0 +1,13 @@
+cmods/__about__.py,sha256=1bzvLUYCYNkducSqNrA10Ix36wSIAr-m_KkmdVNy7UQ,133
+cmods/__init__.py,sha256=qtj6egGODA4iGGkqFpGEWd7WPfynkqzhpKpP8yqQ_g8,148
+cmods/cli.py,sha256=l8ngTbO2pc16BxDNCSfGsettMxVoL0c2IDMeIIYMhT4,1996
+cmods/api/__init__.py,sha256=7l3XTFhk5itBtzTN1N4Rk1vzYJKjsfsVgTRNavcecqg,88
+cmods/api/download.py,sha256=7Fz_-v3UTnbIpYfi_e_hFi7FZBnuvvtwf5-QkS4EcVY,651
+cmods/api/init.py,sha256=o2rcKGyuMFsX_UsSHxIwAmZ6IQKRmCX_KowhJe5124I,433
+cmods/api/make.py,sha256=MYlQpRCgFKKGPc7yH1SpevMESCrltijV6vDF9zCH3j0,1728
+cmods/api/manage.py,sha256=SprZzWIFcGzn0EAP9IkkGiFt-EJYvsnwJjve3eKc1Bc,1311
+cmods-1.0.0.dist-info/METADATA,sha256=3kj4qQjufVZcuMwGZoZswXP9gxMdbZcoOqW87Grw7DI,1375
+cmods-1.0.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+cmods-1.0.0.dist-info/entry_points.txt,sha256=9OJMGKqu71pMKDGfNxQSxL09zamy87HQGPjgF7atWuI,41
+cmods-1.0.0.dist-info/licenses/LICENSE.txt,sha256=Rs3YJyEGkNOlzxfUpWSsEJhRw0zcnNRQ3FqqUC4ntMs,1103
+cmods-1.0.0.dist-info/RECORD,,
