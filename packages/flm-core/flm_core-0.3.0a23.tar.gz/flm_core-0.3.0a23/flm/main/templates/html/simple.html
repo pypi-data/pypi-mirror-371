@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>${metadata.title}</title>
+<style type="text/css">
+/* ------------------ */
+html, body {
+  font-family: '${font.family}', ${font.default_families};
+  font-size: ${font.size};
+  line-height: ${font.line_height};
+}
+
+header, article {
+  max-width: ${layout.content_width};
+  margin: 0px auto;
+}
+header {
+  padding-bottom: 1em;
+  border-bottom: 1px solid black;
+  margin-bottom: 2em;
+}
+header div[role="doc-subtitle"] {
+  margin-left: 2em;
+  margin-top: 0.5em;
+  font-size: 1.1rem;
+  /*font-style: italic;*/
+}
+/* ------------------ */
+${style.css_global}
+${style.css_content}
+/* ------------------ */
+h1 {
+  font-size: 1.6rem;
+  line-height: 1.3em;
+  font-weight: normal;
+  margin: 1em 0px;
+}
+header h1 {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+h2 {
+  font-size: 1.2rem;
+  line-height: 1.3em;
+  font-weight: bold;
+  margin: 1em 0px;
+}
+h3 {
+  font-size: 1.2rem;
+  font-weight: normal;
+  margin: 1em 0px;
+}
+/* ------------------ */
+${if:style.include_extra_vertical_spacing}
+h1 {
+  margin-top: 1.8em;
+}
+dl.enumeration > dd {
+  margin: 1em 0px;
+}
+figure.float {
+  margin: 1rem 0px;
+  padding: 1rem 0px;
+}
+figure.float .float-contents img {
+  margin: 1em auto;
+}
+${endif}
+/* ------------------ */
+${if:display_toc}
+#TOC {
+    max-width: ${layout.content_width};
+    margin: 2rem auto;
+    border: solid .4pt black;
+    padding: 1em;
+}
+#TOC > h1 { font-size: 1.1rem; font-weight: bold; margin: 0px 0px 1em; }
+#TOC > div.toc-hX { margin-top: 0.25em; }
+#TOC > div.toc-h1 { margin-left: 0px; }
+#TOC > div.toc-h2 { margin-left: 1em; }
+${endif}
+/* ------------------ */
+${style.extra_css}
+/* ------------------ */
+</style>
+
+<script type="text/javascript">
+${if:display_toc}
+// cf. https://stackoverflow.com/a/41085566/1694896
+window.flmBuildToc = function() {
+    var rootEl = document.getElementById('Main');
+    var headings = rootEl.querySelectorAll('h1, h2');
+    var tocEl = document.getElementById('TOC');
+    tocEl.innerHTML = '<h1>Contents:</h1>';
+    headings.forEach(function (heading, index) {
+        var ref;
+        if (heading.hasAttribute('id')) {
+            ref = heading.getAttribute('id');
+        } else {
+            ref = '_rToc'+index;
+            heading.setAttribute('id', ref);
+        }
+        var div = tocEl.appendChild(document.createElement('div'));
+        div.setAttribute('class', 'toc-hX toc-'+heading.tagName.toLowerCase() );
+        var link = div.appendChild(document.createElement('a'));
+        link.setAttribute('href', '#'+ref);
+        link.textContent = heading.textContent;
+    });
+};
+${endif}
+window.flmSetup = function() {
+${if:display_toc}
+    flmBuildToc();
+${endif}
+    if (window.MathJax) {
+        window.MathJax.texReset && window.MathJax.texReset();
+        window.MathJax.typesetPromise();
+    }
+};
+window.addEventListener('load', window.flmSetup);
+${style.js_local}
+${style.extra_js}
+</script>
+</head>
+<body>
+${if:render_header}
+  <header>
+    <h1 class="header-title">${metadata.title}</h1>
+    ${if:metadata.author}
+    <div role="doc-subtitle" class="header-author">${metadata.author}</div>
+    ${endif}
+    ${if:metadata.date}
+    <div role="doc-subtitle" class="header-date">${metadata.date}</div>
+    ${endif}
+  </header>
+${endif}
+${if:display_toc}
+<div id="TOC"></div>
+${endif}
+<article id="Main"><!-- FLM_HOT_RELOAD_BEGIN_CONTENT -->
+${content}
+<!-- FLM_HOT_RELOAD_END_CONTENT --></article>
+${style.body_end_js_scripts}
+</body>
+</html>
