@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "deepcausalmmm"
+version = "1.0.16"
+description = "Causal Deep Learning marketing-mix modeling library"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [{name = "Aditya Puttaparthi Tirumala", email = "puttaparthy.aditya@gmail.com"}]
+
+dependencies = [
+    "torch>=2.0",
+    "pandas>=1.5", 
+    "numpy>=1.21,<2.0",
+    "plotly>=5.0",
+    "networkx>=2.6",
+    "scikit-learn>=1.0",
+    "statsmodels>=0.13",
+    "tqdm>=4.60",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8", "pytest-cov"]
+
+[project.scripts]
+deepcausalmmm = "deepcausalmmm.cli:main"
+
+[tool.setuptools]
+packages = {find = {where = ["."], include = ["deepcausalmmm*"]}}
+include-package-data = true
+
+
