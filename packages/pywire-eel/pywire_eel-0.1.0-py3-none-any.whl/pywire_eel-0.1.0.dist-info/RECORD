@@ -1,0 +1,12 @@
+pywire/__init__.py,sha256=UBYp8Zw7Hrw9aVQOn9bbSv9lwhJNYyehp0Se6tIUN8I,2374
+pywire/bridge.py,sha256=weSnIta4NWHNDKGZ-DW8eeGg_pozMbx0DbuldvpV9P8,14449
+pywire/browser.py,sha256=tnL6Ci22N4yLdB_qp3x_mX81KOkhvXvtdhKU5SwmE88,27882
+pywire/security.py,sha256=niyQeoUSjPEaKqAvpHnxjHtIgF-fkw_GOUurfrcdwgs,1320
+pywire/server.py,sha256=aOAgtZ73mFbA1cii0IgXTUFIs5QlxOsYDMYgCKMNdT8,14670
+pywire/utils.py,sha256=rd4EscwvA9L2GX2NVzX5V4V_82MhVAy5rB8MIXB9EN4,4464
+pywire/web/bridge.js,sha256=MAZDUFbzjekDKIXL33Mg-wb7yTwcrJ8TSMbQVvHvtts,9623
+pywire_eel-0.1.0.dist-info/licenses/LICENSE,sha256=wJnxWQYR7xmVlIQV8tcWl-x56ayWV4D00ZrxAKUz06I,1086
+pywire_eel-0.1.0.dist-info/METADATA,sha256=LAix1t3kNdYNhWJ9IhoPIuebijw6UfPYI7Jf7nuxbBw,4607
+pywire_eel-0.1.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+pywire_eel-0.1.0.dist-info/top_level.txt,sha256=_dzNOIHrGfu1OmqIda7Kv20j4n0Rm4W_WBnFMKth1tg,7
+pywire_eel-0.1.0.dist-info/RECORD,,
