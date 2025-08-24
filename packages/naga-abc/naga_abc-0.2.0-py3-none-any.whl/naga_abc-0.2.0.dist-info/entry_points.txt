@@ -1,0 +1,2 @@
+[console_scripts]
+naga_abc = naga_abc.__main__:main

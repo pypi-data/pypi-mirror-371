@@ -1,0 +1,11 @@
+naga_abc/__init__.py,sha256=sxOBU3Z0sE2knrdJhlBuQLEkRk7ZyUhaseQBMkMNfn8,58
+naga_abc/__main__.py,sha256=YiN0rVDqjOI5Egf-JdxalNeGrHjAchZplPhyIs7i2hM,158
+naga_abc/speaker.py,sha256=j4BO5KQJmj0vViiBYeQ-NrIXWOrCK06UcSaJ4qnTKWI,252
+naga_abc/speakers/__init__.py,sha256=bpjWXd24O19i8wZoUBToIR_dMNn_6FyrwY3xdsaEIOE,26
+naga_abc/speakers/justin.py,sha256=8m4s1so_VScgaYIEs6rn-ao9iwe-m4DApboHZLLefOE,85
+naga_abc-0.2.0.dist-info/licenses/LICENSE.txt,sha256=VF55Vwv6UrH1pGI2gRvrwcoEYoMjVnEQWFSm0ByzNQM,1471
+naga_abc-0.2.0.dist-info/METADATA,sha256=zVm9GtSZvSEjc4XpA3_5OmdsDg-c6XmEa2PTkASnxXg,2568
+naga_abc-0.2.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+naga_abc-0.2.0.dist-info/entry_points.txt,sha256=mrqi00UjR19_IKxj-QW72eqqZQEWqbKimVTFrQWgJM8,52
+naga_abc-0.2.0.dist-info/top_level.txt,sha256=pK9FLyYqryugV6cP0_W2X2_oyy8ppf2vyrP79x7tn68,9
+naga_abc-0.2.0.dist-info/RECORD,,
