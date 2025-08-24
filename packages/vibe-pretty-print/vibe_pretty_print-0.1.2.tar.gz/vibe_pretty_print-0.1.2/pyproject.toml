@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vibe-pretty-print"
+version = "0.1.2"
+description = "A smart formatting library for JSON, XML, YAML, and text with OpenAI integration"
+readme = "README.md"
+requires-python = ">=3.7"
+license = "MIT"
+authors = [
+    {name = "Khanh Ngo", email = "akatekhanh0212@gmail.com"},
+]
+keywords = ["pretty-print", "json", "xml", "yaml", "formatting", "openai"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Text Processing :: General",
+]
+dependencies = [
+    "requests>=2.25.0",
+    "PyYAML>=5.4.0",
+    "colorama>=0.4.4",
+    "lxml>=4.6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0",
+    "pytest-cov>=2.0",
+    "black>=21.0",
+    "flake8>=3.8",
+    "mypy>=0.812",
+]
+
+[project.urls]
+Homepage = "https://github.com/akatekhanh/vibe-pretty-print"
+Repository = "https://github.com/akatekhanh/vibe-pretty-print"
+Issues = "https://github.com/akatekhanh/vibe-pretty-print/issues"
+
+[tool.setuptools]
+packages = ["vibe_pretty_print"]
+
+[tool.setuptools.package-data]
+"*" = ["LICENSE"]

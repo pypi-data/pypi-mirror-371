@@ -1,0 +1,223 @@
+# vibe-pretty-print
+
+A smart Python library for formatting JSON, XML, YAML, and plain text with OpenAI-powered enhancement.
+
+## Features
+
+- **Multi-format support**: JSON, XML, YAML, and plain text formatting
+- **Validation**: Validates JSON, XML, and YAML before formatting
+- **OpenAI integration**: Uses OpenAI GPT for enhanced formatting and readability
+- **Color output**: Provides colored output for better readability
+- **Fallback handling**: Gracefully falls back to standard formatting if OpenAI fails
+- **Type-safe**: Full type hints and error handling
+
+## Installation
+
+```bash
+pip install vibe-pretty-print
+```
+
+## Quick Start
+
+### Setup API Key (Recommended)
+
+Export your OpenAI API key as an environment variable:
+
+```bash
+export VIBE_PP_API_KEY="your-openai-api-key-here"
+```
+
+Then use the library without hardcoding your API key:
+
+```python
+from vibe_pprint import vibe_pprint
+
+# Format JSON
+json_text = '{"name":"John","age":30,"city":"New York"}'
+formatted_json = vibe_pprint(text=json_text, format_type="json")
+print(formatted_json)
+
+# Format YAML
+yaml_text = "name: John\nage: 30\ncity: New York"
+formatted_yaml = vibe_pprint(text=yaml_text, format_type="yaml")
+print(formatted_yaml)
+
+# Format XML
+xml_text = "<person><name>John</name><age>30</age></person>"
+formatted_xml = vibe_pprint(text=xml_text, format_type="xml")
+print(formatted_xml)
+
+# Format plain text
+text = "Hello World! This is a test."
+formatted_text = vibe_pprint(text=text, format_type="text")
+print(formatted_text)
+```
+
+### Alternative: Hardcoded API Key (Not Recommended)
+
+If you prefer, you can still pass the API key directly (less secure):
+
+```python
+from vibe_pprint import vibe_pprint
+
+# Only use this approach for quick testing
+formatted = vibe_pprint(
+    api_key="your-openai-api-key", 
+    text='{"test": "data"}', 
+    format_type="json"
+)
+```
+
+## API Reference
+
+### `vibe_pprint(text, format_type="text", api_key=None)`
+
+**Parameters:**
+- `text` (str): The content to format (JSON, XML, YAML, or plain text)
+- `format_type` (str): Type of content - `"json"`, `"xml"`, `"yaml"`, or `"text"` (default: `"text"`)
+- `api_key` (str, optional): Your OpenAI API key. If not provided, will use `VIBE_PP_API_KEY` environment variable.
+
+**Returns:**
+- `str`: Pretty-printed/formatted string
+
+**Raises:**
+- `ValidationError`: If the input format is invalid
+- `OpenAIError`: If OpenAI API calls fail
+- `ValueError`: If format_type is invalid or inputs are empty
+
+## Usage Examples
+
+### JSON Formatting
+
+```python
+from vibe_pprint import vibe_pprint
+
+# Valid JSON
+json_data = '{"users":[{"name":"Alice","age":25},{"name":"Bob","age":30}]}'
+result = vibe_pprint(json_data, "json")
+print(result)
+# Output:
+# {
+#   "users": [
+#     {
+#       "age": 25,
+#       "name": "Alice"
+#     },
+#     {
+#       "age": 30,
+#       "name": "Bob"
+#     }
+#   ]
+# }
+
+# Invalid JSON - will raise ValidationError
+try:
+    vibe_pprint('{"invalid": json}', "json")
+except ValidationError as e:
+    print(f"JSON validation failed: {e}")
+```
+
+### YAML Formatting
+
+```python
+yaml_data = """
+users:
+  - name: Alice
+    age: 25
+    skills:
+      - Python
+      - JavaScript
+  - name: Bob
+    age: 30
+    skills:
+      - Java
+      - SQL
+"""
+result = vibe_pprint(yaml_data, "yaml")
+print(result)
+```
+
+### XML Formatting
+
+```python
+xml_data = "<book><title>Python Guide</title><author>John Doe</author><year>2024</year></book>"
+result = vibe_pprint(xml_data, "xml")
+print(result)
+```
+
+### Plain Text Formatting
+
+```python
+text = "# Configuration\nhost: localhost\nport: 8080\nurl: https://example.com"
+result = vibe_pprint(text, "text")
+print(result)
+# Output with color highlighting for comments, URLs, and numbers
+```
+
+## Error Handling
+
+The library provides specific exceptions for different error scenarios:
+
+```python
+from vibe_pprint import ValidationError, OpenAIError
+
+try:
+    result = vibe_pprint(invalid_json, "json")
+except ValidationError as e:
+    print(f"Input validation failed: {e}")
+except OpenAIError as e:
+    print(f"OpenAI API error: {e}")
+except ValueError as e:
+    print(f"Invalid input: {e}")
+```
+
+## Requirements
+
+- Python 3.7+
+- requests
+- PyYAML
+- colorama
+- lxml
+
+## Development
+
+### Install development dependencies
+
+```bash
+pip install -e ".[dev]"
+```
+
+### Run tests
+
+```bash
+pytest
+```
+
+### Code formatting
+
+```bash
+black vibe_pprint/
+```
+
+### Type checking
+
+```bash
+mypy vibe_pprint/
+```
+
+## License
+
+MIT License - see LICENSE file for details.
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests
+5. Run the test suite
+6. Submit a pull request
+
+## Support
+
+For issues and questions, please use the [GitHub Issues](https://github.com/yourusername/vibe-pretty-print/issues) page.
