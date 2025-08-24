@@ -1,0 +1,58 @@
+[project]
+name = "wliafe-mltools"
+version = "1.0.11"
+authors = [
+    {name = "wliafe", email = "914099435@qq.com"},
+]
+description = "A machine learning tools library"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Operating System :: OS Independent",
+]
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+dependencies = [
+    "httpx>=0.28.1",
+    "jupyter>=1.0.0",
+    "matplotlib>=3.5.1",
+    "pandas>=1.2.4",
+    "tqdm>=4.67.1",
+    "torch>=2.1.0,<2.5.0; python_version >= '3.8' and python_version < '3.9'",
+    "torchvision>=0.16.0,<0.20.0; python_version >= '3.8' and python_version < '3.9'",
+    "torchaudio>=2.1.0,<2.5.0; python_version >= '3.8' and python_version < '3.9'",
+    "torch>=2.5.0; python_version >= '3.9'",
+    "torchvision>=0.20.0; python_version >= '3.9'",
+    "torchaudio>=2.5.0; python_version >= '3.9'",
+]
+
+[project.scripts]
+docs = "utils:build_docs"
+requires = "utils:write_requirements"
+
+[project.urls]
+Homepage = "https://github.com/wliafe/mltools"
+Documentation = "https://wliafe-mltools.readthedocs.io/"
+Repository = "https://github.com/wliafe/mltools.git"
+Issues = "https://github.com/wliafe/mltools/issues"
+
+[build-system]
+requires = ["uv_build>=0.8.3,<0.9.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "mltools"
+
+[dependency-groups]
+dev = [
+    "sphinx>=7.1.2",
+    "myst-parser>=3.0.1",
+    "sphinx-autodoc-typehints>=2.0.1",
+    "tomli>=2.2.1; python_version >= '3.8' and python_version < '3.11'",
+    "sphinx-rtd-theme>=3.0.2",
+]
