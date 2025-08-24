@@ -1,0 +1,61 @@
+Metadata-Version: 2.4
+Name: moviecolor
+Version: 2.0.0
+Summary: Generate a 'Moviebarcode' of a video using ffmpeg with real-time progress interface.
+Home-page: https://github.com/AsaadMe/MovieColor
+Download-URL: https://github.com/AsaadMe/MovieColor/releases/tag/v1.2.1
+Author: Mehran Asaad
+Author-email: Mehran Asaad <mehran.asaad@gmail.com>
+License-Expression: MIT
+Project-URL: Repository, https://github.com/AsaadMe/MovieColor
+Keywords: moviebarcode,movie,barcode
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE.md
+Requires-Dist: pillow>=11.3.0
+Dynamic: author
+Dynamic: download-url
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-python
+
+# MovieColor
+
+Create a "MovieBarcode" using average color of each frame as bars:
+
+***Example: John Wick Movie***
+
+![John Wick normal](https://raw.githubusercontent.com/AsaadMe/MovieColor/master/doc/johnwicknormal.jpg)
+
+or using shrinked frames as bars (with `--alt` argument):
+
+![John Wick alt](https://raw.githubusercontent.com/AsaadMe/MovieColor/master/doc/johnwickalt.jpg)
+
+## Installation:
+
+Install with [uv](https://docs.astral.sh/uv/):
+```
+uv tool install moviecolor
+```
+Or clone the project and use `uv run moviecolor`.
+
+*\* Make sure you have [ffmpeg](https://www.ffmpeg.org/) installed.*
+
+## Usage:
+
+Run it with:
+```
+moviecolor input.mp4 [--alt] [--help]
+```
+
+or without installing:
+```
+uvx moviecolor input.mp4 [--alt] [--help]
+```
+
+>-a , --alt: instead of using average color, use shrinked frames
+
+
+![Usage](https://raw.githubusercontent.com/AsaadMe/MovieColor/master/doc/usage.gif)
