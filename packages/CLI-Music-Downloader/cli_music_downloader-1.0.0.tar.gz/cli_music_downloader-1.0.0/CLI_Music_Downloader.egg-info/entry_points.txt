@@ -1,0 +1,7 @@
+[console_scripts]
+batch-metadata = cli_music_downloader.cli:batch_metadata
+batch_metadata = cli_music_downloader.cli:batch_metadata
+cli-music-downloader = cli_music_downloader.cli:main
+download-music = cli_music_downloader.cli:download_music
+download_music = cli_music_downloader.cli:download_music
+fixalbumart-improved = cli_music_downloader.cli:fixalbumart_improved
