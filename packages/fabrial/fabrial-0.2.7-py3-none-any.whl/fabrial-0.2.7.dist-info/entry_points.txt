@@ -1,0 +1,5 @@
+[console_scripts]
+fabrial = fabrial:main
+
+[gui_scripts]
+fabrial-gui-only = fabrial:main
