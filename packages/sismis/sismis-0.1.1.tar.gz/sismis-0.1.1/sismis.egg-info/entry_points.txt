@@ -1,0 +1,2 @@
+[console_scripts]
+sismis = sismis.cli:main
