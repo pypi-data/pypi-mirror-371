@@ -1,0 +1,5 @@
+django<6,>=4
+django-object-actions<6,>=5
+
+[test]
+factory-boy<4,>=3

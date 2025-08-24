@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+src/django_simple_ordering/__init__.py
+src/django_simple_ordering/admin.py
+src/django_simple_ordering/models.py
+src/django_simple_ordering.egg-info/PKG-INFO
+src/django_simple_ordering.egg-info/SOURCES.txt
+src/django_simple_ordering.egg-info/dependency_links.txt
+src/django_simple_ordering.egg-info/requires.txt
+src/django_simple_ordering.egg-info/top_level.txt
+src/django_simple_ordering/templates/django_simple_ordering/admin/ordering_regenerate_confirmation.html
