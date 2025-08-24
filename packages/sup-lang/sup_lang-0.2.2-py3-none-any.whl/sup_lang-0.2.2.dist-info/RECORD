@@ -1,0 +1,12 @@
+sup/__init__.py,sha256=Eua92YZNbTM4PFQzSojFWdTuiYDw8y6vSX3VQridqB0,101
+sup/ast.py,sha256=LgAyxXS81937KM6Y_yjvls5-Pas4cSYKeh4cibcPZ4Y,2914
+sup/cli.py,sha256=wwKqeghYCnxCmEupA7c78jyAx2fMUyo8DqMqL4tFNhY,6735
+sup/errors.py,sha256=0bcaEdrhwF8AgfFisI4hTmZ1da83ndN33mA-Dq_E-5M,894
+sup/interpreter.py,sha256=N30-LHTnwfUxQ-Edz60_CRko5XVcpIDeC5mA_kxAj8s,22151
+sup/parser.py,sha256=SSdZ1GwyNBLmNdtgzHhNbtNuH6A2216I6-5gWo__t0g,33749
+sup/transpiler.py,sha256=_th4jzOt0CojZsjHUX8pYHFF6ALwiHU5LMq2iBqdJUg,7970
+sup/lexicon/english.json,sha256=qz821Igw5lubQFERFASxmY4j-3VdSidj7jAGqQgjvb0,2463
+sup_lang-0.2.2.dist-info/METADATA,sha256=K-ZdupdfNaZ_ZhQJL26QMeIHc9dS3oFv5ZZOO8npU9o,4485
+sup_lang-0.2.2.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+sup_lang-0.2.2.dist-info/entry_points.txt,sha256=Eef4_gX7nBuwHtcBvdpwC5IZEnuD-s7DlOs-ESGdlPs,57
+sup_lang-0.2.2.dist-info/RECORD,,
