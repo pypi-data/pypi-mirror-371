@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+highlighted_pdf_to_anki_flashcards/__init__.py
+highlighted_pdf_to_anki_flashcards/cli.py
+highlighted_pdf_to_anki_flashcards/extractor.py
+highlighted_pdf_to_anki_flashcards/translator_and_generator.py
+highlighted_pdf_to_anki_flashcards.egg-info/PKG-INFO
+highlighted_pdf_to_anki_flashcards.egg-info/SOURCES.txt
+highlighted_pdf_to_anki_flashcards.egg-info/dependency_links.txt
+highlighted_pdf_to_anki_flashcards.egg-info/entry_points.txt
+highlighted_pdf_to_anki_flashcards.egg-info/requires.txt
+highlighted_pdf_to_anki_flashcards.egg-info/top_level.txt
