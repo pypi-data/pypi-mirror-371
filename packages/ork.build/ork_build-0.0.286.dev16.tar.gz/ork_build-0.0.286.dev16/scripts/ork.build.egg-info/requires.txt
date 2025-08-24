@@ -1,0 +1,15 @@
+yarl
+toposort
+os-release
+distro
+twine
+build
+conan
+pip>=24.1
+GitPython
+tree-sitter==0.21.3
+tree-sitter-cpp==0.22.3
+tree-sitter-python==0.23.2
+tree-sitter-lua==0.2.0
+tree-sitter-glsl==0.2.0
+libclang
