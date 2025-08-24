@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+pastes/__init__.py
+pastes/main.py
+pastes.egg-info/PKG-INFO
+pastes.egg-info/SOURCES.txt
+pastes.egg-info/dependency_links.txt
+pastes.egg-info/not-zip-safe
+pastes.egg-info/requires.txt
+pastes.egg-info/top_level.txt
