@@ -1,0 +1,36 @@
+Metadata-Version: 2.4
+Name: spyronx
+Version: 0.1.0
+Summary: Spyronx: tiện ích Python nhẹ, có CLI mẫu và cấu trúc tests chuẩn.
+Project-URL: Homepage, https://example.com/spyronx
+Author-email: "Ken (Kenzema)" <ken@example.com>
+License: MIT
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+# spyronx
+
+Gói Python mẫu với cấu trúc **src/** hiện đại, có sẵn CLI và tests.
+
+## Cài đặt (dev / editable)
+
+```bash
+pip install -e .
+```
+
+## Chạy CLI
+
+```bash
+spyronx --help
+spyronx slugify "Xin Chào, Thế Giới!"
+```
+
+## Chạy tests
+
+```bash
+python -m pytest
+```
