@@ -1,0 +1,12 @@
+task_agents_mcp/__init__.py,sha256=r4qnr8NgUQKTO8KxxkgJIQ2uw9svNw0tfN3w-0I9P04,161
+task_agents_mcp/__main__.py,sha256=jItp2wYCoRUf5PBbaLpEECpLgZt-hZzPd84epmp6QmQ,149
+task_agents_mcp/agent_manager.py,sha256=KreXhPgvy0oKWO4auawM55ntGmRyLcAxswN8RL6oYzM,23816
+task_agents_mcp/resource_manager.py,sha256=EDnfosZ8-4fRvTupC0HuY52C128Numveajakz2X9PjI,16450
+task_agents_mcp/server.py,sha256=PsfkGTq9db4X_wmbQUY1kadfyyJCPCJEf5sPdqk1i1k,13484
+task_agents_mcp/session_store.py,sha256=hMAoaHktY0_Ds2Rds5DPbWGzQGGsfmp4beNAKT_JKsE,6015
+task_agents_mcp-4.0.0.dist-info/licenses/LICENSE,sha256=9zHDgKxV8KeWNR9qvCGJ3pQ-qg596opkCZSzdEe40gw,1080
+task_agents_mcp-4.0.0.dist-info/METADATA,sha256=B7PYshqTL8zcnKR7exk8mnkq0LypCqzu7dYjj7gFVxo,6631
+task_agents_mcp-4.0.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+task_agents_mcp-4.0.0.dist-info/entry_points.txt,sha256=tcORdtCtS335jwQdBh0akTLYKN4NylILZHlqVA_JyRU,59
+task_agents_mcp-4.0.0.dist-info/top_level.txt,sha256=gJo4AQkEBHF02jPCc60RFaeUZ4Bk4P_LxNy5mwYycHs,16
+task_agents_mcp-4.0.0.dist-info/RECORD,,
