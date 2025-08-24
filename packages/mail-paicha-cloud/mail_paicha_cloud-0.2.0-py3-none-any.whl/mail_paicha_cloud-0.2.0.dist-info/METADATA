@@ -1,0 +1,330 @@
+Metadata-Version: 2.4
+Name: mail-paicha-cloud
+Version: 0.2.0
+Summary: Simple Python client for PaichaCloud disposable email API
+Home-page: https://github.com/yukisakuna/mail-paicha-cloud
+Author: nyaa
+Author-email: nyaa <nyaa@paicha.cloud>
+License: MIT License
+        
+        Copyright (c) 2025 Your Name
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Project-URL: Homepage, https://github.com/yukisakuna/mail-paicha-cloud
+Project-URL: Source, https://github.com/yukisakuna/mail-paicha-cloud
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests>=2.25.0
+Dynamic: license-file
+
+# PaichaCloud Client 📦
+
+PaichaCloud のメール受信 API を扱う軽量 Python クライアント。
+**デフォルトはドメイン一覧の取得 → ランダム選択 → 新規メール発行**です。必要に応じてドメイン固定、既存アドレスでの閲覧にも対応。
+
+---
+
+## ✨ 特徴
+
+* ドメイン一覧の取得（初回の `change_mailbox` は一覧取得専用として実行、発行メールは破棄）
+* ランダム／任意ドメインでの **新規メールアドレス発行**
+* **既存のメールアドレスでの受信閲覧**（発行スキップ）
+* 受信一覧（サマリー）・個別メール（本文含む詳細）の取得
+* 件名/送信者フィルタ、**新着待機**（ポーリング）
+* ドメイン一覧の整形表示、CLI 付属
+* 例外・タイムアウト・`requests.Session` 差し替え等の基本拡張
+
+---
+
+## ⚡ インストール
+
+```bash
+pip install mail-paicha-cloud
+```
+
+依存: `requests`
+
+---
+
+## 🚀 クイックスタート
+
+```python
+from paichacloud import PaichaCloudClient
+
+# 1) ドメインは自動取得 → ランダム選択 → new_email を発行
+client = PaichaCloudClient()
+
+print("Email:", client.email)          # 例: 0918xxxx@paicharm.tokyo
+print("Domains (cached):", client.list_domains())
+
+# 2) 受信一覧（サマリー）
+inbox = client.inbox()
+for m in inbox:
+    print("ID:", m["id"], "Subject:", m.get("subject"))
+
+# 3) 個別メールの詳細（本文など）
+if inbox:
+    detail = client.get_mail(inbox[0]["id"])
+    # 本文は API 仕様により 'text' / 'body' / 'html' などのキーに入ることがあります
+    print(detail)
+```
+
+---
+
+## 📬 メールを見る（全パターン）
+
+### A. 自動で新規アドレスを発行して読む（デフォルト）
+
+```python
+client = PaichaCloudClient()
+print(client.email)
+print(client.inbox())
+```
+
+### B. **既存のメールアドレスで受信を見る**（発行スキップ）
+
+> すでに把握している一時アドレスを使いたい場合
+
+```python
+from paichacloud import PaichaCloudClient
+
+client = PaichaCloudClient(email="already_known@some-domain.tld")
+inbox = client.inbox()            # そのアドレスの受信一覧
+if inbox:
+    detail = client.get_mail(inbox[0]["id"])
+    print(detail)
+```
+
+### C. 特定ドメインで新規アドレスを発行して読む
+
+```python
+client = PaichaCloudClient(domain="niganiga.link")
+print(client.email)
+print(client.inbox())
+```
+
+### D. ドメイン一覧から好みで選んで発行して読む
+
+```python
+client = PaichaCloudClient()         # とりあえず起動（この時点で1つ発行される）
+domains = client.fetch_domains()     # 一覧だけを取り直し（この時の new_email は内部で破棄）
+# 例: .tokyo 優先、無ければ先頭
+choices = [d for d in domains if d.endswith(".tokyo")] or domains
+client.change_mailbox(choices[0])    # 本命で発行し直し
+print(client.email)
+print(client.inbox())
+```
+
+---
+
+## 🧭 ドメイン操作
+
+```python
+# 最新のドメイン一覧を取得（※この呼び出しで返る new_email は破棄されます）
+domains = client.fetch_domains()
+print(domains)
+
+# 整形表示
+print(client.format_domains(columns=3))
+```
+
+---
+
+## 🔎 受信を扱う
+
+### 受信一覧（サマリー）
+
+```python
+inbox = client.inbox()
+for mail in inbox:
+    print(mail["id"], mail.get("subject"), mail.get("from"))
+```
+
+### 個別メール（本文・ヘッダ等）
+
+```python
+if inbox:
+    mail_id = inbox[0]["id"]
+    detail = client.get_mail(mail_id)
+
+    # よくある本文の取り出し（環境によりキーが異なります）
+    body = detail.get("text") or detail.get("body") or detail.get("html") or ""
+    print(body[:500])
+```
+
+### 件名/送信者フィルタ
+
+```python
+filtered = client.filter_inbox(inbox, subject_contains="Verify", sender_contains="noreply@")
+print(filtered)
+```
+
+### 条件に合う新着を待機（ポーリング）
+
+```python
+msg = client.wait_for(subject_contains="Verify", timeout=60, interval=2)
+if msg:
+    print("Found:", msg.get("subject"))
+```
+
+---
+
+## 💻 CLI
+
+```bash
+# ドメイン一覧（最新）を表示
+python -m paichacloud --list-domains
+
+# 自動発行 → 受信一覧を表示
+python -m paichacloud --print-inbox
+
+# 条件に合う新着を待機（件名に "Verify" を含む）
+python -m paichacloud --wait --subject-contains Verify
+```
+
+**既存アドレスで受信を見る（発行スキップ）**
+
+```bash
+python -m paichacloud --email already_known@some-domain.tld --print-inbox
+```
+
+主なオプション:
+
+* `--list-domains` : ドメイン一覧を最新取得して表示
+* `--print-inbox`  : 受信一覧を JSON 出力
+* `--wait`         : 条件に合う新着を待機
+* `--timeout <sec>` / `--interval <sec>` : 待機タイムアウト/間隔
+* `--domain <name>`: 特定ドメインで **直ちに** 新規メールを発行
+* `--email <addr>` : 既存メールを使用（発行スキップ）
+* `--probe-domain <name>` : ドメイン一覧の取得に使うプローブ用ドメイン（既定: `paicharm.tokyo`）
+* `--seed <int>`   : ドメインのランダム選択にシード付与（再現性）
+
+---
+
+## ⚙️ 拡張・実運用向け Tips
+
+### 例外ハンドリング
+
+```python
+from paichacloud import PaichaCloudClient, PaichaCloudError
+
+try:
+    client = PaichaCloudClient(timeout=15.0)
+    inbox = client.inbox()
+except PaichaCloudError as e:
+    print("mail error:", e)
+```
+
+### タイムアウト / リダイレクト
+
+```python
+client = PaichaCloudClient(timeout=15.0, allow_redirects=True)
+```
+
+### `requests.Session` の差し替え（プロキシ・リトライ等）
+
+```python
+import requests
+s = requests.Session()
+s.proxies = {"https": "http://proxy.local:8080"}
+client = PaichaCloudClient(session=s)
+```
+
+### ランダム選択の再現性（テスト）
+
+```python
+import random
+client = PaichaCloudClient(rng=random.Random(42))
+```
+
+### with 構文
+
+```python
+from paichacloud import PaichaCloudClient
+with PaichaCloudClient() as client:
+    print(client.email)
+    print(client.inbox())
+```
+
+---
+
+## 🔍 API リファレンス（抜粋）
+
+```python
+class PaichaCloudClient(
+    domain: str | None = None, *,
+    email: str | None = None,
+    session: requests.Session | None = None,
+    timeout: float = 30.0,
+    allow_redirects: bool = True,
+    rng: random.Random | None = None,
+    probe_domain: str = "paicharm.tokyo",
+)
+```
+
+* **既定挙動**（`domain=None`, `email=None`）
+
+  1. ドメイン一覧のみ取得（この時の new\_email は破棄）
+  2. 一覧からランダム選択で `change_mailbox` 実行 → `email` を確保
+* `domain` を与えると、そのドメインで **直ちに** 新規メールを発行
+* `email` を与えると、**発行スキップ**で既存メールを即参照
+
+**属性**
+
+* `email: str | None` … 現在のメールアドレス
+* `domains: list[str]` … 直近に取得したドメイン一覧（キャッシュ）
+
+**主要メソッド**
+
+* `fetch_domains() -> list[str]` … ドメイン一覧の**最新取得**（発行は破棄）
+* `list_domains() -> list[str]` … キャッシュ返却（最新が必要なら `fetch_domains()`）
+* `format_domains(columns: int = 2, padding: int = 2) -> str` … 一覧の整形表示
+* `change_mailbox(domain: str) -> MailboxChange` … 指定ドメインで新規発行
+* `inbox() -> list[dict]` … 受信一覧（配列）
+* `get_mail(mail_id: str) -> dict` … 個別メールの詳細
+* `filter_inbox(..., subject_contains=None, sender_contains=None) -> list[dict]`
+* `wait_for(..., timeout=60.0, interval=2.0, return_detail=True) -> dict | None`
+* `close() -> None`（with 構文対応）
+
+**例外**
+
+* `PaichaCloudError` … クライアント共通の例外
+
+---
+
+## 🧩 トラブルシューティング
+
+* **`inbox()` が空**
+  まだ到着していない可能性。数秒〜数十秒待って再実行、または `wait_for()` を利用。
+* **本文が見つからない**
+  環境でキー名が異なる可能性（`text`/`body`/`html` 等）。`print(detail.keys())` で確認。
+* **`Email address is not set`**
+  `email` 未設定で `inbox()` 等を呼んだ可能性。`PaichaCloudClient()` 初期化や `change_mailbox()` で発行/設定を。
+* **ネットワーク/JSON エラー**
+  `PaichaCloudError` が送出。リトライ・タイムアウト調整・`requests.Session` の利用を検討。
+
+---
+
+## AIだと思いましたか？
+
+はい！正解です！
+
+すべてのコードはGPt5を使用して出力されました
