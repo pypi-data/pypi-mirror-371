@@ -1,0 +1,71 @@
+Metadata-Version: 2.4
+Name: agentsdk_ayush2
+Version: 0.1.4
+Summary: Multi-agent SDK with Bedrock, ReAct, parallel sub-agents
+Author: AgentSDK
+License: Apache-2.0
+Project-URL: Homepage, https://example.com/agentsdk
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: boto3
+Requires-Dist: click
+Requires-Dist: python-frontmatter
+Requires-Dist: requests
+Dynamic: license-file
+
+# AgentSDK
+
+A Python SDK for building multi-agent systems with Bedrock-backed LLMs, ReAct tool-use, and parallel sub-agent orchestration.
+
+## Install
+
+```bash
+pip install agentsdk
+```
+
+## Quickstart
+
+```python
+from agentsdk import (
+  BedrockClient, SessionManager, ToolRegistry, Agent,
+  OrchestratorAgent, load_sub_agents_from_dir,
+  FileSystemTool, ShellTool, WebFetchTool,
+)
+
+bedrock = BedrockClient(model_id="openai.gpt-oss-120b-1:0", region_name="us-west-2")
+sessions = SessionManager()
+registry = ToolRegistry()
+registry.register(FileSystemTool(root="."))
+registry.register(ShellTool(root="."))
+registry.register(WebFetchTool())
+
+def on_thought(agent, kind, text):
+    print(f"[{agent}][{kind}] {text[:160]}")
+
+default = Agent(
+  name="default", bedrock=bedrock, registry=registry,
+  sessions=sessions, system_prompt="You are a helpful coding assistant.",
+  on_thought=on_thought,
+)
+subs = load_sub_agents_from_dir(".agents", base_agent=default)
+
+orch = OrchestratorAgent(
+  planner=default, sub_agents=subs, sessions=sessions,
+)
+
+print(orch.run(session_id="sess1", query="Audit repo for secrets and summarize."))
+```
+
+## CLI
+
+```bash
+agentsdk run --agents-dir .agents --show-thoughts --query "Your task"
+```
+
+## License
+
+Apache-2.0
