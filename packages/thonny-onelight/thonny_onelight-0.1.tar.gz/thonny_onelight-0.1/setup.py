@@ -1,0 +1,32 @@
+from setuptools import setup
+
+setup(
+    name='thonny-onelight',
+    version='0.1',
+    author='Jysume',
+    author_email='jysume@outlook.com',
+    description='Atom One Light theme for Thonny IDE',
+    long_description=open('README.md').read(),
+    url='https://github.com/Jysume/thonny-onelight',
+    license='MIT',
+    packages=['thonnycontrib.onelight'],
+    include_package_data=True,
+    install_requires=['thonny >= 3.0.0'],
+    classifiers=[
+        "Intended Audience :: Developers",
+        "Intended Audience :: Education",
+        "Intended Audience :: End Users/Desktop",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: MacOS",
+        "Operating System :: Microsoft :: Windows",
+        "Operating System :: POSIX",
+        "Operating System :: POSIX :: Linux",
+        "Programming Language :: Python",
+        "Programming Language :: Python :: 3",
+        "Topic :: Education",
+        "Topic :: Software Development",
+        "Topic :: Software Development :: Embedded Systems",
+    ],
+    keywords="IDE education programming Thonny light theme onelight",
+    platforms=["Windows", "macOS", "Linux"],
+)
