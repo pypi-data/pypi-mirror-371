@@ -1,0 +1,27 @@
+Metadata-Version: 2.4
+Name: whatsextract
+Version: 1.0.0
+Summary: WhatsExtract API client (sync + async)
+Author: WhatsExtract
+Project-URL: Homepage, https://example.com
+Requires-Python: >=3.8
+Description-Content-Type: text/x-rst
+Requires-Dist: requests>=2.31.0
+Requires-Dist: aiohttp>=3.9.0
+Dynamic: author
+Dynamic: requires-python
+
+.. COMPLETE FILE: packages/python/README.rst
+
+WhatsExtract (Python)
+=====================
+
+Install::
+
+  pip install whatsextract
+
+Quick start::
+
+  from whatsextract import WhatsExtract
+  client = WhatsExtract("we_xxx")
+  print(client.extract("Email john@example.com").email)
