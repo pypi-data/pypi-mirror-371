@@ -1,0 +1,59 @@
+Metadata-Version: 2.3
+Name: octopus-sensing-monitoring
+Version: 1.3.1
+Summary: Web base data monitoring/visualizer for https://octopus-sensing.nastaran-saffar.me
+License: GPL-3.0-or-later
+Author: Aidin Gharibnavaz
+Author-email: aidin@aidinhut.com
+Requires-Python: >=3.11,<4.0
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: CherryPy (==18.10.0)
+Requires-Dist: Pillow (==11.3.0)
+Requires-Dist: heartpy (==1.2.7)
+Requires-Dist: neurokit2 (==0.2.12)
+Requires-Dist: numpy (==2.3.2)
+Requires-Dist: pandas (==2.3.2)
+Requires-Dist: pycairo (==1.28.0)
+Project-URL: Repository, https://github.com/octopus-sensing/octopus-sensing-monitoring
+Description-Content-Type: text/markdown
+
+# Octopus Sensing Monitoring
+
+A web-based real-time monitoring for [Octopus Sensing](https://octopus-sensing.nastaran-saffar.me/). You can
+monitor your data from any machine in the same network.
+
+[Octopus Sensing monitoring](https://github.com/octopus-sensing/octopus-sensing-monitoring) is
+a separated project and can be installed for Octopus Sensing if we need monitoring features.
+
+**To see the full documentation go to [Otopus Sensing](https://octopus-sensing.nastaran-saffar.me/monitoring.html) website.**
+
+![screenshot](https://raw.githubusercontent.com/octopus-sensing/octopus-sensing-monitoring/main/screenshot.png)
+![mobile screenshot](https://raw.githubusercontent.com/octopus-sensing/octopus-sensing-monitoring/main/screenshot-mobile.png)
+
+## Development
+
+You need to have `python`, `poetry`, `cmake`, `cairo`, and `nodejs` installed.
+
+cd `ui` and do a `npm install`.
+
+Then `npm run build` for a debug build. It will copy the output to the `server`
+directory.
+
+Then cd `server` and run `poetry install`.
+
+You can run the server with fake data using `poetry run python main.py --fake`.
+
+## Copyright
+
+Copyright © 2020-2025 [Aidin Gharibnavaz](https://aidinhut.com)
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU
+General Public License as published by the Free Software Foundation, either version 3 of the
+License, or (at your option) any later version.
+
+See [License file](LICENSE) for full terms.
+
