@@ -1,0 +1,19 @@
+geoinsights_3d/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+geoinsights_3d/__main__.py,sha256=bWfe_aCeN_Z65Bjt6Fw_m-ODITqb8PropOoyzdukXe8,1471
+geoinsights_3d/analysis.py,sha256=3pA2MaFMsi1wX6MBRMfd1hDMp_9rXwfFZiCnqeUO_jo,21739
+geoinsights_3d/app.py,sha256=n-Y8CB6DHsRw_n8_qO8EB4lRWBsmiKeHi_HIk2TtBbk,124723
+geoinsights_3d/data_processing.py,sha256=ZBWDEbF2QdMPWrip-sBKYxfvFQ_JVNB-iF_Rs505YOs,17647
+geoinsights_3d/llm_integration.py,sha256=_qgq1j5gRhoy30CEm-7U2r4PfNldA42scSTfa5ERIM0,52755
+geoinsights_3d/plotting.py,sha256=_qJwuSiu2B1mf0Sd99VLBq3krQbvlbyQqTTzV5XU-98,52033
+geoinsights_3d/utils.py,sha256=irZ-FzNK9wtnP9SgrDZVe7vw6FLb6zrFCb4CBFExn60,275
+geoinsights_3d/assets/3DA logo.png,sha256=Vbe8wdkmuykdVYV-sFDjM4gWWQRTtiJkQh7ZkY2dKC0,1396604
+geoinsights_3d/demo_data/Drill_hole_geochemistry.csv,sha256=mskdR9A6U-EfJ5XCshpp41C1Xy1GzZLbiRzkrVt11Us,108817
+geoinsights_3d/demo_data/Drill_hole_lithology.csv,sha256=ilyF4x1IPh0Fkhh127e_jDaYrGPYS_1Z13WXExyRAYg,14372
+geoinsights_3d/demo_data/Drill_hole_lithology_dictionary.csv,sha256=iZzXuDWOSOoh2hVCi3tgigizTSVjnX3WheRq0ItLp0c,1404
+geoinsights_3d/demo_data/Drill_hole_location.csv,sha256=V5VW5Z0PRSJMHbTH6QjT6Mc6y8J84L-xNTSg5del8s4,2206
+geoinsights_3d-1.1012.dist-info/licenses/license,sha256=zXlDORaKl43sUWMDsf9t-0p85Pi93rByweYxC8J_Xcg,1091
+geoinsights_3d-1.1012.dist-info/METADATA,sha256=6CguSjBe6rdLrmNPuWQ_HoZurYXeGzHANzVJC8JjhxA,6051
+geoinsights_3d-1.1012.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+geoinsights_3d-1.1012.dist-info/entry_points.txt,sha256=oGFXXmvzV1gj9EiSeIxL84pBAxBu2HB_eICJZsQiZ5w,64
+geoinsights_3d-1.1012.dist-info/top_level.txt,sha256=-49sDvc4saw1igte_X00yyfUYElcsg_Eqr0c5Mvg7SI,15
+geoinsights_3d-1.1012.dist-info/RECORD,,
