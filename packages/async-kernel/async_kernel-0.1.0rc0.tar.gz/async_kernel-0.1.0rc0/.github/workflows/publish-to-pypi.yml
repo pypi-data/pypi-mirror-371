@@ -1,0 +1,81 @@
+name: Publish Python 🐍 distribution 📦 to PyPI and TestPyPI
+# ref: https://packaging.python.org/en/latest/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows/
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    name: Build distribution 📦
+    runs-on: ubuntu-latest
+    outputs:
+      tag: ${{ steps.tag_info.outputs.tag }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+          # Fetch full history for setuptools-scm
+          fetch-depth: 0
+          ref: main
+      - uses: astral-sh/setup-uv@v6
+      - name: Build a binary wheel and a source tarball
+        run: uv build
+      - name: Store the distribution packages
+        uses: actions/upload-artifact@v4
+        with:
+          name: python-package-distributions
+          path: dist/
+      - id: tag_info
+        name: Tag info
+        run: echo "tag=$(git tag --points-at HEAD)" >> $GITHUB_OUTPUT
+
+  publish-to-pypi:
+    name: >-
+      Publish Python 🐍 distribution 📦 to PyPI
+    needs:
+      - build
+    runs-on: ubuntu-latest
+    if: ${{startsWith(needs.build.outputs.tag, 'v')}}
+    environment:
+      name: pypi
+      url: https://pypi.org/p/async-kernel
+    permissions:
+      id-token: write # IMPORTANT: mandatory for trusted publishing
+
+    steps:
+      - name: Download all the dists
+        uses: actions/download-artifact@v5
+        with:
+          name: python-package-distributions
+          path: dist/
+      - name: Publish distribution 📦 to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+
+      - name: Create release on Github
+        run: gh release create ${{needs.build.outputs.tag}} './dist#release' --notes-from-tag
+
+  publish-to-testpypi:
+    name: Publish Python 🐍 distribution 📦 to TestPyPI
+    if: github.event_name == 'push'
+    needs:
+      - build
+    runs-on: ubuntu-latest
+
+    environment:
+      name: testpypi
+      url: https://test.pypi.org/p/async-kernel
+
+    permissions:
+      id-token: write # IMPORTANT: mandatory for trusted publishing
+
+    steps:
+      - name: Download all the dists
+        uses: actions/download-artifact@v5
+        with:
+          name: python-package-distributions
+          path: dist/
+      - name: Publish distribution 📦 to TestPyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          repository-url: https://test.pypi.org/legacy/
