@@ -1,0 +1,3 @@
+[console_scripts]
+dsa = src.main:main
+neetcode-rpg = src.main:main

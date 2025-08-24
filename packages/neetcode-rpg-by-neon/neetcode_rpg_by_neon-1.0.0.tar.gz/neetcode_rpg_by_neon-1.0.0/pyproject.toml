@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "neetcode-rpg-by-neon"
+version = "1.0.0"
+description = "🎮 Transform DSA practice into an addictive RPG adventure! Level up from Coding Seedling to NeetCode Deity."
+readme = "README.md"
+license = {file = "LICENSE"}
+authors = [
+  { name="Neon", email="dmcbaditya@gmail.com" }
+]
+requires-python = ">=3.8"
+dependencies = [
+    "typer>=0.9.0",
+    "rich>=13.0.0",
+    "matplotlib>=3.5.0",
+    "pillow>=9.0.0",
+]
+keywords = ["dsa", "algorithms", "data-structures", "leetcode", "neetcode", "rpg", "gamification", "learning", "education", "cli"]
+
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Education",
+    "Topic :: Education",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Games/Entertainment :: Role-Playing",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+    "Environment :: Console",
+]
+
+[project.urls]
+Homepage = "https://github.com/addynoven/neetcode-rpg"
+"Bug Reports" = "https://github.com/addynoven/neetcode-rpg/issues"
+"Source Code" = "https://github.com/addynoven/neetcode-rpg"
+Documentation = "https://github.com/addynoven/neetcode-rpg#readme"
+"Author LinkedIn" = "https://www.linkedin.com/in/aditya-sahu-34350b193/"
+"Author GitHub" = "https://github.com/addynoven"
+
+[project.scripts]
+dsa = "src.main:main"
+neetcode-rpg = "src.main:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+
+[tool.setuptools.package-data]
+"src" = ["data/*.json", "templates/*.py"]
