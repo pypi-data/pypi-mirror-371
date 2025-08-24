@@ -1,0 +1,14 @@
+classiloom/__init__.py,sha256=beMHLoQ_lHjgtWHTiquT19BjnAUzMjeTJIqeom6qkoU,86
+classiloom/cli.py,sha256=Guwkv_CbYMa1hQlzMVqajWLhzw6l1XIx-1sZ5AhJl5k,4548
+classiloom/config.py,sha256=7cfICndznvN7RwOTukSNsnF-rtviXGIXUfjWpdsI2ik,1383
+classiloom/data.py,sha256=RkDtXFi8Kf-z-DEITq00_vvIdiJewIDEwn4nlJqr0bc,2227
+classiloom/gemini.py,sha256=WV6uFQWkQUneWmGDX9LJGyo9pILNkZpz9neQQUUoprc,5982
+classiloom/metrics.py,sha256=0tEhXsrjix4ZDO9ogd1-jTdvoQDb5fo6rERIHli2n4s,2717
+classiloom/models.py,sha256=nHFe5cPb2uVpM9KuQ5jWt-le59k4AlE_tIQ36SN2cR8,3955
+classiloom/trainer.py,sha256=g30ORFKIjMos2SvW4d_7n4wh5638CTszjhHcXwtemRY,5440
+classiloom/utils.py,sha256=ilMWkysJfjKI4AMtFOOlHv3RLmo_5WuJrgKfHZXPXQQ,790
+classiloom-0.1.0.dist-info/METADATA,sha256=vG5qJ9d1Vz7GGDE7TnSmlASgYa3Vz3rUsqvixNMBmmc,1157
+classiloom-0.1.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+classiloom-0.1.0.dist-info/entry_points.txt,sha256=oYAf1W2HJfdqnLDlSvRfHesBpL1Bd6me-w8wl-tvzaY,50
+classiloom-0.1.0.dist-info/top_level.txt,sha256=wNSae_TLI_7ZGFHY1uleqbugEzLfFACOPRKcpXmiVBM,11
+classiloom-0.1.0.dist-info/RECORD,,
