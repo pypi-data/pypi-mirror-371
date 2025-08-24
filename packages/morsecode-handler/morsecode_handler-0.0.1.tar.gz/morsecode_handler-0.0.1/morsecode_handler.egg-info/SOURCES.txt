@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+morsecode_handler/__init__.py
+morsecode_handler/__main__.py
+morsecode_handler/core.py
+morsecode_handler/exceptions.py
+morsecode_handler.egg-info/PKG-INFO
+morsecode_handler.egg-info/SOURCES.txt
+morsecode_handler.egg-info/dependency_links.txt
+morsecode_handler.egg-info/entry_points.txt
+morsecode_handler.egg-info/top_level.txt
