@@ -1,0 +1,2 @@
+[console_scripts]
+opp = opp.cli:app
