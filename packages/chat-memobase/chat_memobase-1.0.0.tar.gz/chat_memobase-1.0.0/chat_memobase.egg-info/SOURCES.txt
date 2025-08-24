@@ -1,0 +1,8 @@
+LICENSE
+README.rst
+setup.py
+chat_memobase.egg-info/PKG-INFO
+chat_memobase.egg-info/SOURCES.txt
+chat_memobase.egg-info/dependency_links.txt
+chat_memobase.egg-info/requires.txt
+chat_memobase.egg-info/top_level.txt
