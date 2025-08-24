@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: manaisys-style-guide
+Version: 0.1.1
+Summary: Company-wide Python linting & formatting standards
+License: MIT
+Author: Pranjal Singh Rajput
+Author-email: pranjalsrajput@gmail.com
+Requires-Python: >=3.9,<3.13
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: black (>=23.0,<24.0)
+Requires-Dist: isort (>=5.0,<6.0)
+Requires-Dist: mypy (>=1.0,<2.0)
+Requires-Dist: pre-commit (>=3.0,<4.0)
+Requires-Dist: ruff (>=0.1.0,<0.2.0)
+Requires-Dist: typer[all] (>=0.9.0,<0.10.0)
+Description-Content-Type: text/markdown
+
+# ManAISys Python Style Guide
+
+This tool is designed to help you maintain a consistent coding style in your Python projects. It checks for common style issues and enforces best practices.
+
+## Tools Used
+- **Ruff**: A fast Python linter and formatter.
+- **Black**: The uncompromising Python code formatter.
+- **isort**: A Python utility for sorting imports.
+- **mypy**: An optional static type checker for Python.
+
+## Installation
+
+Run the following command to install the required tools:
+
+```bash
+poetry install
+```
+
+## Usage
+You can run the style checks and formatting tools using the following commands:
+
+```bash
+poetry run style-guide typecheck
+poetry run style-guide lint
+poetry run style-guide format
+poetry run style-guide all
+```
