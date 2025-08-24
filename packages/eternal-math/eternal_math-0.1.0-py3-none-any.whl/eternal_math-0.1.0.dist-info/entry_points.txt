@@ -1,0 +1,2 @@
+[console_scripts]
+eternal-math = eternal_math.cli:main

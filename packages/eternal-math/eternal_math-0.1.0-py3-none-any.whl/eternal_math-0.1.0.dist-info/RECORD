@@ -1,0 +1,12 @@
+eternal_math/__init__.py,sha256=p8IwZRpxLgU9GXLjTLvScT7zpHLO7VLoAhGz2T9VTWE,462
+eternal_math/cli.py,sha256=YMPe_dF4gX2347mdo59rhUnE2T2o8z6X6a8LLbVwr44,27581
+eternal_math/core.py,sha256=7xq_bIkH5lzZq1GLihfXIy-K-aJSdD7E5X0K9pArAoo,3295
+eternal_math/number_theory.py,sha256=pM9onmHnszAKfelI_eVtWYrVbF0HdarSS8PNIMkVV0U,9039
+eternal_math/proofs.py,sha256=L4WtZPbHcX_hXrn1ZzzhExjs7hPSfjjHPgNjoVTjHos,5739
+eternal_math/symbolic.py,sha256=xmgIOFQH8zJcotbiAJAk9zQK0fxsBKdHQtuRc0lXb4Q,8893
+eternal_math/visualization.py,sha256=Gdtbt5UwyCaW-xIlyR3J4r1tdtXsWIAS6-j3L2-IWEM,10722
+eternal_math-0.1.0.dist-info/METADATA,sha256=mclttl5HMP-TWTo49XiTyV0A6VRaB0BhUtmhMS3mLA8,6079
+eternal_math-0.1.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+eternal_math-0.1.0.dist-info/entry_points.txt,sha256=vdqZ6sR4b_7iQuQ6Uqg5HoH41lhBhyBtD0VFiosnClE,55
+eternal_math-0.1.0.dist-info/licenses/LICENSE,sha256=s_qbPtH7u14dqWYW_F-N3rPEdDIfkiF8tGWXdYzRtWQ,1072
+eternal_math-0.1.0.dist-info/RECORD,,
