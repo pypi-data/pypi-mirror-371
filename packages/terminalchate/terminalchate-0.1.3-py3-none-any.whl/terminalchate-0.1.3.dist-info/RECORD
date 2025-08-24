@@ -1,0 +1,11 @@
+terminalchate/__init__.py,sha256=WjDmvecyDIyJLYp4rCV9vsSYbQDc4L1EpYqORvEXliI,33
+terminalchate/_version.py,sha256=AFV4nl5sg2MmMjyuo2D2tm2GOSLsllI1eLMPmsuH0AM,47
+terminalchate/client.py,sha256=ki8kDg8KXnkgAfNRDcSZBH6EJA_RqLildiDfLTxRPSk,3334
+terminalchate/core.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+terminalchate/server.py,sha256=oiorLD7gXhETKCYKVcBXF2Ghs1sYhXQZdGlIGWJT1iM,5868
+terminalchate-0.1.3.dist-info/licenses/LICENSE,sha256=b4Vz4CGY7O-D4odacYImgRlWgqinLpLFxV8ibeYEwPs,1068
+terminalchate-0.1.3.dist-info/METADATA,sha256=cZEc-7hS-lNfjFxSV_Rsf_KZtBW5Us4rdS25AEpzjuI,2354
+terminalchate-0.1.3.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+terminalchate-0.1.3.dist-info/entry_points.txt,sha256=CXEaKKEyHwzSbu9hrzH3OKRpY00ul47MchgRc9LKO3Y,107
+terminalchate-0.1.3.dist-info/top_level.txt,sha256=Yz4TvfMxWvyBw9zWz9-e30byfXNDYnNijh260NaygtQ,14
+terminalchate-0.1.3.dist-info/RECORD,,
