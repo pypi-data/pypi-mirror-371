@@ -1,0 +1,10 @@
+__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+llms.py,sha256=IjG3WgmPDbNR8zvAOYDsZvSZNmDjYfPS4IpdtlI4OI8,3535
+message.py,sha256=xTPzrgiVd651EeccUoxh5h1Xo4Xhu1VpAnb6NB-p9YY,2860
+openrouter.py,sha256=zXa6huZ4QIzJpbk9GeX4fEKJsyYwZN09ZlmbkAef5ik,7857
+openrouter_provider.py,sha256=dJe_kPENFfhzC9J7q4XyglpXYq-1KPFIwsgyIdHeml8,8021
+tool.py,sha256=tUUNLosz1XhzPIwY1zHXWNM3ePs7hcVD1a_W5hWTCWk,1975
+openrouter_provider-1.0.1.dist-info/METADATA,sha256=g4NGzvYX4bY8VU3c9gEAT8XWcfT0itTTY-HiOQVb3o4,11503
+openrouter_provider-1.0.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+openrouter_provider-1.0.1.dist-info/top_level.txt,sha256=P1gRRxgxRCkgKpO2Eru8nR9svmkGy1YlKSVavfrNIFs,58
+openrouter_provider-1.0.1.dist-info/RECORD,,
