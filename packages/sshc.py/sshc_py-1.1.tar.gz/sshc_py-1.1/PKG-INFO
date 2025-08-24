@@ -1,0 +1,16 @@
+Metadata-Version: 2.4
+Name: sshc.py
+Version: 1.1
+Summary: 一個支援 GUI 的 ssh 客戶端。
+Author-email: I_am_from_taiwan <102109040j@gmail.com>
+License: MIT
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Provides-Extra: gui
+Requires-Dist: tk; extra == "gui"
+Dynamic: license-file
+
+#pytty
+
+一個支援 GUI 的 ssh 客戶端。

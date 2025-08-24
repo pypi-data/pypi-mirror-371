@@ -1,0 +1,21 @@
+[project]
+name = "sshc.py"
+version = "1.1"
+description = "一個支援 GUI 的 ssh 客戶端。"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+  { name = "I_am_from_taiwan", email = "102109040j@gmail.com" }
+]
+requires-python = ">=3.8"
+optional-dependencies = { gui = ["tk"] }
+
+[project.scripts]
+pytty = "pytty.sshshell:run"
+
+[tool.setuptools]
+packages = ["pytty"]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
