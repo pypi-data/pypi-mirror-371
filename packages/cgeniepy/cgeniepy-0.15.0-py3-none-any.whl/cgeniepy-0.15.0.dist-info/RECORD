@@ -1,0 +1,13 @@
+cgeniepy/__init__.py,sha256=0wahGieyhSwtSZyMy1FLxDpX6-HuFwFztBD3ixItOes,1323
+cgeniepy/array.py,sha256=04YY6YyhGGFNAv321DtZn66CGziFPgI6JJ651m10zdo,21913
+cgeniepy/chem.py,sha256=FqRYY2K-kv9dhco6q8-oUzkVBf7iwYJhZLhWH21UPp4,10334
+cgeniepy/ecology.py,sha256=p-u5D735wlWP6fCx1FdIXkFp__gGDYS_-h1TyCz45eI,5137
+cgeniepy/grid.py,sha256=KGqpUy3D9NkXuWjLO6T5zf60MrjpLd1RliC0SLsMafY,20894
+cgeniepy/model.py,sha256=HAf-f4Plf1jskomDDBgMzgEAjsg6aDqhRJGefu_F6mc,20502
+cgeniepy/plot.py,sha256=zsY5SGXGPeN8mT_f5aTqn_JksLqA6q6wI-y_8dWFmQc,35818
+cgeniepy/skill.py,sha256=nAENI2UFgNZyMFUGU3YuJVc9PvSwgso2lbEjCJDcdxM,14627
+cgeniepy/table.py,sha256=x_Ddao5TuvckhuAm6cPy2xm598L57n0cJw7p_yXmmQM,10282
+cgeniepy/utils.py,sha256=2zwX6ejVwPVbyw6YSP8e5YMm1d5oTZK8RtiQAn-4RNw,1161
+cgeniepy-0.15.0.dist-info/WHEEL,sha256=4n27za1eEkOnA7dNjN6C5-O2rUiw6iapszm14Uj-Qmk,79
+cgeniepy-0.15.0.dist-info/METADATA,sha256=AvjuSqFEin-83LZur1LNWlW4-tzS4pL6RDMfoulWq9k,4250
+cgeniepy-0.15.0.dist-info/RECORD,,
