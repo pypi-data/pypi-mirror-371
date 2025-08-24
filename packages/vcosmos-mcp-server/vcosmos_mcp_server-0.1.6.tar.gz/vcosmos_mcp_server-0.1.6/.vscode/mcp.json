@@ -1,0 +1,15 @@
+{
+	"inputs": [],
+	"servers": {
+		"vcosmos-mcp-local": {
+			"type": "stdio",
+			"command": "python",
+			"args": ["D:/Dev/thin_mcp/vcosmos_mcp_server/server.py"],
+        },
+        "vcosmos-mcp-server": {
+			"type": "stdio",
+			"command": "uvx",
+			"args": ["vcosmos-mcp-server"]
+        }
+	}
+}
