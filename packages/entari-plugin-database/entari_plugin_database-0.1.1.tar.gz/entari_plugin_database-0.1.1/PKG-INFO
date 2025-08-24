@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: entari-plugin-database
+Version: 0.1.1
+Summary: Entari plugin for SQLAlchemy ORM
+Author-Email: RF-Tar-Railt <rf_tar_railt@qq.com>
+License: MIT
+Requires-Python: >=3.9
+Requires-Dist: sqlalchemy>=2.0.42
+Requires-Dist: aiosqlite>=0.21.0
+Requires-Dist: graia-amnesia>=0.10.1
+Requires-Dist: tarina<0.8.0,>=0.7.1
+Requires-Dist: arclet-entari<0.16.0,>=0.15.1
+Description-Content-Type: text/markdown
+
+# entari-plugin-database
+Entari plugin for SQLAlchemy ORM
