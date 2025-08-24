@@ -1,0 +1,2 @@
+libtmux>=0.46.2
+typer-slim>=0.16.1
