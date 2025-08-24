@@ -1,0 +1,42 @@
+[project]
+name = "codex-mcp-agent"
+version = "0.1.0"
+description = "MCP server that provides agent capability backing by codex CLI"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+    {name = "Lyon Liang", email = "lyon.liang12@gmail.com"}
+]
+keywords = ["mcp", "codex", "agent"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "mcp[cli]>=1.12.4",
+    "uvicorn>=0.30.0",
+]
+
+[project.scripts]
+codex-mcp-agent = "codex_mcp_agent.server:main"
+
+[project.urls]
+Homepage = "https://github.com/1WorldCapture/codex-as-mcp"
+Repository = "https://github.com/1WorldCapture/codex-as-mcp"
+Issues = "https://github.com/1WorldCapture/codex-as-mcp/issues"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/codex_mcp_agent"]
+
+[dependency-groups]
+dev = [
+    "twine>=6.1.0",
+]
