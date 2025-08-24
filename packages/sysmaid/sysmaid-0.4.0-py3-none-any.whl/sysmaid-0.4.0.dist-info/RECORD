@@ -1,0 +1,16 @@
+sysmaid/__init__.py,sha256=Xm5DBt37hPeIi6i5zL_28B0NfIHTXvt2jJGraRfTX1A,1378
+sysmaid/maid.py,sha256=C24jzXPf_cRZk1bHQHW6U2tV40MtpePuiXbH3isVWgA,4306
+sysmaid/action/kill_process.py,sha256=RIvh_-C2FAbw68SJYEKOy0H1II8sxy5QjofWMKrxcpA,2066
+sysmaid/action/lock_volume.py,sha256=uPAfmG63yK1VFVkmm4NQCtamLh0-IisP1cEcOrvZVRQ,2466
+sysmaid/action/stop_service.py,sha256=FJgsjeN1kMwBlDGEWPBNftk165wP3CwzqYUCDI0klO4,1363
+sysmaid/condiction/is_exited.py,sha256=oJqVrHoIcUm46kpsxVLvM7fBfhyLelq6sZo27vnj2S4,1224
+sysmaid/condiction/is_running.py,sha256=POy9e_KqBoip_QOSl9_-VSnu4WktEUdu6ijGEScwMNE,838
+sysmaid/condiction/no_window.py,sha256=5_q8WdNRuAp6qy00C6FdVuTNltkI3rHTY3oV3V-2pXI,1912
+sysmaid/i18n/__init__.py,sha256=3N-MY3XPWm3ZpHz6ZQq7MgYiDF5IiGYb52JQVb4WKcc,1613
+sysmaid/i18n/en_us.py,sha256=sYkSN5YsSunRCZz505Xq2sI7TCCq5_YSLvs6mJBIoAw,336
+sysmaid/i18n/zh_cn.py,sha256=oY2w_nEGp5uNO2iSdy4qS_duzcGC4jXuuWGFe8POzIM,322
+sysmaid-0.4.0.dist-info/licenses/LICENSE,sha256=OXLcl0T2SZ8Pmy2_dmlvKuetivmyPd5m1q-Gyd-zaYY,35149
+sysmaid-0.4.0.dist-info/METADATA,sha256=9ksPFcT5FT9hRLKqjgPjmRMFy20a6PfaOAlzb1n398Q,4569
+sysmaid-0.4.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+sysmaid-0.4.0.dist-info/top_level.txt,sha256=a3jfBkYBbZ0mua_npF_8Qj1xHgUzwEmMs6lj6Td0H9U,8
+sysmaid-0.4.0.dist-info/RECORD,,
