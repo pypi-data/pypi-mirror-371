@@ -1,0 +1,5 @@
+selenium
+pyperclip
+httpx
+openai
+html2image
