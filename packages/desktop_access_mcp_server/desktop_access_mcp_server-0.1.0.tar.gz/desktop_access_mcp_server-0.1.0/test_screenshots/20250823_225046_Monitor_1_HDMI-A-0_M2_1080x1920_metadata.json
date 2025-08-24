@@ -1,0 +1,17 @@
+{
+  "timestamp": "20250823_225046",
+  "test_name": "Monitor_1_HDMI-A-0",
+  "arguments": {
+    "monitor": 2
+  },
+  "result": {
+    "format": "png",
+    "size": {
+      "width": 1080,
+      "height": 1920
+    },
+    "monitor": 2,
+    "platform": "linux"
+  },
+  "filename": "20250823_225046_Monitor_1_HDMI-A-0_M2_1080x1920.png"
+}

@@ -1,0 +1,19 @@
+{
+  "timestamp": "20250823_225050",
+  "test_name": "Monitor_0_eDP_JPEG",
+  "arguments": {
+    "format": "jpeg",
+    "monitor": 1,
+    "quality": 75
+  },
+  "result": {
+    "format": "jpeg",
+    "size": {
+      "width": 1366,
+      "height": 768
+    },
+    "monitor": 1,
+    "platform": "linux"
+  },
+  "filename": "20250823_225050_Monitor_0_eDP_JPEG_M1_1366x768.jpeg"
+}
