@@ -1,0 +1,23 @@
+Metadata-Version: 2.4
+Name: torchqubo
+Version: 0.1.0
+Summary: QUBO solvers in PyTorch (GPU supported)
+Author-email: Ding-Dang Yang <112258018@g.nccu.edu.tw>
+License: Apache-2.0
+        
+Project-URL: Example, https://github.com/Ding-Dang-Yang-ROC/torchqubo
+Keywords: QUBO,optimization,PyTorch,GPU
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: torch>=2.0
+Requires-Dist: numpy
+Dynamic: license-file
+
+# TorchQUBO
+CLI + 7 solvers.
