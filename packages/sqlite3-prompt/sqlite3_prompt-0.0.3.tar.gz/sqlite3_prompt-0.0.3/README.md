@@ -1,0 +1,112 @@
+# SQLite3-Prompt
+
+一个功能强大、支持自动补全和语法高亮的交互式 SQLite3 命令行终端。支持多语言，AI辅助，以及详细的操作记录，方便用户能便捷地进行数据库操作。该工具属于datawork系列产品，旨在帮助个人提升数据库使用能力。
+
+
+## 🔥 最新动态
+
+- 初始版本已发布，已可用。
+- 获取最新动态或要与我取得联系，可关注：https://publish.obsidian.md/xm
+
+
+## ✨ 功能特性
+
+- **智能自动补全**: 自动补全 SQL 关键字、表名、字段名
+- **语法高亮**: 在你输入时实时高亮 SQL 语句，提升可读性
+- **多行输入**: 支持将复杂的 SQL 语句分多行输入，直到以分号结尾
+- **SQL语句历史记录**: 自动保存命令历史，方便回溯和重复执行（保存至history文件）
+- **数据库历史记录**: 自动保存数据库连接历史，方便快速连接（保存至config文件）
+- **日志记录**: 记录所有SQL语句执行情况，方便调试和分析（保存至log文件）
+- **配置管理**: 支持详细的配置管理。配置文件、日志文件、操作历史记录文件都放到配置目录，支持查阅和编辑
+- **AI模板**: 执行报错时，自动生成AI辅助模板，方便快速获得AI辅助
+- **国际化**: 支持中英文两种语言，中文为主，兼容国际化
+- **跨平台**: 在 Windows, macOS 和 Linux 上均可良好运行
+- **易于使用**: 直观的命令行界面，支持标准 sqlite3 功能语句
+
+## 🚀 安装
+
+通过 `pip` 即可轻松安装：
+
+```bash
+pip install sqlite3-prompt
+```
+
+## 🖥️ 如何使用
+
+安装完成后，即可在你的终端中使用 `sqlite3-prompt` 命令，也可使用 `sqlite-prompt` 命令。
+
+### 基本用法
+
+**1. 连接到（或创建）一个数据库文件：**
+
+```bash
+sqlite-prompt my_database.db 或 sqlite3-prompt my_database.db
+```
+
+**2. 直接启动，然后输入数据库路径：**
+
+```bash
+sqlite-prompt 或 sqlite3-prompt
+```
+程序会提示你输入数据库文件的路径。
+
+### 在 IPython 中使用
+
+`sqlite3-prompt` 也可以在 IPython 等交互式环境中使用：
+
+```ipython
+In [1]: sqlite3-prompt my_data.db
+已成功连接到数据库: my_data.db
+欢迎使用Python版SQLite3工作台 V1.0 (稳定版)。
+当前配色: monokai (自定义)。
+提示: SQL语句必须以分号 (;) 结尾才能执行，支持多行输入。
+输入 .help 获取帮助。
+sqlite>
+```
+
+### 支持的元命令
+
+进入终端后，你可以像使用标准 `sqlite3` 终端一样输入 SQL 命令。所有 SQL 语句必须以分号 (`;`) 结尾才能执行。
+
+- `.tables`: 显示数据库中所有的表
+- `.help`: 显示帮助信息
+- `.exit` 或 `.quit`: 退出终端
+
+### 示例会话
+
+```sql
+sqlite> CREATE TABLE users (
+   ...>   id INTEGER PRIMARY KEY,
+   ...>   name TEXT NOT NULL,
+   ...>   email TEXT UNIQUE
+   ...> );
+命令执行成功。
+(操作耗时: 0.0023 秒)
+
+sqlite> INSERT INTO users (name, email) VALUES ('Alice', 'alice@example.com');
+命令执行成功。
+(操作耗时: 0.0012 秒)
+
+sqlite> SELECT * FROM users;
++----+-------+-------------------+
+| id | name  | email             |
++====+=======+===================+
+|  1 | Alice | alice@example.com |
++----+-------+-------------------+
+
+查询到 1 行。
+(操作耗时: 0.0008 秒)
+
+sqlite> .exit
+数据库连接已关闭。
+```
+
+
+## 📋 系统要求
+
+- Python 3.8 或更高版本
+- 依赖库：`prompt-toolkit`, `Pygments`, `tabulate`
+
+## 📜 许可证
+
+本项目基于 [MIT License](LICENSE) 开源。 
