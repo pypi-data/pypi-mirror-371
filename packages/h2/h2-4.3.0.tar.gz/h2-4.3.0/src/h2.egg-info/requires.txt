@@ -1,0 +1,2 @@
+hyperframe<7,>=6.1
+hpack<5,>=4.1
