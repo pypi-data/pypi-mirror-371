@@ -1,0 +1,42 @@
+Metadata-Version: 2.4
+Name: gingerino
+Version: 0.1.6
+Summary: Parse strings using Jinja-style templates
+Author-email: Marco Burro <marcoburro98@gmail.com>
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+
+# Gingerino
+
+[![PyPI Version](https://img.shields.io/pypi/v/gingerino)](https://pypi.org/project/gingerino/)
+
+This is a proof of concept
+
+## Installation
+
+```bash
+pip install gingerino
+```
+
+## Usage
+
+```python
+from dataclasses import dataclass
+from typing import Literal
+
+from gingerino import parserino
+
+
+@dataclass
+class UserInfo:
+    name: str
+    age: int
+    unit: Literal["years", "months"]
+
+
+template = "{{ name }} is {{ age }} {{ unit }} old"
+user = parserino(UserInfo, template, "Marco is 24 years old")
+
+print(user.name, user.age)
+# Marco 24
+```

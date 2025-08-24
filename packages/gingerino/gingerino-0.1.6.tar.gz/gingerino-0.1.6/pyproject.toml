@@ -1,0 +1,22 @@
+[project]
+name = "gingerino"
+version = "0.1.6"
+description = "Parse strings using Jinja-style templates"
+authors = [{name = "Marco Burro", email = "marcoburro98@gmail.com"}]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+[tool.setuptools.packages.find]
+include = ["gingerino*"]
+
+[tool.ruff.lint]
+select = [
+    "I001", # isort
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.1",
+    "ruff>=0.12.10",
+]

@@ -1,0 +1,14 @@
+README.md
+pyproject.toml
+gingerino/__init__.py
+gingerino/main.py
+gingerino.egg-info/PKG-INFO
+gingerino.egg-info/SOURCES.txt
+gingerino.egg-info/dependency_links.txt
+gingerino.egg-info/top_level.txt
+tests/test_new_stuff.py
+tests/test_none.py
+tests/test_parse.py
+tests/test_templates.py
+tests/test_validate.py
+tests/test_validate_types.py
