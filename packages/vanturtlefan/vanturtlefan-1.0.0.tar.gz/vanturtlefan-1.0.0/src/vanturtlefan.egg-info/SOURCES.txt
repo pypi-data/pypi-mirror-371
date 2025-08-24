@@ -1,0 +1,8 @@
+LICENSE
+README.md
+pyproject.toml
+src/vanturtlefan/__init__.py
+src/vanturtlefan.egg-info/PKG-INFO
+src/vanturtlefan.egg-info/SOURCES.txt
+src/vanturtlefan.egg-info/dependency_links.txt
+src/vanturtlefan.egg-info/top_level.txt

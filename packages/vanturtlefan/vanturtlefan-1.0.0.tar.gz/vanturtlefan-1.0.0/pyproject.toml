@@ -1,0 +1,11 @@
+[project]
+name = "vanturtlefan"
+version = "1.0.0"
+description = "Library to interface with a VanTurtle analog fan controller over I2C"
+readme = "README.md"
+requires-python = ">=3.5"
+license = { text = "MIT" }
+
+[build-system]
+requires = ["setuptools >= 72.2.0", "smbus"]
+build-backend = "setuptools.build_meta"

@@ -1,0 +1,83 @@
+# VanTurtleFan
+
+VanTurtleFan is a Python library designed to interface with a [VanTurtle analog fan controller](https://vanturtle.com/control-a-maxxfan-deluxe-with-raspberry-pi-or-esp32/) over I2C. It provides an easy-to-use API to control fan speed, direction, and power state.
+
+## Features
+
+- Turn fans on or off.
+- Adjust fan speed.
+- Reverse airflow direction.
+- Reset fan states.
+- Read if the fan is in auto hold mode.
+
+## Requirements
+
+- I2C bus support on your device (Raspberry Pi, Arduino,ESP32, etc)
+- Python 3.5 or higher
+- smbus library installed
+
+## Installation
+
+To install the library, use the following command:
+
+```bash
+pip install vanturtlefan
+```
+
+## Usage
+Here is an example of how to use the VanTurtle_Fan class:
+
+```python
+from fan_vanturtle import VanTurtle_Fan
+
+# Initialize the VanTurtle_Fan controller
+# Bus 1 is the default on raspberry pi 5
+# 0x27 is the address if all DIP switches are set to off
+fans = VanTurtle_Fan(bus=1, address=0x27)
+
+# Turn on the first fan (left on the PCB, labelled "FAN ONE")
+fans.onoff(VanTurtle_Fan.FAN_ONE)
+# Turn on the second fan
+fans.onoff(VanTurtle_Fan.FAN_TWO)
+
+# Reverse airflow direction
+fans.reverse(VanTurtle_Fan.FAN_ONE)
+# Increase the speed
+fans.faster(VanTurtle_Fan.FAN_TWO)
+# Decrease the speed
+fans.slower(VanTurtle_Fan.FAN_TWO)
+
+# Check if the fan is in temperature hold mode
+print(fans.is_autohold(VanTurtle_Fan.FAN_ONE))
+# Enable temperature hold mode
+fans.auto(VanTurtle_Fan.FAN_ONE)
+
+# Make a beeping noise
+fans.beep(VanTurtle_Fan.FAN_ONE)
+```
+
+## Troubleshooting
+
+Make sure that the RJ45 cables are connected correctly and that the pins on one end are in the same order as on the other.
+
+Check that the LEDs on the board are turning on when executing a command. If they remain off your commands might not be reaching the controller of there is less than 3.3 volts on the VCC. If both LEDs are continuously on but faint, the controller has power but has not been initialised over I2C yet.
+
+## Addresses
+
+Move the DIP switches on the to change the I2C address of the controller. This allows you to use multiple fan controllers on the same bus if you'd like.
+
+Use the table below to find your address, or scan for it.
+
+| 1 (A0)     | 2 (A1)     | 3 (A3)     | Address |
+| ---------- | ---------- | ---------- | ------- |
+| On (up)    | On (up)    | On (up)    | 20      |
+| Off (down) | On (up)    | On (up)    | 21      |
+| On (up)    | Off (down) | On (up)    | 22      |
+| Off (down) | Off (down) | On (up)    | 23      |
+| On (up)    | On (up)    | Off (down) | 24      |
+| Off (down) | On (up)    | Off (down) | 25      |
+| On (up)    | Off (down) | Off (down) | 26      |
+| Off (down) | Off (down) | Off (down) | 27      |
+
+## License
+This project is licensed under the MIT License. See the LICENSE file for details.
