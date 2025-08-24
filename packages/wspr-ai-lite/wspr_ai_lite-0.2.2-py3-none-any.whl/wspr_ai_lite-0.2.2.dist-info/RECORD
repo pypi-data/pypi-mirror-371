@@ -1,0 +1,9 @@
+wspr_ai_lite/__init__.py,sha256=OaemC-aArq2ZKvF0HqEdA_6Pr6dIiBMAiS_pjiGIHso,137
+wspr_ai_lite/cli.py,sha256=7N-SI2zeKeBWCHRC_q6Cc_u2c7Rzd6MpXnVg6bLm-ho,3875
+wspr_ai_lite/ingest.py,sha256=JZjuQhlZ4d6EGbpgMfaLtYSFyBRKUZTV4pKAx0_wzc8,6672
+wspr_ai_lite/wspr_app.py,sha256=TgtKOqDVoEfzQhaEJOmD2fZLV0QcRSBtxNG28utNRnY,23919
+wspr_ai_lite-0.2.2.dist-info/METADATA,sha256=upfMDhOF7eCWuG8Y80GchafcWzXq0zwCykhGjn50b3w,6700
+wspr_ai_lite-0.2.2.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+wspr_ai_lite-0.2.2.dist-info/entry_points.txt,sha256=-CLoulAlzN5e9ET538VuEU68NdEGrTQOGqyq9wTI6Ks,106
+wspr_ai_lite-0.2.2.dist-info/licenses/LICENSE,sha256=Btzdu2kIoMbdSp6OyCLupB1aRgpTCJ_szMimgEnpkkE,1056
+wspr_ai_lite-0.2.2.dist-info/RECORD,,
