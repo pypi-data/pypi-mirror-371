@@ -1,0 +1,42 @@
+Metadata-Version: 2.4
+Name: fabrial-oven-control
+Version: 0.1.2
+Summary: Fabrial plugin for controlling a Quincy 10 GCE lab oven, plus an oven interface and utility functions other plugins can use to control other ovens.
+Project-URL: Repository, https://github.com/Maughan-Lab/fabrial-oven-control
+Author-email: Drew Whitney <drewlwhitney@gmail.com>
+Maintainer-email: Drew Whitney <drewlwhitney@gmail.com>
+License-File: LICENSE
+Requires-Python: >=3.13
+Requires-Dist: fabrial
+Requires-Dist: minimalmodbus>=2.1.1
+Requires-Dist: pyqt6>=6.9.1
+Requires-Dist: pyserial==3.5
+Description-Content-Type: text/markdown
+
+[Fabrial](https://pypi.org/project/fabrial/) plugin for controlling a Quince 10 GCE lab oven.
+
+## Categories
+
+### Quince 10 GCE Lab Oven
+
+Steps for controlling the oven.
+
+#### `Set Setpoint`
+
+Set the oven's setpoint and wait for the temperature to stabilize at the setpoint.
+
+#### `Set Setpoint (No Stabilization)`
+
+Set the oven's setpoint without waiting for the temperature to stabilize.
+
+#### `Increment Setpoint`
+
+Increment the oven's setpoint and wait the temperature to stabilize at the setpoint.
+
+#### `Record Temperature`
+
+Record the oven's current temperature once.
+
+#### `Record Setpoint`
+
+Record the oven's current setpoint once.

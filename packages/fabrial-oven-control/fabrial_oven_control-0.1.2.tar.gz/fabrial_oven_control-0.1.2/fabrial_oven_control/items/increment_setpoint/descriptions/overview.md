@@ -1,0 +1,1 @@
+Increment the oven's setpoint and wait for it to stabilize, recording the temperature on an interval.
