@@ -1,0 +1,656 @@
+Metadata-Version: 2.4
+Name: mcp-sqlserver-filesystem
+Version: 0.1.6
+Summary: Enhanced MCP server for SQL Server and filesystem access with dual interface support (Web UI and Desktop Application)
+Project-URL: Homepage, https://github.com/ppengit/mcp-sqlserver-filesystem
+Project-URL: Repository, https://github.com/ppengit/mcp-sqlserver-filesystem
+Project-URL: Issues, https://github.com/ppengit/mcp-sqlserver-filesystem/issues
+Author-email: PJ <peng.it@qq.com>
+License: MIT
+License-File: LICENSE
+Keywords: cross-platform,database,desktop-app,dual-interface,filesystem,interactive,mcp,native-app,rust,sqlserver,tauri,web-ui
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: MacOS X
+Classifier: Environment :: Web Environment
+Classifier: Environment :: Win32 (MS Windows)
+Classifier: Environment :: X11 Applications
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Database
+Classifier: Topic :: Desktop Environment
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Software Development :: User Interfaces
+Classifier: Topic :: System :: Filesystems
+Requires-Python: >=3.11
+Requires-Dist: aiofiles>=23.0.0
+Requires-Dist: aiohttp>=3.8.0
+Requires-Dist: fastapi>=0.115.0
+Requires-Dist: fastmcp>=2.0.0
+Requires-Dist: jinja2>=3.1.0
+Requires-Dist: mcp>=1.9.3
+Requires-Dist: psutil>=7.0.0
+Requires-Dist: pydantic>=2.0.0
+Requires-Dist: pyodbc>=5.0.0
+Requires-Dist: python-dotenv>=1.0.0
+Requires-Dist: sqlalchemy>=2.0.0
+Requires-Dist: uvicorn>=0.30.0
+Requires-Dist: websockets>=13.0.0
+Provides-Extra: desktop
+Requires-Dist: psutil>=7.0.0; extra == 'desktop'
+Provides-Extra: dev
+Requires-Dist: black>=23.0.0; extra == 'dev'
+Requires-Dist: bump2version>=1.0.1; extra == 'dev'
+Requires-Dist: flake8>=6.0.0; extra == 'dev'
+Requires-Dist: isort>=5.12.0; extra == 'dev'
+Requires-Dist: maturin>=1.8.7; extra == 'dev'
+Requires-Dist: mypy>=1.0.0; extra == 'dev'
+Requires-Dist: pillow>=11.2.1; extra == 'dev'
+Requires-Dist: pre-commit>=3.0.0; extra == 'dev'
+Requires-Dist: pytest-asyncio>=0.21.0; extra == 'dev'
+Requires-Dist: pytest-cov>=4.0.0; extra == 'dev'
+Requires-Dist: pytest-timeout>=2.1.0; extra == 'dev'
+Requires-Dist: pytest>=7.0.0; extra == 'dev'
+Requires-Dist: ruff>=0.11.0; extra == 'dev'
+Requires-Dist: setuptools-rust>=1.11.1; extra == 'dev'
+Requires-Dist: twine>=6.1.0; extra == 'dev'
+Description-Content-Type: text/markdown
+
+# MCP SQL Server Filesystem
+
+🚀 **Enhanced MCP server** for SQL Server database and filesystem access with **dual interface support** (Web UI and Desktop Application).
+
+*Read this in other languages: [English](#english) | [中文](#中文)*
+
+---
+
+## English
+
+### ✨ Features
+
+- 🗄️ **Complete SQL Server Support** - Execute all SQL commands with detailed operation tracking
+- 📁 **Full Filesystem Access** - Read/write files with advanced security controls
+- 🌐 **Web UI Interface** - Real-time query results display with modern responsive design  
+- 🖥️ **Desktop Application** - Cross-platform native desktop app with intelligent fallback to Web UI
+- 🔍 **Smart Environment Detection** - Auto-adapts to SSH Remote, WSL, Local environments
+- 🔐 **Enhanced Connection Parameters** - Built-in support for `TrustServerCertificate=true`, `Encrypt=false`, `MultipleActiveResultSets=true`
+- ⚡ **Dual Interface Architecture** - Choose between Web UI and native desktop experience
+- 🎨 **Modern UI Design** - Responsive design with professional styling
+- 🔄 **Real-time Communication** - WebSocket-based live updates
+- 📊 **Detailed Operation Tracking** - INSERT/UPDATE/DELETE operations show affected records
+
+### 🚀 Quick Start
+
+#### 📦 Zero-Installation Usage (Recommended)
+
+```bash
+# Install uv (if not already installed)
+pip install uv
+
+# Run directly - no need to clone repository or install Rust!
+uvx mcp-sqlserver-filesystem@latest
+```
+
+#### 🧪 Testing Both Interfaces
+
+```bash
+# Test Web UI (browser-based interface)
+uvx mcp-sqlserver-filesystem@latest --test-web
+
+# Test Desktop Application (native app with auto-fallback)
+uvx mcp-sqlserver-filesystem@latest --test-desktop
+```
+
+### 🖥️ Desktop Application
+
+#### Features
+- **Zero Rust Installation Required**: Uses pre-compiled binaries with intelligent fallback
+- **Cross-platform Support**: Windows, macOS, Linux
+- **Auto-Fallback System**: Automatically switches to Web UI if desktop app unavailable  
+- **Modern Interface**: Professional design with tabbed navigation
+- **Real-time Updates**: WebSocket communication with backend
+- **No Dependencies**: Just needs uv + ODBC Driver
+
+#### How It Works
+1. **First Priority**: Uses pre-compiled desktop binary (if available)
+2. **Smart Fallback**: Automatically launches Web UI if desktop unavailable
+3. **Zero Maintenance**: No user installation or setup required
+
+### 📋 System Requirements
+
+**All platforms:**
+1. **Python 3.11+**
+2. **ODBC Driver for SQL Server** ⭐ **Critical!**
+3. **uv** (for package execution)
+
+**Windows users:**
+```bash
+# Check Python version
+python --version
+
+# Check ODBC drivers
+python -c "import pyodbc; print([d for d in pyodbc.drivers() if 'SQL Server' in d])"
+
+# Install ODBC Driver (choose one method):
+# Method 1: winget (recommended)
+winget install Microsoft.ODBCDriverforSQLServer
+
+# Method 2: Chocolatey
+choco install sqlserver-odbcdriver
+```
+
+**Download links:**
+- [ODBC Driver 18](https://go.microsoft.com/fwlink/?linkid=2249006) (latest)
+- [ODBC Driver 17](https://go.microsoft.com/fwlink/?linkid=2249005) (stable)
+- [All versions](https://docs.microsoft.com/en-us/sql/connect/odbc/download-odbc-driver-for-sql-server)
+
+### 🔧 Augment Code Configuration
+
+#### Option 1: Complete Setup (Database + Filesystem)
+
+```json
+{
+  "mcpServers": {
+    "mcp-sqlserver-filesystem": {
+      "command": "uvx",
+      "args": ["mcp-sqlserver-filesystem@latest"],
+      "timeout": 600,
+      "env": {
+        "DB_SERVER": "localhost",
+        "DB_DATABASE": "your_database", 
+        "DB_USE_WINDOWS_AUTH": "true",
+        "DB_TRUST_SERVER_CERTIFICATE": "true",
+        "FS_ALLOWED_PATHS": "C:\\Users\\YourName\\Documents,D:\\Projects",
+        "FS_ALLOWED_EXTENSIONS": ".txt,.md,.py,.json,.sql,.csv",
+        "FS_IGNORE_FILE_LOCKS": "true"
+      },
+      "autoApprove": [
+        "sql_query", "list_tables", "get_table_schema",
+        "read_file", "write_file", "list_directory"
+      ]
+    }
+  }
+}
+```
+
+#### Option 2: SQL Server Authentication + Full Filesystem Access
+
+```json
+{
+  "mcpServers": {
+    "mcp-sqlserver-filesystem": {
+      "command": "uvx", 
+      "args": ["mcp-sqlserver-filesystem@latest"],
+      "timeout": 600,
+      "env": {
+        "DB_SERVER": "your-server",
+        "DB_DATABASE": "your_database",
+        "DB_USE_WINDOWS_AUTH": "false",
+        "DB_USERNAME": "sa",
+        "DB_PASSWORD": "your_password",
+        "FS_ALLOWED_PATHS": "*",
+        "FS_ALLOWED_EXTENSIONS": "*.*",
+        "FS_IGNORE_FILE_LOCKS": "true"
+      },
+      "autoApprove": [
+        "sql_query", "list_tables", "get_table_schema",
+        "read_file", "write_file", "list_directory"
+      ]
+    }
+  }
+}
+```
+
+#### Option 3: Security-Restricted Mode (Production)
+
+```json
+{
+  "mcpServers": {
+    "mcp-sqlserver-filesystem": {
+      "command": "uvx",
+      "args": ["mcp-sqlserver-filesystem@latest"],
+      "timeout": 600,
+      "env": {
+        "DB_SERVER": "prod-server.company.com",
+        "DB_DATABASE": "ProductionDB", 
+        "DB_USE_WINDOWS_AUTH": "false",
+        "DB_USERNAME": "readonly_user",
+        "DB_PASSWORD": "secure_password",
+        "FS_ALLOWED_PATHS": "C:\\Projects\\Safe,D:\\Data\\ReadOnly",
+        "FS_ALLOWED_EXTENSIONS": ".txt,.log,.json,.csv", 
+        "FS_ENABLE_WRITE": "false",
+        "FS_ENABLE_DELETE": "false",
+        "SEC_ENABLE_SQL_PROTECTION": "true"
+      },
+      "autoApprove": [
+        "sql_query", "list_tables", "get_table_schema", 
+        "read_file", "list_directory"
+      ]
+    }
+  }
+}
+```
+
+### 🛠️ Environment Variables
+
+#### Database Configuration
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `DB_SERVER` | `localhost` | SQL Server hostname or IP |
+| `DB_DATABASE` | `master` | Database name |
+| `DB_USE_WINDOWS_AUTH` | `true` | Use Windows Authentication |
+| `DB_USERNAME` | - | SQL Server username (if not using Windows auth) |
+| `DB_PASSWORD` | - | SQL Server password (if not using Windows auth) |
+| `DB_TRUST_SERVER_CERTIFICATE` | `true` | Trust server certificate |
+| `DB_ENCRYPT` | `false` | Enable connection encryption |
+| `DB_MULTIPLE_ACTIVE_RESULT_SETS` | `true` | Enable MARS |
+
+#### Filesystem Configuration  
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `FS_ALLOWED_PATHS` | `[]` | Allowed base paths (empty or `*` = allow all) |
+| `FS_ALLOWED_EXTENSIONS` | `[]` | Allowed file extensions (empty or `*.*` = allow all) |
+| `FS_ENABLE_WRITE` | `true` | Enable write operations |
+| `FS_ENABLE_DELETE` | `true` | Enable delete operations |
+| `FS_IGNORE_FILE_LOCKS` | `true` | Ignore file locks for better compatibility |
+| `FS_MAX_FILE_SIZE` | `1073741824` | Maximum file size (1GB) |
+
+#### Security Configuration
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `SEC_ENABLE_SQL_PROTECTION` | `false` | Enable SQL injection protection |
+| `SEC_MAX_QUERY_LENGTH` | `100000` | Maximum SQL query length |
+| `SEC_ENABLE_QUERY_LOGGING` | `true` | Enable query logging |
+
+### 📚 Available Tools
+
+#### Database Operations
+- `sql_query` - Execute SELECT queries with detailed results
+- `list_tables` - List all database tables  
+- `get_table_schema` - Get detailed table structure information
+
+#### Filesystem Operations  
+- `read_file` - Read file contents with encoding detection
+- `write_file` - Write file contents with confirmation
+- `list_directory` - List directory contents with metadata
+
+### 🎯 Usage Examples
+
+#### SQL Operations with Detailed Tracking
+```python
+# Execute query - shows column names, data types, and row counts
+result = sql_query("SELECT TOP 10 * FROM users ORDER BY created_date DESC")
+
+# INSERT operation - shows exactly which records were inserted  
+result = sql_query("INSERT INTO users (name, email) VALUES ('John', 'john@example.com')")
+
+# UPDATE operation - shows affected records before and after
+result = sql_query("UPDATE users SET status = 'active' WHERE last_login > '2024-01-01'") 
+
+# DELETE operation - shows exactly which records were deleted
+result = sql_query("DELETE FROM users WHERE status = 'inactive'")
+```
+
+#### Filesystem Operations with Security
+```python
+# Read files (supports locked files)
+content = read_file("C:/Projects/config.json") 
+
+# Write files with confirmation
+write_file("C:/Projects/output.txt", "Hello World!")
+
+# List directories with metadata
+files = list_directory("C:/Projects")
+```
+
+### 🔧 Development Setup (Optional)
+
+Only needed if you want to contribute or build from source:
+
+```bash
+# Clone repository
+git clone https://github.com/ppengit/mcp-sqlserver-filesystem.git
+cd mcp-sqlserver-filesystem
+
+# Install development dependencies
+pip install -e ".[dev]"
+
+# Run tests
+python -m pytest
+
+# Run from source
+python -m mcp_sqlserver_filesystem --test-web
+```
+
+### 🚨 Troubleshooting
+
+#### Common Issues
+
+1. **"No module named 'pyodbc'"**
+   ```bash
+   # Install ODBC driver first, then retry
+   winget install Microsoft.ODBCDriverforSQLServer
+   ```
+
+2. **Connection timeout issues**
+   ```json
+   "env": {
+     "DB_CONNECTION_TIMEOUT": "60",
+     "DB_COMMAND_TIMEOUT": "120"
+   }
+   ```
+
+3. **Desktop app not launching**
+   - No problem! The system automatically falls back to Web UI
+   - Check browser opens at `http://localhost:8765`
+
+4. **File access denied**
+   ```json
+   "env": {
+     "FS_IGNORE_FILE_LOCKS": "true"
+   }
+   ```
+
+---
+
+## 中文
+
+### ✨ 主要功能
+
+- 🗄️ **完整SQL Server支持** - 执行所有SQL命令，详细跟踪操作记录
+- 📁 **全面文件系统访问** - 读写文件，支持高级安全控制
+- 🌐 **Web UI界面** - 实时查询结果显示，现代响应式设计
+- 🖥️ **桌面应用程序** - 跨平台原生桌面应用，智能回退到Web UI
+- 🔍 **智能环境检测** - 自动适配SSH远程、WSL、本地环境
+- 🔐 **增强连接参数** - 内置支持`TrustServerCertificate=true`、`Encrypt=false`、`MultipleActiveResultSets=true`
+- ⚡ **双界面架构** - 在Web UI和原生桌面体验之间选择
+- 🎨 **现代UI设计** - 响应式设计，专业样式
+- 🔄 **实时通信** - 基于WebSocket的实时更新
+- 📊 **详细操作跟踪** - INSERT/UPDATE/DELETE操作显示受影响的具体记录
+
+### 🚀 快速开始
+
+#### 📦 零安装使用方式（推荐）
+
+```bash
+# 安装uv（如果尚未安装）
+pip install uv
+
+# 直接运行 - 无需克隆仓库或安装Rust！
+uvx mcp-sqlserver-filesystem@latest
+```
+
+#### 🧪 测试两种界面
+
+```bash
+# 测试Web UI（基于浏览器的界面）
+uvx mcp-sqlserver-filesystem@latest --test-web
+
+# 测试桌面应用（原生应用，自动回退）
+uvx mcp-sqlserver-filesystem@latest --test-desktop
+```
+
+### 🖥️ 桌面应用
+
+#### 功能特性
+- **无需安装Rust**：使用预编译二进制文件，智能回退机制
+- **跨平台支持**：Windows、macOS、Linux
+- **自动回退系统**：桌面应用不可用时自动切换到Web UI
+- **现代界面**：专业设计，标签页导航
+- **实时更新**：与后端的WebSocket通信
+- **零依赖**：只需要uv + ODBC驱动
+
+#### 工作原理
+1. **首选方案**：使用预编译的桌面二进制文件（如果可用）
+2. **智能回退**：桌面应用不可用时自动启动Web UI
+3. **零维护**：用户无需安装或设置
+
+### 📋 系统要求
+
+**所有平台：**
+1. **Python 3.11+**
+2. **ODBC Driver for SQL Server** ⭐ **必需！**
+3. **uv**（用于包执行）
+
+**Windows用户：**
+```bash
+# 检查Python版本
+python --version
+
+# 检查ODBC驱动
+python -c "import pyodbc; print([d for d in pyodbc.drivers() if 'SQL Server' in d])"
+
+# 安装ODBC驱动（选择一种方法）：
+# 方法1：winget（推荐）
+winget install Microsoft.ODBCDriverforSQLServer
+
+# 方法2：Chocolatey
+choco install sqlserver-odbcdriver
+```
+
+### 🔧 Augment Code配置
+
+#### 方案1：完整设置（数据库+文件系统）
+
+```json
+{
+  "mcpServers": {
+    "mcp-sqlserver-filesystem": {
+      "command": "uvx",
+      "args": ["mcp-sqlserver-filesystem@latest"],
+      "timeout": 600,
+      "env": {
+        "DB_SERVER": "localhost",
+        "DB_DATABASE": "your_database",
+        "DB_USE_WINDOWS_AUTH": "true", 
+        "DB_TRUST_SERVER_CERTIFICATE": "true",
+        "FS_ALLOWED_PATHS": "C:\\Users\\YourName\\Documents,D:\\Projects",
+        "FS_ALLOWED_EXTENSIONS": ".txt,.md,.py,.json,.sql,.csv",
+        "FS_IGNORE_FILE_LOCKS": "true"
+      },
+      "autoApprove": [
+        "sql_query", "list_tables", "get_table_schema",
+        "read_file", "write_file", "list_directory"
+      ]
+    }
+  }
+}
+```
+
+#### 方案2：SQL Server认证 + 文件系统全访问
+
+```json
+{
+  "mcpServers": {
+    "mcp-sqlserver-filesystem": {
+      "command": "uvx",
+      "args": ["mcp-sqlserver-filesystem@latest"],
+      "timeout": 600, 
+      "env": {
+        "DB_SERVER": "your-server",
+        "DB_DATABASE": "your_database",
+        "DB_USE_WINDOWS_AUTH": "false",
+        "DB_USERNAME": "sa",
+        "DB_PASSWORD": "your_password",
+        "FS_ALLOWED_PATHS": "*",
+        "FS_ALLOWED_EXTENSIONS": "*.*",
+        "FS_IGNORE_FILE_LOCKS": "true"
+      },
+      "autoApprove": [
+        "sql_query", "list_tables", "get_table_schema",
+        "read_file", "write_file", "list_directory"
+      ]
+    }
+  }
+}
+```
+
+#### 方案3：安全限制模式（生产环境）
+
+```json
+{
+  "mcpServers": {
+    "mcp-sqlserver-filesystem": {
+      "command": "uvx",
+      "args": ["mcp-sqlserver-filesystem@latest"],
+      "timeout": 600,
+      "env": {
+        "DB_SERVER": "prod-server.company.com",
+        "DB_DATABASE": "ProductionDB",
+        "DB_USE_WINDOWS_AUTH": "false", 
+        "DB_USERNAME": "readonly_user",
+        "DB_PASSWORD": "secure_password",
+        "FS_ALLOWED_PATHS": "C:\\Projects\\Safe,D:\\Data\\ReadOnly",
+        "FS_ALLOWED_EXTENSIONS": ".txt,.log,.json,.csv",
+        "FS_ENABLE_WRITE": "false",
+        "FS_ENABLE_DELETE": "false",
+        "SEC_ENABLE_SQL_PROTECTION": "true"
+      },
+      "autoApprove": [
+        "sql_query", "list_tables", "get_table_schema",
+        "read_file", "list_directory"
+      ]
+    }
+  }
+}
+```
+
+### 🛠️ 环境变量
+
+#### 数据库配置
+| 变量 | 默认值 | 描述 |
+|------|-------|------|
+| `DB_SERVER` | `localhost` | SQL Server主机名或IP |
+| `DB_DATABASE` | `master` | 数据库名称 |
+| `DB_USE_WINDOWS_AUTH` | `true` | 使用Windows认证 |
+| `DB_USERNAME` | - | SQL Server用户名（非Windows认证时） |
+| `DB_PASSWORD` | - | SQL Server密码（非Windows认证时） |
+| `DB_TRUST_SERVER_CERTIFICATE` | `true` | 信任服务器证书 |
+| `DB_ENCRYPT` | `false` | 启用连接加密 |
+| `DB_MULTIPLE_ACTIVE_RESULT_SETS` | `true` | 启用MARS |
+
+#### 文件系统配置
+| 变量 | 默认值 | 描述 |
+|------|-------|------|
+| `FS_ALLOWED_PATHS` | `[]` | 允许的基路径（空或`*` = 允许全部） |
+| `FS_ALLOWED_EXTENSIONS` | `[]` | 允许的文件扩展名（空或`*.*` = 允许全部） |
+| `FS_ENABLE_WRITE` | `true` | 启用写操作 |
+| `FS_ENABLE_DELETE` | `true` | 启用删除操作 |
+| `FS_IGNORE_FILE_LOCKS` | `true` | 忽略文件锁定，提高兼容性 |
+| `FS_MAX_FILE_SIZE` | `1073741824` | 最大文件大小（1GB） |
+
+#### 安全配置
+| 变量 | 默认值 | 描述 |
+|------|-------|------|
+| `SEC_ENABLE_SQL_PROTECTION` | `false` | 启用SQL注入保护 |
+| `SEC_MAX_QUERY_LENGTH` | `100000` | 最大SQL查询长度 |
+| `SEC_ENABLE_QUERY_LOGGING` | `true` | 启用查询日志 |
+
+### 📚 可用工具
+
+#### 数据库操作
+- `sql_query` - 执行SELECT查询，提供详细结果
+- `list_tables` - 列出所有数据库表
+- `get_table_schema` - 获取详细表结构信息
+
+#### 文件系统操作
+- `read_file` - 读取文件内容，自动检测编码
+- `write_file` - 写入文件内容，需要确认
+- `list_directory` - 列出目录内容及元数据
+
+### 🎯 使用示例
+
+#### 带详细跟踪的SQL操作
+```python
+# 执行查询 - 显示列名、数据类型和行数
+result = sql_query("SELECT TOP 10 * FROM users ORDER BY created_date DESC")
+
+# INSERT操作 - 显示插入的具体记录
+result = sql_query("INSERT INTO users (name, email) VALUES ('John', 'john@example.com')")
+
+# UPDATE操作 - 显示更新前后的受影响记录
+result = sql_query("UPDATE users SET status = 'active' WHERE last_login > '2024-01-01'")
+
+# DELETE操作 - 显示删除的具体记录
+result = sql_query("DELETE FROM users WHERE status = 'inactive'")
+```
+
+#### 带安全控制的文件系统操作
+```python
+# 读取文件（支持被锁定的文件）
+content = read_file("C:/Projects/config.json")
+
+# 写入文件并确认
+write_file("C:/Projects/output.txt", "Hello World!")
+
+# 列出目录及元数据
+files = list_directory("C:/Projects")
+```
+
+### 🔧 开发设置（可选）
+
+仅在希望贡献代码或从源码构建时需要：
+
+```bash
+# 克隆仓库
+git clone https://github.com/ppengit/mcp-sqlserver-filesystem.git
+cd mcp-sqlserver-filesystem
+
+# 安装开发依赖
+pip install -e ".[dev]"
+
+# 运行测试
+python -m pytest
+
+# 从源码运行
+python -m mcp_sqlserver_filesystem --test-web
+```
+
+### 🚨 故障排除
+
+#### 常见问题
+
+1. **"No module named 'pyodbc'"**
+   ```bash
+   # 先安装ODBC驱动，然后重试
+   winget install Microsoft.ODBCDriverforSQLServer
+   ```
+
+2. **连接超时问题**
+   ```json
+   "env": {
+     "DB_CONNECTION_TIMEOUT": "60",
+     "DB_COMMAND_TIMEOUT": "120"
+   }
+   ```
+
+3. **桌面应用无法启动**
+   - 没问题！系统会自动回退到Web UI
+   - 检查浏览器是否在`http://localhost:8765`打开
+
+4. **文件访问被拒绝**
+   ```json
+   "env": {
+     "FS_IGNORE_FILE_LOCKS": "true"
+   }
+   ```
+
+### 📖 更多信息
+
+- 🌟 **GitHub**: [mcp-sqlserver-filesystem](https://github.com/ppengit/mcp-sqlserver-filesystem)
+- 📦 **PyPI**: [mcp-sqlserver-filesystem](https://pypi.org/project/mcp-sqlserver-filesystem/)
+- 🐛 **问题报告**: [GitHub Issues](https://github.com/ppengit/mcp-sqlserver-filesystem/issues)
+
+---
+
+## License
+
+MIT License - see [LICENSE](LICENSE) file for details.
+
+## Author
+
+**PJ** - [peng.it@qq.com](mailto:peng.it@qq.com)
