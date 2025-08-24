@@ -1,0 +1,3 @@
+[console_scripts]
+terminalchat = terminalchate.client:main
+terminalchat-server = terminalchate.server:main

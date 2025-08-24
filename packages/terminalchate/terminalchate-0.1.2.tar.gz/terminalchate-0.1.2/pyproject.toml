@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "terminalchate"
+version = "0.1.2"
+description = "Tiny terminal chat: async TCP server + CLI client"
+requires-python = ">=3.13"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [ { name = "Enver Celik" } ]
+keywords = ["chat", "asyncio", "terminal", "tcp"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.13",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Communications :: Chat"
+]
+
+
+[project.urls]
+Homepage = "https://github.com/EnverDev/terminalchat"
+Issues = "https://github.com/EnverDev/terminalchat/issues"
+
+
+[project.scripts]
+terminalchat-server = "terminalchate.server:main"
+terminalchat = "terminalchate.client:main"
+
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+
+[tool.setuptools.package-data]
+terminalchat = []
