@@ -1,0 +1,136 @@
+Metadata-Version: 2.4
+Name: watershed-delineation
+Version: 0.1.1
+Summary: A Python package for delineating watersheds from a DEM and pour point.
+Author-email: FYEC <f.yunusemre@gmail.com>
+License: MIT
+Project-URL: Homepage, https://github.com/fyec/watershed-delineation
+Project-URL: Bug Tracker, https://github.com/fyec/watershed-delineation/issues
+Keywords: hydrology,watershed,gis,geospatial,whitebox-tools
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: GIS
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: geopandas
+Requires-Dist: rasterio
+Requires-Dist: whitebox
+Requires-Dist: pyproj
+Requires-Dist: numpy
+Requires-Dist: shapely
+
+# Watershed Delineation
+
+A Python package for automatic watershed delineation from a Digital Elevation Model (DEM) and a pour point (longitude & latitude).  
+It uses [WhiteboxTools](https://github.com/jblindsay/whitebox-tools), [GeoPandas](https://geopandas.org/), and [Rasterio](https://rasterio.readthedocs.io/) to perform hydrologic analysis and export shapefiles with watershed attributes.
+
+---
+
+## 📦 Installation
+
+```bash
+pip install watershed-delineation
+```
+
+Requirements: Python 3.9 or later. Dependencies like `rasterio` and `geopandas` ship wheels for most platforms, but a recent `pip` is recommended.
+
+---
+
+## 🚀 Usage
+
+### From Python
+
+```python
+from watershed_delineation.core import delineate_watershed
+
+# Input parameters
+dem_path = r"F:\data\dem.tif"
+pour_lon = 32.561170
+pour_lat = 39.835840
+output_dir = r"C:\results"
+watershed_name = "my_basin"
+
+# Run delineation
+result_path = delineate_watershed(
+    dem_path=dem_path,
+    pour_lon=pour_lon,
+    pour_lat=pour_lat,
+    output_dir=output_dir,
+    name=watershed_name,
+    export_lfp=True   # also export Longest Flow Path
+)
+
+print("Watershed shapefile saved at:", result_path)
+```
+
+---
+
+### From the Command Line
+
+After installation, run:
+
+```bash
+delineate_watershed "F:\data\dem.tif" 32.561170 39.835840 -o "C:\results" -n "my_basin" --export-lfp
+```
+
+Arguments:
+
+- `dem_file` → Path to DEM raster (`.tif`)
+- `pour_lon` → Longitude of pour point
+- `pour_lat` → Latitude of pour point
+- `-o`, `--output` → Output directory (default: current dir)
+- `-n`, `--name` → Base name of shapefile (default: watershed_lat_lon)
+- `--export-lfp` → Export Longest Flow Path shapefile
+
+---
+
+## 📂 Output
+
+- **`my_basin.shp`** → Watershed polygon shapefile with attributes:
+  - Area, perimeter
+  - Longest flow path length
+  - Form factor, circularity ratio
+  - Elevation statistics (min, max, mean)
+  - Mean slope
+  - Drainage density
+  - Pour point coordinates
+
+- **`my_basin_lfp.shp`** *(optional)* → Longest flow path polyline shapefile
+
+---
+
+## 🛠 Development
+
+Clone and install in editable mode:
+
+```bash
+git clone https://github.com/fyec/watershed-delineation.git
+cd watershed-delineation
+pip install -e .
+```
+
+Rebuild after code changes with:
+
+```bash
+python -m build
+```
+
+---
+
+## 📌 Project Links
+
+- [Homepage](https://github.com/fyec/watershed-delineation)  
+- [Bug Tracker](https://github.com/fyec/watershed-delineation/issues)
+
+---
+
+## 👤 Author
+
+Developed by **FYEC**  
+Date: August 2025  
+License: MIT
