@@ -1,0 +1,50 @@
+# V1.0.1.2
+
+- 删除代码背景窗口显示
+
+- 相机浮动范围增大
+
+- 间隔误差范围增大
+
+- 间隔最小值更改为0.3
+
+--- 
+
+本库用于渲染并生成输入代码的视频，视频视角跟随光标移动。
+
+***使用`manim`进行动画渲染，使用前请确保`manim`能够正常运行。**
+
+本库提供`CodeVideo`，你可以使用它创建一个视频对象。参数如下：
+
+```python
+CodeVideo(video_name="CodeVideo", interval=0.3, floating_interval=True, floating_camera=True, 
+          scale=0.3, paragraph_config={'font':'Consolas'}, **kwargs)
+```
+
+#### 参数说明
+
+`video_name`：用于设置视频名称，**必须**为字符串类型。
+
+`interval`：用于设置每个字符之间的间隔（秒），**必须**为数值类型。
+
+`floating_interval`：用于设置间隔是否上下浮动。
+
+`floating_camera`：用于设置镜头是否上下浮动。
+
+`scale`：用于设置画面缩放。数越大画面越小。
+
+`paragraph_config`：Manim原版参数，原设置为`None`，更改为常用编程字体`Consolas`。
+
+`**kwargs`：可以传入Manim原版`Code`代码块中的其余参数，详见[Code](https://docs.manim.community/en/stable/reference/manim.mobject.text.code_mobject.Code.html#)。
+
+--- 
+
+你可以对`CodeVideo`对象使用 `render`方法进行视频生成，你可以在终端查看视频的保存位置。
+
+#### 示例
+
+```python
+from CodeVideoRenderer import *
+video = CodeVideo(code_string="print('Hello World!')", language='python')
+video.render()
+```
