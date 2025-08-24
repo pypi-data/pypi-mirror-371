@@ -1,0 +1,81 @@
+# MANIFEST.in
+# This file specifies which extra files to include in the distribution
+
+# Include documentation files
+include README.md
+include LICENSE
+include CHANGELOG.md
+include AUTHORS.md
+include pyproject.toml
+
+# Include package data
+recursive-include waifu2x_python/models *
+include waifu2x_python/*.py
+
+# Include test files
+recursive-include tests *.py
+
+# Include data files
+recursive-include examples *
+recursive-include docs *
+
+# Include configuration files
+include requirements.txt
+include requirements-dev.txt
+include setup.cfg
+
+# Exclude unnecessary files
+global-exclude __pycache__
+global-exclude *.py[cod]
+global-exclude *.so
+recursive-include docs *
+prune docs/_build
+
+# Incluir exemplos
+recursive-include examples *.py
+recursive-include examples *.md
+recursive-include examples *.txt
+recursive-include examples *.json
+
+# Incluir testes (opcional - alguns preferem não incluir)
+recursive-include tests *.py
+
+# Incluir dados/recursos se houver
+recursive-include waifu2x_python/data *
+recursive-include waifu2x_python/templates *
+recursive-include waifu2x_python/static *
+
+# Incluir arquivos de configuração do projeto
+include .flake8
+include .pre-commit-config.yaml
+include tox.ini
+include Makefile
+
+# Excluir arquivos desnecessários
+global-exclude *.pyc
+global-exclude *.pyo
+global-exclude *.pyd
+global-exclude __pycache__
+global-exclude .git*
+global-exclude .coverage
+global-exclude .pytest_cache
+global-exclude .mypy_cache
+global-exclude .tox
+global-exclude *.egg-info
+
+# Excluir arquivos temporários
+global-exclude *~
+global-exclude *.tmp
+global-exclude *.bak
+global-exclude .DS_Store
+global-exclude Thumbs.db
+
+# Excluir arquivos de IDE
+global-exclude .vscode
+global-exclude .idea
+global-exclude *.swp
+global-exclude *.swo
+
+# Excluir arquivos de build
+prune build
+prune dist
