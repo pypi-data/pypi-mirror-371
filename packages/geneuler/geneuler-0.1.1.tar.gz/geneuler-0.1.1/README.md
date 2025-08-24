@@ -1,0 +1,316 @@
+# GenEuler Mesh — Lightweight meshing utilities for rapid FEA prep
+
+GenEuler’s `Mesh` module is a tiny, dependency-light wrapper around **Gmsh** and **meshio** that helps you:
+
+* Generate tetrahedral meshes from an axis-aligned bounding box
+* Import user geometry (STL/OBJ/PLY/STEP/IGES) and build an outer shell (and, when possible, a watertight volume)
+* Tag common boundary node sets (outer box, “floor”, attachment regions)
+* Export meshes to `.msh` and `.xdmf`/`.h5` for downstream FEM
+
+---
+
+## Contents
+
+* [Installation](#installation)
+* [Units & conventions](#units--conventions)
+* [Quick start](#quick-start)
+* [API overview](#api-overview)
+
+  * [Constructors](#constructors)
+  * [Instance methods](#instance-methods)
+* [Workflows](#workflows)
+
+  * [1) Axis-aligned box](#1-axis-aligned-box)
+  * [2) Importing surfaces or CAD](#2-importing-surfaces-or-cad)
+* [Boundary helpers](#boundary-helpers)
+* [Saving meshes](#saving-meshes)
+* [Mesh quality & watertightness notes](#mesh-quality--watertightness-notes)
+* [Troubleshooting](#troubleshooting)
+* [FAQ](#faq)
+* [Minimal, complete examples](#minimal-complete-examples)
+* [License](#license)
+
+---
+
+## Installation
+
+```bash
+# prerequisites
+pip install gmsh meshio numpy
+
+# then install GenEuler (replace with your package name if different)
+pip install geneuler
+```
+
+> **macOS tip (Apple Silicon):** If you hit issues with `gmsh` wheels, ensure Python ≥3.10 and a recent pip. Gmsh publishes prebuilt wheels for common platforms.
+
+---
+
+## Units & conventions
+
+* **Default units:** millimeters (mm)
+* **Characteristic length `h`:** direct target element size fed to Gmsh
+* **Coordinate system:** right-handed `(x, y, z)`
+  By convention, **y** is “vertical” (used by `floor_nodes(y=0)`).
+
+---
+
+## Quick start
+
+```python
+from geneuler.mesh import Mesh
+
+# 1) Mesh a box with free h, and write a .msh
+m = Mesh.from_bbox(
+    {"x": (-60, 60), "y": (0, 150), "z": (-120, 120)},
+    h=6.0,
+    msh_path="out/box.msh",
+)
+
+# 2) Boundary sets
+floor_idx = m.floor_nodes(y=0.0)  # all nodes at y≈0
+attachments = [((0, 130, -110), 6.0), ((20, 140, 0), 8.0)]
+attach_idx = m.attachment_nodes(attachments)  # union of both groups
+
+# 3) Export to XDMF/H5 for FEM
+xdmf, h5 = m.save_xdmf("out/box")
+print(xdmf, h5)
+```
+
+---
+
+## API overview
+
+### `Mesh` dataclass
+
+```python
+@dataclass
+class Mesh:
+    points: np.ndarray                # (N, 3) float
+    tets: np.ndarray                  # (M, 4) int (may be empty for shell-only)
+    tris: Optional[np.ndarray] = None # (K, 3) int (outer surface triangles)
+```
+
+### Constructors
+
+* `Mesh.from_msh(path: str) -> Mesh`
+  Load existing Gmsh `.msh` (v2/v4). Works for surface-only or volume meshes.
+
+* `Mesh.from_bbox(bbox, *, h=4.0, refine_ball_center=None, refine_ball_radius=15.0, refine_factor=0.25, msh_path="out/box.msh") -> Mesh`
+  Generate a tetrahedral mesh of an axis-aligned box. Optional local refinement “ball”.
+
+  * `bbox`: `{"x": (x0,x1), "y": (y0,y1), "z": (z0,z1)}` or flat `(x0,x1,y0,y1,z0,z1)`
+  * `h`: free characteristic length (recommended start: 4–8 mm for \~100–150 mm boxes)
+  * `refine_ball_center/radius/factor`: inside ball, local `h' = h * refine_factor`
+  * `msh_path`: optional write-through to `.msh`
+
+* `Mesh.from_surface(path, *, h=4.0, reconstruct_volume=True, angle_deg=40.0, include_boundary=True, force_parametrization=False, curve_angle_deg=180.0, msh_path="out/surface.msh", allow_shell_fallback=True) -> Mesh`
+  Import STL/OBJ/PLY or STEP/IGES and mesh it. For STL/OBJ/PLY, a quick watertight preflight decides whether to attempt volume reconstruction.
+
+  * If watertight and `reconstruct_volume=True`: attempts tetra volume
+  * If not watertight: generates **surface-only** triangles (shell)
+  * Includes robust fallbacks if parametrization/volume steps fail
+
+### Instance methods
+
+* `save_msh(path: str) -> None`
+  Write `.msh` (triangles and/or tets).
+
+* `save_xdmf(path_without_ext: str) -> tuple[str, str]`
+  Write `.xdmf` (and possibly a `.h5` sidecar). Returns `(xdmf_path, h5_path_or_empty)`.
+
+* `boundary_nodes(bbox=DEFAULT_BBOX, tol=1e-6) -> np.ndarray`
+  Node indices lying on the 6 faces of the given box.
+
+* `floor_nodes(y: Optional[float] = 0.0, tol=1e-6) -> np.ndarray`
+  If `y` is provided, pick nodes with `Y≈y`; if `y=None`, pick nodes at the minimum `Y`.
+
+* `attachment_nodes(attachments, *, default_radius=5.0, return_groups=False)`
+  `attachments` can be:
+
+  ```python
+  [ ( (x,y,z), r ), ( (x,y,z), r ), ... ]  # explicit radii
+  # or
+  [ (x,y,z), (x,y,z), ... ]                # uses default_radius
+  ```
+
+  Returns the **union** of all groups (indices) by default, or `{i: idxs}` when `return_groups=True`.
+
+---
+
+## Workflows
+
+### 1) Axis-aligned box
+
+```python
+m = Mesh.from_bbox(
+    {"x": (-50, 50), "y": (0, 130), "z": (-130, 130)},
+    h=4.0,                                   # free value
+    refine_ball_center=(0, 130, -110),       # optional
+    refine_ball_radius=15.0,
+    refine_factor=0.25,                      # inside ball: h' = h * refine_factor
+    msh_path="out/baseline.msh",
+)
+print(m.points.shape, m.tets.shape, m.tris.shape if m.tris is not None else None)
+```
+
+> **Rule of thumb:** For a \~100–150 mm box, start with `h ≈ 4–8 mm`.
+> Decrease `h` for more elements; increase `h` for a coarser preview.
+
+### 2) Importing surfaces or CAD
+
+#### STL / OBJ / PLY
+
+```python
+m = Mesh.from_surface(
+    "roundedBox1-40x40x40_boxOnly.stl",
+    h=3.0,
+    reconstruct_volume=True,   # attempt volume if watertight; else shell-only
+    msh_path="out/chassis.msh",
+)
+# If not watertight: triangles (shell). If watertight: tetrahedra (and likely triangles too).
+```
+
+Under the hood:
+
+1. **Watertight preflight** (via `meshio`) checks boundary & non-manifold edges.
+2. If non-watertight and `reconstruct_volume=True`: skip parametrization/volume; **mesh shell only**.
+3. If watertight: classify & parametrize surfaces, build a volume; retry with looser options on failure; finally **fall back** to shell-only if needed.
+
+#### STEP / IGES (CAD solids)
+
+```python
+m = Mesh.from_surface(
+    "bracket.step",
+    h=2.5,
+    reconstruct_volume=True,   # if solids present, creates a tetra volume
+    msh_path="out/bracket.msh",
+)
+```
+
+---
+
+## Boundary helpers
+
+```python
+# Outer box faces (pass the same bbox you used or any envelope)
+b_idx = m.boundary_nodes({"x": (-60, 60), "y": (0, 150), "z": (-120, 120)})
+
+# Floor nodes (default y=0; pass y=None to pick the min Y in the mesh)
+floor_idx = m.floor_nodes(y=0.0)
+
+# Attachments: pass list of centers (optionally with radius)
+attachments = [((0,130,-110), 6.0), (20,140,0)]  # second uses default_radius
+idx_union = m.attachment_nodes(attachments)
+idx_groups = m.attachment_nodes(attachments, return_groups=True)  # {0: idx0, 1: idx1}
+```
+
+---
+
+## Saving meshes
+
+```python
+# 1) Gmsh format (v2/v4 handled by meshio)
+m.save_msh("out/model.msh")
+
+# 2) XDMF (Dolfinx/FEniCSx friendly). meshio may emit a sidecar HDF5 if large.
+xdmf_path, h5_path = m.save_xdmf("out/model")
+print(xdmf_path, h5_path)  # h5_path is "" if no sidecar was written
+```
+
+* Surface-only meshes produce **triangles**; volume meshes include **tetrahedra** (and may also include triangles).
+* Many FEM solvers need **volume cells**. If you imported a non-watertight STL and only have triangles, either repair the geometry or create a background box and use boolean operations (e.g., Gmsh OCC) before re-meshing.
+
+---
+
+## Mesh quality & watertightness notes
+
+* **Watertightness matters** for volume meshing from STL/OBJ/PLY. The quick check treats any **boundary edges** or **non-manifold edges** as non-watertight → shell-only.
+* **Parametrization failures** (e.g., “Wrong topology of boundary mesh” or PETSc convergence issues) are common with noisy triangulations. The importer automatically:
+
+  1. Retries with looser angles and forced parametrization.
+  2. Falls back to shell-only meshing if that still fails (unless `allow_shell_fallback=False`).
+
+---
+
+## Troubleshooting
+
+**“No tetrahedral elements were generated.”**
+You likely requested `reconstruct_volume=True` on a non-watertight STL/OBJ. Either set `reconstruct_volume=False` (surface only) or repair the mesh and retry.
+
+**“Wrong topology of boundary mesh for parametrization.”**
+The input triangulation isn’t suitable for Gmsh’s parametrization. A more permissive retry is attempted automatically. If it still fails, shell-only meshing is returned. Consider:
+
+* repairing the STL (Meshlab/Blender/Netfabb),
+* simplifying tiny features/degenerate triangles,
+* exporting a STEP/IGES from CAD if available.
+
+**XDMF created but no `.h5`**
+`save_xdmf()` returns an empty string for the HDF5 path when meshio inlines data into the XDMF (common for small meshes).
+
+**Apple Silicon issues with `gmsh`**
+Use a recent Python and pip; ensure you’re getting the official `gmsh` wheel.
+
+---
+
+## FAQ
+
+**What’s a good starting value for `h`?**
+
+* Boxes \~100–150 mm: **4–8 mm**
+* Smaller parts / higher accuracy: **2–4 mm**
+* Very coarse preview: **10–15 mm**
+
+**Do I have to pass `bbox` to `boundary_nodes`?**
+It should correspond to the envelope whose faces you want to select. If you pass a different box, you’ll tag different nodes.
+
+**Can I tag multiple attachment regions with different radii?**
+Yes. Pass `[((x,y,z), r), ((x2,y2,z2), r2), ...]`. Use `return_groups=True` to keep groups separate.
+
+**Will `from_surface` always return tetrahedra?**
+Only when the geometry is watertight and volume reconstruction succeeds. Otherwise, you’ll get a triangle shell.
+
+---
+
+## Minimal, complete examples
+
+**A. Box mesh ready for FEM**
+
+```python
+from geneuler.mesh import Mesh
+
+bbox = {"x": (-60, 60), "y": (0, 150), "z": (-120, 120)}
+m = Mesh.from_bbox(bbox, h=6.0, msh_path="out/box.msh")
+b_nodes = m.boundary_nodes(bbox)
+floor = m.floor_nodes(y=0.0)
+attach = m.attachment_nodes([((0,130,-110), 6.0), ((20,140,0), 8.0)])
+
+xdmf, h5 = m.save_xdmf("out/box")
+print("Wrote:", xdmf, h5)
+```
+
+**B. Import STL; shell-only fallback handled automatically**
+
+```python
+m = Mesh.from_surface(
+    "roundedBox1-40x40x40_boxOnly.stl",
+    h=4.0,
+    reconstruct_volume=True,      # will try; falls back to shell if not watertight
+    msh_path="out/shell_or_volume.msh",
+)
+print("Points:", m.points.shape, "Triangles:", None if m.tris is None else m.tris.shape, "Tets:", m.tets.shape)
+m.save_xdmf("out/shell_or_volume")
+```
+
+**C. Import STEP and volume mesh**
+
+```python
+m = Mesh.from_surface("bracket.step", h=2.5, reconstruct_volume=True, msh_path="out/bracket.msh")
+m.save_xdmf("out/bracket")
+```
+
+---
+
+## License
+
+This project is distributed under the terms specified in the `LICENSE` file.

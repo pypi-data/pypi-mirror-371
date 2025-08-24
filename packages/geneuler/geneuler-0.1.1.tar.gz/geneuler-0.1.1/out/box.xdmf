@@ -1,0 +1,1 @@
+<Xdmf Version="3.0"><Domain><Grid Name="Grid"><Geometry GeometryType="XYZ"><DataItem DataType="Float" Dimensions="17339 3" Format="HDF" Precision="8">box.h5:/data0</DataItem></Geometry><Topology TopologyType="Mixed" NumberOfElements="101926"><DataItem DataType="Int" Dimensions="498822" Format="HDF" Precision="8">box.h5:/data1</DataItem></Topology></Grid></Domain></Xdmf>
