@@ -1,0 +1,7 @@
+ctfroute_k8s/__init__.py,sha256=8AKFQifhuwsiLX79lClYtzQN0vW9ZcvTXyY_NGGl_20,2129
+ctfroute_k8s/watch.py,sha256=gTMUybidWNUDHSa3nPze0pZCQ2X6OLrz9jP3hsUytSA,2191
+ctfroute_k8s/models/__init__.py,sha256=qWC4boorETE-M-ip23s2vNMZTleqndMzK2GxwJ5e6rU,84
+ctfroute_k8s/models/v1.py,sha256=EowYi8w_4m4bYP-PcGDxKyn46_DL7DAQrj0uZcEn3X8,15263
+ctfroute_k8s-0.3.0.dist-info/METADATA,sha256=oLJqmjakNV3CjTdIhpsPgv_ACePuBu4u1YXUR8T1wXQ,1232
+ctfroute_k8s-0.3.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+ctfroute_k8s-0.3.0.dist-info/RECORD,,
