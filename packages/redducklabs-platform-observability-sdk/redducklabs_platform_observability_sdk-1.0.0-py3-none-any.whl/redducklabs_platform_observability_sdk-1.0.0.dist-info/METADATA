@@ -1,0 +1,97 @@
+Metadata-Version: 2.4
+Name: redducklabs-platform-observability-sdk
+Version: 1.0.0
+Summary: Python SDK for Platform Observability log ingestion and analytics
+Home-page: https://github.com/redducklabs/platform-observability
+Author: Red Duck Labs
+Author-email: Red Duck Labs <support@redducklabs.com>
+License-Expression: MIT
+Project-URL: Homepage, https://github.com/redducklabs/platform-observability
+Project-URL: Repository, https://github.com/redducklabs/platform-observability
+Project-URL: Issues, https://github.com/redducklabs/platform-observability/issues
+Project-URL: Documentation, https://docs.redducklabs.com/platform-observability
+Keywords: observability,logging,monitoring,analytics,platform
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: System :: Logging
+Classifier: Topic :: System :: Monitoring
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: requests>=2.25.0
+Requires-Dist: urllib3>=1.26.0
+Requires-Dist: python-dateutil>=2.8.0
+Requires-Dist: typing-extensions>=4.0.0; python_version < "3.10"
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0.0; extra == "dev"
+Requires-Dist: pytest-cov>=4.0.0; extra == "dev"
+Requires-Dist: pytest-asyncio>=0.21.0; extra == "dev"
+Requires-Dist: black>=22.0.0; extra == "dev"
+Requires-Dist: isort>=5.10.0; extra == "dev"
+Requires-Dist: flake8>=5.0.0; extra == "dev"
+Requires-Dist: mypy>=1.0.0; extra == "dev"
+Requires-Dist: pre-commit>=2.20.0; extra == "dev"
+Provides-Extra: async
+Requires-Dist: aiohttp>=3.8.0; extra == "async"
+Requires-Dist: asyncio>=3.8.0; extra == "async"
+Provides-Extra: structured
+Requires-Dist: structlog>=22.0.0; extra == "structured"
+Requires-Dist: rich>=12.0.0; extra == "structured"
+Dynamic: author
+Dynamic: home-page
+Dynamic: requires-python
+
+# Platform Observability Python SDK
+
+A Python SDK for ingesting logs and interacting with the Platform Observability service by Red Duck Labs.
+
+## Installation
+
+This package can be installed from PyPI (after publishing):
+
+```
+pip install platform-observability-sdk
+```
+
+## Quick start
+
+```python
+from platform_observability import ObservabilityClient, LogEntry, LogLevel
+
+client = ObservabilityClient(api_key="YOUR_API_KEY")
+client.ingest_logs([
+    LogEntry(message="Hello from SDK", level=LogLevel.INFO).to_dict()
+])
+```
+
+## CLI
+
+After installation, a small helper CLI `obs-cli` is available:
+
+```
+obs-cli --help
+```
+
+## Development
+
+- Python >= 3.8
+- Build wheel:
+
+```
+pip install build
+python -m build
+```
+
+- Run tests:
+
+```
+pip install .[dev]
+pytest
+```
