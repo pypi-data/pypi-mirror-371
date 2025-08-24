@@ -1,0 +1,15 @@
+abstract: A library of plugins for configuring a production-ready Django site when you convert your nanodjango single page app.
+authors:
+  - name: Stuart MacKay
+cff-version: 1.2.0
+date-released: 2025-08-23
+keywords:
+  - nanodjango
+  - Django
+  - project
+license: MIT License
+message: If you use this software, please cite it using the metadata from this file.
+repository-artifact: "http://pypi.python.org/pypi/nanodjango-compose/"
+repository-code: "https://github.com/StuartMacKay/nanodjango-compose"
+title: Nanodjango Compose
+version: 0.0.0-dev0

@@ -1,0 +1,88 @@
+[project]
+name = "nanodjango-compose"
+version = "0.0.0-dev0"
+description = "A library of plugins for configuring a production-ready Django site when you convert your nanodjango single page app."
+readme = "README.md"
+authors = [
+    { name = "Stuart MacKay", email = "smackay@flagstonesoftware.com" }
+]
+license = {text = "MIT License"}
+requires-python = ">=3.12"
+dependencies = [
+    "nanodjango>=0.11.2",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/compose"]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.12.10",
+    "ty>=0.0.1a19",
+]
+
+[tool.bumpversion]
+current_version = "0.0.0-dev0"
+parse = """(?x)
+    (?P<major>0|[1-9]\\d*)\\.
+    (?P<minor>0|[1-9]\\d*)\\.
+    (?P<patch>0|[1-9]\\d*)
+    (?:
+        -                             # dash separator for pre-release section
+        (?P<pre_l>[a-zA-Z-]+)         # pre-release label
+        (?P<pre_n>0|[1-9]\\d*)        # pre-release version number
+    )?                                # pre-release section is optional
+"""
+serialize = [
+    "{major}.{minor}.{patch}-{pre_l}{pre_n}",
+    "{major}.{minor}.{patch}",
+]
+ignore_missing_version = false
+tag = true
+sign_tags = true
+tag_name = "v{new_version}"
+tag_message = "New version: {current_version} → {new_version}"
+allow_dirty = false
+commit = true
+message = "New version: {current_version} → {new_version}"
+commit_args = ""
+
+[tool.bumpversion.parts.pre_l]
+values = ["dev", "rc", "final"]
+optional_value = "final"
+
+[[tool.bumpversion.files]]
+filename = "src/compose/__init__.py"
+search = '__version__ = "{current_version}"'
+replace = '__version__ = "{new_version}"'
+
+[[tool.bumpversion.files]]
+filename = "CHANGELOG.md"
+search = """
+## Latest
+"""
+replace = """
+## Latest
+
+## [{new_version}] - {now:%Y-%m-%d}
+"""
+
+[[tool.bumpversion.files]]
+filename = "pyproject.toml"
+search = 'version = "{current_version}"'
+replace = 'version = "{new_version}"'
+
+[[tool.bumpversion.files]]
+filename = "CITATION.cff"
+search = "version: {current_version}"
+replace = "version: {new_version}"
+
+[[tool.bumpversion.files]]
+filename = "CITATION.cff"
+search = "^date-released: \\d{{4}}-\\d{{2}}-\\d{{2}}$"
+replace = "date-released: {now:%Y-%m-%d}"
+regex = true

@@ -1,0 +1,109 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="DuplicatedCode" enabled="true" level="WEAK WARNING" enabled_by_default="true" editorAttributes="ERRORS_ATTRIBUTES">
+      <Languages>
+        <language isEnabled="false" name="Kotlin" />
+        <language isEnabled="false" name="Style Sheets" />
+        <language minSize="48" isEnabled="false" name="Python" />
+      </Languages>
+    </inspection_tool>
+    <inspection_tool class="Eslint" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="JSHint" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="79">
+            <item index="0" class="java.lang.String" itemvalue="pip-tools" />
+            <item index="1" class="java.lang.String" itemvalue="cairocffi" />
+            <item index="2" class="java.lang.String" itemvalue="cairosvg" />
+            <item index="3" class="java.lang.String" itemvalue="PyYAML" />
+            <item index="4" class="java.lang.String" itemvalue="phonenumberslite" />
+            <item index="5" class="java.lang.String" itemvalue="weasyprint" />
+            <item index="6" class="java.lang.String" itemvalue="cryptography" />
+            <item index="7" class="java.lang.String" itemvalue="urllib3" />
+            <item index="8" class="java.lang.String" itemvalue="docker" />
+            <item index="9" class="java.lang.String" itemvalue="idna" />
+            <item index="10" class="java.lang.String" itemvalue="django_compressor" />
+            <item index="11" class="java.lang.String" itemvalue="django-modeltrans" />
+            <item index="12" class="java.lang.String" itemvalue="pyproject-hooks" />
+            <item index="13" class="java.lang.String" itemvalue="zope-event" />
+            <item index="14" class="java.lang.String" itemvalue="wasmer-compiler-cranelift" />
+            <item index="15" class="java.lang.String" itemvalue="zope-interface" />
+            <item index="16" class="java.lang.String" itemvalue="typing-extensions" />
+            <item index="17" class="java.lang.String" itemvalue="django-markdown" />
+            <item index="18" class="java.lang.String" itemvalue="django-otp" />
+            <item index="19" class="java.lang.String" itemvalue="python-dateutil" />
+            <item index="20" class="java.lang.String" itemvalue="psycopg2-binary" />
+            <item index="21" class="java.lang.String" itemvalue="django-configurations" />
+            <item index="22" class="java.lang.String" itemvalue="hellosign-python-sdk" />
+            <item index="23" class="java.lang.String" itemvalue="kombu" />
+            <item index="24" class="java.lang.String" itemvalue="redis" />
+            <item index="25" class="java.lang.String" itemvalue="python-magic" />
+            <item index="26" class="java.lang.String" itemvalue="django-widget-tweaks" />
+            <item index="27" class="java.lang.String" itemvalue="premailer" />
+            <item index="28" class="java.lang.String" itemvalue="holidays" />
+            <item index="29" class="java.lang.String" itemvalue="sentry-sdk" />
+            <item index="30" class="java.lang.String" itemvalue="django-braces" />
+            <item index="31" class="java.lang.String" itemvalue="lxml" />
+            <item index="32" class="java.lang.String" itemvalue="django-hijack" />
+            <item index="33" class="java.lang.String" itemvalue="django-model-utils" />
+            <item index="34" class="java.lang.String" itemvalue="django-ajax-selects" />
+            <item index="35" class="java.lang.String" itemvalue="beautifulsoup4" />
+            <item index="36" class="java.lang.String" itemvalue="django-polymorphic" />
+            <item index="37" class="java.lang.String" itemvalue="django-simple-history" />
+            <item index="38" class="java.lang.String" itemvalue="django-admin-tools" />
+            <item index="39" class="java.lang.String" itemvalue="django-import-export" />
+            <item index="40" class="java.lang.String" itemvalue="reportlab" />
+            <item index="41" class="java.lang.String" itemvalue="uWSGI" />
+            <item index="42" class="java.lang.String" itemvalue="django-authtools" />
+            <item index="43" class="java.lang.String" itemvalue="django-vanilla-views" />
+            <item index="44" class="java.lang.String" itemvalue="hiredis" />
+            <item index="45" class="java.lang.String" itemvalue="django-allauth" />
+            <item index="46" class="java.lang.String" itemvalue="django-taggit" />
+            <item index="47" class="java.lang.String" itemvalue="twilio" />
+            <item index="48" class="java.lang.String" itemvalue="django-ckeditor" />
+            <item index="49" class="java.lang.String" itemvalue="jellyfish" />
+            <item index="50" class="java.lang.String" itemvalue="httplib2" />
+            <item index="51" class="java.lang.String" itemvalue="mailchimp3" />
+            <item index="52" class="java.lang.String" itemvalue="sorl-thumbnail" />
+            <item index="53" class="java.lang.String" itemvalue="requests" />
+            <item index="54" class="java.lang.String" itemvalue="sqlparse" />
+            <item index="55" class="java.lang.String" itemvalue="pdfdocument" />
+            <item index="56" class="java.lang.String" itemvalue="celery" />
+            <item index="57" class="java.lang.String" itemvalue="fdfgen" />
+            <item index="58" class="java.lang.String" itemvalue="django-redis-cache" />
+            <item index="59" class="java.lang.String" itemvalue="itsdangerous" />
+            <item index="60" class="java.lang.String" itemvalue="djangorestframework" />
+            <item index="61" class="java.lang.String" itemvalue="django-two-factor-auth" />
+            <item index="62" class="java.lang.String" itemvalue="Django" />
+            <item index="63" class="java.lang.String" itemvalue="google-api-python-client" />
+            <item index="64" class="java.lang.String" itemvalue="pytz" />
+            <item index="65" class="java.lang.String" itemvalue="Pillow" />
+            <item index="66" class="java.lang.String" itemvalue="django" />
+            <item index="67" class="java.lang.String" itemvalue="django-environ" />
+            <item index="68" class="java.lang.String" itemvalue="django-filter" />
+            <item index="69" class="java.lang.String" itemvalue="ruff" />
+            <item index="70" class="java.lang.String" itemvalue="certifi" />
+            <item index="71" class="java.lang.String" itemvalue="ipython" />
+            <item index="72" class="java.lang.String" itemvalue="prompt-toolkit" />
+            <item index="73" class="java.lang.String" itemvalue="executing" />
+            <item index="74" class="java.lang.String" itemvalue="whitenoise" />
+            <item index="75" class="java.lang.String" itemvalue="pygments" />
+            <item index="76" class="java.lang.String" itemvalue="decorator" />
+            <item index="77" class="java.lang.String" itemvalue="python-json-logger" />
+            <item index="78" class="java.lang.String" itemvalue="django-extensions" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="core.models.share_subscription.action.ShareI" />
+          <option value="django.core.handlers.wsgi.WSGIRequest.*" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
