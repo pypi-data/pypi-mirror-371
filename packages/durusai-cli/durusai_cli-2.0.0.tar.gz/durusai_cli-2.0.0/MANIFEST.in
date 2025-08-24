@@ -1,0 +1,24 @@
+# Include documentation
+include README.md
+include CHANGELOG.md
+include DEMO.md
+
+# Include configuration files
+include pyproject.toml
+include requirements.txt
+
+# Include tests
+recursive-include tests *.py
+
+# Exclude unnecessary files
+exclude test_*.py
+exclude validate_structure.py
+
+# Exclude temporary and cache files
+global-exclude *.pyc
+global-exclude *.pyo
+global-exclude *.pyd
+global-exclude __pycache__
+global-exclude *.so
+global-exclude .gitignore
+global-exclude .DS_Store
