@@ -1,0 +1,4 @@
+[console_scripts]
+docs = utils:build_docs
+requires = utils:write_requirements
+
