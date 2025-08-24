@@ -1,0 +1,43 @@
+[project]
+name = "safe-builtins"
+version = "0.1.0"
+description = "Python builtins wrapped with rust-like Result"
+keywords = ["safe", "builtins", "utils"]
+authors = [{ name = "Kamal Fasya", email = "kamalfasya01@gmail.com" }]
+license = { file = "LICENSE" }
+classifiers = [
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3 :: Only",
+]
+readme = "README.md"
+requires-python = ">=3.10"
+
+dependencies = [
+    "pytest>=8.4.1",
+    "result",
+    "ruff>=0.12.10",
+    "typing-extensions>=4.14.1",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+path = "src/safe_builtins/__init__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/safe_builtins"]
+
+[tool.pytest.ini_options]
+addopts = ["--tb=short"]
+testpaths = ["tests"]
+
+[tool.uv.sources]
+result = { git = "https://github.com/montasaurus/result" }
+
