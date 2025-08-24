@@ -1,0 +1,17 @@
+fastmidi.cp313-win_amd64.pyd,sha256=PGITPUcrdlbbsm26vtrEuv44wUXf7uL_l2t9BhBQpIk,368640
+hyperchoron/__init__.py,sha256=eADIrNIQfQ7GJ4_7u--aMfn3poPTsXv--A1DVOaIJ1E,7929
+hyperchoron/__main__.py,sha256=53-E2o9K5jNhUBeDRZD5f9ijVWdin5xD_srp_V4SwKY,57
+hyperchoron/dawvert.py,sha256=6YHJdcwnWXe_Xjg2BZ3BPiOq6D6JTt5FWp3z7owcsns,1753
+hyperchoron/mappings.py,sha256=bgdQALHDYyZjs1KdcxpI8Kt83VAyrYtjtguVpQgDevQ,15820
+hyperchoron/midi.py,sha256=IgwGep5CMqvmzpz89aJ7gcRyScQQw5PPJ6lu92wrRyo,31162
+hyperchoron/minecraft.py,sha256=f7w2uRkYqkYwRvZFCn70gb40hhgsKsHX0oNe2cD8fYE,72515
+hyperchoron/pcm.py,sha256=uetJm3dFc2ftrX7U5rvHRTKwBRLW02QEykrk3pK96uQ,7281
+hyperchoron/text.py,sha256=aNwisTw_KdV7v0wswcs0_NDeb533CZPEK_jB7eiDyzM,29427
+hyperchoron/tracker.py,sha256=0iylTjA8jg87-taPme11Jgk_MGlEcl_ZAFOHbNsfxtA,19952
+hyperchoron/util.py,sha256=oq5tLBkDsfX5Jqz2F6PfIC1ThonnkW2SNKnhR94ayZQ,28776
+hyperchoron-1.0.1.dist-info/licenses/LICENSE,sha256=EsFWWUbpX7hHrlDN16WpyVT50PhvDuj79FL52tPYMhs,1088
+hyperchoron-1.0.1.dist-info/METADATA,sha256=FphYR329kwkt9L6-WoekMefJ3A_B96OVkYPbNj510rY,21287
+hyperchoron-1.0.1.dist-info/WHEEL,sha256=qV0EIPljj1XC_vuSatRWjn02nZIz3N1t8jsZz7HBr2U,101
+hyperchoron-1.0.1.dist-info/entry_points.txt,sha256=ZJaaLPL06Oz0odiWma8KE_6-v9QDQXZAtl4UbfzEApc,58
+hyperchoron-1.0.1.dist-info/top_level.txt,sha256=-hHu4wSZhsUSrDbsBnLPyIYjDZ9N05n9lvu8Jrwoem0,12
+hyperchoron-1.0.1.dist-info/RECORD,,
