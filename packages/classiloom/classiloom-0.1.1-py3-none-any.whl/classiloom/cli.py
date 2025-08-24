@@ -1,0 +1,111 @@
+from __future__ import annotations
+import os, json, typer
+from rich import print as rprint
+from .config import load_env, set_key
+from .data import scan_image_folders, quick_metadata
+from .gemini import suggest
+from .trainer import train_and_eval
+from .metrics import evaluate_and_report, plot_curves
+from .utils import timestamped_dir, save_json, seed_everything
+
+app = typer.Typer(add_completion=False, no_args_is_help=True)
+
+@app.command("set")
+def set_cmd(key: str, value: str):
+    key_map = {
+        "gemini_api": "GEMINI_API_KEY",
+        "gemini_model": "GEMINI_MODEL",
+    }
+    if key not in key_map:
+        raise typer.Exit(code=2)
+    set_key(key_map[key], value)
+    rprint({key: "set"})
+
+@app.command("scan")
+def scan(dataset_dir: str, out: str = "runs", seed: int = 13):
+    seed_everything(seed)
+    classes, files_by_class = scan_image_folders(dataset_dir)
+    if len(classes) < 2:
+        raise typer.Exit(code=2)
+    meta = quick_metadata(files_by_class)
+    d = timestamped_dir(out, "scan")
+    save_json(os.path.join(d, "scan.json"), {"summary": meta, "counts": {k: len(v) for k, v in files_by_class.items()}})
+    rprint({"scan_dir": d, "class_count": len(classes), "total_images": meta["total_images"]})
+
+@app.command("suggest")
+def suggest_cmd(scan_json: str, trials: int = 8, out: str = "runs"):
+    env = load_env()
+    with open(scan_json, "r", encoding="utf-8") as f:
+        payload = json.load(f)
+    summary = payload["summary"]
+    cfgs = suggest(summary, trials=trials, api_key=env.get("GEMINI_API_KEY",""), model_name=env.get("GEMINI_MODEL","gemini-2.0-flash"))
+    d = timestamped_dir(out, "suggest")
+    save_json(os.path.join(d, "configs.json"), {"configs": cfgs, "summary": summary, "counts": payload.get("counts", {})})
+    rprint({"suggest_dir": d, "trials": len(cfgs)})
+
+@app.command("train")
+def train(dataset_dir: str,
+          configs_json: str,
+          idx: int = 0,
+          out: str = "runs",
+          seed: int = 13,
+          mixed_precision: bool = typer.Option(False, help="Enable mixed-float16 if supported"),
+          fine_tune: bool = typer.Option(False, help="Unfreeze backbone for a short second stage")):
+    seed_everything(seed)
+    with open(configs_json, "r", encoding="utf-8") as f:
+        payload = json.load(f)
+    cfg = payload["configs"][idx]
+    counts = payload.get("counts", {})
+    run_dir = timestamped_dir(out, "train")
+    model, history, class_names, y_true, y_pred = train_and_eval(
+        dataset_dir, cfg, counts, out_dir=run_dir, mixed_precision=mixed_precision, fine_tune=fine_tune
+    )
+
+    # Save final model and labels
+    model_path = os.path.join(run_dir, "model.keras")
+    labels_path = os.path.join(run_dir, "labels.json")
+    model.save(model_path)
+    with open(labels_path, "w", encoding="utf-8") as f:
+        json.dump({"class_names": class_names}, f, ensure_ascii=False, indent=2)
+
+    # Metrics
+    metrics = evaluate_and_report(y_true, y_pred, class_names, run_dir)
+    curves_path = plot_curves(history, run_dir)
+
+    # A→B mapping already in metrics.json; also emit compact top confusions
+    top_confusions = [m for m in metrics["a_to_b_mapping"] if m["true"] != m["pred"]][:25]
+
+    result = {
+        "run_dir": run_dir,
+        "val_accuracy": metrics["accuracy"],
+        "model_path": model_path,
+        "labels_path": labels_path,
+        "config": cfg,
+        "curves_png": curves_path,
+        "confusion_matrix_png": metrics["confusion_matrix_png"],
+        "top_confusions": top_confusions,
+        "classes": class_names,
+    }
+    save_json(os.path.join(run_dir, "result.json"), result)
+    rprint({"run_dir": run_dir, "val_accuracy": metrics["accuracy"], "model": model_path})
+
+@app.command("predict")
+def predict(image_path: str, model_dir: str):
+    import numpy as np, tensorflow as tf
+    with open(os.path.join(model_dir, "labels.json"), "r", encoding="utf-8") as f:
+        class_names = json.load(f)["class_names"]
+    model = tf.keras.models.load_model(os.path.join(model_dir, "model.keras"), compile=False)
+    try:
+        in_shape = model.inputs[0].shape
+        H, W = int(in_shape[1]), int(in_shape[2])
+    except Exception:
+        H = W = 224
+    from PIL import Image
+    im = Image.open(image_path).convert("RGB").resize((W, H))
+    arr = (np.asarray(im, dtype=np.float32)/255.0)[None, ...]
+    preds = model.predict(arr, verbose=0)[0]
+    idx = int(np.argmax(preds))
+    rprint({"class_index": idx, "class_name": class_names[idx], "confidence": float(np.max(preds))})
+
+if __name__ == "__main__":
+    app()
