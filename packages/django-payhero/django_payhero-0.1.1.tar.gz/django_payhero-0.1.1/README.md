@@ -1,0 +1,133 @@
+# Django PayHero Integration
+
+A reusable Django app for integrating the PayHero payment gateway. This package provides a simple interface to initiate M-Pesa STK Push payments and handles the callback from PayHero to update transaction statuses.
+
+## Features
+
+- Simple service class for initiating payments.
+- Django model for tracking transaction status.
+- Callback view to handle payment notifications from PayHero.
+- Easy configuration through Django settings.
+
+## Installation & Setup
+
+### Requirements
+
+- Python 3.8+
+- Django 3.2+
+- requests library
+
+### Steps
+
+1. Install the requests library:
+
+   ```bash
+   pip install django-payhero
+   ```
+
+2. Add `payhero_django` to your `INSTALLED_APPS` in your project's `settings.py`:
+
+   ```python
+   # settings.py
+   INSTALLED_APPS = [
+       # ... other apps
+       'payhero_django',
+   ]
+   ```
+
+3. Add PayHero configuration to your `settings.py`:
+
+   ```python
+   # settings.py
+
+   PAYHERO_SETTINGS = {
+       "API_KEY": "YOUR_PAYHERO_API_KEY", # Replace with your actual API Key
+       "CHANNEL_ID": "YOUR_PAYHERO_CHANNEL_ID", # Replace with your Channel ID
+       "CALLBACK_URL_NAME": "payhero_callback", # The name of the callback URL
+   }
+   ```
+
+   > Security Note: Always use environment variables or Django's secrets management to store your API_KEY. Do not hardcode it in your settings file in production.
+
+4. Include the callback URL in your project's main `urls.py`:
+
+   ```python
+   # your_project/urls.py
+   from django.urls import path, include
+
+   urlpatterns = [
+       # ... your other urls
+       path('payments/', include('payhero_django.urls')),
+   ]
+   ```
+
+   This will expose the callback endpoint at `/payments/payhero/callback/`.
+
+5. Run migrations to create the necessary database tables for tracking transactions:
+
+   ```bash
+   python manage.py makemigrations payhero_django
+   python manage.py migrate
+   ```
+
+## Usage Example
+
+Here is how you can initiate a payment from one of your own app's views.
+
+```python
+# in your_app/views.py
+
+from django.shortcuts import render
+from django.http import JsonResponse
+from payhero_django.api import PayHeroClient
+from payhero_django.exceptions import PayHeroAPIError
+import uuid
+
+def initiate_payment_view(request):
+    if request.method == 'POST':
+        amount = request.POST.get('amount')
+        phone_number = request.POST.get('phone_number') # e.g., 2547xxxxxxxx
+
+        if not amount or not phone_number:
+            return JsonResponse({'error': 'Amount and phone number are required.'}, status=400)
+
+        # 1. Initialize the client
+        payhero_client = PayHeroClient()
+
+        # 2. Generate a unique reference for the transaction
+        external_reference = str(uuid.uuid4())
+
+        try:
+            # 3. Call the API
+            api_response = payhero_client.initiate_stk_push(
+                amount=int(amount),
+                phone_number=phone_number,
+                external_reference=external_reference,
+                customer_name="John Doe" # Optional
+            )
+            
+            # 4. The transaction is now pending. The status will be updated
+            #    by the callback. You can redirect the user or show a message.
+            return JsonResponse({
+                'message': 'STK Push initiated. Please check your phone.',
+                'data': api_response
+            })
+
+        except PayHeroAPIError as e:
+            # Handle potential API errors
+            return JsonResponse({'error': str(e)}, status=500)
+
+    return render(request, 'your_payment_template.html')
+```
+
+## How the Callback Works
+
+1. When a payment status changes (e.g., from pending to success or failed), PayHero will send a POST request to the callback URL you configured (`/payments/payhero/callback/`).
+
+2. The view provided in this app (`payhero_django/views.py`) will securely receive this request.
+
+3. It finds the transaction in your database using the reference provided in the callback data.
+
+4. It updates the status of the `PayHeroTransaction` model to reflect the payment outcome (e.g., SUCCESS, FAILED).
+
+5. You can then query the `PayHeroTransaction` model in your own app to check the status of an order and fulfill it if the payment was successful.
