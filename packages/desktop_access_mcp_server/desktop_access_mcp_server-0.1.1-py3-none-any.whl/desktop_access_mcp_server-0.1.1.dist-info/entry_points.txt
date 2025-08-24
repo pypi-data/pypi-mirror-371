@@ -1,0 +1,4 @@
+[console_scripts]
+desktop-access-mcp-server=desktop_access_mcp_server.entry_point:run_server
+desktop-cli=desktop_access_mcp_server.cli_entry_point:run_cli
+

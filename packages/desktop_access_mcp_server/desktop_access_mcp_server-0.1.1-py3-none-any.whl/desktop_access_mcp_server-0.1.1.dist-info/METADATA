@@ -1,0 +1,530 @@
+Metadata-Version: 2.4
+Name: desktop_access_mcp_server
+Version: 0.1.1
+Summary: desktop_access_mcp_server
+Author-email: Hemang Joshi <hemangjoshi37a@gmail.com>
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-Expression: MIT
+License-File: LICENSE
+Requires-Dist: mcp>=1.0.0
+Requires-Dist: Pillow>=9.0.0
+Requires-Dist: pynput>=1.7.0
+Requires-Dist: mss>=9.0.0
+Project-URL: Home, https://hjlabs.in
+
+<!-- Improved README.md -->
+<div align="center">
+  <img src="https://img.shields.io/badge/Python-3.8%2B-blue?logo=python" alt="Python Version">
+  <img src="https://img.shields.io/badge/License-MIT-green" alt="License">
+  <img src="https://img.shields.io/badge/Platform-Linux%20%7C%20macOS%20%7C%20Windows-lightgrey" alt="Supported Platforms">
+  <img src="https://img.shields.io/badge/MCP-Compatible-brightgreen" alt="MCP Compatible">
+</div>
+
+<h1 align="center">🖥️ Desktop Access MCP Server</h1>
+
+<p align="center">
+  <strong>The "Eyes and Hands" for LLM Agents to Control Desktop Environments</strong>
+</p>
+
+<p align="center">
+  A Python-based <a href="https://modelcontextprotocol.io">Model Context Protocol (MCP)</a> server that provides comprehensive desktop access capabilities to LLM agents, enabling them to see and interact with desktop environments through screenshots and input simulation.
+</p>
+
+<div align="center">
+  <a href="#-features">Features</a> •
+  <a href="#-quick-start">Quick Start</a> •
+  <a href="#-usage">Usage</a> •
+  <a href="#-tools-api">API</a> •
+  <a href="#-development">Development</a> •
+  <a href="#-license">License</a>
+</div>
+
+---
+
+## 🌟 Why Desktop Access MCP Server?
+
+In the era of AI agents, LLMs need more than just text-based interactions. They need to **see** the desktop through screenshots and **interact** with applications through keyboard and mouse simulation. This MCP server bridges that gap, providing LLM agents with the "eyes and hands" they need to:
+
+- 🖼️ **See** the desktop environment through high-quality screenshots
+- ⌨️ **Type** text and execute key combinations
+- 🖱️ **Control** the mouse cursor for navigation and interaction
+- 🖥️ **Work** with single or multi-monitor setups
+- 🤖 **Automate** complex desktop workflows
+
+## 🚀 Features
+
+### 👁️ Eyes - Visual Perception
+- **Full Desktop Screenshots** in PNG or JPEG formats
+- **Multi-Monitor Support** - Capture individual monitors or combined view
+- **Configurable Quality** - Adjust JPEG compression for balance of size and quality
+- **Base64 Encoding** - Ready for direct LLM consumption
+
+### 🖐️ Hands - Input Control
+- **Keyboard Simulation**
+  - Type text with configurable delays
+  - Execute key combinations (Ctrl+C, Alt+Tab, etc.)
+- **Mouse Control**
+  - Move cursor to precise coordinates
+  - Click, double-click, and right-click
+  - Scroll vertically
+  - Drag from one point to another
+
+### 🛠️ Technical Excellence
+- **MCP Compliant** - Works with any MCP-compatible client
+- **Cross-Platform** - Linux, macOS, and Windows support
+- **CLI Interface** - Test functionality without an LLM agent
+- **Extensive Logging** - Debug and monitor operations
+- **Error Handling** - Graceful degradation with informative errors
+
+## 📦 Installation
+
+### From Locally Built Package (Current Status)
+```bash
+# Build the package
+python -m build
+
+# Install the package
+pip install dist/desktop_access_mcp_server-0.1.0-py3-none-any.whl
+```
+
+### From Source (Development)
+```bash
+git clone https://github.com/your-username/desktop-access-mcp-server.git
+cd desktop-access-mcp-server
+pip install -e .
+```
+
+> **Note**: The package is ready for PyPI publishing. See `PUBLISHING_INSTRUCTIONS.md` for details.
+
+## 🚀 Quick Start
+
+### Run the Server
+
+#### Method 1: Direct execution (after installation)
+```bash
+desktop-access-mcp-server
+```
+
+#### Method 2: Using uvx (without installation)
+```bash
+uvx --from desktop-access-mcp-server desktop-access-mcp-server
+```
+
+### Test with CLI
+```bash
+# Take a screenshot
+desktop-cli screenshot -o my_screenshot.png
+
+# Type text
+desktop-cli keyboard -t "Hello World" -d 0.1
+
+# Move and click mouse
+desktop-cli mouse move -x 100 -y 200
+desktop-cli mouse click
+```
+
+## 🛠️ Usage
+
+### With MCP Clients
+Once the server is running, connect using any MCP-compliant client:
+
+#### Method 1: Direct execution (after installation)
+```python
+# Example with Python MCP client
+from mcp import ClientSession, StdioServerParameters
+from mcp.client.stdio import stdio_client
+
+server_params = StdioServerParameters(
+    command="desktop-access-mcp-server"
+)
+
+async with stdio_client(server_params) as (read, write):
+    async with ClientSession(read, write) as session:
+        # Take a screenshot
+        screenshot = await session.call_tool("take_screenshot", {
+            "format": "jpeg",
+            "quality": 85
+        })
+        
+        # Type text
+        await session.call_tool("keyboard_input", {
+            "text": "Hello from LLM!",
+            "delay": 0.05
+        })
+```
+
+#### Method 2: Using uvx (without installation)
+```python
+# Example with Python MCP client
+from mcp import ClientSession, StdioServerParameters
+from mcp.client.stdio import stdio_client
+
+server_params = StdioServerParameters(
+    command=["uvx", "--from", "desktop-access-mcp-server", "desktop-access-mcp-server"]
+)
+
+async with stdio_client(server_params) as (read, write):
+    async with ClientSession(read, write) as session:
+        # Take a screenshot
+        screenshot = await session.call_tool("take_screenshot", {
+            "format": "jpeg",
+            "quality": 85
+        })
+        
+        # Type text
+        await session.call_tool("keyboard_input", {
+            "text": "Hello from LLM!",
+            "delay": 0.05
+        })
+```
+
+### Command Line Interface
+The package includes a comprehensive CLI for testing:
+
+```bash
+# Screenshot commands
+desktop-cli screenshot -o screenshot.png
+desktop-cli screenshot -f jpeg -q 90 -m 1 -o monitor1.jpg
+
+# Keyboard commands
+desktop-cli keyboard -t "Type this text" -d 0.1
+desktop-cli keyboard -c "ctrl+c"
+
+# Mouse commands
+desktop-cli mouse move -x 100 -y 200
+desktop-cli mouse click -b left
+desktop-cli mouse scroll -a 5
+desktop-cli mouse drag --from-x 100 --from-y 100 --to-x 200 --to-y 200
+```
+
+## 🧰 Tools API
+
+### `take_screenshot`
+Capture a screenshot of the desktop for visual understanding.
+
+**Parameters:**
+| Parameter | Type | Description | Default |
+|-----------|------|-------------|---------|
+| `format` | `string` | Image format: `png` or `jpeg` | `png` |
+| `quality` | `integer` | JPEG quality (1-100) | `85` |
+| `monitor` | `integer` | Monitor index (0=all, 1+=specific) | `0` |
+
+**Response:**
+```json
+{
+  "success": true,
+  "format": "png",
+  "data": "base64_encoded_image_data",
+  "size": {
+    "width": 1920,
+    "height": 1080
+  },
+  "monitor": 0,
+  "platform": "linux"
+}
+```
+
+### `keyboard_input`
+Simulate keyboard input to type text or press key combinations.
+
+**Parameters:**
+| Parameter | Type | Description | Default |
+|-----------|------|-------------|---------|
+| `text` | `string` | Text to type | - |
+| `key_combination` | `string` | Key combo (e.g., `ctrl+c`) | - |
+| `delay` | `number` | Delay between key presses (seconds) | `0.01` |
+
+**Response:**
+```json
+{
+  "success": true,
+  "action": "type",
+  "text": "Hello World",
+  "delay": 0.05
+}
+```
+
+### `mouse_action`
+Perform mouse actions to interact with the desktop.
+
+**Parameters:**
+| Action | Required Parameters | Optional Parameters |
+|--------|-------------------|-------------------|
+| `move` | `x`, `y` | - |
+| `click` | - | `button` (`left`/`right`/`middle`) |
+| `double_click` | - | `button` |
+| `right_click` | - | `button` |
+| `scroll` | `scroll_amount` | - |
+| `drag` | `from_x`, `from_y`, `to_x`, `to_y` | `duration` |
+
+**Response:**
+```json
+{
+  "success": true,
+  "action": "move",
+  "x": 100,
+  "y": 200
+}
+```
+
+## 🧪 Testing
+
+### Automated Tests
+```bash
+# Run all tests
+python -m pytest
+
+# Run specific test suites
+python test_basic.py
+python test_comprehensive.py
+python test_screenshot.py
+```
+
+### Manual Testing
+```bash
+# Test screenshot functionality
+python run_screenshot_tests.py
+
+# Review test results
+python review_screenshots.py
+```
+
+## 📋 Requirements
+
+- **Python**: 3.8 or higher
+- **Operating Systems**: Linux, macOS, or Windows
+- **Display Server**: 
+  - Linux: X11 or Wayland
+  - macOS: Aqua
+  - Windows: Windows Display Driver
+- **Dependencies**:
+  - `mcp>=1.0.0`
+  - `Pillow>=9.0.0`
+  - `pynput>=1.7.0`
+  - `mss>=9.0.0`
+
+## 🔧 Troubleshooting
+
+### Screenshot Issues
+1. **Linux**: Ensure X11/Wayland access
+   ```bash
+   xhost +SI:localuser:$USER
+   ```
+2. **macOS**: Grant screen recording permissions
+3. **Windows**: Run as administrator if needed
+
+### Permission Errors
+```bash
+# Add user to input group (Linux)
+sudo adduser $USER input
+
+# Restart session or reboot after adding to group
+```
+
+### Dependency Issues
+```bash
+# Install system dependencies (Ubuntu/Debian)
+sudo apt-get install python3-dev python3-pip scrot
+
+# Install system dependencies (CentOS/RHEL)
+sudo yum install python3-devel python3-pip scrot
+```
+
+## 🛠️ Development
+
+### Setup Development Environment
+```bash
+# Clone repository
+git clone https://github.com/your-username/desktop-access-mcp-server.git
+cd desktop-access-mcp-server
+
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+pip install pytest black flake8
+```
+
+### Code Quality
+```bash
+# Format code
+black .
+
+# Check code style
+flake8 .
+
+# Run tests
+python -m pytest
+```
+
+### Project Structure
+```
+desktop-access-mcp-server/
+├── desktop_access_mcp_server/     # Main package
+│   ├── __init__.py               # Package init
+│   ├── __main__.py               # MCP server entry point
+│   ├── cli.py                    # Command-line interface
+│   └── desktop_controller.py     # Core functionality
+├── test_*.py                     # Test files
+├── run_screenshot_tests.py       # Screenshot test suite
+├── review_screenshots.py         # Screenshot review tool
+├── requirements.txt              # Python dependencies
+├── pyproject.toml                # Package configuration
+└── README.md                     # This file
+```
+
+## ⚙️ JSON Configuration for MCP Clients
+
+### Claude Desktop Configuration
+
+To use this server with Claude Desktop, add the following to your MCP configuration file:
+
+```json
+{
+  "mcpServers": {
+    "desktop-access": {
+      "command": "uvx",
+      "args": [
+        "--from",
+        "desktop-access-mcp-server",
+        "desktop-access-mcp-server"
+      ]
+    }
+  }
+}
+```
+
+If you have installed the package locally, you can use the direct command instead:
+
+```json
+{
+  "mcpServers": {
+    "desktop-access": {
+      "command": "desktop-access-mcp-server"
+    }
+  }
+}
+```
+
+### Generic MCP Client Configuration
+
+For other MCP clients that use JSON configuration files, the general format is:
+
+```json
+{
+  "mcpServers": {
+    "desktop-access": {
+      "command": "uvx",
+      "args": [
+        "--from",
+        "desktop-access-mcp-server",
+        "desktop-access-mcp-server"
+      ]
+    }
+  }
+}
+```
+
+### Configuration File Locations
+
+- **Claude Desktop**: `~/Library/Application Support/Claude/mcp-config.json` (macOS) or `%APPDATA%\Claude\mcp-config.json` (Windows)
+- **Generic MCP Clients**: Check your client's documentation for the configuration file location
+
+### Available Tools
+
+Once configured, the following tools will be available to your MCP client:
+
+1. **`take_screenshot`** - Capture desktop screenshots in PNG or JPEG format
+2. **`keyboard_input`** - Simulate keyboard typing and key combinations
+3. **`mouse_action`** - Control mouse movements, clicks, and scrolling
+
+### Example Usage in Claude
+
+After configuration, you can ask Claude to:
+
+- "Take a screenshot of my desktop"
+- "Type 'Hello World' in the current application"
+- "Click on the center of the screen"
+- "Press Ctrl+C to copy selected text"
+
+## 🤝 Contributing
+
+Contributions are welcome! Here's how you can help:
+
+1. **Report Bugs**: Use the issue tracker to report bugs
+2. **Suggest Features**: Request new capabilities
+3. **Submit Pull Requests**: Fix bugs or add features
+4. **Improve Documentation**: Enhance this README or add guides
+
+### Development Guidelines
+- Follow PEP 8 style guide
+- Write tests for new functionality
+- Document public APIs
+- Keep dependencies minimal
+- Ensure cross-platform compatibility
+
+## 📚 Resources
+
+- **[LLM Agent Guide](LLM_AGENT_GUIDE.md)** - How LLM agents can use this server
+- **[Claude Desktop Configuration Guide](CLAUDE_DESKTOP_CONFIG.md)** - Detailed instructions for Claude Desktop setup
+- **[Testing Guide](TESTING_GUIDE.md)** - Comprehensive testing documentation
+- **[MCP Documentation](https://modelcontextprotocol.io)** - Official MCP specification
+- **[Example Usage](example_usage.py)** - Sample implementation
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- [Model Context Protocol](https://modelcontextprotocol.io) for the standardized interface
+- [pynput](https://github.com/moses-palmer/pynput) for cross-platform input control
+- [Pillow](https://python-pillow.org/) for image processing capabilities
+- [MSS](https://github.com/BoboTiG/python-mss) for fast screenshot capture
+
+## 🧾 License
+
+This project is licensed under the [MIT License](LICENSE). See the [LICENSE](LICENSE) file for details.
+
+## 📫 How to Reach Me
+
+[<img height="36" src="https://cdn.simpleicons.org/similarweb"/>](https://hjlabs.in/) &nbsp;
+[<img height="36" src="https://cdn.simpleicons.org/WhatsApp"/>](https://wa.me/917016525813) &nbsp;
+[<img height="36" src="https://cdn.simpleicons.org/telegram"/>](https://t.me/hjlabs) &nbsp;
+[<img height="36" src="https://cdn.simpleicons.org/Gmail"/>](mailto:hemangjoshi37a@gmail.com) &nbsp;
+[<img height="36" src="https://cdn.simpleicons.org/LinkedIn"/>](https://www.linkedin.com/in/hemang-joshi-046746aa) &nbsp;
+[<img height="36" src="https://cdn.simpleicons.org/facebook"/>](https://www.facebook.com/hemangjoshi37) &nbsp;
+[<img height="36" src="https://cdn.simpleicons.org/Twitter"/>](https://twitter.com/HemangJ81509525) &nbsp;
+[<img height="36" src="https://cdn.simpleicons.org/tumblr"/>](https://www.tumblr.com/blog/hemangjoshi37a-blog) &nbsp;
+[<img height="36" src="https://cdn.simpleicons.org/StackOverflow"/>](https://stackoverflow.com/users/8090050/hemang-joshi) &nbsp;
+[<img height="36" src="https://cdn.simpleicons.org/Instagram"/>](https://www.instagram.com/hemangjoshi37) &nbsp;
+[<img height="36" src="https://cdn.simpleicons.org/Pinterest"/>](https://in.pinterest.com/hemangjoshi37a) &nbsp;
+[<img height="36" src="https://cdn.simpleicons.org/Blogger"/>](http://hemangjoshi.blogspot.com) &nbsp;
+[<img height="36" src="https://cdn.simpleicons.org/gitlab"/>](https://gitlab.com/hemangjoshi37a)
+
+## 🔗 Other Projects
+
+Explore more projects by the author:
+
+- [TrendMaster](https://github.com/hemangjoshi37a/TrendMaster) - Advanced trend analysis tool for traders.
+- [hjalgos_notebooks](https://github.com/hemangjoshi37a/hjalgos_notebooks) - Jupyter notebooks for hjAlgos strategies.
+- [Zerodha-Brokerage-Calculator](https://github.com/hemangjoshi37a/Zerodha-Brokerage-Calculator) - A calculator for Zerodha brokerage fees.
+- [TeleTest](https://github.com/hemangjoshi37a/TeleTest) - Telegram bot for testing trading signals.
+- [Tradingview-Webhook-Manager](https://github.com/hemangjoshi37a/Tradingview-Webhook-Manager) - Manage TradingView webhooks effectively.
+- [Algotrading_Multi_account_Modern_UI](https://github.com/hemangjoshi37a/Algotrading_Multi_account_Modern_UI) - Modern UI for managing multiple algotrading accounts.
+- [pyPortMan](https://github.com/hemangjoshi37a/pyPortMan) - Python portfolio manager for tracking investments.
+
+## 🤝 Sponsorship
+
+This project is sponsored by [hjLabs](https://hjlabs.in).
+
+---
+
+<div align="center">
+  <p>Built with ❤️ for the AI agent community</p>
+  <p><i>Enabling LLMs to see and interact with the world beyond text</i></p>
+</div>
+
