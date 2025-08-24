@@ -1,0 +1,15 @@
+Click>=7.0
+
+[dev]
+pytest
+pytest-mock
+pytest-cov
+moto
+tox
+flake8
+flake8-import-order
+flake8-print
+flake8-builtins
+pep8-naming
+pre-commit
+rope
