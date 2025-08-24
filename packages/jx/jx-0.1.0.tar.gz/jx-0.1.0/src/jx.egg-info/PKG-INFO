@@ -1,0 +1,42 @@
+Metadata-Version: 2.4
+Name: jx
+Version: 0.1.0
+Summary: Replace your HTML templates with Python server-Side components
+Author-email: Juan Pablo Scaletti <juanpablo@jpscaletti.com>
+Project-URL: homepage, https://jx.scaletti.dev/
+Project-URL: repository, https://github.com/jpsca/jx
+Project-URL: documentation, https://jx.scaletti.dev/
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Software Development :: User Interfaces
+Classifier: Topic :: Text Processing :: Markup :: HTML
+Classifier: Typing :: Typed
+Requires-Python: <4,>=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: jinja2>=3.0
+Requires-Dist: markupsafe>=2.0
+Dynamic: license-file
+
+<h1>
+  <img src="https://github.com/jpsca/jx/raw/main/docs/logo-jx.png" height="100" align="top">
+</h1>
+
+Super components powers for your Jinja templates.
+
+<p>
+  <img alt="python: 3.11, 3.12, 3.13, 3.14" src="https://github.com/jpsca/jx/raw/main/docs/python.svg">
+  <img alt="license: MIT" src="https://github.com/jpsca/jx/raw/main/docs/license.svg">
+</p>
+
+From chaos to clarity: The power of components in your server-side-rendered Python web app.
+
+<!-- Documentation: https://jx.scaletti.dev/ -->
