@@ -1,0 +1,38 @@
+{
+    "ruff.nativeServer": true,
+    "[python]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        "editor.codeActionsOnSave": {
+            "source.fixAll": "explicit",
+            "source.organizeImports": "explicit"
+        }
+    },
+    "evenBetterToml.formatter.arrayAutoExpand": true,
+    "evenBetterToml.formatter.alignEntries": true,
+    "evenBetterToml.formatter.compactEntries": false,
+    "evenBetterToml.formatter.compactArrays": false,
+    "python.testing.pytestArgs": [
+        "tests"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "taskExplorer.enabledTasks": {
+        "ant": false,
+        "bash": false,
+        "batch": false,
+        "composer": false,
+        "gradle": false,
+        "grunt": false,
+        "gulp": false,
+        "make": false,
+        "maven": false,
+        "npm": false,
+        "perl": false,
+        "pipenv": false,
+        "powershell": false,
+        "python": false,
+        "ruby": false,
+        "tsc": false
+    }
+}

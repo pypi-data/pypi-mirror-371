@@ -1,0 +1,21 @@
+name: run tests with tox
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: install the project
+        run: uv sync --extra dev
+
+      - name: run tox
+        run: uv run tox
