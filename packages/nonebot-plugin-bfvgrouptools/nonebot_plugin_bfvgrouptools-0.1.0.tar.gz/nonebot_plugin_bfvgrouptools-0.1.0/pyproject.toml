@@ -1,0 +1,57 @@
+[project]
+name = "nonebot-plugin-bfvgrouptools"
+version = "0.1.0"
+description = "A Battlefield V group management plugin for NoneBot2"
+authors = [{ name = "llbuxudong", email = "3513392931@qq.com" }]
+license = { text = "MIT" }
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+keywords = ["nonebot", "nonebot2", "battlefield", "bfv", "plugin"]
+dependencies = [
+    "nonebot2>=2.4.0",
+    "nonebot-adapter-onebot>=2.2.0",
+    "httpx>=0.23.0",
+    "aiocache>=0.11.1",
+    "pillow>=9.0.0",
+    "python-dotenv>=0.19.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/llbuxudong/nonebot-plugin-bfvgrouptools"
+Repository = "https://github.com/llbuxudong/nonebot-plugin-bfvgrouptools"
+Documentation = "https://github.com/llbuxudong/nonebot-plugin-bfvgrouptools#readme"
+
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.poetry]
+name = "nonebot-plugin-bfvgrouptools"
+version = "0.1.0"
+description = "A Battlefield V group management plugin for NoneBot2"
+authors = ["llbuxudong <3513392931@qq.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{ include = "nonebot_plugin_bfvgrouptools" }]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+nonebot2 = ">=2.4.0"
+nonebot-adapter-onebot = "^2.2.0"
+httpx = "^0.23.0"
+aiocache = "^0.11.1"
+pillow = "^9.0.0"
+python-dotenv = "^0.19.0"
+
+[tool.poetry.group.dev.dependencies]
+black = "^22.3.0"
+flake8 = "^4.0.1"
+isort = "^5.10.1"
+mypy = "^0.961"
+pytest = "^7.1.2"
