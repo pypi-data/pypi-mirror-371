@@ -1,0 +1,15 @@
+debug_dojo/__init__.py,sha256=HPOVIblqlkfgDFGw88-SnOCXIe5aiCJYqZrgyxDnEKI,631
+debug_dojo/__main__.py,sha256=LfI3lFIa40HfxetH0LeEFwZOQLA7X8jD2IIxykBnud0,113
+debug_dojo/_cli.py,sha256=Wc3EAjK7hzzdGQyAtbbibVYpcw4__DlLMw4mPAA9YuA,4656
+debug_dojo/_compare.py,sha256=akkIw-FQI8lp26M7yh_WnWy_C9VTkBhSJov2qOuWsEY,4327
+debug_dojo/_config.py,sha256=-QjGTLSO3Q_s7tb9ulqUqOSZCRjDqbDabe93Cg5_DB4,4655
+debug_dojo/_config_models.py,sha256=L9fOr7F-6EvO8wZ869FspnNulGxEy4W1gQ5lBBHGOUw,5136
+debug_dojo/_installers.py,sha256=obnYSmNZRjhhSyTLX6uFy44et9ZCO2lY6BV3LImVEI0,4979
+debug_dojo/install.py,sha256=SV6zeTPJWi744Jrk2G1i2S5MhflWd7NybZk5KH7lc2U,193
+debug_dojo/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+debug_dojo-0.5.0.dist-info/licenses/LICENSE,sha256=_p4ChyhQrvOnq7tPOV2MWjv2vI28ESOmRWZCRXo4fOI,1078
+debug_dojo-0.5.0.dist-info/METADATA,sha256=lcsWjEk5G0DKUQxQy_t1JJiqMtgQnCD51As3dHN6UnY,3446
+debug_dojo-0.5.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+debug_dojo-0.5.0.dist-info/entry_points.txt,sha256=2yJ0XmjJCjOE32I5OwCsudwqVRuPZZ2Y172NCREBIRY,46
+debug_dojo-0.5.0.dist-info/top_level.txt,sha256=35yB7R0FL5VrZI8D7WpIOBlK6qWlmSmkJEqECbeMUAQ,11
+debug_dojo-0.5.0.dist-info/RECORD,,
