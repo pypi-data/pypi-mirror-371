@@ -1,0 +1,44 @@
+Metadata-Version: 2.4
+Name: snapkit
+Version: 0.0.2
+Summary: SnapKit: Handy image utilities for AI/CV workflows
+Home-page: https://github.com/mallickboy/snapkit
+Author: Tamal Mallick
+Author-email: contact@mallickboy.com
+License: MIT
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Multimedia :: Graphics
+Description-Content-Type: text/plain
+License-File: LICENSE
+Requires-Dist: Pillow
+Requires-Dist: tqdm
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: summary
+
+        SnapKit is a lightweight toolkit for everyday image-related tasks
+        in AI, Computer Vision, and ML workflows. 
+
+        Current Modules:
+        - jpg_to_png: Convert JPEG/JPG images to PNG (multi-threaded for speed)
+
+        Roadmap:
+        - More conversion utilities
+        - Visualization helpers
+        - Stitching & plotting tools
+        - CLI-first design for productivity
+
+        Author: Tamal Mallick (github.com/mallickboy)
+        License: MIT
+        
