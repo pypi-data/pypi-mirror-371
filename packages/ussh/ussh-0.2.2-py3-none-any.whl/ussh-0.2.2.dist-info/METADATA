@@ -1,0 +1,179 @@
+Metadata-Version: 2.4
+Name: ussh
+Version: 0.2.2
+Summary: Command Line Tool to use ssh simply
+Requires-Python: >=3.9.1
+Description-Content-Type: text/markdown
+Requires-Dist: click>=8.1.7
+Requires-Dist: tabulate>=0.9.0
+
+# ussh - Smart SSH Connection Manager
+
+A powerful command-line tool for managing SSH connections with smart tab completion.
+
+## Features
+
+- **Smart SSH Management**: Store and manage SSH connection configurations
+- **Tab Completion**: Intelligent tab completion for all commands and stored aliases
+- **Secure**: Encrypted storage for sensitive information
+- **Tunneling**: Support for local and remote port forwarding
+- **Proxy Jump**: Built-in support for bastion hosts
+
+## Installation
+
+```bash
+uv tool install ussh
+```
+
+## Tab Completion Setup
+
+### Automatic Setup (Recommended)
+
+Simply run the activate command:
+
+```bash
+ussh activate completion
+```
+
+This will:
+1. Auto-detect your shell (Bash, Zsh, or Fish)
+2. Generate appropriate completion files
+3. Configure your shell to load completions
+4. Provide instructions for immediate activation
+
+Options:
+- `--shell`: Specify shell manually (bash/zsh/fish)
+- `--force`: Force reinstall even if already configured
+
+### Check Activation Status
+
+```bash
+ussh activate status
+```
+
+This shows:
+- Shell completion configuration status
+- Current shell detection
+- Installation status
+- Configuration statistics
+
+### Manual Setup
+
+For advanced users who want manual control:
+
+#### Bash
+```bash
+_USSH_COMPLETE=bash_source ussh > ~/.ussh-complete.bash
+echo 'source ~/.ussh-complete.bash' >> ~/.bashrc
+source ~/.bashrc
+```
+
+#### Zsh
+```bash
+mkdir -p ~/.zsh/completion
+_USSH_COMPLETE=zsh_source ussh > ~/.zsh/completion/_ussh
+echo 'fpath+=~/.zsh/completion' >> ~/.zshrc
+echo 'autoload -Uz compinit && compinit' >> ~/.zshrc
+source ~/.zshrc
+```
+
+#### Fish
+```bash
+mkdir -p ~/.config/fish/completions
+_USSH_COMPLETE=fish_source ussh > ~/.config/fish/completions/ussh.fish
+```
+
+## Tab Completion Features
+
+### Smart Alias Completion
+- **Environment completion**: `ussh connect <TAB>` shows all saved environments
+- **Host completion**: `ussh add env -h <TAB>` shows all saved hosts
+- **Port completion**: `ussh add env -p <TAB>` shows saved ports and common ports
+- **Username completion**: `ussh add env -u <TAB>` shows all saved usernames
+- **Keypair completion**: `ussh add env -k <TAB>` shows all saved keypairs
+- **Proxy completion**: `ussh add env -j <TAB>` shows environments suitable for proxy jump
+
+### Enhanced Smart Matching
+- **Substring matching**: Type any part of an alias to find matches
+- **Smart scoring**: Results are sorted by relevance:
+  - Exact matches: Highest priority
+  - Prefix matches: High priority (e.g., `dev` → `dev-server`)
+  - Word boundary matches: Medium priority (e.g., `server` → `dev-server`)
+  - Substring matches: Low priority (e.g., `data` → `database-primary`)
+- **Multi-field search**: For environments, searches across alias, host, username, and IP address
+
+### Context-Aware Suggestions
+- Completions are intelligently filtered based on any substring match
+- Help text shows relevant information (e.g., host address for host aliases)
+- Only valid options are suggested (e.g., only key-authenticated environments for proxy)
+
+## Usage Examples
+
+### Add Components
+```bash
+# Add a host
+ussh add host -v 192.168.1.100 -l dev-server
+
+# Add a username
+ussh add user -v ubuntu -l ubuntu-user
+
+# Add a keypair
+ussh add keypair -p ~/.ssh/id_rsa -l dev-key
+
+# Create an environment
+ussh add env -h dev-server -u ubuntu-user -k dev-key -l dev-env
+```
+
+### Connect to Environment
+```bash
+# Connect using stored environment (with tab completion!)
+ussh connect dev-env
+
+# Use tab to see all available environments
+ussh connect <TAB>
+```
+
+### Manage Tunnels
+```bash
+# Create local tunnel (with tab completion for environment and host)
+ussh tunnel local -e dev-env -L 3306 -H db-server -R 3306
+
+# List and manage active tunnels
+ussh tunnel manage
+```
+
+### Search and List
+```bash
+# List all stored information
+ussh list
+
+# Search for specific items
+ussh find -q dev
+
+# List specific component type
+ussh list host
+```
+
+## Advanced Features
+
+### Proxy Jump Support
+Configure environments to use other environments as jump hosts:
+```bash
+ussh add env -h prod-server -u deploy -k prod-key -j bastion-env -l prod-env
+```
+
+### Password and Key Authentication
+Supports both password and key-based authentication:
+```bash
+# Password authentication
+ussh add pwd -v mypassword -l prod-pass
+ussh add env -h server -u user -w prod-pass -l pwd-env
+
+# Key authentication (recommended)
+ussh add kp -p ~/.ssh/id_rsa -l my-key
+ussh add env -h server -u user -k my-key -l key-env
+```
+
+## License
+
+MIT

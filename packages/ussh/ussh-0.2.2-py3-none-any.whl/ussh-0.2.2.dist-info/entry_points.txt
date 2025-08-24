@@ -1,0 +1,2 @@
+[console_scripts]
+ussh = src.main:cli
