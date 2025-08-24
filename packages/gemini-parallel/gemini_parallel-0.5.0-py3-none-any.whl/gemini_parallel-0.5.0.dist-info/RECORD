@@ -1,0 +1,9 @@
+gemini_parallel/__init__.py,sha256=ck7YWP83gBv5L0lKsSRGTn34mw4qtPTQDOhhaOd7WE4,563
+gemini_parallel/gemini_media_processor.py,sha256=xLvRDqWIQeRDMnMFfHDdur8Rl7DOyYgezDdH1ksKryc,8801
+gemini_parallel/gemini_parallel.py,sha256=sh_8dhw0qyF93m18NbM7CuyEeYTmUOQfQZAR6Somsmw,69140
+gemini_parallel/gemini_tts.py,sha256=soB_yHpsG1IOJC5h8rzYOM1HuY8-p0DJ-2baAwZAEZ0,25775
+gemini_parallel-0.5.0.dist-info/licenses/LICENSE,sha256=6WA4QgEJbJRYBUbOqraH-cOGTLtLiVPcL2sQRKglstU,1089
+gemini_parallel-0.5.0.dist-info/METADATA,sha256=tX64FHXLujPQUdsyIjJbgwA1C50y3rrkL4fGTsF28UE,28525
+gemini_parallel-0.5.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+gemini_parallel-0.5.0.dist-info/top_level.txt,sha256=XuUKH1ucwFKin9vdY6C-gu1ZsFCL2BLcNXm02bWXR2c,16
+gemini_parallel-0.5.0.dist-info/RECORD,,
