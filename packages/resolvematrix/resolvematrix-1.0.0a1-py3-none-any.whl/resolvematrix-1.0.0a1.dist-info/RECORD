@@ -1,0 +1,13 @@
+resolvematrix/__init__.py,sha256=Fh6Ea1GmTUOol-N_S146CCtp_pSUGtmvfjAmdecvOfQ,63
+resolvematrix/__main__.py,sha256=kRPyJV2fwcyW5ZQtDwb4m9Vaapp3-u0MAJXylrf4ytQ,602
+resolvematrix/__version__.py,sha256=WxmOvEMOGriiYUn2e_hILrbli16deSrHGZytIDC9mqM,712
+resolvematrix/client.py,sha256=qjitnad7623_j5R-gSOcAjODwj93Np7FjUGon6ATpoc,8656
+resolvematrix/err.py,sha256=frXQ1CosPWNddwtzHcpx1MTslZ5mAJrCRebTy7Wbv0I,318
+resolvematrix/server.py,sha256=L4g-XRl0axtmJX7UkUoHhDGUOaNSLQWt2xlWXCyJQqI,13553
+resolvematrix/test_resolver.py,sha256=D-Kng8a5a9nDqYL0uuEjTUvqKUWHhNRkcOilXOGehi8,2994
+resolvematrix-1.0.0a1.dist-info/licenses/LICENSE,sha256=Pz2eACSxkhsGfW9_iN60pgy-enjnbGTj8df8O3ebnQQ,16726
+resolvematrix-1.0.0a1.dist-info/METADATA,sha256=YW29RlR48BkT_IpqBS2daf5eqW7FShNsyysop8v7cZ0,3691
+resolvematrix-1.0.0a1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+resolvematrix-1.0.0a1.dist-info/entry_points.txt,sha256=Tr8iYVIyYIV3eCuL5beFWLSbYRx0Is6qsV_zrDX1r0E,58
+resolvematrix-1.0.0a1.dist-info/top_level.txt,sha256=iUe0fWQisGNbOE4CVdM3HGHAuE-efFvPYLSeBVMqlMo,14
+resolvematrix-1.0.0a1.dist-info/RECORD,,
