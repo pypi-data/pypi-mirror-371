@@ -1,0 +1,4 @@
+[console_scripts]
+fantasio = Fantasio.fantasio:main
+fantasio-automatic = Fantasio.automatic:main
+fantasio-interactive = Fantasio.interactive:main
