@@ -1,0 +1,3 @@
+[console_scripts]
+durusai = durusai.cli:main
+durusai-cli = durusai.cli:main
