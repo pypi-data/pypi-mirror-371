@@ -1,0 +1,6 @@
+[console_scripts]
+dws-add-claude-code-rule = nutrient_dws_scripts.add_claude_code_rule:main
+dws-add-cursor-rule = nutrient_dws_scripts.add_cursor_rule:main
+dws-add-github-copilot-rule = nutrient_dws_scripts.add_github_copilot_rule:main
+dws-add-junie-rule = nutrient_dws_scripts.add_junie_rule:main
+dws-add-windsurf-rule = nutrient_dws_scripts.add_windsurf_rule:main
