@@ -1,0 +1,33 @@
+{
+  "custom_table": {
+    "columns": {
+      "id": {
+        "type": "INTEGER",
+        "nullable": false
+      },
+      "name": {
+        "type": "VARCHAR",
+        "nullable": false
+      },
+      "email": {
+        "type": "VARCHAR",
+        "nullable": true
+      },
+      "age": {
+        "type": "INTEGER",
+        "nullable": true
+      },
+      "active": {
+        "type": "BOOLEAN",
+        "nullable": false
+      },
+      "score": {
+        "type": "DOUBLE",
+        "nullable": true
+      }
+    },
+    "rowCount": 10
+  }
+}
+
+

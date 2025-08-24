@@ -1,0 +1,79 @@
+{
+  "users": {
+    "columns": {
+      "user_id": {
+        "type": "INTEGER",
+        "nullable": false
+      },
+      "username": {
+        "type": "VARCHAR",
+        "nullable": false
+      },
+      "email": {
+        "type": "VARCHAR",
+        "nullable": true
+      },
+      "created_at": {
+        "type": "VARCHAR",
+        "nullable": true
+      }
+    },
+    "rowCount": 8
+  },
+  "orders": {
+    "columns": {
+      "order_id": {
+        "type": "INTEGER",
+        "nullable": false
+      },
+      "user_id": {
+        "type": "INTEGER",
+        "nullable": false
+      },
+      "product_name": {
+        "type": "VARCHAR",
+        "nullable": false
+      },
+      "quantity": {
+        "type": "INTEGER",
+        "nullable": false
+      },
+      "price": {
+        "type": "DOUBLE",
+        "nullable": false
+      },
+      "status": {
+        "type": "VARCHAR",
+        "nullable": true
+      }
+    },
+    "rowCount": 15
+  },
+  "products": {
+    "columns": {
+      "product_id": {
+        "type": "INTEGER",
+        "nullable": false
+      },
+      "name": {
+        "type": "VARCHAR",
+        "nullable": false
+      },
+      "category": {
+        "type": "VARCHAR",
+        "nullable": true
+      },
+      "price": {
+        "type": "DOUBLE",
+        "nullable": false
+      },
+      "in_stock": {
+        "type": "BOOLEAN",
+        "nullable": false
+      }
+    },
+    "rowCount": 12
+  }
+}
+
+

@@ -1,0 +1,94 @@
+[
+  {
+    "name": "push_down_filter",
+    "description": "Push filter operations down to reduce data processing",
+    "priority": 100,
+    "enabled": true,
+    "conditions": [
+      {
+        "type": "node_type",
+        "operator": "contains",
+        "value": "TableScan"
+      }
+    ],
+    "transformations": [
+      {
+        "action": "push_down",
+        "target": "filter",
+        "parameters": {
+          "strategy": "aggressive"
+        },
+        "cost_reduction": 25.0
+      }
+    ],
+    "metadata": {
+      "category": "filter_optimization",
+      "author": "system",
+      "version": "1.0"
+    }
+  },
+  {
+    "name": "projection_pruning",
+    "description": "Remove unnecessary columns from projections",
+    "priority": 80,
+    "enabled": true,
+    "conditions": [
+      {
+        "type": "field_count",
+        "operator": "greater_than",
+        "value": 3
+      }
+    ],
+    "transformations": [
+      {
+        "action": "prune",
+        "target": "projection",
+        "parameters": {
+          "keep_used_only": true
+        },
+        "cost_reduction": 15.0
+      }
+    ],
+    "metadata": {
+      "category": "projection_optimization",
+      "author": "system",
+      "version": "1.0"
+    }
+  },
+  {
+    "name": "table_scan_optimization",
+    "description": "Optimize table scan operations for large tables",
+    "priority": 60,
+    "enabled": true,
+    "conditions": [
+      {
+        "type": "node_type",
+        "operator": "equals",
+        "value": "LogicalTableScan"
+      },
+      {
+        "type": "cost_threshold",
+        "operator": "greater_than",
+        "value": 50.0
+      }
+    ],
+    "transformations": [
+      {
+        "action": "optimize",
+        "target": "scan",
+        "parameters": {
+          "method": "index_scan",
+          "parallel": true
+        },
+        "cost_reduction": 40.0
+      }
+    ],
+    "metadata": {
+      "category": "scan_optimization",
+      "author": "system",
+      "version": "1.0"
+    }
+  }
+]
+
+
