@@ -1,0 +1,84 @@
+# Django Simple Ordering
+# Copyright (C) 2025 Amin Vassefpoor
+# This file is distributed under the same license as the django-simple-ordering package.
+# Amin Vassefpoor aminvassefpoor@gmail.com, 2025.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: django-simple-ordering 1.0.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-23 00:37+0330\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Amin Vassefpoor aminvassefpoor@gmail.com\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: Persian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: admin.py:91 admin.py:113
+#, python-format
+msgid "Regenerate %(model_verbose_name_plural)s Ordering"
+msgstr "بازایجاد ترتیب‌های %(model_verbose_name_plural)s"
+
+#: admin.py:93
+#, python-format
+msgid ""
+"This process assigns new ordering numbers with a gap of 100 to "
+"%(model_verbose_name_plural)s without touching their current order to "
+"simplify inserting and moving them."
+msgstr ""
+"این فرایند، شماره ترتیب‌های جدیدی با فاصله ۱۰۰ تایی به "
+"%(model_verbose_name_plural)s اختصاص می‌دهد بدون اینکه ترتیب فعلی آنها را بهم "
+"بزند. این کار باعث می‌شود تا درج و جابه‌جایی آن‌ها ساده‌تر شود."
+
+#: admin.py:129
+#, python-format
+msgid ""
+"%(model_verbose_name_plural)s ordering numbers were successfully regenerated."
+msgstr "بازایجاد ترتیب %(model_verbose_name_plural)s با موفقیت انجام شد."
+
+#: models.py:24
+msgid "ordering"
+msgstr "ترتیب"
+
+#: templates/django_simple_ordering/admin/ordering_regenerate_confirmation.html:20
+msgid "Home"
+msgstr "خانه"
+
+#: templates/django_simple_ordering/admin/ordering_regenerate_confirmation.html:35
+#, python-format
+msgid ""
+"\n"
+"            This process assigns new ordering numbers with a gap of 100 to "
+"%(verbose_name_plural)s without touching\n"
+"            their current order to simplify inserting and moving them.\n"
+"        "
+msgstr ""
+"\n"
+"این فرایند، شماره ترتیب‌های جدیدی با فاصله ۱۰۰ تایی به "
+"%(verbose_name_plural)s اختصاص می‌دهد بدون اینکه ترتیب فعلی آنها را بهم بزند. "
+"این کار باعث می‌شود تا درج و جابه‌جایی آن‌ها ساده‌تر شود."
+
+#: templates/django_simple_ordering/admin/ordering_regenerate_confirmation.html:41
+#, python-format
+msgid ""
+"\n"
+"            Are you sure you want to continue? This process can take a few "
+"seconds depending on the number of\n"
+"            %(verbose_name_plural)s and the current load on the website.\n"
+"        "
+msgstr ""
+"\n"
+"آیا مطمئن هستید که می‌خواهید ادامه دهید؟ این فرآیند ممکن است بسته به تعداد "
+"%(verbose_name_plural)s و بار فعلی سایت، چند ثانیه طول بکشد."
+
+#: templates/django_simple_ordering/admin/ordering_regenerate_confirmation.html:50
+msgid "Yes, I’m sure"
+msgstr "بله، مطمئنم"
+
+#: templates/django_simple_ordering/admin/ordering_regenerate_confirmation.html:52
+msgid "No, take me back"
+msgstr "نه، من را برگردان"
