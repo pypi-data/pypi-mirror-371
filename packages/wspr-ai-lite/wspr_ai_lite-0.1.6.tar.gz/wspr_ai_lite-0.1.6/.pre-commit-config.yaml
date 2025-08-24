@@ -1,0 +1,45 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: mixed-line-ending
+      - id: check-yaml
+        exclude: ^mkdocs\.yml$   # <-- add this line
+      - id: check-json
+      - id: check-toml
+      - id: check-added-large-files
+        args: ['--maxkb=4000']
+
+
+  # --- Local custom hooks ---
+  - repo: local
+    hooks:
+      - id: forbid-artifacts
+        name: Block generated artifacts (site/, DuckDB, caches)
+        language: system
+        entry: bash -lc
+        pass_filenames: false
+        types: [file]
+        args:
+          - |
+            fail=0
+            files=$(git diff --cached --name-only)
+            for f in $files; do
+              case "$f" in
+                site/*) echo "Blocked: $f (MkDocs output)"; fail=1 ;;
+                data/*.duckdb|data/*.duckdb-wal) echo "Blocked: $f (local DB)"; fail=1 ;;
+                .cache_history.json) echo "Blocked: $f (local cache index)"; fail=1 ;;
+                .pytest_cache/*|__pycache__/*) echo "Blocked: $f (pytest/pycache)"; fail=1 ;;
+              esac
+            done
+            exit $fail
+
+      - id: interrogate-docstrings
+        name: Docstring coverage (interrogate)
+        language: python
+        additional_dependencies: [interrogate]
+        entry: interrogate
+        args: ['-c', 'pyproject.toml', 'app', 'pipelines']
+        pass_filenames: false
