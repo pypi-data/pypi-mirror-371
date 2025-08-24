@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: freemework_abstractions
+Version: 0.0.2
+Summary: TBD
+Author-Email: Max Anurin <maxim.anurin@freemework.org>
+License: MIT
+Requires-Python: >=3.13
+Description-Content-Type: text/markdown
+
+# freemework_abstractions
+
+Minimal example Python library managed with PDM.
