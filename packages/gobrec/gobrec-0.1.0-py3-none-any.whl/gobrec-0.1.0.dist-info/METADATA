@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: gobrec
+Version: 0.1.0
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: torch
+Requires-Dist: numpy
+Requires-Dist: scikit-learn
+
+# gobrec
+GOBRec: GPU Optimized Bandits Recommender
