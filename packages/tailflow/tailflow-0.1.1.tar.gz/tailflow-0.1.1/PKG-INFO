@@ -1,0 +1,8 @@
+Metadata-Version: 2.4
+Name: tailflow
+Version: 0.1.1
+Summary: A simple viewer for logfmt logs
+Author-email: Martin Šmid <martin.smid@gmail.com>
+Requires-Python: >=3.12
+Requires-Dist: click>=8.2.1
+Requires-Dist: prompt-toolkit>=3.0.51

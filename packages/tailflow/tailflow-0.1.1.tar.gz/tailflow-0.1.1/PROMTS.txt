@@ -1,0 +1,21 @@
+Write a simple logfile viewer.
+- supports only logfmt logger format
+- only works in linux shell with colors
+- logfmt lines look like this:
+    time="2025-07-28 01:09:49,802" logger=teletext.__main__ level=INFO msg="Starting livescore screen generation for all sports." msg="Starting livescore screen generation for all sports."
+    - they have typically these fields: time, logger, level and msg.
+
+- output a tabular view and colored the level field by level value
+- support filtering bu level
+    - filtering by level needs to act like a bottom limit, so debugging outputs all above and info level only output INFO and higher. Check python logging levels.
+- support filtering by logger
+    - logger should support also negative filtering so you can hide some loggers from view
+    - logger names come with a dot notation: project.module.submodule. if you select a logger with as 'project', it should contain all submodules - so basically the logger name should start with 'project.'.
+- should be written in python
+- use click package to handle command line arguments
+- parameter shortcut -e for setting the level to error
+- parameter shortcut -d for setting the level to debug
+
+Another part is a separate text ui that will be interactive. It would allow to switch logger levels and add filters for logger use keyboard shortcuts
+
+- use uv to build and manage project dependencies
