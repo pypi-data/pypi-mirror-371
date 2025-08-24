@@ -1,0 +1,326 @@
+Metadata-Version: 2.4
+Name: pyhesaff
+Version: 2.1.3
+Summary: Routines for computation of hessian affine keypoints in images.
+Home-page: https://github.com/Erotemic/pyhesaff
+Author: Krystian Mikolajczyk, Michal Perdoch, Jon Crall, Avi Weinstock
+Author-email: erotemic@gmail.com
+License: Apache 2
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Utilities
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: 3.14
+Requires-Python: >=3.9
+Description-Content-Type: text/x-rst
+Requires-Dist: numpy>=2.1.0; python_version < "4.0" and python_version >= "3.13"
+Requires-Dist: numpy>=1.26.0; python_version < "3.13" and python_version >= "3.12"
+Requires-Dist: numpy>=1.23.2; python_version < "3.12" and python_version >= "3.11"
+Requires-Dist: numpy>=1.21.6; python_version < "3.11" and python_version >= "3.10"
+Requires-Dist: numpy>=1.19.3; python_version < "3.10" and python_version >= "3.9"
+Requires-Dist: numpy>=1.19.3; python_version < "3.9" and python_version >= "3.8"
+Requires-Dist: ubelt>=1.3.4
+Provides-Extra: all
+Requires-Dist: numpy>=2.1.0; (python_version < "4.0" and python_version >= "3.13") and extra == "all"
+Requires-Dist: numpy>=1.26.0; (python_version < "3.13" and python_version >= "3.12") and extra == "all"
+Requires-Dist: numpy>=1.23.2; (python_version < "3.12" and python_version >= "3.11") and extra == "all"
+Requires-Dist: numpy>=1.21.6; (python_version < "3.11" and python_version >= "3.10") and extra == "all"
+Requires-Dist: numpy>=1.19.3; (python_version < "3.10" and python_version >= "3.9") and extra == "all"
+Requires-Dist: numpy>=1.19.3; (python_version < "3.9" and python_version >= "3.8") and extra == "all"
+Requires-Dist: ubelt>=1.3.4; extra == "all"
+Requires-Dist: utool>=2.2.1; extra == "all"
+Requires-Dist: xdoctest>=1.1.5; extra == "all"
+Requires-Dist: pytest>=8.1.1; (python_version < "4.0" and python_version >= "3.13") and extra == "all"
+Requires-Dist: pytest>=8.1.1; (python_version < "3.13" and python_version >= "3.12") and extra == "all"
+Requires-Dist: pytest>=8.1.1; (python_version < "3.12" and python_version >= "3.11") and extra == "all"
+Requires-Dist: pytest>=6.2.5; (python_version < "3.11" and python_version >= "3.10") and extra == "all"
+Requires-Dist: pytest>=6.2.5; (python_version < "3.10" and python_version >= "3.8") and extra == "all"
+Requires-Dist: pytest-cov>=3.0.0; extra == "all"
+Requires-Dist: pytest_timeout>=2.3.1; (python_version < "4.0" and python_version >= "3.12") and extra == "all"
+Requires-Dist: pytest_timeout>=1.4.2; python_version < "3.12" and extra == "all"
+Requires-Dist: coverage>=7.3.0; (python_version < "4.0" and python_version >= "3.12") and extra == "all"
+Requires-Dist: coverage>=6.1.1; (python_version < "3.12" and python_version >= "3.10") and extra == "all"
+Requires-Dist: coverage>=5.3.1; (python_version < "3.10" and python_version >= "3.9") and extra == "all"
+Requires-Dist: coverage>=6.1.1; (python_version < "3.9" and python_version >= "3.8") and extra == "all"
+Requires-Dist: coverage>=7.3.0; (python_version < "4.0" and python_version >= "3.12") and extra == "all"
+Requires-Dist: coverage>=6.1.1; (python_version < "3.12" and python_version >= "3.10") and extra == "all"
+Requires-Dist: coverage>=5.3.1; (python_version < "3.10" and python_version >= "3.9") and extra == "all"
+Requires-Dist: coverage>=6.1.1; (python_version < "3.9" and python_version >= "3.8") and extra == "all"
+Requires-Dist: requests>=2.27.1; extra == "all"
+Requires-Dist: cmake; extra == "all"
+Requires-Dist: ninja; extra == "all"
+Requires-Dist: scikit-build; extra == "all"
+Requires-Dist: setuptools; extra == "all"
+Requires-Dist: setuptools_scm[toml]; extra == "all"
+Requires-Dist: wheel; extra == "all"
+Provides-Extra: headless
+Requires-Dist: opencv-python-headless>=4.10.0.84; (python_version < "4.0" and python_version >= "3.13") and extra == "headless"
+Requires-Dist: opencv-python-headless>=4.5.5.64; (python_version < "3.13" and python_version >= "3.11") and extra == "headless"
+Requires-Dist: opencv-python-headless>=4.5.4.58; (python_version < "3.11" and python_version >= "3.10") and extra == "headless"
+Requires-Dist: opencv-python-headless>=3.4.15.55; (python_version < "3.10" and python_version >= "3.9") and extra == "headless"
+Provides-Extra: graphics
+Requires-Dist: opencv-python>=4.10.0.84; (python_version < "4.0" and python_version >= "3.13") and extra == "graphics"
+Requires-Dist: opencv-python>=4.5.5.64; (python_version < "3.13" and python_version >= "3.11") and extra == "graphics"
+Requires-Dist: opencv-python>=4.5.4.58; (python_version < "3.11" and python_version >= "3.10") and extra == "graphics"
+Requires-Dist: opencv-python>=3.4.15.55; (python_version < "3.10" and python_version >= "3.9") and extra == "graphics"
+Provides-Extra: build
+Requires-Dist: cmake; extra == "build"
+Requires-Dist: ninja; extra == "build"
+Requires-Dist: scikit-build; extra == "build"
+Requires-Dist: setuptools; extra == "build"
+Requires-Dist: setuptools_scm[toml]; extra == "build"
+Requires-Dist: wheel; extra == "build"
+Provides-Extra: docs
+Requires-Dist: sphinx>=5.0.1; extra == "docs"
+Requires-Dist: sphinx-autobuild>=2021.3.14; extra == "docs"
+Requires-Dist: sphinx_rtd_theme>=1.0.0; extra == "docs"
+Requires-Dist: sphinxcontrib-napoleon>=0.7; extra == "docs"
+Requires-Dist: sphinx-autoapi>=1.8.4; extra == "docs"
+Requires-Dist: Pygments>=2.9.0; extra == "docs"
+Requires-Dist: myst_parser>=0.18.0; extra == "docs"
+Requires-Dist: sphinx-reredirects>=0.0.1; extra == "docs"
+Provides-Extra: optional
+Provides-Extra: runtime
+Requires-Dist: numpy>=2.1.0; (python_version < "4.0" and python_version >= "3.13") and extra == "runtime"
+Requires-Dist: numpy>=1.26.0; (python_version < "3.13" and python_version >= "3.12") and extra == "runtime"
+Requires-Dist: numpy>=1.23.2; (python_version < "3.12" and python_version >= "3.11") and extra == "runtime"
+Requires-Dist: numpy>=1.21.6; (python_version < "3.11" and python_version >= "3.10") and extra == "runtime"
+Requires-Dist: numpy>=1.19.3; (python_version < "3.10" and python_version >= "3.9") and extra == "runtime"
+Requires-Dist: numpy>=1.19.3; (python_version < "3.9" and python_version >= "3.8") and extra == "runtime"
+Requires-Dist: ubelt>=1.3.4; extra == "runtime"
+Provides-Extra: tests
+Requires-Dist: utool>=2.2.1; extra == "tests"
+Requires-Dist: xdoctest>=1.1.5; extra == "tests"
+Requires-Dist: pytest>=8.1.1; (python_version < "4.0" and python_version >= "3.13") and extra == "tests"
+Requires-Dist: pytest>=8.1.1; (python_version < "3.13" and python_version >= "3.12") and extra == "tests"
+Requires-Dist: pytest>=8.1.1; (python_version < "3.12" and python_version >= "3.11") and extra == "tests"
+Requires-Dist: pytest>=6.2.5; (python_version < "3.11" and python_version >= "3.10") and extra == "tests"
+Requires-Dist: pytest>=6.2.5; (python_version < "3.10" and python_version >= "3.8") and extra == "tests"
+Requires-Dist: pytest-cov>=3.0.0; extra == "tests"
+Requires-Dist: pytest_timeout>=2.3.1; (python_version < "4.0" and python_version >= "3.12") and extra == "tests"
+Requires-Dist: pytest_timeout>=1.4.2; python_version < "3.12" and extra == "tests"
+Requires-Dist: coverage>=7.3.0; (python_version < "4.0" and python_version >= "3.12") and extra == "tests"
+Requires-Dist: coverage>=6.1.1; (python_version < "3.12" and python_version >= "3.10") and extra == "tests"
+Requires-Dist: coverage>=5.3.1; (python_version < "3.10" and python_version >= "3.9") and extra == "tests"
+Requires-Dist: coverage>=6.1.1; (python_version < "3.9" and python_version >= "3.8") and extra == "tests"
+Requires-Dist: coverage>=7.3.0; (python_version < "4.0" and python_version >= "3.12") and extra == "tests"
+Requires-Dist: coverage>=6.1.1; (python_version < "3.12" and python_version >= "3.10") and extra == "tests"
+Requires-Dist: coverage>=5.3.1; (python_version < "3.10" and python_version >= "3.9") and extra == "tests"
+Requires-Dist: coverage>=6.1.1; (python_version < "3.9" and python_version >= "3.8") and extra == "tests"
+Requires-Dist: requests>=2.27.1; extra == "tests"
+Provides-Extra: all-strict
+Requires-Dist: numpy==2.1.0; (python_version < "4.0" and python_version >= "3.13") and extra == "all-strict"
+Requires-Dist: numpy==1.26.0; (python_version < "3.13" and python_version >= "3.12") and extra == "all-strict"
+Requires-Dist: numpy==1.23.2; (python_version < "3.12" and python_version >= "3.11") and extra == "all-strict"
+Requires-Dist: numpy==1.21.6; (python_version < "3.11" and python_version >= "3.10") and extra == "all-strict"
+Requires-Dist: numpy==1.19.3; (python_version < "3.10" and python_version >= "3.9") and extra == "all-strict"
+Requires-Dist: numpy==1.19.3; (python_version < "3.9" and python_version >= "3.8") and extra == "all-strict"
+Requires-Dist: ubelt==1.3.4; extra == "all-strict"
+Requires-Dist: utool==2.2.1; extra == "all-strict"
+Requires-Dist: xdoctest==1.1.5; extra == "all-strict"
+Requires-Dist: pytest==8.1.1; (python_version < "4.0" and python_version >= "3.13") and extra == "all-strict"
+Requires-Dist: pytest==8.1.1; (python_version < "3.13" and python_version >= "3.12") and extra == "all-strict"
+Requires-Dist: pytest==8.1.1; (python_version < "3.12" and python_version >= "3.11") and extra == "all-strict"
+Requires-Dist: pytest==6.2.5; (python_version < "3.11" and python_version >= "3.10") and extra == "all-strict"
+Requires-Dist: pytest==6.2.5; (python_version < "3.10" and python_version >= "3.8") and extra == "all-strict"
+Requires-Dist: pytest-cov==3.0.0; extra == "all-strict"
+Requires-Dist: pytest_timeout==2.3.1; (python_version < "4.0" and python_version >= "3.12") and extra == "all-strict"
+Requires-Dist: pytest_timeout==1.4.2; python_version < "3.12" and extra == "all-strict"
+Requires-Dist: coverage==7.3.0; (python_version < "4.0" and python_version >= "3.12") and extra == "all-strict"
+Requires-Dist: coverage==6.1.1; (python_version < "3.12" and python_version >= "3.10") and extra == "all-strict"
+Requires-Dist: coverage==5.3.1; (python_version < "3.10" and python_version >= "3.9") and extra == "all-strict"
+Requires-Dist: coverage==6.1.1; (python_version < "3.9" and python_version >= "3.8") and extra == "all-strict"
+Requires-Dist: coverage==7.3.0; (python_version < "4.0" and python_version >= "3.12") and extra == "all-strict"
+Requires-Dist: coverage==6.1.1; (python_version < "3.12" and python_version >= "3.10") and extra == "all-strict"
+Requires-Dist: coverage==5.3.1; (python_version < "3.10" and python_version >= "3.9") and extra == "all-strict"
+Requires-Dist: coverage==6.1.1; (python_version < "3.9" and python_version >= "3.8") and extra == "all-strict"
+Requires-Dist: requests==2.27.1; extra == "all-strict"
+Requires-Dist: cmake; extra == "all-strict"
+Requires-Dist: ninja; extra == "all-strict"
+Requires-Dist: scikit-build; extra == "all-strict"
+Requires-Dist: setuptools; extra == "all-strict"
+Requires-Dist: setuptools_scm[toml]; extra == "all-strict"
+Requires-Dist: wheel; extra == "all-strict"
+Provides-Extra: headless-strict
+Requires-Dist: opencv-python-headless==4.10.0.84; (python_version < "4.0" and python_version >= "3.13") and extra == "headless-strict"
+Requires-Dist: opencv-python-headless==4.5.5.64; (python_version < "3.13" and python_version >= "3.11") and extra == "headless-strict"
+Requires-Dist: opencv-python-headless==4.5.4.58; (python_version < "3.11" and python_version >= "3.10") and extra == "headless-strict"
+Requires-Dist: opencv-python-headless==3.4.15.55; (python_version < "3.10" and python_version >= "3.9") and extra == "headless-strict"
+Provides-Extra: build-strict
+Requires-Dist: cmake; extra == "build-strict"
+Requires-Dist: ninja; extra == "build-strict"
+Requires-Dist: scikit-build; extra == "build-strict"
+Requires-Dist: setuptools; extra == "build-strict"
+Requires-Dist: setuptools_scm[toml]; extra == "build-strict"
+Requires-Dist: wheel; extra == "build-strict"
+Provides-Extra: docs-strict
+Requires-Dist: sphinx==5.0.1; extra == "docs-strict"
+Requires-Dist: sphinx-autobuild==2021.3.14; extra == "docs-strict"
+Requires-Dist: sphinx_rtd_theme==1.0.0; extra == "docs-strict"
+Requires-Dist: sphinxcontrib-napoleon==0.7; extra == "docs-strict"
+Requires-Dist: sphinx-autoapi==1.8.4; extra == "docs-strict"
+Requires-Dist: Pygments==2.9.0; extra == "docs-strict"
+Requires-Dist: myst_parser==0.18.0; extra == "docs-strict"
+Requires-Dist: sphinx-reredirects==0.0.1; extra == "docs-strict"
+Provides-Extra: graphics-strict
+Requires-Dist: opencv-python==4.10.0.84; (python_version < "4.0" and python_version >= "3.13") and extra == "graphics-strict"
+Requires-Dist: opencv-python==4.5.5.64; (python_version < "3.13" and python_version >= "3.11") and extra == "graphics-strict"
+Requires-Dist: opencv-python==4.5.4.58; (python_version < "3.11" and python_version >= "3.10") and extra == "graphics-strict"
+Requires-Dist: opencv-python==3.4.15.55; (python_version < "3.10" and python_version >= "3.9") and extra == "graphics-strict"
+Provides-Extra: optional-strict
+Provides-Extra: runtime-strict
+Requires-Dist: numpy==2.1.0; (python_version < "4.0" and python_version >= "3.13") and extra == "runtime-strict"
+Requires-Dist: numpy==1.26.0; (python_version < "3.13" and python_version >= "3.12") and extra == "runtime-strict"
+Requires-Dist: numpy==1.23.2; (python_version < "3.12" and python_version >= "3.11") and extra == "runtime-strict"
+Requires-Dist: numpy==1.21.6; (python_version < "3.11" and python_version >= "3.10") and extra == "runtime-strict"
+Requires-Dist: numpy==1.19.3; (python_version < "3.10" and python_version >= "3.9") and extra == "runtime-strict"
+Requires-Dist: numpy==1.19.3; (python_version < "3.9" and python_version >= "3.8") and extra == "runtime-strict"
+Requires-Dist: ubelt==1.3.4; extra == "runtime-strict"
+Provides-Extra: tests-strict
+Requires-Dist: utool==2.2.1; extra == "tests-strict"
+Requires-Dist: xdoctest==1.1.5; extra == "tests-strict"
+Requires-Dist: pytest==8.1.1; (python_version < "4.0" and python_version >= "3.13") and extra == "tests-strict"
+Requires-Dist: pytest==8.1.1; (python_version < "3.13" and python_version >= "3.12") and extra == "tests-strict"
+Requires-Dist: pytest==8.1.1; (python_version < "3.12" and python_version >= "3.11") and extra == "tests-strict"
+Requires-Dist: pytest==6.2.5; (python_version < "3.11" and python_version >= "3.10") and extra == "tests-strict"
+Requires-Dist: pytest==6.2.5; (python_version < "3.10" and python_version >= "3.8") and extra == "tests-strict"
+Requires-Dist: pytest-cov==3.0.0; extra == "tests-strict"
+Requires-Dist: pytest_timeout==2.3.1; (python_version < "4.0" and python_version >= "3.12") and extra == "tests-strict"
+Requires-Dist: pytest_timeout==1.4.2; python_version < "3.12" and extra == "tests-strict"
+Requires-Dist: coverage==7.3.0; (python_version < "4.0" and python_version >= "3.12") and extra == "tests-strict"
+Requires-Dist: coverage==6.1.1; (python_version < "3.12" and python_version >= "3.10") and extra == "tests-strict"
+Requires-Dist: coverage==5.3.1; (python_version < "3.10" and python_version >= "3.9") and extra == "tests-strict"
+Requires-Dist: coverage==6.1.1; (python_version < "3.9" and python_version >= "3.8") and extra == "tests-strict"
+Requires-Dist: coverage==7.3.0; (python_version < "4.0" and python_version >= "3.12") and extra == "tests-strict"
+Requires-Dist: coverage==6.1.1; (python_version < "3.12" and python_version >= "3.10") and extra == "tests-strict"
+Requires-Dist: coverage==5.3.1; (python_version < "3.10" and python_version >= "3.9") and extra == "tests-strict"
+Requires-Dist: coverage==6.1.1; (python_version < "3.9" and python_version >= "3.8") and extra == "tests-strict"
+Requires-Dist: requests==2.27.1; extra == "tests-strict"
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: provides-extra
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+|GithubActions| |Codecov| |Pypi| |Downloads| |ReadTheDocs|
+
+
+Hessian Affine + SIFT keypoints in Python
+=========================================
+
+This is an implementation of Hessian-Affine detector.
+
+The implementation uses a Lowe's (Lowe 1999, Lowe 2004) like pyramid
+to sample Gaussian scale-space and localizes local extrema of the
+Detetminant of Hessian Matrix operator computed on normalized
+derivatives. Then a Baumberg-Lindeberg discovery of a local affine
+shape is employed (Lindeberg 1998, Baumberg 2000, Mikolajzyk 2002) to
+compute affine shape of each det of Hessian extrema. Finally a local
+neighbourhood is normalized to a fixed size patch and SIFT
+descriptor(Lowe 1999, Lowe 2004) computed.
+
+
+BUILDING
+--------
+
+There are wheels published on pypi using cibuildwheel. You can install via:
+
+.. code:: bash
+
+   pip install pyhesaff
+
+
+TO build from scratch you will need development libraries for OpenCV and cmake
+(via scikit-build) should be able to find them.
+
+On ubuntu 24.04 you can:
+
+.. code::
+
+    sudo apt-get install libopencv-dev
+
+To get the required dependencies.
+
+
+IMPLEMENTATION
+--------------
+
+Implementation depends on OpenCV (2.3.1+). Although, the code is
+original, the affine iteration and normalization was derived from the
+code of Krystian Mikolajczyk.
+
+The SIFT descriptor code was patented under a US Patent 6,711,293, which
+expired on March 7th 2019, so the license is no longer required for use.
+
+
+OUTPUT
+------
+
+NOTE THIS IS NO LONGER THE CASE. WE MAY REINSTATE THIS.
+
+The built binary rewrites output file: <input_image_name>.hesaff.sift
+
+The output format is compatible with the binaries available from the
+page "Affine Covariant Features". The geometry of an affine region is
+specified by: u,v,a,b,c in a(x-u)(x-u)+2b(x-u)(y-v)+c(y-v)(y-v)=1. The
+top left corner of the image is at (u,v)=(0,0). The geometry of an
+affine region is followed by N descriptor values (N = 128).
+
+File format:
+
+::
+
+    N
+    m
+    u1 v1 a1 b1 c1 d1(1) d1(2) d1(3) ... d1(N)
+          :
+          :
+    um vm am bm cm dm(1) dm(2) dm(3) ... dm(N)
+
+
+PROPER USE
+----------
+
+If you use this code, please refer to
+
+Perdoch, M. and Chum, O. and Matas, J.: Efficient Representation of
+Local Geometry for Large Scale Object Retrieval. In proceedings of
+CVPR09. June 2009.
+
+TBD: A reference to technical report describing the details and some
+retrieval results will be placed here.
+
+
+NOTES
+-----
+
+Requires opencv. On ubuntu you can: ``sudo apt-get install libopencv-dev``. You can also build / use wheels.
+
+
+.. |CircleCI| image:: https://circleci.com/gh/Erotemic/pyhesaff.svg?style=svg
+    :target: https://circleci.com/gh/Erotemic/pyhesaff
+.. |Travis| image:: https://img.shields.io/travis/Erotemic/pyhesaff/main.svg?label=Travis%20CI
+   :target: https://travis-ci.org/Erotemic/pyhesaff?branch=main
+.. |Appveyor| image:: https://ci.appveyor.com/api/projects/status/github/Erotemic/pyhesaff?branch=master&svg=True
+   :target: https://ci.appveyor.com/project/Erotemic/pyhesaff/branch/main
+.. |Codecov| image:: https://codecov.io/github/Erotemic/pyhesaff/badge.svg?branch=main&service=github
+   :target: https://codecov.io/github/Erotemic/pyhesaff?branch=main
+.. |Pypi| image:: https://img.shields.io/pypi/v/pyhesaff.svg
+   :target: https://pypi.python.org/pypi/pyhesaff
+.. |Downloads| image:: https://img.shields.io/pypi/dm/pyhesaff.svg
+   :target: https://pypistats.org/packages/pyhesaff
+.. |ReadTheDocs| image:: https://readthedocs.org/projects/pyhesaff/badge/?version=latest
+    :target: http://pyhesaff.readthedocs.io/en/latest/
+.. |GithubActions| image:: https://github.com/Erotemic/pyhesaff/actions/workflows/tests.yml/badge.svg?branch=main
+    :target: https://github.com/Erotemic/pyhesaff/actions?query=branch%3Amain
