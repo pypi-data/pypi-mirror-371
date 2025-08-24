@@ -1,0 +1,11 @@
+joblib==1.5.1
+lightgbm==4.6.0
+molvs==0.1.1
+numpy==2.3.2
+pandas==2.3.2
+rdkit==2025.3.5
+scikit_learn==1.7.1
+setuptools==80.9.0
+tqdm==4.67.1
+tqdm_joblib==0.0.5
+xgboost==3.0.4
