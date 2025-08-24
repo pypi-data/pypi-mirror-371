@@ -1,0 +1,3 @@
+[console_scripts]
+ccm = main:main
+claude-code-mate = main:main

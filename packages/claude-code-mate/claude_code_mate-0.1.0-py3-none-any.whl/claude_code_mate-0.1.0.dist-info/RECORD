@@ -1,0 +1,12 @@
+./LICENSE,sha256=7_L6Q65iYnTEmcUiRfXpvExSCvgS6A-ZQlDCMCW0Jm4,1065
+./PKG-INFO,sha256=TcK1wVCBcgtJ0Xyihqrob_IYbyVsxTz4UCKwgnRUQfs,2699
+./README.md,sha256=eeh3My6VwtvjAEznrT0THGT_ACvZJvweQmVdkm2v3YU,2287
+./main.py,sha256=wTyRYJSZ_MFn-CcGIMc3OKp8i4uSAijxj43QSVMrF70,19612
+./pyproject.toml,sha256=0ZkyztydZdYACDq7PonCNm7xoP-IG1PAXxcXKeypVLE,587
+./uv.lock,sha256=XR9oDh4j_f-XrJ9j9IFFZstEfuVxLZrR5skHZ-z6kI8,936082
+./.github/workflows/ci.yml,sha256=y7l_o8z2nivlXPLeBiJtArU6YDXD1-zarr3MyAgJk1Q,983
+claude_code_mate-0.1.0.dist-info/METADATA,sha256=TcK1wVCBcgtJ0Xyihqrob_IYbyVsxTz4UCKwgnRUQfs,2699
+claude_code_mate-0.1.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+claude_code_mate-0.1.0.dist-info/entry_points.txt,sha256=ol0lY2b2tgIsump4QQOVrjehs7io0-r0zZCrwQzwMbw,63
+claude_code_mate-0.1.0.dist-info/licenses/LICENSE,sha256=7_L6Q65iYnTEmcUiRfXpvExSCvgS6A-ZQlDCMCW0Jm4,1065
+claude_code_mate-0.1.0.dist-info/RECORD,,
