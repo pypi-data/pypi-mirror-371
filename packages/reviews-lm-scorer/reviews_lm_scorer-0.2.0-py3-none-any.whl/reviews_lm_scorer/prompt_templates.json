@@ -1,0 +1,3 @@
+{
+    "Modified_Olga_et_al_prompt": "A review similar with {review} for a similiar product that can be described similarily with a snetiment of {sentiment} and length of {word_count} words"
+}
