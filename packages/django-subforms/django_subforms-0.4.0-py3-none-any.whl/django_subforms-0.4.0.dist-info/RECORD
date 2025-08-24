@@ -1,0 +1,13 @@
+subforms/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+subforms/apps.py,sha256=JYO5oOpyUEiY-Q_kDxU6By6uwjiCpaHaBdYZr8cDP8U,220
+subforms/fields.py,sha256=piD57vNOHUoIeVmEnSnzG_i92-kj2VhrNqgR3LFnwPk,5761
+subforms/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+subforms/static/css/subforms.css,sha256=SuKjPIYkvmlwWkzMYq-sbwAwPmsia-9cOcbp5bhYK3E,1052
+subforms/static/js/subforms.js,sha256=p9mezd1fftgBechkss9w8MnJH7gZ44dpzpMlMg_wghs,1392
+subforms/templates/subforms/array.html,sha256=rx7Tg3TbQTZlGoNeKH4mWxljQmX_FwAH8QiTxvpF-fA,786
+subforms/templates/subforms/nested.html,sha256=MpMcKE_p3pV-Bkdr1DBEJYBLHPk9Iu3UFtnCkCcjWMY,257
+subforms/widgets.py,sha256=zzxDoPu6CrrMijFkfP9Q7YFbKx054kRZl4isVvYYZBk,8374
+django_subforms-0.4.0.dist-info/LICENSE,sha256=1N9adiyLzxUm4_OQ7XuHnMlOS1g9M8s3mjO9C-EvV8k,1064
+django_subforms-0.4.0.dist-info/METADATA,sha256=BsVQzJHmMuYGihbkR6DWD4ZBL0wjz1WsXNk7PUoNBuo,3526
+django_subforms-0.4.0.dist-info/WHEEL,sha256=fGIA9gx4Qxk2KDKeNJCbOEwSrmLtjWCwzBz351GyrPQ,88
+django_subforms-0.4.0.dist-info/RECORD,,
