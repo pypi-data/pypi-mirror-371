@@ -1,0 +1,15 @@
+LICENSE,sha256=vw7GFeTHalBzjPNQxdWS7tjGg94wTiS8gVoWA8hI2jU,11548
+README.md,sha256=lTWCeHJvhS7KcaYhg_HNaUyNYMVu9UuC6F50QiXE8e4,975
+knightvision/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+knightvision/assets.py,sha256=UeeaWQCgll4WJEsSMYzZdVcMhRiq3Ocxh1e21woYQiA,1402
+knightvision/cli.py,sha256=b4ooHBjYMv45JWwYzX4anBCBz8KABRH5dFE9ht8wQpE,2759
+knightvision/game.py,sha256=S9ZWD_6BUhOWXYW7f7A07-ZOYB7lxMD7XlrFm8bsikA,7904
+knightvision/io.py,sha256=9455y5unGShg7zfsyrVv8HmmzUBUfrkiC4_v9wCUWF8,1051
+knightvision/models.py,sha256=4njekIW_hGuY1uas88INgnMm2JwYb8s6BSpMJkWG5GQ,2851
+knightvision/pipeline.py,sha256=dAHnuw-k-QGDwwRHEfqQWpxo6GGLd8TRQkWFo3j3sPc,2736
+knightvision/processing.py,sha256=UOLpfkDcop25nw-jOgBk7aGp9v5Q7mCOx7fheYZcBRU,11710
+knightvision-0.1.0.dist-info/METADATA,sha256=0qAgNfTApjQVXZdod8Brit91ZJPTgYF-iEojkekNhSg,14590
+knightvision-0.1.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+knightvision-0.1.0.dist-info/entry_points.txt,sha256=s7zd8zDgSoTq82TWGWKpTQWeF6ZD_hefigPpO4vyTgY,54
+knightvision-0.1.0.dist-info/licenses/LICENSE,sha256=vw7GFeTHalBzjPNQxdWS7tjGg94wTiS8gVoWA8hI2jU,11548
+knightvision-0.1.0.dist-info/RECORD,,
