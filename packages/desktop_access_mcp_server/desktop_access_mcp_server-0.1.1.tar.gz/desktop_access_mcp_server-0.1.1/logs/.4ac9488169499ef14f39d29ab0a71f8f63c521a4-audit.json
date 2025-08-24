@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "/home/hemang/Documents/GitHub/desktop-access-mcp-server/logs/.4ac9488169499ef14f39d29ab0a71f8f63c521a4-audit.json",
+    "files": [
+        {
+            "date": 1755963242364,
+            "name": "/home/hemang/Documents/GitHub/desktop-access-mcp-server/logs/mcp-puppeteer-2025-08-23.log",
+            "hash": "c2c62d0df7f6fd8b98848248726cf48665fcfa0d979a36c19a97973bfb3ca233"
+        }
+    ],
+    "hashType": "sha256"
+}

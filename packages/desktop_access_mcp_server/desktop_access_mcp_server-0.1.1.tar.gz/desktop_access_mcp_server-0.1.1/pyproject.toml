@@ -1,0 +1,25 @@
+[build-system]
+requires = ["flit_core >=3.11,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "desktop_access_mcp_server"
+authors = [{name = "Hemang Joshi", email = "hemangjoshi37a@gmail.com"}]
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+dynamic = ["version", "description"]
+requires-python = ">=3.8"
+dependencies = [
+    "mcp>=1.0.0",
+    "Pillow>=9.0.0",
+    "pynput>=1.7.0",
+    "mss>=9.0.0"
+]
+
+[project.urls]
+Home = "https://hjlabs.in"
+
+[project.scripts]
+desktop-access-mcp-server = "desktop_access_mcp_server.entry_point:run_server"
+desktop-cli = "desktop_access_mcp_server.cli_entry_point:run_cli"

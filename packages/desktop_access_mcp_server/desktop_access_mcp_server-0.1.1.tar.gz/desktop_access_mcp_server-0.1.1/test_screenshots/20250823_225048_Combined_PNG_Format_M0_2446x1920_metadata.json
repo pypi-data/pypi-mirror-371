@@ -1,0 +1,18 @@
+{
+  "timestamp": "20250823_225048",
+  "test_name": "Combined_PNG_Format",
+  "arguments": {
+    "format": "png",
+    "monitor": 0
+  },
+  "result": {
+    "format": "png",
+    "size": {
+      "width": 2446,
+      "height": 1920
+    },
+    "monitor": 0,
+    "platform": "linux"
+  },
+  "filename": "20250823_225048_Combined_PNG_Format_M0_2446x1920.png"
+}

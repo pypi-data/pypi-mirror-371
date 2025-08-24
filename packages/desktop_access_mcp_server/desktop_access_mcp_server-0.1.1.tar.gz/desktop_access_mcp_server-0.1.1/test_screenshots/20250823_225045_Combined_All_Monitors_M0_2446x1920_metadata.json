@@ -1,0 +1,17 @@
+{
+  "timestamp": "20250823_225045",
+  "test_name": "Combined_All_Monitors",
+  "arguments": {
+    "monitor": 0
+  },
+  "result": {
+    "format": "png",
+    "size": {
+      "width": 2446,
+      "height": 1920
+    },
+    "monitor": 0,
+    "platform": "linux"
+  },
+  "filename": "20250823_225045_Combined_All_Monitors_M0_2446x1920.png"
+}

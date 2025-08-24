@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "desktop-access-test": {
+      "command": "uvx",
+      "args": [
+        "--from",
+        "desktop-access-mcp-server",
+        "desktop-access-mcp-server"
+      ]
+    }
+  }
+}

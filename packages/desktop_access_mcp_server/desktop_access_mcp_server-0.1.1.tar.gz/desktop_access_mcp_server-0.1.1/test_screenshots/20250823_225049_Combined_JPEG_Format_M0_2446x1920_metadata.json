@@ -1,0 +1,19 @@
+{
+  "timestamp": "20250823_225049",
+  "test_name": "Combined_JPEG_Format",
+  "arguments": {
+    "format": "jpeg",
+    "monitor": 0,
+    "quality": 75
+  },
+  "result": {
+    "format": "jpeg",
+    "size": {
+      "width": 2446,
+      "height": 1920
+    },
+    "monitor": 0,
+    "platform": "linux"
+  },
+  "filename": "20250823_225049_Combined_JPEG_Format_M0_2446x1920.jpeg"
+}

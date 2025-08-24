@@ -1,0 +1,21 @@
+Screenshot Test Summary
+==============================
+Timestamp: 2025-08-23 22:50:51
+Total Tests: 9
+Successful Tests: 9
+Failed Tests: 0
+
+Monitor Information:
+  Monitor 0: eDP at (0, 938) - 1366x768
+  Monitor 1: HDMI-A-0 at (1366, 0) - 1080x1920
+
+Files Generated:
+  20250823_225045_Combined_All_Monitors_M0_2446x1920.png
+  20250823_225045_Monitor_0_eDP_M1_1366x768.png
+  20250823_225046_Monitor_1_HDMI-A-0_M2_1080x1920.png
+  20250823_225048_Combined_PNG_Format_M0_2446x1920.png
+  20250823_225049_Combined_JPEG_Format_M0_2446x1920.jpeg
+  20250823_225049_Monitor_0_eDP_PNG_M1_1366x768.png
+  20250823_225050_Monitor_0_eDP_JPEG_M1_1366x768.jpeg
+  20250823_225051_Monitor_1_HDMI-A-0_JPEG_M2_1080x1920.jpeg
+  20250823_225051_Monitor_1_HDMI-A-0_PNG_M2_1080x1920.png
