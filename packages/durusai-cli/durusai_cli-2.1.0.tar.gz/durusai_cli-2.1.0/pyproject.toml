@@ -1,0 +1,124 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "durusai-cli"
+version = "2.1.0"
+description = "DurusAI CLI - Advanced AI assistant with memory, file operations, and project management like Claude Code"
+readme = "README.md"
+# license = "MIT"  # Убрано для совместимости с PyPI
+authors = [
+    {name = "DurusAI Team", email = "support@durusai.com"}
+]
+maintainers = [
+    {name = "DurusAI Team", email = "support@durusai.com"}
+]
+keywords = ["ai", "cli", "assistant", "development", "api", "anthropic", "openai", "terminal"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Terminals",
+    "Topic :: Utilities",
+    "Environment :: Console",
+]
+requires-python = ">=3.8"
+
+dependencies = [
+    "typer[all]>=0.9.0",
+    "rich>=13.0.0",
+    "httpx>=0.24.0",
+    "prompt-toolkit>=3.0.0",
+    "keyring>=24.0.0",
+    "cryptography>=40.0.0",
+    "PyJWT>=2.8.0",
+    "markdown>=3.4.0",
+    "packaging>=21.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+    "mypy>=1.0.0",
+    "build>=0.10.0",
+    "twine>=4.0.0",
+]
+full = [
+    "psutil>=5.9.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.urls]
+Homepage = "https://durusai.com"
+Documentation = "https://docs.durusai.com"
+Repository = "https://github.com/durusai/cli"
+"Bug Tracker" = "https://github.com/durusai/cli/issues"
+Changelog = "https://github.com/durusai/cli/blob/main/CHANGELOG.md"
+
+[project.scripts]
+durusai = "durusai.cli:main"
+durusai-cli = "durusai.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["durusai*"]
+
+[tool.setuptools]
+license-files = []
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+)/
+'''
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+strict_equality = true
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q --strict-markers"
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+
+[tool.flake8]
+max-line-length = 88
+extend-ignore = ["E203", "W503"]
+exclude = [".git", "__pycache__", "build", "dist", ".eggs"]
