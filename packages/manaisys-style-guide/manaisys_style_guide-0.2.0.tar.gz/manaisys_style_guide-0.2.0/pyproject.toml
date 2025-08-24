@@ -1,0 +1,60 @@
+[tool.poetry]
+name = "manaisys-style-guide"
+version = "0.2.0"
+description = "Company-wide Python linting & formatting standards"
+authors = ["Pranjal Singh Rajput <pranjalsrajput@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{ include = "style_guide", from = "src" }]
+
+[[tool.poetry.source]]
+name = "github"
+url = "https://pypi.pkg.github.com/WhiteAILabs"
+priority = "supplemental"
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.13"
+black = "^25.1.0"
+ruff = "^0.12.10"
+mypy = "^1.17.1"
+isort = "^6.0.1"
+pre-commit = "^3.0"
+typer = "^0.16.1"
+docformatter = "^1.7.7"
+pydocstyle = "^6.3.0"
+darglint = "^1.8.1"
+
+[tool.poetry.scripts]
+style-guide = "style_guide.cli:app"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+# Optional: centralize configs here
+[tool.black]
+line-length = 88
+
+[tool.isort]
+profile = "black"
+
+[tool.ruff]
+line-length = 88
+select = ["E", "F", "I"]  # errors, formatting, imports
+
+[tool.mypy]
+strict = true
+
+[tool.pydocstyle]
+convention = "google"   # or "numpy", "pep257"
+add-ignore = ["D105", "D107"]  # ignore missing docstrings in magic methods, __init__
+
+[tool.darglint]
+docstring_style = "google"   # "numpy", "sphinx" also supported
+strictness = "short"         # "short", "long", or "full"
+
+[tool.docformatter]
+recursive = true
+in-place = true
+wrap-summaries = 88
+wrap-descriptions = 88
