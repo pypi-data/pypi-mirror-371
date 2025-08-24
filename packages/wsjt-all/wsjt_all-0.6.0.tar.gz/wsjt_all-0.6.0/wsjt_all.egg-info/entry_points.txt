@@ -1,0 +1,3 @@
+[console_scripts]
+wsjt_all_AB = wsjt_all:wsjt_all_AB
+wsjt_all_AB_live = wsjt_all:wsjt_all_AB_live
