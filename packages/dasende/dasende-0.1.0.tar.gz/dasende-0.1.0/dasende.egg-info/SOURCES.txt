@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+dasende/__init__.py
+dasende/core.py
+dasende.egg-info/PKG-INFO
+dasende.egg-info/SOURCES.txt
+dasende.egg-info/dependency_links.txt
+dasende.egg-info/top_level.txt

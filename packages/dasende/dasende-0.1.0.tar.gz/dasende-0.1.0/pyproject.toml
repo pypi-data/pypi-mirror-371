@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dasende"
+version = "0.1.0"
+description = "just something useless to install"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [
+    { name = "DasEnde", email = "osintdynamics@cybersecurity.com" }
+]
+dependencies = []
+requires-python = ">=3.8"
+
+[project.urls]
+Homepage = "https://pypi.org/project/dasende/"
