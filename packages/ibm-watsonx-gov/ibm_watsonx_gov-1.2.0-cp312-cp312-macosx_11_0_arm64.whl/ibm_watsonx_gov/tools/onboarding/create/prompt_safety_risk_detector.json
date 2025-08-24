@@ -1,0 +1,66 @@
+{
+    "display_name": "PromptSafetyRisk Detector",
+    "tool_name": "prompt_safety_risk_detector",
+    "service_provider_type": "IBM",
+    "description": "Tool that detects off topic and prompt injection attempts in user input.",
+    "inventory_id": "<attribute_value>",
+    "reusable": "true",
+    "category": [
+        "Guardrails"
+    ],
+    "framework": [
+        "langchain",
+        "langgraph"
+    ],
+    "code": {
+        "source_code_url": "",
+        "run_time_details": {
+            "engine": "Python >=3.11"
+        }
+    },
+    "config": {
+        "properties": {
+            "threshold": {
+                "description": "Threshold for calling the tool",
+                "title": "Threshold",
+                "type": "float"
+            }
+        },
+        "type": "object"
+    },
+    "schema": {
+        "properties": {
+            "input": {
+                "description": "Input text",
+                "title": "Input",
+                "type": "string"
+            },
+            "system_prompt": {
+                "description": "System Prompt",
+                "title": "System Prompt",
+                "type": "string"
+            },
+            "threshold": {
+                "description": "Threshold for calling the tool",
+                "title": "Threshold",
+                "type": "float"
+            }
+        },
+        "required": [
+            "input",
+            "system_prompt"
+        ],
+        "title": "PromptSafetyRiskInput",
+        "type": "object"
+    },
+    "environment_variables": [
+        "WXG_SERVICE_INSTANCE_ID",
+        "WATSONX_REGION"
+    ],
+    "regions": [
+        "ys1dev",
+        "ypqa",
+        "us-south",
+        "eu-de"
+    ]
+}
