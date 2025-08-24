@@ -1,0 +1,6 @@
+README.md
+setup.py
+NetyHT_STT.egg-info/PKG-INFO
+NetyHT_STT.egg-info/SOURCES.txt
+NetyHT_STT.egg-info/dependency_links.txt
+NetyHT_STT.egg-info/top_level.txt
