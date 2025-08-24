@@ -1,0 +1,11 @@
+nim_mmcif-0.0.16.dist-info/RECORD,,
+nim_mmcif-0.0.16.dist-info/WHEEL,sha256=9FabR3Kab7Nb3lO5nBQWtZc544XJ0hYCmiQC2RH2bHM,107
+nim_mmcif-0.0.16.dist-info/top_level.txt,sha256=msg4vsyaswye01x3ndfrU337ixpJZTifmQHf4emGT08,10
+nim_mmcif-0.0.16.dist-info/METADATA,sha256=oKydwFywZiuLE_Ji-M7dA74xJxuTk513Wt8dqc4lgG4,12113
+nim_mmcif/_version.py,sha256=wOavSc2v89K9PW8Y7QRlKuWzMLmkvE5HmKJSHrpe47k,112
+nim_mmcif/__init__.py,sha256=Yi0tFcfexoOdiCMEtQq_pCCRmdbD-Skmp5A2qGRjMR0,15307
+nim_mmcif/_dummy.c,sha256=ALoLHdQ7zi_XyhMhIXN1pEfoKzLbl98sXjHzrq7ChB8,336
+nim_mmcif/nim_mmcif.nim,sha256=nz7e7Ve1kakZ2X_zEbb8-KQbUuhPCH7fhcmvRTvoymk,2098
+nim_mmcif/mmcif.nim,sha256=_NWX8rszIOOJTxT2AOQevDxXBxdqJEWc43A_RbLUgjE,6229
+nim_mmcif/dataclasses.py,sha256=Ixge9ti6jDLPy5IJQ0XxVAhY7DNmf8aGj22P6rxJLUQ,7985
+nim_mmcif/_dummy.cpython-38-darwin.so,sha256=fQfobEsgYZl_xV0JJu1ziyLSDBXtkJkem-u9xS6WV0k,50344
