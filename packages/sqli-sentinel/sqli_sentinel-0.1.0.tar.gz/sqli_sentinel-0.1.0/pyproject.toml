@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sqli-sentinel"
+version = "0.1.0"
+authors = [
+  { name="amiosen", email="amirhosseinsereshti@gmail.com" },
+]
+description = "A hybrid SQL Injection detection tool using Machine Learning and Regex."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Security",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    "scikit-learn>=1.0",
+    "joblib>=1.0",
+    "pandas>=1.3",
+    "Django>=3.2", # Added Django as a dependency for the middleware
+]
+
+[project.urls]
+Homepage = "https://github.com/amiosen/sqli-sentinel"
+Issues = "https://github.com/amiosen/sqli-sentinel/issues"
+
+[tool.setuptools]
+packages = ["sqli_sentinel"]

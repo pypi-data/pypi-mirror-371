@@ -1,0 +1,136 @@
+Metadata-Version: 2.4
+Name: sqli-sentinel
+Version: 0.1.0
+Summary: A hybrid SQL Injection detection tool using Machine Learning and Regex.
+Author-email: amiosen <amirhosseinsereshti@gmail.com>
+License: MIT
+Project-URL: Homepage, https://github.com/amiosen/sqli-sentinel
+Project-URL: Issues, https://github.com/amiosen/sqli-sentinel/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Security
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: scikit-learn>=1.0
+Requires-Dist: joblib>=1.0
+Requires-Dist: pandas>=1.3
+Requires-Dist: Django>=3.2
+Dynamic: license-file
+
+# SQLi Sentinel 🛡️
+
+[Persian Version (نسخه فارسی)](README-fa.md)
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python Version](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+
+**SQLi Sentinel** is a powerful and intelligent security tool for Python that detects and blocks SQL Injection attacks using a hybrid approach of **Machine Learning** and **Regular Expressions**.
+
+It is designed to be easily integrated into various projects, especially Django web applications, providing an automated layer of security for user inputs.
+
+---
+
+## ✨ Features
+
+* **Hybrid Detection:** Combines the speed of Regex for known, obvious patterns and the intelligence of a Machine Learning model for complex and obfuscated attacks.
+* **High Accuracy:** The model is trained on a large dataset of real-world SQLi attacks to achieve high precision and recall, minimizing false positives and negatives.
+* **Ready-to-use Django Middleware:** Easily integrate with Django projects to automatically protect all incoming web requests (`GET` and `POST`).
+* **Lightweight and Fast:** Designed for minimal performance impact, making it suitable for production environments.
+* **Open Source and Extensible:** Feel free to expand the regex patterns or retrain the model with your own data.
+
+---
+
+## 🚀 Installation
+
+Once the package is published to PyPI, you can install it using pip:
+
+```bash
+pip install sqli-sentinel
+```
+
+To install from the source code, you can clone the repository and install it locally:
+
+```bash
+git clone [https://github.com/your-username/sqli-sentinel.git](https://github.com/your-username/sqli-sentinel.git)
+cd sqli-sentinel
+pip install .
+```
+
+---
+
+## 🛠️ Quick Start
+
+Using the core `Detector` class is straightforward.
+
+```python
+from sqli_sentinel import Detector
+
+# Create an instance of the detector.
+# Models are loaded automatically from the package.
+detector = Detector()
+
+# Test a benign string
+safe_string = "Searching for product updates"
+is_attack = detector.detect(safe_string)
+print(f"'{safe_string}' is malicious: {is_attack}")
+# -> 'Searching for product updates' is malicious: False
+
+# Test a malicious string
+malicious_string = "' OR 1=1--"
+is_attack = detector.detect(malicious_string)
+print(f"'{malicious_string}' is malicious: {is_attack}")
+# -> '' OR 1=1--' is malicious: True
+```
+
+---
+
+## 🔌 Django Integration
+
+Protect your Django application automatically by adding the provided middleware.
+
+1.  **Install the package** (as shown above).
+2.  **Add the middleware** to your `settings.py` file. It is recommended to place it near the top of the `MIDDLEWARE` list.
+
+```python
+# settings.py
+
+MIDDLEWARE = [
+    'sqli_sentinel.middleware.django.SQLiSentinelMiddleware',
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    # ... other middlewares
+]
+```
+
+By default, the middleware will block any request detected as a threat and return a `403 Forbidden` response.
+
+---
+
+## 🧠 How It Works
+
+SQLi Sentinel uses a two-stage defense process for each input string:
+1.  **Fast Regex Scan:** The input is first checked against a curated list of common and high-confidence SQLi patterns. If a match is found, it's immediately flagged as an attack.
+2.  **ML-Powered Analysis:** If the regex scan passes, the input is then vectorized and passed to a pre-trained Logistic Regression model, which makes a final decision based on the complex patterns it learned during training.
+
+---
+
+## 🙏 Acknowledgements
+
+The machine learning model was trained using the **"SQL Injection Dataset"** available on Kaggle. We extend our gratitude to the dataset creator, Syed Saqlain Hussain, for making this valuable data available to the community.
+
+* **Dataset Link:** [https://www.kaggle.com/datasets/syedsaqlainhussain/sql-injection-dataset](https://www.kaggle.com/datasets/syedsaqlainhussain/sql-injection-dataset)
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to open an issue or submit a pull request to improve SQLi Sentinel.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License. See the `LICENSE` file for details.

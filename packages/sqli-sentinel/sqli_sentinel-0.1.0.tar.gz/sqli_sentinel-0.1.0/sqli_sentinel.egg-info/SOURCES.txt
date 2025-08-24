@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+sqli_sentinel/detector.py
+sqli_sentinel.egg-info/PKG-INFO
+sqli_sentinel.egg-info/SOURCES.txt
+sqli_sentinel.egg-info/dependency_links.txt
+sqli_sentinel.egg-info/requires.txt
+sqli_sentinel.egg-info/top_level.txt
