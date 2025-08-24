@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.py
+smartcleaner/__init__.py
+smartcleaner/core.py
+smartcleaner.egg-info/PKG-INFO
+smartcleaner.egg-info/SOURCES.txt
+smartcleaner.egg-info/dependency_links.txt
+smartcleaner.egg-info/requires.txt
+smartcleaner.egg-info/top_level.txt
+tests/test_cleaner.py
