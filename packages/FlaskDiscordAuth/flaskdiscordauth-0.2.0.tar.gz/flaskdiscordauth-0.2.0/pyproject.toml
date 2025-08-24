@@ -1,0 +1,31 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "FlaskDiscordAuth"
+version = "0.2.0"
+description = "A Python library to simplify Discord OAuth2 authentication with Flask applications"
+readme = "README.md"
+license = "MIT"
+authors = [
+    { name = "fakelag28", email = "fakelag712@gmail.com" },
+]
+requires-python = ">=3.6"
+dependencies = [
+    "Flask>=1.0",
+    "requests>=2.0",
+]
+keywords = ["flask", "discord", "oauth2", "authentication"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/fakelag28/flask-discord-auth"
+"Source" = "https://github.com/fakelag28/flask-discord-auth"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/FlaskDiscordAuth"]
