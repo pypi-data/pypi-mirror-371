@@ -1,0 +1,116 @@
+name: Monthly Dual Momentum Analysis
+
+on:
+  schedule:
+    - cron: '0 6 1 * *' # Run on the 1st day of every month at 6:00 AM UTC
+  workflow_dispatch:  # Allow manual triggering
+
+permissions:
+  contents: write  # For committing results
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  momentum-analysis:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.13'
+
+    - name: Install uv
+      uses: astral-sh/setup-uv@v1
+      with:
+        version: latest
+
+    - name: Install dependencies
+      run: uv sync --frozen
+
+    - name: Create output directory
+      run: mkdir -p output
+
+    - name: Run momentum analysis
+      run: uv run python -m gem --mode analyze --output output/monthly_momentum_analysis.png
+
+    - name: Create HTML report
+      run: |
+        cat > output/index.html << EOF
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Monthly Dual Momentum Analysis</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    max-width: 1200px;
+                    margin: 0 auto;
+                    padding: 20px;
+                    background-color: #f5f5f5;
+                }
+                .container {
+                    background-color: white;
+                    padding: 30px;
+                    border-radius: 10px;
+                    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                }
+                h1 {
+                    color: #333;
+                    text-align: center;
+                    margin-bottom: 30px;
+                }
+                .chart-container {
+                    text-align: center;
+                    margin: 20px 0;
+                }
+                img {
+                    max-width: 100%;
+                    height: auto;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                }
+                .timestamp {
+                    text-align: center;
+                    color: #666;
+                    font-style: italic;
+                    margin-top: 20px;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h1>Monthly Dual Momentum Analysis</h1>
+                <div class="chart-container">
+                    <img src="monthly_momentum_analysis.png" alt="Monthly Momentum Analysis Chart">
+                </div>
+                <div class="timestamp">
+                    Generated on: $(date -u '+%Y-%m-%d %H:%M:%S UTC')
+                </div>
+            </div>
+        </body>
+        </html>
+        EOF
+
+    - name: Setup Pages
+      uses: actions/configure-pages@v5
+
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: 'output'
+
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4

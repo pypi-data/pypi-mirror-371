@@ -1,0 +1,41 @@
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v5.0.0
+  hooks:
+  - id: no-commit-to-branch
+  - id: check-yaml
+    args: ['--unsafe']
+  - id: check-toml
+  - id: end-of-file-fixer
+  - id: trailing-whitespace
+
+- repo: https://github.com/codespell-project/codespell
+  rev: v2.3.0
+  hooks:
+  - id: codespell
+    additional_dependencies:
+      - tomli
+    exclude: '^uv\.lock$'
+
+- repo: local
+  hooks:
+  - id: check
+    name: Check
+    entry: uv run ruff check --fix
+    types: [python]
+    language: system
+    pass_filenames: false
+
+  - id: format
+    name: Format
+    entry: uv run ruff format
+    types: [python]
+    language: system
+    pass_filenames: false
+
+  - id: typecheck
+    name: Typecheck
+    entry: uv run pyright gem
+    types: [python]
+    language: system
+    pass_filenames: false
