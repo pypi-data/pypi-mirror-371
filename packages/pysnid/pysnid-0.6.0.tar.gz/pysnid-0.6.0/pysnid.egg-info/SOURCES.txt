@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.py
+pysnid/__init__.py
+pysnid/snid.py
+pysnid/tools.py
+pysnid.egg-info/PKG-INFO
+pysnid.egg-info/SOURCES.txt
+pysnid.egg-info/dependency_links.txt
+pysnid.egg-info/top_level.txt
