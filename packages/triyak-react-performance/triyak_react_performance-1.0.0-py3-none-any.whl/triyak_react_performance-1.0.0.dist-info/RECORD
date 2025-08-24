@@ -1,0 +1,12 @@
+triyak_react_performance/__init__.py,sha256=w0KXaZDFU-aWaOgkS_JBVKh1cVodwws2L6HA6FR9C_s,1804
+triyak_react_performance/ai_optimizer.py,sha256=atwkH4f8elnAcy8ouVn7G8_hWTbvR218TaNeGh3eTsc,364
+triyak_react_performance/bundle_optimizer.py,sha256=48fI6LZk5vTrASqctF6e1bhOaa_lFFGcrrbcrMBRhro,344
+triyak_react_performance/core_web_vitals.py,sha256=r17lLLk01u6L0xooEbdvEvOhQhN_oPNholZQ6Jg0YVQ,331
+triyak_react_performance/memory_optimizer.py,sha256=L4KgoyVYaW3cYs-X8Tau7PXW3njZc61p47p8m8c9-P0,363
+triyak_react_performance/performance_monitor.py,sha256=noiIaHN5V6P4dUWnhLUl2UMvWO4QQdfEf9GZF4VHKfk,682
+triyak_react_performance/performance_suite.py,sha256=j_9DMEsgKIM5YiSLiTwTztSmrge-tMYPB-aH8wCAyR0,935
+triyak_react_performance-1.0.0.dist-info/METADATA,sha256=CdV5YFrqLSdlRC-3HdQ6bcAaE_VE0EV5knmYpc5TrWk,8149
+triyak_react_performance-1.0.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+triyak_react_performance-1.0.0.dist-info/entry_points.txt,sha256=oh2e_ZHXztBme3gRgKCk6hnoooZgt3aweWmLlQhVB7g,73
+triyak_react_performance-1.0.0.dist-info/top_level.txt,sha256=p4Xd7jS3Hl8e8N4q2bWrU1v5Nf8TDgPD8PXnzTha_xI,25
+triyak_react_performance-1.0.0.dist-info/RECORD,,
