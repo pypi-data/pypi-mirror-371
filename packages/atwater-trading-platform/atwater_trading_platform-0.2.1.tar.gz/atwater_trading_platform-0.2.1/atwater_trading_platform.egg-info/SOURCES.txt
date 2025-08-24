@@ -1,0 +1,17 @@
+README.md
+setup.py
+atwater_trading_platform.egg-info/PKG-INFO
+atwater_trading_platform.egg-info/SOURCES.txt
+atwater_trading_platform.egg-info/dependency_links.txt
+atwater_trading_platform.egg-info/entry_points.txt
+atwater_trading_platform.egg-info/requires.txt
+atwater_trading_platform.egg-info/top_level.txt
+tests/test_sdk.py
+trading_platform/__init__.py
+trading_platform/auth.py
+trading_platform/cli.py
+trading_platform/client.py
+trading_platform/exceptions.py
+trading_platform/market_data.py
+trading_platform/orders.py
+trading_platform/pnl.py

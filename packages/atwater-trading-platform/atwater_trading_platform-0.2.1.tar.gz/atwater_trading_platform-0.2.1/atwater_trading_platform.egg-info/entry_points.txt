@@ -1,0 +1,2 @@
+[console_scripts]
+atwater-trading-platform = trading_platform.cli:main
