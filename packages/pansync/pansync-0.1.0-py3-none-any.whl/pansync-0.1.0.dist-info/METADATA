@@ -1,0 +1,127 @@
+Metadata-Version: 2.4
+Name: pansync
+Version: 0.1.0
+Summary: 百度网盘多客户端同步工具
+Home-page: https://github.com/username/pansync
+Author: PanSync Team
+Author-email: PanSync Team <pansync@example.com>
+Project-URL: Homepage, https://github.com/username/pansync
+Project-URL: Repository, https://github.com/username/pansync
+Project-URL: Issues, https://github.com/username/pansync/issues
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: bypy>=1.8.0
+Requires-Dist: PyYAML>=6.0
+Requires-Dist: requests>=2.28.0
+Requires-Dist: psutil>=5.9.0
+Requires-Dist: click>=8.1.0
+Requires-Dist: colorama>=0.4.6
+Requires-Dist: cryptography>=41.0.0
+Requires-Dist: loguru>=0.7.0
+Requires-Dist: pytz>=2023.3
+Requires-Dist: python-dateutil>=2.8.2
+Requires-Dist: watchdog>=3.0.0
+Requires-Dist: tqdm>=4.66.0
+Requires-Dist: toml>=0.10.2
+Requires-Dist: urllib3>=2.0.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.4.0; extra == "dev"
+Requires-Dist: pytest-cov>=4.1.0; extra == "dev"
+Requires-Dist: black>=23.7.0; extra == "dev"
+Requires-Dist: flake8>=6.0.0; extra == "dev"
+Requires-Dist: mypy>=1.5.0; extra == "dev"
+Dynamic: author
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-python
+
+# PanSync - 百度网盘同步工具
+
+基于 bypy 的多客户端百度网盘同步工具，支持定时同步、冲突检测和分布式锁管理。
+
+## 功能特性
+
+- 🔄 **智能同步**: 基于文件哈希和时间戳的双向同步
+- 🔒 **分布式锁**: 防止多客户端同时操作的锁机制
+- 🗑️ **垃圾回收**: 本地删除的文件移至云端 trash 目录
+- ⚙️ **灵活配置**: 支持定时同步、限速、并发控制
+- 🖥️ **多客户端**: 自动客户端注册和管理
+- 📊 **状态管理**: 二进制索引文件记录文件状态
+- 🚀 **服务化**: 支持 Supervisor 管理和开机自启
+
+## 安装
+
+```bash
+# 克隆项目
+git clone <repository-url>
+cd pansync
+
+# 安装依赖
+pip install -r requirements.txt
+
+# 安装项目
+pip install -e .
+```
+
+## 配置
+
+配置文件位于 `~/.pansync/config.yaml`，首次运行会自动创建。
+
+## 使用
+
+```bash
+# 启动同步服务
+pansync start
+
+# 停止同步服务
+pansync stop
+
+# 查看状态
+pansync status
+
+# 手动同步
+pansync sync
+```
+
+## 架构设计
+
+### 多客户端同步协议
+
+1. **锁获取**: 客户端通过 `.pansync/.config/lock.txt` 获取分布式锁
+2. **索引同步**: 上传本地索引到 `.pansync/.index.dat`
+3. **文件同步**: 根据索引差异进行文件上传/下载
+4. **状态同步**: 通过 `.pansync/.config/.index.dat` 维护文件状态
+
+### 文件同步逻辑
+
+- **云端删除** → 本地删除
+- **本地删除** → 移至云端 trash 目录
+- **双向修改** → 冲突检测和报告
+
+## 开发
+
+```bash
+# 开发模式安装
+pip install -e .[dev]
+
+# 运行测试
+pytest tests/
+
+# 代码格式化
+black src/
+flake8 src/
+```
+
+## 许可证
+
+MIT License
