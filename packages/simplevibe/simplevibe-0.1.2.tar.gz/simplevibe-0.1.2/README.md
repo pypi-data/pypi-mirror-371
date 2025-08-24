@@ -1,0 +1,172 @@
+# SimpleVibe
+
+A vibe coded AI powered isOdd tool <3
+Bonus: vibify()
+
+## Features
+
+- Two inference modes:
+  - **Local Mode**: Run Llama directly on your machine (requires more resources)
+  - **Remote Mode**: Connect to a remote Llama API (lightweight)
+- Flexible backend selection:
+  - Choose at install time with `pip install simplevibe` (remote) or `pip install simplevibe[local]` (local)
+  - Override at runtime with environment variable `SIMPLEVIBE_BACKEND=remote|local`
+  - Set programmatically with `simplevibe.set_backend('remote'|'local')`
+- LLM-powered functions:
+  - `oddVibes()`: Determine if a number is odd with AI
+  - `vibify()`: Enhance the vibes of text using LLM
+- Simple command-line interface
+
+## Installation
+
+You can install simpleVibe in two different modes:
+
+### Remote Mode (Default)
+
+This mode uses a remote API for inference and has minimal dependencies:
+
+```bash
+pip install simplevibe
+```
+
+### Local Mode
+
+This mode runs inference locally on your machine and requires additional dependencies:
+
+```bash
+pip install simplevibe[local]
+```
+
+> **Note:** Local mode requires more computational resources but doesn't need an internet connection or API access.
+
+### Forcing a Specific Backend
+
+By default, simpleVibe will use the local backend if its dependencies are available, otherwise it will use the remote backend. You can override this behavior in two ways:
+
+#### Using an Environment Variable
+
+```bash
+# Force remote backend even if local dependencies are installed
+export SIMPLEVIBE_BACKEND=remote
+python your_script.py
+
+# Force local backend (will fall back to remote if dependencies are missing)
+export SIMPLEVIBE_BACKEND=local
+python your_script.py
+```
+
+#### Using the API
+
+```python
+import simplevibe
+
+# Force remote backend for future client creations
+simplevibe.set_backend('remote')
+
+# Create a client (will use remote backend)
+client = simplevibe.create_client()
+```
+
+## Usage
+
+### As a library
+
+```python
+from simplevibe.core import oddVibes, vibify
+from simplevibe import get_backend_type, set_backend
+
+# Optional: Override the backend (use 'local' or 'remote')
+# set_backend('remote')
+
+# Check which backend is being used (local or remote)
+print(f"Using {get_backend_type()} backend")
+
+# Use AI powered tool to check if a number is odd
+result = oddVibes(42)
+print(f"Is 42 odd? {result}")  # Is 42 odd? False
+
+# Enhance the vibes of some text
+enhanced = vibify("That's really cool")
+print(enhanced)  # That's straight fire, no cap
+```
+
+### Direct API Access
+
+For more control, you can directly use the raw llama3 function:
+
+```python
+# Import the raw llama3 function
+from simplevibe import llama3
+
+# Call the API directly with custom parameters
+response = llama3(
+    messages=[
+        {"role": "system", "content": "You are an AI assistant that speaks like a pirate."},
+        {"role": "user", "content": "Tell me about the weather today."}
+    ],
+    temperature=0.8,
+    max_new_tokens=150,
+    url="http://127.0.0.1:42070"  # Change to your API server
+)
+
+# Access the response
+print(response['result'])  # Raw result from the API
+```
+
+#### Advanced: Using Images with the API
+
+You can also pass images to the API for multimodal capabilities:
+
+```python
+from simplevibe import llama3
+
+# Call the API with an image
+response = llama3(
+    messages=[
+        {"role": "user", "content": "What can you see in this image?"}
+    ],
+    image_paths="path/to/your/image.jpg",
+    max_new_tokens=500
+)
+
+# Handle multiple images
+response = llama3(
+    messages=[
+        {"role": "user", "content": "Compare these two images."}
+    ],
+    image_paths=["path/to/image1.jpg", "path/to/image2.jpg"],
+    upload_files=True  # Set to False if the server has access to these paths
+)
+
+print(response['result'])
+```
+
+### From the command line
+
+After installation, you can use the `simplevibe` command:
+
+```bash
+# Show the greeting
+simplevibe
+
+# Check if a number is odd
+simplevibe oddVibes 42
+
+# Enhance the vibes of some text
+simplevibe vibify "This is really interesting"
+
+# Display information about the current backend
+simplevibe info
+
+# Set preferred backend (persists for current terminal session)
+simplevibe set-backend remote
+simplevibe set-backend local
+```
+
+## Requirements
+
+- Python 3.7 or higher
+
+## License
+
+MIT
