@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+staphscope/__init__.py
+staphscope/cli.py
+staphscope/core.py
+staphscope.egg-info/PKG-INFO
+staphscope.egg-info/SOURCES.txt
+staphscope.egg-info/dependency_links.txt
+staphscope.egg-info/entry_points.txt
+staphscope.egg-info/requires.txt
+staphscope.egg-info/top_level.txt
+tests/__init__.py
+tests/test_staphscope.py
