@@ -1,0 +1,8 @@
+mpgkit/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+mpgkit/cli.py,sha256=nzVCyMc9qH-wHJAxj2M9yk9lLEIEUigST-hRcH_SRNA,5089
+mpgkit/keymanager.py,sha256=iO-1HYI_n8UpDYsDpGJh5Iww1cSa0H5Et_UetTUEamY,1568
+mpgkit-1.0.0.dist-info/METADATA,sha256=_wz8i3BHeFR19TKGD3c6poqM5C4MotbCTYZbVnjd5Gc,234
+mpgkit-1.0.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+mpgkit-1.0.0.dist-info/entry_points.txt,sha256=PvXasW2frGePGMR3wt-Iya5f9sl8RcTa94G97-ZKKHc,43
+mpgkit-1.0.0.dist-info/top_level.txt,sha256=L1Yjg9-DwLaCAwPyW4epJptw1FpuZrm4NbbbxJ9LTLQ,7
+mpgkit-1.0.0.dist-info/RECORD,,
