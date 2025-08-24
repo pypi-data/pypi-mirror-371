@@ -1,0 +1,11 @@
+apicache_cli_av/__init__.py,sha256=8kdlk2r_cvzsdg2kCC513OTerK3mbef2O8hJCiH71As,195
+apicache_cli_av/api.py,sha256=EO-wMUIrBYV1UrPIL783ca682BH-tDnB-2JZ7wwcjkQ,2442
+apicache_cli_av/cache.py,sha256=w6KD2kwRlQDjtYcFfxyRrUDsvqCOj2LN254QxKP5EOQ,1562
+apicache_cli_av/cli.py,sha256=H_cii8iHzCV7FOoB8jt6X9sWwTKdgGJgOPzXAuqjbfs,2895
+apicache_cli_av/py.typed,sha256=HGR7vli01Yly1Iw2cVUfZK3MtAV6Vv2aSFvVC65fUTo,60
+apicache_cli_av/utils/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+apicache_cli_av/utils/json_utils.py,sha256=c6tYLvCsQPC4wfhQ9nV4CZJQYeWjYaVgFx1Rt6I-cwQ,718
+apicache_cli_av-0.1.7.dist-info/entry_points.txt,sha256=5TOk1zv7bO2qmfjGfvT2OxHidMTZyFs2CgMZJomvHqs,59
+apicache_cli_av-0.1.7.dist-info/METADATA,sha256=yUNn_JzabVT_Wy9ewW6wHjhFOH-QWCeyokfyDmWsEQc,5650
+apicache_cli_av-0.1.7.dist-info/WHEEL,sha256=b4K_helf-jlQoXBBETfwnf4B04YC67LOev0jo4fX5m8,88
+apicache_cli_av-0.1.7.dist-info/RECORD,,
