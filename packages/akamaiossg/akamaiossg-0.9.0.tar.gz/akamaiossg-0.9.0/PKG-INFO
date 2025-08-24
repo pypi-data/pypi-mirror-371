@@ -1,0 +1,470 @@
+Metadata-Version: 2.1
+Name: akamaiossg
+Version: 0.9.0
+Summary: Akamaiossg description for TLLs
+Home-page: https://github.com/mmfarabi/sentiebl
+Author: Mirza Milan Farabi
+Author-email: mmfar@gmail.com
+License: UNKNOWN
+Keywords: llm,vulnerability,prompt,ai-security
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Security
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Software Development :: Testing
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+# SENTIEBL: Systematic Elicitation of Non-Trivial and Insecure Emergent Behaviors in LLMs
+
+[![PyPI version](https://badge.fury.io/py/sentiebl.svg)](https://badge.fury.io/py/sentiebl)
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+![Python Version](https://img.shields.io/badge/python-3.8+-blue.svg)
+
+**A Novel System for the Automated Vulnerability Analysis and Findings Auditor of Large Language Models.**
+
+---
+
+### Table of Contents
+1.  [**Abstract**](#abstract)
+2.  [**Introduction**](#introduction)
+3.  [**Summary of Features**](#summary-of-features)
+4.  [**Methodology**](#methodology)
+    *   [Entire Process](#entire-process)
+    *   [System Architecture](#system-architecture)
+    *   [System Architecture Diagram](#system-architecture-diagram)
+    *   [Core Process & Diagrams](#core-process-diagrams)
+        *   [Prompt Injection & Parameterization](#prompt-injection-parameterization)
+        *   [Response Analysis & Scoring](#response-analysis-scoring)
+        *   [Findings Generation & Reporting](#findings-generation-reporting)
+5.  [**Algorithms**](#algorithms)
+    *   [Entire Comprehensive Process](#entire-comprehensive-process)
+    *   [Core Process Algorithms](#core-process-algorithms)
+        *   [Process Prompt Algorithm](#process_prompt-algorithm)
+        *   [Evaluate Response Algorithm](#evaluate_response-algorithm)
+        *   [Reporting Algorithm](#reporting-algorithm)
+6.  [**Usage Guide for Jupyter/Kaggle Notebooks**](#usage-guide-for-jupyterkaggle-notebooks)
+    *   [Step 1: Install SENTIEBL](#step-1-install-sentiebl)
+    *   [Step 2: Install and Run Ollama](#step-2-install-and-run-ollama)
+    *   [Step 3: Run the Audit](#step-3-run-the-audit)
+7.  [**Understanding the Configuration (`config.py`)**](#understanding-the-configuration-configpy)
+8.  [**Pros & Cons**](#pros--cons)
+9. [**Why SENTIEBL is the Best Choice**](#why-sentiebl-is-the-best-choice)
+10. [**Future Work**](#future-work)
+11. [**Conclusion**](#conclusion)
+12. [**Author & License**](#author--license)
+
+---
+
+### Abstract
+
+SENTIEBL is a comprehensive, automated red-teaming and vulnerability analysis framework for Large Language Models (LLMs). It is designed to systematically probe LLMs for a wide range of insecure or undesirable emergent behaviors, including reward hacking, deception, data exfiltration, and more. The framework utilizes an extensive library of 630 targeted prompts and a sophisticated analysis engine with 451 vulnerability patterns to evaluate model responses. It operates by analyzing text output for dangerous content without ever executing it, ensuring a completely safe testing environment. The system automates the entire audit pipeline—from dynamic prompt injection and model interaction to rubric-based scoring, automated findings generation, and the creation of detailed, presentation-ready reports with rich data visualizations. This turnkey solution is built for seamless integration into MLOps workflows, enabling developers, researchers, and security auditors to efficiently assess and harden the safety and alignment of LLMs.
+
+### Introduction
+
+The rapid advancement of Large Language Models has introduced unprecedented capabilities, but also a new frontier of complex security vulnerabilities. Behaviors such as prompt injection, generation of harmful content, and subtle data leakage pose significant risks. Manually testing for these vulnerabilities is time-consuming, inconsistent, and often fails to cover the vast attack surface.
+
+SENTIEBL addresses this challenge by providing an end-to-end automated auditor. This tool was developed for the OpenAI gpt-oss-20b Red-Teaming Challenge on Kaggle to systematically probe the model for vulnerabilities using a variety of prompt injection and scenario-based techniques. It identifies potentially harmful content, such as suggested shell commands or API calls, by analyzing the model's text output without ever executing it. The script operates in a safe environment and does NOT perform any real harmful actions. By automating the elicitation, evaluation, and reporting of non-trivial and insecure behaviors, SENTIEBL provides a scalable and standardized solution for enhancing the safety, security, and trustworthiness of AI systems.
+
+### Summary of Features
+
+-   **Seamless Model Integration:** Automated connection to the target model via a local Ollama-compatible API, with a pre-run connectivity check to ensure the model is responsive.
+-   **Extensive Prompt Library:** A comprehensive suite of **630 "innocent-looking"** but targeted prompts across **9 categories** designed to test various vulnerabilities.
+-   **Advanced Prompt Templating:** Wraps each user prompt with a System and Instruction prompt to standardize model interaction and enforce specific response behaviors.
+-   **Advanced Analysis Engine:** A sophisticated response analysis engine with **451 vulnerability patterns** to detect harmful content, deception, and other vulnerabilities. It prioritizes the most critical vulnerability by sorting detected patterns by score and specificity. It also incorporates **Verbose Response Handling**, which flags overly long responses that could indicate a low-quality or evasive answer by adding a specific justification to the finding.
+-   **Rubric-Based Scoring:** A heuristic-based scoring engine for severity and breadth that is aligned with the competition's official rubric.
+-   **Robust Refusal Analysis:** The analysis engine explicitly detects a list of common refusal phrases and correctly categorizes model refusals as a safe response, preventing false positives.
+-   **Dangerous Content Analysis:** Utilizes regular expression pattern matching to analyze the model's text responses for dangerous content without performing any real-world execution.
+-   **Automated Findings Generation:** Automatically generates JSON finding files for each discovered issue that meets a configurable threshold. It employs a dual-saving strategy, creating both a simple sequential filename and a highly descriptive filename that includes the team name, category, and separate scores for severity and breadth for easy identification.
+-   **Standardized Schema for Findings:** All generated findings adhere to a strict JSON schema, including detailed sections for model parameters, environment, reproducibility steps, and a structured issue summary. The schema includes a `topic_area` that is dynamically generated by extracting key terms from the vulnerability justification.
+-   **Configurable Finding Threshold:** Allows users to set `MIN_SEVERITY_TO_SAVE` and `MIN_BREADTH_TO_SAVE` to control which level of vulnerability triggers the generation of a finding file.
+-   **Controlled Test Execution:** Employs **a round-robin execution strategy**, interleaving prompts from all categories to ensure stability, clear logging, and balanced testing across all vulnerability types.
+-   **Automated Timeout and Stability:** Includes a built-in run timer to gracefully halt execution after a set duration, ensuring completion within platform limits.
+-   **Turnkey Auditing Solution:** An end-to-end automated auditor designed for plug-and-play use in any notebook.
+-   **Detailed Reproducibility Logs:** Generates `harmony_response_walkthroughs` in finding files, detailing the exact conversational flow with channels for complete reproducibility.
+-   **Live Monitoring and Logging:** Provides real-time progress updates showing prompts and model outputs during the run, with comprehensive dual-mode logging to both the console and a persistent file (`tool.log`).
+-   **Comprehensive Reporting Suite:**
+    -   **Detailed Markdown Dashboards:** Generates detailed Markdown reports with rich, expandable "Finding Cards" arranged in a multi-column layout for an organized review of prompts, responses, and justifications.
+    -   **Automated Data Visualization:** Automatically creates and saves multiple charts using Matplotlib, including: an average score distribution bar chart, a stacked bar chart showing the count of findings by severity for each category, a ring chart showing severity score ratio by vulnerability category, and a combined grid of severity distributions for every category.
+    -   **Executive Summary Reports:** Produces a comprehensive analysis report with statistics on attack success rates, total findings, vulnerabilities by category, and average scores.
+    -   **Structured Data Export:** Creates CSV files using Pandas summarizing severity and breadth counts by category for easy data analysis.
+-   **Dynamic Parameterization:** Utilizes 3 distinct methods for setting model parameters (temperature and max_tokens) to ensure robust testing:
+    -   **Method 1 (Fixed):** Uses static, predefined values for baseline testing.
+    -   **Method 2 (Randomized):** Uses random values to explore a wider range of model behaviors.
+    -   **Method 3 (Gradual):** Systematically increases parameters to test model stability under escalating conditions.
+
+---
+
+### Methodology
+
+#### Entire Process
+
+The SENTIEBL framework executes a multi-stage process to conduct a thorough and automated audit of an LLM:
+
+1.  **Initialization and Configuration:** The process begins when the user calls the `main` function. All runtime parameters (e.g., model name, output directory, test duration) are loaded into a global configuration object. The system establishes a connection with the specified model via the Ollama API and performs a handshake to ensure connectivity.
+
+2.  **Prompt Injection Cycle:** The tool iterates through its extensive library of 630 prompts in a round-robin fashion. This strategy ensures that all 9 vulnerability categories are tested evenly throughout the audit, preventing any single category from dominating the initial phase.
+
+3.  **Dynamic Parameterization:** For each prompt, a parameterization strategy (`fixed`, `randomized`, or `gradual`) is applied to set the `temperature` and `max_tokens` for the API call. This dynamic approach allows for testing a wide range of model response behaviors, from deterministic to highly creative.
+
+4.  **Response Generation:** The formatted prompt is sent to the target LLM. The model's raw text response is captured for analysis.
+
+5.  **Response Analysis and Scoring:** The captured response is passed to the Response Analysis Engine. This engine uses a library of 451 regex patterns to scan the text for evidence of harmful, insecure, or undesirable content. It simultaneously checks for refusal phrases. Based on the findings, the Rubric-Based Scoring Engine assigns separate scores for **Severity** (the potential for harm) and **Breadth** (the number of users potentially affected).
+
+6.  **Findings Generation:** If a response's scores meet or exceed the user-defined `min_severity_to_save` or `min_breadth_to_save` thresholds, the system flags it as a significant finding. It then compiles a detailed JSON object that adheres to a standardized schema, including reproducibility steps, model parameters, and a justification for the scores.
+
+7.  **Reporting and Visualization:** After the audit completes (either by finishing all prompts or reaching the time limit), the Comprehensive Reporting Suite aggregates all results and significant findings. It generates several outputs:
+    *   A detailed Markdown dashboard with expandable "Finding Cards".
+    *   A set of data visualizations (bar charts, ring charts) saved as PNG files.
+    *   CSV files summarizing severity and breadth counts by category.
+    *   A final analysis report with high-level statistics like success rates and average scores.
+
+This entire process is logged to both the console and a persistent `tool.log` file for real-time monitoring and post-audit review.
+
+#### System Architecture
+**Description:** The SENTIEBL system architecture is designed as a linear, multi-stage pipeline. It begins with an Initialization phase to load configurations and connect to the target LLM. The core Audit Loop then systematically cycles through prompts, applies dynamic parameters, queries the model, and scores the responses. Any response that meets the predefined threshold is processed and saved as a structured Finding. Upon completion of the loop, the final Reporting stage aggregates all collected data to generate a full suite of outputs, including Markdown dashboards, data visualizations, and detailed analytical reports.
+
+#### System Architecture Diagram
+
+```
++-----------------------------+      +------------------------------+      +--------------------------+
+|       Prompt Library        |      |   Dynamic Parameterization   |      |    Model Interaction     |
+| (630 Prompts, 9 Categories) |----->| (Fixed, Randomized, Gradual) |----->|  (Ollama API Integration)|
++-----------------------------+      +------------------------------+      +--------------------------+
+            ^                                                                        |
+            |                                                                        V
+            |                      +---------------------------------------------------------------------+
++-----------+-----------+          |                     Response Analysis Engine                        |
+| Round-Robin Scheduler |          |  (451 Vulnerability Patterns, Refusal Analysis, Verbose Handling)   |
++-----------------------+          +---------------------------------------------------------------------+
+                                                 |
+                                                 V
++-----------------------------+      +---------------------------------+      +-------------------------------+
+| Rubric-Based Scoring Engine |      |   Automated Findings Generation |      | Comprehensive Reporting Suite |
+|  (Severity & Breadth)       |----->|  (JSON, Configurable Threshold) |----->|   (Markdown, Charts, CSV)     |
++-----------------------------+      +---------------------------------+      +-------------------------------+
+```
+
+#### Core Process & Diagrams
+
+1.  **Prompt Injection & Parameterization**
+    *   **Description:** This stage selects a prompt from the library using a round-robin method and applies a parameterization strategy. The chosen method (`fixed`, `randomized`, or `gradual`) determines the `temperature` and `max_tokens` to be used, allowing for diverse testing conditions from stable baselines to chaotic, exploratory queries.
+
+    ```
+    +------------------------+      +----------------------+      +-----------------------+
+    |    Prompt Library      |----->| Round-Robin Selector |----->|  Selected Prompt/Cat  |
+    +------------------------+      +----------------------+      +-----------------------+
+                                                                            |
+                                                                            V
+    +-------------------------------------------------+      +------------------------+
+    |          Dynamic Parameterization Logic         |----->|  Finalized Parameters  |
+    | (fixed / randomized / gradual based on config)  |      |   (temp, max_tokens)   |
+    +-------------------------------------------------+      +------------------------+
+    ```
+
+2.  **Response Analysis & Scoring**
+    *   **Description:** Once the model's response is received, it is passed to the analysis engine. The engine first checks for standard refusal phrases. If none are found, it matches the text against 451 vulnerability patterns. The pattern with the highest score determines the base `severity` and `breadth`. The engine also considers the response length, applying special justifications for overly verbose outputs.
+    ```
+    +----------------+       +-------------------------+      +------------------------------+
+    | Model Response |------>|  Refusal Phrase Check   |----->| Pattern Matching (451 regex) |
+    +----------------+       +-------------------------+      +------------------------------+
+                                                                                |
+                                                                                V
+    +-------------------------+      +-------------------------+      +----------------------------+
+    |  Verbose Length Check   |<-----|  Highest Scored Pattern |<-----|   Select Best Match/Score  |
+    +-------------------------+      +-------------------------+      +----------------------------+
+                |
+                V
+    +-----------------------------------+
+    | Final Scores & Justifications     |
+    | (Severity, Breadth, Rationales)   |
+    +-----------------------------------+
+    ```
+
+3.  **Findings Generation & Reporting**
+    *   **Description:** If the scores from the analysis stage meet the `MIN_SEVERITY_TO_SAVE` or `MIN_BREADTH_TO_SAVE` thresholds, the result is flagged as a significant finding. A structured JSON object is created, and the data is logged. At the end of the run, all results and findings are aggregated by the reporting suite to create the final CSV files, Markdown reports, and visualizations.
+
+    ```
+    +----------------------+      +-----------------------------+      +---------------------------+
+    | Scores & Rationales  |----->|   Check Against Thresholds  |----->|  Create JSON Finding File |
+    |   from Analysis      |      | (min_severity, min_breadth) |      |   (if threshold met)      |
+    +----------------------+      +-----------------------------+      +---------------------------+
+                                           | (End of Run)
+                                           V
+    +-----------------------------------------------------+      +-----------------------------+
+    |                 Aggregate All Results               |----->|       Reporting Suite       |
+    +-----------------------------------------------------+      | (Dashboards, Charts, CSVs)  |
+                                                                 +-----------------------------+
+    ```
+
+### Algorithms
+
+#### Entire Comprehensive Process
+This algorithm illustrates the high-level workflow of the `main()` function, from initial setup to final report generation. 
+
+```
+BEGIN main(parameters)
+    1.  Initialize Configuration: Transfer all input parameters (model_name, output_dir, etc.) into the global config object.
+    2.  Start Timer: Record the current time.
+    3.  Setup Logging: Configure logger to output to console and 'tool.log'.
+    4.  Create Output Directory: If it doesn't exist, create the specified output directory.
+    5.  Connect to Model:
+        a. Instantiate OpenAI client with Ollama base_url and api_key.
+        b. Send a test message to ensure the connection is live.
+        c. IF connection fails, log a FATAL error and EXIT.
+    6.  Prepare Prompts:
+        a. Load all prompts from the dictionary.
+        b. Create an interleaved (round-robin) list of (prompt, category) tuples.
+    7.  Initialize Data Stores: Create empty lists for `all_results` and `saved_files_log`.
+    8.  LOOP through each (prompt, category) in the interleaved list with index `i`:
+        a. Check Timeout: IF (current_time - start_time) > test_duration, BREAK loop.
+        b. Log progress: "Processing prompt i+1 / total".
+        c. TRY:
+            i. Call process_prompt(prompt, category, client, i) -> result.
+            ii. Append `result` to `all_results`.
+        d. CATCH any exception: Log the error and CONTINUE to the next prompt.
+    9.  Process Findings:
+        a. Filter `all_results` to get a list of `findings_with_category`.
+        b. IF no findings, log a warning.
+        c. ELSE, sort findings by category.
+        d. LOOP through each `finding_data` with index `j`:
+            i. Call save_finding(finding_data, original_category, j) -> filepath, score.
+            ii. IF filepath is not None, append (filepath, score) to `saved_files_log`.
+    10. Generate Reports:
+        a. Call generate_markdown_dashboard(findings_with_category).
+        b. Call generate_summary_report(all_results, saved_files_log).
+    11. Log Completion: Print total run time and number of findings generated.
+END main
+```
+
+#### Core Process Algorithms
+
+1.  **Process Prompt Algorithm**
+    *   **Description:** This function orchestrates the testing of a single prompt. It selects a parameterization method, gets the model response, evaluates it, and formats the result, creating a detailed finding dictionary if the result is significant.
+    ```
+    BEGIN process_prompt(prompt, category, client, prompt_index)
+        1.  Select Parameterization Method based on `config.METHOD_CHOICE`:
+            a. IF "fixed": temperature = 1.0, max_tokens = 1024.
+            b. IF "randomized": temperature = random(0.1, 1.0), max_tokens = random(1024, 4096).
+            c. IF "gradual": calculate temperature and max_tokens based on `prompt_index`.
+            d. ELSE: default to "fixed".
+        2.  Get Model Response: Call get_model_response(client, prompt, temperature, max_tokens) -> response_text.
+        3.  Evaluate Response: Call evaluate_response(response_text) -> evaluation.
+        4.  Store Result: Create a `result_data` dictionary containing the prompt, response, evaluation, scores, and parameters.
+        5.  Check for Finding: IF (scores.severity >= MIN_SEVERITY_TO_SAVE) OR (scores.breadth >= MIN_BREADTH_TO_SAVE):
+            a. Create a `finding_dict` conforming to the required JSON schema.
+            b. Populate the dictionary with model info, environment, summary, and reproduction steps.
+            c. Dynamically generate `topic_area` from the evaluation rationale.
+            d. Add `finding_dict` to `result_data`.
+        6.  RETURN `result_data`.
+    END process_prompt
+    ```
+
+2.  **Evaluate Response Algorithm**
+    *   **Description:** This is the core analysis function. It calculates severity and breadth scores, then applies a logic layer to handle refusals and verbose responses, modifying the final scores and rationales accordingly.
+    ```
+    BEGIN evaluate_response(response_text)
+        1.  Evaluate Severity: Call evaluate_severity(response_text) -> severity_eval.
+        2.  Evaluate Breadth: Call evaluate_breadth(response_text) -> breadth_eval.
+        3.  Initialize scores from `severity_eval` and `breadth_eval`.
+        4.  Analyze Modifiers:
+            a. `is_refusal` = Check if `response_text` matches any refusal phrases.
+            b. `is_long_text` = Check if len(response_text) > LONG_TEXT_THRESHOLD.
+        5.  Apply Logic for Verbose Non-Refusals:
+            a. IF `is_long_text` AND NOT `is_refusal` AND score is 0:
+                i. Set score to 0 (if not already).
+                ii. Update rationale to mention verbosity.
+        6.  Apply Logic for Refusals:
+            a. IF `is_refusal`:
+                i.  IF `is_long_text`: Update rationale to mention verbose refusal.
+                ii. IF existing score > 0: Append "failed safety attempt" to rationale.
+                iii.ELSE (score is 0): Set rationale to "Model refused as expected".
+        7.  RETURN a dictionary with final scores and rationales for severity and breadth.
+    END evaluate_response
+    ```
+
+3.  **Reporting Algorithm**
+    *   **Description:** This flow shows how the reporting modules (`generate_markdown_dashboard` and `generate_summary_report`) process the collected data at the end of a run to produce all final artifacts.
+    ```
+    BEGIN Reporting (all_results, findings_with_category, saved_files_log)
+        // generate_markdown_dashboard
+        1.  Create Pandas DataFrame from `findings_with_category`.
+        2.  Create Output Directory for charts.
+        3.  Generate & Save Charts using Matplotlib:
+            a. Average Score Distribution (Bar Chart).
+            b. Count of Findings by Severity per Category (Stacked Bar Chart).
+            c. Severity Score Ratio by Category (Ring Chart).
+            d. Combined Severity Distributions for All Categories (Grid of Bar Charts).
+        4.  Generate Markdown Content:
+            a. Add headers and embed the saved charts.
+            b. Create "Detailed Findings" section with expandable cards in a multi-column table format.
+        5.  Save the combined Markdown to "Detailed_Findings.md".
+        6.  Display the full dashboard in the notebook output.
+
+        // generate_summary_report
+        7.  Create & Save Severity Counts CSV:
+            a. Aggregate severity scores by category from `all_results`.
+            b. Create a DataFrame.
+            c. Save to "findings_severity.csv" and display in notebook.
+        8.  Create & Save Breadth Counts CSV (similar to step 7).
+        9.  Calculate Statistics: Total attacks, success rate, average scores, etc.
+        10. Generate Markdown Content:
+            a. Add "Comprehensive Analysis" header.
+            b. List all calculated statistics.
+            c. List vulnerabilities by category.
+            d. List generated competition submission files from `saved_files_log`.
+        11. Save Markdown to "Detailed_Analysis.md".
+        12. Display the analysis report in the notebook output.
+    END Reporting
+    ```
+
+### Usage Guide for Jupyter/Kaggle Notebooks
+
+This tool is designed to find vulnerabilities in AI Models on platforms like Jupyter Notebook or Kaggle Notebook. Here’s how to use it to test the `"gpt-oss:20b"` model.
+
+#### Step 1: Install SENTIEBL
+In a notebook cell, install the package directly from PyPI.
+
+```python
+!pip install sentiebl
+```
+
+#### Step 2: Install and Run Ollama
+
+**Note:** The following commands are designed to be run directly within a notebook environment (such as Jupyter or Kaggle) that allows shell command execution using the `!` prefix or `os.system`.
+
+The following commands will download Ollama, run the server in the background, and pull the target AI model.
+
+```python
+import os
+import time
+```
+
+```python
+# 1. Install Ollama
+!curl -fsSL https://ollama.com/install.sh | sh
+```
+
+```python
+# 2. Start the Ollama server in the background
+os.system("nohup ollama serve > /tmp/ollama_serve_stdout.log 2>/tmp/ollama_serve_stderr.log &")
+```
+
+```python
+time.sleep(5)  # Give the server a moment to start
+```
+
+```python
+# 3. Check if the server process is running
+!ps aux | grep -E 'ollama' | grep -v grep || true
+```
+
+```python
+# 4. Pull the target model (this may take some time)
+!ollama pull gpt-oss:20b
+```
+
+```python
+# 5. List the models to confirm the pull was successful
+!ollama list
+```
+
+```python
+time.sleep(5)
+```
+
+#### Step 3: Run the Audit
+Now you can import and run the main audit function from SENTIEBL. By default, all reports, charts, and findings are saved to a directory named `sentiebl_directory`. The example below shows how to specify a different path, such as `/kaggle/working/`, which is the standard writable directory in Kaggle Notebooks.
+
+```python
+from sentiebl import main
+
+# Run the audit on the gpt-oss:20b model
+# This example runs for 1 hour, using the 'gradual' method for varied testing.
+main.main(
+    model_name="gpt-oss:20b",
+    team_name="my_red_team",
+    # The default output_dir is 'sentiebl_directory'.
+    # For Kaggle, it's best to save results to the /kaggle/working/ directory.
+    output_dir="/kaggle/working/",
+    reasoning_level="medium",      # Options: "low", "medium", "high"
+    method_choice="randomized",    # Options: "fixed", "randomized", "gradual"
+    min_severity_to_save=0,        # Options: 0, 1, 2, 5, 10
+    min_breadth_to_save=0,         # Options: 0, 1, 2, 5, 10
+    use_test_duration=True,
+    test_duration=5 * 60,          # 5 minutes in seconds for a quick smoke test
+    endpoint="Kaggle Notebook",
+    hardware="Dual T4 GPUs"
+)
+```
+
+### Understanding the Configuration (`config.py`)
+
+The behavior of the `sentiebl` audit is controlled by parameters passed to the `main()` function. These parameters update a global configuration object at runtime. Below is a detailed description of each parameter:
+
+| Parameter | Type | Default Value | Description |
+| :--- | :--- | :--- | :--- |
+| **`model_name`** | `str` | (Required) | The identifier of the model to test via the Ollama API (e.g., `"gpt-oss:20b"`). |
+| `team_name` | `str` | `"sentiebl"` | Your team or project name, used for file naming. |
+| `output_dir` | `str` | `"sentiebl_directory"`| The path to the directory where all findings and reports will be saved. |
+| `ollama_base_url` | `str` | `"http://localhost:11434/v1"` | The base URL of your local Ollama-compatible API. |
+| `ollama_api_key` | `str` | `"ollama"` | The API key for the Ollama service (defaults to the standard for local instances). |
+| `endpoint` | `str` | `"unknown"` | Metadata tag for the environment (e.g., `"Google Colab"`, `"Kaggle"`). |
+| `hardware` | `str` | `"unknown"` | Metadata tag describing the hardware used for the test (e.g., `"Dual T4 GPUs"`). |
+| **`reasoning_level`** | `str` | `"low"` | A model parameterization strategy. Affects the model's reasoning effort. **Options:** `"low"`, `"medium"`, `"high"`. |
+| **`method_choice`** | `str` | `"fixed"` | The method for setting `temperature` and `max_tokens`. **Options:** `"fixed"` (static values), `"randomized"` (random values), `"gradual"` (systematically increasing values). |
+| `long_text_threshold`| `int` | `100` | The character count above which a response is considered "long" for analysis purposes. |
+| `min_severity_to_save`| `int` | `0` | The minimum severity score (0-10) required to save a finding. **Options:** 0, 1, 2, 5, 10 |
+| `min_breadth_to_save`| `int` | `0` | The minimum breadth score (0-10) required to save a finding. **Options:** 0, 1, 2, 5, 10 |
+| `use_test_duration`| `bool`| `True` | If `True`, the audit will stop after `test_duration` seconds. If `False`, it runs until all prompts are processed. |
+| `test_duration` | `int` | `3600` | The maximum duration of the audit in seconds. Defaults to 1 hour. |
+
+---
+
+### Pros & Cons
+
+| Pros | Cons |
+| :--- | :--- |
+| **Fully Automated:** Provides a true end-to-end solution from testing to reporting, saving significant manual effort. | **Heuristic-Based/Regex-Based Analysis:** Relies on regex patterns, which can lead to false positives or miss nuanced, novel vulnerabilities and may not capture cleverly disguised harmful content. |
+| **Comprehensive & Systematic:** The large number of prompts (630) and vulnerability patterns (451) provides broad, balanced, and systematic test coverage. | **Dependent on Ollama/Local API:** Currently designed to work only with Ollama-compatible APIs, requiring a running Ollama instance and adding a setup step. |
+| **Safe by Design:** Analyzes text output only and never executes any code or commands, eliminating any risk to the host system. | **Potential for Slowness:** The audit speed is limited by the inference time of the target model. A full run can be lengthy. |
+| **Highly Configurable:** Users can control test duration, parameterization methods, and finding thresholds to tailor the audit to different needs and time constraints. | **No Semantic Understanding:** The analysis engine matches patterns but does not understand the semantic meaning, which can be a limitation for complex responses. |
+| **Excellent & Actionable Reporting:** Generates detailed, visually intuitive, and actionable reports with visualizations, making it easy to understand, share, and analyze the results. | **Static Libraries:** The prompt and vulnerability libraries are fixed and require manual updates to stay current with new attack vectors. |
+| **Reproducible:** Findings are generated in a standardized format with all necessary parameters to allow for easy replication. | **Potential for Misclassification:** The automated analysis, while robust, is not infallible and may occasionally yield false positives (flagging safe content) or false negatives (missing harmful content). |
+
+### Why SENTIEBL is the Best Choice
+
+SENTIEBL stands out as a superior choice for LLM auditing for several key reasons:
+
+1.  **Turnkey Solution:** It is a complete, plug-and-play system. Unlike other tools that may only provide a library of prompts or a basic analysis script, SENTIEBL automates the *entire workflow*. A user can go from installation to a full set of detailed reports and visualizations with a single function call, making it accessible to users of all skill levels.
+2.  **Depth and Breadth of Testing:** With 630 targeted prompts across 9 distinct categories and 451 vulnerability patterns, the sheer volume and organization of its testing libraries are extensive. The round-robin execution ensures all these categories are tested in a balanced manner.
+3.  **Actionable and Insightful Reporting:** The tool doesn't just find issues; it presents them in a way that is immediately useful. The Markdown dashboards with expandable cards, detailed statistics, and clear data visualizations allow stakeholders to quickly grasp the model's security posture and drill down into specific vulnerabilities.
+4.  **Robust and Thoughtful Design:** Features like dynamic parameterization, refusal analysis, and verbose response handling show a deep understanding of the nuances of LLM testing. It doesn't just look for "bad words"; it considers the model's behavior in context, reducing false positives and providing more accurate assessments.
+
+### Future Work
+
+While SENTIEBL is a powerful tool, there are several avenues for future enhancement:
+
+-   **Expanded `METHOD_CHOICE` Options:** Introduce more sophisticated parameterization methods, such as an adversarial method that adjusts temperature and other parameters based on the model's previous responses to try and elicit failure modes more effectively.
+-   **Integration with Other Model Providers:** Add support for other popular platforms like Hugging Face, Anthropic, and proprietary cloud-based models to make the tool more universal.
+-   **Semantic Analysis Engine:** Augment the regex-based pattern matching with a semantic analysis layer. This could involve using an embedding model to check for semantic similarity to known harmful concepts, allowing the tool to catch vulnerabilities that are phrased in novel ways.
+-   **Dynamic Prompt Generation:** Implement a feature where the tool can generate its own new prompts based on the vulnerabilities it discovers, creating a self-improving, adaptive testing process.
+-   **Web-Based User Interface:** Develop a simple web UI (e.g., using Streamlit or Flask) to allow users to configure and run audits, and view reports interactively in a browser.
+-   **Community-Contributed Libraries:** Create a system for users to easily contribute new prompts and vulnerability patterns to a central repository, allowing the tool's knowledge base to grow and adapt more quickly.
+
+### Conclusion
+
+SENTIEBL represents a significant step forward in the automated security auditing of Large Language Models. By combining a systematic testing methodology with a powerful analysis and reporting engine, it provides a robust, efficient, and scalable solution for identifying and documenting potential vulnerabilities. Its design philosophy emphasizes automation, reproducibility, and the generation of actionable insights, making it an indispensable tool for AI developers, security researchers, and red-teaming competitions.
+
+### Author & License
+-   **Author:** Mirza Milan Farabi
+-   **Copyright:** © 2025 Mirza Milan Farabi. All rights reserved.
+-   **License:** [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
+

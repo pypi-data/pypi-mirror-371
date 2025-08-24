@@ -1,0 +1,11 @@
+README.md
+setup.py
+akamaiossg/__init__.py
+akamaiossg/config.py
+akamaiossg/dictionary.py
+akamaiossg/main.py
+akamaiossg.egg-info/PKG-INFO
+akamaiossg.egg-info/SOURCES.txt
+akamaiossg.egg-info/dependency_links.txt
+akamaiossg.egg-info/requires.txt
+akamaiossg.egg-info/top_level.txt
