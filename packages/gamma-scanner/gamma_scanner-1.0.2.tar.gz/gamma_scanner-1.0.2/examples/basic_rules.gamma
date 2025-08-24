@@ -1,0 +1,70 @@
+# StringForge DSL Basic Rules Examples
+# These rules demonstrate basic pattern matching capabilities
+
+# Rule to find email addresses
+rule find_emails {
+    regex_match("[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}")
+}
+
+# Rule to find URLs
+rule find_urls {
+    regex_match("https?://[^\s<>\"{}|\\^`[\]]+")
+}
+
+# Rule to find potential passwords
+rule find_passwords {
+    contains("password") or contains("passwd") or contains("pwd")
+}
+
+# Rule to find IP addresses
+rule find_ip_addresses {
+    regex_match("\\b(?:[0-9]{1,3}\\.){3}[0-9]{1,3}\\b")
+}
+
+# Rule to find credit card numbers (basic pattern)
+rule find_credit_cards {
+    regex_match("\\b(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13}|3[0-9]{13}|6(?:011|5[0-9]{2})[0-9]{12})\\b")
+}
+
+# Rule to find SQL injection patterns
+rule find_sql_injection {
+    meta:
+        author = "Gamma Scanner Team"
+        description = "Detects SQL injection attack patterns"
+        date = "2024-08-23"
+        version = "1.0"
+        category = "sql_injection"
+        reference = "https://owasp.org/www-community/attacks/SQL_Injection"
+    
+    contains("UNION SELECT") or 
+    contains("DROP TABLE") or 
+    contains("DELETE FROM") or
+    regex_match("'\\s*(OR|AND)\\s*'?1'?\\s*=\\s*'?1")
+}
+
+# Rule to find potential XSS
+rule find_xss {
+    contains("<script>") or 
+    contains("javascript:") or 
+    contains("onload=") or
+    contains("onerror=")
+}
+
+# Rule to find base64 encoded strings
+rule find_base64 {
+    regex_match("[A-Za-z0-9+/]{20,}={0,2}")
+}
+
+# Rule to find phone numbers
+rule find_phone_numbers {
+    regex_match("(\\+?1[-\\.\\s]?)?\\(?([0-9]{3})\\)?[-\\.\\s]?([0-9]{3})[-\\.\\s]?([0-9]{4})")
+}
+
+# Rule to find suspicious file extensions
+rule find_suspicious_files {
+    ends_with(".exe") or 
+    ends_with(".bat") or 
+    ends_with(".cmd") or 
+    ends_with(".scr") or
+    ends_with(".vbs")
+}
