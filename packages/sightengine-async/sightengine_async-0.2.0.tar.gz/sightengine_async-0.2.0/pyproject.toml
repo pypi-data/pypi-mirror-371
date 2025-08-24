@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "sightengine-async"
+version = "0.2.0"
+description = "Asynchronous Python client for the SightEngine API"
+authors = ["Nate Shoffner <nate.shoffner@gmail.com>"]
+readme = "README.md"
+keywords = ["sightengine", "async", "aiohttp", "api"]
+license = "MIT"
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+
+packages = [{ include = "sightengine" }]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pydantic = "^2.10.4"
+aiohttp = "^3.11.11"
+python-dotenv = "^1.1.1"
+
+[tool.poetry.urls]
+Homepage = "https://github.com/NateShoffner/sightengine-python-async"
+"Bug Tracker" = "https://github.com/NateShoffner/sightengine-python-async/issues"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
