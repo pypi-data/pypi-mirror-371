@@ -1,0 +1,71 @@
+[project]
+name = "loudstream"
+version = "0.3.1"
+description = "Python wrapper for libebur128 with streaming support"
+authors = [
+  { name = "Matt Hosack", email = "hosack.matt@gmail.com" }
+]
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.11"
+keywords = ["audio", "loudness", "EBU R128", "libebur128"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Science/Research",
+  "Natural Language :: English",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Topic :: Multimedia :: Sound/Audio",
+]
+dependencies = [
+  "cffi",
+  "soundfile",
+]
+
+[project.urls]
+homepage = "https://github.com/hosackm/loudstream"
+source = "https://github.com/hosackm/loudstream"
+
+[project.optional-dependencies]
+dev = [
+    "bump-my-version==1.2.1",
+    "pytest>=8.0.0",
+]
+
+[build-system]
+requires = ["scikit-build-core>=0.9"]
+build-backend = "scikit_build_core.build"
+
+[tool.scikit-build]
+wheel.packages = ["src/loudstream"]
+sdist.include = ["CMakeLists.txt", "extern/**", "src/**", "README.md", "pyproject.toml", "MANIFEST.in"]
+sdist.exclude = [
+  "_skbuild*",
+  "dist*",
+  "*.so",
+  "*.dylib",
+  "*.dll",
+  "*.wav",
+  "tests",
+]
+
+
+[tool.bumpversion]
+current_version = "0.3.1"
+commit = true
+tag = true
+
+[[tool.bumpversion.files]]
+filename = "pyproject.toml"
+
+[[tool.bumpversion.files]]
+filename = "setup.py"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["loudstream*"]
+exclude = ["external*", "tests*", "docs*", "_skbuild*", "dist*"]
+
