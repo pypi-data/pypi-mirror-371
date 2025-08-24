@@ -1,0 +1,163 @@
+Metadata-Version: 2.3
+Name: prompttest
+Version: 0.2.1
+Summary: pytest for LLMs
+Keywords: llm,ai,testing,pytest,prompt,automation,pypi
+Author: Decoding Chris
+Author-email: Decoding Chris <decodingchris@gmail.com>
+License: MIT License
+         
+         Copyright (c) 2025 Decoding Chris
+         
+         Permission is hereby granted, free of charge, to any person obtaining a copy
+         of this software and associated documentation files (the "Software"), to deal
+         in the Software without restriction, including without limitation the rights
+         to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+         copies of the Software, and to permit persons to whom the Software is
+         furnished to do so, subject to the following conditions:
+         
+         The above copyright notice and this permission notice shall be included in all
+         copies or substantial portions of the Software.
+         
+         THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+         IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+         FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+         AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+         LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+         OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+         SOFTWARE.
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Testing
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Dist: anyio>=4.10.0
+Requires-Dist: httpx>=0.28.1
+Requires-Dist: openai>=1.99.9
+Requires-Dist: pydantic>=2.11.7
+Requires-Dist: python-dotenv>=1.1.1
+Requires-Dist: pyyaml>=6.0.2
+Requires-Dist: rich>=14.1.0
+Requires-Dist: typer>=0.16.0
+Requires-Python: >=3.11
+Project-URL: Repository, https://github.com/decodingchris/prompttest
+Description-Content-Type: text/markdown
+
+# prompttest
+
+[![Build Status](https://github.com/decodingchris/prompttest/actions/workflows/ci.yml/badge.svg)](https://github.com/decodingchris/prompttest/actions)
+[![PyPI version](https://img.shields.io/pypi/v/prompttest.svg)](https://pypi.org/project/prompttest/)
+[![PyPI - Python Versions](https://img.shields.io/pypi/pyversions/prompttest.svg)](https://pypi.org/project/prompttest/)
+[![PyPI downloads](https://img.shields.io/pypi/dm/prompttest.svg)](https://pypi.org/project/prompttest/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/decodingchris/prompttest/blob/main/LICENSE)
+
+pytest for LLMs.
+
+You wouldn't ship code without tests. ✋😮🤚
+
+Hold your prompts to the same standard. 😎👌🔥
+
+![A demo of prompttest](https://raw.githubusercontent.com/decodingchris/prompttest/main/demo.gif)
+
+## Features
+
+- **🔤 Test in Plain English:** Write your tests in English, and let an AI grade the response.
+
+- **🚀 Write Tests Faster:** Just list your inputs and criteria in a simple file—no code needed.
+
+- **🔓 Avoid Vendor Lock-in:** Test against any LLM with a single, free OpenRouter API key.
+
+## Quick Start
+
+### 1. Install prompttest
+
+```bash
+pip install prompttest
+```
+
+### 2. Set up prompttest
+
+```bash
+prompttest init
+```
+
+### 3. Run your tests
+
+```bash
+prompttest
+```
+
+## How It Works
+
+prompttest is built around 2 types of files:
+
+### Prompt
+
+A `.txt` file for your prompt template with `---[SECTIONS]---` and `{variables}`.
+
+Example: `prompts/customer_service.txt`
+
+```txt
+---[SYSTEM]---
+You are an expert on the "{product_name}".
+Your responses must be helpful and polite.
+
+---[USER]---
+Customer tier: {user_tier}
+Customer query: {user_query}
+```
+
+### Test
+
+A  `.yml` file for test cases with `config`, `inputs` and `criteria`.
+
+Example: `prompttests/test_customer_service.yml`
+
+```yaml
+config:
+  prompt: customer_service
+
+tests:
+  - id: check-simple-greeting
+    inputs:
+      product_name: "Chrono-Watch"
+      user_tier: "Standard"
+      user_query: "Hello"
+    criteria: "The response must be a simple, polite greeting."
+```
+
+## Advanced Usage
+
+### Run all tests in a folder
+
+```bash
+prompttest run folder_name/
+```
+
+### Run all tests in a file
+
+```bash
+prompttest run file_name.yml
+```
+
+### Run specific test
+
+```bash
+prompttest run test_id
+```
+
+## Contributing
+
+We're building the pytest for LLMs—and we need your help.
+
+Report a bug, propose a feature, or contribute a single line.
+
+Help shape a foundational tool for AI development.
+
+## License
+
+This project is licensed under the MIT License.
