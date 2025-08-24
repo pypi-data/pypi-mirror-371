@@ -1,0 +1,9 @@
+pyproject.toml
+setup.py
+Anrok/__init__.py
+Anrok/main.py
+Anrok.egg-info/PKG-INFO
+Anrok.egg-info/SOURCES.txt
+Anrok.egg-info/dependency_links.txt
+Anrok.egg-info/entry_points.txt
+Anrok.egg-info/top_level.txt
