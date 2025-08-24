@@ -1,0 +1,13 @@
+target/
+doc/
+examples/cargo_new.toml
+Cargo.lock
+*.rs.bk
+*.rs.fmt
+tests/res.toml
+\.vscode/
+\#*\#
+*\~
+.criterion/
+*.txt
+*.code-workspace

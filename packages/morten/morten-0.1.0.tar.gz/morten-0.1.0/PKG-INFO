@@ -1,0 +1,6 @@
+Metadata-Version: 2.4
+Name: morten
+Version: 0.1.0
+Summary: A lossless TOML serde library
+Author-email: Bartosz Sokorski <bartosz.sokorski@stxnext.pl>
+Requires-Python: >=3.9
