@@ -1,0 +1,3 @@
+include README.md LICENSE
+recursive-include mailer/templates *
+recursive-include mailer/static *
