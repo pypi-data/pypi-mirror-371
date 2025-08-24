@@ -1,0 +1,6 @@
+[console_scripts]
+auto-run = ec_rasp_tools.auto_run.cli:main
+ec-backup = ec_rasp_tools.backup_machine.cli:main
+ec-enc = ec_rasp_tools.enc.cli:main
+ec-sql = ec_rasp_tools.db.cli:main
+ec-vault = ec_rasp_tools.vault.cli:main
