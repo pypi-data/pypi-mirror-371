@@ -1,0 +1,6 @@
+[console_scripts]
+iroiro = iroiro:bin.iro.main
+ntfy = iroiro:bin.ntfy.main
+palette = iroiro:bin.palette.main
+rainbow = iroiro:bin.rainbow.main
+sponge = iroiro:bin.sponge.main
