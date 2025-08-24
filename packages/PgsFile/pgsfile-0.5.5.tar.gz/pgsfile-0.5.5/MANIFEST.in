@@ -1,0 +1,2 @@
+recursive-include src/PgsFile/Corpora *
+recursive-include src/PgsFile/models *
