@@ -1,0 +1,2 @@
+[console_scripts]
+json-compare = json_compare_pro.cli:main
