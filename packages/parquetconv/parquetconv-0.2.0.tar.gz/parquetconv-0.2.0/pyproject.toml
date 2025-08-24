@@ -1,0 +1,41 @@
+[project]
+name = "parquetconv"
+version = "0.2.0"
+description = "A command-line tool for converting between Parquet and CSV file formats"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "pandas>=2.3.2",
+    "pyarrow>=21.0.0",
+    "hatchling>=1.0.0",
+]
+authors = [
+    {name = "Sebastian Bassi", email = "sebastian@toyoko.io"}
+]
+license = {text = "MIT"}
+keywords = ["parquet", "csv", "conversion", "pandas", "data"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Utilities",
+]
+
+[project.scripts]
+parquetconv = "parquetconv.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/ToyokoLabs/parquetconv"
+Repository = "https://github.com/ToyokoLabs/parquetconv"
+Issues = "https://github.com/ToyokoLabs/parquetconv/issues"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["parquetconv"]
