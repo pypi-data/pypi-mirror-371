@@ -1,0 +1,17 @@
+Metadata-Version: 2.4
+Name: gcsopt
+Version: 0.1.0
+Summary: Library for solving optimization problems over Graphs of Convex Sets (GCS).
+Author: Tobia Marcucci
+Author-email: marcucci@ucsb.edu
+License: MIT
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: cvxpy>=1.5
+Requires-Dist: pytest
+Dynamic: author
+Dynamic: author-email
+Dynamic: license
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: summary
