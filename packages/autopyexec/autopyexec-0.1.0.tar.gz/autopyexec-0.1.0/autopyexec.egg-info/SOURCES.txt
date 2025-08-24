@@ -1,0 +1,9 @@
+README.md
+pyproject.toml
+setup.py
+autopyexec/__init__.py
+autopyexec/install_hook.py
+autopyexec.egg-info/PKG-INFO
+autopyexec.egg-info/SOURCES.txt
+autopyexec.egg-info/dependency_links.txt
+autopyexec.egg-info/top_level.txt
