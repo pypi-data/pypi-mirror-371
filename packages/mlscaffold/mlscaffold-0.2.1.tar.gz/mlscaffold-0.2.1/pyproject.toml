@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mlscaffold"
+version = "0.2.1"
+description = "Create a ready-to-use ML project structure with one command."
+readme = "README.md"
+authors = [{ name = "Chanuka Dilshan", email = "mchanuka72@gmail.com" }]
+license = { file = "LICENSE" }
+requires-python = ">=3.8"
+dependencies = [
+    "questionary>=2.0.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/Chanukaa2002/mlscaffold"
+Repository = "https://github.com/Chanukaa2002/mlscaffold"
+
+[project.scripts]
+mlscaffold = "mlscaffold.cli:main"
