@@ -1,0 +1,16 @@
+llm_api_key: "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"
+embedding_api_key: "7rKbsNBXvhlE7eicXjQ4f5oP2xKBiBhxedPtdUyvN2ZY1EDc3n2uJQQJ99BFACHYHv6XJ3w3AAAAACOGScjT"
+embedding_base_url: "https://weiwei-openai-resource.cognitiveservices.azure.com/openai/deployments/text-embedding-3-small"
+enable_event_embedding: true
+
+best_llm_model: "gpt-4.1-mini"
+
+llm_openai_default_query:
+  api-version: "2024-12-01-preview"
+
+additional_user_profiles:
+  - topic: "Identifiers"
+    description: "Stores basic identity fields"
+    sub_topics:
+      - name: "user_name"
+      - name: "agent_name"
