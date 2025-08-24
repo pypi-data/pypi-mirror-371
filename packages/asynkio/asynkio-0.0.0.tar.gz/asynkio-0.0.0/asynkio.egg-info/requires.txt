@@ -1,0 +1,12 @@
+asyncio
+diagnosticism
+
+[dev]
+aiofiles
+pyclasp>=0.8.10
+pytest>=7.4.4
+
+[test]
+aiofiles
+pyclasp>=0.8.10
+pytest>=7.4.4
