@@ -1,0 +1,2 @@
+[console_scripts]
+mergething = mergething.cli:main
