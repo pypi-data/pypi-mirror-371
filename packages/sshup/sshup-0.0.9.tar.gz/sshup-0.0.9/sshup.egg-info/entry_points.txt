@@ -1,0 +1,2 @@
+[console_scripts]
+sshup = sshup.main:main
