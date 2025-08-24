@@ -1,0 +1,17 @@
+LICENSE.txt
+README.rst
+pyproject.toml
+src/flake8_requirements/__init__.py
+src/flake8_requirements/checker.py
+src/flake8_requirements/modules.py
+src/flake8_requirements.egg-info/PKG-INFO
+src/flake8_requirements.egg-info/SOURCES.txt
+src/flake8_requirements.egg-info/dependency_links.txt
+src/flake8_requirements.egg-info/entry_points.txt
+src/flake8_requirements.egg-info/requires.txt
+src/flake8_requirements.egg-info/top_level.txt
+test/test_checker.py
+test/test_pep621.py
+test/test_poetry.py
+test/test_requirements.py
+test/test_setup.py

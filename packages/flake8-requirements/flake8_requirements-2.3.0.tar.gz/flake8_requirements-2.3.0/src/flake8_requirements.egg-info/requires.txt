@@ -1,0 +1,8 @@
+flake8>=4.0.0
+packaging>=20.0
+
+[:python_version < "3.11"]
+tomli>=1.2.1
+
+[pyproject]
+Flake8-pyproject
