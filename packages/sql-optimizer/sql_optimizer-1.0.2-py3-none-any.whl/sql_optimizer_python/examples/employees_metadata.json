@@ -1,0 +1,24 @@
+{
+  "employees": {
+    "columns": {
+      "id": {
+        "type": "INTEGER",
+        "nullable": false
+      },
+      "name": {
+        "type": "VARCHAR",
+        "nullable": false
+      },
+      "department": {
+        "type": "VARCHAR",
+        "nullable": true
+      },
+      "salary": {
+        "type": "INTEGER",
+        "nullable": true
+      }
+    },
+    "rowCount": 5
+  }
+}
+

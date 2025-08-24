@@ -1,0 +1,431 @@
+Metadata-Version: 2.4
+Name: sql-optimizer
+Version: 1.0.2
+Summary: Python обертка для Java-оптимизатора SQL запросов на базе Apache Calcite
+Home-page: https://github.com/sql-optimizer/sql-optimizer-python
+Author: SQL Optimizer Team
+Author-email: SQL Optimizer Team <team@sql-optimizer.com>
+Maintainer-email: SQL Optimizer Team <team@sql-optimizer.com>
+License: MIT
+Project-URL: Homepage, https://github.com/sql-optimizer/sql-optimizer-python
+Project-URL: Documentation, https://sql-optimizer-python.readthedocs.io/
+Project-URL: Repository, https://github.com/sql-optimizer/sql-optimizer-python
+Project-URL: Bug Tracker, https://github.com/sql-optimizer/sql-optimizer-python/issues
+Keywords: sql,optimizer,calcite,java,database,query,optimization
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Database
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Requires-Dist: pytest>=6.0; extra == "dev"
+Requires-Dist: pytest-cov>=2.0; extra == "dev"
+Requires-Dist: black>=21.0; extra == "dev"
+Requires-Dist: flake8>=3.8; extra == "dev"
+Requires-Dist: mypy>=0.800; extra == "dev"
+Provides-Extra: docs
+Requires-Dist: sphinx>=4.0; extra == "docs"
+Requires-Dist: sphinx-rtd-theme>=1.0; extra == "docs"
+Dynamic: author
+Dynamic: home-page
+Dynamic: requires-python
+
+# SQL Optimizer Python Package
+
+Python обертка для Java-оптимизатора SQL запросов на базе Apache Calcite.
+
+## Возможности
+
+- **Python API**: Простой в использовании Python интерфейс для оптимизации SQL
+- **Java Backend**: Использует мощь Apache Calcite для оптимизации запросов
+- **Поддержка метаданных**: Определение пользовательских схем таблиц и типов данных
+- **Правила оптимизации**: Применение пользовательских стратегий оптимизации
+- **CLI интерфейс**: Командная строка для быстрой оптимизации
+- **Автономный пакет**: Включает Java JAR файл - не требует отдельной установки Java
+
+## Требования
+
+- Python 3.8 или выше
+- Java 1.8 или выше (автоопределяется)
+
+## Установка
+
+### Из Wheel пакета
+
+```bash
+pip install sql-optimizer-1.0.0-py3-none-any.whl
+```
+
+### Из исходного кода
+
+```bash
+# Клонирование репозитория
+git clone https://github.com/sql-optimizer/sql-optimizer-python.git
+cd sql-optimizer-python
+
+# Установка в режиме разработки
+pip install -e .
+```
+
+## Quick Start
+
+### Basic Usage
+
+```python
+from sql_optimizer_python import SqlOptimizer
+
+# Initialize optimizer
+optimizer = SqlOptimizer()
+
+# Optimize a simple query
+result = optimizer.optimize("SELECT * FROM employees")
+print(result)
+```
+
+### With Custom Metadata
+
+```python
+# Define table metadata
+metadata = {
+    "custom_table": {
+        "columns": {
+            "id": {"type": "INTEGER"},
+            "name": {"type": "VARCHAR"},
+            "age": {"type": "INTEGER"}
+        },
+        "rowCount": 1000
+    }
+}
+
+# Optimize with metadata
+result = optimizer.optimize(
+    "SELECT * FROM custom_table WHERE age > 25",
+    metadata=metadata
+)
+```
+
+### With Optimization Rules
+
+```python
+from sql_optimizer_python import OptimizationRule
+
+# Create optimization rules
+rules = [
+    OptimizationRule(
+        name="push_down_filter",
+        description="Push filter operations down",
+        priority=100,
+        conditions=[{"type": "node_type", "operator": "contains", "value": "TableScan"}],
+        transformations=[{"action": "push_down", "target": "filter", "cost_reduction": 25.0}]
+    )
+]
+
+# Optimize with rules
+result = optimizer.optimize(
+    "SELECT * FROM employees WHERE salary > 50000",
+    optimization_rules=rules
+)
+```
+
+## Command Line Interface
+
+### Basic Optimization
+
+```bash
+sql-optimizer "SELECT * FROM employees"
+```
+
+### With Metadata File
+
+```bash
+sql-optimizer "SELECT * FROM custom_table" --metadata-file examples/custom_table_metadata.json
+```
+
+### With Optimization Rules
+
+```bash
+sql-optimizer "SELECT * FROM employees" --rules-file examples/basic_optimization_rules.json
+```
+
+### Check Java Runtime
+
+```bash
+sql-optimizer --check-java
+```
+
+### Pretty Print Output
+
+```bash
+sql-optimizer "SELECT * FROM employees" --pretty
+```
+
+## API Reference
+
+### SqlOptimizer
+
+Main class for SQL query optimization.
+
+```python
+class SqlOptimizer:
+    def __init__(self, java_home: Optional[str] = None)
+    
+    def optimize(self, sql_query: str, 
+                metadata: Optional[Union[Dict, str]] = None,
+                optimization_rules: Optional[Union[List[OptimizationRule], str]] = None,
+                metadata_file: Optional[str] = None,
+                rules_file: Optional[str] = None) -> Dict[str, Any]
+    
+    def optimize_from_files(self, sql_query: str, 
+                          metadata_file: Optional[str] = None,
+                          rules_file: Optional[str] = None) -> Dict[str, Any]
+    
+    def get_version(self) -> str
+    def get_java_info(self) -> Dict[str, str]
+```
+
+### OptimizationRule
+
+Represents an optimization rule.
+
+```python
+class OptimizationRule:
+    def __init__(self, name: str, description: str, priority: int = 100, 
+                 enabled: bool = True, conditions: Optional[List[Dict]] = None,
+                 transformations: Optional[List[Dict]] = None, 
+                 metadata: Optional[Dict] = None)
+    
+    def to_dict(self) -> Dict[str, Any]
+    @classmethod
+    def from_dict(cls, data: Dict[str, Any]) -> 'OptimizationRule'
+```
+
+### OptimizationEngine
+
+Manages optimization rules.
+
+```python
+class OptimizationEngine:
+    def __init__(self)
+    
+    def add_rule(self, rule: OptimizationRule) -> None
+    def add_rules_from_file(self, file_path: str) -> None
+    def add_rules_from_json(self, rules_json: str) -> None
+    def get_rules_json(self) -> str
+    def clear_rules(self) -> None
+```
+
+## Metadata Format
+
+Table metadata is defined in JSON format:
+
+```json
+{
+  "table_name": {
+    "columns": {
+      "column_name": {
+        "type": "INTEGER|VARCHAR|DOUBLE|BOOLEAN",
+        "nullable": true|false
+      }
+    },
+    "rowCount": 1000
+  }
+}
+```
+
+## Optimization Rules Format
+
+Optimization rules are defined in JSON format:
+
+```json
+[
+  {
+    "name": "rule_name",
+    "description": "Rule description",
+    "priority": 100,
+    "enabled": true,
+    "conditions": [
+      {
+        "type": "node_type|table_name|cost_threshold|field_count",
+        "operator": "equals|contains|greater_than|less_than",
+        "value": "value",
+        "negated": false
+      }
+    ],
+    "transformations": [
+      {
+        "action": "push_down|reorder|optimize|prune|replace",
+        "target": "filter|projection|join|scan|aggregate",
+        "parameters": {},
+        "cost_reduction": 25.0
+      }
+    ],
+    "metadata": {
+      "category": "filter_optimization",
+      "author": "system"
+    }
+  }
+]
+```
+
+## Output Format
+
+The optimizer returns a JSON object with the following structure:
+
+```json
+{
+  "originalQuery": "SELECT * FROM employees",
+  "metadata": { /* table metadata if provided */ },
+  "optimizedPlan": {
+    "relType": "LogicalTableScan",
+    "rowType": {
+      "fieldCount": 4,
+      "nullable": false,
+      "fields": {
+        "id": "INTEGER",
+        "name": "VARCHAR",
+        "department": "VARCHAR",
+        "salary": "INTEGER"
+      }
+    },
+    "cost": {
+      "cpu": 101.0,
+      "io": 0.0,
+      "rows": 100.0,
+      "infinite": false
+    }
+  },
+  "optimizationStats": {
+    "appliedRules": ["push_down_filter"],
+    "totalRulesConsidered": 3,
+    "optimizationDetails": {}
+  },
+  "explanation": "LogicalTableScan(table=[[TEST, employees]])"
+}
+```
+
+## Examples
+
+### Example 1: Basic Query Optimization
+
+```python
+from sql_optimizer_python import SqlOptimizer
+
+optimizer = SqlOptimizer()
+result = optimizer.optimize("SELECT * FROM employees WHERE salary > 50000")
+print(result["optimizedPlan"]["relType"])
+```
+
+### Example 2: Custom Table with Metadata
+
+```python
+metadata = {
+    "users": {
+        "columns": {
+            "id": {"type": "INTEGER"},
+            "username": {"type": "VARCHAR"},
+            "email": {"type": "VARCHAR"},
+            "active": {"type": "BOOLEAN"}
+        },
+        "rowCount": 10000
+    }
+}
+
+result = optimizer.optimize(
+    "SELECT username, email FROM users WHERE active = true",
+    metadata=metadata
+)
+```
+
+### Example 3: Custom Optimization Rules
+
+```python
+from sql_optimizer_python import OptimizationRule
+
+rules = [
+    OptimizationRule(
+        name="index_scan_optimization",
+        description="Use index scan for large tables",
+        priority=80,
+        conditions=[
+            {"type": "node_type", "operator": "equals", "value": "LogicalTableScan"},
+            {"type": "cost_threshold", "operator": "greater_than", "value": 1000.0}
+        ],
+        transformations=[
+            {"action": "optimize", "target": "scan", "cost_reduction": 50.0}
+        ]
+    )
+]
+
+result = optimizer.optimize(
+    "SELECT * FROM large_table",
+    optimization_rules=rules
+)
+```
+
+## Error Handling
+
+The package provides custom exceptions for different error types:
+
+```python
+from sql_optimizer_python import (
+    SqlOptimizerError, JavaRuntimeError, OptimizationError, 
+    MetadataError, RulesError
+)
+
+try:
+    result = optimizer.optimize("SELECT * FROM table")
+except JavaRuntimeError as e:
+    print(f"Java runtime issue: {e}")
+except OptimizationError as e:
+    print(f"Optimization failed: {e}")
+except MetadataError as e:
+    print(f"Metadata error: {e}")
+except RulesError as e:
+    print(f"Rules error: {e}")
+```
+
+## Development
+
+### Running Tests
+
+```bash
+pytest tests/
+```
+
+### Building Wheel
+
+```bash
+python setup.py bdist_wheel
+```
+
+### Installing in Development Mode
+
+```bash
+pip install -e .
+```
+
+## License
+
+MIT License - see LICENSE file for details.
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests
+5. Submit a pull request
+
+## Support
+
+- Documentation: https://sql-optimizer-python.readthedocs.io/
+- Issues: https://github.com/sql-optimizer/sql-optimizer-python/issues
+- Discussions: https://github.com/sql-optimizer/sql-optimizer-python/discussions

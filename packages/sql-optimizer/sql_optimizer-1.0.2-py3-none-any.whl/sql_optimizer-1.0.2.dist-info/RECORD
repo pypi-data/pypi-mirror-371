@@ -1,0 +1,15 @@
+sql_optimizer_python/__init__.py,sha256=OyMycA1LTt-Gqhnvto_taeTzD3OX9GsEwuQjMgI0XQc,557
+sql_optimizer_python/cli.py,sha256=c-jOs9f_y4gxyPfuqquBnmq7wJqPjnk9fxooeMYGr2Y,4315
+sql_optimizer_python/exceptions.py,sha256=Qg-HdYOp8GA9ZRASnoqijifLc7nagdYJK1cvFx88gDk,592
+sql_optimizer_python/optimizer.py,sha256=b0NavaGRLqgrJy60Z-dwrrRuSO8yOQ-NzMT42fXKmWo,13911
+sql_optimizer_python/examples/advanced_optimization_rules.json,sha256=ve5449w9ODH7Gee3NAkpVYFPpISQ9UucEhoas9Qp70A,3614
+sql_optimizer_python/examples/basic_optimization_rules.json,sha256=Ml25cKFBCdcTtYHvNCp6vtdeGwu7BjbWAA0UcV3E97Q,1970
+sql_optimizer_python/examples/custom_table_metadata.json,sha256=KAzr-b3oHvdGiLL2CltlIpqJ35m_G3kU5Lp1KMh1rnI,536
+sql_optimizer_python/examples/employees_metadata.json,sha256=Z8kzJfh-_iN1zWMyRBgr9eOW5ZpD60iytIjeGWsq4Eo,383
+sql_optimizer_python/examples/multiple_tables_metadata.json,sha256=cWavWQjXPsnmcdUJe7ENBpGQLr_tEbYOiEqv0LcTY_8,1402
+sql_optimizer_python/java_assets/sql-optimizer-1.0.0.jar,sha256=0LlMU04L9H_FgJcUL4u-txt9CF1f_-6wfTUYZ7fvMOE,20446822
+sql_optimizer-1.0.2.dist-info/METADATA,sha256=cUj_tp3GoJMclYB1CWkCiwqNkGh68cCoW5GvtCbDpRk,10917
+sql_optimizer-1.0.2.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+sql_optimizer-1.0.2.dist-info/entry_points.txt,sha256=RTA2IdE2mbTlDZfb9XSUDAz_T8o5YxsLEWWfO8PqlDs,64
+sql_optimizer-1.0.2.dist-info/top_level.txt,sha256=7KMm9e7IblJZkOdwS69dCv71osmZjPseaLfRuwFLLgU,21
+sql_optimizer-1.0.2.dist-info/RECORD,,
