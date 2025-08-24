@@ -1,0 +1,2 @@
+[console_scripts]
+jwt-pro = jwt_pro.__main__:main
