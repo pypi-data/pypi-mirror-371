@@ -1,0 +1,32 @@
+{
+    "name": "Kali ZSH Style",
+    "commandline": "pwsh.exe -nologo",
+    "startingDirectory": "%USERPROFILE%",
+    "icon": "ms-appx:///ProfileIcons/{574e775e-4f2a-5b96-ac1e-a2962a402336}.png",
+    "hidden": false,
+    "colorScheme": "kali_dark",
+    "font": {
+        "face": "Consolas",
+        "size": 11,
+        "weight": "normal"
+    },
+    "backgroundImage": null,
+    "backgroundImageOpacity": 1.0,
+    "backgroundImageStretchMode": "uniform",
+    "cursorShape": "bar",
+    "cursorHeight": 1,
+    "suppressApplicationTitle": false,
+    "tabTitle": "Kali Terminal",
+    "promptConfig": {
+        "prefix": "┌─[",
+        "userSeparator": "@",
+        "hostSuffix": "]",
+        "pathPrefix": "─[",
+        "pathSuffix": "]",
+        "suffix": "\n└──╼ ",
+        "userColor": "green",
+        "hostColor": "green",
+        "pathColor": "blue",
+        "suffixColor": "white"
+    }
+}   

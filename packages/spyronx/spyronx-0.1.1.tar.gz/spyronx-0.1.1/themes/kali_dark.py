@@ -1,0 +1,30 @@
+{
+    "name": "Kali Linux Dark",
+    "background": "#1E1E1E",
+    "foreground": "#D8D8D8",
+    "cursor": "#FFFFFF",
+    "selection": "#616161",
+    "black": "#1E1E1E",
+    "red": "#FF6B6B",
+    "green": "#99C794",
+    "yellow": "#FAC863",
+    "blue": "#6699CC",
+    "magenta": "#C594C5",
+    "cyan": "#5FB3B3",
+    "white": "#D8D8D8",
+    "brightBlack": "#65737E",
+    "brightRed": "#FF6B6B",
+    "brightGreen": "#99C794",
+    "brightYellow": "#FAC863",
+    "brightBlue": "#6699CC",
+    "brightMagenta": "#C594C5",
+    "brightCyan": "#5FB3B3",
+    "brightWhite": "#FFFFFF",
+    "font": {
+        "face": "Consolas",
+        "size": 11,
+        "weight": "normal"
+    },
+    "opacity": 90,
+    "padding": "10, 10, 10, 10"
+}
