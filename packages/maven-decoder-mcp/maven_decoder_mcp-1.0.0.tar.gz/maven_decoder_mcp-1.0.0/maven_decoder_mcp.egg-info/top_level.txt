@@ -1,0 +1,5 @@
+bin
+decompilers
+dist
+maven_decoder_mcp
+scripts
