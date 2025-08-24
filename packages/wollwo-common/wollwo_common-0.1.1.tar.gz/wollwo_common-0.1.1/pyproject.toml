@@ -1,0 +1,39 @@
+[project]
+name = "wollwo-common"
+version = "0.1.1"
+description = "common libraries to enhance base workflow, Some decorators/context managers for your code and others"
+authors = [
+    {name = "Michal Perzel",email = "perzelmichal@gmail.com"}
+]
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+readme = "README.md"
+requires-python = ">=3.13"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+]
+
+[project.urls]
+homepage = "https://github.com/Wollwo/wollwo-common"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.poetry]
+packages = [
+    {include = "wollwo_common", from = "src"},
+    {include = "common_logging", from = "src/wollwo_common"},
+    {include = "wollwo_decorators", from = "src/wollwo_common"}
+]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.4.1"
+
