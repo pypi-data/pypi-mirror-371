@@ -1,0 +1,20 @@
+# 包含重要文件到发布包中
+include README.md
+include LICENSE
+include requirements.txt
+include Makefile
+include _version.py
+
+# 包含示例文件
+include example*.py
+include test*.py
+
+# 排除不必要的文件
+exclude .gitignore
+exclude .DS_Store
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
+recursive-exclude * *.so
+recursive-exclude * .git*
+recursive-exclude venv *
+recursive-exclude .venv *
