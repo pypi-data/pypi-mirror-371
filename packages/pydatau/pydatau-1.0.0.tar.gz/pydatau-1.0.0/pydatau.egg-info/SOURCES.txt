@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+datau/__init__.py
+datau/datau.py
+pydatau.egg-info/PKG-INFO
+pydatau.egg-info/SOURCES.txt
+pydatau.egg-info/dependency_links.txt
+pydatau.egg-info/requires.txt
+pydatau.egg-info/top_level.txt
