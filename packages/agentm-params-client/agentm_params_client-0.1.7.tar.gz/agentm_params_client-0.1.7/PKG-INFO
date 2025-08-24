@@ -1,0 +1,16 @@
+Metadata-Version: 2.4
+Name: agentm-params-client
+Version: 0.1.7
+Summary: Client SDK for Agent-M Params service
+Author: Agent M
+License-Expression: MIT
+Project-URL: Homepage, https://github.com/perkail/Agent-M
+Keywords: agentm,params,governance,sdk
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: license-file
+
+# Agent M Params Client
+
+Thin Python client for the Agent-M Params service.

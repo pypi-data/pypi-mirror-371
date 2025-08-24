@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agentm-params-client"
+version = "0.1.7"
+description = "Client SDK for Agent-M Params service"
+readme = "README.md"
+requires-python = ">=3.8"
+license = "MIT"
+authors = [{name="Agent M"}]
+keywords = ["agentm","params","governance","sdk"]
+
+[project.urls]
+Homepage = "https://github.com/perkail/Agent-M"
+
+[tool.setuptools]
+packages = ["agentm_params_client"]
+include-package-data = false
