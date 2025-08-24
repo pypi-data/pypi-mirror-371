@@ -1,0 +1,14 @@
+Metadata-Version: 2.4
+Name: nuxt-payload
+Version: 0.1.0
+Summary: A lightweight Python library to parse and lazily resolve Nuxt 3 _payload.json files.
+Author-email: Jean-Marie Favreau <jeanmarie.favreau@free.fr>
+License-Expression: AGPL-3.0
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: license-file
+
+# nuxt-payload
+
+A lightweight Python library to parse and lazily resolve Nuxt 3 _payload.json files.
