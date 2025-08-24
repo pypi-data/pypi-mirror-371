@@ -1,0 +1,6 @@
+[console_scripts]
+undetected-chrome-mcp-debug = undetected_chrome_mcp.server_debug:cli_main
+undetected-chrome-mcp-fixed = undetected_chrome_mcp.server_fixed:cli_main
+undetected-chrome-mcp-minimal = undetected_chrome_mcp.server_minimal:cli_main
+undetected-chrome-mcp-server = undetected_chrome_mcp.server:cli_main
+undetected-chrome-mcp-single = undetected_chrome_mcp.server_single:cli_main
