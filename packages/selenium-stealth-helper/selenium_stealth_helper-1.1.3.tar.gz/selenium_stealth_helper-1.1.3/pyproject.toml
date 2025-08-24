@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "selenium-stealth-helper"
+dynamic = ["version"]
+description = "Enhanced Selenium stealth automation tools with Cloudflare bypass capabilities"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Web Automation Team", email = "web.automation@example.com"}
+]
+maintainers = [
+    {name = "Web Automation Team", email = "web.automation@example.com"}
+]
+keywords = ["selenium", "stealth", "automation", "cloudflare", "bypass", "webdriver"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Internet :: WWW/HTTP :: Browsers",
+    "Topic :: Security",
+]
+requires-python = ">=3.7"
+dependencies = [
+    "selenium>=4.0.0",
+    "selenium-stealth>=1.0.0",
+    "requests>=2.25.0",
+    "colorama>=0.4.4",
+    "beautifulsoup4>=4.9.0",
+    "psutil>=5.8.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/web-automation/selenium-stealth-helper"
+Documentation = "https://github.com/web-automation/selenium-stealth-helper#readme"
+Repository = "https://github.com/web-automation/selenium-stealth-helper"
+"Bug Tracker" = "https://github.com/web-automation/selenium-stealth-helper/issues"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0",
+    "pytest-cov>=2.0",
+    "black>=21.0",
+    "flake8>=3.8",
+]
+
+[tool.setuptools_scm]
+write_to = "selenium_stealth_helper/_version.py"
