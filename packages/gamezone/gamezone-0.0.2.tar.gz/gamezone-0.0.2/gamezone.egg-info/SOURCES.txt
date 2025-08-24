@@ -1,0 +1,8 @@
+README.md
+setup.py
+gamezone/__init__.py
+gamezone/snake.py
+gamezone.egg-info/PKG-INFO
+gamezone.egg-info/SOURCES.txt
+gamezone.egg-info/dependency_links.txt
+gamezone.egg-info/top_level.txt
