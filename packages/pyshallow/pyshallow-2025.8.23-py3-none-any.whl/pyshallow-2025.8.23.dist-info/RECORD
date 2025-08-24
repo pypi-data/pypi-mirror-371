@@ -1,0 +1,14 @@
+pyshallow/__init__.py,sha256=vuhfLl8fXoSUKouSqny05OwZkC6a19pibmt7V22KaIM,2660
+pyshallow/__main__.py,sha256=iASj98kTb15fnnZnxQSx7xN3LBybztc9GIdvi_9AJas,362
+pyshallow/version.py,sha256=wxiwJB8yfjYtXekLq13ljLAdx2WDnD-gBQs7SNAmN1U,90
+pyshallow/gen_evt/__init__.py,sha256=DePSs-dWQ4r6c91vgm0FgrQYdNkSIOJF3LFwO1eLk1M,510
+pyshallow/gen_evt/_android.py,sha256=X8GcM1C4tPruYHOkNvfRxSMv5j9PzO5iAiAkFSnFv7M,264
+pyshallow/gen_evt/_osx.py,sha256=x_oGXo_3CTwgU1nDwclxB90Kx_XKErcjuCTExg_twOg,2067
+pyshallow/gen_evt/_win.py,sha256=Sg9fvVW7I9UYYQ7Dvqyl8JQf4QvJ9cb0bQGRq8xFuBE,1966
+pyshallow/gen_evt/_x11.py,sha256=pOS5BmtbpcdPG7f_kbNXEilIPOC4rHtMYXF8wQPEBP4,3761
+pyshallow-2025.8.23.dist-info/licenses/LICENSE,sha256=cON4PFsYvmByNWzRp9GUNJNCoMZ9XuBjLJyasj-xgbc,1073
+pyshallow-2025.8.23.dist-info/METADATA,sha256=ZnbGeSBvP0IN6lLWUuv5ahMe33EL0LWjzeOWZen8SHA,1736
+pyshallow-2025.8.23.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+pyshallow-2025.8.23.dist-info/entry_points.txt,sha256=GtgJ9zCd30UFWlN86XVPnJNXKDtjI1-KJpFAypAyRas,45
+pyshallow-2025.8.23.dist-info/top_level.txt,sha256=PJmTWLxogNpR9nfAmtQHD8eqmEA1XeNPrr5rUcPAnoc,10
+pyshallow-2025.8.23.dist-info/RECORD,,
