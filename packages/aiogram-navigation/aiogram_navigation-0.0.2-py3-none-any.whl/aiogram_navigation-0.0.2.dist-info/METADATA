@@ -1,0 +1,13 @@
+Metadata-Version: 2.4
+Name: aiogram-navigation
+Version: 0.0.2
+Summary: Navigation system for aiogram
+Author-email: Vladimir Batsura <batsura.vs@gmail.com>
+License-Expression: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+
+# Aiogram Navigation
+This package was created to simplify creation of large menus in aiogram by providing easy to use navigation system.
