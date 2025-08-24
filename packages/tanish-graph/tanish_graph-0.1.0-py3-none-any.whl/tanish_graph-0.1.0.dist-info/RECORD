@@ -1,0 +1,13 @@
+holograph/__init__.py,sha256=P8iwgpckWhfGH0KTHw8mPbeoaMgQCj9vxeuUtxOycnY,37
+holograph/cli.py,sha256=8SKDcJK_88S5rWXM4o6b8oQXbbELQZFmHuGB_tCvslI,3445
+holograph/core.py,sha256=0GyFSHHU8v8HNSBty5Lq5c0lwDYOAnF7OizCh71u05A,786
+holograph/theme.py,sha256=I1yF2b_LNxZflJ-3tyoZcGX7Ew_nWoYm5u13T4mJxbE,727
+holograph/charts/__init__.py,sha256=yKWT3J7uKC1Q-XhcwdPzmb0FlI_SPDg3t_f1xh0JNl0,95
+holograph/charts/bar.py,sha256=reKIOut_JDH1uPwi5EU-Jtc1kRCnNtm-9ObmmuSLZPg,605
+holograph/charts/line.py,sha256=B_jwr_kDUsNKYyoxdgvSFUdUypcTwoii073YgKC4Bdg,535
+tanish_graph-0.1.0.dist-info/licenses/LICENSE,sha256=Zc-1ibItQkq7dPv3zbs7sla49mPDCQcvDRGwtgzuakA,1093
+tanish_graph-0.1.0.dist-info/METADATA,sha256=RX3IAf9ZE49nsvCl5dwvo_BqNSoHLN-BUrL28ErMlDU,3014
+tanish_graph-0.1.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+tanish_graph-0.1.0.dist-info/entry_points.txt,sha256=-Nc4JCRYXVsyn9uxSpWifYxKApe4fYYIpz1Gbl9xB38,49
+tanish_graph-0.1.0.dist-info/top_level.txt,sha256=5eJh1Pn-3l_Tpypjc2TOsr-UDK3eq0DlmOkjUmRqmDs,10
+tanish_graph-0.1.0.dist-info/RECORD,,
