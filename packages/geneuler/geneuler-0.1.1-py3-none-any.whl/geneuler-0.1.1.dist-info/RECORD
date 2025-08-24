@@ -1,0 +1,7 @@
+geneuler/__init__.py,sha256=xVzX_IOMi1l1r2gc5wZSjqZkzOMjDSUo6BronjtcFJA,65
+geneuler/fem.py,sha256=NLDOhXAGA91u5DNuOS45y1K3NtAMUrbEk-ZICBpiSSc,5041
+geneuler/mesh.py,sha256=eiy4p9ScRJFz8oswQZkFPzkaeuESNN9058Am1CZDmhI,17975
+geneuler-0.1.1.dist-info/METADATA,sha256=2F4bRp_2OUTqG4AfeERgaguHKpKKRsuLplCBE6DyKqE,12949
+geneuler-0.1.1.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+geneuler-0.1.1.dist-info/licenses/LICENSE,sha256=NIyJ9IR_GOsOBmN2RbaCFANK0a7SWBbTID1XEBnZHCw,1069
+geneuler-0.1.1.dist-info/RECORD,,
