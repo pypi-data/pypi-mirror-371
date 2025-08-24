@@ -1,0 +1,12 @@
+Metadata-Version: 2.4
+Name: purplekoala
+Version: 0.1.0
+Requires-Dist: twine>=6.1.0
+Summary: Add your description here
+Author-email: purplekoalagh <purplekoala586@gmail.com>
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
+
+# CPE586 HW00
+This package is part of my submission for part 4 of HW00
+

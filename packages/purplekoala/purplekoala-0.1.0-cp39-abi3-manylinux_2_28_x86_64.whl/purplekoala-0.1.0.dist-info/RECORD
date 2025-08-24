@@ -1,0 +1,9 @@
+purplekoala-0.1.0.dist-info/METADATA,sha256=WuVAuv-D_9bjjB1TPYYoszuQZDw6JnouUR0OI5mfvF8,338
+purplekoala-0.1.0.dist-info/WHEEL,sha256=rXa1hNKJPd-J1se02jkvuZn4v_WM-W9q2R8LeAdqQiM,97
+purplekoala/__init__.py,sha256=X-aC3Gs0YXosAjGQXdC42cYIeORYUWKhFFK9PYuy0V8,95
+purplekoala/_core.abi3.so,sha256=Msm9mU4RmW69vnEnGR6QV-xbAjpJpM7Ys6vnTl8QPjc,489640
+purplekoala/_core.pyi,sha256=b6oJaUXUzEzqUE5rpqefV06hl8o_JCU8pgKgIIzQgmc,33
+purplekoala/differential/__init__.py,sha256=B35eqkSSkVsktKEYsHVWBJ0P6SImp2RALkHPu5ML7_Q,136
+purplekoala/differential/discrete.py,sha256=mpIQoQymGce5rpsJYr97nhORcCNj2-ySgcjKibzkgHA,1348
+purplekoala/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+purplekoala-0.1.0.dist-info/RECORD,,
