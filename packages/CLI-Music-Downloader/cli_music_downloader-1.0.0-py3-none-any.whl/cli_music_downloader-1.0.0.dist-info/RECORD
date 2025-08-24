@@ -1,0 +1,12 @@
+cli_music_downloader/__init__.py,sha256=sH33pW2NOeqL3qDkJXXKPa-dNwwW8CCtH5HlUXnd_CU,964
+cli_music_downloader/batch_metadata.py,sha256=b4dBxtb0SKSWGCkiuPL6EjtetlVsRHovBgz7hWufMcA,33715
+cli_music_downloader/cli.py,sha256=VVvOkV-6BwJp7JMnJPCTa3yfoBZntpC8wBNCdij6VYY,10094
+cli_music_downloader/download_music.py,sha256=hCnwhST-8cMVpaOCkqrZVsU1Z--BSbwpmeI5IwUzDPg,18008
+cli_music_downloader/lyrics_metadata.py,sha256=u5b-80YfDfRSPh-2mo8W7t5rEy8Z0XKPnb6SnGJRees,11301
+cli_music_downloader/metadata_manager.py,sha256=7OdXOKHJQ_rXs8WU3toXO3sUkT5EVs-3Yvn3BjNWzSI,32348
+cli_music_downloader-1.0.0.dist-info/licenses/LICENSE,sha256=X-XpmAKQY1luUN-zmd4AnSq44NBpqAtTFNnd9OZRw6Q,1079
+cli_music_downloader-1.0.0.dist-info/METADATA,sha256=xRT2KHVupUQa4KT4wR3hNnUg4KNcQddf8TDFl2Ba1S4,22529
+cli_music_downloader-1.0.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+cli_music_downloader-1.0.0.dist-info/entry_points.txt,sha256=UB1F8oVbtgjFbk6AP4J-1drcD329fQLtJsfdfOXgMG8,368
+cli_music_downloader-1.0.0.dist-info/top_level.txt,sha256=wPshVEKGPTtv6yU47tCwuXITwD5mJj3cP2guRq0Cij8,21
+cli_music_downloader-1.0.0.dist-info/RECORD,,
