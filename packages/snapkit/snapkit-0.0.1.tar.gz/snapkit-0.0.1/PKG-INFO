@@ -1,0 +1,27 @@
+Metadata-Version: 2.4
+Name: snapkit
+Version: 0.0.1
+Summary: SnapKit: Handy image-related utilities for daily AI/CV use.
+Home-page: https://github.com/mallickboy
+Author: Tamal Mallick
+Author-email: contact@mallickboy.com
+License: MIT
+Description-Content-Type: text/plain
+Requires-Dist: Pillow
+Requires-Dist: tqdm
+Dynamic: author
+Dynamic: author-email
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: summary
+
+*****************************************************
+Message : This snapkit library has been developed by Tamal Mallick (github/mallickboy)
+
+Modules included:
+1. jpg_to_png (jpg/jpeg to png converter)
+
+*****************************************************
