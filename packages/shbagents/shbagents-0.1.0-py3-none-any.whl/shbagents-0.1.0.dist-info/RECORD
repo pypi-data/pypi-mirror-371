@@ -1,0 +1,16 @@
+shbagents/__init__.py,sha256=SfOGI-bpWs5V_95b1wWgk6hD214q2rwl_0x7bPNJ4R8,1595
+shbagents/_version.py,sha256=xg--p1T75U7cXc3tzsORgW1aJUW_SyHFRSlGQRnY-8g,483
+shbagents/agent_types.py,sha256=AOKD3Lq4e37HmspQ0Xgf_pftUr-GHWaTjgiPURWQyqg,2717
+shbagents/agents.py,sha256=EgXVvEOfm8OD2TO_7gRZMj7qHTh0Pfu2fvjc8CLxfM4,26814
+shbagents/default_tools.py,sha256=_O_tw-3p-W_jHJfmpfBxKB-FbVM0rTIb5r_NWLdZr4Q,892
+shbagents/memory.py,sha256=Qso_rDBwLgal1QT5SOoS4MNTNbRZ5sBbx3_KfujTYzA,8563
+shbagents/model.py,sha256=DKiv3_25WPCNQajSmVGnMYYNrBdVcwyfDCBXFZ5-SSA,6836
+shbagents/monitoring.py,sha256=8CN1s3jrGm52uvtMtO3A6RyqXNYHR-ZD05vuCI1tRnA,4139
+shbagents/prompt.py,sha256=U-kqpktXaXKzP6ELrthk_fE4iGzkDl3TmnNuCX6ZF74,4307
+shbagents/tool.py,sha256=UCfSXJ3j6kY53DgOebTY2vC6IISmPveSogEW_uSKJPU,4126
+shbagents/utils.py,sha256=BppgFtYxpDoT5GJu9iAhhmdRTdMDe3mpgBrK894_55E,2881
+shbagents-0.1.0.dist-info/licenses/LICENSE,sha256=klP8ulW18R5OHgAStVtk0sJbgXyzm5k6oV-E5_ARvgE,1069
+shbagents-0.1.0.dist-info/METADATA,sha256=KPXBFvcdhkAeGpsckoKHT-f5npzuMlkW4aCEV5J4w6o,6962
+shbagents-0.1.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+shbagents-0.1.0.dist-info/top_level.txt,sha256=-dk5IljneRhZ7tW5H5EZ7ohpCBvHdywHkaIzWixNwLE,10
+shbagents-0.1.0.dist-info/RECORD,,
