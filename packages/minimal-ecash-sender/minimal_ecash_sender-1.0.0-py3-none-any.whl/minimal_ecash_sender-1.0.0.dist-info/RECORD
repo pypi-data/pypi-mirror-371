@@ -1,0 +1,9 @@
+minimal_ecash_sender/__init__.py,sha256=fcw-wOlAEASKgxYJyqoBjaogMsDYY2ebTMY2hne7pXE,41
+minimal_ecash_sender/cli.py,sha256=8sYZdWDmHeFu3UpsvRN-Uh_Ato_HdWqJ-WwQRfVFx6A,5556
+minimal_ecash_sender/core.py,sha256=j99oCqwBoUC2XR8Y6w_DjnYbsS9MZtC2er76TKZDl6A,11498
+minimal_ecash_sender-1.0.0.dist-info/licenses/LICENSE,sha256=RUuHl2iECYx7T9PEYgNGjPtcX_VyGJuN-Rd3e4cyn_M,1062
+minimal_ecash_sender-1.0.0.dist-info/METADATA,sha256=cJUZiUv5iT24ql-2ZOM5HLDIjNp2rxZT0QLHCciN3_0,2604
+minimal_ecash_sender-1.0.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+minimal_ecash_sender-1.0.0.dist-info/entry_points.txt,sha256=_vFHgeLtIjtpHVMEC3z93QT58KllFI_f-K3p7QYJGlA,153
+minimal_ecash_sender-1.0.0.dist-info/top_level.txt,sha256=Nac8Uk8kY_sZMmHyFhsSJLUoLlWFppTdDnwYxEH7RtM,21
+minimal_ecash_sender-1.0.0.dist-info/RECORD,,
