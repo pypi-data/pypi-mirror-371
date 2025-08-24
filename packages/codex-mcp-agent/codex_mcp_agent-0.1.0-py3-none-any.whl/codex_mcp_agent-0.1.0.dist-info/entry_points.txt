@@ -1,0 +1,2 @@
+[console_scripts]
+codex-mcp-agent = codex_mcp_agent.server:main

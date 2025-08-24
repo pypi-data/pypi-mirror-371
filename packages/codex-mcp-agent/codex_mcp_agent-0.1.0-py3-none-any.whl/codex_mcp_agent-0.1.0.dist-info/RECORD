@@ -1,0 +1,12 @@
+codex_mcp_agent/__main__.py,sha256=EEz_yn5qpbsuiuIBj8MXTE-3tTGy8g1hPJiQbQnyV00,143
+codex_mcp_agent/prompts.py,sha256=xawTGmU7CpWmg0ljzwa9O9wPtt4ApV4h90M77-LA7Sw,2715
+codex_mcp_agent/server.py,sha256=HWHjYkiQYhHUFhw48hudD9QNNOV4U3usbo4Y_a6XNcc,3481
+codex_mcp_agent/utils.py,sha256=_tKTngqYNwxBrI-zsQFJ3ohgPjI7mrhDhzbo5x46J2g,1814
+codex_mcp_agent/tools/__init__.py,sha256=48x3kZggiSgBdxxKcQFJPCzG-DizgmreCyXvCyya9Ec,3632
+codex_mcp_agent/tools/codex_execute.py,sha256=IV_IvZAQn_-iGPDXff5oXSc28LzywSmwE3FRluDjzoc,996
+codex_mcp_agent/tools/codex_research.py,sha256=LBQup09mmOuxFbyqaX9fVnaieMErEuHDu0ZEK75tlBw,2686
+codex_mcp_agent/tools/codex_review.py,sha256=Ofilz2t_EGuEKKbg6RBdA-L0iGYpyvE9b5jfUgywv3A,1683
+codex_mcp_agent-0.1.0.dist-info/METADATA,sha256=nTIBSAWNetTAvNhf0NK22rcIOaVVlIJN17wbaYk99MU,3307
+codex_mcp_agent-0.1.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+codex_mcp_agent-0.1.0.dist-info/entry_points.txt,sha256=pd6M3hixHIOK27oOZC6jgQnSquifIEAAFonueFQ4E_M,64
+codex_mcp_agent-0.1.0.dist-info/RECORD,,
