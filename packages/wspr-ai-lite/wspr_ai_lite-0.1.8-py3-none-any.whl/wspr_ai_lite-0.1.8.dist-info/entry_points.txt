@@ -1,0 +1,2 @@
+[console_scripts]
+wspr-lite = wspr_ai_lite.cli:main
