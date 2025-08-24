@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+nc_mcp.egg-info/PKG-INFO
+nc_mcp.egg-info/SOURCES.txt
+nc_mcp.egg-info/dependency_links.txt
+nc_mcp.egg-info/requires.txt
+nc_mcp.egg-info/top_level.txt
+nc_mcp_server/__init__.py
+nc_mcp_server/main.py
+tests/test_nc_mcp_server.py
