@@ -1,0 +1,4 @@
+[console_scripts]
+benchmark-estimators = scripts.comprehensive_estimator_benchmark:main
+confound-analysis = scripts.confounded_data_benchmark:main
+lrdbench = scripts.comprehensive_estimator_benchmark:main
