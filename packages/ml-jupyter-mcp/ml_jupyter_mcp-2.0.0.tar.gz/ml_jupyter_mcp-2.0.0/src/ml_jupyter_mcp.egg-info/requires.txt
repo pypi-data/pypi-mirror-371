@@ -1,0 +1,16 @@
+fastmcp>=2.11.0
+jupyter
+ipykernel
+nbformat
+jupyter_client
+
+[dev]
+pytest
+black
+isort
+ruff
+mypy
+
+[formatting]
+black
+isort
