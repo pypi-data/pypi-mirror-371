@@ -1,0 +1,67 @@
+[build-system]
+requires = ["setuptools", "wheel", "poetry-core>=1.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "exonamd"
+version = "0.3.1"
+description = "ExoNAMD is a Python codebase to compute the Normalized Angular Momentum Deficit of planetary systems."
+license = "BSD-3-Clause"
+authors = [
+    "Andrea Bocchieri <andrea.bocchieri@uniroma1.it>",
+    "Jiri Zak",
+]
+readme = "README.md"
+homepage = "https://github.com/abocchieri/ExoNAMD"
+repository = "https://github.com/abocchieri/ExoNAMD.git"
+# documentation = ""
+keywords = [
+    "exoplanets",
+    "planetary systems",
+    "multiplanetary systems",
+    "Python",
+    "Angular Momentum Deficit",
+    "Normalized Angular Momentum Deficit",
+    "Stellar obliquity",
+    "Planet formation",
+    "Planet evolution",
+    "Planet migration",
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: BSD License",
+    "Operating System :: OS Independent",
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Software Development :: Libraries",
+]
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/abocchieri/ExoNAMD/issues"
+# "DOI" = ""
+
+[tool.poetry.dependencies]
+python = "^3.8"
+numpy = "*"
+scipy = "*"
+matplotlib = "*"
+spright = "*"
+requests = "*"
+pandas = "*"
+swifter = "*"
+loguru = "*"
+astroquery = "*"
+siphash24 = "*"
+
+[tool.poetry.group.docs.dependencies]
+sphinx = "^7.0"
+sphinxcontrib-napoleon = "*"
+sphinxcontrib-jsmath = "*"
+sphinx-rtd-theme = "*"
+sphinx-markdown-tables = "*"
+
+[tool.poetry.scripts]
+exonamd = "exonamd.exonamd:main"
