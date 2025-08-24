@@ -1,0 +1,10 @@
+# Dependencies for running the examples
+-r ../requirements.txt
+
+# Additional dependencies for advanced examples
+concurrent-log-handler>=0.9.20
+tqdm>=4.65.0
+
+# For development and testing
+pytest>=7.4.0
+pytest-cov>=4.1.0
