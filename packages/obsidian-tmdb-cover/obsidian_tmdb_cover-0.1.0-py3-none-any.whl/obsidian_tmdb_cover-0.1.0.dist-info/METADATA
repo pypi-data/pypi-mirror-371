@@ -1,0 +1,29 @@
+Metadata-Version: 2.4
+Name: obsidian-tmdb-cover
+Version: 0.1.0
+Summary: Add TMDB cover images to Obsidian notes
+Project-URL: Homepage, https://github.com/yourusername/obsidian-tmdb-cover
+Project-URL: Repository, https://github.com/yourusername/obsidian-tmdb-cover.git
+Project-URL: Issues, https://github.com/yourusername/obsidian-tmdb-cover/issues
+Author-email: Your Name <your.email@example.com>
+License: MIT
+Keywords: covers,metadata,movies,obsidian,tmdb,tv
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Multimedia :: Graphics
+Classifier: Topic :: Office/Business :: Office Suites
+Classifier: Topic :: Text Processing :: Markup
+Classifier: Topic :: Utilities
+Requires-Python: >=3.8
+Requires-Dist: pillow>=10.0.0
+Requires-Dist: pyyaml>=6.0.1
+Requires-Dist: requests>=2.31.0
