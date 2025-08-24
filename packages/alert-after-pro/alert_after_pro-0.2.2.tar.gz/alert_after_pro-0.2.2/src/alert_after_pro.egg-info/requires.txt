@@ -1,0 +1,14 @@
+requests>=2.25.0
+PyYAML>=5.4.0
+
+[all]
+twilio>=7.0.0
+
+[dev]
+pytest>=6.0
+pytest-cov>=2.0
+black>=21.0
+flake8>=3.8
+
+[sms]
+twilio>=7.0.0
