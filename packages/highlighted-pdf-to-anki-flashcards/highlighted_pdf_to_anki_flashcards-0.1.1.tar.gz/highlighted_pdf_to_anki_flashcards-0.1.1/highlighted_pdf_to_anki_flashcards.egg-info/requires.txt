@@ -1,0 +1,4 @@
+argparse
+tqdm
+PyMuPDF<=1.23.26
+googletrans-modified
