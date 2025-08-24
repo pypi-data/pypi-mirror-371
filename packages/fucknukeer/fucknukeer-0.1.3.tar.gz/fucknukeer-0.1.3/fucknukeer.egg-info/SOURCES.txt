@@ -1,0 +1,9 @@
+pyproject.toml
+setup.py
+fucknukeer.egg-info/PKG-INFO
+fucknukeer.egg-info/SOURCES.txt
+fucknukeer.egg-info/dependency_links.txt
+fucknukeer.egg-info/entry_points.txt
+fucknukeer.egg-info/top_level.txt
+fucknuker/__init__.py
+fucknuker/main.py
