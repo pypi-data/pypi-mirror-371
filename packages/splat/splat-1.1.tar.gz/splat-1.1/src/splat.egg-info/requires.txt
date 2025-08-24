@@ -1,0 +1,21 @@
+astropy
+astroquery
+bokeh
+corner
+emcee
+flask
+matplotlib
+numpy<2.0
+pandas
+requests
+scipy
+tables
+statsmodels
+tqdm
+
+[:python_version < "3.9"]
+importlib_resources
+
+[test]
+pytest
+ruff
