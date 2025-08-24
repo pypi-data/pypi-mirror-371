@@ -1,0 +1,101 @@
+Metadata-Version: 2.4
+Name: copyfiles-cli
+Version: 0.1.8
+Summary: Generate a copyfiles.txt containing project tree + file contents.
+Author-email: Bethvour <bethvourc@gmail.com>
+License: MIT
+Project-URL: Homepage, https://github.com/bethvourc/copyf
+Project-URL: Documentation, https://github.com/bethvourc/copyf#readme
+Project-URL: Changelog, https://github.com/bethvourc/copyf/releases
+Keywords: llm,context,project-tree,cli
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: pathspec>=0.11.0
+Requires-Dist: textual>=0.55.0
+Requires-Dist: colorama>=0.4.6
+Requires-Dist: rich>=13.5
+Requires-Dist: rich-argparse>=1.4
+Requires-Dist: pyfiglet>=0.8
+Provides-Extra: dev
+Requires-Dist: pytest>=8.2; extra == "dev"
+Requires-Dist: pytest-cov>=5.0; extra == "dev"
+Requires-Dist: coverage[toml]>=7.4; extra == "dev"
+Requires-Dist: tox>=4.15; extra == "dev"
+Requires-Dist: ruff>=0.4; extra == "dev"
+Requires-Dist: mypy>=1.10; extra == "dev"
+Requires-Dist: pre-commit>=3.7; extra == "dev"
+Requires-Dist: build>=1.2.1; extra == "dev"
+Requires-Dist: twine>=5.0; extra == "dev"
+
+# copyfiles-cli
+
+**copyfiles-cli** is a tiny CLI that scans a project, respects `.gitignore`-style rules, and produces a single **`copyfiles.txt`** with:
+
+- an indented **project tree**, and
+- each kept **file’s contents** (wrapped in language-tagged code fences).
+
+Perfect for pasting clean, complete context into LLMs or sharing a compact code snapshot.
+
+---
+
+## Installation
+
+```bash
+pip install copyfiles-cli
+# CLI command is `copyfiles`
+```
+
+> Requires **Python 3.8+**
+
+---
+
+## Quick Start
+
+```bash
+# From your project root
+copyfiles
+
+# Writes ./copyfiles.txt (tree + file contents)
+```
+
+---
+
+## Options (short & sweet)
+
+| Flag              |         Default | What it does                                               |
+| ----------------- | --------------: | ---------------------------------------------------------- |
+| `--root PATH`     |             `.` | Directory to scan.                                         |
+| `--out FILE`      | `copyfiles.txt` | Output file path.                                          |
+| `--config FILE`   |               – | Extra ignore patterns (one per line, `.gitignore` syntax). |
+| `--max-bytes N`   |        `100000` | Truncate each file after N bytes.                          |
+| `--skip-large KB` |               – | Skip files larger than **KB** kilobytes entirely.          |
+| `-v, --verbose`   |             off | Show scanning/filtering progress.                          |
+| `--no-color`      |             off | Disable colored output (or set `NO_COLOR=1`).              |
+| `-V, --version`   |               – | Print version and exit.                                    |
+| `-h, --help`      |               – | Show full help.                                            |
+
+---
+
+## Examples
+
+```bash
+# Minimal: create copyfiles.txt from current directory
+copyfiles
+
+# Different output name + lower per-file limit
+copyfiles --out project.txt --max-bytes 50_000
+
+# Skip very large binaries/logs and be chatty
+copyfiles --skip-large 200 -v
+
+# Use extra ignore rules
+copyfiles --config .cfignore
+```
+
+---
+
+## Notes
+
+- Honors your repo’s `.gitignore` plus any patterns you add via `--config`.
+- Binary files are skipped automatically.
+- The output is plain Markdown so you can paste it directly into ChatGPT/Gemini/Copilot.
