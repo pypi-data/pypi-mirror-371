@@ -1,0 +1,27 @@
+Metadata-Version: 2.3
+Name: wollwo-common
+Version: 0.1.1
+Summary: common libraries to enhance base workflow, Some decorators/context managers for your code and others
+License: MIT
+Author: Michal Perzel
+Author-email: perzelmichal@gmail.com
+Requires-Python: >=3.13
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Project-URL: Homepage, https://github.com/Wollwo/wollwo-common
+Description-Content-Type: text/markdown
+
+# WOLLWO COMMON
+
+```TEXT
+Copyright (c) 2025 by Michal Perzel. All rights reserved.
+
+License: MIT
+```
+
+## CUSTOM_LOGGING
+preparing doc...
+
+## WOLLWO_DECORATORS
+preparing doc...
+
