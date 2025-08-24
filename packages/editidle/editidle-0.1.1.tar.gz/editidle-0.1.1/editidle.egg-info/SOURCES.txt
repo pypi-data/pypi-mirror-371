@@ -1,0 +1,9 @@
+pyproject.toml
+setup.py
+editidle/__init__.py
+editidle/main.py
+editidle.egg-info/PKG-INFO
+editidle.egg-info/SOURCES.txt
+editidle.egg-info/dependency_links.txt
+editidle.egg-info/entry_points.txt
+editidle.egg-info/top_level.txt
