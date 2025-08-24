@@ -1,0 +1,9 @@
+smirk-0.1.0.dist-info/METADATA,sha256=2LLt3DTR7jpBCmidCbv0BaYFvX0d3oBEbSWYQ2-lTJ8,409
+smirk-0.1.0.dist-info/WHEEL,sha256=NBN8Bp0C102Qu8G-sEXmD6kmGBbX6BmsvVmU-BX-Z2s,104
+smirk-0.1.0.dist-info/licenses/LICENSE,sha256=UKYc5QJ1-ADXPRI-c-NaRDO95iyq1gfonbkPYdpM1to,11367
+smirk/__init__.py,sha256=GXFeS_tXZ_VnWowM9JlH-j09NH9IQcyGp2KuimBgyIs,8679
+smirk/cli.py,sha256=fcWYnhB9TPQE-3IXUWMNaFiLtTivxuJGAG3NKuglgbA,922
+smirk/smirk.cpython-310-darwin.so,sha256=mEVyhVKGVHFWMqH9VOQtkeEWjJBOXe3Si3WrfzKd42Y,4418288
+smirk/vocab_selfies.json,sha256=jUE5SfFEzeETp9zcGWzZGE4L05_Ud6azlcgOYqE_I2A,1999
+smirk/vocab_smiles.json,sha256=XILNsa-m1oyJ9ypSrYvLjUVkvhmLklHRW5pTQo511FQ,2241
+smirk-0.1.0.dist-info/RECORD,,
