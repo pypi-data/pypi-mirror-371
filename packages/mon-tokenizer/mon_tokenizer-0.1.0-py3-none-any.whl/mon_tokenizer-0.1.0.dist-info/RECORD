@@ -1,0 +1,12 @@
+mon_tokenizer/__init__.py,sha256=SJrw4F-bexMsAhid1PS4M2As83oXzz23cNk7vdc-bVc,267
+mon_tokenizer/cli.py,sha256=s0RmcJFi1lfPBVnuChdj3Yj-1vUdRsQzDPoEpTFBSbc,2727
+mon_tokenizer/data/mon_tokenizer.meta.json,sha256=KkmTZokuM7lOqn4gos_irx0jVsRESukeWsbNJJOQFCw,5155
+mon_tokenizer/data/mon_tokenizer.model,sha256=QbK9_nahXeDryAK6Q4LndIkVUNQTgeHMU5WKHLbWvqA,255205
+mon_tokenizer/data/mon_tokenizer.prepared.txt,sha256=WRVjXQThxRY5adUgHMoXs1ySy3t9yawMpDmA7S5O1wg,1584332
+mon_tokenizer/data/mon_tokenizer.vocab,sha256=O7abu5rW3IqrJAXojGsDit_Ks72xubwTp_mI9ZaEkIk,8344
+mon_tokenizer/py.typed,sha256=GOT8C04qnpPD7E1WtP9WAcnKQg3U4Yq-BhOGC4H59Ms,60
+mon_tokenizer/tokenizer.py,sha256=YUvdLjt-qMD6BlrHrJ4E8oGMKNb3lj2IIytuhqJ_9VE,1706
+mon_tokenizer-0.1.0.dist-info/WHEEL,sha256=4n27za1eEkOnA7dNjN6C5-O2rUiw6iapszm14Uj-Qmk,79
+mon_tokenizer-0.1.0.dist-info/entry_points.txt,sha256=TrBj26_jmiM59UJ-_PYRGanNsJxgu30oRlIhP6lItWU,58
+mon_tokenizer-0.1.0.dist-info/METADATA,sha256=-w6moYMTGHa7DIR03VsTP_jU5b1vBJgIp8ZQep9NCuE,3669
+mon_tokenizer-0.1.0.dist-info/RECORD,,
