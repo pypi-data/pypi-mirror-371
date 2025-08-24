@@ -1,0 +1,12 @@
+authorization_api/__init__.py,sha256=-rI-_Sg_zQ4Ofs6NMBzc313MjUbErjC91OEL2C0R78E,136
+authorization_api/authorization_api.py,sha256=ItAQd24ymbSMYSi9c6n15KwRudlou5y7XYbQIIaXzuk,17610
+authorization_api/authorization_api.yaml,sha256=moi3A8dgpPdXB_de4_I-9O2j9hrniCoFaHvTVPm21hg,14676
+authorization_api/authorization_lambda.py,sha256=aAQtYUfQdJbkYzpEyiQXpLmRbFxi0_gBVRwt_I1jyy0,25790
+authorization_api/authorization_users.py,sha256=XgnCd3K1wzCi2y4p0o4jYzZ3UfQXSdR9fHCrzQN3MPQ,5798
+authorization_api/readme.md,sha256=6s16Tl4AjeoqhBSX70vK4ISrAHfsuaIqjnw7CJlaT5Q,5927
+authorization_api/validation_function.py,sha256=XArzRl5q74uMs4oyyiWBq70I2-g8oxTHVBfU_-0g2T8,5653
+authorization_api/validator_lambda.py,sha256=TwrijPCVttevZDUw5WxjHGCXwXj4AjVTgEE8K9Aja4o,8931
+authorization_api-0.7.0.dist-info/licenses/LICENSE,sha256=CSBP0VLr90VHNydywQ8RZ5awyRNhkWWbB7PNOoryokA,1066
+authorization_api-0.7.0.dist-info/WHEEL,sha256=G2gURzTEtmeR8nrdXUJfNiB3VYVxigPQ-bEQujpNiNs,82
+authorization_api-0.7.0.dist-info/METADATA,sha256=j1vYjmJna_w1hv6lqUoUV3qAZwPPU_YBvxCgDWd22ho,6926
+authorization_api-0.7.0.dist-info/RECORD,,
