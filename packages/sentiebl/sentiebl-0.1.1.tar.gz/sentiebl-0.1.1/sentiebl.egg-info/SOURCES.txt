@@ -1,0 +1,11 @@
+README.md
+setup.py
+sentiebl/__init__.py
+sentiebl/config.py
+sentiebl/dictionary.py
+sentiebl/main.py
+sentiebl.egg-info/PKG-INFO
+sentiebl.egg-info/SOURCES.txt
+sentiebl.egg-info/dependency_links.txt
+sentiebl.egg-info/requires.txt
+sentiebl.egg-info/top_level.txt
