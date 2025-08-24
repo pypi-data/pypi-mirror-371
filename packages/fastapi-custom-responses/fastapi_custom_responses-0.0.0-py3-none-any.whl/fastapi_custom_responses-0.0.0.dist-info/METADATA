@@ -1,0 +1,21 @@
+Metadata-Version: 2.3
+Name: fastapi-custom-responses
+Version: 0.0.0
+Summary: FastAPI Custom Responses
+Author: Julien Kmec
+Author-email: me@julien.dev
+Requires-Python: >=3.11.0,<3.14
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Provides-Extra: dev
+Requires-Dist: black (>=24.3.0,<25.0.0) ; extra == "dev"
+Requires-Dist: fastapi[standard] (>=0.115.14)
+Requires-Dist: isort (>=5.12.0,<6.0.0) ; extra == "dev"
+Requires-Dist: pydantic (>=2.10.6)
+Requires-Dist: pydantic-super-model (>=1.0.3,<2.0.0)
+Requires-Dist: pylint (>=3.0.1,<4.0.0) ; extra == "dev"
+Description-Content-Type: text/markdown
+
+
