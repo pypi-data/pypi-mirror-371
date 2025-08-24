@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.py
+PyGAU/__init__.py
+PyGAU/benchmark.py
+PyGAU/debug.py
+PyGAU.egg-info/PKG-INFO
+PyGAU.egg-info/SOURCES.txt
+PyGAU.egg-info/dependency_links.txt
+PyGAU.egg-info/top_level.txt
