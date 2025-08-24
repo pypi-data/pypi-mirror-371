@@ -1,0 +1,77 @@
+[build-system]
+build-backend = "hatchling.build"
+
+requires = [ "hatchling" ]
+
+[project]
+name = "flake8-ruff"
+version = "0.3.1"
+description = "A Flake8 plugin that implements miscellaneous checks from Ruff."
+readme = "README.md"
+keywords = [
+  "flake8",
+  "ruff",
+]
+license = "MIT"
+authors = [ { name = "Tom Kuson", email = "mail@tjkuson.me" } ]
+requires-python = ">=3.9"
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Framework :: Flake8",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Natural Language :: English",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Typing :: Typed",
+]
+
+urls.Repository = "https://github.com/tjkuson/flake8-ruff"
+entry-points."flake8.extension".RUF = "flake8_ruff:Plugin"
+
+[dependency-groups]
+dev = [
+  "coverage[toml]~=7.10",
+  "mypy~=1.17",
+  "pytest~=8.0",
+  "pytest-randomly~=3.16",
+]
+
+[tool.ruff]
+lint.extend-select = [
+  "A",
+  "B",
+  "C4",
+  "FURB",
+  "I",
+  "PERF",
+  "PGH",
+  "PIE",
+  "PL",
+  "PYI",
+  "RUF",
+  "SIM",
+  "TCH",
+  "UP",
+]
+lint.ignore = [
+  "PLR0916", # A high number of Boolean expressions are kind of unavoidable here.
+]
+lint.flake8-type-checking.strict = true
+lint.isort.required-imports = [ "from __future__ import annotations" ]
+
+[tool.coverage.run]
+branch = true
+parallel = true
+source = [ "src" ]
+
+[tool.coverage.report]
+fail_under = 100
+
+[tool.mypy]
+mypy_path = "src/"
+strict = true
