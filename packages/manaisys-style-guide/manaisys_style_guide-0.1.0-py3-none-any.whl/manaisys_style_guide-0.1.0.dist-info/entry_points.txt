@@ -1,0 +1,3 @@
+[console_scripts]
+python-style-guide=style_guide.cli:app
+
