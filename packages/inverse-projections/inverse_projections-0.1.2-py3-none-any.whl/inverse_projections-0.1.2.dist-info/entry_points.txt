@@ -1,0 +1,3 @@
+[console_scripts]
+inverse-projections = inverse_projections:main
+
