@@ -1,0 +1,11 @@
+staphscope/__init__.py,sha256=6JV0cgDUBE7sSSXIuftPehwKVqLZ8JnRHHTl-RpCdWE,179
+staphscope/cli.py,sha256=obbu8ZnC_0j2B9e_6tDNpL9-9iAnNuM_QSfVYCZpvos,5503
+staphscope/core.py,sha256=eDYVtLAAtihFSBjp0AQom2RD3F67eTRTYLc_vNhofCQ,6491
+staphscope-0.2.1.dist-info/licenses/LICENSE,sha256=RPR6NSUGuy8oyticUo96P9b8gT4NTashChMfVesGG4E,1069
+tests/__init__.py,sha256=Ujo9bk2otWhHV6ObQ9JcsNKAEnKLqiA1t1jJhS-VbsY,30
+tests/test_staphscope.py,sha256=qVFUcG6gQiHs5mLXPr-5jJMmDFJg1ud2Svt_zFzyNRc,285
+staphscope-0.2.1.dist-info/METADATA,sha256=CW4SHHesj4gSaCN6lffGNTn0F4Q-ESfC6ELQ7jDvoz0,1892
+staphscope-0.2.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+staphscope-0.2.1.dist-info/entry_points.txt,sha256=DJp-EtwYC6YBOtf6tCLXWMjAnHvWorVF89YM3DxfpTk,51
+staphscope-0.2.1.dist-info/top_level.txt,sha256=bVXY2dADbIGG6WVSQY4R6EyyGFioheLRVWYV3dar8E8,17
+staphscope-0.2.1.dist-info/RECORD,,
