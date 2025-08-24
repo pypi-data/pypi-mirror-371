@@ -1,0 +1,8 @@
+stroke_segmentor/.gitignore,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+stroke_segmentor/__init__.py,sha256=H09CQEFoREiA67fEaSoKb-zYbrLlCVIDoPzLm-NCL84,62
+stroke_segmentor/inferer.py,sha256=inBty56Y67IJIAcxebJi6NJl428JbZ8suLWkUlq_WjI,2813
+stroke_segmentor/model_handler.py,sha256=j8v0hhej7Wd6OGnjrJbgyjhTkPZpG_pA0rREH7cmA_g,5163
+stroke_segmentor/zenodo.py,sha256=nEzAcn5PbVH6UMoqdax038vpYNidGEzjUPHkYGtbVSE,6307
+stroke_segmentor-0.0.1.dist-info/WHEEL,sha256=y3eDiaFVSNTPbgzfNn0nYn5tEn1cX6WrdetDlQM4xWw,83
+stroke_segmentor-0.0.1.dist-info/METADATA,sha256=-80QcnNaSPiZuMovCskco6OqySDqUmMbg5bFKJAjEvg,3050
+stroke_segmentor-0.0.1.dist-info/RECORD,,
