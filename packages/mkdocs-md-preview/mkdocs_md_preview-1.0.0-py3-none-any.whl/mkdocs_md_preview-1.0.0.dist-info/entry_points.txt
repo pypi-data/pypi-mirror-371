@@ -1,0 +1,2 @@
+[mkdocs.plugins]
+md-preview = mkdocs_md_preview:MarkdownPreviewPlugin
