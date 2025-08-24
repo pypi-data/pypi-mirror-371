@@ -1,0 +1,3 @@
+[console_scripts]
+t9=t9.cli:main
+
