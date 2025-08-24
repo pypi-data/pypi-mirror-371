@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(just lint)",
+      "Bash(just run:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
