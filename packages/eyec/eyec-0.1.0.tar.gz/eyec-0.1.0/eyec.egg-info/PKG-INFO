@@ -1,0 +1,42 @@
+Metadata-Version: 2.4
+Name: eyec
+Version: 0.1.0
+Summary: A simple clipboard history + search tool for Linux
+Author: Your Name
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: POSIX :: Linux
+Description-Content-Type: text/markdown
+Requires-Dist: pyperclip
+Dynamic: author
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: summary
+
+# eyec 👁️
+
+A simple **clipboard history + search tool** for Linux.  
+Powered by Python and [pyperclip](https://pypi.org/project/pyperclip/).
+
+---
+
+## ✨ Features
+- Copy & read from your system clipboard
+- Save clipboard history
+- Search through past clipboard entries
+- Lightweight & fast (no heavy dependencies)
+
+---
+
+## 📦 Installation
+
+Clone this repo and install locally:
+
+```bash
+git clone https://github.com/avcve/doom-sClipboard.git
+cd doom-sClipboard
+pip install -e .
+

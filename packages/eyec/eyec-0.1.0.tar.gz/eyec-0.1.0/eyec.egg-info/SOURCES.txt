@@ -1,0 +1,9 @@
+README.md
+eyec.py
+setup.py
+eyec.egg-info/PKG-INFO
+eyec.egg-info/SOURCES.txt
+eyec.egg-info/dependency_links.txt
+eyec.egg-info/entry_points.txt
+eyec.egg-info/requires.txt
+eyec.egg-info/top_level.txt
