@@ -1,0 +1,3 @@
+[console_scripts]
+flm=flm.__main__:run_main
+
