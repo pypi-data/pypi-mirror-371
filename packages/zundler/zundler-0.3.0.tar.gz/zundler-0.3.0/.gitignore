@@ -1,0 +1,17 @@
+*.pyc
+__pycache__/
+
+.venv/
+venv/
+
+_version.py
+_build
+
+build
+dist
+*.egg-info
+.nox
+.pytest_cache/
+.mypy_cache/
+
+_download

@@ -1,0 +1,81 @@
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[project]
+name = "zundler"
+description = "Bundle assets of distributed HTML docs into one self-contained HTML file"
+readme = 'README.md'
+authors = [{name = "Adrian Vollmer", email = "computerfluesterer@protonmail.com"}]
+requires-python = ">=3.8"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Environment :: Web Environment",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Documentation",
+    "Topic :: Utilities",
+]
+urls = {Homepage = "https://github.com/AdrianVollmer/Zundler"}
+dependencies = [
+    "python-magic",
+]
+dynamic = ["version"]
+
+[project.optional-dependencies]
+sphinx = ["sphinx"]
+
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.build.hooks.vcs]
+version-file = "_version.py"
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "src",
+]
+
+[project.entry-points]
+"sphinx.builders" = {zundler = "zundler.sphinxext"}
+
+[project.scripts]
+zundler = "zundler.__main__:main"
+
+[tool.mypy]
+python_version = "3.8"
+show_column_numbers = true
+show_error_context = true
+ignore_missing_imports = true
+follow_imports = "skip"
+incremental = true
+check_untyped_defs = true
+warn_unused_ignores = true
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q"
+testpaths = [
+    "tests",
+]
+
+[dependency-groups]
+dev = [
+    "selenium>=4.27.1",
+    "pytest>=8",
+    "selenium",
+    "pytest-selenium",
+    "pytest-docker",
+    "mypy>=1.0.0",
+    "ruff>=0.0.243",
+    "pytest-stub",
+]
