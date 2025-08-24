@@ -1,0 +1,77 @@
+# Include README and documentation
+include README.md
+include LICENSE
+include requirements.txt
+include pyproject.toml
+
+# Include configuration files
+include config/*.json
+include config/*.txt
+
+# Include setup and configuration
+include setup/*.md
+include setup/*.ps1
+include setup/*.py
+include setup/*.json
+
+# Include assets
+include assets/*.png
+include assets/*.jpg
+include assets/*.svg
+
+# Include research documentation
+include research/*.md
+include research/*.tex
+
+# Include benchmark results examples
+include confound_results/*.csv
+include confound_results/*.md
+include confound_results/*.txt
+
+# Include web dashboard
+include web-dashboard/*.html
+include web-dashboard/*.js
+include web-dashboard/*.css
+include web-dashboard/*.md
+
+# Include tests
+include tests/*.py
+include tests/*.md
+
+# Include demos
+include demos/*.py
+include demos/*.md
+
+# Include documentation
+include documentation/*.md
+include documentation/*.rst
+include documentation/*.txt
+
+# Exclude unnecessary files
+exclude *.pyc
+exclude __pycache__
+exclude .git*
+exclude .pytest_cache
+exclude .benchmarks
+exclude *.egg-info
+exclude build/
+exclude dist/
+exclude .venv/
+exclude venv/
+exclude fractional_pinn_env/
+exclude fractional_pinn_project/
+exclude saved_models/
+exclude debug_results/
+exclude results/
+exclude benchmark_results/
+exclude publication_figures/
+exclude research_reference/
+exclude models/
+exclude analysis/
+exclude src/
+exclude __pycache__/
+exclude *.pkl
+exclude *.pickle
+exclude *.log
+exclude .DS_Store
+exclude Thumbs.db
