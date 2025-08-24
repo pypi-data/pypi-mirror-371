@@ -1,0 +1,91 @@
+Metadata-Version: 2.4
+Name: vcosmos-mcp-server
+Version: 0.1.7
+Summary: A Model Context Protocol (MCP) server for querying vCosmos Test Logic API - UUTs and Tasks
+Project-URL: Homepage, https://github.com/yourusername/vcosmos-mcp-server
+Project-URL: Repository, https://github.com/yourusername/vcosmos-mcp-server
+Project-URL: Documentation, https://github.com/yourusername/vcosmos-mcp-server#readme
+Project-URL: Bug Tracker, https://github.com/yourusername/vcosmos-mcp-server/issues
+Author-email: Iverson Lu <iverson.lu@hp.com>
+Maintainer-email: Iverson Lu <iverson.lu@hp.com>
+License: MIT
+License-File: LICENSE
+Keywords: api,automation,hp,mcp,model-context-protocol,test,vcosmos
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.8
+Requires-Dist: mcp>=1.13.1
+Description-Content-Type: text/markdown
+
+# vCosmos UUT MCP Server
+
+A Model Context Protocol (MCP) server that provides tools to query Units Under Test (UUTs) and tasks from the vCosmos Test Logic API.
+
+📦 **Available on PyPI**: [vcosmos-mcp-server](https://pypi.org/project/vcosmos-mcp-server/)  
+▶️ **Install & Run**:
+```bash
+uvx vcosmos-mcp-server
+```
+
+## 🚀 Quick Start
+
+1. **Set your vCosmos token**:
+   ```bash
+   export VCOSMOS_TOKEN="your_token_here"   # Linux/Mac
+   $env:VCOSMOS_TOKEN="your_token_here"     # PowerShell
+   ```
+
+2. **Run the server** (choose one option):
+
+   - **Option A: Manual**  
+     Run directly from command line:
+     ```bash
+     uvx vcosmos-mcp-server
+     ```
+
+   - **Option B: VS Code Integration (Recommended)**  
+     Add this to your VS Code MCP settings:
+     ```json
+     {
+       "mcpServers": {
+         "vcosmos": {
+           "command": "uvx",
+           "args": ["vcosmos-mcp-server"],
+           "env": {
+             "VCOSMOS_TOKEN": "your_token_here"
+           }
+         }
+       }
+     }
+     ```
+
+   - **Option C: SSE (Server-Sent Events)**  
+     The current vcosmos-mcp-server uses stdio transport. If you want to use SSE transport, run with mcp-proxy:
+     ```bash
+     uvx mcp-proxy --host=0.0.0.0 --port=8087 --pass-environment uvx vcosmos-mcp-server
+     ```
+
+## 🏗️ Architecture
+
+![Architecture Diagram](https://raw.githubusercontent.com/<your-repo>/main/docs/architecture.png)
+
+## 📖 Documentation
+
+- [Usage Guide](https://github.com/<your-repo>/docs/usage.md)
+- [API Reference](https://github.com/<your-repo>/docs/api.md)
+
+---
+
+**Package Name**: `vcosmos-mcp-server`  
+**Python**: 3.8+  
+**License**: MIT
