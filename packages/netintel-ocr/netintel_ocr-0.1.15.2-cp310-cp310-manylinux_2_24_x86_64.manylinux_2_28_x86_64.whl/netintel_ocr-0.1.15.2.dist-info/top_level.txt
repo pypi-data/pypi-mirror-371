@@ -1,0 +1,2 @@
+netintel_ocr
+text_dedup
