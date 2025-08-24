@@ -1,0 +1,3 @@
+[console_scripts]
+exonamd=exonamd.exonamd:main
+
