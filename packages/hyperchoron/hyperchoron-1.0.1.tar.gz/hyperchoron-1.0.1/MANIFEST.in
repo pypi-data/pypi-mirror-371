@@ -1,0 +1,17 @@
+# Include Rust extension sources so the sdist can build the fastmidi module
+include Cargo.toml
+# (Optional) include Cargo.lock for reproducible builds; comment out if you prefer fresh resolution
+# include Cargo.lock
+recursive-include src *.rs
+
+# Include top-level project metadata
+include README.md
+include LICENSE
+include pyproject.toml
+
+# Exclude build artefacts
+prune target
+prune build
+
+# Exclude Python cache files just in case
+global-exclude __pycache__ *.py[cod]
