@@ -1,0 +1,14 @@
+pywiggle/_wiggle.cpython-312-darwin.so,sha256=jy9QWiDNaogXG4uaDxXL_YXvlCQj1kZ8ODkOdCOH-9U,263000
+pywiggle/__init__.py,sha256=YkAcWW-phgQgKTkbnB5vKUomteV4qYfEBJywBVMMFKY,298
+pywiggle/core.py,sha256=h4NETaCDTac0ufM72X6D5xbR3XRgmf0SRlmrhixD-SY,41601
+pywiggle/utils.py,sha256=MYo-XIQZXLoFtgObvzlgoqn9iDBOWYqv22s3VFe0QEo,13829
+pywiggle/tests/test_bench.py,sha256=hEVewuW3wyu8ylFyR54hN6B2i0OigML7_rWEh2hdLs8,5854
+pywiggle/tests/test_utils.py,sha256=nWTRv6fptpHqFzNdDFczcnd70H9JaWIrMg4pPgMF1Q0,4314
+pywiggle/tests/test_bmodes.py,sha256=j4NF9Qnth_9vLZ_vWcQYQLKLc8tBmWXi7CB5y-Ibt4U,9149
+pywiggle/tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pywiggle/tests/test_wiggle.py,sha256=cW8VYVk2Ihnlxe2y-UW0YOFTdEAL5cb9WUTKTyJjkHs,2660
+pywiggle/tests/test_wignerd.py,sha256=PHoqd19lB8bIf8zdIAuaEqAAMQXH_vbDa7uw-Kr5yKc,2722
+pywiggle/data/test_camb_cl.npz,sha256=gaU5wRgZDx0i6-nPDt7AzpKIep6hTDSkaRQbU0mZ6e0,64535
+pywiggle-0.1.17.dist-info/RECORD,,
+pywiggle-0.1.17.dist-info/WHEEL,sha256=eLQCEzp0KC7GTL9oY0AcHH5xm26kt4uyzexAZZC4z_U,123
+pywiggle-0.1.17.dist-info/METADATA,sha256=iZVMp0m0hhlKfqXFQZXURIxvcbqXZR8mYdmcRrs32Ws,6270
