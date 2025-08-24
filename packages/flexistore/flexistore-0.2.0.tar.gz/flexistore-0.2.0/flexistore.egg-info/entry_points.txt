@@ -1,0 +1,3 @@
+[console_scripts]
+flexistore = flexistore.cli:main
+flexistore-cli = flexistore.cli:main
