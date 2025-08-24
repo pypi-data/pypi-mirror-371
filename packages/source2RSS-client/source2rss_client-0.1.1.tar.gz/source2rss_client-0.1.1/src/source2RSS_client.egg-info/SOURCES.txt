@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+src/source2RSS_client/__init__.py
+src/source2RSS_client/client.py
+src/source2RSS_client.egg-info/PKG-INFO
+src/source2RSS_client.egg-info/SOURCES.txt
+src/source2RSS_client.egg-info/dependency_links.txt
+src/source2RSS_client.egg-info/requires.txt
+src/source2RSS_client.egg-info/top_level.txt
+tests/test_client.py
