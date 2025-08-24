@@ -1,0 +1,17 @@
+opendht.cpython-312-darwin.so,sha256=kyu0FlEkY3HENEm4oAwMFz6Hw3mbtiZv194ESveXIWE,581312
+opendht.dylibs/libp11-kit.0.dylib,sha256=mpXAbFc_PPVjl5RNsq9lHuSsDrSbgd7o4A_Z1pscCLE,1421728
+opendht.dylibs/libgnutls.30.dylib,sha256=mBKZGtP4Bq1rdQErpdebjA9a31Yf6yERR8Q9_7956jE,2361680
+opendht.dylibs/libtasn1.6.dylib,sha256=IGCyoBRIAshntwvCeTDoZPHV2Ni__wCErpfC_78Vbpc,108240
+opendht.dylibs/libidn2.0.dylib,sha256=HKZaHpisQfJHhenwD27tVx1uVQNwuDPXsiqJ_h9Y46E,258528
+opendht.dylibs/libnettle.8.11.dylib,sha256=pjAmaA2zE51kJ7K1g8dBh-wlryvcyZ_PChxYmO7rT98,334016
+opendht.dylibs/libfmt.11.2.0.dylib,sha256=aj1NlvkDZn1vVBjAklv_3yUkwDtKYs0jmXOypwDt9iI,171152
+opendht.dylibs/libopendht.3.5.1.dylib,sha256=S-2JcB4LREIUzCovQ3kVG1AF6FGBUmyJEm868UOqlE8,2228416
+opendht.dylibs/libintl.8.dylib,sha256=Z12aM-gNl_996OItyN1fBpHqqCSddmTEJXZYKoolloI,230112
+opendht.dylibs/libhogweed.6.11.dylib,sha256=FpfHS_O-aik4wN9JvORzLf9BCHoDPtJwTwVkPc51ZK8,316480
+opendht.dylibs/libunistring.5.dylib,sha256=s7y0TQBcL_Is-Q3aPX7-CQwnc-WFlkbvh8l9rTPo9bs,2001840
+opendht.dylibs/libargon2.1.dylib,sha256=L_LMEWH0yeRn6qWIFq-LMI65BZoGI17H9nK6SZjVqb8,88352
+opendht.dylibs/libgmp.10.dylib,sha256=uZf07IvV3mTG8JS3JXa9NXcgX2jzRdC7C3Sa99H1328,452832
+opendht-3.5.1.dist-info/RECORD,,
+opendht-3.5.1.dist-info/WHEEL,sha256=aJP9VHfFEgbnUsD-lsidbChggV8qvE5_IQddd2pzloY,136
+opendht-3.5.1.dist-info/top_level.txt,sha256=eRjs3zWovWo1FWlHR6LVm3J0ceM6I_2KGHl2t3du0WM,8
+opendht-3.5.1.dist-info/METADATA,sha256=BTTD4OPvt79dQW1DGIT2CJuA76bZbMbEicgLWiBTSzQ,684
