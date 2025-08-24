@@ -1,0 +1,149 @@
+Metadata-Version: 2.3
+Name: langchain-parallel-web
+Version: 0.0.1a0
+Summary: ParallelWeb integration for LangChain
+License: MIT
+Keywords: langchain,parallel,web,llm,ai
+Author: Sanjeev Halyal
+Author-email: 1448731+sanjeevhalyal@users.noreply.github.com
+Requires-Python: >=3.9,<4.0
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Typing :: Typed
+Requires-Dist: aiohttp (>=3.12.15,<4.0.0)
+Requires-Dist: langchain-core (>=0.3.15,<0.4.0)
+Requires-Dist: parallel-web (>=0.1.3,<0.2.0)
+Requires-Dist: pydantic (>=2.11.7,<3.0.0)
+Project-URL: Homepage, https://github.com/sanjeevhalyal/langchain-parallel-web
+Project-URL: Issues, https://github.com/sanjeevhalyal/langchain-parallel-web/issues
+Project-URL: Repository, https://github.com/sanjeevhalyal/langchain-parallel-web
+Project-URL: Release Notes, https://github.com/sanjeevhalyal/langchain-parallel-web/releases
+Project-URL: Source Code, https://github.com/sanjeevhalyal/langchain-parallel-web
+Description-Content-Type: text/markdown
+
+# langchain-parallel-web
+
+LangChain tool and toolkit for Parallel Web search. It exposes a tool that performs web research and returns ranked, compressed excerpts from multiple sources, plus a toolkit to easily wire it into agents.
+
+## Installation
+
+```bash
+pip install -U langchain-parallel-web
+```
+
+Set your Parallel API key:
+
+```bash
+export PARALLEL_API_KEY="your-api-key"
+```
+
+You can also pass the key directly to the classes shown below.
+
+## Tool: Parallel Web Search
+
+`ParallelWebTool` exposes the Parallel Web search as a LangChain tool.
+
+```python
+from langchain_parallel_web.tools import ParallelWebTool
+
+# Option 1: rely on PARALLEL_API_KEY in env
+tool = ParallelWebTool()
+
+# Option 2: pass the key explicitly
+# tool = ParallelWebTool(parallel_api_key="your-api-key")
+
+result_json = tool.invoke({
+    "objective": "Find when the UN was founded; prefer official sources.",
+    "search_queries": [
+        "United Nations founding year",
+        "When was the UN founded official site"
+    ],
+})
+print(result_json)
+```
+
+### Configuration
+You can control search behavior via `ParallelWebSearchConfig`.
+
+```python
+from langchain_parallel_web.parallel_web_wrapper import ParallelWebSearchConfig
+from langchain_parallel_web.tools import ParallelWebTool
+
+config = ParallelWebSearchConfig(
+    max_results=10,          # up to 40
+    processor="base",        # or "pro"
+    max_chars_per_result=1500
+)
+
+tool = ParallelWebTool(config=config)
+```
+
+## Toolkit: Agent Integration
+
+`ParallelWebToolkit` returns a ready-to-use list of tools for agent setups.
+
+```python
+from langchain_parallel_web.toolkits import ParallelWebToolkit
+
+# Pass the key explicitly for the toolkit
+toolkit = ParallelWebToolkit(parallel_api_key="your-api-key")
+
+tools = toolkit.get_tools()
+
+# Use `tools` with your LangChain agent or runnable graph
+```
+
+## Direct API Wrapper
+
+For lower-level control, call the wrapper directly.
+
+```python
+from langchain_parallel_web.parallel_web_wrapper import (
+    ParallelWebAPIWrapper,
+    ParallelWebSearchInput,
+)
+
+wrapper = ParallelWebAPIWrapper()  # uses PARALLEL_API_KEY from env
+# or: wrapper = ParallelWebAPIWrapper(parallel_api_key="your-api-key")
+
+payload = ParallelWebSearchInput(
+    objective="Summarize key announcements from OpenAI DevDay 2023.",
+    search_queries=["OpenAI DevDay 2023 announcements", "OpenAI DevDay keynote summary"],
+)
+
+out = wrapper.search(payload)
+print(out.model_dump())
+```
+
+Async usage is supported:
+
+```python
+import asyncio
+from langchain_parallel_web.parallel_web_wrapper import (
+    ParallelWebAPIWrapper,
+    ParallelWebSearchInput,
+)
+
+async def main():
+    wrapper = ParallelWebAPIWrapper()
+    out = await wrapper.asearch(
+        ParallelWebSearchInput(
+            objective="Latest SEC filing summary for NVDA.",
+            search_queries=["NVIDIA latest 10-Q", "NVDA SEC filing"],
+        )
+    )
+    print(out.model_dump())
+
+asyncio.run(main())
+```
+
