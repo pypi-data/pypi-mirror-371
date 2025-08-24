@@ -1,0 +1,11 @@
+# Include project info
+include README.md
+include LICENSE.txt
+include pyproject.toml
+
+# Include extension module
+include CMakeLists.txt
+recursive-include src/mafft *
+
+# exclude original MAFFT code reference
+exclude src/mafft-*-original/**
