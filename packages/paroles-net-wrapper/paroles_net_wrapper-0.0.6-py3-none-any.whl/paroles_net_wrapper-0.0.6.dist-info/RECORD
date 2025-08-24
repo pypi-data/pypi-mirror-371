@@ -1,0 +1,9 @@
+paroles_net.py,sha256=jcVxWQ23LfbVu2ig7MOlaTYGHvBhuAxdyVM5x5KHzlU,17227
+utils.py,sha256=cpWmmXTUThae7bLz8uaoePBsfhkjp7j2K3IBi2MVgEU,289
+models/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+models/song.py,sha256=C7zBTA0q2sMwjgfXQPL5BjkW-cejju-7gKE87e3n-9Q,698
+paroles_net_wrapper-0.0.6.dist-info/licenses/LICENSE,sha256=FA30UQfFrjruh0srFXWiA8IPtllKBFyFvwLa81X38YU,1056
+paroles_net_wrapper-0.0.6.dist-info/METADATA,sha256=SxTtDxXWh_K3wuop1Xsjjm_y4sEd6SYkzRsp83ZNMo4,1409
+paroles_net_wrapper-0.0.6.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+paroles_net_wrapper-0.0.6.dist-info/top_level.txt,sha256=Rcla635hJ5dMkBiEZqfx-7j_f7cGTHsA7V_a0wzOG3E,25
+paroles_net_wrapper-0.0.6.dist-info/RECORD,,
