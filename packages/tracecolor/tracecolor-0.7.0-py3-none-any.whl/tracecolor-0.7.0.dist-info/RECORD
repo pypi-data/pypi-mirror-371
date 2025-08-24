@@ -1,0 +1,12 @@
+tracecolor/__init__.py,sha256=Un11ohUmr9YrxVIcEu6DDv0pGJl9oQ1HTHbSPRRtK0Q,897
+tracecolor/monitor.py,sha256=c7cqwyYEPgBsVGfhLsqbmx-EWoLi3hEwtq4oxOiVa6E,5519
+tracecolor/run_monitor.py,sha256=qMrI7s9hmHIsgCnjVOcV8Jzhov3A1xD8Namq27jgRQA,743
+tracecolor/setup.py,sha256=e9hWkxNeb2NZssNh60SHX0NY4MKU-htID2IQKeK3n8k,1588
+tracecolor/test_udp.py,sha256=R2C69sB98NkhlJeEPLc1TEcbJbhOEB7uJU1nRZSn9VI,3662
+tracecolor/tracecolor.py,sha256=_j8-oGRV1llYAJ0Rn-Ac8Nd2keDMu92Z19PlbAFHXmY,12978
+tracecolor-0.7.0.dist-info/licenses/LICENSE,sha256=urXQQl8kefBevznxEE0SqsQ5t8Zp5fG7QdcSo_pZeqE,1069
+tracecolor-0.7.0.dist-info/METADATA,sha256=kFQxrS4Dxb96pdAaUtV3BEWU8wt0Ookz9F73juGmnn8,7318
+tracecolor-0.7.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+tracecolor-0.7.0.dist-info/entry_points.txt,sha256=tf6X-TqafQuqQBbzp-YBeDSp8Doux4PsNpKe-MU0oVM,63
+tracecolor-0.7.0.dist-info/top_level.txt,sha256=9NDWfkKOEz2moiEbUiKMgC4pTXLP24-xI04Rk2TMeEg,11
+tracecolor-0.7.0.dist-info/RECORD,,
