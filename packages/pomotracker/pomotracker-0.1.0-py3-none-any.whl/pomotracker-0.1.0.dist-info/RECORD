@@ -1,0 +1,10 @@
+pomotracker/__init__.py,sha256=ajz1GSNU9xYVrFEDSz6Xwg7amWQ_yvW75tQa1ZvRIWc,3
+pomotracker/database.py,sha256=_xtj5qBtcJUZM9SBCiLL6z5qIyHYe9q6UOzLc3ZCDdI,2850
+pomotracker/main.py,sha256=s9BDpd_LVzM_QzehNTQY8MQffUfEw-B7QAitYrTFTwA,2253
+pomotracker/notification.py,sha256=4NKkCUCz8qwCvq0-elQwiQNpfrrcXk_XWWBC2iGTFUI,307
+pomotracker/session.py,sha256=VRm0fqdPFPXEDw79DgExHtrSuK6cu6Yu1_SVTXZmvxQ,4887
+pomotracker/window.py,sha256=lIjezAQcvvOVUI4VHzBM7uvMgxb22A1IGFrg0AGYC28,3446
+pomotracker-0.1.0.dist-info/METADATA,sha256=mh3ifhqdvxBvg8UkoXPuApSt_j9Nma8VliSj142oecs,1350
+pomotracker-0.1.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+pomotracker-0.1.0.dist-info/entry_points.txt,sha256=sqU_HkiAGB-3BVWCo9sSkG0ix0SOOaOQaECDqc8gXZU,53
+pomotracker-0.1.0.dist-info/RECORD,,

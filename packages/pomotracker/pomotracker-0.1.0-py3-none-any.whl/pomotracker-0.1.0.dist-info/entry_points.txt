@@ -1,0 +1,2 @@
+[console_scripts]
+pomotracker = pomotracker.main:run
