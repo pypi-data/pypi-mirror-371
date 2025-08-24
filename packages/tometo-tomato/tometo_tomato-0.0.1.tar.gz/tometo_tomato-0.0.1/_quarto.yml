@@ -1,0 +1,32 @@
+project:
+  type: website
+  output-dir: docs
+  render:
+    - "*.qmd"
+    - "!*.md"
+    - "doc_sources/"
+
+resources:
+  - files/input.csv
+  - files/ref.csv
+  - files/ref_sample.csv
+
+website:
+  title: "Tometo Tomato"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: doc_sources/about.qmd
+        text: About
+
+  page-footer:
+    center: "Lorem ipsum"
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    lang: it
+    link-external-newwindow: true

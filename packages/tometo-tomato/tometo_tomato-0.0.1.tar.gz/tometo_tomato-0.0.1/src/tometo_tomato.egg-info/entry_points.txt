@@ -1,0 +1,2 @@
+[console_scripts]
+tometo_tomato = tometo_tomato.tometo_tomato:main
