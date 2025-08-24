@@ -1,0 +1,6 @@
+[console_scripts]
+mafftpy = itaxotools.mafftpy.__main__:main
+mafftpy-auto = itaxotools.mafftpy.__main__:auto
+mafftpy-ginsi = itaxotools.mafftpy.__main__:ginsi
+mafftpy-fftns1 = itaxotools.mafftpy.__main__:fftns1
+

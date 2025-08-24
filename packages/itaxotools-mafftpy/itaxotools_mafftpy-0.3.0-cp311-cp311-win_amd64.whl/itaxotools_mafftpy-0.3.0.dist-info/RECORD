@@ -1,0 +1,9 @@
+itaxotools/_mafft.cp311-win_amd64.pyd,sha256=7ucnczU3E3tBHEUT8yuEwaMWJGyNqzuXwL8mWX_U3Ks,755200
+itaxotools/mafftpy/__init__.py,sha256=ghVwsJjPhoVADlACpXjh4yEmRmD7BomDbntFFU2SIJM,181
+itaxotools/mafftpy/__main__.py,sha256=2wT54YYGugnEwqTJ5Zcz9VOsCKeWumPDB3-emFRDcjI,1278
+itaxotools/mafftpy/core.py,sha256=gBhF8i2coDOtq3k85JYLyMJ-gp9emFACU_8fboRtues,27132
+itaxotools_mafftpy-0.3.0.dist-info/METADATA,sha256=2OxfBS3U2rUTYVYETdt_2wvbmeAvetdlsgZUKCkevJs,4281
+itaxotools_mafftpy-0.3.0.dist-info/WHEEL,sha256=oXhHG6ewLm-FNdEna2zwgy-K0KEl4claZ1ztR4VTx0I,106
+itaxotools_mafftpy-0.3.0.dist-info/entry_points.txt,sha256=NStm1TTz3OOMUBLOa6gelaAuEEhr1wH47m5KfKh1NsA,212
+itaxotools_mafftpy-0.3.0.dist-info/licenses/LICENSE.txt,sha256=IwGE9guuL-ryRPEKi6wFPI_zOhg7zDZbTYuHbSt_SAk,35823
+itaxotools_mafftpy-0.3.0.dist-info/RECORD,,
