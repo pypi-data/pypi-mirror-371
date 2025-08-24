@@ -1,0 +1,163 @@
+Metadata-Version: 2.4
+Name: waifu2x-python
+Version: 2.0.2
+Summary: High-performance Python wrapper for waifu2x-ncnn-vulkan with GPU/CPU support
+Home-page: https://github.com/gleidsonnunes/waifu2x-python
+Author: AI Assistant
+Author-email: Gleidson Rodrigues Nunes <gleidsonrnunes@gmail.com>
+Maintainer: Gleidson Rodrigues Nunes
+Maintainer-email: Gleidson Rodrigues Nunes <gleidsonrnunes@gmail.com>
+License: MIT
+Project-URL: Homepage, https://github.com/gleidsonnunes/waifu2x-python
+Project-URL: Documentation, https://github.com/gleidsonnunes/waifu2x-python#readme
+Project-URL: Repository, https://github.com/gleidsonnunes/waifu2x-python.git
+Project-URL: Bug Tracker, https://github.com/gleidsonnunes/waifu2x-python/issues
+Project-URL: Changelog, https://github.com/gleidsonnunes/waifu2x-python/blob/main/CHANGELOG.md
+Keywords: waifu2x,super-resolution,image-processing,computer-vision,deep-learning,ncnn,vulkan,upscaling,denoising
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Image Processing
+Classifier: Topic :: Scientific/Engineering :: Image Recognition
+Classifier: Topic :: Multimedia :: Graphics
+Classifier: Topic :: Multimedia :: Graphics :: Graphics Conversion
+Classifier: Typing :: Typed
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: AUTHORS.md
+Requires-Dist: opencv-python>=4.8.0
+Requires-Dist: numpy>=1.24.0
+Requires-Dist: Pillow>=10.0.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.4.0; extra == "dev"
+Requires-Dist: pytest-cov>=4.1.0; extra == "dev"
+Requires-Dist: black>=23.3.0; extra == "dev"
+Requires-Dist: flake8>=6.0.0; extra == "dev"
+Requires-Dist: mypy>=1.4.1; extra == "dev"
+Requires-Dist: isort>=5.12.0; extra == "dev"
+Requires-Dist: pytest-mock>=3.10.0; extra == "dev"
+Requires-Dist: pytest-asyncio>=0.21.0; extra == "dev"
+Provides-Extra: docs
+Requires-Dist: sphinx>=6.0.0; extra == "docs"
+Requires-Dist: sphinx-rtd-theme>=1.2.0; extra == "docs"
+Requires-Dist: sphinx-autodoc-typehints>=1.22.0; extra == "docs"
+Requires-Dist: myst-parser>=1.0.0; extra == "docs"
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: maintainer
+Dynamic: platform
+Dynamic: requires-python
+
+# Waifu2x Python
+
+[![Python Version](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![PyPI version](https://badge.fury.io/py/waifu2x-python.svg)](https://badge.fury.io/py/waifu2x-python)
+
+Python wrapper for waifu2x-ncnn-vulkan with a simple and powerful interface for image and video frame upscaling.
+
+## Features
+
+- High-performance image upscaling using waifu2x-ncnn-vulkan
+- Support for multiple image formats (PNG, JPG, WEBP, etc.)
+- Multiple models including anime and photo styles
+- GPU acceleration with fallback to CPU
+- Batch processing of multiple images
+- Progress tracking and error handling
+
+## Installation
+
+```bash
+pip install waifu2x-python
+```
+
+### Dependencies
+
+- waifu2x-ncnn-vulkan
+- Python 3.8+
+- OpenCV
+- NumPy
+- Pillow
+
+## Usage
+
+### Basic Example
+
+```python
+from waifu2x_python import Waifu2x, ProcessingConfig
+
+# Initialize with default settings
+waifu2x = Waifu2x()
+
+# Process a single image
+result = waifu2x.process("input.jpg", "output_2x.jpg")
+print(f"Processed image saved to: {result.output_path}")
+```
+
+### Advanced Configuration
+
+```python
+from waifu2x_python import Waifu2x, ProcessingConfig, ModelType
+
+# Custom configuration
+config = ProcessingConfig(
+    model=ModelType.UPCONV_7_ANIME,  # or ModelType.CUNET, ModelType.UP_PHOTO, etc.
+    scale=2,                         # 1, 2, 4, 8, 16, 32
+    noise=1,                         # -1 to 3 (-1 = no effect, 0 = no noise reduction, 1-3 = noise reduction level)
+    gpu_id=0,                        # -1 for CPU-only, 0 for first GPU, 1 for second GPU, etc.
+    tile_size=0,                     # 0 for auto
+    num_threads=4                   # Number of CPU threads to use
+)
+
+waifu2x = Waifu2x(config=config)
+
+# Process all images in a folder
+results = waifu2x.process_folder("input_folder", "output_folder")
+print(f"Processed {len([r for r in results if r.success])}/{len(results)} images successfully")
+```
+
+### Command Line Interface
+
+```bash
+# Basic usage
+waifu2x -i input.jpg -o output.png
+
+# Process folder recursively
+waifu2x -i input_folder -o output_folder -r
+
+# Custom settings
+waifu2x -i input.jpg -o output.png -m models-upconv_7_anime_style_art_rgb -s 2 -n 1 -g 0 -t 200
+
+# CPU-only mode
+waifu2x -i input.jpg -o output.png -g -1
+```
+
+## Available Models
+
+- `models-cunet` - High quality denoising and upscaling (default)
+- `models-upconv_7_anime_style_art_rgb` - For anime-style art
+- `models-upconv_7_photo` - For photos
+- `models-upconv_7_anime_style_art_rgb_noise0` - For clean anime-style art
+- `models-upconv_7_anime_style_art_rgb_noise1` - For slightly noisy anime-style art
+- `models-upconv_7_anime_style_art_rgb_noise2` - For noisy anime-style art
+- `models-upconv_7_anime_style_art_rgb_noise3` - For very noisy anime-style art
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgements
+
+- [waifu2x-ncnn-vulkan](https://github.com/nihui/waifu2x-ncnn-vulkan) - The underlying engine
+- [ncnn](https://github.com/Tencent/ncnn) - High-performance neural network inference framework
+- [Vulkan](https://www.vulkan.org/) - Cross-platform 3D graphics and compute API
