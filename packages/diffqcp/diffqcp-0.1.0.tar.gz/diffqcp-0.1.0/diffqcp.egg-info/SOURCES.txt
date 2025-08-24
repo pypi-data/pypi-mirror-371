@@ -1,0 +1,13 @@
+LICENSE.md
+README.md
+pyproject.toml
+diffqcp.egg-info/PKG-INFO
+diffqcp.egg-info/SOURCES.txt
+diffqcp.egg-info/dependency_links.txt
+diffqcp.egg-info/requires.txt
+diffqcp.egg-info/top_level.txt
+tests/test_cone_projectors.py
+tests/test_linops.py
+tests/test_problem_data.py
+tests/test_qcp_cpu_analytical.py
+tests/test_qcp_gpu_analytical.py

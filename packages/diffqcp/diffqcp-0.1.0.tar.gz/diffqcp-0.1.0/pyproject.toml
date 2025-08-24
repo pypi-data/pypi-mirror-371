@@ -1,0 +1,37 @@
+
+
+[project]
+name = "diffqcp"
+version = "0.1.0"
+description = "Engine to compute Jacobian-vector and vector-Jacobian products for (convex) quadratic cone programs."
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "equinox>=0.12.2",
+    "jax[cuda12]>=0.6.2",
+    "jaxtyping>=0.3.2",
+    "lineax>=0.0.8",
+    "numpy>=2.3.1",
+    "scipy>=1.15.3",
+]
+
+[tool.setuptools]
+py-modules = ['diffqcp']
+
+[tool.uv.sources]
+lineax = { git = "https://github.com/patrick-kidger/lineax.git" }
+
+[dependency-groups]
+dev = [
+    "cupy-cuda12x>=13.5.1",
+    "cvxpy>=1.6.6",
+    "diffcp>=1.1.4",
+    "juliacall>=0.9.26",
+    "matplotlib>=3.10.5",
+    "patdb>=0.1.0",
+    "pytest>=8.4.1",
+    "ruff>=0.12.0",
+]
+
+[tool.ruff.lint]
+ignore = ["F722"]
