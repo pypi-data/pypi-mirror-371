@@ -1,0 +1,82 @@
+[tool.ruff]
+target-version = "py313"
+
+[tool.ruff.lint]
+extend-select = ["I", "TRY", "UP"]
+
+[tool.mypy]
+warn_redundant_casts = true
+warn_unused_ignores = true
+disallow_any_generics = true
+check_untyped_defs = true
+no_implicit_reexport = true
+strict_equality = true
+disallow_untyped_defs = true
+
+[tool.pytest.ini_options]
+addopts = "--cov=aut/ --cov-report=term-missing"
+
+
+[tool.hatch]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.version]
+source = "regex_commit"
+commit_extra_args = ["-e"]
+path = "aut/__init__.py"
+
+[tool.hatch.envs.default]
+installer = "uv"
+python = "3.13"
+dependencies = [
+    "mypy",
+    "ruff",
+    "pytest",
+    "pytest-cov",
+    "mkdocs-material",
+    "mkdocstrings[python]",
+    
+]
+
+[tool.hatch.envs.default.scripts]
+test = "pytest"
+test-cov-xml = "pytest --cov-report=xml"
+lint = [
+  "ruff format .",
+  "ruff check --fix .",
+  "mypy aut/",
+]
+lint-check = [
+  "ruff format --check .",
+  "ruff check .",
+  "mypy aut/",
+]
+docs-serve = "mkdocs serve"
+docs-build = "mkdocs build"
+
+[build-system]
+requires = ["hatchling", "hatch-regex-commit"]
+build-backend = "hatchling.build"
+
+[project]
+name = "aut"
+authors = [
+  { name = "aut", email = "aut@francoisvoron.com" }
+]
+description = "Authentication, simplified."
+readme = "README.md"
+dynamic = ["version"]
+classifiers = [
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.13",
+]
+requires-python = ">=3.13"
+dependencies = [
+    "anyio",
+]
+
+[project.urls]
+Documentation = "https://frankie567.github.io/aut/"
+Source = "https://github.com/frankie567/aut"
