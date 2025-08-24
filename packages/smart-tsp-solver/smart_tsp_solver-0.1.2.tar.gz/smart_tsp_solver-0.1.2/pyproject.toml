@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "smart-tsp-solver"
+version = "0.1.2"
+description = "A high-performance Python library for solving the Traveling Salesman Problem (TSP) using novel heuristic approaches. Features advanced algorithms that outperform classical methods by 6-16% on real-world clustered data while maintaining practical computational efficiency."
+authors = [
+    {name = "A.A Suvorov", email = "smartlegiondev@gmail.com"}
+]
+license = "BSD-3-Clause"
+readme = "README.md"
+requires-python = ">=3.6"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "smart-tsp-benchmark==0.1.2",
+    "numba==0.61.2"
+]
+
+[project.urls]
+Homepage = "https://github.com/smartlegionlab/smart-tsp-solver"
+
+[tool.setuptools.packages.find]
+where = ["."]
