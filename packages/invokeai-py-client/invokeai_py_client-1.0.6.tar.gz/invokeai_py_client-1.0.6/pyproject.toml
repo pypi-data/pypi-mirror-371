@@ -1,0 +1,256 @@
+[project]
+name = "invokeai-py-client"
+version = "1.0.6"
+description = "A Python client library for interacting with InvokeAI APIs"
+authors = [
+    {name = "CodeGandee", email = "igamenovoer@xx.com"}
+]
+readme = "README.md"
+license = {file = "LICENSE"}
+requires-python = ">=3.11"
+keywords = ["invokeai", "api", "client", "ai", "image-generation", "stable-diffusion", "flux"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: MacOS",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Multimedia :: Graphics",
+    "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+    "Typing :: Typed",
+]
+dependencies = [
+    "scipy>=1.16.1", 
+    "opencv-python>=4.5.0", 
+    "pillow>=9.0.0", 
+    "requests>=2.32.4", 
+    "python-socketio[asyncio-client]>=5.13.0", 
+    "jsonpath-ng>=1.7.0", 
+    "rich>=14.1.0", 
+    "pluggy>=1.0.0", 
+    "dynamicprompts>=0.31.0", 
+    "imageio>=2.25.0", 
+    "tqdm>=4.67.1",
+    "pydantic>=2.5.0",
+    "aiohttp>=3.8.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/CodeGandee/invokeai-py-client"
+Repository = "https://github.com/CodeGandee/invokeai-py-client"
+Documentation = "https://codegandee.github.io/invokeai-py-client/"
+Issues = "https://github.com/CodeGandee/invokeai-py-client/issues"
+Changelog = "https://github.com/CodeGandee/invokeai-py-client/blob/main/docs/changelog.md"
+Discussions = "https://github.com/CodeGandee/invokeai-py-client/discussions"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "pytest-asyncio>=0.21",
+    "black>=23.0",
+    "ruff>=0.1",
+    "mypy>=1.0",
+    "pre-commit>=3.0",
+    "ipykernel>=6.30.1",
+]
+docs = [
+    "mkdocs>=1.5",
+    "mkdocs-material>=9.0",
+    "mkdocstrings[python]>=0.20",
+]
+test = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "pytest-asyncio>=0.21",
+    "httpx>=0.25",
+    "respx>=0.20",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/invokeai_py_client"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/src",
+    "/tests",
+    "/README.md",
+    "/LICENSE",
+]
+
+# Pixi configuration - replaces the standalone pixi.toml
+[tool.pixi.workspace]
+name = "invokeai-py-client"
+authors = ["CodeGandee <igamenovoer@xx.com>"]
+channels = ["conda-forge"]
+platforms = ["win-64", "linux-64", "osx-64", "osx-arm64"]
+version = "1.0.6"
+
+[tool.pixi.dependencies]
+python = ">=3.11"
+# Development tools via conda for better performance
+ruff = "*"
+mypy = "*"
+pytest = "*"
+pre-commit = "*"
+opencv = ">=4.12.0,<5"
+imageio = ">=2.37.0,<3"
+pydantic = ">=2.11.7,<3"
+aiohttp = ">=3.12.15,<4"
+pluggy = "*"
+
+[tool.pixi.pypi-dependencies]
+# The project itself in editable mode
+invokeai-py-client = { path = ".", editable = true }
+
+[tool.pixi.tasks]
+# Development tasks
+install = "pip install -e ."
+test = "pytest tests/ -v"
+test-cov = "pytest tests/ --cov=src/invokeai_py_client --cov-report=term-missing"
+lint = "ruff check src/ tests/"
+lint-fix = "ruff check --fix src/ tests/"
+format = "ruff format src/ tests/"
+typecheck = "mypy src/"
+pre-commit-install = "pre-commit install"
+pre-commit-run = "pre-commit run --all-files"
+
+# Documentation tasks
+docs-serve = "mkdocs serve"
+docs-build = "mkdocs build"
+
+# Combined tasks
+quality = "pixi run lint && pixi run typecheck && pixi run test"
+dev-setup = "pixi run install && pixi run pre-commit-install"
+
+[tool.pixi.environments]
+default = {features = [], solve-group = "default"}
+dev = {features = ["dev"], solve-group = "default"}
+docs = {features = ["docs"], solve-group = "default"}
+test = {features = ["test"], solve-group = "default"}
+
+# Python tooling configuration
+[tool.ruff]
+target-version = "py311"
+line-length = 88
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "B",   # flake8-bugbear
+    "C4",  # flake8-comprehensions
+    "UP",  # pyupgrade
+]
+ignore = [
+    "E501",  # line too long, handled by black
+    "B008",  # do not perform function calls in argument defaults
+    "C901",  # too complex
+    "I001",  # ignore import sorting/formatting (isort) complaints
+    "W291",  # ignore trailing whitespace (optional stylistic)
+    "W292",  # ignore missing newline at EOF
+    "W293",  # ignore blank line contains whitespace
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+strict_equality = true
+strict_concatenate = true
+disallow_any_unimported = true
+disallow_any_expr = false  # Too strict for general use
+disallow_any_decorated = false  # Too strict for general use
+disallow_any_explicit = false
+disallow_any_generics = true
+disallow_subclassing_any = true
+disallow_untyped_calls = true
+implicit_reexport = false
+no_implicit_reexport = true
+allow_untyped_globals = false
+allow_redefinition = false
+local_partial_types = false
+disable_error_code = []
+enable_error_code = ["ignore-without-code", "redundant-expr", "truthy-bool"]
+show_error_codes = true
+show_column_numbers = true
+show_error_context = true
+pretty = true
+
+[[tool.mypy.overrides]]
+module = "tests.*"
+disallow_untyped_defs = false
+
+[[tool.mypy.overrides]]
+module = [
+    "PIL.*",
+    "cv2.*",
+    "aiohttp.*",
+    "numpy.*",
+    "requests.*",
+    "urllib3.*",
+]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-ra -q --strict-markers"
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "integration: marks tests as integration tests",
+    "unit: marks tests as unit tests",
+]
+
+[tool.coverage.run]
+source = ["src"]
+omit = ["*/tests/*"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if self.debug:",
+    "if settings.DEBUG",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if 0:",
+    "if __name__ == .__main__.:",
+    "class .*\\bProtocol\\):",
+    "@(abc\\.)?abstractmethod",
+]
+
+[dependency-groups]
+dev = ["pytest-playwright>=0.7.0", "mkdocs-material>=9.6.17"]
