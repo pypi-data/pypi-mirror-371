@@ -1,0 +1,171 @@
+[build-system]
+requires = ["hatchling", "uv-dynamic-versioning"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+source = "uv-dynamic-versioning"
+
+[tool.uv-dynamic-versioning]
+vcs = "git"
+style = "pep440"
+format = "{base}"
+
+[tool.hatch.build.hooks.version]
+path = "gem/__version__.py"
+template = '''
+__version__ = "{version}"
+__author__ = "karta9821"
+__author_email__ = "karwacki.bartosz.it@gmail.com"
+__description__ = "Dual Momentum Investing Strategy Tool"
+'''
+
+[project]
+name = "global-equity-momentum"
+dynamic = ["version"]
+description = "Dual Momentum Investing Strategy Tool"
+readme = "README.md"
+requires-python = ">=3.13"
+license = { file = "LICENSE" }
+classifiers = [
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.13",
+  "Framework :: Hatch",
+]
+dependencies = [
+    "loguru>=0.7.3",
+    "matplotlib>=3.10.5",
+    "pandas>=2.3.1",
+    "seaborn>=0.13.2",
+    "yfinance>=0.2.65",
+]
+
+[project.urls]
+Repository = "https://github.com/karta9821/global-equity-momentum"
+Homepage = "https://github.com/karta9821/global-equity-momentum"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.5",
+    "pytest-asyncio>=0.26.0",
+    "pytest-cov>=6.1.1",
+]
+
+linting = [
+    "pyright>=1.1.400",
+    "ruff>=0.11.8",
+]
+typechecking = [
+    "mypy>=1.15.0",
+    "pyright>=1.1.400",
+]
+
+all = [
+  { include-group = 'dev' },
+  { include-group = 'linting' },
+  { include-group = 'typechecking' },
+]
+
+[tool.uv]
+default-groups = ['dev']
+
+[tool.ruff]
+# Line length configuration
+line-length = 120
+
+# Target Python version
+target-version = "py313"
+
+src = ["gem"]
+
+[tool.ruff.lint]
+# Enable all rules by default, then explicitly disable specific ones
+select = ["ALL"]
+ignore = [
+    # Missing docstrings
+    "D100",  # Missing docstring in public module
+    "D101",  # Missing docstring in public class
+    "D102",  # Missing docstring in public method
+    "D103",  # Missing docstring in public function
+    "D104",  # Missing docstring in public package
+    "D105",  # Missing docstring in magic method
+    "D106",  # Missing docstring in public nested class
+    "D107",  # Missing docstring in __init__
+
+    # Docstring formatting
+    "D200",  # One-line docstring should fit on one line
+    "D203",  # One blank line before class docstring
+    "D212",  # Multi-line docstring summary should start at the first line
+    "D401",  # First line of docstring should be in imperative mood
+
+    # Type annotations
+    "ANN201",  # Missing return type annotation for public function
+
+    # Code quality
+    "COM812",  # Missing trailing comma in Python 3.6+
+    "ERA001",  # Found commented-out code
+    "FBT",     # Boolean trap - using boolean as positional argument
+    "INP001",  # File is part of an implicit namespace package. Add an __init__.py
+    "ISC001",  # Conflicts with formatter
+    "T201",    # `print` found
+    "PD011",   # Use `.to_numpy()` instead of `.values`
+    "G004",    # Logging statement uses f-string
+    "BLE001",  # Do not catch blind exception: `Exception`
+    "TRY300"   # Consider moving this statement to an `else` block
+]
+
+# Allow autofix for all enabled rules (when `--fix`) is provided
+fixable = ["ALL"]
+unfixable = []
+
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401", "E402"]  # Ignore unused imports and imports not at top
+"tests/**/*.py" = [
+    # at least this three should be fine in tests:
+    "S101", # asserts allowed in tests...
+    "ARG", # Unused function args -> fixtures nevertheless are functionally relevant...
+    "FBT", # Don't care about booleans as positional arguments in tests, e.g. via @pytest.mark.parametrize()
+    "ANN401", # Dynamically typed expressions (typing.Any) are disallowed in `*args`
+    "ANN001", # Missing type annotation for function argument
+    "ANN202", # Missing return type annotation for private function
+    "PLR2004", # Magic value used in comparison, consider replacing `2` with a constant variable
+    "SLF001", # Private member accessed
+]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.flake8-quotes]
+docstring-quotes = "double"
+inline-quotes = "double"
+
+[tool.ruff.lint.flake8-tidy-imports]
+ban-relative-imports = "all"
+
+[tool.mypy]
+files = [
+    "gem",
+    "tests",
+]
+mypy_path = [
+    "gem",
+]
+
+[tool.ruff.lint.pyupgrade]
+keep-runtime-typing = true
+
+[tool.ruff.lint.pylint]
+max-args = 8
+max-returns = 5
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+addopts = "--cov=gem --cov-fail-under=85"
