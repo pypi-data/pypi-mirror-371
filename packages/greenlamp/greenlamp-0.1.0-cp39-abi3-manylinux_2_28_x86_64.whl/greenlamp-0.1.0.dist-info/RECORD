@@ -1,0 +1,13 @@
+_core/__init__.py,sha256=Nl-twrL6t-cUvqwCoDkRyjDAUmHWkMBYWbUGm0lVJhQ,103
+_core/_core.abi3.so,sha256=IG6zkQrdR3ql-OFgZxJTxNlpvOhH_km0deZwUKQmH_U,483536
+greenlamp-0.1.0.dist-info/METADATA,sha256=kcfJdKHox8AcM7EdDZpqV_juqVZIyLyTCj5P3OpiqrM,305
+greenlamp-0.1.0.dist-info/WHEEL,sha256=gEgmpEaXd75O_HTeviv-llyRTQt--9RbdwrXDS9iM78,106
+greenlamp/__init__.py,sha256=EX2OW85kmnhZXuRD-8pUENgaT0ovDMGtcwzWaeulQGM,93
+greenlamp/__pycache__/__init__.cpython-312.pyc,sha256=tOOHyrAWKkuAZTleoQcNYd4cuyPQdXFTK8eHC-UYoc8,387
+greenlamp/_core.pyi,sha256=b6oJaUXUzEzqUE5rpqefV06hl8o_JCU8pgKgIIzQgmc,33
+greenlamp/differential/__init__.py,sha256=-zauNbQhfXgCdB3nTlmCaLN6iBPpg-KbTabxRmPBqv0,46
+greenlamp/differential/__pycache__/__init__.cpython-312.pyc,sha256=_JtQlenqLGf2-49Uc5jwGd8hOZkoav7IwlAfVDkR9yo,260
+greenlamp/differential/__pycache__/discrete.cpython-312.pyc,sha256=Qol8Ur29JfVRdYG457PDpTzRaWRdQhxQl-v6AOZksWg,778
+greenlamp/differential/discrete.py,sha256=jJnWeCtWjR8iLnNZEKP6ap-X0CngB93gnFP64QgIWyI,488
+greenlamp/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+greenlamp-0.1.0.dist-info/RECORD,,
