@@ -1,0 +1,44 @@
+[build-system]
+requires = ["scikit-build-core"]
+build-backend = "scikit_build_core.build"
+
+[tool.scikit-build]
+build-dir = "build/{wheel_tag}"
+cmake.source-dir = "."
+sdist.exclude = ["docs/", "tox.ini", "test/", ".github"]
+wheel.py-api = "py3"
+wheel.platlib = false
+wheel.packages = ["src/caterpillar"]
+
+[project]
+name = "caterpillar-py"
+version = "2.6.2rev1"
+requires-python = ">=3.10"
+description = "Library to pack and unpack structurized binary data."
+authors = [{ name = "MatrixEditor" }]
+maintainers = [{ name = "MatrixEditor" }]
+readme = "README.md"
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Science/Research",
+
+  "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+
+  'Programming Language :: Python :: 3.10',
+  'Programming Language :: Python :: 3.11',
+  'Programming Language :: Python :: 3.12',
+  'Programming Language :: Python :: 3.13',
+]
+# To ensure compatibility
+dependencies = ["typing-extensions"]
+
+[project.urls]
+"Homepage" = "https://github.com/MatrixEditor/caterpillar"
+"API-Docs" = "https://matrixeditor.github.io/caterpillar"
+
+[project.optional-dependencies]
+# compression
+lzo = ["lzallright"]
+crypt = ["cryptography"]
+all = ["lzallright", "cryptography"]
