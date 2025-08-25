@@ -1,0 +1,88 @@
+__________________________________________________________
+
+## 1 Solve path planning problem using Breadth First Search
+_________________________________________________________
+
+
+from collections import deque
+
+# Breadth First Search for Path Planning on a graph
+def bfs(graph, start, goal):
+    queue = deque([(start, [start])])
+    visited = set()
+    while queue:
+        node, path = queue.popleft()
+        if node == goal:
+            return path
+        if node not in visited:
+            visited.add(node)
+            for neighbor in graph[node]:
+                if neighbor not in visited:
+                    queue.append((neighbor, path + [neighbor]))
+    return None
+
+# Example Graph (Adjacency List)
+graph = {
+    'S': ['A', 'B'],
+    'A': ['C', 'D'],
+    'B': ['E'],
+    'C': ['G'],
+    'D': ['G'],
+    'E': ['F'],
+    'F': ['G'],
+    'G': []
+}
+
+start = 'S'
+goal = 'G'
+
+print("Graph:")
+for k,v in graph.items():
+    print(k, "->", v)
+
+path = bfs(graph, start, goal)
+print("\nBFS Path from", start, "to", goal, ":", path)
+
+
+____________
+
+#### 2
+_________
+
+from collections import deque
+
+# Check if placing queen at column col with row row is safe
+def is_safe(state, row, col):
+    for c in range(col):
+        r = state[c]
+        if r == row or abs(r - row) == abs(c - col):
+            return False
+    return True
+
+# Breadth First Search for 8-Queens
+def bfs_queens(n=8):
+    queue = deque([[]])  # each state is a list of row positions for placed queens
+    while queue:
+        state = queue.popleft()
+        col = len(state)
+        if col == n:
+            return state
+        for row in range(n):
+            if is_safe(state, row, col):
+                queue.append(state + [row])
+    return None
+
+# Print chessboard
+def print_board(state):
+    n = len(state)
+    for r in range(n):
+        line = []
+        for c in range(n):
+            line.append('Q' if state[c] == r else '.')
+        print(' '.join(line))
+    print()
+
+solution = bfs_queens(8)
+print("Solution (row positions by column):", solution)
+print("\nBoard:")
+print_board(solution)

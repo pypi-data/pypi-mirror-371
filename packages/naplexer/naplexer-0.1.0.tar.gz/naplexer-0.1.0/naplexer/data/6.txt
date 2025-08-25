@@ -1,0 +1,221 @@
+________________________________________
+
+## GENETIC ALGORITHM TO SOLVE 8 PUZZLE
+__________________________________________
+
+import random
+import math
+import time
+from typing import List, Tuple
+
+# Genetic Algorithm to solve the 8-Queens problem.
+# Representation: permutation of 0..7 where index = column, value = row.
+# This guarantees no two queens share the same row. The only conflicts are diagonal attacks.
+
+N = 8
+MAX_PAIRS = N * (N - 1) // 2  # 28 for N=8
+
+
+def create_individual() -> List[int]:
+    indiv = list(range(N))
+    random.shuffle(indiv)
+    return indiv
+
+
+def fitness(indiv: List[int]) -> int:
+    # Higher is better. We map conflicts to a score where max score = MAX_PAIRS.
+    # Count number of non-attacking pairs.
+    conflicts = 0
+    for c1 in range(N):
+        for c2 in range(c1 + 1, N):
+            r1, r2 = indiv[c1], indiv[c2]
+            if abs(r1 - r2) == abs(c1 - c2):
+                conflicts += 1
+    return MAX_PAIRS - conflicts
+
+
+def pretty_board(indiv: List[int]) -> str:
+    lines = []
+    for r in range(N):
+        row = []
+        for c in range(N):
+            row.append('Q' if indiv[c] == r else '.')
+        lines.append(' '.join(row))
+    return '\n'.join(lines)
+
+
+def tournament_selection(pop: List[List[int]], pop_fitness: List[int], k: int = 3) -> List[int]:
+    best = None
+    best_fit = -1
+    for _ in range(k):
+        i = random.randrange(len(pop))
+        if pop_fitness[i] > best_fit:
+            best = pop[i]
+            best_fit = pop_fitness[i]
+    return best.copy()
+
+
+def order_crossover(parent1: List[int], parent2: List[int]) -> Tuple[List[int], List[int]]:
+    # Order Crossover (OX) for permutation encoding
+    a, b = sorted(random.sample(range(N), 2))
+    def ox(p1, p2):
+        child = [-1] * N
+        child[a:b+1] = p1[a:b+1]
+        fill_pos = (b + 1) % N
+        p2_pos = (b + 1) % N
+        while -1 in child:
+            if p2[p2_pos] not in child:
+                child[fill_pos] = p2[p2_pos]
+                fill_pos = (fill_pos + 1) % N
+            p2_pos = (p2_pos + 1) % N
+        return child
+    return ox(parent1, parent2), ox(parent2, parent1)
+
+
+def swap_mutation(indiv: List[int], mutation_rate: float) -> None:
+    if random.random() < mutation_rate:
+        i, j = random.sample(range(N), 2)
+        indiv[i], indiv[j] = indiv[j], indiv[i]
+
+
+def evolve(pop_size: int = 200,
+           generations: int = 1000,
+           crossover_rate: float = 0.9,
+           mutation_rate: float = 0.2,
+           elitism: int = 2,
+           tournament_k: int = 3,
+           early_stop: bool = True) -> Tuple[List[int], int, int]:
+
+    pop = [create_individual() for _ in range(pop_size)]
+    pop_fitness = [fitness(ind) for ind in pop]
+
+    best_idx = max(range(pop_size), key=lambda i: pop_fitness[i])
+    best = pop[best_idx].copy()
+    best_fit = pop_fitness[best_idx]
+
+    start_time = time.time()
+    for gen in range(1, generations + 1):
+        new_pop: List[List[int]] = []
+
+        # Elitism: carry forward top individuals
+        ranked = sorted(range(pop_size), key=lambda i: pop_fitness[i], reverse=True)
+        for i in range(elitism):
+            new_pop.append(pop[ranked[i]].copy())
+
+        # Generate the rest of the new population
+        while len(new_pop) < pop_size:
+            parent1 = tournament_selection(pop, pop_fitness, k=tournament_k)
+            parent2 = tournament_selection(pop, pop_fitness, k=tournament_k)
+
+            if random.random() < crossover_rate:
+                child1, child2 = order_crossover(parent1, parent2)
+            else:
+                child1, child2 = parent1.copy(), parent2.copy()
+
+            swap_mutation(child1, mutation_rate)
+            swap_mutation(child2, mutation_rate)
+
+            new_pop.append(child1)
+            if len(new_pop) < pop_size:
+                new_pop.append(child2)
+
+        pop = new_pop
+        pop_fitness = [fitness(ind) for ind in pop]
+
+        current_best_idx = max(range(pop_size), key=lambda i: pop_fitness[i])
+        current_best = pop[current_best_idx]
+        current_best_fit = pop_fitness[current_best_idx]
+
+        if current_best_fit > best_fit:
+            best_fit = current_best_fit
+            best = current_best.copy()
+
+        if gen % 10 == 0 or best_fit == MAX_PAIRS:
+            elapsed = time.time() - start_time
+            print(f"Gen {gen:4d} | Best fitness: {best_fit}/{MAX_PAIRS} | Time: {elapsed:.2f}s")
+
+        if early_stop and best_fit == MAX_PAIRS:
+            break
+
+    end_time = time.time()
+    print(f"Finished after {gen} generations. Best fitness: {best_fit}/{MAX_PAIRS}. Time: {end_time - start_time:.2f}s")
+    return best, best_fit, gen
+
+
+if __name__ == '__main__':
+    random.seed(42)
+
+    best_indiv, best_fit, gens = evolve(
+        pop_size=300,
+        generations=1000,
+        crossover_rate=0.92,
+        mutation_rate=0.25,
+        elitism=4,
+        tournament_k=5,
+        early_stop=True
+    )
+
+    print('\nBest individual:', best_indiv)
+    print('Fitness:', best_fit, '/', MAX_PAIRS)
+    print('\nBoard:')
+    print(pretty_board(best_indiv))
+
+    if best_fit == MAX_PAIRS:
+        print('\nSolution found!')
+    else:
+        print('\nNo perfect solution found within generation limit. Try increasing generations, population size, or mutation rate.')
+
+
+-------------
+# 2
+--------------
+
+import random
+
+N = 8
+POP_SIZE = 100
+MUTATION_RATE = 0.1
+MAX_GENERATIONS = 1000
+
+def fitness(ind):
+    non_attacking = 0
+    for i in range(N):
+        for j in range(i+1, N):
+            if ind[i] != ind[j] and abs(ind[i] - ind[j]) != j - i:
+                non_attacking += 1
+    return non_attacking
+
+def selection(pop):
+    return random.choices(pop, weights=[fitness(ind) for ind in pop], k=2)
+
+def crossover(p1, p2):
+    point = random.randint(0, N-1)
+    return p1[:point] + p2[point:]
+
+def mutate(ind):
+    if random.random() < MUTATION_RATE:
+        col = random.randint(0, N-1)
+        row = random.randint(0, N-1)
+        ind[col] = row
+    return ind
+
+def genetic_algorithm():
+    population = [[random.randint(0, N-1) for _ in range(N)] for _ in range(POP_SIZE)]
+    for gen in range(MAX_GENERATIONS):
+        population = sorted(population, key=lambda x: fitness(x), reverse=True)
+        if fitness(population[0]) == (N*(N-1))//2:
+            return population[0]
+        new_pop = population[:10]
+        while len(new_pop) < POP_SIZE:
+            p1, p2 = selection(population)
+            child = crossover(p1, p2)
+            child = mutate(child)
+            new_pop.append(child)
+        population = new_pop
+    return None
+
+solution = genetic_algorithm()
+print("Solution:", solution)
+ 
+
+

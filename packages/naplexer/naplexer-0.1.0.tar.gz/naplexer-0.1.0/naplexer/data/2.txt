@@ -1,0 +1,131 @@
+#### 2) Depth First Search for Attribute Subset Space
+
+from collections import defaultdict
+
+# Build a subset graph: each node is a subset, edges connect subset -> subset + {attr}
+def build_subset_graph(attributes):
+    graph = defaultdict(list)
+    n = len(attributes)
+    def dfs_build(subset, index):
+        if index == n:
+            return
+        for i in range(index, n):
+            new_subset = tuple(sorted(list(subset) + [attributes[i]]))
+            graph[subset].append(new_subset)
+            dfs_build(new_subset, i + 1)
+    dfs_build(tuple(), 0)
+    return graph
+
+# DFS search in subset graph
+def dfs(graph, start, goal):
+    stack = [(start, [start])]
+    visited = set()
+    while stack:
+        node, path = stack.pop()
+        if node == goal:
+            return path
+        if node not in visited:
+            visited.add(node)
+            for neighbor in graph[node]:
+                stack.append((neighbor, path + [neighbor]))
+    return None
+
+# Example usage
+attributes = ['A', 'B', 'C']
+subset_graph = build_subset_graph(attributes)
+
+start = tuple()
+goal = tuple(sorted(['A','C']))
+
+print("Graph (subset space):")
+for k, v in subset_graph.items():
+    print(k, "->", v)
+
+print("\nDFS Path from", start, "to", goal, ":")
+path = dfs(subset_graph, start, goal)
+print(path)
+
+____________________________________
+
+#2 Depth=first-search using 8 queens
+____________________________________
+
+print ("Enter the number of the queens")
+
+n = int(input())
+
+board = [[0] * n for _ in range(n)]
+def attack(i, j):
+    for k in range(0,n):
+        if board[i][k] ==1 or board[k][j] ==1:
+            return True
+    for k in range(0,n):
+        for l in range(0,n):
+            if (+1 == i+j) or (k-1 == i-j):
+                if board[k][l] == 1:
+                    return True
+    return False
+
+def n_queens(n):
+    if n == 0:
+        return True
+    for i in range(0,n):
+        for j in range(0,n):
+            if (not(attack(i,j))) and (board[i][j] == 1):
+                board[i][j] = 1
+                if n_queens(n-1) == True:
+                    return True
+                board[i][j] = 0
+        return False
+
+n_queens(n)
+for i in board:
+    print (i)
+        
+# MY code FOR 8 QUEENS
+
+def is_safe(board, row, col):
+    
+    for i in range(col):
+        if board[row][i] == 1:
+            return False
+    
+    for i, j in zip(range(row, -1, -1), range(col, -1, -1)):
+        if board[i][j] == 1:
+            return False
+
+    for i, j in zip(range(row, 8, 1), range(col, -1, -1)):
+        if board[i][j] == 1:
+            return False  
+    return True
+
+
+def queens_dfs(board, col):
+    if col >= 8:
+        return True
+
+    for row in range(8):
+        if is_safe(board, row, col):
+            board[row][col] = 1
+
+            if queens_dfs(board, col + 1):
+                return True
+                
+            board[row][col] = 0
+            
+    return False
+
+def solution(board):
+    for i in range(8):
+        for j in range(8):
+            print('@' if board[i][j] == 1 else '.', end=' ')
+        print()
+
+board = [[0 for _ in range(8)] for _ in range(8)]
+
+if queens_dfs(board, 0):
+    print("Solution found:")
+    solution(board)
+else:
+    print("No solution exists")
+

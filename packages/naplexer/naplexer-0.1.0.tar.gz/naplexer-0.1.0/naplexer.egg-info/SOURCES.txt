@@ -1,0 +1,13 @@
+setup.py
+naplexer/__init__.py
+naplexer/core.py
+naplexer.egg-info/PKG-INFO
+naplexer.egg-info/SOURCES.txt
+naplexer.egg-info/dependency_links.txt
+naplexer.egg-info/top_level.txt
+naplexer/data/1.txt
+naplexer/data/2.txt
+naplexer/data/3.txt
+naplexer/data/4.txt
+naplexer/data/5.txt
+naplexer/data/6.txt
