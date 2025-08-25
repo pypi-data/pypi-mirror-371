@@ -1,0 +1,35 @@
+[project]
+name = "multibypass"
+version = "1.1.0"
+description = "Pentest tool for bypassing restricted access using various techniques"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [
+  { name = "Greyf0x", email = "contact@greyf0x.com" }
+]
+dependencies = [
+  "certifi==2025.8.3",
+  "charset-normalizer==3.4.3",
+  "idna==3.10",
+  "requests==2.32.4",
+  "urllib3==2.5.0"
+]
+requires-python = ">=3.9"
+
+[project.urls]
+Homepage = "https://github.com/grf0x/multibypass"
+Repository = "https://github.com/grf0x/multibypass"
+Issues = "https://github.com/grf0x/multibypass/issues"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["multibypass"]
+
+[tool.setuptools.package-data]
+multibypass = ["wordlists/*"]
+
+[project.scripts]
+multibypass = "multibypass.cli:main"
