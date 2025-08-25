@@ -1,0 +1,16 @@
+ukaddresskit/__init__.py,sha256=RCcF4g5-545WwDpSKasdMZ9h4huQTA21YfABN8J_128,685
+ukaddresskit/cli.py,sha256=aOckXMGWeid7Q1R0fJ3JGMI_PTOfQqfCsKUwQQ7YZpA,3634
+ukaddresskit/models.py,sha256=PsJ-EYYLyF_B0N-lyd_C19o_Ku1Yy2O1j-i1l5KjpD8,4203
+ukaddresskit/parser.py,sha256=hYRXPsqWRYFG68QXtLSYax-5BrwLwcV8bujzxMUqig8,2416
+ukaddresskit/postcode.py,sha256=McVn0TU5GcArVQbbSReAhle_HhfMGJwzijRFPPyb3R4,2939
+ukaddresskit/tokens.py,sha256=Y-akXAyDkX8eH4ToOD2hpeXqyfLit5nbbU0aGZU768Y,9967
+ukaddresskit/data/lookups/counties.csv,sha256=VC_BnhPsUI_PwnKa6X_YdN4eubNECNLvmAiF2Dx9mdQ,2983
+ukaddresskit/data/lookups/localities.csv,sha256=AcLQ8yfv-Al7X6ozxdzIamTPQyggxIDQfyx1PWWrLH8,277469
+ukaddresskit/data/lookups/postcode_district_to_town.csv,sha256=TrIr3MNPV-0PCyiwHgNhVRufe-lrfzr0dAQ9zEIJ1X0,43733
+ukaddresskit/data/lookups/synonyms.csv,sha256=NiACbQI_ZkTDY4O0q9XKfb10olr_mE2T5KDk6LizPPs,10294
+ukaddresskit/data/models/base.crfsuite,sha256=aKI8c_xH6WeWbrtOqCRPgK-dwl3GkteP9zSKs8DRT58,9512516
+ukaddresskit-0.0.3.dist-info/METADATA,sha256=gT2jKq5oNIq5zGteCSTGl6Nhsul4L9rbMI4sW-N0SAo,3358
+ukaddresskit-0.0.3.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+ukaddresskit-0.0.3.dist-info/entry_points.txt,sha256=dpU-V0TOSBl0CEup4uu2DntiMAekwByGhW47Y4KBw5Y,55
+ukaddresskit-0.0.3.dist-info/licenses/LICENSE,sha256=2bm9uFabQZ3Ykb_SaSU_uUbAj2-htc6WJQmS_65qD00,1073
+ukaddresskit-0.0.3.dist-info/RECORD,,
