@@ -1,0 +1,416 @@
+Metadata-Version: 2.4
+Name: poropto
+Version: 0.1.0
+Summary: Sustainable multi-objective portfolio optimization with intuitionistic fuzzy linear programming (IIFLP).
+Author-email: Nazanin Ghaemizadeh <ghaemi.nazanin@ie.sharif.edu>
+License-Expression: MIT
+Project-URL: Homepage, https://github.com/nazanin-ghaemizadeh/POROPTO-Portfolio-Optimization-Package
+Project-URL: Issues, https://github.com/nazanin-ghaemizadeh/POROPTO-Portfolio-Optimization-Package/issues
+Keywords: portfolio optimization,fuzzy,intuitionistic fuzzy,pyomo,ESG,entropy
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: numpy>=1.21
+Requires-Dist: pandas>=1.3
+Requires-Dist: scipy>=1.7
+Requires-Dist: pyomo>=6.4
+Requires-Dist: matplotlib>=3.4
+Dynamic: license-file
+
+# Portfolio Optimization Package (PROPTO)
+
+## Overview
+
+The **PROPTO** package is designed for optimizing investment portfolios within a trapezoidal intuitionistic fuzzy framework. This package provides tools to determine optimal investment proportions in risky assets, considering multiple objectives and constraints.
+
+## Package Contents
+
+### 1. preliminaries
+Functions for manipulating trapezoidal intuitionistic fuzzy numbers (TIFNs).
+
+- `satisfaction_degree(A)`: Computes the satisfaction degree of an intuitionistic fuzzy set (IFS).
+- `validate_tifn(A)`: Validates the input trapezoidal intuitionistic fuzzy number (TIFN).
+- `tifn_degrees(x, A)`: Calculates membership and non-membership degrees for a TIFN.
+- `add_tifns(A1, A2)`: Adds two TIFNs.
+- `subtract_tifns(A1, A2)`: Subtracts one TIFN from another.
+- `multiply_tifns(A1, A2)`: Multiplies two TIFNs.
+- `divide_tifns(A1, A2)`: Divides one TIFN by another.
+- `scale_tifn(A, lambda_)`: Scales a TIFN by a given factor.
+- `scale_tifn_exponentially(A, lambda_)`: Applies exponential scaling to a TIFN.
+- `negate_tifn(A)`: Negates a TIFN.
+- `reciprocal_tifn(A)`: Computes the reciprocal of a TIFN.
+- `aggregate_tifns(tifns)`: Aggregates a collection of TIFNs into a single TIFN.
+- `weighted_aggregate_tifns(tifns, weights)`: Aggregates TIFNs with weights.
+- `expected_value(A)`: Calculates the expected value of a TIFN.
+- `score_function(A)`: Computes the score function for a TIFN.
+- `accuracy_function(A)`: Determines the accuracy function for a TIFN.
+- `sort_tifns(tifns)`: Sorts a list of TIFNs.
+- `min_tifns(tifns)`: Identifies the minimum TIFN from a list.
+- `max_tifns(tifns)`: Identifies the maximum TIFN from a list.
+- `hamming_distance(A1, A2)`: Calculates the Hamming distance between two TIFNs.
+- `euclidean_distance(A1, A2)`: Computes the Euclidean distance between two TIFNs.
+- `alpha_cut(A, alpha=None)`: Determines the α-cut set of a TIFN.
+- `beta_cut(A, beta=None)`: Determines the β-cut set of a TIFN.
+- `membership_mean(A)`: Computes the mean of the membership function for a TIFN.
+- `nonmembership_mean(A)`: Computes the mean of the non-membership function for a TIFN.
+- `membership_variance(A)`: Computes the variance of the membership function for a TIFN.
+- `nonmembership_variance(A)`: Computes the variance of the non-membership function for a TIFN.
+- `membership_covariance(A1, A2)`: Computes the covariance of the membership function between two TIFNs.
+- `nonmembership_covariance(A1, A2)`: Computes the covariance of the non-membership function between two TIFNs.
+- `credibility_measure(x, A)`: Computes the credibility measure for a TIFN.
+- `membership_entropy(A)`: Computes the entropy of the membership function for a TIFN.
+- `nonmembership_entropy(A)`: Computes the entropy of the non-membership function for a TIFN.
+
+### 2. sustainability_evaluation
+Functions for aggregating and evaluating sustainability decision matrices.
+
+- `linguistic_scale(term)`: Converts a linguistic term into its corresponding trapezoidal intuitionistic fuzzy scale.
+- `experts_weights(linguistic_importance)`: Computes decision-makers' weights based on their linguistic importance.
+- `validate_decision_matrices(file_path)`: Validates the format of decision matrices in an Excel file.
+- `aggregate_decision_matrices(file_path, experts_importance)`: Aggregates decision matrices from an Excel file.
+- `extract_decision_matrix(aggregated_decision_matrix, sustainability_dimensions, investment_mode)`: Extracts and adjusts the aggregated decision matrix.
+- `shannon_entropy(extracted_decision_matrix)`: Calculates criteria weights using Shannon entropy.
+- `sustainability_scores(extracted_decision_matrix, criteria_weights)`: Computes sustainability scores for each alternative.
+- `sustainability_scores_mean(sustainability_scores_data)`: Computes the mean of sustainability scores.
+
+### 3. return_evaluation
+Tools for evaluating financial returns.
+
+- `read_returns_data(file_path)`: Reads and formats return data from an Excel file.
+- `validate_return_matrix(returns_data, aggregated_decision_matrix)`: Validates return data format and bounds.
+- `returns_mean(returns_data)`: Computes the mean of return data.
+- `returns_variance(returns_data)`: Computes the variance of return data.
+- `returns_covariance(returns_data)`: Computes the covariance matrix of returns.
+- `returns_entropy(returns_data)`: Computes the entropy of returns.
+
+### 4. portfolio_optimization
+Functions for optimizing portfolios using Pyomo and visualizing results.
+
+- `min_operator(sustainability_scores_data, returns_data, selected_assets, gamma)`: Optimizes investment dimensions for multiple objectives and extracts results.
+- `max_operator(sustainability_scores_data, returns_data, selected_assets, gamma)`: Similar to `min_operator`, but focuses on maximizing objectives.
+- `mean_variance_entropy_model(sustainability_scores_data, returns_data, selected_assets, gamma, min_operator_values, max_operator_values)`: Optimizes based on mean, variance, and entropy.
+- `optimal_solution_analyzer(optimal_solution_df, model_type)`: Analyzes optimal solutions and calculates objective values.
+- `uniform_buy_and__analyzer(min_operator_values, max_operator_values, model_type)`: Analyzes the portfolio using a Uniform Buy and Hold Strategy.
+
+## Installation
+
+1. Install required packages:
+
+    ```bash
+    pip install numpy pandas scipy matplotlib pyomo amplpy --upgrade
+    python -m amplpy.modules install coin
+    ```
+
+2. Import necessary libraries:
+
+    ```python
+    import math
+    import scipy.integrate as integrate
+    import os
+    import warnings
+    import logging
+    import ast
+    import numpy as np
+    import pandas as pd
+    import pyomo.environ as pyo
+    import matplotlib.pyplot as plt
+    from pyomo.opt import SolverFactory
+    ```
+
+## Usage Instructions
+For comprehensive guidance on how to use the `POROPTO` package, follow the commands below and please refer to the individual function documentation within each module.
+
+1. Define the linguistic importance of the decision-makers:
+
+    ```python
+    experts_importance = ('a tuple including the linguistic importance of the decision-makers')
+    ```
+
+2. Specify the number of criteria for each sustainability dimension:
+
+    ```python
+    sustainability_dimensions = {
+        'social': 'number of social criteria', 
+        'environmental': 'number of environmental criteria', 
+        'economic': 'number of economic criteria'
+    }
+    ```
+
+3. Aggregate decision matrices from a file:
+
+    ```python
+    aggregated_decision_matrix = aggregate_decision_matrices(
+        file_path='the file path of the decision-makers', 
+        experts_importance=experts_importance
+    )
+    ```
+
+4. Extract and adjust the decision matrix:
+
+    ```python
+    extracted_decision_matrix = extract_decision_matrix(
+        aggregated_decision_matrix, 
+        sustainability_dimensions=sustainability_dimensions, 
+        investment_mode='define investment mode'
+    )
+    ```
+
+5. Calculate criteria weights using Shannon entropy:
+
+    ```python
+    criteria_weights = shannon_entropy(
+        extracted_decision_matrix
+    )
+    ```
+
+6. Compute sustainability scores for each alternative:
+
+    ```python
+    sustainability_scores_data = sustainability_scores(
+        extracted_decision_matrix,
+        criteria_weights
+    )
+    ```
+
+7. Read return data from a file:
+
+    ```python
+    returns_data = read_returns_data(
+        file_path='the file path of the return\'s data'
+    )
+    ```
+
+8. Optimize using the minimum operator:
+
+    ```python
+    min_operator_values = min_operator(
+        sustainability_scores_data, 
+        returns_data, 
+        selected_assets='a tuple including the lower and upper investment bounds', 
+        gamma='define the sustainability interval value'
+    )
+    ```
+
+9. Optimize using the maximum operator:
+
+    ```python
+    max_operator_values = max_operator(
+        sustainability_scores_data, 
+        returns_data, 
+        selected_assets='a tuple including the lower and upper investment bounds', 
+        gamma='define the sustainability interval value'
+    )
+    ```
+
+10. Analyze the optimal solution using the mean-variance-entropy model:
+
+    ```python
+    optimal_solution_df = mean_variance_entropy_model(
+        sustainability_scores_data,
+        returns_data, 
+        selected_assets='a tuple including the lower and upper investment bounds', 
+        gamma='define the sustainability interval value',
+        min_operator_values=min_operator_values,
+        max_operator_values=max_operator_values
+    )
+    ```
+
+11. Analyze the optimal solution results:
+
+    ```python
+    optimal_solution_analyzer(
+        optimal_solution_df,
+        model_type='define the model type'
+    )
+    ```
+
+## Examples
+
+### Example 1: Satisfaction Degree
+
+```python
+x = {1}
+A = (x, 0.3, 0.1)
+
+print(round(satisfaction_degree(A), 2))
+```
+
+### Example 2: Membership, Non-membership, and Hesitation Degrees of TIFN
+
+```python
+A = [(1, 2, 4, 5), 0.2, 0.3]
+x = 1.11
+
+result = tifn_degrees(x, A)
+print(tuple(round(value, 3) for value in result))
+```
+
+### Example 3: Arithmetic Operators
+
+```python
+A1 = [(1, 2, 4, 5), 0.6, 0.4]
+A2 = [(1, 2, 3, 6), 0.3, 0.2]
+
+add_result = add_tifns(A1, A2)
+subtract_result = subtract_tifns(A1, A2)
+multiply_result = multiply_tifns(A1, A2)
+divide_result = divide_tifns(A1, A2)
+scale_result = scale_tifn(A1, 0.5)
+scale_exp_result = scale_tifn_exponentially(A1, 0.5)
+negate_result = negate_tifn(A1)
+reciprocal_result = reciprocal_tifn(A1)
+
+# Function to round each element in the TIFN result
+def round_tifn_result(result):
+    trapezoidal, mu, nu = result
+    rounded_trapezoidal = tuple(round(value, 3) for value in trapezoidal)
+    rounded_mu = round(mu, 3)
+    rounded_nu = round(nu, 3)
+    return [rounded_trapezoidal, rounded_mu, rounded_nu]
+
+print(round_tifn_result(add_result))
+print(round_tifn_result(subtract_result))
+print(round_tifn_result(multiply_result))
+print(round_tifn_result(divide_result))
+print(round_tifn_result(scale_result))
+print(round_tifn_result(scale_exp_result))
+print(round_tifn_result(negate_result))
+print(round_tifn_result(reciprocal_result))
+```
+
+### Example 4: Aggregated Values
+
+```python
+collection = [
+    [(1, 2, 3, 4), 0.6, 0.2],
+    [(2, 3, 4, 5), 0.7, 0.3],
+    ]
+weights = [0.5, 0.5]
+
+aggregate_tifns_result = aggregate_tifns(collection)
+weighted_aggregate_result = weighted_aggregate_tifns(collection, weights)
+
+# Function to round each element in the TIFN result
+def round_tifn_result(result):
+    trapezoidal, mu, nu = result
+    rounded_trapezoidal = tuple(round(value, 3) for value in trapezoidal)
+    rounded_mu = round(mu, 3)
+    rounded_nu = round(nu, 3)
+    return [rounded_trapezoidal, rounded_mu, rounded_nu]
+
+print(round_tifn_result(aggregate_tifns_result))
+print(round_tifn_result(weighted_aggregate_result))
+```
+
+### Example 5: Expected Value, Score Function, and Accuracy Function
+
+```python
+A = [(1, 2, 3, 4), 0.3, 0.2]
+
+print(round(expected_value(A), 3))
+print(round(score_function(A), 3))
+print(round(accuracy_function(A), 3))
+```
+
+### Example 6: Sort Trapezoidal Intuitionistic Fuzzy Numbers
+    
+```python
+collection = [
+    [(1, 2, 3, 4), 0.3, 0.2],
+    [(1, 2, 2.5, 4.5), 0.5, 0.1],
+    [(0, 1, 2, 3), 0.7, 0.3],
+    [(3, 4, 5, 6), 0.4, 0.3]
+    ]
+
+# Sort TIFNs
+print(sort_tifns(collection))
+
+# Get max and min TIFNs
+print(min_tifns(collection))
+print(max_tifns(collection))
+``` 
+
+### Example 7: Hamming and Euclidean Distance
+
+```python
+A1 = [(1, 2, 3, 4), 0.612, 0.2]
+A2 = [(2, 3, 4, 5), 0.43, 0.3]
+
+# Calculate Hamming distance
+print(round(hamming_distance(A1, A2), 3))
+
+# Calculate Euclidean distance
+print(round(euclidean_distance(A1, A2), 3))
+```
+
+### Example 8: α-cut and β-cut Intervals
+
+```python
+A = [(1, 2, 3, 4), 0.6, 0.2]
+
+print(alpha_cut(A))
+print(beta_cut(A))
+```
+
+### Example 9: α-cut and β-cut Values
+
+```python
+A = [(1, 2, 3, 4), 0.6, 0.2]
+
+alpha_result = alpha_cut(A, 0.5)
+beta_result = beta_cut(A, 0.5)
+
+print([round(value, 2) for value in alpha_result])
+print([round(value, 2) for value in beta_result])
+```
+
+### Example 10: Possibilistic Statistics
+
+```python
+A1 = [(1, 2, 3, 4), 0.7, 0.2]
+A2 = [(2, 3, 4, 5), 0.6, 0.3]
+A3 = [(1.5, 2.5, 3.5, 4.5), 0.8, 0.1]
+A4 = [(1, 2.5, 3.5, 4), 0.4, 0.2]
+
+print(round(membership_mean(A1), 3))
+print(round(nonmembership_mean(A1), 3))
+print(round(membership_variance(A1), 3))
+print(round(nonmembership_variance(A1), 3))
+print(round(membership_covariance(A1, A2), 3))
+print(round(nonmembership_covariance(A1, A2), 3))
+```
+
+### Example 11: Credibilistic Statistics
+
+```python
+A = [(1, 2, 4, 5), 0.6, 0.3]
+x = 1.11
+
+result = credibility_measure(x, A)
+print(tuple(round(value, 3) for value in result))
+
+print(round(membership_entropy(A), 3))
+print(round(nonmembership_entropy(A), 3))
+```
+
+## License
+
+This project is licensed under the MIT License - see the [MIT](https://choosealicense.com/licenses/mit/) file for details.
+
+## Contact
+
+For any inquiries, please contact:
+
+- **Nazanin Ghaemi-Zadeh** at [nghz.sut@gmail.com](mailto:nghz.sut@gmail.com)
+
+## Acknowledgments
+
+Special thanks to contributors and developers who have supported the development of this package.
