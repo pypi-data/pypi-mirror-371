@@ -1,0 +1,4 @@
+include README.md
+include README_zh.md
+recursive-include image *
+include requirements.txt
