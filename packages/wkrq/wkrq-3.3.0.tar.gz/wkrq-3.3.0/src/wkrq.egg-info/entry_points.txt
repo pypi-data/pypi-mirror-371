@@ -1,0 +1,3 @@
+[console_scripts]
+acrq-llm = wkrq.theory_cli:main
+wkrq = wkrq.cli:main
