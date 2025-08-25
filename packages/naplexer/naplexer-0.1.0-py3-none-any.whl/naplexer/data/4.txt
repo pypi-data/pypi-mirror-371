@@ -1,0 +1,158 @@
+_______________________________
+
+## GBFS FOR 4 Queens problem
+____________________________
+
+
+import heapq
+
+def greedy(graph, start, goal , he):
+    open = [(he[start], start, [start])]
+    visited = set()
+    while open :
+        h, node ,path = heapq.heappop(open)
+        if node == goal:
+            return path
+        if node in visited:
+            continue
+        visited.add(node)
+        for neighbour in graph[node]:
+            if neighbour not in visited:
+                heapq.heappush(open, (he[neighbour], neighbour, path+[neighbour]))
+    return None
+
+graph = {
+    'a':{'b':1, 'c':4},
+    'b': {'a':1, 'c':2, 'd':5},
+    'c': {'a':4, 'b':2, 'd':1},
+    'd': {'b':5, 'c':1},
+}
+
+he = {
+    'a':7,
+    'b':6,
+    'c':2,
+    'd':0,
+}
+
+start, goal = 'a', 'd'
+path = greedy(graph, start, goal , he)
+print()
+
+
+____________
+# 2
+________
+
+
+import heapq
+
+def greedy_best_first(graph, start, goal, heuristic):
+    open_set = [(heuristic[start], start, [start])]
+    visited = set()
+    while open_set:
+        h, node, path = heapq.heappop(open_set)
+        if node == goal:
+            return path
+        if node in visited:
+            continue
+        visited.add(node)
+        for neighbor in graph[node]:
+            if neighbor not in visited:
+                heapq.heappush(open_set, (heuristic[neighbor], neighbor, path+[neighbor]))
+    return None
+
+graph = {
+    'A': {'B': 1, 'C': 4},
+    'B': {'A': 1, 'C': 2, 'D': 5},
+    'C': {'A': 4, 'B': 2, 'D': 1},
+    'D': {'B': 5, 'C': 1}
+}
+
+heuristic = {
+    'A': 7,
+    'B': 6,
+    'C': 2,
+    'D': 0
+}
+
+start, goal = 'A', 'D'
+path = greedy_best_first(graph, start, goal, heuristic)
+print("GBFS Path:", path) 
+
+
+_________________
+## 3 
+__________
+
+import random
+from heapq import heappush, heappop
+
+
+# Heuristic: number of attacking queen pairs
+def attacking_pairs(state):
+    n = len(state)
+    pairs = 0
+    for c1 in range(n):
+        for c2 in range(c1 + 1, n):
+            r1, r2 = state[c1], state[c2]
+            if r1 == r2 or abs(r1 - r2) == abs(c1 - c2):
+                pairs += 1
+    return pairs
+
+
+# Generate neighbors by moving one queen in its column
+def neighbors(state):
+    n = len(state)
+    nbrs = []
+    for col in range(n):
+        current_row = state[col]
+        for row in range(n):
+            if row != current_row:
+                nxt = state.copy()
+                nxt[col] = row
+                nbrs.append(nxt)
+    return nbrs
+
+# Greedy Best First Search
+def gbfs_queens(initial):
+    h0 = attacking_pairs(initial)
+    frontier = []
+    heappush(frontier, (h0, initial))
+    visited = set()
+
+    while frontier:
+        h, state = heappop(frontier)
+        if tuple(state) in visited:
+            continue
+        visited.add(tuple(state))
+
+        if h == 0:
+            return state
+
+        for nbr in neighbors(state):
+            hn = attacking_pairs(nbr)
+            heappush(frontier, (hn, nbr))
+    return None
+
+
+def print_board(state):
+    n = len(state)
+    for r in range(n):
+        line = []
+        for c in range(n):
+            line.append('Q' if state[c] == r else '.')
+        print(' '.join(line))
+    print()
+
+random.seed(42)
+N = 4
+start_state = [random.randrange(N) for _ in range(N)]
+print("Start state:", start_state, "| h =", attacking_pairs(start_state))
+
+solution = gbfs_queens(start_state)
+if solution:
+    print("Found solution:", solution)
+    print_board(solution)
+else:
+    print("No solution found.")
