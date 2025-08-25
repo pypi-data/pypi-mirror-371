@@ -1,0 +1,9 @@
+zopf-0.0.1a1.dist-info/METADATA,sha256=-j6c6ftzu7bXp9Idqimn78bB772DQzl5PiRJPSHBLcU,435
+zopf-0.0.1a1.dist-info/WHEEL,sha256=jpcMPm7dqhTuVphysNSZcBW8JFGVO5uPhr-YKpFpjzM,91
+zopf-0.0.1a1.dist-info/entry_points.txt,sha256=RwZucuCiSdSLr8EFoTwIY_VZmhvteq_ksPUgaC2mFrQ,48
+zopf/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+zopf/__main__.py,sha256=WUtdxbvT1xs2hnh_u1mMswy4-DNlwRwIVs2Z9xpMJ2g,55
+zopf/_bindings.pyd,sha256=sWWsR6AyBp-FTE7YxmiU9QMMi3TQ2bK813MAAtP8pck,579072
+zopf/_bindings.pyi,sha256=FNvSR2JkSqDXeX3JH9ih56aHFTGjsL5GxrYXoLgegLY,68
+zopf/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+zopf-0.0.1a1.dist-info/RECORD,,
