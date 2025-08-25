@@ -1,0 +1,6 @@
+pybox/__init__.py,sha256=RaMSwCtdF-mkVyWYkrf4MVVBTVW84eAdSXnuOF2ozxI,608289
+pybox/_pybox.cp310-win_amd64.pyd,sha256=4FMBOtqdH_JOolOZOgbsYw_LszfyCjLygyCY77PmZtc,4363776
+pybox_gui-0.1.2.dist-info/METADATA,sha256=b6K5c_llftIQ5vEBpXWqtXLqhgbGJjwAUArGpvFQAq8,3235
+pybox_gui-0.1.2.dist-info/WHEEL,sha256=KUuBC6lxAbHCKilKua8R9W_TM71_-9Sg5uEP3uDWcoU,101
+pybox_gui-0.1.2.dist-info/top_level.txt,sha256=jyiglQVZaayV6LzbWjl4RERgL92aJ9-L1WRp2OUTJbg,6
+pybox_gui-0.1.2.dist-info/RECORD,,
