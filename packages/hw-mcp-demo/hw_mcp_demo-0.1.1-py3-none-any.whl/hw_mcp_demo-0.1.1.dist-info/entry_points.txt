@@ -1,0 +1,2 @@
+[console_scripts]
+hw-mcp-demo = mcp_demo:main

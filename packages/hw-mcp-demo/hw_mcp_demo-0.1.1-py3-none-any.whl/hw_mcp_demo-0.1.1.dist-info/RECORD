@@ -1,0 +1,9 @@
+mcp_demo/__init__.py,sha256=CJstCzhMgpoI1k93kg7oiN9YoRe1hBlm5bUkvVrenn8,100
+mcp_demo/__main__.py,sha256=g0pN5gF0QAWOSvDWHml-6YlGIqnfcfeSp3VCPR9plMA,59
+mcp_demo/server.py,sha256=UaVefQ0dabiPZPwodPK-00skwfEQo0b_PPACGy72AFo,4399
+mcp_demo/views/__init__.py,sha256=mCDWOwAABjbG5Mux0WvNngr-PJk5oKPVqhjxc0eEyD8,84
+mcp_demo/views/input_dialogue.py,sha256=xtUhvHwoE29K7zcU2QF6UnHtnOhmMmJ4PL_cXJG8KNo,1821
+hw_mcp_demo-0.1.1.dist-info/METADATA,sha256=lU8N9KNUKqftB-99LbEKhBwWS4kcSWtMpCgPwkMTKJY,191
+hw_mcp_demo-0.1.1.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+hw_mcp_demo-0.1.1.dist-info/entry_points.txt,sha256=LbRJaEq1vOy_vQYlMQYHj3UaMFXzjYOj7Oj-PGEnqN8,46
+hw_mcp_demo-0.1.1.dist-info/RECORD,,
