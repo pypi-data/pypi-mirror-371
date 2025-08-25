@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nonebot_plugin_exhibitionism"
+version = "0.1.0"
+description = "让你的代码被群友看光光!"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "nonebot-plugin-alconna>=0.59.4",
+    "nonebot2>=2.4.3",
+    "pillow>=11.3.0",
+    "pygments>=2.19.2",
+]
+
+[tool.setuptools.package-data]
+"nonebot_plugin_exhibitionism" = ["*.ttf"]
+
+[[tool.uv.index]]
+url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+default = true
