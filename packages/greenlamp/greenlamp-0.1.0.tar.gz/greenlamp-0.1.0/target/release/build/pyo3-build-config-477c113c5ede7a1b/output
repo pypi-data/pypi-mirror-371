@@ -1,0 +1,2 @@
+cargo:rerun-if-env-changed=PYO3_CONFIG_FILE
+cargo:rerun-if-changed=/home/student/evw0003/CPE486_FA25/hw00greenlamp/greenlamp/target/maturin/pyo3-config-x86_64-unknown-linux-gnu-3.9.txt
