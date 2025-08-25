@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rubric-grader"   # choose final PyPI name here
+version = "0.1.0"
+description = "A Python library for rubric-guided grading with LLMs"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [
+    { name="Arnav Ramamoorthy", email="arnav.ramamorthy@gmail.com" }
+]
+dependencies = [
+    "transformers",
+    "torch",
+    "pandas",
+]
+
+[project.urls]
+Homepage = "https://github.com/BITS-Pilani-GRC/Rubric-Grader"
+Issues = "https://github.com/BITS-Pilani-GRC/Rubric-Grader/issues"
