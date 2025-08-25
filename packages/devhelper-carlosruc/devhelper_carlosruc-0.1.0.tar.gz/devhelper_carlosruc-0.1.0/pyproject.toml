@@ -1,0 +1,14 @@
+# pyproject.toml
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "devhelper-carlosruc"
+version = "0.1.0"
+description = "CLI to automate dev tasks"
+authors = [{name = "Carlos Escalona"}]
+dependencies = ["click"]
+
+[project.scripts]
+devhelper = "devhelper.cli:cli"

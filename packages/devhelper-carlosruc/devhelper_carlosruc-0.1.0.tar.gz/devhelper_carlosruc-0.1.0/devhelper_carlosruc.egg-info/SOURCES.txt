@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+devhelper/__init__.py
+devhelper/cli.py
+devhelper/tasks.py
+devhelper_carlosruc.egg-info/PKG-INFO
+devhelper_carlosruc.egg-info/SOURCES.txt
+devhelper_carlosruc.egg-info/dependency_links.txt
+devhelper_carlosruc.egg-info/entry_points.txt
+devhelper_carlosruc.egg-info/requires.txt
+devhelper_carlosruc.egg-info/top_level.txt
