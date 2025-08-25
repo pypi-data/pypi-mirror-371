@@ -1,0 +1,266 @@
+Metadata-Version: 2.4
+Name: gjqh_DataFetch
+Version: 0.0.6
+Summary: A simple trading API for internal use compatible with IS and XT trading systems.
+Author-email: HongYuan <yuanhong2@gtht.com>
+License-Expression: MIT
+Project-URL: Homepage, https://github.com/pypa/sampleproject
+Project-URL: Issues, https://github.com/pypa/sampleproject/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: requests
+Requires-Dist: clickhouse-connect==0.7.8
+Requires-Dist: pandas>=1.5.0
+Requires-Dist: redis
+Requires-Dist: PyMySQL
+Dynamic: license-file
+
+# gjqh_DataFetch
+
+### A 项目背景
+
+该接口为内部使用的期货、期权程序化交易接口，对接恒生IS UFX接口及迅投交易系统。
+
+#### 01 需要开通的网络策略
+
+redis，clickhouse数据库，目前生产测试环境隔离，需要开通相应的防火墙策略。具体IP略。
+
+#### 02 接口返回值
+
+下述接口均返回字典类型值。一般查询类接口返回格式为 {"code":, "data":}; 上传类接口返回格式为 {"code":, "msg":}。用户可先对接口返回值中的code进行判断，如果code == 0，再执行后续操作；可在msg中获取详细报错信息。
+
+### B 代码示例
+
+#### 01 package调用
+
+```
+from gjqh_DataFetch import DataFetch
+import pandas as pd
+import json
+
+# 类初始化 
+
+x = DataFetch(account_id='203619', acquire_key='123456', user_id='yh', env = 'test')
+```
+
+| 参数        | 类别   | 定义           | 必填 | 默认值 | 说明                                                                                                                                                                  |
+| ----------- | ------ | -------------- | ---- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| account_id  | string | 资金账号       | T    |        | /                                                                                                                                                                     |
+| acquire_key | string | 查询密码       | T    |        | 自定义，仿真环境: 123456，实盘环境视情况而定。                                                                                                                       |
+| user_id     | string | 使用接口人名字 | T    |        | 填写便于在数据库内进行操作留痕。                                                                                                                                      |
+| env         | string | 环境           | F    | test   | 枚举值 ['test', 'prod', 'prod65', 'prod67']，<br />对应的服务器：{'test': '10.66.200.248', 'prod': '10.65.25.63', 'prod65': '10.65.25.65', 'prod67': '10.65.25.67'} |
+
+#### 02 上传目标仓位
+
+```
+# 原始数据是pandas df 格式 
+mat_01 = pd.DataFrame(data=[['20230804', 'AP2310', 5, 'L', 'intraday_trading', '', '20230803'],
+                            ['20230804', 'AP2311', 5, 'L', 'intraday_trading', 'D', '']],
+                      columns=['trading_day', 'contract', 'position', 'direction', 'order_typ', 'trade_time', 'signal_date'])
+
+mat_01 = pd.DataFrame(data=[['20230804', 'AP2310', 5, 'L', 'intraday_trading'],
+                            ['20230804', 'AP2311', 5, 'L', 'intraday_trading']],
+                      columns=['trading_day', 'contract', 'position', 'direction', 'order_typ'])
+
+mat_02 = json.loads(mat_01.to_json(orient='records'))
+
+# 或直接上传指定格式
+
+mat_02 = [{'trading_day': '20230804', 'contract': 'AP2310', 'position': 5, 'direction': 'L', 'order_typ': 'intraday_trading'}, {'trading_day': '20230804', 'contract': 'AP2311', 'position': 5, 'direction': 'L', 'order_typ': 'intraday_trading'}]
+
+a022 = x.fun_update_signal(input_data=mat_02, use_redis=True, continuous_holding=True)
+```
+
+| 参数                    | 类别   | 定义                                                                          | 必填 | 默认值 | 说明                                                                                                                                                                   |
+| ----------------------- | ------ | ----------------------------------------------------------------------------- | ---- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| input_data              | list   | 指定trading_day需要达到的目标仓位<br />（未在input_data中出现的合约将被平仓） | T    |        | 如果当日没有仓位上传，则当日不会执行交易。该函数用于将仓位调整至指定值。                                                                                               |
+| input_data--trading_day | string | 交易日                                                                        | T    |        | 格式 yyyymmdd                                                                                                                                                          |
+| input_data--contract    | string | 合约代码                                                                      | T    |        | trading_code 或 米筐中的order_book_id均可                                                                                                                              |
+| input_data--position    | int    | 当前交易日该合约需要达到的持仓量                                              | T    |        | >=0的整数                                                                                                                                                              |
+| input_data--direction   | string | 方向                                                                          | T    |        | 枚举值 ["L", "S"] 对应方向{"L": "long", "S": "short"}                                                                                                                 |
+| input_data--order_typ   | string | 执行时间段                                                                    | T    |        | 枚举值["intraday_trading", "call_auction"] 对应时间段{"intraday_trading": 日内交易, "call_auction": 集合竞价} 注：集合竞价时间段内未成交合约自动转入开盘时间段内交易。 |
+| input_data--trade_time  | string | 交易时间段                                                                    | F    |        | 目前不支持该字段。枚举值['D', 'N'], 对应{'D': day, 'N': night} 表示只在夜盘/日盘对上传合约进行交易。                                                                   |
+| input_data--feature     | int    | 平今对锁标识                                                                  | F    | 0      | 枚举值[0, 1], 置为1：如果某合约当前持仓有今仓，则平空转为开多；平多转为开空。                                                                                          |
+| use_redis               | bool   | 底层是否调用redis<br />数据库                                                 | T    |        | 仿真，实盘新增的资金账号此处均填写True。历史账号迁移完成后，后续版本更新，会去掉该字段。                                                                               |
+| continuous_holding      | bool   | 指定合约调仓                                                                  | F    | False  | 枚举值[True, False], True表示：同一tradingday下，每个合约取最近一次上传的仓位。当前tradingday下未曾上传的合约不交易。                                                  |
+
+#### 03 查询上传仓位
+
+```
+a023 = x.fun_read_signal(start_date='20230719', end_date='20230720', clean = True)
+```
+
+| 参数       | 类别   | 定义     | 必填 | 默认值 | 说明                                                                                                                                                                                                       |
+| ---------- | ------ | -------- | ---- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| start_date | string | 开始时间 | T    |        | 读取信号的开始时间                                                                                                                                                                                         |
+| end_date   | string | 结束时间 | T    |        | 读取信号的结束时间                                                                                                                                                                                         |
+| clean      | bool   | 筛选     | F    | True   | 枚举值[True, False], False表示：显示当前时间区间内的全部上传信号; True表示只显示最近一次有效的上传信号。（若最近一次仓位上传参数continuous_holding = True ，则此处在clean=True限制下返回的是当日有效信号） |
+
+#### 04 查询历史成交
+
+```
+a024 = x.fun_read_deal(start_date='20230719', end_date='20230720')
+```
+
+| 参数       | 类别   | 定义     | 必填 | 默认值 | 说明                                   |
+| ---------- | ------ | -------- | ---- | ------ | -------------------------------------- |
+| start_date | string | 开始时间 | T    |        | 读取历史成交的开始时间                 |
+| end_date   | string | 结束时间 | T    |        | 读取历史成交的结束时间（最新可取昨日） |
+
+#### 05 查询历史持仓
+
+```
+a025 = x.fun_read_position(start_date='20230719', end_date='20230720')
+```
+
+| 参数       | 类别   | 定义     | 必填 | 默认值 | 说明                                   |
+| ---------- | ------ | -------- | ---- | ------ | -------------------------------------- |
+| start_date | string | 开始时间 | T    |        | 读取历史持仓的开始时间                 |
+| end_date   | string | 结束时间 | T    |        | 读取历史持仓的结束时间（最新可取昨日） |
+
+#### 06 修改账户状态
+
+```
+# 控制账户是否交易，调用该函数后，在下一小节及之后生效。
+a026 = x.fun_update_sts(trade_flag=True)
+```
+
+| 参数       | 类别 | 定义         | 必填 | 默认值 | 说明                                                                                                                                 |
+| ---------- | ---- | ------------ | ---- | ------ | ------------------------------------------------------------------------------------------------------------------------------------ |
+| trade_flag | bool | 账户是否交易 | T    | True   | 枚举值[True, False], True 表示账户开始交易；False 表示账户之后不再交易。注：盘中执行不立即生效，该函数一般用于暂停下一交易日的交易。 |
+
+#### 07 盘中实时仓位
+
+```
+a027 = x.fun_redis_position()
+```
+
+#### 08 查询历史权益（仿真账户）
+
+```
+# 当前不支持对时间区间的限制，返回的是全量数据(用户的当前权益)。
+a028 = x.fun_read_equity()
+```
+
+#### 09 上传分品种拆单限制（待优化，建议不要使用）
+
+```
+input_data = [{'commodity': 'SA', 'if_twap': 1, 'time_gap': 0.5, 'volume': 5}, {'commodity': 'RM', 'if_twap': 1, 'time_gap': 0.5, 'volume': 5}]
+a029 = x.fun_update_TWAP_info(input_data = input_data)
+```
+
+| 参数                    | 类别   | 定义                                        | 必填 | 默认值 | 说明                                                                                  |
+| ----------------------- | ------ | ------------------------------------------- | ---- | ------ | ------------------------------------------------------------------------------------- |
+| input_data -- commodity | string | 品种                                        | T    |        | /                                                                                     |
+| input_data -- if_twap   | int    | 是否使用twap交易                            | T    |        | 枚举值[0, 1], 0 表示不使用twap交易，即拆单之后报单没有时间间隔；1 表示使用twap交易。  |
+| input_data -- time_gap  | float  | 拆单时间间隔（单位：秒, 大于等于0的浮点数） | T    |        | 限制之后，该品种后续拆单不再受到资金账号全局设置的影响，即按照time_gap 间隔进行拆单。 |
+| input_data -- volume    | int    | 最大拆单手数                                | T    |        | 拆单手数限制上限。                                                                    |
+
+#### 10 最近一次交易时间
+
+```
+a030 = x.fun_last_trade()
+```
+
+#### 11 保证金占用比例
+
+```
+a031 = x.fun_margin_used()
+```
+
+| 返回值          | 定义           | 说明                                                         |
+| --------------- | -------------- | ------------------------------------------------------------ |
+| data -- time    | 时间戳         | /                                                            |
+| data -- value   | 保证金占用比例 | 期货占用保证金/(期货可用保证金 + 期货占用保证金)             |
+| data -- balance | 权益           | 期货保证金账户余额 + 期货盯市盈亏                            |
+| data -- shares  | 份额           | 资金账号初始份额（后续如有申赎，涉及份额调整，需要手动修改） |
+
+#### 12 查询实时成交
+
+```
+a032 = x.fun_redis_deal(dte = '20250820')
+```
+
+| 参数 | 类别   | 定义         | 必填 | 默认值 | 说明                                                                                                                                                                                 |
+| ---- | ------ | ------------ | ---- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| dte  | string | 实际成交日期 | T    |        | 格式 yyyymmdd，该函数用于查询当天或者历史几天的成交明细，盘中实时更新。该接口定期会对历史的成交明细进行清理。如果想要查询完整的历史成交建议使用前述的查询历史成交函数：fun_read_deal |
+
+#### 13 其他
+
+该接口还可以用于查询仿真产品因子值、权重、分品种的收益情况，具体方法本文档略。
+
+### C 交易参数设置
+
+（以下交易参数没有对外提供查询及修改接口，仅通过参数介绍对当前程序化交易算法进行详细说明）
+
+#### 三种交易方式（可选）
+
+##### 1，TWAP
+
+TWAP = True， sum_twap = 5， 即按照twap5进行拆单。委托会平均分布在5分钟内。
+
+有两种方式：
+
+方法一：设置拆单手数的上下限，split_volume_max， split_volume_min。则拆单手数会在上下限区间内随机取值。
+
+例：twap5，某合约总报单量：10手，拆单上下限是：【4手，5手】。则随机取值有：【4，4，2】， 【4，5，1】， 【5，5】 三种可能性（余数将单独作为一笔委托）。对应的报单时间间隔即是：100s, 100s, 150s
+
+方法二：设置拆单手数的上下限，split_volume_max， split_volume_min 和 间隔时间 twap_time_gap，则会在拆单手数上下限范围内取最接近间隔时间的拆单方式。（使用方法二时，建议设置较为宽松的拆单手数上下限，使得实际的间隔时间更加接近twap_time_gap。）
+
+例：twap5，某合约总报单量：10手，拆单上下限是：【1手，5手】，间隔时间是1min。在间隔时间的限制下，拆单量=2手，则拆单取值被限制在了【2， 2， 2， 2， 2】，对应的报单时间间隔即是：1min。
+
+##### 2，定时拆单
+
+TWAP = True， sum_twap = 0, twap_time_gap = 3, split_volume_max = 2, split_volume_min = 2。 在上述限制条件下，当前的订单将会以3s间隔，每次2手的委托进行报单。也可以设置split_volume_max 和 split_volume_min 为 不同的值，那么每次报单的委托手数将在区间内随机取值。
+
+##### 3，不执行twap或定时拆单
+
+可以通过参数设置实现。不执行拆单即是间隔时间趋于0，拆单手数上下限趋于无穷的定时拆单。因此可以设置TWAP = True，sum_twap = 0, twap_time_gap = 0, split_volume = 100, split_volume_min - 100 或者类似参数来实现上述功能。
+
+#### 对应的撤单机制：
+
+当前有两种情况触发撤单：
+
+1，TWAP下单，在间隔时间段内未成交，则撤单，用对手价挂单。
+
+2，任意一笔订单下单后，在价格检查时间间隔时未成交，且最新价发生变化，则撤单，用最新价挂单。
+
+#### 01 数据库参数配置 strategy.param_user_info
+
+| 参数                       | 类别   | 定义               | 说明                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| -------------------------- | ------ | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| trading_sys                | string | 交易系统           | 枚举值 ['IS', 'XT', 'CTP'], 交易接口现在支持连接迅投交易系统，恒生IS ufx接口，以及CTP直连。                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| server_address             | string | IP地址             | 仅CTP直连和迅投交易系统需要填写，恒生交易时，该字段置空。迅投测试环境：10.74.33.95:65300，CTP直连：simnow账号 tcp://182.254.243.31:30002；金仕达模拟柜台 tcp://10.74.148.31:22205                                                                                                                                                                                                                                                                                                                                                     |
+| user_id                    | string | 用户名             | 交易系统为XT或IS时，该字段是pb交易系统的登录用户名；直连CTP时，该字段是资金账号。                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| password                   | string | 密码               | 交易系统为XT或IS时，该字段是pb交易系统的登录密码；直连CTP时，该字段是资金账号密码。                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| data_source                | string | 数据源             | 枚举值['redis', 'clickhouse']，现阶段仿真或实盘新增账号，该字段均为redis。历史上有部分资金账号继续沿用clickhouse，即盘中轮询clickhouse数据库中储存的交易信号。这部分资金账号维持现状，待后续逐步迁移。                                                                                                                                                                                                                                                                                                                                |
+| risk_condition             | string | 是否启用风控限制   | 枚举值['True', 'False']，一般对实盘产品开启风控限制，包含下述几项：1，单一合约保证金不能超过期货保证金账户余额的40%；2，同一资金账号下如果已有某一合约的挂单，为避免自成交，对后续该合约的反向挂单价格进行调整。（例：已有在long_price的多头order，此时如果需要开空，则short_price = long_price + tick；反之如果已有在short_price的空头order，此时如果需要开多，则long_price = short_price - tick。）自成交一般在恒生FVIP柜台下的子单元之间发生。（自成交限制这个程序目前偶尔会出现拦截失败的情况，具体原因已加日志排查中，待跟踪。） |
+| open_price_bias            | float  | 集合竞价报单偏离   | 集合竞价时间段内的多头报单价格是前一日结算价 * （1 + open_price_bias）；空头报单价格是前一日结算价 * （1 - open_price_bias）。现阶段仿真盘取open_price_bias = 0.02                                                                                                                                                                                                                                                                                                                                                                    |
+| trade_price                | string | 交易价格           | 枚举值['last_price', 'bid_ask_price_1'] 交易价格可以选择：'last_price':最新价；'bid_ask_price_1':对手价。（如果行情中没有对手价，则取最新价）                                                                                                                                                                                                                                                                                                                                                                                         |
+| reset_price                | string | /                  | / 该字段不再使用，后续将从数据库中删除该字段。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| trade_option               | string | 是否交易期权       | 枚举值['True', 'False'], 用于限制当前程序是否交易期权。                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| option_trade_price         | string | 期权交易价格       | 同 trade_price                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| twap                       | string | 是否进行TWAP交易   | 枚举值['True', 'False']，twap = False:同一合约委托之间的间隔时间等于0。（或者也可以通过设置较大的拆单手数来达到不执行twap的效果。）                                                                                                                                                                                                                                                                                                                                                                                                   |
+| sum_twap                   | float  | 算法总时长（分钟） | twap算法总时长。当sum_twap = 0 时，即不考虑总交易时长，采用等时间间隔拆单。                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| twap_time_gap              | float  | 时间间隔（秒）     | 在定时拆单算法下，该字段为时间间隔。在twap算法下：该字段如果取值为-1，则表示twap时间间隔不做限制；（此处：相邻报单的时间间隔会受到min_interval_time的限制，具体规则可参考min_interval_time的定义）反之，表示在拆单手数的限制条件下，会选择最趋近于twap_time_gap的拆单方式。                                                                                                                                                                                                                                                           |
+| split_volume               | int    | 拆单手数           | 废弃** 该字段后续将从数据库中删除不再使用。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| cancel_cmd_time            | float  | 价格轮询时间（秒） | 价格轮询的时间间隔，若价格更新，则撤单。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| order_amt_adj_intraday     | float  |                    | /                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| order_amt_adj_before_close | float  |                    | /                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| split_volume_max           | int    | 最大拆单手数       | 拆单手数上限（注：仅用于计算拆单量，并不强制要求，但是拆单结果一般不会超过拆单手数上限。）                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| split_volume_min           | int    | 最小拆单手数       | 拆单手数下限（注：仅用于计算拆单量，并不强制要求。单笔拆单数量需要交易所规定的单笔合约最小下单量。）                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| env                        | string | 交易环境           | 枚举值['test', 'prod']，用于区分用户交易环境（生产/测试环境）                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+
+#### 02 ini配置文件
+
+| 参数              | 类别   | 定义             | 说明                                                                                                                                                                                                                                                                                                                         |
+| ----------------- | ------ | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| CTP_rank          | dict   | ctp字段顺序      | 用户无需修改，存储的是行情接口返回的字段名称和对应顺序                                                                                                                                                                                                                                                                       |
+| mac_address       | string | mac地址          | 恒生ufx登录时需上传绑定mac地址(12位数)                                                                                                                                                                                                                                                                                       |
+| env               | string | 环境             | 枚举值['prod', 'test'] 对应关系 {'prod'：生产；'test'：测试}                                                                                                                                                                                                                                                                 |
+| url               | str    | 企微预警推送地址 | 对应不同的企微群                                                                                                                                                                                                                                                                                                             |
+| manual_account    | list   | 资金账号限制     | 在登录用户限制的基础上，仅交易manual_account list 中包含的资金账号。                                                                                                                                                                                                                                                         |
+| min_interval_time | float  | 最小间隔时间     | 相邻报单的最小时间间隔；从报单到撤单的最小时间间隔。限制场景：1，TWAP交易，指定算法总时长和单笔委托数量时，如果总委托数量很大，委托份数过多，则会造成相邻报单间隔时间趋于0的情况，为避免这种情况出现，可以通过设置min_interval_time的方式，适当延长TWAP总交易时长，合理化报单间隔。2，报单之后，需等待最小时间间隔才能撤单。 |
