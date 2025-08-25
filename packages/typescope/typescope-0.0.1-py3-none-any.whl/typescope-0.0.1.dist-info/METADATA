@@ -1,0 +1,11 @@
+Metadata-Version: 2.4
+Name: typescope
+Version: 0.0.1
+Summary: Runtime type-level assignability check for Python
+Project-URL: Homepage, https://github.com/inaku-Gyan/typescope
+Project-URL: Repository, https://github.com/inaku-Gyan/typescope
+Project-URL: Issues, https://github.com/inaku-Gyan/typescope/issues
+Author-email: inaku-Gyan <inaku.gs@gmail.com>
+License: MIT
+Keywords: runtime type checking,subtyping
+Requires-Python: >=3.13
