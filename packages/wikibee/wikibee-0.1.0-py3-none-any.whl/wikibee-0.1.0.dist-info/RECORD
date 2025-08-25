@@ -1,0 +1,12 @@
+wikibee/__init__.py,sha256=Le-nv2Phe8iKZbRW-Qw5TR1XrdASauXz-NIMStc4Ydg,1007
+wikibee/__main__.py,sha256=fhoZjXBo_6xvOxEQrdlK-JO7M3W725RSkIG5uJ4Dhso,255
+wikibee/cli.py,sha256=4YMeOVuibk0kKbsb_LVIRR3jftIudI9x_gMgq1QdMh0,13394
+wikibee/client.py,sha256=edCNMkeg6WKg20v_c48YQY0zKh2Gs2Bc-kiAWfOEKJI,2931
+wikibee/formatting.py,sha256=3p6Ce1Xi87PKeIXakO1_YGyWDu26FN5vGG8OnoGLnpI,3911
+wikibee/tts_normalizer.py,sha256=T5xupaCbo8983Zhhv_HHarodcCM0c8P5NvCF98AwQc8,9060
+wikibee/tts_openai.py,sha256=Udy7z4PKQoSnbTX01jPYJkaXAF3itc6cDBnn3Yi-sF8,2964
+wikibee-0.1.0.dist-info/METADATA,sha256=1-PjgKLOQVX1bkllyG6P0dLbHWlSYxV13Deq7kEeqQI,7158
+wikibee-0.1.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+wikibee-0.1.0.dist-info/entry_points.txt,sha256=44uBPq3ZeRxYwYzEYTWELx6FOz_gTNDuLWa3Dpoccfk,44
+wikibee-0.1.0.dist-info/licenses/LICENSE,sha256=vI9qCA16lBNhRO4qAfH1f0TxUvyoYaJz8WHg4fU1-ts,1070
+wikibee-0.1.0.dist-info/RECORD,,

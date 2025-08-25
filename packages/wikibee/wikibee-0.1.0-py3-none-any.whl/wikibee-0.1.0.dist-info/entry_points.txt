@@ -1,0 +1,2 @@
+[console_scripts]
+wikibee = wikibee.cli:app
