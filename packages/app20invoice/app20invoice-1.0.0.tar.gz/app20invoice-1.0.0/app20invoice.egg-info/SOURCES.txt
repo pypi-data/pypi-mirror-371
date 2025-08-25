@@ -1,0 +1,8 @@
+setup.py
+app20invoice/__init__.py
+app20invoice/app20invoice.py
+app20invoice.egg-info/PKG-INFO
+app20invoice.egg-info/SOURCES.txt
+app20invoice.egg-info/dependency_links.txt
+app20invoice.egg-info/requires.txt
+app20invoice.egg-info/top_level.txt
