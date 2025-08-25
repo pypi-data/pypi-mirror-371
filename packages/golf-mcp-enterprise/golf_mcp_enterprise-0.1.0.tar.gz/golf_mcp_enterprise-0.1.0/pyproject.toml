@@ -1,0 +1,85 @@
+[build-system]
+requires = ["setuptools>=80.8.0", "wheel", "cython>=3.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "golf-mcp-enterprise"
+version = "0.1.0"
+description = "Enterprise OAuth proxy features for Golf MCP servers"
+authors = [
+    {name = "Antoni Gmitruk", email = "antoni@golf.dev"}
+]
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "Commercial License - Contact sales@golf.dev"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent", 
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12"
+]
+dependencies = [
+    "golf-mcp>=0.2.1,<0.3.0",  # Main Golf framework
+    "fastmcp>=2.11.0,<3.0.0",  # FastMCP for auth providers
+    "pydantic>=2.11.0",        # Configuration validation
+    "httpx>=0.28.1",           # HTTP client for OAuth flows
+    "pyjwt>=2.0.0",           # JWT token handling
+    "cryptography>=3.0.0",    # Cryptographic operations for PKCE
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.23.0", 
+    "pytest-cov>=4.1.0",
+    "ruff>=0.1.0",
+    "mypy>=1.6.0",
+    "pytest-mock>=3.14.0",
+]
+cython = [
+    "cython>=3.0.0",
+    "numpy>=1.21.0",
+]
+
+[project.urls]
+"Homepage" = "https://golf.dev"
+"Documentation" = "https://docs.golf.dev"
+"Support" = "https://golf.dev"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["golf_enterprise*"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "B", "C4", "C90", "UP", "N", "ANN", "SIM", "TID"]
+ignore = [
+    "ANN401",  # Disallow Any (too strict for dynamic code)
+    "B008",    # Function call in defaults (common in CLI frameworks)
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"] 
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+asyncio_mode = "auto"
+addopts = [
+    "-v",
+    "--strict-markers",
+    "--tb=short",
+    "--cov=golf_enterprise",
+    "--cov-report=term-missing",
+]

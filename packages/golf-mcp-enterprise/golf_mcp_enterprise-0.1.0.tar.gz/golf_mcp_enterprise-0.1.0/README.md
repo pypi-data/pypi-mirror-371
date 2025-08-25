@@ -1,0 +1,167 @@
+# Golf MCP Enterprise
+
+Enterprise OAuth proxy functionality for Golf MCP servers, enabling integration with OAuth providers that don't support Dynamic Client Registration (DCR).
+
+## Overview
+
+Golf MCP Enterprise provides OAuth proxy capabilities that bridge MCP clients (which expect DCR support) with traditional OAuth providers like:
+
+- **GitHub OAuth Apps** 
+- **Google OAuth 2.0**
+- **Okta Web Applications**
+- **Azure AD App Registrations**
+- **Custom OAuth 2.0/2.1 providers**
+
+The proxy acts as a DCR-capable authorization server to MCP clients while using your fixed upstream client credentials.
+
+## Features
+
+- **🔐 Full OAuth 2.0/2.1 Compliance** - PKCE, authorization code flow, token refresh
+- **🎯 DCR Compatibility** - Seamless integration with MCP clients expecting Dynamic Client Registration
+- **🔗 Multi-Provider Support** - Works with any OAuth 2.0/2.1 compliant provider
+- **⚡ FastMCP Integration** - Built on FastMCP 2.11+ authentication framework
+- **🛡️ Production Ready** - Comprehensive security validation and error handling
+- **📊 Observable** - Built-in telemetry and monitoring integration
+
+## Installation
+
+```bash
+# Contact sales@golf.dev for enterprise licensing
+pip install golf-mcp-enterprise
+```
+
+## Quick Start
+
+```python
+from golf.auth import configure_oauth_proxy, JWTAuthConfig
+
+# Configure OAuth proxy for GitHub
+configure_oauth_proxy(
+    upstream_authorization_endpoint="https://github.com/login/oauth/authorize",
+    upstream_token_endpoint="https://github.com/login/oauth/access_token", 
+    upstream_client_id="your_github_client_id",
+    upstream_client_secret="your_github_client_secret",
+    base_url="https://your-proxy.example.com",
+    scopes_supported=["read:user", "user:email"],
+    token_verifier_config=JWTAuthConfig(
+        jwks_uri="https://github.com/.well-known/jwks.json",
+        issuer="https://github.com",
+        audience="your_github_client_id",
+    ),
+)
+```
+
+## OAuth Provider Setup
+
+### GitHub OAuth App
+
+1. Go to GitHub → Settings → Developer settings → OAuth Apps
+2. Create new OAuth App with:
+   - **Authorization callback URL**: `https://your-proxy.example.com/oauth/callback`
+   - **Application type**: Web application
+3. Copy Client ID and Client Secret
+
+### Google OAuth 2.0
+
+1. Go to Google Cloud Console → APIs & Credentials → Credentials
+2. Create OAuth 2.0 Client ID with:
+   - **Application type**: Web application
+   - **Authorized redirect URIs**: `https://your-proxy.example.com/oauth/callback`
+3. Copy Client ID and Client Secret
+
+### Okta Web Application
+
+1. Go to Okta Admin Console → Applications → Create App Integration  
+2. Choose Web Application with:
+   - **Grant types**: Authorization Code, Refresh Token
+   - **Sign-in redirect URI**: `https://your-proxy.example.com/oauth/callback`
+3. Copy Client ID and Client Secret
+
+## Architecture
+
+```
+MCP Client → Golf OAuth Proxy → Upstream OAuth Provider
+     ↑              ↑                    ↑
+   DCR Flow      Dual PKCE         Fixed Credentials
+```
+
+The proxy performs dual PKCE flows:
+1. **Client ↔ Proxy**: Dynamic client registration with PKCE
+2. **Proxy ↔ Upstream**: Fixed credentials with PKCE
+
+## Configuration
+
+The proxy supports comprehensive configuration through Golf's `OAuthProxyConfig`:
+
+```python
+from golf.auth import OAuthProxyConfig, JWTAuthConfig
+
+config = OAuthProxyConfig(
+    # Upstream provider configuration
+    upstream_authorization_endpoint="https://provider.com/oauth/authorize",
+    upstream_token_endpoint="https://provider.com/oauth/token",
+    upstream_client_id="your_client_id",
+    upstream_client_secret="your_client_secret",
+    upstream_revocation_endpoint="https://provider.com/oauth/revoke",  # Optional
+    
+    # Proxy server configuration  
+    base_url="https://your-proxy.example.com",
+    redirect_path="/oauth/callback",  # Must match provider setup
+    
+    # Scopes and verification
+    scopes_supported=["read:user", "user:email"],
+    token_verifier_config=JWTAuthConfig(
+        jwks_uri="https://provider.com/.well-known/jwks.json",
+        issuer="https://provider.com",
+        audience="your_client_id",
+        required_scopes=["read:user"],
+    ),
+)
+```
+
+### Environment Variables
+
+All configuration values support environment variable overrides:
+
+```python
+config = OAuthProxyConfig(
+    upstream_client_id="default_value",
+    upstream_client_id_env_var="GITHUB_CLIENT_ID",  # Override from env
+    # ... other config
+)
+```
+
+## Security Features
+
+- **🔐 End-to-end PKCE** - Cryptographic security for both client flows
+- **🛡️ Production HTTPS enforcement** - Automatic security validation
+- **🔍 Token verification** - JWT/JWKS validation of upstream tokens
+- **⚠️ Scope validation** - RFC 6749 compliant scope checking
+- **🚫 Dangerous scope detection** - Warnings for overprivileged scopes
+
+## Development
+
+```bash
+# Clone enterprise repository
+git clone https://github.com/golf-mcp/golf-enterprise
+cd golf-enterprise
+
+# Install in development mode
+pip install -e ".[dev]"
+
+# Run tests
+pytest tests/ -v
+
+# Format code
+ruff format src/ tests/
+```
+
+## License
+
+Commercial license. Contact sales@golf.dev for licensing terms.
+
+## Support
+
+- **Documentation**: https://docs.golf.dev/enterprise
+- **Support**: support@golf.dev
+- **Sales**: sales@golf.dev
