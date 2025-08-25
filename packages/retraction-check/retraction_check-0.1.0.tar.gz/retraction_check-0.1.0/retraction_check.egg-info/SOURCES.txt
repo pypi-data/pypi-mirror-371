@@ -1,0 +1,12 @@
+README.md
+pyproject.toml
+setup.cfg
+retraction_check/__init__.py
+retraction_check/check_bib.py
+retraction_check.egg-info/PKG-INFO
+retraction_check.egg-info/SOURCES.txt
+retraction_check.egg-info/dependency_links.txt
+retraction_check.egg-info/entry_points.txt
+retraction_check.egg-info/requires.txt
+retraction_check.egg-info/top_level.txt
+tests/test_check_bib.py

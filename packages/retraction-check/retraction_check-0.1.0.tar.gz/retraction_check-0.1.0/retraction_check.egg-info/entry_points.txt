@@ -1,0 +1,2 @@
+[console_scripts]
+retraction-check = retraction_check.check_bib:main
