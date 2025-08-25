@@ -1,0 +1,12 @@
+mcp
+requests
+python-dotenv
+openai
+
+[dev]
+pytest
+build
+twine
+
+[test]
+pytest
