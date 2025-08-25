@@ -1,0 +1,10 @@
+nillanet/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+nillanet/activations.py,sha256=0lSHbb1WrqHeDf3To2hxFwooBzPwmTV3L97FpbE8i2c,3564
+nillanet/distributions.py,sha256=77zWBLiHCcYZiZMGRxNKGflJ5pV1JjQlH_ge5jNPfMg,4776
+nillanet/io.py,sha256=ydBnSsPPYInnLLSMJTL686eZ0AAUr5nUqap8zjB3i88,611
+nillanet/loss.py,sha256=IvrbQmiXOhgcnP2a4i3FMawqIXaGoScET7yT8STfMSQ,2961
+nillanet/model.py,sha256=7m7OnCw6qg-jTyzipB_zEIOduLM3fKtyKaIUnVOJjiw,7866
+nillanet-1.1.0.dist-info/METADATA,sha256=ddK6F25I4dTKI-mpbUdBwn-xVquBAYt0v_zX6pjMMuI,1367
+nillanet-1.1.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+nillanet-1.1.0.dist-info/top_level.txt,sha256=msHOcEfb5o7aQu5b7WFdAH6c4sJaWOwkUKomYiAwsOU,9
+nillanet-1.1.0.dist-info/RECORD,,
