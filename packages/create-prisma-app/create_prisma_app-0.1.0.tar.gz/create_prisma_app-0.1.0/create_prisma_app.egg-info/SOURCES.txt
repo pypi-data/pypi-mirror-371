@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+setup.py
+create_prisma_app/__init__.py
+create_prisma_app/cli.py
+create_prisma_app.egg-info/PKG-INFO
+create_prisma_app.egg-info/SOURCES.txt
+create_prisma_app.egg-info/dependency_links.txt
+create_prisma_app.egg-info/entry_points.txt
+create_prisma_app.egg-info/top_level.txt
