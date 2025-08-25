@@ -1,0 +1,12 @@
+ptcookiechecker/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+ptcookiechecker/_version.py,sha256=71Tw8stu19MsLPyF1q_DF5mb_BefzOTPYggLlSLvCms,23
+ptcookiechecker/ptcookiechecker.py,sha256=6j12WiMUqiCvv7B7QutNXniS-zLF8fQhm8Bl0qf6yHA,8660
+ptcookiechecker/modules/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+ptcookiechecker/modules/cookie_rules.py,sha256=BAwbnWe186JxfRws8XsJqvQuz2pHprrJ1ZtwJ69l_CU,1503
+ptcookiechecker/modules/cookie_tester.py,sha256=_PxS2JvIHbptD1BpOsKHxkLnXg5CPNjVg85K_zmwRnA,22447
+ptcookiechecker-0.0.14.dist-info/licenses/LICENSE,sha256=IwGE9guuL-ryRPEKi6wFPI_zOhg7zDZbTYuHbSt_SAk,35823
+ptcookiechecker-0.0.14.dist-info/METADATA,sha256=xi1XZh3PCputUbj5E5Mz2XkkdT4x4uSDaepi1S4zK10,3725
+ptcookiechecker-0.0.14.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+ptcookiechecker-0.0.14.dist-info/entry_points.txt,sha256=LtqFNRJWWCR7LmVui3MsV98fKn2_okLF8qJ8XhA-vOo,73
+ptcookiechecker-0.0.14.dist-info/top_level.txt,sha256=f1oBhNaW0HsvIXzwN0yMha4_gcYaS1ZK2-_StkPnah4,16
+ptcookiechecker-0.0.14.dist-info/RECORD,,
