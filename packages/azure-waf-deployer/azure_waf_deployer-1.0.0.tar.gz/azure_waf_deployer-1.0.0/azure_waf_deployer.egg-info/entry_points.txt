@@ -1,0 +1,2 @@
+[console_scripts]
+azure-waf-deploy = azure_waf_deployer.cli:main

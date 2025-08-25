@@ -1,0 +1,11 @@
+README.md
+setup.py
+azure_waf_deployer/__init__.py
+azure_waf_deployer/cli.py
+azure_waf_deployer/templates.py
+azure_waf_deployer.egg-info/PKG-INFO
+azure_waf_deployer.egg-info/SOURCES.txt
+azure_waf_deployer.egg-info/dependency_links.txt
+azure_waf_deployer.egg-info/entry_points.txt
+azure_waf_deployer.egg-info/requires.txt
+azure_waf_deployer.egg-info/top_level.txt
