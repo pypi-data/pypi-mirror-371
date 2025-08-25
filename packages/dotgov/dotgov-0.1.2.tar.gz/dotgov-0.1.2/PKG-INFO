@@ -1,0 +1,27 @@
+Metadata-Version: 2.4
+Name: dotgov
+Version: 0.1.2
+Summary: A library for accessing government Open Data
+Author: Germán Muñoz
+Author-email: Germán Muñoz <46906587+munozbravo@users.noreply.github.com>
+License-Expression: MIT
+License-File: LICENSE
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Operating System :: OS Independent
+Requires-Dist: pydantic>=2.11.7
+Requires-Dist: python-dotenv>=1.1.1
+Requires-Dist: requests>=2.32.4
+Requires-Python: >=3.12
+Project-URL: Documentation, https://munozbravo.github.io/dotgov/
+Project-URL: Homepage, https://github.com/munozbravo/dotgov
+Description-Content-Type: text/markdown
+
+# dotgov
+
+## A library for accessing government Open Data
+
+## Documentation
+
+### User guide and API reference:
+
+[![Docs](https://img.shields.io/badge/docs-mkdocs--material-blue)](https://munozbravo.github.io/dotgov/)
