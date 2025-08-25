@@ -1,0 +1,12 @@
+marali_mkdocs_glightbox-0.4.1.dist-info/licenses/LICENSE,sha256=7cV3bIuaLwprju6A0ty4UIR4xT73eE6Fe8-VaNUsoB4,1086
+mkdocs_glightbox/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+mkdocs_glightbox/plugin.py,sha256=UC-40CmGCIi2y4jJUFnaaYgW6v9c4TJICx1ygQZu5no,12190
+mkdocs_glightbox/glightbox/LICENSE.md,sha256=bu2aytESVHlmkiJIePCx9S0t4WXD6JOH-LNCxaYTeGM,1105
+mkdocs_glightbox/glightbox/__init__.py,sha256=4ucOFAqUvBIOC3jBkkFENh_1xQ9NKTFbcfcURkei3r8,281
+mkdocs_glightbox/glightbox/glightbox.min.css,sha256=bT9i1NF5afnHDpQ4z2cQBHJQGehoEj8uvClaAG-NXS0,13749
+mkdocs_glightbox/glightbox/glightbox.min.js,sha256=ifTnLH-hiMV7hVi4wRITJAD8yGAnHtJwD97TWUFGKVY,56281
+marali_mkdocs_glightbox-0.4.1.dist-info/METADATA,sha256=yxxpmNbiI7vNPaK_bQWtSVQOV5aNsPO5c5WguwW6hwQ,8763
+marali_mkdocs_glightbox-0.4.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+marali_mkdocs_glightbox-0.4.1.dist-info/entry_points.txt,sha256=8xBb78ItEMBVpnAWvN5bTb-W3J8RIGho50CLxR-PkL0,68
+marali_mkdocs_glightbox-0.4.1.dist-info/top_level.txt,sha256=blF90Yb5gE0drZLC1hvUKnSzcfqP-JZAsnIu1nBzvCk,17
+marali_mkdocs_glightbox-0.4.1.dist-info/RECORD,,
