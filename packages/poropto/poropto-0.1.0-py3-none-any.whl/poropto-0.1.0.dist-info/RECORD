@@ -1,0 +1,11 @@
+poropto/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+poropto/portfolio_optimization.py,sha256=R8aurrpuG9fdo_tGHmMNPWL7ru1_s_ryxmcEr2Y7J0g,71382
+poropto/preliminaries.py,sha256=WKnT7o7K2pHFaGwnLTE-YrEocPAIEyP2CABFTyVnrYE,44810
+poropto/return_evaluation.py,sha256=paVFM21MrjOd05Yj2qgqzSeXF-ZzRDLzvMY7qANPzOw,12133
+poropto/sustainability_evaluation.py,sha256=u5SqtL2WqzmX2HY0VI6gxCusHbJLhuFUdgXc3IAxjgE,19843
+poropto-0.1.0.dist-info/licenses/LICENSE.txt,sha256=CDyWv7szfMJ6Oj0mePKuEdV9Jy5nAhLrpKmkRqnKWJQ,1080
+poropto-0.1.0.dist-info/METADATA,sha256=RW2oK_TEEMtq-tGyacTdKUemM_88e5vACu90lpGCNUg,14760
+poropto-0.1.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+poropto-0.1.0.dist-info/entry_points.txt,sha256=MDKfo_CO7Q1ou-5uQfpCBBgWaUFZb6Pggb3XaOsogEI,68
+poropto-0.1.0.dist-info/top_level.txt,sha256=hbFpFDlJ2_FvWyGPpCUxvFhzHrnlRqg5RX4-ONm4Kc8,8
+poropto-0.1.0.dist-info/RECORD,,
