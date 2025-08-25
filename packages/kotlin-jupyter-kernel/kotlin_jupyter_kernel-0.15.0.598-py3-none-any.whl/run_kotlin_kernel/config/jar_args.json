@@ -1,0 +1,17 @@
+{
+    "mainJar": "kotlin-jupyter-kernel-0.15.0-598-all.jar",
+    "mainClass": "org.jetbrains.kotlinx.jupyter.IkotlinKt",
+    "classPath": [
+        "lib-0.15.0-598.jar",
+        "api-0.15.0-598.jar",
+        "slf4j-api-2.0.17.jar",
+        "kotlin-script-runtime-2.2.20-Beta2.jar",
+        "kotlin-reflect-2.2.20-Beta2.jar",
+        "kotlinx-serialization-core-jvm-1.9.0.jar",
+        "kotlinx-serialization-json-jvm-1.9.0.jar",
+        "kotlin-stdlib-2.2.20-Beta2.jar",
+        "protocol-api-0.15.0-598.jar",
+        "annotations-13.0.jar"
+    ],
+    "debuggerPort": "generate"
+}
