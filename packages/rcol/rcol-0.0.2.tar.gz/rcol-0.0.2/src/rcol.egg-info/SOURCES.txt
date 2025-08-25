@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+src/rcol/__init__.py
+src/rcol/instruments.py
+src/rcol.egg-info/PKG-INFO
+src/rcol.egg-info/SOURCES.txt
+src/rcol.egg-info/dependency_links.txt
+src/rcol.egg-info/requires.txt
+src/rcol.egg-info/top_level.txt
+tests/test_templates.py
