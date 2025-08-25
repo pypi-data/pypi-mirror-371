@@ -1,0 +1,18 @@
+{% comment %}
+Mobile navigation showing direct children of the site root
+{% endcomment %}
+
+{% load wagtailcore_tags %}
+
+{% for menuitem in menuitems %}
+    <li class="mobile-menu-item font-light tracking-wider text-xl relative group {% if menuitem.active %} bg-accent{% endif %}"
+        x-data="{}"
+        x-show="isOpen"
+        style="transition-delay: {{ forloop.counter0|add:0 }}00ms;">
+        <a href="{% pageurl menuitem %}" 
+           class="block px-3 py-2 text-sm font-medium text-accent-content hover:bg-accent"
+           @click="isOpen = false">
+            {{ menuitem.title }}
+        </a>
+    </li>
+{% endfor %}
