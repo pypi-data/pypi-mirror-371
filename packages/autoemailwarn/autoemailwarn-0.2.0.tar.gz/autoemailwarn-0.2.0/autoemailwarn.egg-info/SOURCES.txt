@@ -1,0 +1,8 @@
+pyproject.toml
+autoemailwarn/__init__.py
+autoemailwarn/crash_notifier.py
+autoemailwarn/email_sender.py
+autoemailwarn.egg-info/PKG-INFO
+autoemailwarn.egg-info/SOURCES.txt
+autoemailwarn.egg-info/dependency_links.txt
+autoemailwarn.egg-info/top_level.txt
