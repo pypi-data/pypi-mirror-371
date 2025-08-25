@@ -1,0 +1,10 @@
+mrsh/__init__.py,sha256=KTY1rislSYjExpFseJrAbYJPgz2NnhxpUP7mbDtHny0,583
+mrsh/cli.py,sha256=1JrWFniALYgUffm2Z6Waa8YVnGgSNr66MqhV8zFo6_4,2926
+mrsh/core.py,sha256=IVmQLPTYouvb6NlHWKm-nSkqAp_JkWnM-qU6ncqwmMs,15337
+mrsh/utils.py,sha256=dAbV4oWKGDT3wHczt2gWz1gbUdIE2g4hCBURr8qGh-Y,1691
+mrshw-0.1.1.dist-info/licenses/LICENSE,sha256=XKEr_JFFEAWKsYri03K6VfDLsC87wO2G5KTbCapkIJg,1056
+mrshw-0.1.1.dist-info/METADATA,sha256=Pwb53iGYoX5bNQIqOTxwhqX6q3VrZ_W5Yzwb0lIqN5c,2645
+mrshw-0.1.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+mrshw-0.1.1.dist-info/entry_points.txt,sha256=PeTgGdMOeNL7c-8Jm05i1TVTn9o_QCyvw4LSBqgjTKw,39
+mrshw-0.1.1.dist-info/top_level.txt,sha256=f4Ml-2TOrWwiXs-dxR8-fvd2VKU72ctknI-BbDOHYaQ,5
+mrshw-0.1.1.dist-info/RECORD,,
