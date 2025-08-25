@@ -1,0 +1,11 @@
+azure_datastore_utils/__init__.py,sha256=KSg2Qukv8MFCDN2wF-eP3T8fWlIj-E775TSVmuQRnPI,934
+azure_datastore_utils/ai_search_utils.py,sha256=dxH9ed89gPggLUTMELjmF7Tv3tuxOYXOrYjwqVo_gEg,20239
+azure_datastore_utils/ai_search_utils_async.py,sha256=v9wpSMHlUZT7XGe01pppa-TKq8yR0aqADeJzRD6MgrA,20731
+azure_datastore_utils/cosmos_db_utils.py,sha256=mOEc1MUVaakbas7zYAhTX0IEnJnxs9-SQ8_3Q39C02c,9183
+azure_datastore_utils/cosmos_db_utils_async.py,sha256=Vfy3GwGI1Uj4WM38og8AO55uG7I6VZ2TEOAMMQ7UsT4,9234
+azure_datastore_utils/redis_util.py,sha256=7hgtbDWYETIGnZV8C9a3JzAAMQ15X0qaDRegQfClCSA,11217
+azure_datastore_utils/redis_utils_async.py,sha256=AjdL_zM73i5_xPaCWRHy2YQF69fDbq3k9PRvrjLQwlM,5364
+azure_datastore_utils-0.2.2.dist-info/METADATA,sha256=TLauGh1wWycanCaemFN2YqqWaAjZmhGVec7GF9qkL1U,1072
+azure_datastore_utils-0.2.2.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+azure_datastore_utils-0.2.2.dist-info/licenses/LICENSE,sha256=NIGTtIh6nYLgHi2fClqNllPdx9HJmSgY0jnhofu_0VY,1078
+azure_datastore_utils-0.2.2.dist-info/RECORD,,
