@@ -1,0 +1,9 @@
+README.md
+pyproject.toml
+snappy/__init__.py
+snappy/cli.py
+snappy_pyr.egg-info/PKG-INFO
+snappy_pyr.egg-info/SOURCES.txt
+snappy_pyr.egg-info/dependency_links.txt
+snappy_pyr.egg-info/entry_points.txt
+snappy_pyr.egg-info/top_level.txt

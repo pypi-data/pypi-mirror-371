@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "snappy-pyr"
+version = "0.1.0"
+description = "Run python files faster with pyr"
+authors = [
+  { name="Ganu Reddy", email="ganureddy54@gmail.com" }
+]
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.7"
+
+[project.scripts]
+pyr = "snappy.cli:main"

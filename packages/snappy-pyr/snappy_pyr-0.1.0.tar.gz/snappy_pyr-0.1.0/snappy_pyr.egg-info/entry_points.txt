@@ -1,0 +1,2 @@
+[console_scripts]
+pyr = snappy.cli:main
