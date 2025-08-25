@@ -1,0 +1,13 @@
+dander/__about__.py,sha256=Y2GcjldCrmNcWNNOk0tplsFzw7GWNfXnRpg7erwsqUo,136
+dander/__init__.py,sha256=5dAiNmwBNxdPPbSqAfMOu1NB-ToWNHZ9eUpI_19yqag,114
+dander/cli.py,sha256=BJlhFq-Mfy4SxQ1KdM27LjKST85gmpOvTpVWTBPW72g,3213
+dander/_dbt/__init__.py,sha256=IekYD_UJxjdOSG7yHAouU1ipvAsBh4P7tjnvq3Bq2V4,277
+dander/io/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dander/io/json_utils.py,sha256=W7WpFvUG5vdZO3krydXj7WwnW_QUP4pfJ-H523445Rs,2797
+dander/io/xml_utils.py,sha256=GGvuaqh4haSkB1G8H5aNX6f1qIHGyql4hVxkH1mjFR4,1342
+dander-0.4.0.dist-info/METADATA,sha256=yfeieoW0821-PK1d6ujsdT2KC9jueH1TAIc-OaetW2w,1853
+dander-0.4.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+dander-0.4.0.dist-info/entry_points.txt,sha256=rWZDPQ0hDpobqbQRgayIa42GaTUd7a4lzh7IsWzrC6Q,42
+dander-0.4.0.dist-info/licenses/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+dander-0.4.0.dist-info/licenses/LICENSE.txt,sha256=T7Ct-LdXyrc9W7bLPzJ1eTI4h3xjIfvLsaAmThupqCk,1106
+dander-0.4.0.dist-info/RECORD,,
