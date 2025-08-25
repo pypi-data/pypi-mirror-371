@@ -1,0 +1,10 @@
+dtlpymcp/__init__.py,sha256=lhPPMskLqsH9l-ucRa0Zj2oCQEhsaoT1xtZX67kTwLQ,1178
+dtlpymcp/__main__.py,sha256=RWyPaVtfYpLyJplQpQ8ZcGfP5UTfbefQMo5MB9HD9CY,1084
+dtlpymcp/min_proxy.py,sha256=n9KzWwaGU-8uUKRJigGHAnyZ6GXfNl5bwMpULfBrbEc,2554
+dtlpymcp/proxy.py,sha256=0xMlO7QUUk4Kq6pb4F0b-n_c0ZWjcFY1jJHqkMwGxAQ,4515
+dtlpymcp/utils/dtlpy_context.py,sha256=qeKwptMx_fenYTRs5-l3711yPyo2iof_FoQX8jM3fmE,10670
+dtlpymcp-0.1.9.dist-info/METADATA,sha256=YBf64o9pxbX9Shb2zxzoN9JWZk6prSJqGu0EccW4s6Y,2189
+dtlpymcp-0.1.9.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+dtlpymcp-0.1.9.dist-info/entry_points.txt,sha256=6hRVZNTjQevj7erwt9dAOURtPVrSrYu6uHXhAlhTaXQ,52
+dtlpymcp-0.1.9.dist-info/top_level.txt,sha256=z85v20pIEnY3cBaWgwhU3EZS4WAZRywejhIutwd-iHk,9
+dtlpymcp-0.1.9.dist-info/RECORD,,
