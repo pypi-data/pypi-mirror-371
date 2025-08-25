@@ -1,0 +1,4 @@
+[console_scripts]
+terraform-var-manager = terraform_var_manager.main:main
+tfvar-manager = terraform_var_manager.main:main
+

@@ -1,0 +1,10 @@
+terraform_var_manager/__init__.py,sha256=dhhqJydnOjnqTwY_La7mmN6LQpyt4-LpPVdlvlq1M3s,574
+terraform_var_manager/api_client.py,sha256=D0_M86bAU3fUcpjMoFD-xVfxkXdShih9aTv7-ex-mH4,3058
+terraform_var_manager/main.py,sha256=bpSD5MYjajnCT2PpPeoFk1B0J2fSJutaBsyfXZw6yCY,3832
+terraform_var_manager/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+terraform_var_manager/utils.py,sha256=_h1jqGLpntCKTgXc_4nt99eEYAhhk4ZGx8T_CLtXCeM,1949
+terraform_var_manager/variable_manager.py,sha256=Uo5ReoHROmr4_c1VHjiwi2PrkDrPQMfzUPaiXiuStiQ,10676
+terraform_var_manager-1.0.0.dist-info/WHEEL,sha256=4n27za1eEkOnA7dNjN6C5-O2rUiw6iapszm14Uj-Qmk,79
+terraform_var_manager-1.0.0.dist-info/entry_points.txt,sha256=wmAdL5u0wS1e_iWmnlouyd-IT6EBTx6sc4wqoX24R9A,123
+terraform_var_manager-1.0.0.dist-info/METADATA,sha256=FV5ME7oDqNvTDhBoaFu6wES7Rmh_qY99qqVhX3VgPbo,12109
+terraform_var_manager-1.0.0.dist-info/RECORD,,
