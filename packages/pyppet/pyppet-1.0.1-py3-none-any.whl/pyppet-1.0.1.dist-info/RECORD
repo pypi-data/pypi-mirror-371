@@ -1,0 +1,11 @@
+pyppet/__init__.py,sha256=AbpHGcgLb-kRsJGnwFEktk7uzpZOCcBY74-YBdrKVGs,1
+pyppet/format.py,sha256=skXCAsmFqJ8DtwRbuVjjtPm1OgUSdEBspakVmVIN7fY,5844
+pyppet/urdf.py,sha256=AKkv8SQCYhAxEL5DBrbXXUE7sf1m3uhGpgjyMzxNM2E,5390
+pyppet/examples/README.md,sha256=LDxhlOMbEt5TOXrswHQK47dn9_lyn0MCeDqH7o-K8B4,185
+pyppet/examples/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pyppet/examples/example_mesh.stl,sha256=IBua22pGtizlWGZnAo-qQzHsMtsLNuhEv1CcFK_nITw,684
+pyppet/examples/example_model.py,sha256=mbJgA6_NJiB8UVhUEzdIKRBWYDfqSVBFYj7G3Ewh0to,2255
+pyppet-1.0.1.dist-info/METADATA,sha256=bua_YY_TUvrVlbRVniV_xds5N-yqT5gOa0cj0xpn3vA,426
+pyppet-1.0.1.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+pyppet-1.0.1.dist-info/licenses/LICENSE,sha256=tg17A0QkVSnJnjGnDEwrTiZeAdAe_p8JuMh_HsV-Vzg,1058
+pyppet-1.0.1.dist-info/RECORD,,

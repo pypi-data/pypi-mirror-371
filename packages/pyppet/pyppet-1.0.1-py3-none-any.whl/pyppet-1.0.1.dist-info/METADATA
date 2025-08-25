@@ -1,0 +1,11 @@
+Metadata-Version: 2.4
+Name: pyppet
+Version: 1.0.1
+Summary: pyppet is a robot model format that uses Python instead of XML for better type checking, logic, scripting, and parsing
+Project-URL: Homepage, https://github.com/david-dorf/pyppet
+License: MIT
+License-File: LICENSE
+Requires-Python: <3.13,>=3.10
+Provides-Extra: test
+Requires-Dist: pyglet<2.0.0; extra == 'test'
+Requires-Dist: yourdfpy<0.0.59,>=0.0.58; extra == 'test'
