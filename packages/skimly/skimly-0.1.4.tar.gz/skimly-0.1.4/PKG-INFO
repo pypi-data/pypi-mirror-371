@@ -1,0 +1,120 @@
+Metadata-Version: 2.4
+Name: skimly
+Version: 0.1.4
+Summary: Skimly Python SDK
+Project-URL: Homepage, https://skimly.ai
+Project-URL: Issues, https://github.com/skimly/skimly/issues
+Author-email: Skimly <dev@skimly.ai>
+License: MIT
+Keywords: ai,anthropic,gateway,openai,sdk,skimly
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Python: >=3.10
+Requires-Dist: requests>=2.31.0
+Provides-Extra: dev
+Requires-Dist: black; extra == 'dev'
+Requires-Dist: flake8; extra == 'dev'
+Requires-Dist: pytest; extra == 'dev'
+Requires-Dist: pytest-asyncio; extra == 'dev'
+Description-Content-Type: text/markdown
+
+# Skimly Python SDK
+
+Official Python SDK for Skimly - the AI token optimization platform.
+
+## Installation
+
+```bash
+pip install skimly
+```
+
+## Quick Start
+
+```python
+from skimly import SkimlyClient
+
+# Initialize client
+client = SkimlyClient.from_env()
+
+# Chat with OpenAI
+response = client.chat({
+    "provider": "openai",
+    "model": "gpt-4o-mini",
+    "messages": [{"role": "user", "content": "Hello!"}]
+})
+
+# Upload large content once
+blob = client.create_blob("Large document content...")
+print(blob["blob_id"])
+
+# Avoid re-uploading identical content
+blob = client.create_blob_if_new("Large document content...")
+
+# Transform tool results with Smart Compression
+compressed = client.transform(
+    result="Large tool output...",
+    tool_name="bash",
+    command="npm run build"
+)
+
+# Fetch blob content with range support
+content = client.fetch("b_abc123", start=0, end=1024)
+```
+
+## API Reference
+
+### `SkimlyClient(key, base?, timeout_ms?, retries?)`
+
+Creates a new Skimly client instance.
+
+### `SkimlyClient.from_env()`
+
+Creates a client from environment variables:
+- `SKIMLY_KEY` - Your Skimly API key
+- `SKIMLY_BASE` - Base URL (defaults to http://localhost:8000)
+
+### `client.chat(req)`
+
+Send a chat request. Request object should include:
+- `provider` - "openai" or "anthropic"
+- `model` - Model name
+- `messages` - Array of message objects
+
+### `client.create_blob(content, mime_type?)`
+
+Upload large content once. Returns `{blob_id}`.
+
+### `client.create_blob_if_new(content, mime_type?)`
+
+Upload content only if it hasn't been uploaded before. Returns `{blob_id}`.
+
+### `client.transform(result, tool_name?, command?, model?)`
+
+Transform and compress tool results using Smart Compression Timing.
+
+### `client.fetch(blob_id, start?, end?)`
+
+Fetch blob content with optional range support.
+
+### `client.get_signed_url(blob_id, ttl?)`
+
+Get a signed URL for direct blob access.
+
+### `client.list_keys()`
+
+List all API keys for the authenticated user.
+
+### `client.create_key(name)`
+
+Create a new API key.
+
+### `client.revoke_key(key_id)`
+
+Revoke an API key.
+
+### `client.rotate_key(key_id)`
+
+Rotate an API key (revoke old, create new).
