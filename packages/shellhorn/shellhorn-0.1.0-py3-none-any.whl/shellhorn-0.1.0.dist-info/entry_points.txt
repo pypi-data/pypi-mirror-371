@@ -1,0 +1,3 @@
+[console_scripts]
+conch = conch.cli:main
+shellhorn = conch.cli:main

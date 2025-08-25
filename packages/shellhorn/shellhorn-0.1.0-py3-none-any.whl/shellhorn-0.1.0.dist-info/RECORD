@@ -1,0 +1,11 @@
+conch/__init__.py,sha256=FZRnWp5t-A-ae-JP3xXoO0N2xFI_p1E3VM9SIuCDdhU,119
+conch/cli.py,sha256=Fbnj2ZQXe4PcozNVLmMnxbP5_wCz8NmDkGrFNU9Vgmo,5736
+conch/config.py,sha256=ZLvd7j8fr57DK0Du3gdBInUWV8BpgpFHtICvMH9lPFY,5954
+conch/core.py,sha256=OAsxwuv1VC2kUTXbTgtbeXPuyHl-eo-dGTFanEPUDDw,5145
+conch/notifiers.py,sha256=VHnOOAz2gQpO6Ijyh9CHK5F8Lmp7RNlrUZmustmwK8I,6144
+shellhorn-0.1.0.dist-info/licenses/LICENSE,sha256=wjo6IAraJ6KJkLzUzcAInF0uEj3Z2Y1S4WxMSV3LOrw,1071
+shellhorn-0.1.0.dist-info/METADATA,sha256=bXnQrasN9eFU0sHS7SNO6vRvVmo5Zj89Y40BkD6JNxM,5136
+shellhorn-0.1.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+shellhorn-0.1.0.dist-info/entry_points.txt,sha256=AGb1H5ZRcl4idzQfLz1l6z85dQbcfi_KYnyB14_6ONE,68
+shellhorn-0.1.0.dist-info/top_level.txt,sha256=VYUQjU4q7cR1F3F0hVH-368mqqjXXMeRNKgb9NqQU-Q,6
+shellhorn-0.1.0.dist-info/RECORD,,
