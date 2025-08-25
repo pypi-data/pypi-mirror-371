@@ -1,0 +1,3 @@
+[console_scripts]
+wspr-ai-lite = wspr_ai_lite.cli:main
+wspr-lite = wspr_ai_lite.cli:deprecated_entrypoint
