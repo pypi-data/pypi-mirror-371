@@ -1,0 +1,64 @@
+[project]
+name = "ecomet-i2c-sensors"
+version = "0.1.10"
+description = "A short description of my package"
+readme = "README.md"
+requires-python = ">=3.11.2"
+license = "GPL-3.0-only WITH Classpath-Exception-2.0 OR BSD-3-Clause"
+license-files = ["LICEN[CS]E*"]
+authors = [
+    { name = "Marian Minar", email = "mminar7@gmail.com" },
+]
+keywords = ['raspberry','orangepi','allwinner','I2C','ecomet']
+classifiers = [
+    'Development Status :: 5 - Production/Stable',
+    'Intended Audience :: Developers',
+    'Operating System :: POSIX :: Linux',
+    'Programming Language :: Python :: 3',
+]
+dependencies = [
+    'Adafruit_PureIO >= 1.1.8',
+    #'RPI.GPIO >= 0.7.1',
+    #'OPi.GPIO >= 0.5.2',
+    'numpy >= 2.1.3' ,
+    'smbus2 >= 0.5.0',
+    'pyyaml >= 6.0.2',
+    'pillow >= 11.0.0',
+    'pypng >= 0.20220715.0',
+    'qrcode >= 8.0',
+    'typing-extensions >= 4.12.2',
+    'crc >= 7.0.0',
+]
+
+[project.urls]
+Homepage = "https://github.com/mamin27/ecomet_i2c_raspberry_tools"
+Repository = "https://github.com/mamin27/ecomet_i2c_raspberry_tools"
+
+[project.scripts]
+ecomet-cli-tool = "ecomet_i2c_sensors.cli:main"
+
+[tool.setuptools]
+packages = [
+    "ecomet_i2c_sensors",
+    "ecomet_i2c_sensors.as3935",
+    "ecomet_i2c_sensors.axp209",
+    "ecomet_i2c_sensors.axp305",
+    "ecomet_i2c_sensors.axp805",
+    "ecomet_i2c_sensors.ecomet",
+    "ecomet_i2c_sensors.eeprom",
+    "ecomet_i2c_sensors.emc2301",
+    "ecomet_i2c_sensors.hdc1080",
+    "ecomet_i2c_sensors.htu21",
+    "ecomet_i2c_sensors.ina260",
+    "ecomet_i2c_sensors.isl2802x",
+    "ecomet_i2c_sensors.mcp3221",
+    "ecomet_i2c_sensors.ms5637",
+    "ecomet_i2c_sensors.pca9557",
+    "ecomet_i2c_sensors.pca9632",
+    "ecomet_i2c_sensors.platform",
+    "ecomet_i2c_sensors.sgp40",
+    "ecomet_i2c_sensors.sn_gcja5",
+    "ecomet_i2c_sensors.ssd1306",
+    "ecomet_i2c_sensors.tsl2591"
+]
+include-package-data = true
