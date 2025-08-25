@@ -1,0 +1,21 @@
+{
+  "name": "documentation",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.3",
+    "@astrojs/starlight": "^0.35.1",
+    "astro": "^5.13.2",
+    "rehype-mathjax": "^7.1.0",
+    "remark-math": "^6.0.0",
+    "sharp": "^0.34.1",
+    "typescript": "^5.9.2"
+  }
+}
