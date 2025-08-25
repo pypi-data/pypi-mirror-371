@@ -1,0 +1,9 @@
+mycli_app/__init__.py,sha256=ClbcP5zZJxoHhvpGnNzPT1pmCQx867b5_EgTTPaGgNw,198
+mycli_app/__main__.py,sha256=x7GUZgF6Y_AJ2xXSHG5mCzUDqaG4mRtHK2TuK7rdg54,138
+mycli_app/cli.py,sha256=U22fYgrQvCf9oS11RpWDrqaf9bo0nNZ4X23Tt0sFZuo,39571
+mycli_app_naga-1.0.0.dist-info/licenses/LICENSE,sha256=l6425dmjnidzk4JQwhT01C8SpICmjSBMNREAdPnPA9E,1087
+mycli_app_naga-1.0.0.dist-info/METADATA,sha256=lVcDdJDqEqopadn4Q3kB5AvBsm0JHkV8id3YJFkUGU4,11375
+mycli_app_naga-1.0.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+mycli_app_naga-1.0.0.dist-info/entry_points.txt,sha256=G5jvU_QaLPDM7IPQ3h_aMOIbppK13RplmMnXQvuJJCE,45
+mycli_app_naga-1.0.0.dist-info/top_level.txt,sha256=ZwS66PktDgGlYNlFtMu4Ldk5JifXGDt_SIUnVbhcrI4,10
+mycli_app_naga-1.0.0.dist-info/RECORD,,
