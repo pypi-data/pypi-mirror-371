@@ -1,0 +1,17 @@
+Metadata-Version: 2.4
+Name: mjcf_urdf_simple_converter
+Version: 0.7
+Dynamic: Description
+Dynamic: Description-Content-Type
+Summary: Minimal script to convert MuJoCo MJCF robot model files to URDF files usable in ROS
+Project-URL: Homepage, https://github.com/Yasu31/mjcf_urdf_simple_converter
+Project-URL: Changelog, https://github.com/Yasu31/mjcf_urdf_simple_converter/blob/main/CHANGELOG.md
+Author-email: Yasunori Toshimitsu <yasu313nori@gmail.com>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.9
+Requires-Dist: mujoco
+Requires-Dist: numpy-stl
+Requires-Dist: scipy
