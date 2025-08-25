@@ -1,0 +1,29 @@
+[project]
+name = "triplethreading"
+version = "0.1.0"
+description = "HW00 Project"
+readme = "README.md"
+authors = [
+    { name = "triplethreading", email = "triplethreading@gmail.com" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "twine>=6.1.0",
+    "pkginfo >= 1.10",
+]
+
+[tool.maturin]
+module-name = "triplethreading._core"
+python-packages = ["triplethreading"]
+python-source = "src"
+
+[tool.uv.workspace]
+members = [
+    "differential",
+]
+
+[build-system]
+requires = ["maturin>=1.0,<2.0"]
+#requires = ["hatchling==1.26.3"]
+#build-backend = "hatchling.build"
+build-backend = "maturin"
