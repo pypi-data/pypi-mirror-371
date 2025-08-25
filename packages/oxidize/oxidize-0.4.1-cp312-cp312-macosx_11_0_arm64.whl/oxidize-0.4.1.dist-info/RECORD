@@ -1,0 +1,14 @@
+oxidize-0.4.1.dist-info/METADATA,sha256=rCedHXpUDwxinfC2moNLdy2Js0hCTkVi05yIGXwjbDo,6071
+oxidize-0.4.1.dist-info/WHEEL,sha256=EhaWXx4fd8VOPM6W-6pxsePGk73OLk2gBi7fwS90pc8,104
+oxidize/Cargo.lock,sha256=fcnE7gyDWhGOEBMPccgoNB-8Vf4WA7BV7El_8kdEBls,7832
+oxidize/Cargo.toml,sha256=gbwRR_eeWGvVGGhnRaMinvr4qOYxvR5tgysIhB8ZAjg,255
+oxidize/__init__.py,sha256=LxwZF0Ukz_VcuYHE7e-zSvSrisk-B6B7QmxXdn06-rE,546
+oxidize/oxidize.cpython-312-darwin.so,sha256=gzs37tIoQ1jKPutVZc1wyUp0hBFi0kJozelJeYBBk90,775840
+oxidize/pyproject.toml,sha256=leBuATBOmtFmUPKfFZV1eDaoy77E1YuYqnNNJU1PaBc,287
+oxidize/src/io/error.rs,sha256=LEf-77tcbAmjQWZ9VsAnfotrcDEX4LwDTVRp_W8vImU,2159
+oxidize/src/io/mod.rs,sha256=m4YaeEVRSrZ5aCmiJ8cNojMdufbJr_uRORfhSYkDQns,85
+oxidize/src/io/parser.rs,sha256=ZIoifEnC_-81vW5NK12VgKtrpiwEvwJZn17aAhSufqs,21301
+oxidize/src/io/python_api.rs,sha256=oMEB9FjzJZ7fpMg5pcCx5IeOHGq_-qWegGBqiD2cjhM,5584
+oxidize/src/io/xml_utils.rs,sha256=BLAhiVkwAyqRq1-z8tyqjIk1m8Srch9gafT2PwfUOjE,7127
+oxidize/src/lib.rs,sha256=-yS1I9WrNpqjigxf14eDAc_srUvcrTV0kgEgvYPGXN4,486
+oxidize-0.4.1.dist-info/RECORD,,
