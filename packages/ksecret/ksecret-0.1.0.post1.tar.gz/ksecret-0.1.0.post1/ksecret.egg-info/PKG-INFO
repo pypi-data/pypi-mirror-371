@@ -1,0 +1,111 @@
+Metadata-Version: 2.4
+Name: ksecret
+Version: 0.1.0.post1
+Summary: A Kubernetes Secret Helper
+Author-email: hikari <me@metantesan.com>
+License: BSD 3-Clause License
+        
+        Copyright (c) 2025, hikari
+        
+        Redistribution and use in source and binary forms, with or without
+        modification, are permitted provided that the following conditions are met:
+        
+        1. Redistributions of source code must retain the above copyright notice, this
+           list of conditions and the following disclaimer.
+        
+        2. Redistributions in binary form must reproduce the above copyright notice,
+           this list of conditions and the following disclaimer in the documentation
+           and/or other materials provided with the distribution.
+        
+        3. Neither the name of the copyright holder nor the names of its
+           contributors may be used to endorse or promote products derived from
+           this software without specific prior written permission.
+        
+        THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+        AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+        IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+        DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+        FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+        DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+        SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+        CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+        OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+        OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+        
+Requires-Python: >=3.13
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pyyaml>=6.0.2
+Requires-Dist: rich>=14.0.0
+Requires-Dist: rich-click>=1.8.9
+Dynamic: license-file
+
+# 🔑 ksecret: A Kubernetes Secret Helper
+
+`ksecret` is a command-line tool to simplify the management of Kubernetes Secrets. It provides functionalities to encode, decode, and generate Kubernetes Secret YAML files.
+
+## ✨ Features
+
+- **🔐 Encode/Decode Secrets:** Easily encode and decode the `data` field in your Kubernetes Secret files from and to base64.
+- **📝 Generate from `.env`:** Create a Kubernetes Secret YAML file directly from a `.env` file.
+- **🌱 Generate Environment Variables:** Automatically generate Kubernetes `env` entries for your deployments from Secret and ConfigMap YAML files.
+
+## 🚀 Installation
+
+You can install `ksecret` using pip:
+
+```bash
+pip install ksecret
+```
+
+## 🛠️ Usage
+
+`ksecret` provides several commands to help you manage your Kubernetes secrets.
+
+### 🔒 Encode a Secret
+
+To base64 encode the values in the `data` field of a Secret YAML file:
+
+```bash
+ksecret encode my-secret.yaml
+```
+
+This will overwrite the `my-secret.yaml` file with the encoded data. You can specify an output file using the `-o` or `--output` option.
+
+### 🔓 Decode a Secret
+
+To decode the base64 encoded values in the `data` field of a Secret YAML file:
+
+```bash
+ksecret decode my-secret.yaml
+```
+
+This will overwrite the `my-secret.yaml` file with the decoded data. You can specify an output file using the `-o` or `--output` option.
+
+### 📄 Generate a Secret from a `.env` file
+
+To generate a Kubernetes Secret YAML file from a `.env` file:
+
+```bash
+ksecret generate --name my-secret --namespace my-namespace --env-file .env --output my-secret.yaml
+```
+
+This will create a new file named `my-secret.yaml` with the generated secret.
+
+### 🌿 Generate Environment Variables from YAMLs
+
+To generate a list of environment variables for a Kubernetes Deployment from Secret and ConfigMap YAML files:
+
+```bash
+ksecret generate-env-from-yamls -f my-secret.yaml -f my-configmap.yaml
+```
+
+This will print the `env` entries to the console. You can save the output to a file using the `-o` or `--output` option.
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a pull request or open an issue on the GitHub repository.
+
+## 📜 License
+
+This project is licensed under the BSD 3-Clause License.
