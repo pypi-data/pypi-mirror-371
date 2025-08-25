@@ -1,0 +1,31 @@
+Metadata-Version: 2.4
+Name: whl-conf
+Version: 0.0.1
+Summary: A configuration management tool for WheelOS.
+Author-email: daohu527 <daohu527@gmail.com>
+Project-URL: Homepage, https://github.com/wheelos-tools/whl-conf
+Project-URL: Bug Tracker, https://github.com/wheelos-tools/whl-conf/issues
+Keywords: whl-conf,wheelos,configuration-management,cli-tool
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Topic :: Utilities
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: filelock<4.0.0,>=3.0.0
+Dynamic: license-file
+
+# aconf
+Configuration Management Tools
