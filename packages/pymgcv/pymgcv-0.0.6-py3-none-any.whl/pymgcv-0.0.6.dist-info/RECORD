@@ -1,0 +1,15 @@
+pymgcv/__init__.py,sha256=pDFbLwPqsQg2_xYW9hz9lvdw16L25p3O3NWxHUHvjw4,262
+pymgcv/basis_functions.py,sha256=PlCBnac65vUv8t-D1EXlRTEeSE6IIqL_VK7x4KMoyPk,13308
+pymgcv/custom_types.py,sha256=wILc5I5379-y97126ZNUVgOFUmfpJz4AWFfhgKwdn-k,445
+pymgcv/families.py,sha256=LGgDaNqabEITGma-43iaLFHuTSyWeuTqIbVFYh5ulp0,17416
+pymgcv/formula_utils.py,sha256=Zul7RHJtiPYWKV5H56rntTBggCHBpKKjJjOhrZA6ako,893
+pymgcv/gam.py,sha256=Y7c_eDDJdEMOq7mz_BqNwzCazvVWz3WHmcYc5HLEm_k,48991
+pymgcv/plot.py,sha256=ShbQG3JC_TOVCTUzXNa6p8H9SWCe__6DHjNjixnCuXs,28545
+pymgcv/qq.py,sha256=1C-lOWY5BUYlnZVc0c4jYwKP7YuxAzpcJZ1p6YO1mqw,4731
+pymgcv/rpy_utils.py,sha256=_WKC_Tl3fYH_b0CACfBbHCXOWSS7uwREx96f9jnTMho,4825
+pymgcv/terms.py,sha256=WwyczIV0dhrU9m-rcvJrLcPzXufLv-oy0IfpF9KmAZ0,28310
+pymgcv/utils.py,sha256=erQaWQ8EDo113jnp5XA3d1b-ffFMcJ8DVrnnGeCQ3FM,2131
+pymgcv-0.0.6.dist-info/METADATA,sha256=ladl0s9h0Z77LFDVQifWtuzXToaRLhcb1AFyqxfiXbw,41988
+pymgcv-0.0.6.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+pymgcv-0.0.6.dist-info/licenses/LICENSE,sha256=fYhGIyxjyNXACgpNQS3xxpxDOaVOWRVxZMCRbsDv8k0,35130
+pymgcv-0.0.6.dist-info/RECORD,,
