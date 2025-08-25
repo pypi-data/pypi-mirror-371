@@ -1,0 +1,160 @@
+Metadata-Version: 2.4
+Name: bassa-reg
+Version: 0.1.2
+Summary: The BASSA algorithm as presented in the paper Sparse Linear Bayesian Models for Organic Chemistry
+Author-email: Tsoof Bar Or <tsoofbaror@gmail.com>
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: contourpy==1.3.0
+Requires-Dist: cycler==0.12.1
+Requires-Dist: fonttools==4.59.0
+Requires-Dist: importlib_resources==6.5.2
+Requires-Dist: joblib==1.5.1
+Requires-Dist: kiwisolver==1.4.7
+Requires-Dist: llvmlite==0.43.0
+Requires-Dist: matplotlib==3.9.4
+Requires-Dist: numba==0.60.0
+Requires-Dist: numpy==2.0.2
+Requires-Dist: packaging==25.0
+Requires-Dist: pandas==2.3.1
+Requires-Dist: patsy==1.0.1
+Requires-Dist: pillow==11.3.0
+Requires-Dist: pyparsing==3.2.3
+Requires-Dist: python-dateutil==2.9.0.post0
+Requires-Dist: pytz==2025.2
+Requires-Dist: scikit-learn==1.6.1
+Requires-Dist: scipy==1.13.1
+Requires-Dist: six==1.17.0
+Requires-Dist: statsmodels==0.14.5
+Requires-Dist: threadpoolctl==3.6.0
+Requires-Dist: tqdm==4.67.1
+Requires-Dist: tzdata==2025.2
+Requires-Dist: UpSetPlot==0.9.0
+Requires-Dist: zipp==3.23.0
+Requires-Dist: importlib_resources==6.5.2
+Dynamic: license-file
+
+# BASSA: Bayesian Analysis with Spike-and-Slab Arrangements
+
+## Overview
+Most chemical datasets are small and high-dimensional, making deep learning impractical. Linear regression remains interpretable and effective, but feature selection is critical. Traditional methods pick a single “best” model, overlooking the fact that **multiple plausible models may exist**.
+
+**BASSA** combines Bayesian **spike-and-slab regression** with a filtering method to efficiently discover and organize many valid regression models. This reveals diverse interpretations hidden in chemical data without overcommitting to a single solution.
+
+---
+
+## Installation
+```
+pip install bassa-reg
+```
+
+## Example Use
+```
+priors = SpikeAndSlabPriors()
+config = SpikeAndSlabConfigurations(sampler_iterations=5000)
+abs_dir = os.path.dirname(os.path.abspath(__file__))
+regression = SpikeAndSlabRegression(x_train, y_train, priors, config, project_path=abs_dir, experiment_name="demo")
+ 
+regression.run()
+
+bassa = Bassa(model=regression)
+bassa.run()
+```
+
+## Results
+After running both the spike-and-slab regression and BASSA, results are saved in the specified project directory.<br>
+The main output is the <i>bassa_plot.png</i> file, which represents the models chosen by BASSA.
+<div style="text-align: center;">
+<img src="images/bassa_plot.jpeg" alt="Alt text" width="500"/> <br>
+</div>
+This chart visualizes the different models found by BASSA, with their feature combinations and performance metrics.<br>
+Key additional outputs include:<br>
+
+### Markov Chain Visualization
+<div style="text-align: center;">
+<img src="images/markov_chain_visualization.png" alt="Alt text" width="800"/> <br>
+</div>
+The markov chain visualization shows the exploration of different models over iterations.<br>
+It is sorted by feature inclusion frequency, highlighting the most commonly selected features.<br>
+Precise feature inclusion frequencies are also provided in a separate file named <i>feature_stats.csv</i>.
+
+### Survival Process Plot
+The survival plot, accompanied by the <i>survival_table.csv</i> file, illustrates the survival process of models over iterations.<br>
+<div style="text-align: center;">
+<img src="images/survival_plot.png" alt="Alt text" width="800"/> <br>
+</div>
+This is an auxiliary output that helps understand how models persist or change and is used to generate the upset chart.
+
+### Additional Data
+The <i>meta_data.csv</i> file contains information about the Spike-and-Slab regression run, including the number of iterations,
+and other configuration details. It also includes some metrics about the regression performance on the training data.
+
+## Prediction on New Data
+In order to make predictions on new data, create a new **TestSet** object.
+```
+priors = SpikeAndSlabPriors()
+config = SpikeAndSlabConfigurations(sampler_iterations=5000)
+abs_dir = os.path.dirname(os.path.abspath(__file__))
+
+test_set = TestSet(x_test=x_test,
+                   samples_per_y=100,
+                   iterations=200,
+                   y_test=y_test)
+
+regression = SpikeAndSlabRegression(x_train,
+                                    y_train,
+                                    priors,
+                                    config,
+                                    test_set=test_set,
+                                    project_path=abs_dir,
+                                    experiment_name="demo")
+ 
+regression.run()
+```
+The sampler will run an extra numbers of iterations set by the <i>iterations</i> parameter in the **TestSet** object.<br>
+In every iteration, the sampler will sample <i>samples_per_y</i> values of y for each sample in the test set.<br>
+The average of these samples will be the predicted value for each sample in the test set.<br>
+
+## Continuing a Previous Run
+In order to continue a previous run, you first need to set <i>save_samples=True</i> on the **SpikeAndSlabConfigurations** object.<br>
+Then, you can load the previous run using the **SpikeAndSlabLoader** object and pass it to the **SpikeAndSlabRegression** object.<br>
+```
+priors = SpikeAndSlabPriors()
+
+config = SpikeAndSlabConfigurations(sampler_iterations=5000,
+                                    save_meta_data=True,
+                                    save_samples=True)
+
+abs_dir = os.path.dirname(os.path.abspath(__file__))
+regression = SpikeAndSlabRegression(x=x_train,
+                            y=y_train,
+                            priors=priors,
+                            config=config,
+                            project_path=abs_dir,
+                            experiment_name="example_run",)
+
+regression.run()
+
+# load experiment, add test set and continue for another 1000 iterations
+loader = SpikeAndSlabLoader(path = f"{abs_dir}/{regression.full_experiment_name}")
+
+regression = SpikeAndSlabRegression(x=x_train,
+                                    y=y_train,
+                                    priors=priors,
+                                    config=config,
+                                    project_path=abs_dir,
+                                    experiment_name="example_run",
+                                    load_experiment=loader)
+
+regression.run()
+```
+
+## Choosing Priors
+TBD
+
+## BASSA Thresholds
+TBD

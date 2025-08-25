@@ -1,0 +1,4 @@
+bassa_reg
+dist
+expreiments
+images
