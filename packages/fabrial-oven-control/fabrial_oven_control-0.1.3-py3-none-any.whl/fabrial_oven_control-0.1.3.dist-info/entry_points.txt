@@ -1,0 +1,2 @@
+[fabrial.plugins]
+fabrial-oven-control = fabrial_oven_control
