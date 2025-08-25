@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+src/pyboost/main.py
+src/pyboost_auditor.egg-info/PKG-INFO
+src/pyboost_auditor.egg-info/SOURCES.txt
+src/pyboost_auditor.egg-info/dependency_links.txt
+src/pyboost_auditor.egg-info/entry_points.txt
+src/pyboost_auditor.egg-info/requires.txt
+src/pyboost_auditor.egg-info/top_level.txt
