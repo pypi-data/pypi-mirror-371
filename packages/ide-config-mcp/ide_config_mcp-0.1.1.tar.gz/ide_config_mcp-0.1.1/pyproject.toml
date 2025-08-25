@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ide-config-mcp"
+version = "0.1.1"
+description = "IDE config MCP Python package"
+authors = [
+    { name = "arcsinw", email = "your@email.com" }
+]
+readme = "README.md"
+requires-python = ">=3.7"
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/arcsinw/ide-config-mcp"
+Repository = "https://github.com/arcsinw/ide-config-mcp"
+
+[project.scripts]
+ide-config-mcp = "server:main"
