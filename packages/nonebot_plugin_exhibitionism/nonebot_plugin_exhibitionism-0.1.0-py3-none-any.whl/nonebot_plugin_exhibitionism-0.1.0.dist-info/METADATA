@@ -1,0 +1,10 @@
+Metadata-Version: 2.4
+Name: nonebot_plugin_exhibitionism
+Version: 0.1.0
+Summary: 让你的代码被群友看光光!
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: nonebot-plugin-alconna>=0.59.4
+Requires-Dist: nonebot2>=2.4.3
+Requires-Dist: pillow>=11.3.0
+Requires-Dist: pygments>=2.19.2
