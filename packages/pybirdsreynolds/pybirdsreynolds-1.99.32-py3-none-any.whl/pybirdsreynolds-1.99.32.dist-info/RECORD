@@ -1,0 +1,13 @@
+pybirdsreynolds/DESCRIPTION.txt,sha256=cW8CgyIRyrOB9cHeSEsBhVGgwHTd4D7xRQMyB5nH4Rk,456
+pybirdsreynolds/EPILOG.txt,sha256=gP6iIpJApq-eUcO-rIuBtIRWnBOr7o0wS27Ihz1OZFs,412
+pybirdsreynolds/__init__.py,sha256=d_pWRb5ZahNlXS6Vtlg88ghQfmNi0tMdO63wTgHDlc0,200
+pybirdsreynolds/app.py,sha256=BFdfmE4--udoPV1N1s6RYPdKTAZFLtSXbjVAQBNJL5o,27303
+pybirdsreynolds/args.py,sha256=fYAWeo8oYSM4seIJv4CNaqYEukiN-5FDdUbGl8e0S5U,5843
+pybirdsreynolds/const.py,sha256=ffLnLwcqSf00YQ8-E7UZ4blLB_ALlheDc1RP0gbXk98,4465
+pybirdsreynolds/draw.py,sha256=gN52ozQkGpPQtV2LeLbqWK3KDNZF_qr0vu4Hpmo9Tqg,7230
+pybirdsreynolds/reynolds.py,sha256=MQDZMLFnMVVYsoMTqzbnnerxKXxeNVWfZMW5KBXCw20,8149
+pybirdsreynolds-1.99.32.dist-info/METADATA,sha256=JfDU1M5_x2EMpyF8INySOwEjJjQ1OG4XBlTpIryjHGk,2426
+pybirdsreynolds-1.99.32.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+pybirdsreynolds-1.99.32.dist-info/entry_points.txt,sha256=e0SUYUJ4a2t3cA9kVuyF7JMfL2Ki-B6SGMAUgrWikQA,77
+pybirdsreynolds-1.99.32.dist-info/top_level.txt,sha256=Gc8fMXuhETijkR8uUvaxPhQ2PZ5E2xO8y31VUbNiZgc,16
+pybirdsreynolds-1.99.32.dist-info/RECORD,,
