@@ -1,0 +1,16 @@
+a_mail/__init__.py,sha256=53SjjRx00FBxIk3CD-YTauMFL4cDVk511zATsB_WZ0s,693
+a_mail/core/__init__.py,sha256=TaIUVZOdQy_n_3t_jeLReruprN27UF15pt1Em3NKUB4,355
+a_mail/core/agent.py,sha256=IaL6ygqKY7HYcxiKGebTiDpKyOoz_iQIs8wUujPWBcI,1946
+a_mail/core/agent_tool.py,sha256=JQbzuMuEN0mhtd47TMkt8oD0QHN7OG9VQFGWdf94CYw,592
+a_mail/core/graph.py,sha256=5QAL6GEHI4-fVbBDt2OjqQAr1pYNowQMnclOkc0d7AQ,10544
+a_mail/core/printer.py,sha256=h_b0sILbi7CZbY8WumdByXQruDIiYQfU0N0tJiMZTug,4953
+a_mail/core/state.py,sha256=YWR25iZE5F6HP0jdQtS1oHz-PTHdnVCHv_aa--c4deg,1011
+a_mail/core/sys_prompt.py,sha256=2VHaIj1GY0_CaNmQHiF4W04FFnqHdEKEd1MzKrc3dYI,5041
+a_mail/utils/__init__.py,sha256=9pt7sv1QgfyyE0z2MNPDwZSbiWJ3a-LS75O1DuHJeCA,286
+a_mail/utils/loader.py,sha256=S1LsDdSR-IYZxOZGWrQltgy5MHLjlWHS6vhcFLY9y-o,7062
+a_mail/utils/parse_output.py,sha256=m0Hj8yUfx_8jrlPLyy1r0ITo66WJUVkeOAqVbYYD77Q,1093
+a_mailx-0.1.0.dist-info/licenses/LICENSE,sha256=oK0Gasv9RiQrC3XuvwyQR8nEFq2FZ2BkKsW_ExyicDk,1065
+a_mailx-0.1.0.dist-info/METADATA,sha256=Q1hyPQce7qd-r61jeRVkdzYGt9KocREcXKHGNjmZhCc,21642
+a_mailx-0.1.0.dist-info/WHEEL,sha256=lTU6B6eIfYoiQJTZNc-fyaR6BpL6ehTzU3xGYxn2n8k,91
+a_mailx-0.1.0.dist-info/top_level.txt,sha256=xweom_kPYDxbSGE2sV34cwcsrMlfsTX2u3L-cY3nk6w,7
+a_mailx-0.1.0.dist-info/RECORD,,
