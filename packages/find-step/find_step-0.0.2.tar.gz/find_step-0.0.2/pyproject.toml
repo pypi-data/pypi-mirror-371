@@ -1,0 +1,78 @@
+# SPDX-FileCopyrightText: 2025 Alex Willmer <alex@moreati.org.uk>
+# SPDX-License-Identifier: MIT
+
+[build-system]
+build-backend = "uv_build"
+requires = ["uv_build"]
+
+[project]
+name = "find-step"
+version = "0.0.2"
+description = "All the str.find() goodness, now with a step argument"
+readme = "README.rst"
+authors = [
+    { name = "Alex Willmer", email = "alex@moreati.org.uk" },
+]
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSES/*.txt"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Python Software Foundation License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Typing :: Typed",
+]
+
+[project.urls]
+Homepage = "https://github.com/moreati/find-step/"
+
+[dependency-groups]
+coverage = [
+    "coverage[toml]",
+]
+test = [
+    "coverage[toml]",
+    "hypothesis",
+    "pytest",
+]
+
+[tool.coverage.paths]
+source = [
+    "src",
+    ".nox/test-*/pypy-*/site-packages",
+    ".nox/test-*/python-*/site-packages",
+]
+
+[tool.coverage.run]
+branch = true
+parallel = true
+source_dirs = [
+    "src",
+    "tests",
+]
+
+[tool.coverage.report]
+show_missing = true
+
+[tool.pytest.ini_options]
+addopts = "--doctest-modules --doctest-glob='../README.md'"
+testpaths = [
+    "src",
+    "tests",
+]
+
+[tool.ruff.format]
+quote-style = "single"
+
+[tool.uv.build-backend]
+source-include = [
+    "noxfile.py",
+    "tests/*.py",
+]
