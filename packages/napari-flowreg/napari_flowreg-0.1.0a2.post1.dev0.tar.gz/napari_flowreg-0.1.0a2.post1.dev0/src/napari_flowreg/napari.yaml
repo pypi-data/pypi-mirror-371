@@ -1,0 +1,13 @@
+name: napari-flowreg
+display_name: FlowReg Motion Correction
+schema_version: 0.1.0
+
+contributions:
+  commands:
+    - id: napari-flowreg.flowreg_widget
+      python_name: napari_flowreg.flowreg_widget:FlowRegWidget
+      title: open widget
+
+  widgets:
+    - command: napari-flowreg.flowreg_widget
+      display_name: Flow-Registration

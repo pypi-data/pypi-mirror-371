@@ -1,0 +1,113 @@
+[project]
+name = "napari-flowreg"
+dynamic = ["version"]
+description = "napari plugin for Flow-Registration motion correction"
+readme = "README.md"
+authors = [
+    { name="Philipp Flotho", email="Philipp.Flotho@uni-saarland.de" }
+]
+license = { text = "CC BY-NC-SA 4.0" }
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Framework :: napari",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: BSD License",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Image Processing",
+]
+requires-python = ">=3.10"
+
+dependencies = [
+    "pyflowreg[vis]",
+    "qtpy",
+    "numpy",
+    "scipy>=1.10.0",
+    "matplotlib>=3.5.0",
+]
+
+[project.optional-dependencies]
+testing = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "pytest-qt",
+    "pytest-xvfb",
+    "npe2>=0.7.0",
+    "PySide6>=6.5",
+    "h5py",
+    "tifffile",
+    "psutil",
+    "tomli>=2.0.1",
+    "napari[all]>=0.4.18"
+]
+dev = [
+    "napari[all]>=0.4.18",
+    "pre-commit",
+    "black",
+    "ruff",
+]
+
+[project.urls]
+Homepage = "https://github.com/FlowRegSuite/napari-flowreg"
+Source = "https://github.com/FlowRegSuite/napari-flowreg"
+Tracker = "https://github.com/FlowRegSuite/napari-flowreg/issues"
+Documentation = "https://flowregsuite.github.io/napari-flowreg/"
+
+[project.entry-points."napari.manifest"]
+napari-flowreg = "napari_flowreg:napari.yaml"
+
+[build-system]
+requires = ["setuptools>=80", "wheel", "setuptools-scm>=8"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+napari_flowreg = ["napari.yaml"]
+
+[tool.setuptools_scm]
+version_file = "src/napari_flowreg/_version.py"
+version_scheme = "no-guess-dev"
+local_scheme = "no-local-version"
+
+# Testing configuration
+[tool.pytest.ini_options]
+minversion = "7.0"
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+markers = [
+    "qt: tests requiring a Qt event loop",
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+]
+addopts = [
+    "-ra",
+    "--strict-markers",
+    "--strict-config",
+]
+filterwarnings = [
+    "error:::napari_flowreg",
+    "ignore::DeprecationWarning:napari",
+    "ignore::DeprecationWarning:qtpy",
+    "ignore::DeprecationWarning:numba",
+    "ignore::RuntimeWarning:numba",
+]
+
+# Coverage configuration
+[tool.coverage.run]
+source = ["napari_flowreg"]
+branch = true
+omit = [
+    "*/tests/*",
+    "*/_tests/*",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "if __name__ == .__main__.:",
+    "raise NotImplementedError",
+    "except ImportError:",
+]
