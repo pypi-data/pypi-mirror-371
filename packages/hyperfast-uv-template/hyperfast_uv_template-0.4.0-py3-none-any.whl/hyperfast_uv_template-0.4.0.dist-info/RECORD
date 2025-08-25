@@ -1,0 +1,11 @@
+hyperfastuv/__cli__.py,sha256=jAP2DK3JgElb5agAU2DyYsiQ7xhVg1TBPdktYl17fIQ,1492
+hyperfastuv/__init__.py,sha256=vRh8Isbs5cxCKuqqiM-Am2wEscIHewoHXklXMZDTpmA,705
+hyperfastuv/_version.py,sha256=Uz8YrXzMRKJn486Sra2xpOam7KPOFeZ7HR-Z-zpijgs,464
+hyperfastuv/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+hyperfastuv/conf/about/hyperfastpy.yaml,sha256=9GJBZBlS7Rebe-1GBhRjXjc20vYJ6B_BcjKNMP6b64s,292
+hyperfastuv/conf/about/hyperfastuv.yaml,sha256=9GJBZBlS7Rebe-1GBhRjXjc20vYJ6B_BcjKNMP6b64s,292
+hyperfast_uv_template-0.4.0.dist-info/METADATA,sha256=BWU5R3evTJRC30gk4_vdXrjS2xXjmmJf_Yd8LWVXRFs,3768
+hyperfast_uv_template-0.4.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+hyperfast_uv_template-0.4.0.dist-info/entry_points.txt,sha256=Ga4852JsXBtYZTa3Z0O2d2TAA3pU4-U1-z09xk62IHI,57
+hyperfast_uv_template-0.4.0.dist-info/licenses/LICENSE,sha256=6_-z_j5TJ7bQ5RlPwAJZ0Eqo3qWC6pMDjlLjz0R4wkE,1071
+hyperfast_uv_template-0.4.0.dist-info/RECORD,,

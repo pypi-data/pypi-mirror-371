@@ -1,0 +1,2 @@
+[console_scripts]
+hyperfastuv = hyperfastuv.__cli__:main
