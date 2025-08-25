@@ -1,0 +1,234 @@
+Metadata-Version: 2.4
+Name: agentic-blocks
+Version: 0.1.2
+Summary: Simple building blocks for agentic AI systems with MCP client and conversation management
+Author-email: Magnus Bjelkenhed <bjelkenhed@gmail.com>
+License: MIT
+Project-URL: Homepage, https://github.com/bjelkenhed/agentic-blocks
+Project-URL: Repository, https://github.com/bjelkenhed/agentic-blocks
+Project-URL: Issues, https://github.com/bjelkenhed/agentic-blocks/issues
+Keywords: ai,mcp,model-control-protocol,agent,llm,openai,conversation
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: mcp
+Requires-Dist: requests
+Requires-Dist: python-dotenv
+Requires-Dist: openai
+Provides-Extra: test
+Requires-Dist: pytest; extra == "test"
+Provides-Extra: dev
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: build; extra == "dev"
+Requires-Dist: twine; extra == "dev"
+Dynamic: license-file
+
+# Agentic Blocks
+
+Building blocks for agentic systems with a focus on simplicity and ease of use.
+
+## Overview
+
+Agentic Blocks provides clean, simple components for building AI agent systems, specifically focused on:
+
+- **MCP Client**: Connect to Model Control Protocol (MCP) endpoints with a sync-by-default API
+- **Messages**: Manage LLM conversation history with OpenAI-compatible format
+
+Both components follow principles of simplicity, maintainability, and ease of use.
+
+## Installation
+
+```bash
+pip install -e .
+```
+
+For development:
+```bash
+pip install -e ".[dev]"
+```
+
+## Quick Start
+
+### MCPClient - Connect to MCP Endpoints
+
+The MCPClient provides a unified interface for connecting to different types of MCP endpoints:
+
+```python
+from agentic_blocks import MCPClient
+
+# Connect to an SSE endpoint (sync by default)
+client = MCPClient("https://example.com/mcp/server/sse")
+
+# List available tools
+tools = client.list_tools()
+print(f"Available tools: {len(tools)}")
+
+# Call a tool
+result = client.call_tool("search", {"query": "What is MCP?"})
+print(result)
+```
+
+**Supported endpoint types:**
+- **SSE endpoints**: URLs with `/sse` in the path
+- **HTTP endpoints**: URLs with `/mcp` in the path  
+- **Local scripts**: File paths to Python MCP servers
+
+**Async support for advanced users:**
+```python
+# Async versions available
+tools = await client.list_tools_async()
+result = await client.call_tool_async("search", {"query": "async example"})
+```
+
+### Messages - Manage Conversation History
+
+The Messages class helps build and manage LLM conversations in OpenAI-compatible format:
+
+```python
+from agentic_blocks import Messages
+
+# Initialize with system prompt
+messages = Messages(
+    system_prompt="You are a helpful assistant.",
+    user_prompt="Hello, how can you help me?",
+    add_date_and_time=True
+)
+
+# Add assistant response
+messages.add_assistant_message("I can help you with various tasks!")
+
+# Add tool calls
+tool_call = {
+    "id": "call_123",
+    "type": "function", 
+    "function": {"name": "get_weather", "arguments": '{"location": "Paris"}'}
+}
+messages.add_tool_call(tool_call)
+
+# Add tool response
+messages.add_tool_response("call_123", "The weather in Paris is sunny, 22°C")
+
+# Get messages for LLM API
+conversation = messages.get_messages()
+
+# View readable format
+print(messages)
+```
+
+## Complete Example - Agent with MCP Tools
+
+```python
+from agentic_blocks import MCPClient, Messages
+
+def simple_agent():
+    # Initialize MCP client and conversation
+    client = MCPClient("https://example.com/mcp/server/sse")
+    messages = Messages(
+        system_prompt="You are a helpful research assistant.",
+        add_date_and_time=True
+    )
+    
+    # Get available tools
+    tools = client.list_tools()
+    print(f"Connected to MCP server with {len(tools)} tools")
+    
+    # Simulate user query
+    user_query = "What's the latest news about AI?"
+    messages.add_user_message(user_query)
+    
+    # Agent decides to use a search tool
+    if tools:
+        search_tool = next((t for t in tools if "search" in t["function"]["name"]), None)
+        if search_tool:
+            # Add tool call to messages
+            tool_call = {
+                "id": "search_001",
+                "type": "function",
+                "function": {
+                    "name": search_tool["function"]["name"],
+                    "arguments": '{"query": "latest AI news"}'
+                }
+            }
+            messages.add_tool_call(tool_call)
+            
+            # Execute the tool
+            result = client.call_tool(
+                search_tool["function"]["name"], 
+                {"query": "latest AI news"}
+            )
+            
+            # Add tool response
+            if result["content"]:
+                response_text = result["content"][0]["text"]
+                messages.add_tool_response("search_001", response_text)
+            
+            # Add final assistant response
+            messages.add_assistant_message(
+                "Based on my search, here's what I found about the latest AI news..."
+            )
+    
+    # Print conversation
+    print("\\nConversation:")
+    print(messages)
+    
+    return messages.get_messages()
+
+if __name__ == "__main__":
+    simple_agent()
+```
+
+## Development Principles
+
+This project follows these core principles:
+
+- **Simplicity First**: Keep code simple, readable, and focused on core functionality
+- **Sync-by-Default**: Primary methods are synchronous for ease of use, with optional async versions
+- **Minimal Dependencies**: Avoid over-engineering and complex error handling unless necessary  
+- **Clean APIs**: Prefer straightforward method names and clear parameter expectations
+- **Maintainable Code**: Favor fewer lines of clear code over comprehensive edge case handling
+
+## API Reference
+
+### MCPClient
+
+```python
+MCPClient(endpoint: str, timeout: int = 30)
+```
+
+**Methods:**
+- `list_tools() -> List[Dict]`: Get available tools (sync)
+- `call_tool(name: str, args: Dict) -> Dict`: Call a tool (sync)
+- `list_tools_async() -> List[Dict]`: Async version of list_tools
+- `call_tool_async(name: str, args: Dict) -> Dict`: Async version of call_tool
+
+### Messages
+
+```python
+Messages(system_prompt=None, user_prompt=None, add_date_and_time=False)
+```
+
+**Methods:**
+- `add_system_message(content: str)`: Add system message
+- `add_user_message(content: str)`: Add user message
+- `add_assistant_message(content: str)`: Add assistant message
+- `add_tool_call(tool_call: Dict)`: Add tool call to assistant message
+- `add_tool_response(call_id: str, content: str)`: Add tool response
+- `get_messages() -> List[Dict]`: Get all messages
+- `has_pending_tool_calls() -> bool`: Check for pending tool calls
+
+## Requirements
+
+- Python >= 3.11
+- Dependencies: `mcp`, `requests`, `python-dotenv`, `openai`
+
+## License
+
+MIT
