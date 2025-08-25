@@ -1,0 +1,42 @@
+Metadata-Version: 2.4
+Name: babylonrsa
+Version: 1.0.0
+Summary: A Babylonian-style base-60 RSA library in Python
+Author: ZOOM
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Security :: Cryptography
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Dynamic: author
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: requires-python
+Dynamic: summary
+
+# BabylonRSA 🔑🪔
+
+**BabylonRSA** is a Python library for experimenting with public/private key encryption (RSA-like) using the **Babylonian sexagesimal (base-60) numeral system**.  
+Instead of encoding numbers in decimal or hexadecimal, this library stores ciphertext and keys in **base-60**, inspired by ancient Mesopotamian mathematics.
+
+---
+
+## Features
+- Generate public/private key pairs.
+- Encrypt and decrypt text messages.
+- Encode ciphertext and keys in **Babylonian base-60** instead of hex.
+- Lightweight, educational, and easy to extend.
+
+---
+
+## Installation
+
+Include the `babylonrsa` folder in your project or install via PyPI (if published):
+
+```bash
+pip install babylonrsa
+
