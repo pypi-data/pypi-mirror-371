@@ -1,0 +1,5 @@
+[console_scripts]
+grep = mkcd.wrappers:grep_color
+ls = mkcd.wrappers:ls_color
+mkcd-install = mkcd:install
+mkcd-uninstall = mkcd:uninstall
