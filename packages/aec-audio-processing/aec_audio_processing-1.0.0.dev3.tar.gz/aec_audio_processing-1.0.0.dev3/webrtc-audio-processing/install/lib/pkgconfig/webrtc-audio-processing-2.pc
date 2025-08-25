@@ -1,0 +1,10 @@
+prefix=/Users/deepbhupatkar/Desktop/Developer/HELLO/python-webrtc-audio-processing/webrtc-audio-processing/install
+includedir=${prefix}/include
+libdir=${prefix}/lib
+
+Name: webrtc-audio-processing-2
+Description: WebRTC Audio Processing library
+Version: 2.1
+Libs: -L${libdir} -lwebrtc-audio-processing-2
+Libs.private: -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework Foundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation
+Cflags: -I${includedir}/webrtc-audio-processing-2 -DWEBRTC_LIBRARY_IMPL -DWEBRTC_POSIX

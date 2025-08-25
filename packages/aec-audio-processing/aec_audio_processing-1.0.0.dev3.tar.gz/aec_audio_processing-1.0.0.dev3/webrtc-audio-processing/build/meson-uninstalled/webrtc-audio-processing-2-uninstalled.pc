@@ -1,0 +1,11 @@
+prefix=/Users/deepbhupatkar/Desktop/Developer/HELLO/python-webrtc-audio-processing/webrtc-audio-processing/build
+includedir=${prefix}/include
+libdir=${prefix}/lib
+srcdir=/Users/deepbhupatkar/Desktop/Developer/HELLO/python-webrtc-audio-processing/webrtc-audio-processing
+
+Name: webrtc-audio-processing-2
+Description: WebRTC Audio Processing library
+Version: 2.1
+Libs: -L${prefix}/webrtc/modules/audio_processing -lwebrtc-audio-processing-2
+Libs.private: -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework Foundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation -framework CoreFoundation
+Cflags: -I${prefix}/webrtc -I${srcdir}/webrtc -I${prefix}/subprojects/abseil-cpp-20240722.0 -I${srcdir}/subprojects/abseil-cpp-20240722.0 -I${prefix}/webrtc/modules/audio_processing -I${srcdir}/webrtc/modules/audio_processing -DWEBRTC_LIBRARY_IMPL -DWEBRTC_POSIX
