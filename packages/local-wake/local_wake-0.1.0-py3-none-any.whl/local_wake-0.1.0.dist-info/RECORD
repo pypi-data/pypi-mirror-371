@@ -1,0 +1,13 @@
+local_wake-0.1.0.dist-info/licenses/LICENSE,sha256=Cd-N6WlPw9Bp-p5bkR0PZvoHV7TVvuRka6dTYSe_gHc,1091
+lwake/__init__.py,sha256=FWDYmQ84sX7rujMwyR_qLsD6CuJv5D65g4hOkkEZnEA,129
+lwake/cli.py,sha256=FKJSCWNcU3_FyFzXFVc1Hw3dA5nnwPzFHLWkraenUdA,2863
+lwake/compare.py,sha256=HsftDRFOKhl2TU-tN0WWfVQlylgJ_Fmfd5JHNh_AsWk,932
+lwake/features.py,sha256=wSt4UuWeCLugYUN9jVl4e3mfB4tVIKEKNyIqg4GeFhY,2214
+lwake/listen.py,sha256=A7NxucUztJTmFdkiZ2UV0I_en6BwsAva0MSiXnQ2uRo,4479
+lwake/record.py,sha256=MsCBIpTF1mB2oGS-wPBB96kl4qBqQGQ8waD45sD6fac,1331
+lwake/models/speech-embedding.onnx,sha256=AUDCsUVcAWeD-bhZ4W9HtRh8aQeVA80FP0BrhvkJRWA,2435104
+local_wake-0.1.0.dist-info/METADATA,sha256=IQuECSV52X1YmQ6urZCeo1qXslGOn3L6Ed4V_ZYv1nE,8866
+local_wake-0.1.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+local_wake-0.1.0.dist-info/entry_points.txt,sha256=NiDQn1nCqpnnAd11YGmEQrmYOvehSMJrhOGDa0FQitM,41
+local_wake-0.1.0.dist-info/top_level.txt,sha256=jTl83ZAH024MMyGryUmERYhL2mpi53OiXU82QJnI6Jg,6
+local_wake-0.1.0.dist-info/RECORD,,

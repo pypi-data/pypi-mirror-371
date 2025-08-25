@@ -1,0 +1,2 @@
+[console_scripts]
+lwake = lwake.cli:main
