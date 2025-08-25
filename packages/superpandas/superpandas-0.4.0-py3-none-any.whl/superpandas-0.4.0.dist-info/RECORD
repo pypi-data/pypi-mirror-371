@@ -1,0 +1,15 @@
+superpandas/__init__.py,sha256=G_shpDHmqC-d6ltk-ZwbRd0XkNLMbFXTu3uWfo3oR-4,1381
+superpandas/config.py,sha256=7N52GSy78eIKnEbzFOb_VXZsIkjNrRJUy_lMGPc4rVE,12282
+superpandas/langgraph_agent.py,sha256=CKMxrDjChm-AoOTED3LMyMtW1sgfJtGR_yhI1DlCrj8,10575
+superpandas/llm_client.py,sha256=hD-aR0nSlofdhh897oLZDVSvFOHdwER_j_L7kogRHgI,10200
+superpandas/pandasql.py,sha256=-PtfvEFdHLxa6fol2pbYw3tgoNASbXdvDgszigKXigw,5039
+superpandas/providers.py,sha256=dmoAt2hKFdm8q8U0hGsvYYwpXlVHcsTy9418YEbbFoM,1159
+superpandas/superdataframe.py,sha256=AzlheRjln-nkz94xfDmCUagjwcYz44glf6LGWNzihOE,29498
+superpandas/templates.py,sha256=NrG_b7AltCYXWP5IGlPYcwcy6f67DU9HWXSAWQIAm5E,2835
+superpandas/utils/__init__.py,sha256=vTAmavrTpz5znLQnEkfD_0FxSjCQ24gQ20KeldAVcaw,132
+superpandas/utils/codeparser.py,sha256=G5l4s18lwCQEmaZ9137gGonQ7gysO1rud96NUz322sU,4136
+superpandas/utils/executors.py,sha256=3Oo2VbAR39jTasMlA9KTzeO8rj-MnB8CjyOMgN8KsvE,6949
+superpandas-0.4.0.dist-info/METADATA,sha256=DXA3vW93HTfXaK3wLPHlt-Eu701nC15F-lZWC-1J6G8,19950
+superpandas-0.4.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+superpandas-0.4.0.dist-info/licenses/LICENSE,sha256=3iSovDsad4Kn9PeOq6JSg3QPBJ2nWAvrX78eYpuOBms,1081
+superpandas-0.4.0.dist-info/RECORD,,
