@@ -1,0 +1,43 @@
+Metadata-Version: 2.4
+Name: liotel
+Version: 0.1b0
+Summary: A lightweight Telegram bot library for beginners
+Home-page: https://github.com/amiraliali3284/liotel
+Author: amiraliali3
+Author-email: amiraliali3779@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: requests
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# LiotelBot v0.1 BetaTest
+
+LiotelBot یک کتابخانه سبک و ساده برای ساخت ربات‌های تلگرام است که مناسب افراد مبتدی و تازه‌کار طراحی شده است.
+
+## امکانات اصلی
+
+- امکان تعریف چندین دستور و پاسخ با `add_commandX` و `reply_commandX`
+- نمایش نسخه ربات و لیست دستورات هنگام اجرا
+- مدیریت خطاهای احتمالی اینترنت و API تلگرام
+- نسخه فعلی: 0.1
+
+## نحوه نصب
+
+برای نصب از طریق PyPI:
+
+```bash
+pip install liotel
