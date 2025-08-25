@@ -1,0 +1,14 @@
+pyproject.toml
+setup.cfg
+setup.py
+src/crosslab/soa_services/programming/__init__.py
+src/crosslab/soa_services/programming/messages.py
+src/crosslab/soa_services/programming/programming_service.py
+src/crosslab/soa_services/programming/promise_manager.py
+src/crosslab/soa_services/programming/py.typed
+src/crosslab_soa_service_programming.egg-info/PKG-INFO
+src/crosslab_soa_service_programming.egg-info/SOURCES.txt
+src/crosslab_soa_service_programming.egg-info/dependency_links.txt
+src/crosslab_soa_service_programming.egg-info/requires.txt
+src/crosslab_soa_service_programming.egg-info/top_level.txt
+tests/test_standard.py
