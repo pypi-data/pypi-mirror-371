@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+webfaster/__init__.py
+webfaster/webfaster.py
+webfaster.egg-info/PKG-INFO
+webfaster.egg-info/SOURCES.txt
+webfaster.egg-info/dependency_links.txt
+webfaster.egg-info/requires.txt
+webfaster.egg-info/top_level.txt

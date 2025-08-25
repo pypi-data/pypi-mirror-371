@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=42","wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "webfaster"
+version = "0.1.1"
+description = "A Fast Web library"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name="iliya", email="iliyakaviyani313@gmail.com"}]
+requires-python = ">=3.8"
+dependencies = [
+    "redis>=5.0.0",
+    "aiohttp>=3.8.0",
+    "PyJWT>=2.8.0"
+]
