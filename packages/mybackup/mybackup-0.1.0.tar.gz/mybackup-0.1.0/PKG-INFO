@@ -1,0 +1,14 @@
+Metadata-Version: 2.4
+Name: mybackup
+Version: 0.1.0
+Summary: Terminal-based website backup and info tool
+Author: father gg
+License: MIT
+License-File: LICENSE
+Requires-Dist: requests
+Requires-Dist: python-whois
+Dynamic: author
+Dynamic: license
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: summary
