@@ -1,0 +1,24 @@
+[project]
+name = "check-depz"
+version = "0.18.0"
+description = ""
+authors = [
+    {name = "Henryk Konsek",email = "hekonsek@gmail.com"}
+]
+readme = "readme.md"
+requires-python = ">=3.12"
+dependencies = [
+    "typer >=0.16.1",
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+check-depz = "check_depz.check_dependencies:main"
+
+[tool.poetry.group.dev.dependencies]
+vrz = ">=0.29.0"
+
