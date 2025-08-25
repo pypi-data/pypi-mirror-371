@@ -1,0 +1,17 @@
+README.md
+pyproject.toml
+skirk/__init__.py
+skirk/base_config.py
+skirk/source.py
+skirk.egg-info/PKG-INFO
+skirk.egg-info/SOURCES.txt
+skirk.egg-info/dependency_links.txt
+skirk.egg-info/requires.txt
+skirk.egg-info/top_level.txt
+skirk/parser/base_parser.py
+skirk/parser/parser_impl.py
+skirk/type/base_type_factory.py
+skirk/type/type_factory_impl.py
+tests/test_base_config.py
+tests/test_parser.py
+tests/test_source.py
