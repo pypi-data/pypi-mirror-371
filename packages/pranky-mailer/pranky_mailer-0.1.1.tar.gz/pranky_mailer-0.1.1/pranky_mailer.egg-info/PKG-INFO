@@ -1,0 +1,46 @@
+Metadata-Version: 2.4
+Name: pranky-mailer
+Version: 0.1.1
+Summary: A Django app to send emails via multiple providers with logging and quota management
+Home-page: https://github.com/prankycoders/pranky_mailer
+Author: Ankit Bhardwaj
+Author-email: ankitbhardwaj007@gmail.com
+License: MIT
+Classifier: Framework :: Django
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: Django>=3.2
+Requires-Dist: boto3>=1.26
+Requires-Dist: requests>=2.28
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: summary
+
+# Django Mailer
+
+Django app to send emails using multiple providers (SMTP, SES) with:
+
+- Provider-based daily/monthly quotas
+- Sender verification
+- Logging of all outgoing emails
+- Override of Django's `send_mail`
+- Admin dashboard with charts and quota status
+
+---
+
+## Installation
+
+```bash
+pip install pranky-mailer
+
+# documents
+
+https://prankycoders.github.io/pranky_mailer/

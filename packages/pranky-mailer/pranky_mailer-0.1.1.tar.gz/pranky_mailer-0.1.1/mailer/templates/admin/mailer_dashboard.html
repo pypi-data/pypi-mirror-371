@@ -1,0 +1,69 @@
+{% extends "admin/base_site.html" %}
+{% load static %}
+
+{% block content %}
+<h1>📧 Mailer Dashboard</h1>
+
+<h2>📊 Daily Emails (This Month)</h2>
+<canvas id="dailyChart"></canvas>
+
+<h2>📊 Monthly Emails</h2>
+<canvas id="monthlyChart"></canvas>
+
+<h2>📦 Provider Quota Status</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Provider</th>
+            <th>Daily</th>
+            <th>Daily Limit</th>
+            <th>Monthly</th>
+            <th>Monthly Limit</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for p in providers %}
+        <tr>
+            <td>{{ p.name }}</td>
+            <td>{{ p.daily_count }}</td>
+            <td>{{ p.daily_limit }}</td>
+            <td>{{ p.monthly_count }}</td>
+            <td>{{ p.monthly_limit }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const dailyData = {{ daily_logs|safe }};
+    const monthlyData = {{ monthly_logs|safe }};
+
+    // Daily Chart
+    new Chart(document.getElementById("dailyChart"), {
+        type: "line",
+        data: {
+            labels: dailyData.map(x => x.day),
+            datasets: [{
+                label: "Emails Sent",
+                data: dailyData.map(x => x.total),
+                borderColor: "blue",
+                fill: false
+            }]
+        }
+    });
+
+    // Monthly Chart
+    new Chart(document.getElementById("monthlyChart"), {
+        type: "bar",
+        data: {
+            labels: monthlyData.map(x => x.month),
+            datasets: [{
+                label: "Emails Sent",
+                data: monthlyData.map(x => x.total),
+                backgroundColor: "green"
+            }]
+        }
+    });
+</script>
+{% endblock %}
