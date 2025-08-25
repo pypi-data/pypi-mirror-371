@@ -1,0 +1,91 @@
+{
+	"name": "vscode-nbt",
+	"displayName": "NBT Viewer",
+	"description": "View Minecraft NBT and 3D structures",
+	"version": "0.9.4",
+	"preview": true,
+	"publisher": "Misodee",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/misode/vscode-nbt.git"
+	},
+	"engines": {
+		"vscode": "^1.46.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCustomEditor:nbtEditor.nbt"
+	],
+	"main": "./out/extension.js",
+	"capabilities": {
+		"untrustedWorkspaces": {
+			"supported": true
+		}
+	},
+	"contributes": {
+		"customEditors": [
+			{
+				"viewType": "nbtEditor.nbt",
+				"displayName": "NBT Viewer",
+				"selector": [
+					{
+						"filenamePattern": "*.nbt"
+					},
+					{
+						"filenamePattern": "*.dat"
+					},
+					{
+						"filenamePattern": "*.dat_old"
+					},
+					{
+						"filenamePattern": "*.mca"
+					},
+					{
+						"filenamePattern": "*.mcstructure"
+					},
+					{
+						"filenamePattern": "*.schematic"
+					},
+					{
+						"filenamePattern": "*.litematic"
+					},
+					{
+						"filenamePattern": "*.schem"
+					}
+				],
+				"priority": "default"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run build",
+		"build": "rollup --config",
+		"dev": "rollup --config --watch",
+		"lint": "eslint . --ext .ts"
+	},
+	"dependencies": {
+		"deepslate": "^0.24.0",
+		"env-paths": "^2.2.1",
+		"follow-redirects": "^1.14.8",
+		"gl-matrix": "^3.4.3",
+		"tar": "^6.1.11",
+		"vscode-codicons": "^0.0.14"
+	},
+	"devDependencies": {
+		"@rollup/plugin-commonjs": "^20.0.0",
+		"@rollup/plugin-node-resolve": "^13.0.6",
+		"@rollup/plugin-typescript": "^8.3.0",
+		"@types/follow-redirects": "^1.14.0",
+		"@types/node": "^14.14.37",
+		"@types/tar": "^6.1.1",
+		"@types/vscode": "^1.46.0",
+		"@typescript-eslint/eslint-plugin": "^5.3.1",
+		"@typescript-eslint/parser": "^5.3.1",
+		"eslint": "^8.2.0",
+		"rollup": "^2.59.0",
+		"ts-node": "^10.4.0",
+		"typescript": "^4.4.4"
+	}
+}
