@@ -1,0 +1,2 @@
+[console_scripts]
+tiny-knn = tiny_knn.cli:main
