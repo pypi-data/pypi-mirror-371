@@ -1,0 +1,42 @@
+Metadata-Version: 2.4
+Name: llama-cpp-haystack
+Version: 1.3.0
+Summary: An integration between the llama.cpp LLM framework and Haystack
+Project-URL: Documentation, https://github.com/deepset-ai/haystack-core-integrations/tree/main/integrations/llama_cpp#readme
+Project-URL: Issues, https://github.com/deepset-ai/haystack-core-integrations/issues
+Project-URL: Source, https://github.com/deepset-ai/haystack-core-integrations/tree/main/integrations/llama_cpp
+Author: Ashwin Mathur
+Author-email: deepset GmbH <info@deepset.ai>
+License-Expression: Apache-2.0
+License-File: LICENSE.txt
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.9
+Requires-Dist: haystack-ai>=2.16.1
+Requires-Dist: llama-cpp-python>=0.2.87
+Description-Content-Type: text/markdown
+
+# llama-cpp-haystack
+
+[![PyPI - Version](https://img.shields.io/pypi/v/llama-cpp-haystack.svg)](https://pypi.org/project/llama-cpp-haystack)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/llama-cpp-haystack.svg)](https://pypi.org/project/llama-cpp-haystack)
+
+- [Integration page](https://haystack.deepset.ai/integrations/llama_-_cpp)
+- [Changelog](https://github.com/deepset-ai/haystack-core-integrations/blob/main/integrations/llama_cpp/CHANGELOG.md)
+
+---
+
+## Contributing
+
+Refer to the general [Contribution Guidelines](https://github.com/deepset-ai/haystack-core-integrations/blob/main/CONTRIBUTING.md).
+
+
+
