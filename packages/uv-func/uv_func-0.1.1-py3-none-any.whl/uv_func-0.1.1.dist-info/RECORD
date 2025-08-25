@@ -1,0 +1,8 @@
+uv_func/__init__.py,sha256=pvYiMxKnhJgptkL1RmGAvjoLyqkSErqbRaIbZHpwsxA,41
+uv_func/core.py,sha256=8Jg-xD032acqWjcU-NixTRemA0SHZg4GouWmPS2oj28,7081
+uv_func/execution.py,sha256=eQ4IWEIYX4U9hSdEKHNJybJuHM0X8taPSQJvMosa1Z0,5655
+uv_func/logging.py,sha256=flYL4D5leciK0snf7YpRCUkRdf0fMQ6iKvY-MZkZTKE,5413
+uv_func/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+uv_func-0.1.1.dist-info/WHEEL,sha256=4n27za1eEkOnA7dNjN6C5-O2rUiw6iapszm14Uj-Qmk,79
+uv_func-0.1.1.dist-info/METADATA,sha256=Z8WB_yAy5PDUJkHYH04hmFR0G_oh15skHjjChQgYR0Y,4843
+uv_func-0.1.1.dist-info/RECORD,,
