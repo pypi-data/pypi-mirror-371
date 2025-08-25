@@ -1,0 +1,11 @@
+MANIFEST.in
+README.md
+setup.py
+tigermcp/__init__.py
+tigermcp/server.py
+tigermcp.egg-info/PKG-INFO
+tigermcp.egg-info/SOURCES.txt
+tigermcp.egg-info/dependency_links.txt
+tigermcp.egg-info/entry_points.txt
+tigermcp.egg-info/requires.txt
+tigermcp.egg-info/top_level.txt
