@@ -1,0 +1,24 @@
+[CDF-25202] 😛 Support dump functions (#1849)
+
+# Description
+
+<img width="1755" height="169" alt="image"
+src="https://github.com/user-attachments/assets/7742dadc-bb28-43e0-b884-566d2d008e7a"
+/>
+
+## Changelog
+
+- [x] Patch
+- [ ] Skip
+
+## cdf
+
+### Added
+
+- [alpha] Support for dumping function configurations. 
+
+## templates
+
+No changes.
+
+
