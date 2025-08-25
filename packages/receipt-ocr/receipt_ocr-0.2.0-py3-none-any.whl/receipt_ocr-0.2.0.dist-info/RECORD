@@ -1,0 +1,11 @@
+receipt_ocr/__about__.py,sha256=MKyPn7auWPFBH9Z8Wg66G2FLWsV6m17WHw39oidFjcs,447
+receipt_ocr/__init__.py,sha256=G1ohR-tjDsv91a4KJC9GKFKLmZiGma4MkOa2e9ZyCTE,222
+receipt_ocr/cli.py,sha256=t1b1C1Te_jtBALcePolV1dSv_bBiVzlnnaQi0PPKrYQ,2561
+receipt_ocr/parsers.py,sha256=IZriFyabV_YHSguUv72g7zdaBeiFPm7g7uoUsF7tk5Y,718
+receipt_ocr/prompts.py,sha256=MxwAEaRmoCJv22Q0HqxEKUSdT1lv-f-AAv_wjjm-v2A,943
+receipt_ocr/providers.py,sha256=l2zlJW7aLQsA-_i0Zej92nKwXu6AJJDqZuy43K-dqY4,2126
+receipt_ocr-0.2.0.dist-info/METADATA,sha256=3oNstw-WomvkFnHDb4gENljF_0TTPmOJ0whSI9POs70,9454
+receipt_ocr-0.2.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+receipt_ocr-0.2.0.dist-info/entry_points.txt,sha256=DH35VJcOutisJ4FWujHU0XMrXVH0LDEdNQXLNwzn9ls,53
+receipt_ocr-0.2.0.dist-info/licenses/LICENSE,sha256=aUC5PJ0cU7_TKITWsk1r5CFZJQ8s1di8pZlMG3sNUao,1069
+receipt_ocr-0.2.0.dist-info/RECORD,,
