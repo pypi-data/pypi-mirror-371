@@ -1,0 +1,17 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+pandascamoufox/LICENSE
+pandascamoufox/README.MD
+pandascamoufox/__init__.py
+pandascamoufox/requirements.txt
+pandascamoufox/thirdparty.json
+pandascamoufox/uiev.pyx
+pandascamoufox/uiev_compile.py
+pandascamoufox.egg-info/PKG-INFO
+pandascamoufox.egg-info/SOURCES.txt
+pandascamoufox.egg-info/dependency_links.txt
+pandascamoufox.egg-info/requires.txt
+pandascamoufox.egg-info/top_level.txt
