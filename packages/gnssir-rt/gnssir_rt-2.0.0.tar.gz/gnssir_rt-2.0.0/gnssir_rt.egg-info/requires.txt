@@ -1,0 +1,11 @@
+astropy
+jsonargparse
+matplotlib
+numpy
+scipy
+zenodo-get
+
+[dev]
+ruff
+pre-commit
+pytest

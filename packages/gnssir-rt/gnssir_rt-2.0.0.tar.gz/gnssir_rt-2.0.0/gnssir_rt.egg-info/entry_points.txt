@@ -1,0 +1,2 @@
+[console_scripts]
+gnssir = gnssir.cli:cli
