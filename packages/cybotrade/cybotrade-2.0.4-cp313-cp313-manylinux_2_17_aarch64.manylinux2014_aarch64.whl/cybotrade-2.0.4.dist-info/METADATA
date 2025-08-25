@@ -1,0 +1,23 @@
+Metadata-Version: 2.4
+Name: cybotrade
+Version: 2.0.4
+Classifier: Programming Language :: Rust
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Dist: colorlog>=6.9
+Requires-Dist: apscheduler==4.0.0a6
+Requires-Dist: cybotrade-datasource>=0.1.6
+Requires-Dist: polars>=1.31.0
+Requires-Dist: requests>=2.32.4
+License-File: LICENSE
+Summary: Primitives and utilities for automated trading strategies.
+Author: Marcus Lee <marcuslee@balaenaquant.com>, Lee Ian <ianlee@balaenaquant.com>
+Author-email: Marcus Lee <marcuslee@balaenaquant.com>, Lee Ian <ianlee@balaenaquant.com>
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
+Project-URL: Source Code, https://github.com/cybotrade/cybotrade
+
+## Cybotrade 
+
+> To be written...
+
