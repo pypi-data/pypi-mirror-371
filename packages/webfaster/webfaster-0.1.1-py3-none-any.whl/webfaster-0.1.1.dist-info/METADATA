@@ -1,0 +1,14 @@
+Metadata-Version: 2.4
+Name: webfaster
+Version: 0.1.1
+Summary: A Fast Web library
+Author: Your Name
+Author-email: iliya <iliyakaviyani313@gmail.com>
+License: MIT
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: redis>=5.0.0
+Requires-Dist: aiohttp>=3.8.0
+Requires-Dist: PyJWT>=2.8.0
+Dynamic: license-file
