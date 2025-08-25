@@ -1,0 +1,2 @@
+[console_scripts]
+create-prisma-app = create_prisma_app.cli:main
