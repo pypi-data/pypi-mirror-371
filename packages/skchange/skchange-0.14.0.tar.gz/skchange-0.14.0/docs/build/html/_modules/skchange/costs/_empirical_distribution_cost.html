@@ -1,0 +1,1155 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>skchange.costs._empirical_distribution_cost &#8212; skchange</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=d2d258e8" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom_notebook.css?v=c6a2da1f" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=99362dbf"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/skchange/costs/_empirical_distribution_cost';</script>
+    <script src="../../../_static/plotly_resize.js?v=40f45932"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">skchange</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/index.html">
+    User guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../api_reference/index.html">
+    API reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../developer_guide/index.html">
+    Developer guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../releases.html">
+    Releases
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/NorskRegnesentral/skchange" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/index.html">
+    User guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../api_reference/index.html">
+    API reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../developer_guide/index.html">
+    Developer guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../releases.html">
+    Releases
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/NorskRegnesentral/skchange" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">skchange.costs._empirical_distribution_cost</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for skchange.costs._empirical_distribution_cost</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">numpy.typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">ArrayLike</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">..costs.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseCost</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..utils.numba</span><span class="w"> </span><span class="kn">import</span> <span class="n">njit</span><span class="p">,</span> <span class="n">numba_available</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..utils.numba.general</span><span class="w"> </span><span class="kn">import</span> <span class="n">compute_finite_difference_derivatives</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..utils.numba.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">col_cumsum</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..utils.validation.parameters</span><span class="w"> </span><span class="kn">import</span> <span class="n">check_larger_than</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">make_approximate_mle_edf_cost_quantile_points</span><span class="p">(</span>
+    <span class="n">X</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">num_quantiles</span><span class="p">:</span> <span class="nb">int</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute transformed quantile points for approximating the EDF integral.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    X : np.ndarray</span>
+<span class="sd">        Input data array, shape (n_samples, n_features).</span>
+<span class="sd">    num_quantiles : int</span>
+<span class="sd">        Number of quantiles to use for approximation.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    quantile_points : np.ndarray</span>
+<span class="sd">        Quantile points for each feature, shape (num_quantiles, n_features).</span>
+<span class="sd">    quantile_values : np.ndarray</span>
+<span class="sd">        Quantile values for each feature, shape (num_quantiles, n_features).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">n_samples</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="n">integrated_edf_scaling</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">n_samples</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">quantiles_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_quantiles</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">integration_quantiles</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span>
+        <span class="mi">1</span>
+        <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span>
+            <span class="n">integrated_edf_scaling</span> <span class="o">*</span> <span class="p">((</span><span class="mi">2</span> <span class="o">*</span> <span class="n">quantiles_range</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">num_quantiles</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="n">quantile_points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">integration_quantiles</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="c1"># Tile out the quantile values to match the number of columns in X:</span>
+    <span class="n">quantile_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">integration_quantiles</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+
+    <span class="k">return</span> <span class="n">quantile_points</span><span class="p">,</span> <span class="n">quantile_values</span>
+
+
+<span class="nd">@njit</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">make_cumulative_edf_cache</span><span class="p">(</span>
+    <span class="n">xs</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">quantile_points</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create a cache for cumulative empirical distribution function (EDF) values.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    xs : np.ndarray</span>
+<span class="sd">        Input data array, shape (n_samples,).</span>
+<span class="sd">    quantile_points : np.ndarray</span>
+<span class="sd">        Quantile values at which to compute the cumulative counts.</span>
+<span class="sd">        shape: (num_quantiles,).</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    cumulative_edf_quantiles : np.ndarray</span>
+<span class="sd">        2D array of cumulative counts for each quantile.</span>
+<span class="sd">        Shape: (n_samples + 1, num_quantiles).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">lte_quantile_point_mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">xs</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">quantile_points</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">float64</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Add 0.5 to the count for samples equal to the quantile values:</span>
+    <span class="n">lte_quantile_point_mask</span> <span class="o">+=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">xs</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">==</span> <span class="n">quantile_points</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:])</span>
+
+    <span class="n">cumulative_edf_quantiles</span> <span class="o">=</span> <span class="n">col_cumsum</span><span class="p">(</span><span class="n">lte_quantile_point_mask</span><span class="p">,</span> <span class="n">init_zero</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">cumulative_edf_quantiles</span>
+
+
+<span class="nd">@njit</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">make_fixed_cdf_cost_quantile_weights</span><span class="p">(</span>
+    <span class="n">fixed_quantiles</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">quantile_points</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute quantile integration weights for fixed CDF cost.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    fixed_quantiles : np.ndarray</span>
+<span class="sd">        Quantiles at which to compute the EDF, shape (num_quantiles,).</span>
+<span class="sd">    quantile_points : np.ndarray</span>
+<span class="sd">        Pre-image of the fixed quantiles, shape (num_quantiles,).</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    quantile_integration_weights : np.ndarray</span>
+<span class="sd">        Quantile integration weights for the fixed CDF cost, shape (num_quantiles,).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">fixed_quantiles</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;At least three fixed quantile values are required.&quot;</span><span class="p">)</span>
+
+    <span class="n">reciprocal_fixed_cdf_weights</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="n">fixed_quantiles</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">fixed_quantiles</span><span class="p">))</span>
+    <span class="n">fixed_quantile_derivatives</span> <span class="o">=</span> <span class="n">compute_finite_difference_derivatives</span><span class="p">(</span>
+        <span class="n">ts</span><span class="o">=</span><span class="n">quantile_points</span><span class="p">,</span>
+        <span class="n">ys</span><span class="o">=</span><span class="n">fixed_quantiles</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">quantile_integration_weights</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">reciprocal_fixed_cdf_weights</span> <span class="o">*</span> <span class="n">fixed_quantile_derivatives</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">quantile_integration_weights</span>
+
+
+<span class="nd">@njit</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">numba_fixed_cdf_cost_cached_edf</span><span class="p">(</span>
+    <span class="n">cumulative_edf_quantiles</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">segment_starts</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">segment_ends</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">log_fixed_quantiles</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">log_one_minus_fixed_quantiles</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">quantile_weights</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">out_segment_costs</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute the empirical distribution cost for segments using a reference CDF.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    cumulative_edf_quantiles : np.ndarray</span>
+<span class="sd">        Cumulative EDF values, shape (n_samples + 1, num_quantiles).</span>
+<span class="sd">    segment_starts : np.ndarray</span>
+<span class="sd">        Start indices of segments, shape (n_segments,).</span>
+<span class="sd">    segment_ends : np.ndarray</span>
+<span class="sd">        End indices of segments, shape (n_segments,).</span>
+<span class="sd">    log_fixed_quantiles : np.ndarray</span>
+<span class="sd">        Logarithm of fixed quantiles, shape (num_quantiles,).</span>
+<span class="sd">    log_one_minus_fixed_quantiles : np.ndarray</span>
+<span class="sd">        Logarithm of one minus fixed quantiles, shape (num_quantiles,).</span>
+<span class="sd">    quantile_weights : np.ndarray</span>
+<span class="sd">        Quantile integration weights, shape (num_quantiles,).</span>
+<span class="sd">    out_segment_costs : np.ndarray or None, optional</span>
+<span class="sd">        Output array for costs, shape (n_segments,). If None, a new array is created.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    out_segment_costs : np.ndarray</span>
+<span class="sd">        Array of empirical distribution costs for each segment, shape (n_segments,).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">num_quantiles</span> <span class="o">=</span> <span class="n">cumulative_edf_quantiles</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">segment_quantiles</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">num_quantiles</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+    <span class="n">one_minus_segment_quantiles</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">num_quantiles</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">out_segment_costs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">out_segment_costs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">segment_starts</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">segment_start</span><span class="p">,</span> <span class="n">segment_end</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">segment_starts</span><span class="p">,</span> <span class="n">segment_ends</span><span class="p">)):</span>
+        <span class="n">segment_length</span> <span class="o">=</span> <span class="n">segment_end</span> <span class="o">-</span> <span class="n">segment_start</span>
+
+        <span class="c1"># Shifted by 1 to account for the row of zeros at the start:</span>
+        <span class="n">segment_quantiles</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">cumulative_edf_quantiles</span><span class="p">[</span><span class="n">segment_end</span><span class="p">,</span> <span class="p">:]</span>
+        <span class="n">segment_quantiles</span> <span class="o">-=</span> <span class="n">cumulative_edf_quantiles</span><span class="p">[</span><span class="n">segment_start</span><span class="p">,</span> <span class="p">:]</span>
+        <span class="n">segment_quantiles</span> <span class="o">/=</span> <span class="nb">float</span><span class="p">(</span><span class="n">segment_length</span><span class="p">)</span>
+
+        <span class="n">one_minus_segment_quantiles</span><span class="p">[:]</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">segment_quantiles</span><span class="p">[:]</span>
+
+        <span class="n">integrated_ll_at_fixed_cdf</span> <span class="o">=</span> <span class="n">segment_length</span> <span class="o">*</span> <span class="p">(</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span>
+                <span class="p">(</span>
+                    <span class="n">segment_quantiles</span> <span class="o">*</span> <span class="n">log_fixed_quantiles</span>
+                    <span class="o">+</span> <span class="n">one_minus_segment_quantiles</span> <span class="o">*</span> <span class="n">log_one_minus_fixed_quantiles</span>
+                <span class="p">)</span>
+                <span class="o">*</span> <span class="n">quantile_weights</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="c1"># The cost equals twice the negative integrated log-likelihood:</span>
+        <span class="n">out_segment_costs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">integrated_ll_at_fixed_cdf</span>
+
+    <span class="k">return</span> <span class="n">out_segment_costs</span>
+
+
+<span class="nd">@njit</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">numpy_fixed_cdf_cost_cached_edf</span><span class="p">(</span>
+    <span class="n">cumulative_edf_quantiles</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">segment_starts</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">segment_ends</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">log_fixed_quantiles</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">log_one_minus_fixed_quantiles</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">quantile_weights</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">out_segment_costs</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute the empirical distribution cost for segments using a reference CDF.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    cumulative_edf_quantiles : np.ndarray</span>
+<span class="sd">        Cumulative EDF values, shape (n_samples + 1, num_quantiles).</span>
+<span class="sd">    segment_starts : np.ndarray</span>
+<span class="sd">        Start indices of segments, shape (n_segments,).</span>
+<span class="sd">    segment_ends : np.ndarray</span>
+<span class="sd">        End indices of segments, shape (n_segments,).</span>
+<span class="sd">    log_fixed_quantiles : np.ndarray</span>
+<span class="sd">        Logarithm of fixed quantiles, shape (num_quantiles,).</span>
+<span class="sd">    log_one_minus_fixed_quantiles : np.ndarray</span>
+<span class="sd">        Logarithm of one minus fixed quantiles, shape (num_quantiles,).</span>
+<span class="sd">    quantile_weights : np.ndarray</span>
+<span class="sd">        Quantile integration weights, shape (num_quantiles,).</span>
+<span class="sd">    out_segment_costs : np.ndarray or None, optional</span>
+<span class="sd">        Output array for costs, shape (n_segments,). If None, a new array is created.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    out_segment_costs : np.ndarray</span>
+<span class="sd">        Array of empirical distribution costs for each segment, shape (n_segments,).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">out_segment_costs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">out_segment_costs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">segment_starts</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+
+    <span class="n">segment_edfs_at_quantiles</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">cumulative_edf_quantiles</span><span class="p">[</span><span class="n">segment_ends</span><span class="p">,</span> <span class="p">:]</span>
+        <span class="o">-</span> <span class="n">cumulative_edf_quantiles</span><span class="p">[</span><span class="n">segment_starts</span><span class="p">,</span> <span class="p">:]</span>
+    <span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">segment_ends</span> <span class="o">-</span> <span class="n">segment_starts</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">one_minus_segment_edfs_at_quantiles</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">segment_edfs_at_quantiles</span>
+
+    <span class="n">integrated_lls_at_fixed_cdf</span> <span class="o">=</span> <span class="p">(</span><span class="n">segment_ends</span> <span class="o">-</span> <span class="n">segment_starts</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span>
+        <span class="p">(</span>
+            <span class="n">segment_edfs_at_quantiles</span> <span class="o">*</span> <span class="n">log_fixed_quantiles</span>
+            <span class="o">+</span> <span class="n">one_minus_segment_edfs_at_quantiles</span> <span class="o">*</span> <span class="n">log_one_minus_fixed_quantiles</span>
+        <span class="p">)</span>
+        <span class="o">*</span> <span class="n">quantile_weights</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:],</span>
+        <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">out_segment_costs</span><span class="p">[:]</span> <span class="o">=</span> <span class="o">-</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">integrated_lls_at_fixed_cdf</span>
+
+    <span class="k">return</span> <span class="n">out_segment_costs</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">numpy_approximate_mle_edf_cost_cached_edf</span><span class="p">(</span>
+    <span class="n">cumulative_edf_quantiles</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">segment_starts</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">segment_ends</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">out_segment_costs</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute approximate empirical distribution cost from cumulative EDF quantiles.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    cumulative_edf_quantiles : np.ndarray</span>
+<span class="sd">        Cumulative EDF values, shape (n_samples + 1, num_quantiles).</span>
+<span class="sd">    segment_starts : np.ndarray</span>
+<span class="sd">        Start indices of segments, shape (n_segments,).</span>
+<span class="sd">    segment_ends : np.ndarray</span>
+<span class="sd">        End indices of segments, shape (n_segments,).</span>
+<span class="sd">    out_segment_costs : np.ndarray or None, optional</span>
+<span class="sd">        Output array for costs, shape (n_segments,). If None, a new array is created.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    out_segment_costs : np.ndarray</span>
+<span class="sd">        Array of empirical distribution costs for each segment, shape (n_segments,).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">n_samples</span><span class="p">,</span> <span class="n">num_quantiles</span> <span class="o">=</span> <span class="n">cumulative_edf_quantiles</span><span class="o">.</span><span class="n">shape</span>
+
+    <span class="k">if</span> <span class="n">out_segment_costs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">out_segment_costs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">segment_starts</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+
+    <span class="c1"># Constant scaling term from the approximation of the integrated log-likelihood:</span>
+    <span class="n">edf_integration_scale</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">n_samples</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">segment_edfs_at_quantiles</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">cumulative_edf_quantiles</span><span class="p">[</span><span class="n">segment_ends</span><span class="p">,</span> <span class="p">:]</span>
+        <span class="o">-</span> <span class="n">cumulative_edf_quantiles</span><span class="p">[</span><span class="n">segment_starts</span><span class="p">,</span> <span class="p">:]</span>
+    <span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">segment_ends</span> <span class="o">-</span> <span class="n">segment_starts</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># Clip quantiles to within (0, 1) to avoid log(0) issues:</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">segment_edfs_at_quantiles</span><span class="p">,</span> <span class="mf">1e-10</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="mf">1e-10</span><span class="p">,</span> <span class="n">segment_edfs_at_quantiles</span><span class="p">)</span>
+    <span class="n">one_minus_segment_edfs_at_quantiles</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">segment_edfs_at_quantiles</span>
+
+    <span class="n">segments_ll_at_mle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span>
+        <span class="n">segment_edfs_at_quantiles</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">segment_edfs_at_quantiles</span><span class="p">)</span>
+        <span class="o">+</span> <span class="n">one_minus_segment_edfs_at_quantiles</span>
+        <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">one_minus_segment_edfs_at_quantiles</span><span class="p">),</span>
+        <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">segments_ll_at_mle</span> <span class="o">*=</span> <span class="p">(</span><span class="o">-</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">edf_integration_scale</span> <span class="o">/</span> <span class="n">num_quantiles</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span>
+        <span class="n">segment_ends</span> <span class="o">-</span> <span class="n">segment_starts</span>
+    <span class="p">)</span>
+    <span class="n">out_segment_costs</span><span class="p">[:]</span> <span class="o">=</span> <span class="o">-</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">segments_ll_at_mle</span><span class="p">[:]</span>
+
+    <span class="k">return</span> <span class="n">out_segment_costs</span>
+
+
+<span class="nd">@njit</span><span class="p">(</span><span class="n">fastmath</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">numba_approximate_mle_edf_cost_cached_edf</span><span class="p">(</span>
+    <span class="n">cumulative_edf_quantiles</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">segment_starts</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">segment_ends</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">out_segment_costs</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute approximate empirical distribution cost from cumulative EDF quantiles.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    cumulative_edf_quantiles : np.ndarray</span>
+<span class="sd">        Cumulative EDF values, shape (n_samples + 1, num_quantiles).</span>
+<span class="sd">    segment_starts : np.ndarray</span>
+<span class="sd">        Start indices of segments, shape (n_segments,).</span>
+<span class="sd">    segment_ends : np.ndarray</span>
+<span class="sd">        End indices of segments, shape (n_segments,).</span>
+<span class="sd">    out_segment_costs : np.ndarray or None, optional</span>
+<span class="sd">        Output array for costs, shape (n_segments,). If None, a new array is created.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    out_segment_costs : np.ndarray</span>
+<span class="sd">        Array of empirical distribution costs for each segment, shape (n_segments,).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">n_samples</span><span class="p">,</span> <span class="n">num_quantiles</span> <span class="o">=</span> <span class="n">cumulative_edf_quantiles</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">segment_edf_at_quantiles</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">num_quantiles</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">out_segment_costs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">out_segment_costs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">segment_starts</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+
+    <span class="c1"># Constant scaling term from the approximation of the integrated log-likelihood:</span>
+    <span class="n">edf_integration_scale</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">n_samples</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># Iterate over each segment defined by the starts and ends:</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">segment_start</span><span class="p">,</span> <span class="n">segment_end</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">segment_starts</span><span class="p">,</span> <span class="n">segment_ends</span><span class="p">)):</span>
+        <span class="n">segment_length</span> <span class="o">=</span> <span class="n">segment_end</span> <span class="o">-</span> <span class="n">segment_start</span>
+
+        <span class="c1"># Shifted by 1 to account for the row of zeros at the start:</span>
+        <span class="n">segment_edf_at_quantiles</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">cumulative_edf_quantiles</span><span class="p">[</span><span class="n">segment_end</span><span class="p">,</span> <span class="p">:]</span>
+        <span class="n">segment_edf_at_quantiles</span><span class="p">[:]</span> <span class="o">-=</span> <span class="n">cumulative_edf_quantiles</span><span class="p">[</span><span class="n">segment_start</span><span class="p">,</span> <span class="p">:]</span>
+        <span class="n">segment_edf_at_quantiles</span><span class="p">[:]</span> <span class="o">/=</span> <span class="nb">float</span><span class="p">(</span><span class="n">segment_length</span><span class="p">)</span>
+
+        <span class="c1">### Begin computing integrated log-likelihood for the segment ###</span>
+        <span class="n">segment_ll_at_mle</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="k">for</span> <span class="n">quantile</span> <span class="ow">in</span> <span class="n">segment_edf_at_quantiles</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">quantile</span> <span class="o">&gt;</span> <span class="mf">1.0e-10</span><span class="p">:</span>
+                <span class="n">segment_ll_at_mle</span> <span class="o">+=</span> <span class="n">quantile</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">quantile</span><span class="p">)</span>
+            <span class="n">one_minus_quantile</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">quantile</span>
+            <span class="k">if</span> <span class="n">one_minus_quantile</span> <span class="o">&gt;</span> <span class="mf">1.0e-10</span><span class="p">:</span>
+                <span class="n">segment_ll_at_mle</span> <span class="o">+=</span> <span class="n">one_minus_quantile</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">one_minus_quantile</span><span class="p">)</span>
+
+        <span class="n">segment_ll_at_mle</span> <span class="o">*=</span> <span class="p">(</span>
+            <span class="o">-</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">edf_integration_scale</span> <span class="o">/</span> <span class="n">num_quantiles</span>
+        <span class="p">)</span> <span class="o">*</span> <span class="n">segment_length</span>
+        <span class="c1">### Done computing integrated log-likelihood for the segment ###</span>
+
+        <span class="c1"># The cost equals twice the negative integrated log-likelihood:</span>
+        <span class="n">out_segment_costs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mf">2.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">segment_ll_at_mle</span>
+
+    <span class="k">return</span> <span class="n">out_segment_costs</span>
+
+
+<div class="viewcode-block" id="EmpiricalDistributionCost">
+<a class="viewcode-back" href="../../../api_reference/auto_generated/skchange.costs.EmpiricalDistributionCost.html#skchange.costs.EmpiricalDistributionCost">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">EmpiricalDistributionCost</span><span class="p">(</span><span class="n">BaseCost</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Empirical Distribution Cost.</span>
+
+<span class="sd">    Computationally efficient approximate empirical distribution cost[1]_.</span>
+<span class="sd">    Uses the integrated log-likelihood of the empirical cumulative distribution</span>
+<span class="sd">    function (EDF) to evaluate the cost for each segment defined by the cuts,</span>
+<span class="sd">    in a non-parametric way.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    param : any, optional (default=None)</span>
+<span class="sd">        If None, the cost is evaluated on the empirical CDF estimate, i.e. the</span>
+<span class="sd">        maximum likelihood estimate of the CDF. If not None, the interval</span>
+<span class="sd">        empirical distributions are evaluated against the provided CDF.</span>
+<span class="sd">    num_approximation_quantiles : int or None, optional (default=None)</span>
+<span class="sd">        Number of quantiles to use for approximating the empirical distribution.</span>
+<span class="sd">        If None, it will be set to `floor(4 * log(n_samples))` during fitting.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    .. [1] Haynes, K., Fearnhead, P. &amp; Eckley, I.A. A computationally efficient</span>
+<span class="sd">    nonparametric approach for changepoint detection. Stat Comput 27, 1293-1305 (2017).</span>
+<span class="sd">    https://doi.org/10.1007/s11222-016-9687-5</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">_tags</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;authors&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;johannvk&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;maintainers&quot;</span><span class="p">:</span> <span class="s2">&quot;johannvk&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;distribution_type&quot;</span><span class="p">:</span> <span class="s2">&quot;None&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;is_conditional&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="s2">&quot;is_aggregated&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="s2">&quot;supports_fixed_param&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">param</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">ArrayLike</span><span class="p">,</span> <span class="n">ArrayLike</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">num_approximation_quantiles</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="c1"># Initialize the base class</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">param</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_approximation_quantiles</span> <span class="o">=</span> <span class="n">num_approximation_quantiles</span>
+
+        <span class="n">check_larger_than</span><span class="p">(</span>
+            <span class="n">min_value</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+            <span class="n">value</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">num_approximation_quantiles</span><span class="p">,</span>
+            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;num_approximation_quantiles&quot;</span><span class="p">,</span>
+            <span class="n">allow_none</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_quantiles_</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Will be set during fitting</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">quantile_points_</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">quantile_values_</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1"># Cache for empirical distribution function</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_edf_cache</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1"># Storage for fixed samples and quantiles:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_quantile_weights</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_one_minus_fixed_quantiles</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_log_fixed_quantiles</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_log_one_minus_fixed_quantiles</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Fit the cost.</span>
+
+<span class="sd">        Precomputes cumulative empirical distribution function if caching is enabled.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : np.ndarray</span>
+<span class="sd">            Data to evaluate. Must be a 2D array.</span>
+<span class="sd">        y : None, optional</span>
+<span class="sd">            Ignored. Included for API consistency by convention.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self : EmpiricalDistributionCost</span>
+<span class="sd">            Fitted cost instance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_param</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_param</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">param</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
+        <span class="n">n_samples</span><span class="p">,</span> <span class="n">n_columns</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_param</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># Calculate number of quantiles to use if not provided:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_approximation_quantiles</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">num_quantiles_</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">n_samples</span><span class="p">)))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">num_quantiles_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_approximation_quantiles</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">quantile_points_</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">quantile_values_</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">make_approximate_mle_edf_cost_quantile_points</span><span class="p">(</span>
+                    <span class="n">X</span><span class="p">,</span> <span class="n">num_quantiles</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">num_quantiles_</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">quantile_points_</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">quantile_values_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_param</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">num_quantiles_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">quantile_values_</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">_log_fixed_quantiles</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">quantile_values_</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_log_one_minus_fixed_quantiles</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">quantile_values_</span><span class="p">)</span>
+
+            <span class="c1"># Store the quantile integration weights for each data column:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_quantile_weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">quantile_values_</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_columns</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_quantile_weights</span><span class="p">[:,</span> <span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">make_fixed_cdf_cost_quantile_weights</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">quantile_values_</span><span class="p">[:,</span> <span class="n">col</span><span class="p">],</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">quantile_points_</span><span class="p">[:,</span> <span class="n">col</span><span class="p">],</span>
+                <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_edf_cache</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">make_cumulative_edf_cache</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_X</span><span class="p">[:,</span> <span class="n">col</span><span class="p">],</span> <span class="n">quantile_points</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">quantile_points_</span><span class="p">[:,</span> <span class="n">col</span><span class="p">]</span>
+            <span class="p">)</span>
+            <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_columns</span><span class="p">)</span>
+        <span class="p">]</span>
+
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_check_fixed_param</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">param</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="n">X</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Validate and standardize fixed samples and quantiles.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        param : tuple[np.ndarray, np.ndarray]</span>
+<span class="sd">            Tuple of (fixed_samples, fixed_cdf_quantiles).</span>
+<span class="sd">        X : np.ndarray</span>
+<span class="sd">            Data to evaluate. Used to match shapes.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        tuple[np.ndarray, np.ndarray]</span>
+<span class="sd">            Standardized fixed_samples and fixed_cdf_quantiles.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">fixed_samples</span><span class="p">,</span> <span class="n">fixed_cdf_quantiles</span> <span class="o">=</span> <span class="n">param</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">fixed_samples</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="n">fixed_cdf_quantiles</span><span class="o">.</span><span class="n">shape</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;All samples must have a corresponding fixed quantile.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">fixed_cdf_quantiles</span><span class="o">.</span><span class="n">ndim</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;Fixed samples and quantiles must be 1D or 2D arrays, &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;but got shapes </span><span class="si">{</span><span class="n">fixed_samples</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="n">fixed_cdf_quantiles</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">.&quot;</span>
+            <span class="p">)</span>
+
+        <span class="c1"># Standardize the shapes of fixed samples and quantiles:</span>
+        <span class="k">if</span> <span class="n">fixed_samples</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">fixed_samples</span> <span class="o">=</span> <span class="n">fixed_samples</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">fixed_cdf_quantiles</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">fixed_cdf_quantiles</span> <span class="o">=</span> <span class="n">fixed_cdf_quantiles</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">fixed_samples</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Fixed samples must be sorted, and strictly increasing.&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">fixed_cdf_quantiles</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;Fixed CDF quantiles must be sorted, and strictly increasing.&quot;</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">fixed_cdf_quantiles</span><span class="p">)</span> <span class="ow">and</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">fixed_cdf_quantiles</span> <span class="o">&lt;=</span> <span class="mf">1.0</span><span class="p">)</span>
+        <span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;Fixed quantiles must be within the closed interval [0, 1]&quot;</span>
+            <span class="p">)</span>
+
+        <span class="c1"># Clip fixed quantiles to avoid log(0) issues:</span>
+        <span class="n">fixed_cdf_quantiles</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">fixed_cdf_quantiles</span><span class="p">,</span> <span class="mf">1.0e-10</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="mf">1.0e-10</span><span class="p">)</span>
+
+        <span class="c1"># Repeat the fixed samples and quantiles to match the number of columns in X:</span>
+        <span class="k">if</span> <span class="n">fixed_samples</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">fixed_samples</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">fixed_samples</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+            <span class="n">fixed_cdf_quantiles</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">fixed_cdf_quantiles</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+
+        <span class="k">return</span> <span class="n">fixed_samples</span><span class="p">,</span> <span class="n">fixed_cdf_quantiles</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_evaluate_optim_param</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">starts</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">ends</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Evaluate the cost using empirical distribution.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        starts : np.ndarray</span>
+<span class="sd">            Start indices of the intervals (inclusive).</span>
+<span class="sd">        ends : np.ndarray</span>
+<span class="sd">            End indices of the intervals (exclusive).</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        costs : np.ndarray</span>
+<span class="sd">            A 2D array of costs. One row per interval, one column per variable.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">n_intervals</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">starts</span><span class="p">)</span>
+        <span class="n">n_cols</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="n">costs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_intervals</span><span class="p">,</span> <span class="n">n_cols</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">numba_available</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_cols</span><span class="p">):</span>
+                <span class="n">numba_approximate_mle_edf_cost_cached_edf</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_edf_cache</span><span class="p">[</span><span class="n">col</span><span class="p">],</span>
+                    <span class="n">segment_starts</span><span class="o">=</span><span class="n">starts</span><span class="p">,</span>
+                    <span class="n">segment_ends</span><span class="o">=</span><span class="n">ends</span><span class="p">,</span>
+                    <span class="n">out_segment_costs</span><span class="o">=</span><span class="n">costs</span><span class="p">[:,</span> <span class="n">col</span><span class="p">],</span>
+                <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_cols</span><span class="p">):</span>
+                <span class="n">numpy_approximate_mle_edf_cost_cached_edf</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_edf_cache</span><span class="p">[</span><span class="n">col</span><span class="p">],</span>
+                    <span class="n">segment_starts</span><span class="o">=</span><span class="n">starts</span><span class="p">,</span>
+                    <span class="n">segment_ends</span><span class="o">=</span><span class="n">ends</span><span class="p">,</span>
+                    <span class="n">out_segment_costs</span><span class="o">=</span><span class="n">costs</span><span class="p">[:,</span> <span class="n">col</span><span class="p">],</span>
+                <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">costs</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_evaluate_fixed_param</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">starts</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">ends</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Evaluate the cost using fixed quantile parameters.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        starts : np.ndarray</span>
+<span class="sd">            Start indices of the intervals (inclusive).</span>
+<span class="sd">        ends : np.ndarray</span>
+<span class="sd">            End indices of the intervals (exclusive).</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        costs : np.ndarray</span>
+<span class="sd">            A 2D array of costs. One row per interval, one column per variable.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">n_intervals</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">starts</span><span class="p">)</span>
+        <span class="n">n_cols</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="n">costs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_intervals</span><span class="p">,</span> <span class="n">n_cols</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">numba_available</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_cols</span><span class="p">):</span>
+                <span class="n">costs</span><span class="p">[:,</span> <span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">numba_fixed_cdf_cost_cached_edf</span><span class="p">(</span>
+                    <span class="n">cumulative_edf_quantiles</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_edf_cache</span><span class="p">[</span><span class="n">col</span><span class="p">],</span>
+                    <span class="n">segment_starts</span><span class="o">=</span><span class="n">starts</span><span class="p">,</span>
+                    <span class="n">segment_ends</span><span class="o">=</span><span class="n">ends</span><span class="p">,</span>
+                    <span class="n">log_fixed_quantiles</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_log_fixed_quantiles</span><span class="p">[:,</span> <span class="n">col</span><span class="p">],</span>
+                    <span class="n">log_one_minus_fixed_quantiles</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_log_one_minus_fixed_quantiles</span><span class="p">[</span>
+                        <span class="p">:,</span> <span class="n">col</span>
+                    <span class="p">],</span>
+                    <span class="n">quantile_weights</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_quantile_weights</span><span class="p">[:,</span> <span class="n">col</span><span class="p">],</span>
+                    <span class="n">out_segment_costs</span><span class="o">=</span><span class="n">costs</span><span class="p">[:,</span> <span class="n">col</span><span class="p">],</span>
+                <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_cols</span><span class="p">):</span>
+                <span class="n">costs</span><span class="p">[:,</span> <span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">numpy_fixed_cdf_cost_cached_edf</span><span class="p">(</span>
+                    <span class="n">cumulative_edf_quantiles</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_edf_cache</span><span class="p">[</span><span class="n">col</span><span class="p">],</span>
+                    <span class="n">segment_starts</span><span class="o">=</span><span class="n">starts</span><span class="p">,</span>
+                    <span class="n">segment_ends</span><span class="o">=</span><span class="n">ends</span><span class="p">,</span>
+                    <span class="n">log_fixed_quantiles</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_log_fixed_quantiles</span><span class="p">[:,</span> <span class="n">col</span><span class="p">],</span>
+                    <span class="n">log_one_minus_fixed_quantiles</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_log_one_minus_fixed_quantiles</span><span class="p">[</span>
+                        <span class="p">:,</span> <span class="n">col</span>
+                    <span class="p">],</span>
+                    <span class="n">quantile_weights</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_quantile_weights</span><span class="p">[:,</span> <span class="n">col</span><span class="p">],</span>
+                    <span class="n">out_segment_costs</span><span class="o">=</span><span class="n">costs</span><span class="p">[:,</span> <span class="n">col</span><span class="p">],</span>
+                <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">costs</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">min_size</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Minimum size of the interval to evaluate.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        int</span>
+<span class="sd">            The minimum valid size of an interval to evaluate.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_fitted</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_quantiles_</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_approximation_quantiles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_approximation_quantiles</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">10</span>
+
+<div class="viewcode-block" id="EmpiricalDistributionCost.get_model_size">
+<a class="viewcode-back" href="../../../api_reference/auto_generated/skchange.costs.EmpiricalDistributionCost.html#skchange.costs.EmpiricalDistributionCost.get_model_size">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_model_size</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the number of parameters in the cost function.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        p : int</span>
+<span class="sd">            Number of variables in the data.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        int</span>
+<span class="sd">            Number of parameters in the cost function.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># For the EDF, the model size depends on the number of quantiles?</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_fitted</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_quantiles_</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_approximation_quantiles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_approximation_quantiles</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;The cost is not fitted, and no number of quantiles was specified &quot;</span>
+                <span class="s2">&quot;for the approximation of the ECDF at initialization.&quot;</span>
+            <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="EmpiricalDistributionCost.get_test_params">
+<a class="viewcode-back" href="../../../api_reference/auto_generated/skchange.costs.EmpiricalDistributionCost.html#skchange.costs.EmpiricalDistributionCost.get_test_params">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_test_params</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">parameter_set</span><span class="o">=</span><span class="s2">&quot;default&quot;</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return testing parameter settings for the estimator.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        parameter_set : str, default=&quot;default&quot;</span>
+<span class="sd">            Name of the set of test parameters to return.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        params : dict or list of dict</span>
+<span class="sd">            Parameters to create testing instances of the class.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Fixed Standard Normal Quantiles:</span>
+        <span class="c1"># fmt: off</span>
+        <span class="n">fixed_samples</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="o">-</span><span class="mf">2.32634787</span><span class="p">,</span>
+                <span class="o">-</span><span class="mf">1.95996398</span><span class="p">,</span>
+                <span class="o">-</span><span class="mf">1.64485363</span><span class="p">,</span>
+                <span class="o">-</span><span class="mf">1.03643339</span><span class="p">,</span>
+                <span class="o">-</span><span class="mf">0.52440051</span><span class="p">,</span>
+                 <span class="mf">0.0</span><span class="p">,</span>
+                 <span class="mf">0.52440051</span><span class="p">,</span>
+                 <span class="mf">1.03643339</span><span class="p">,</span>
+                 <span class="mf">1.64485363</span><span class="p">,</span>
+                 <span class="mf">1.95996398</span><span class="p">,</span>
+                 <span class="mf">2.32634787</span>
+            <span class="p">]</span>
+        <span class="p">)</span>
+        <span class="c1"># fmt: on</span>
+        <span class="n">fixed_quantiles</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+            <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.025</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.85</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="mf">0.975</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">]</span>
+        <span class="p">)</span>
+        <span class="c1"># Define two different parameter sets for testing</span>
+        <span class="n">params1</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;param&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;num_approximation_quantiles&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">}</span>
+        <span class="n">params2</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;param&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">fixed_samples</span><span class="p">,</span> <span class="n">fixed_quantiles</span><span class="p">),</span>
+            <span class="s2">&quot;num_approximation_quantiles&quot;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">fixed_quantiles</span><span class="p">),</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">params1</span><span class="p">,</span> <span class="n">params2</span><span class="p">]</span></div>
+</div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2023 - 2025 (BSD-3-Clause License).
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

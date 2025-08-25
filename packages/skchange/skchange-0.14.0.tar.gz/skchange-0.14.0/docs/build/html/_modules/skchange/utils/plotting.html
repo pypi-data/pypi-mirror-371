@@ -1,0 +1,702 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>skchange.utils.plotting &#8212; skchange</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=d2d258e8" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom_notebook.css?v=c6a2da1f" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=99362dbf"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/skchange/utils/plotting';</script>
+    <script src="../../../_static/plotly_resize.js?v=40f45932"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">skchange</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/index.html">
+    User guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../api_reference/index.html">
+    API reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../developer_guide/index.html">
+    Developer guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../releases.html">
+    Releases
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/NorskRegnesentral/skchange" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/index.html">
+    User guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../api_reference/index.html">
+    API reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../developer_guide/index.html">
+    Developer guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../releases.html">
+    Releases
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/NorskRegnesentral/skchange" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">skchange.utils.plotting</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for skchange.utils.plotting</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Plotting utilities.&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.express</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">px</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.graph_objects</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">go</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">..anomaly_detectors.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseSegmentAnomalyDetector</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..change_detectors.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseChangeDetector</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_plot_time_series</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+    <span class="n">data_repr</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;line&quot;</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create a Plotly figure for a time series DataFrame.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    df : pd.DataFrame</span>
+<span class="sd">        The time series data to plot. The index should represent the time points, while</span>
+<span class="sd">        the columns represent the values of the time series.</span>
+
+<span class="sd">    data_repr : str, optional, default=&quot;line&quot;</span>
+<span class="sd">        The representation of the data to plot. Can be one of the following:</span>
+
+<span class="sd">        * `&quot;line&quot;`: Line plot with different colors for each variable.</span>
+<span class="sd">        * `&quot;subplot-line&quot;`: Line plot with subplots for each variable.</span>
+<span class="sd">        * `&quot;point&quot;`: Scatter plot with different colors for each variable.</span>
+<span class="sd">        * `&quot;subplot-point&quot;`: Scatter plot with subplots for each variable.</span>
+<span class="sd">        * `&quot;heatmap&quot;`: Heatmap representation of the time series.</span>
+
+<span class="sd">    **kwargs</span>
+<span class="sd">        Additional keyword arguments to pass to the Plotly Express plotting functions.</span>
+<span class="sd">        See the Plotly documentation for more details.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    plotly.graph_objects.Figure</span>
+<span class="sd">        A Plotly figure with the time series plotted.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">index_name</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="k">if</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="s2">&quot;index&quot;</span>
+    <span class="n">long_df</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span>
+        <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+        <span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s2">&quot;level_0&quot;</span><span class="p">:</span> <span class="n">index_name</span><span class="p">,</span> <span class="s2">&quot;level_1&quot;</span><span class="p">:</span> <span class="s2">&quot;variable&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;value&quot;</span><span class="p">},</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">data_repr</span> <span class="o">==</span> <span class="s2">&quot;line&quot;</span><span class="p">:</span>
+        <span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">long_df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">index_name</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;variable&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">data_repr</span> <span class="o">==</span> <span class="s2">&quot;subplot-line&quot;</span><span class="p">:</span>
+        <span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">long_df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">index_name</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="n">facet_row</span><span class="o">=</span><span class="s2">&quot;variable&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">data_repr</span> <span class="o">==</span> <span class="s2">&quot;point&quot;</span><span class="p">:</span>
+        <span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">long_df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">index_name</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;variable&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">data_repr</span> <span class="o">==</span> <span class="s2">&quot;subplot-point&quot;</span><span class="p">:</span>
+        <span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+            <span class="n">long_df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">index_name</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="n">facet_row</span><span class="o">=</span><span class="s2">&quot;variable&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+        <span class="p">)</span>
+    <span class="k">elif</span> <span class="n">data_repr</span> <span class="o">==</span> <span class="s2">&quot;heatmap&quot;</span><span class="p">:</span>
+        <span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span>
+            <span class="n">df</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
+            <span class="n">aspect</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">,</span>
+            <span class="n">color_continuous_scale</span><span class="o">=</span><span class="s2">&quot;Viridis&quot;</span><span class="p">,</span>
+            <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="s2">&quot;index&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="s2">&quot;variable&quot;</span><span class="p">,</span> <span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;value&quot;</span><span class="p">},</span>
+            <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Unknown data representation: </span><span class="si">{</span><span class="n">data_repr</span><span class="si">}</span><span class="s2">.&quot;</span>
+            <span class="s2">&quot; Must be one of: &#39;line&#39;, &#39;scatter&#39;, &#39;heatmap&#39;.&quot;</span>
+        <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">fig</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_get_data_repr</span><span class="p">(</span>
+    <span class="n">data_repr</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">n_variables</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">max_variables_for_line_plot</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Determine the data representation for plotting.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    data_repr : str or None</span>
+<span class="sd">        The representation of the data to plot. Can be one of the following:</span>
+
+<span class="sd">        * `&quot;line&quot;`: Line plot with different colors for each variable.</span>
+<span class="sd">        * `&quot;subplot-line&quot;`: Line plot with subplots for each variable.</span>
+<span class="sd">        * `&quot;point&quot;`: Scatter plot with different colors for each variable.</span>
+<span class="sd">        * `&quot;subplot-point&quot;`: Scatter plot with subplots for each variable.</span>
+<span class="sd">        * `&quot;heatmap&quot;`: Heatmap representation of the time series.</span>
+
+<span class="sd">        If None, the function will choose &quot;heatmap&quot; if the number of variables is</span>
+<span class="sd">        greater than `max_variables_for_line_plot`, and &quot;subplot-line&quot; otherwise.</span>
+
+<span class="sd">    n_variables : int</span>
+<span class="sd">        The number of variables (columns) in the DataFrame.</span>
+
+<span class="sd">    max_variables_for_line_plot : int</span>
+<span class="sd">        The maximum number of variables (columns) in the DataFrame to use line plots</span>
+<span class="sd">        instead of heatmaps when `data_repr` is None.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    str</span>
+<span class="sd">        The determined data representation.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">data_repr</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">data_repr</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="s2">&quot;heatmap&quot;</span> <span class="k">if</span> <span class="n">n_variables</span> <span class="o">&gt;</span> <span class="n">max_variables_for_line_plot</span> <span class="k">else</span> <span class="s2">&quot;subplot-line&quot;</span>
+        <span class="p">)</span>
+    <span class="k">return</span> <span class="n">data_repr</span>
+
+
+<div class="viewcode-block" id="plot_detections">
+<a class="viewcode-back" href="../../../api_reference/auto_generated/skchange.utils.plotting.plot_detections.html#skchange.utils.plotting.plot_detections">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_detections</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+    <span class="n">detections</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+    <span class="n">data_repr</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Plot detected change points or segment anomalies on a time series.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    df : pd.DataFrame</span>
+<span class="sd">        The time series data to plot. The index should represent the time points, while</span>
+<span class="sd">        the columns represent the values of the time series.</span>
+
+<span class="sd">    detections : pd.DataFrame</span>
+<span class="sd">        The detections to plot, on the format returned by detectors&#39; `predict` method.</span>
+
+<span class="sd">    data_repr : str</span>
+<span class="sd">        The representation of the data to plot. Can be one of the following:</span>
+
+<span class="sd">        * `&quot;line&quot;`: Line plot with different colors for each variable.</span>
+<span class="sd">        * `&quot;subplot-line&quot;`: Line plot with subplots for each variable.</span>
+<span class="sd">        * `&quot;point&quot;`: Scatter plot with different colors for each variable.</span>
+<span class="sd">        * `&quot;subplot-point&quot;`: Scatter plot with subplots for each variable.</span>
+<span class="sd">        * `&quot;heatmap&quot;`: Heatmap representation of the time series.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    plotly.graph_objects.Figure</span>
+<span class="sd">        A Plotly figure with the time series and highlighed detected events in red.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="n">n_vars</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">data_repr</span> <span class="o">=</span> <span class="n">_get_data_repr</span><span class="p">(</span><span class="n">data_repr</span><span class="p">,</span> <span class="n">n_vars</span><span class="p">)</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">_plot_time_series</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">data_repr</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">n_subplots</span> <span class="o">=</span> <span class="nb">len</span><span class="p">([</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">fig</span><span class="o">.</span><span class="n">layout</span> <span class="k">if</span> <span class="n">k</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;yaxis&quot;</span><span class="p">)])</span>
+
+    <span class="n">has_affected_components</span> <span class="o">=</span> <span class="s2">&quot;icolumns&quot;</span> <span class="ow">in</span> <span class="n">detections</span><span class="o">.</span><span class="n">columns</span>
+    <span class="n">visual_cpt_adjustment</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span> <span class="k">if</span> <span class="n">data_repr</span> <span class="o">==</span> <span class="s2">&quot;heatmap&quot;</span> <span class="k">else</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">detections</span><span class="o">.</span><span class="n">itertuples</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">n_subplots</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">columns</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">icolumns</span> <span class="k">if</span> <span class="n">has_affected_components</span> <span class="k">else</span> <span class="nb">range</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">columns</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">ilocs</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+                <span class="n">fig</span><span class="o">.</span><span class="n">add_vline</span><span class="p">(</span>
+                    <span class="n">x</span><span class="o">=</span><span class="n">event</span><span class="o">.</span><span class="n">ilocs</span> <span class="o">+</span> <span class="n">visual_cpt_adjustment</span><span class="p">,</span>
+                    <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                    <span class="n">line_dash</span><span class="o">=</span><span class="s2">&quot;dash&quot;</span><span class="p">,</span>
+                    <span class="n">line_color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span>
+                    <span class="n">row</span><span class="o">=</span><span class="n">n_subplots</span> <span class="o">-</span> <span class="n">col</span><span class="p">,</span>
+                    <span class="n">col</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">ilocs</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Interval</span><span class="p">):</span>
+                <span class="n">fig</span><span class="o">.</span><span class="n">add_vrect</span><span class="p">(</span>
+                    <span class="n">x0</span><span class="o">=</span><span class="n">event</span><span class="o">.</span><span class="n">ilocs</span><span class="o">.</span><span class="n">left</span><span class="p">,</span>
+                    <span class="n">x1</span><span class="o">=</span><span class="n">event</span><span class="o">.</span><span class="n">ilocs</span><span class="o">.</span><span class="n">right</span><span class="p">,</span>
+                    <span class="n">fillcolor</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span>
+                    <span class="n">opacity</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+                    <span class="n">line_width</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                    <span class="n">layer</span><span class="o">=</span><span class="s2">&quot;below&quot;</span><span class="p">,</span>
+                    <span class="n">row</span><span class="o">=</span><span class="n">n_subplots</span> <span class="o">-</span> <span class="n">col</span><span class="p">,</span>
+                    <span class="n">col</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s2">&quot;The &#39;ilocs&#39; column in detections must contain either integers &quot;</span>
+                    <span class="s2">&quot;or pd.Intervals.&quot;</span>
+                <span class="p">)</span>
+    <span class="k">return</span> <span class="n">fig</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_get_segment_ranges</span><span class="p">(</span>
+    <span class="n">segment_labels</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">anomalies</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create a string representation of segment ranges.&quot;&quot;&quot;</span>
+    <span class="n">segment_ranges</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">segment_labels</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+        <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;labels&quot;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">start_inclusive</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;index&quot;</span><span class="p">,</span> <span class="s2">&quot;first&quot;</span><span class="p">),</span> <span class="n">end_inclusive</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;index&quot;</span><span class="p">,</span> <span class="s2">&quot;last&quot;</span><span class="p">))</span>
+        <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+    <span class="p">)</span>
+    <span class="n">segment_ranges</span><span class="p">[</span><span class="s2">&quot;end_exclusive&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">segment_ranges</span><span class="p">[</span><span class="s2">&quot;end_inclusive&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">segment_ranges</span><span class="p">[</span><span class="s2">&quot;range&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">segment_ranges</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+        <span class="k">lambda</span> <span class="n">row</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;start_inclusive&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;end_exclusive&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
+        <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">out_ranges</span> <span class="o">=</span> <span class="n">segment_ranges</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;labels&quot;</span><span class="p">)[</span><span class="s2">&quot;range&quot;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">anomalies</span><span class="p">:</span>
+        <span class="n">out_ranges</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;no anomaly&quot;</span>
+    <span class="k">return</span> <span class="n">out_ranges</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_scatter_segmentation</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">detections</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">x_var</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">y_var</span><span class="o">=</span><span class="kc">None</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Plot segmentation of a time series.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    df : pd.DataFrame</span>
+<span class="sd">        The time series data to plot. The index should represent the time points, while</span>
+<span class="sd">        the columns represent the values of the time series.</span>
+
+<span class="sd">    detections : pd.DataFrame</span>
+<span class="sd">        The detections, on the format returned by detectors&#39; `predict` method.</span>
+
+<span class="sd">    x_var : str, optional</span>
+<span class="sd">        The name of the column to use for the x-axis. If None, the first column will be</span>
+<span class="sd">        used.</span>
+
+<span class="sd">    y_var : str, optional</span>
+<span class="sd">        The name of the column to use for the y-axis. If None, the second column will be</span>
+<span class="sd">        used.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    plotly.graph_objects.Figure</span>
+<span class="sd">        A Plotly figure with the time series and segments highlighted by different</span>
+<span class="sd">        colors.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">original_columns</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">original_columns</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The DataFrame must contain at least two columns.&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">x_var</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">x_var</span> <span class="o">=</span> <span class="n">original_columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">y_var</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">y_var</span> <span class="o">=</span> <span class="n">original_columns</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="n">is_anomalies</span> <span class="o">=</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">detections</span><span class="p">[</span><span class="s2">&quot;ilocs&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">pd</span><span class="o">.</span><span class="n">Interval</span><span class="p">)</span>
+    <span class="n">sparse_to_dense</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">BaseSegmentAnomalyDetector</span><span class="o">.</span><span class="n">sparse_to_dense</span>
+        <span class="k">if</span> <span class="n">is_anomalies</span>
+        <span class="k">else</span> <span class="n">BaseChangeDetector</span><span class="o">.</span><span class="n">sparse_to_dense</span>
+    <span class="p">)</span>
+
+    <span class="n">segment_labels</span> <span class="o">=</span> <span class="n">sparse_to_dense</span><span class="p">(</span><span class="n">detections</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+    <span class="n">segment_ranges</span> <span class="o">=</span> <span class="n">_get_segment_ranges</span><span class="p">(</span><span class="n">segment_labels</span><span class="p">,</span> <span class="n">anomalies</span><span class="o">=</span><span class="n">is_anomalies</span><span class="p">)</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;labels&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">segment_labels</span><span class="p">[</span><span class="s2">&quot;labels&quot;</span><span class="p">]</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">segment_ranges</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;labels&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;range&quot;</span><span class="p">:</span> <span class="s2">&quot;segment&quot;</span><span class="p">})</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">original_columns</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;segment&quot;</span><span class="p">]]</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">x_var</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y_var</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;segment&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">fig</span>
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2023 - 2025 (BSD-3-Clause License).
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

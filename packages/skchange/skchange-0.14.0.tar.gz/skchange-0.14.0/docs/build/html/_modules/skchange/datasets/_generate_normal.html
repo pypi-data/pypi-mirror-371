@@ -1,0 +1,1042 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>skchange.datasets._generate_normal &#8212; skchange</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=d2d258e8" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom_notebook.css?v=c6a2da1f" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=99362dbf"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/skchange/datasets/_generate_normal';</script>
+    <script src="../../../_static/plotly_resize.js?v=40f45932"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">skchange</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/index.html">
+    User guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../api_reference/index.html">
+    API reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../developer_guide/index.html">
+    Developer guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../releases.html">
+    Releases
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/NorskRegnesentral/skchange" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/index.html">
+    User guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../api_reference/index.html">
+    API reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../developer_guide/index.html">
+    Developer guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../releases.html">
+    Releases
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/NorskRegnesentral/skchange" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">skchange.datasets._generate_normal</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for skchange.datasets._generate_normal</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Data generators for piecewise normal data.&quot;&quot;&quot;</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Tveten&quot;</span><span class="p">]</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">numbers</span><span class="w"> </span><span class="kn">import</span> <span class="n">Number</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">..utils.validation.generation</span><span class="w"> </span><span class="kn">import</span> <span class="n">check_random_generator</span><span class="p">,</span> <span class="n">check_segment_lengths</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">._generate</span><span class="w"> </span><span class="kn">import</span> <span class="n">generate_piecewise_data</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">._utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">recycle_list</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">get_n_variables</span><span class="p">(</span>
+    <span class="n">n_variables</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">means</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">variances</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Derive the number of variables from the input parameters.&quot;&quot;&quot;</span>
+    <span class="c1"># Convert to list if not, to make the rest of the code easier.</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">means</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="n">means</span> <span class="o">=</span> <span class="p">[</span><span class="n">means</span><span class="p">]</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">variances</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="n">variances</span> <span class="o">=</span> <span class="p">[</span><span class="n">variances</span><span class="p">]</span>
+
+    <span class="n">mean_n_vars</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span>
+        <span class="nb">len</span><span class="p">(</span><span class="n">mean</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">))</span> <span class="k">else</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">mean</span> <span class="ow">in</span> <span class="n">means</span>
+    <span class="p">)</span>
+    <span class="n">var_n_vars</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span>
+        <span class="nb">len</span><span class="p">(</span><span class="n">var</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">var</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">))</span> <span class="k">else</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">variances</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">n_variables</span><span class="p">,</span> <span class="n">mean_n_vars</span><span class="p">,</span> <span class="n">var_n_vars</span><span class="p">))</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_check_affected_variables</span><span class="p">(</span>
+    <span class="n">proportion_affected</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">randomise_affected_variables</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+    <span class="n">n_segments</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">n_variables</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">random_state</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">Generator</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Check and return affected variables for each segment.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">proportion_affected</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">proportion_affected</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">1e-8</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span>
+            <span class="n">size</span><span class="o">=</span><span class="n">n_segments</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span>
+        <span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">proportion_affected</span><span class="p">,</span> <span class="n">Number</span><span class="p">):</span>
+        <span class="n">proportion_affected</span> <span class="o">=</span> <span class="p">[</span><span class="n">proportion_affected</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">proportion_affected</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;proportion_affected cannot be an empty list or np.array.&quot;</span><span class="p">)</span>
+
+    <span class="n">proportion_affected</span> <span class="o">=</span> <span class="n">recycle_list</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">proportion_affected</span><span class="p">),</span> <span class="n">n_segments</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">prop</span> <span class="ow">in</span> <span class="n">proportion_affected</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;</span> <span class="n">prop</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;Proportion of affected variables must be between (0, 1].&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot; Got `proportion_affected`=</span><span class="si">{</span><span class="n">prop</span><span class="si">}</span><span class="s2">.&quot;</span>
+            <span class="p">)</span>
+
+    <span class="n">affected_variables</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">prop</span> <span class="ow">in</span> <span class="n">proportion_affected</span><span class="p">:</span>
+        <span class="n">affected_size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">n_variables</span> <span class="o">*</span> <span class="n">prop</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">randomise_affected_variables</span><span class="p">:</span>
+            <span class="n">affected_vars</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span>
+                <span class="n">random_state</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">n_variables</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">affected_size</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">affected_vars</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">affected_size</span><span class="p">)</span>
+        <span class="n">affected_variables</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">affected_vars</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">affected_variables</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_check_means</span><span class="p">(</span>
+    <span class="n">means</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">n_segments</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">n_variables</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">affected_variables</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span>
+    <span class="n">random_state</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">Generator</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Check and return means for each segment.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">means</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">means</span><span class="p">,</span> <span class="p">(</span><span class="n">Number</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)):</span>
+        <span class="n">means</span> <span class="o">=</span> <span class="p">[</span><span class="n">means</span><span class="p">]</span> <span class="o">*</span> <span class="n">n_segments</span>
+
+    <span class="n">n_variables</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_variables</span><span class="p">)</span>
+    <span class="n">_means</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_variables</span><span class="p">)]</span>  <span class="c1"># Initialize for the loop to work. Remove later.</span>
+    <span class="k">for</span> <span class="n">mean</span><span class="p">,</span> <span class="n">affected</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">means</span><span class="p">,</span> <span class="n">affected_variables</span><span class="p">):</span>
+        <span class="n">prev_mean</span> <span class="o">=</span> <span class="n">_means</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">mean</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># The affected set are the variables that change, so the next mean vector</span>
+            <span class="c1"># should be the same, except for the affected variables.</span>
+            <span class="n">_mean</span> <span class="o">=</span> <span class="n">prev_mean</span>
+            <span class="n">_mean</span><span class="p">[</span><span class="n">affected</span><span class="p">]</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span>
+                <span class="n">size</span><span class="o">=</span><span class="n">affected</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">Number</span><span class="p">):</span>
+            <span class="n">_mean</span> <span class="o">=</span> <span class="n">prev_mean</span>
+            <span class="n">_mean</span><span class="p">[</span><span class="n">affected</span><span class="p">]</span> <span class="o">=</span> <span class="n">mean</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">mean</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">_mean</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_variables</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;Mean vector must have the same length as the number of variables.&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot; Got mean=</span><span class="si">{</span><span class="n">_mean</span><span class="si">}</span><span class="s2"> with shape </span><span class="si">{</span><span class="n">_mean</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot; and n_variables=</span><span class="si">{</span><span class="n">n_variables</span><span class="si">}</span><span class="s2">.&quot;</span>
+            <span class="p">)</span>
+        <span class="n">_means</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_mean</span><span class="p">)</span>
+
+    <span class="n">_means</span> <span class="o">=</span> <span class="n">_means</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>  <span class="c1"># The first element is just to initialize the loop.</span>
+
+    <span class="c1"># Means are recycled to match the number of segments. Will only have an effect in</span>
+    <span class="c1"># cases where `means` is a list and the list is shorter than `n_segments`.</span>
+    <span class="n">_means</span> <span class="o">=</span> <span class="n">recycle_list</span><span class="p">(</span><span class="n">_means</span><span class="p">,</span> <span class="n">n_segments</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">_means</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_check_variances</span><span class="p">(</span>
+    <span class="n">variances</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">n_segments</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">n_variables</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">affected_variables</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span>
+    <span class="n">random_state</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">Generator</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create covariance matrices for each segment.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">variances</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">variances</span><span class="p">,</span> <span class="p">(</span><span class="n">Number</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)):</span>
+        <span class="n">variances</span> <span class="o">=</span> <span class="p">[</span><span class="n">variances</span><span class="p">]</span> <span class="o">*</span> <span class="n">n_segments</span>
+
+    <span class="n">n_variables</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_variables</span><span class="p">)</span>
+    <span class="n">_vars</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n_variables</span><span class="p">)]</span>  <span class="c1"># Initialize for the loop to work.</span>
+    <span class="n">_covs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">cov</span><span class="p">,</span> <span class="n">affected</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">variances</span><span class="p">,</span> <span class="n">affected_variables</span><span class="p">):</span>
+        <span class="n">prev_var</span> <span class="o">=</span> <span class="n">_vars</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">cov</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># The affected set are the variables that change, so the next covariance</span>
+            <span class="c1"># matrix should be the same, except for the affected variables.</span>
+            <span class="n">_var</span> <span class="o">=</span> <span class="n">prev_var</span>
+            <span class="n">_var</span><span class="p">[</span><span class="n">affected</span><span class="p">]</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">chi2</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span>
+                <span class="n">size</span><span class="o">=</span><span class="n">affected</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">cov</span><span class="p">,</span> <span class="n">Number</span><span class="p">):</span>
+            <span class="n">_var</span> <span class="o">=</span> <span class="n">prev_var</span>
+            <span class="n">_var</span><span class="p">[</span><span class="n">affected</span><span class="p">]</span> <span class="o">=</span> <span class="n">cov</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">_var</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">cov</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">_var</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">_cov</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">_var</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">_var</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">_var</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">_var</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="n">_cov</span> <span class="o">=</span> <span class="n">_var</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;Covariance matrix must be a square matrix with shape (p, p).&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot; Got covariance matrix with shape </span><span class="si">{</span><span class="n">_var</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2"> and p=</span><span class="si">{</span><span class="n">n_variables</span><span class="si">}</span><span class="s2">.&quot;</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">_cov</span><span class="p">,</span> <span class="n">_cov</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Covariance matrix must be symmetric.&quot;</span><span class="p">)</span>
+
+        <span class="n">eigvals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigvalsh</span><span class="p">(</span><span class="n">_cov</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">eigvals</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Covariance matrix must be positive definite.&quot;</span><span class="p">)</span>
+
+        <span class="n">_covs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_cov</span><span class="p">)</span>
+
+    <span class="c1"># Covariance matrices are recycled to match the number of segments. Will only have</span>
+    <span class="c1"># an effect in cases where `variances` is a list and the list is shorter than</span>
+    <span class="c1"># `n_segments`.</span>
+    <span class="n">_covs</span> <span class="o">=</span> <span class="n">recycle_list</span><span class="p">(</span><span class="n">_covs</span><span class="p">,</span> <span class="n">n_segments</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">_covs</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">generate_piecewise_normal_data</span><span class="p">(</span>
+    <span class="n">means</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">variances</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">lengths</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">n_segments</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="n">n_samples</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="n">n_variables</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="n">proportion_affected</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">randomise_affected_variables</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">seed</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">Generator</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">return_params</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate piecewise multivariate normal data.</span>
+
+<span class="sd">    Generates piecewise multivariate normal data, where the distributional changes</span>
+<span class="sd">    from one segment to another may be sparse. E.g., the difference between two</span>
+<span class="sd">    mean vectors may only have a few non-zero elements.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    means : float, list of float, or list of np.ndarray, optional (default=None)</span>
+<span class="sd">        Means for each segment.</span>
+<span class="sd">        They are recycled to match the number of segments specified by `lengths` or</span>
+<span class="sd">        `n_segments`.</span>
+<span class="sd">        If floats, they are used for all affected variables (see `proportion_affected`)</span>
+<span class="sd">        If None, random means are generated from a normal distribution with mean 0</span>
+<span class="sd">        and standard deviation 2.</span>
+
+<span class="sd">    variances : float, list of float, or list of np.ndarray, optional (default=1.0)</span>
+<span class="sd">        Variances or covariance matrices for each segment. Vectors are treated as</span>
+<span class="sd">        diagonal covariance matrices.</span>
+<span class="sd">        They are recycled to match the number of segments specified by `lengths` or</span>
+<span class="sd">        `n_segments`.</span>
+<span class="sd">        If floats, they are used for all affected variables (see `proportion_affected`)</span>
+<span class="sd">        If None, random variances are generated from a chi-squared distribution with</span>
+<span class="sd">        2 degrees of freedom.</span>
+
+<span class="sd">    lengths : int, list of int or np.ndarray, optional (default=None)</span>
+<span class="sd">        The segment lengths. There are three possible cases:</span>
+
+<span class="sd">        1. `list` or `numpy array`: Custom set of segment lengths.</span>
+<span class="sd">        2. `int`: Length of `n_segments` equal segments.</span>
+<span class="sd">        3. `None`: Generate `n_segments` random segment lengths with a total sample size</span>
+<span class="sd">           of `n_samples`.</span>
+
+<span class="sd">    n_segments : int (default=3)</span>
+<span class="sd">        Number of segments to generate if `lengths` is an integer or None.</span>
+
+<span class="sd">    n_samples : int (default=100)</span>
+<span class="sd">        Total number of samples to generate if `lengths` is not specified.</span>
+
+<span class="sd">    n_variables : int, optional (default=1)</span>
+<span class="sd">        Number of variables (columns) in the generated data.</span>
+
+<span class="sd">    proportion_affected: float, list of float, or np.ndarray, optional (default=None)</span>
+<span class="sd">        Proportion of variables affected by each change.</span>
+<span class="sd">        I.e., the proportion of non-zero elements in the differences between adjacent</span>
+<span class="sd">        means or variances.</span>
+<span class="sd">        Only applies when `means` and `variances` are None or floats and</span>
+<span class="sd">        `n_variables &gt; 1`.</span>
+<span class="sd">        All proportions must be in (0, 1].</span>
+<span class="sd">        The number of affected variables is determined as</span>
+<span class="sd">        `int(np.ceil(n_variables * proportion_affected))`.</span>
+<span class="sd">        The proportions are recycled to match the number of segments specified by</span>
+<span class="sd">        `lengths` or `n_segments`.</span>
+<span class="sd">        If None, a random proportion of variables is affected.</span>
+
+<span class="sd">    randomise_affected_variables : bool, optional (default=False)</span>
+<span class="sd">        If True, the affected variables are randomly selected for each change point.</span>
+<span class="sd">        If False, the first variables are affected.</span>
+
+<span class="sd">    seed : np.random.Generator | int | None, optional</span>
+<span class="sd">        Seed for the random number generator or a numpy random generator instance.</span>
+<span class="sd">        If specified, this ensures reproducible output across multiple calls.</span>
+
+<span class="sd">    return_params : bool, optional (default=False)</span>
+<span class="sd">        If True, the function returns a tuple of the generated DataFrame and a</span>
+<span class="sd">        dictionary with the parameters used to generate the data.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    pd.DataFrame</span>
+<span class="sd">        DataFrame with generated data.</span>
+
+<span class="sd">    dict</span>
+<span class="sd">        Dictionary containing the parameters used to generate the data.</span>
+<span class="sd">        Keys: `&quot;n_segments&quot;`, `&quot;n_samples&quot;`, `&quot;means&quot;`, `&quot;variances&quot;`,</span>
+<span class="sd">        `&quot;lengths&quot;`, `&quot;change_points&quot;` (the start indices of each segment), and</span>
+<span class="sd">        `&quot;affected_variables&quot;` (which variables among 0:n_variables are affected by</span>
+<span class="sd">        each change).</span>
+<span class="sd">        Returned only if `return_params` is True.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; # Example 1: Two segments with specified means</span>
+<span class="sd">    &gt;&gt;&gt; from skchange.datasets import generate_piecewise_normal_data</span>
+<span class="sd">    &gt;&gt;&gt; df = generate_piecewise_normal_data(</span>
+<span class="sd">    ...     means=[0, 5], lengths=5, n_segments=2, n_variables=1, seed=0</span>
+<span class="sd">    ... )</span>
+<span class="sd">    &gt;&gt;&gt; df</span>
+<span class="sd">              0</span>
+<span class="sd">    0  0.640423</span>
+<span class="sd">    1  0.104900</span>
+<span class="sd">    2 -0.535669</span>
+<span class="sd">    3  0.361595</span>
+<span class="sd">    4  1.304000</span>
+<span class="sd">    5  5.947081</span>
+<span class="sd">    6  4.296265</span>
+<span class="sd">    7  3.734579</span>
+<span class="sd">    8  4.376726</span>
+<span class="sd">    9  5.041326</span>
+
+<span class="sd">    &gt;&gt;&gt; # Example 2: Unspecified means, variances and lengths</span>
+<span class="sd">    &gt;&gt;&gt; df, params = generate_piecewise_normal_data(</span>
+<span class="sd">    ...     n_samples=10, n_segments=2, n_variables=2, seed=1, return_params=True</span>
+<span class="sd">    ... )</span>
+<span class="sd">    &gt;&gt;&gt; df</span>
+<span class="sd">              0         1</span>
+<span class="sd">    0 -3.143268  2.391830</span>
+<span class="sd">    1 -2.241742  2.104844</span>
+<span class="sd">    2 -2.577892  2.357425</span>
+<span class="sd">    3 -3.342769  1.647802</span>
+<span class="sd">    4 -3.088434  2.409558</span>
+<span class="sd">    5  0.932471  1.518255</span>
+<span class="sd">    6  0.110841  1.553519</span>
+<span class="sd">    7  0.900891  1.535109</span>
+<span class="sd">    8  2.186813  2.817436</span>
+<span class="sd">    9 -1.818413 -0.078302</span>
+<span class="sd">    &gt;&gt;&gt; params</span>
+<span class="sd">    {&#39;n_segments&#39;: 2,</span>
+<span class="sd">    &#39;n_samples&#39;: np.int64(10),</span>
+<span class="sd">    &#39;means&#39;: [array([-2.60631446,  1.81071173]), array([0.89274914, 1.81071173])],</span>
+<span class="sd">    &#39;variances&#39;: [array([[1., 0.],</span>
+<span class="sd">            [0., 1.]]),</span>
+<span class="sd">    array([[1., 0.],</span>
+<span class="sd">            [0., 1.]])],</span>
+<span class="sd">    &#39;lengths&#39;: array([5, 5]),</span>
+<span class="sd">    &#39;change_points&#39;: array([5]),</span>
+<span class="sd">    &#39;affected_variables&#39;: [array([0, 1]), array([0])]}</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">random_generator</span> <span class="o">=</span> <span class="n">check_random_generator</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">n_variables</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;n_variables must be at least 1.&quot;</span><span class="p">)</span>
+
+    <span class="n">lengths</span> <span class="o">=</span> <span class="n">check_segment_lengths</span><span class="p">(</span>
+        <span class="n">lengths</span><span class="p">,</span> <span class="n">n_segments</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">random_generator</span>
+    <span class="p">)</span>
+    <span class="n">n_segments</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">lengths</span><span class="p">)</span>
+
+    <span class="n">_n_variables</span> <span class="o">=</span> <span class="n">get_n_variables</span><span class="p">(</span><span class="n">n_variables</span><span class="p">,</span> <span class="n">means</span><span class="p">,</span> <span class="n">variances</span><span class="p">)</span>
+    <span class="n">affected_variables</span> <span class="o">=</span> <span class="n">_check_affected_variables</span><span class="p">(</span>
+        <span class="n">proportion_affected</span><span class="p">,</span>
+        <span class="n">randomise_affected_variables</span><span class="p">,</span>
+        <span class="n">n_segments</span><span class="p">,</span>
+        <span class="n">_n_variables</span><span class="p">,</span>
+        <span class="n">random_generator</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">means</span> <span class="o">=</span> <span class="n">_check_means</span><span class="p">(</span>
+        <span class="n">means</span><span class="p">,</span>
+        <span class="n">n_segments</span><span class="p">,</span>
+        <span class="n">_n_variables</span><span class="p">,</span>
+        <span class="n">affected_variables</span><span class="p">,</span>
+        <span class="n">random_generator</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">covs</span> <span class="o">=</span> <span class="n">_check_variances</span><span class="p">(</span>
+        <span class="n">variances</span><span class="p">,</span>
+        <span class="n">n_segments</span><span class="p">,</span>
+        <span class="n">_n_variables</span><span class="p">,</span>
+        <span class="n">affected_variables</span><span class="p">,</span>
+        <span class="n">random_generator</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">distributions</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="p">(</span><span class="n">mean</span><span class="o">=</span><span class="n">mean</span><span class="p">,</span> <span class="n">cov</span><span class="o">=</span><span class="n">cov</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">mean</span><span class="p">,</span> <span class="n">cov</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">means</span><span class="p">,</span> <span class="n">covs</span><span class="p">)</span>
+    <span class="p">]</span>
+    <span class="n">df</span><span class="p">,</span> <span class="n">_params</span> <span class="o">=</span> <span class="n">generate_piecewise_data</span><span class="p">(</span>
+        <span class="n">distributions</span><span class="o">=</span><span class="n">distributions</span><span class="p">,</span>
+        <span class="n">lengths</span><span class="o">=</span><span class="n">lengths</span><span class="p">,</span>
+        <span class="n">seed</span><span class="o">=</span><span class="n">random_generator</span><span class="p">,</span>
+        <span class="n">return_params</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">if</span> <span class="n">return_params</span><span class="p">:</span>
+        <span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;n_segments&quot;</span><span class="p">:</span> <span class="n">n_segments</span><span class="p">,</span>
+            <span class="s2">&quot;n_samples&quot;</span><span class="p">:</span> <span class="n">_params</span><span class="p">[</span><span class="s2">&quot;n_samples&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;means&quot;</span><span class="p">:</span> <span class="n">means</span><span class="p">,</span>
+            <span class="s2">&quot;variances&quot;</span><span class="p">:</span> <span class="n">covs</span><span class="p">,</span>
+            <span class="s2">&quot;lengths&quot;</span><span class="p">:</span> <span class="n">_params</span><span class="p">[</span><span class="s2">&quot;lengths&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;change_points&quot;</span><span class="p">:</span> <span class="n">_params</span><span class="p">[</span><span class="s2">&quot;change_points&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;affected_variables&quot;</span><span class="p">:</span> <span class="n">affected_variables</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">df</span><span class="p">,</span> <span class="n">params</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">df</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_check_change_points</span><span class="p">(</span><span class="n">change_points</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Check if change points are valid.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    change_points : list of int</span>
+<span class="sd">        List of change points.</span>
+<span class="sd">    n : int</span>
+<span class="sd">        Total number of observations.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        If any change point is out of bounds.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">change_points</span><span class="p">,</span> <span class="n">Number</span><span class="p">):</span>
+        <span class="n">change_points</span> <span class="o">=</span> <span class="p">[</span><span class="n">change_points</span><span class="p">]</span>
+
+    <span class="n">change_points</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">change_points</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">any</span><span class="p">([</span><span class="n">cpt</span> <span class="o">&gt;</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">cpt</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">cpt</span> <span class="ow">in</span> <span class="n">change_points</span><span class="p">]):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;Change points must be within the range of the data.&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot; Got n=</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">, max(change_points)=</span><span class="si">{</span><span class="n">change_points</span><span class="si">}</span><span class="s2"> and&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot; min(change_points)=</span><span class="si">{</span><span class="nb">min</span><span class="p">(</span><span class="n">change_points</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span>
+        <span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">change_points</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">2</span> <span class="ow">and</span> <span class="nb">min</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">change_points</span><span class="p">))</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;Change points must be at least 1 apart.&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot; Got change_points=</span><span class="si">{</span><span class="n">change_points</span><span class="si">}</span><span class="s2">.&quot;</span>
+        <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">change_points</span>
+
+
+<div class="viewcode-block" id="generate_changing_data">
+<a class="viewcode-back" href="../../../api_reference/auto_generated/skchange.datasets.generate_changing_data.html#skchange.datasets.generate_changing_data">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">generate_changing_data</span><span class="p">(</span>
+    <span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="n">changepoints</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span>
+    <span class="n">means</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
+    <span class="n">variances</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">random_state</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generate piecewise multivariate normal data with changing means and variances.</span>
+
+<span class="sd">    DEPRECATED: Use `generate_piecewise_normal_data` instead.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    n : int, optional, default=100</span>
+<span class="sd">        Number of observations.</span>
+<span class="sd">    changepoints : int or list of ints, optional, default=50</span>
+<span class="sd">        Changepoints in the data.</span>
+<span class="sd">    means : list of floats or list of arrays, optional, default=0.0</span>
+<span class="sd">        List of means for each segment.</span>
+<span class="sd">    variances : list of floats or list of arrays, optional, default=1.0</span>
+<span class="sd">        List of variances for each segment.</span>
+<span class="sd">    random_state : int or `RandomState`, optional</span>
+<span class="sd">        Seed or random state for reproducible results. Defaults to None.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    `pd.DataFrame`</span>
+<span class="sd">        DataFrame with generated data.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">change_points</span> <span class="o">=</span> <span class="n">_check_change_points</span><span class="p">(</span><span class="n">changepoints</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">means</span><span class="p">,</span> <span class="n">Number</span><span class="p">):</span>
+        <span class="n">means</span> <span class="o">=</span> <span class="p">[</span><span class="n">means</span><span class="p">]</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">variances</span><span class="p">,</span> <span class="n">Number</span><span class="p">):</span>
+        <span class="n">variances</span> <span class="o">=</span> <span class="p">[</span><span class="n">variances</span><span class="p">]</span>
+
+    <span class="n">means</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">mean</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">mean</span> <span class="ow">in</span> <span class="n">means</span><span class="p">]</span>
+    <span class="n">variances</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">variance</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">variance</span> <span class="ow">in</span> <span class="n">variances</span><span class="p">]</span>
+
+    <span class="n">n_segments</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">change_points</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">means</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">means</span> <span class="o">=</span> <span class="n">means</span> <span class="o">*</span> <span class="n">n_segments</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">variances</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">variances</span> <span class="o">=</span> <span class="n">variances</span> <span class="o">*</span> <span class="n">n_segments</span>
+
+    <span class="k">if</span> <span class="n">n_segments</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">means</span><span class="p">)</span> <span class="ow">or</span> <span class="n">n_segments</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">variances</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;Number of segments (len(changepoints) + 1),&quot;</span>
+            <span class="o">+</span> <span class="s2">&quot; means and variances must be the same.&quot;</span>
+        <span class="p">)</span>
+
+    <span class="n">p</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">means</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="n">n</span><span class="p">,</span> <span class="n">random_state</span><span class="p">)</span>
+    <span class="n">change_points</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">change_points</span> <span class="o">+</span> <span class="p">[</span><span class="n">n</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">prev_cpt</span><span class="p">,</span> <span class="n">next_cpt</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">variance</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span>
+        <span class="n">change_points</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">change_points</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">means</span><span class="p">,</span> <span class="n">variances</span>
+    <span class="p">):</span>
+        <span class="n">x</span><span class="p">[</span><span class="n">prev_cpt</span><span class="p">:</span><span class="n">next_cpt</span><span class="p">]</span> <span class="o">=</span> <span class="n">mean</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">variance</span><span class="p">)</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="n">prev_cpt</span><span class="p">:</span><span class="n">next_cpt</span><span class="p">]</span>
+
+    <span class="n">out_columns</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;var</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">p</span><span class="p">)]</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> <span class="n">columns</span><span class="o">=</span><span class="n">out_columns</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df</span></div>
+
+
+
+<div class="viewcode-block" id="generate_anomalous_data">
+<a class="viewcode-back" href="../../../api_reference/auto_generated/skchange.datasets.generate_anomalous_data.html#skchange.datasets.generate_anomalous_data">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">generate_anomalous_data</span><span class="p">(</span>
+    <span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="n">anomalies</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">),</span>
+    <span class="n">means</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="mf">3.0</span><span class="p">,</span>
+    <span class="n">variances</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">random_state</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generate multivariate normal data with anomalies.</span>
+
+<span class="sd">    DEPRECATED: Use `generate_piecewise_normal_data` instead.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    n : int, optional (default=100)</span>
+<span class="sd">        Number of observations.</span>
+<span class="sd">    anomalies : list of tuples, optional (default=[(71, 80)])</span>
+<span class="sd">        List of tuples of the form [start, end) indicating the start and end of an</span>
+<span class="sd">        anomaly.</span>
+<span class="sd">    means : list of floats or list of arrays, optional (default=[0.0])</span>
+<span class="sd">        List of means for each segment.</span>
+<span class="sd">    variances : list of floats or list of arrays, optional (default=[1.0])</span>
+<span class="sd">        List of variances for each segment.</span>
+<span class="sd">    random_state : int or `RandomState`, optional</span>
+<span class="sd">        Seed or random state for reproducible results. Defaults to None.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    `pd.DataFrame`</span>
+<span class="sd">        DataFrame with generated data.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">anomalies</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
+        <span class="n">anomalies</span> <span class="o">=</span> <span class="p">[</span><span class="n">anomalies</span><span class="p">]</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">means</span><span class="p">,</span> <span class="n">Number</span><span class="p">):</span>
+        <span class="n">means</span> <span class="o">=</span> <span class="p">[</span><span class="n">means</span><span class="p">]</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">variances</span><span class="p">,</span> <span class="n">Number</span><span class="p">):</span>
+        <span class="n">variances</span> <span class="o">=</span> <span class="p">[</span><span class="n">variances</span><span class="p">]</span>
+
+    <span class="n">means</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">mean</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">mean</span> <span class="ow">in</span> <span class="n">means</span><span class="p">]</span>
+    <span class="n">variances</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">variance</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">variance</span> <span class="ow">in</span> <span class="n">variances</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">means</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">means</span> <span class="o">=</span> <span class="n">means</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">anomalies</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">variances</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">variances</span> <span class="o">=</span> <span class="n">variances</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">anomalies</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">anomalies</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">means</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">anomalies</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">variances</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Number of anomalies, means and variances must be the same.&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">any</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">anomaly</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">anomaly</span> <span class="ow">in</span> <span class="n">anomalies</span><span class="p">]):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Anomalies must be of length 2.&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">any</span><span class="p">([</span><span class="n">anomaly</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">anomaly</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">anomaly</span> <span class="ow">in</span> <span class="n">anomalies</span><span class="p">]):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The start of an anomaly must be before its end.&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">any</span><span class="p">([</span><span class="n">anomaly</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">anomaly</span> <span class="ow">in</span> <span class="n">anomalies</span><span class="p">]):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Anomalies must start at a non-negative index.&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">any</span><span class="p">([</span><span class="n">anomaly</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">n</span> <span class="k">for</span> <span class="n">anomaly</span> <span class="ow">in</span> <span class="n">anomalies</span><span class="p">]):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Anomalies must be within the range of the data.&quot;</span><span class="p">)</span>
+
+    <span class="n">p</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">means</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">multivariate_normal</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="n">n</span><span class="p">,</span> <span class="n">random_state</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">anomaly</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">variance</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">anomalies</span><span class="p">,</span> <span class="n">means</span><span class="p">,</span> <span class="n">variances</span><span class="p">):</span>
+        <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">anomaly</span>
+        <span class="n">x</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">]</span> <span class="o">=</span> <span class="n">mean</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">variance</span><span class="p">)</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">]</span>
+
+    <span class="n">out_columns</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;var</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">p</span><span class="p">)]</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> <span class="n">columns</span><span class="o">=</span><span class="n">out_columns</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df</span></div>
+
+
+
+<div class="viewcode-block" id="generate_alternating_data">
+<a class="viewcode-back" href="../../../api_reference/auto_generated/skchange.datasets.generate_alternating_data.html#skchange.datasets.generate_alternating_data">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">generate_alternating_data</span><span class="p">(</span>
+    <span class="n">n_segments</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">segment_length</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">p</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="n">mean</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
+    <span class="n">variance</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">affected_proportion</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">random_state</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generate multivariate normal data that is alternating between two states.</span>
+
+<span class="sd">    DEPRECATED: Use `generate_piecewise_normal_data` instead.</span>
+
+<span class="sd">    The data alternates between a state with mean 0 and variance 1 and a state with</span>
+<span class="sd">    mean `mean` and variance `variance`. The length of the segments are all identical</span>
+<span class="sd">    and equal to `segment_length`. The proportion of components that are affected by</span>
+<span class="sd">    the change is determined by `affected_proportion`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    n_segments : int</span>
+<span class="sd">        Number of segments to generate.</span>
+<span class="sd">    segment_length : int</span>
+<span class="sd">        Length of each segment.</span>
+<span class="sd">    p : int, optional (default=1)</span>
+<span class="sd">        Number of dimensions.</span>
+<span class="sd">    mean : float, optional (default=0.0)</span>
+<span class="sd">        Mean of every other segment.</span>
+<span class="sd">    variance : float, optional (default=1.0)</span>
+<span class="sd">        Variances of every other segment.</span>
+<span class="sd">    affected_proportion : float, optional (default=1.0)</span>
+<span class="sd">        Proportion of components {1, ..., p} that are affected by each change in</span>
+<span class="sd">        every other segment.</span>
+<span class="sd">    random_state : int or `RandomState`, optional</span>
+<span class="sd">        Seed or random state for reproducible results. Defaults to None.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    `pd.DataFrame`</span>
+<span class="sd">        DataFrame with generated data.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">means</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="nb">vars</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">n_affected</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">p</span> <span class="o">*</span> <span class="n">affected_proportion</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_segments</span><span class="p">):</span>
+        <span class="n">zero_mean</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">p</span>
+        <span class="n">changed_mean</span> <span class="o">=</span> <span class="p">[</span><span class="n">mean</span><span class="p">]</span> <span class="o">*</span> <span class="n">n_affected</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">p</span> <span class="o">-</span> <span class="n">n_affected</span><span class="p">)</span>
+        <span class="n">mean_vec</span> <span class="o">=</span> <span class="n">zero_mean</span> <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">changed_mean</span>
+        <span class="n">means</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mean_vec</span><span class="p">)</span>
+        <span class="n">one_var</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">p</span>
+        <span class="n">changed_var</span> <span class="o">=</span> <span class="p">[</span><span class="n">variance</span><span class="p">]</span> <span class="o">*</span> <span class="n">n_affected</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">p</span> <span class="o">-</span> <span class="n">n_affected</span><span class="p">)</span>
+        <span class="n">vars_vec</span> <span class="o">=</span> <span class="n">one_var</span> <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">changed_var</span>
+        <span class="nb">vars</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vars_vec</span><span class="p">)</span>
+
+    <span class="n">n</span> <span class="o">=</span> <span class="n">segment_length</span> <span class="o">*</span> <span class="n">n_segments</span>
+    <span class="n">changepoints</span> <span class="o">=</span> <span class="p">[</span><span class="n">segment_length</span> <span class="o">*</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_segments</span><span class="p">)]</span>
+    <span class="k">return</span> <span class="n">generate_changing_data</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">changepoints</span><span class="p">,</span> <span class="n">means</span><span class="p">,</span> <span class="nb">vars</span><span class="p">,</span> <span class="n">random_state</span><span class="p">)</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2023 - 2025 (BSD-3-Clause License).
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
