@@ -1,0 +1,10 @@
+requests>=2.31.0
+
+[dev]
+pytest>=7.4
+ruff>=0.5.0
+mypy>=1.8
+pytest-cov>=4.1
+
+[json]
+pydantic>=1.10

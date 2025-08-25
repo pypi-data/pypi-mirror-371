@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "corpus-loom"
+version = "0.3.1"
+description = "CorpusLoom: chunking, retrieval, JSON-mode, and a CLI (cloom) for Ollama"
+authors = [{name="Ethan Leas", email="ethan.leas@gmail.com"}]
+readme = {file = "README.md", content-type ="text/markdown"}
+license = { file = "LICENSE" }
+requires-python = ">=3.9"
+dependencies = [
+    "requests>=2.31.0"
+]
+
+[project.optional-dependencies]
+json = ["pydantic>=1.10"]
+dev = ["pytest>=7.4", "ruff>=0.5.0", "mypy>=1.8", "pytest-cov>=4.1", "mypy>=1.8", "ruff>=0.5.0" ]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"corpusloom" = ["py.typed"]
+
+[project.scripts]
+cloom = "corpusloom.cli:main"
+
+[tool.setuptools]
+# Prevent emitting the License-File header in METADATA (and the licenses/ dir)
+license-files = []
+
+[tool.pytest.ini_options]
+filterwarnings = [
+  # keep ResourceWarnings from your code visible by default
+  "default::ResourceWarning",
+
+  # ignore coverage.py’s sqlite shutdown chatter on 3.13/Windows
+  "ignore:unclosed database.*:ResourceWarning:coverage\\..*",
+  "ignore:unclosed database.*:ResourceWarning:sqlite3\\..*",
+]
