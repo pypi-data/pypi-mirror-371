@@ -1,0 +1,8 @@
+datagent/__init__.py,sha256=rRC7_poQzr-gZ3dmmLL1f89vyCLo4ihCvGQ5oyfBfso,2920
+datagent/sklearn_tools.py,sha256=YdhlLLtWl7rJrVv1C-Xmm0IITtUbIG7CGHIpSS2UlIE,2244
+datagent/statsmodels_tools.py,sha256=_cCFkExRoy3631Z97cXW7zUQwzUARW9AWONB4aiZgSw,8423
+datagent-0.0.1.dist-info/licenses/LICENSE,sha256=NP6fKZboFSpedZnsr6zhMm1J9jZLjANuAJzHXxhuujg,1071
+datagent-0.0.1.dist-info/METADATA,sha256=o5ZPDilFxRuyYrGQ-475mvM-5EpyZUNyc35ZGeTuQBg,7624
+datagent-0.0.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+datagent-0.0.1.dist-info/top_level.txt,sha256=avLYcsF9uf4BGHL26pZNDtPIhTlE8ZmQE_VbAp90CPI,9
+datagent-0.0.1.dist-info/RECORD,,
