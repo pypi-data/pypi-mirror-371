@@ -1,0 +1,6 @@
+ui_tars/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+ui_tars/action_parser.py,sha256=yNwMpNxbX-lmCKGMxLDCxnvc61jvcLShYC8iYlA0JVA,50759
+ui_tars/prompt.py,sha256=kq7LmtQ7MI5KkJ_nDsisjOQUfPnwwwIXRYL0x-D7tJY,2672
+ui_tars-0.2.3.dist-info/METADATA,sha256=ek1T5CAlZF5gvsHdJLDOowQQRIXe7YqSF8vCCEY-nZI,4175
+ui_tars-0.2.3.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+ui_tars-0.2.3.dist-info/RECORD,,
