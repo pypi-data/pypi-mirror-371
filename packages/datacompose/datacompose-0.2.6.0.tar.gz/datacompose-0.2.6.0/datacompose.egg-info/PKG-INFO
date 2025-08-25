@@ -1,0 +1,94 @@
+Metadata-Version: 2.4
+Name: datacompose
+Version: 0.2.6.0
+Summary: Copy-pasteable data transformation primitives for PySpark. Inspired by shadcn-svelte.
+Author: Datacompose Contributors
+Maintainer: Datacompose Contributors
+License: MIT
+Project-URL: Homepage, https://github.com/tc-cole/datacompose
+Project-URL: Documentation, https://github.com/tc-cole/datacompose/tree/main/docs
+Project-URL: Repository, https://github.com/tc-cole/datacompose.git
+Project-URL: Issues, https://github.com/tc-cole/datacompose/issues
+Project-URL: Changelog, https://github.com/tc-cole/datacompose/blob/main/CHANGELOG.md
+Keywords: data-cleaning,data-quality,udf,spark,postgres,code-generation,data-pipeline,etl
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Code Generators
+Classifier: Topic :: Database
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: jinja2>=3.0.0
+Requires-Dist: pyyaml>=6.0
+Requires-Dist: click>=8.0.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0.0; extra == "dev"
+Requires-Dist: black>=23.0.0; extra == "dev"
+Requires-Dist: mypy>=1.0.0; extra == "dev"
+Requires-Dist: ruff>=0.1.0; extra == "dev"
+Provides-Extra: docs
+Requires-Dist: mkdocs>=1.5.3; extra == "docs"
+Requires-Dist: mkdocs-material>=9.5.0; extra == "docs"
+Requires-Dist: mkdocs-material-extensions>=1.3; extra == "docs"
+Requires-Dist: mkdocs-minify-plugin>=0.7.1; extra == "docs"
+Requires-Dist: mkdocs-redirects>=1.2.1; extra == "docs"
+Requires-Dist: mike>=2.0.0; extra == "docs"
+Requires-Dist: pymdown-extensions>=10.5; extra == "docs"
+Requires-Dist: pygments>=2.17.0; extra == "docs"
+Requires-Dist: mkdocs-git-revision-date-localized-plugin>=1.2.2; extra == "docs"
+Requires-Dist: mkdocs-glightbox>=0.3.5; extra == "docs"
+Dynamic: license-file
+
+# Datacompose
+
+[![PyPI version](https://badge.fury.io/py/datacompose.svg)](https://pypi.org/project/datacompose/)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![Coverage](https://img.shields.io/badge/coverage-92%25-brightgreen.svg)](https://github.com/your-username/datacompose)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+A powerful data transformation framework for building reusable, composable data cleaning pipelines in PySpark.
+
+## Installation
+
+```bash
+pip install datacompose
+```
+
+## What is Datacompose?
+
+Datacompose provides production-ready PySpark data transformation primitives that become part of YOUR codebase. Inspired by [shadcn](https://ui.shadcn.com/)'s approach to components, we believe in giving you full ownership and control over your code.
+
+### Key Features
+
+- **No Runtime Dependencies**: Standalone PySpark code that runs without Datacompose
+- **Composable Primitives**: Build complex transformations from simple, reusable functions
+- **Smart Partial Application**: Pre-configure transformations with parameters for reuse
+- **Optimized Operations**: Efficient Spark transformations with minimal overhead
+- **Comprehensive Libraries**: Pre-built primitives for emails, addresses, and phone numbers
+
+### Available Transformers
+
+- **Emails**: Validation, extraction, standardization, typo correction
+- **Addresses**: Street parsing, state/zip validation, PO Box detection  
+- **Phone Numbers**: NANP/international validation, formatting, toll-free detection
+
+## Documentation
+
+For detailed documentation, examples, and API reference, visit [datacompose.io](https://datacompose.io).
+
+## Philosophy
+
+This is NOT a traditional library - it gives you production-ready data transformation primitives that you can modify to fit your exact needs. You own the code, with no external dependencies to manage or worry about breaking changes.
+
+## License
+
+MIT License - see LICENSE file for details
