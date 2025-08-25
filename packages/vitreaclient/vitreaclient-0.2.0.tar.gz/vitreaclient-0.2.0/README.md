@@ -1,0 +1,61 @@
+# Vitrea
+
+Python package encapsulating the simple Vitrea box communication protocol.
+You need to identify the VBox fixed IP address and port to use this package.
+The VBox usually listens to 3 ports, one of them is used by the Vitrea application,
+another is used for admin purposes, and the third one is used for communication 
+with external systems such as this package.
+
+## Installation
+
+```bash
+pip install vitreaclient
+```
+
+## Usage
+
+```python
+from vitreaclient.client import VitreaClient, VitreaResponse, DeviceStatus
+import asyncio
+
+
+async def vitrea_test():
+    client = VitreaClient(host='192.168.1.100', port=11111)
+
+    status_events = []
+    def on_status(event):
+        print(f"Event type: {event.type}, Node: {event.node}, Key: {event.key}, Status: {event.status}, data: {event.data}")
+        status_events.append(event)
+
+    client.on(VitreaResponse.STATUS, on_status)
+
+    def on_ok(event):
+        print(f"Event type {event.type}")
+
+    client.on(VitreaResponse.OK, on_ok)
+
+    # connect and start the read task to listen for incoming messages
+    await client.connect()
+
+    await client.key_off("018", "2")  # Example command to turn on a key
+    await asyncio.sleep(2)
+    await client.key_on("018", "2")  # Example command to turn off a key
+
+    # get the status of all nodes
+    await client.status_request()
+
+    await asyncio.sleep(60)  # Give time for response
+    print(f"Status events received: {len(status_events)}")
+    # unsubscribe from events
+    client.off(VitreaResponse.STATUS, on_status)
+    client.off(VitreaResponse.OK, on_ok)
+    
+    client.disconnect()
+
+
+
+```
+
+## License
+See [LICENSE](LICENSE).
+
