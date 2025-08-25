@@ -1,0 +1,11 @@
+firefox_tab_extractor/__init__.py,sha256=dtT1agYJcM75o35n1fWC5B2A4xFk3DDXx8Ytye87esg,518
+firefox_tab_extractor/cli.py,sha256=weR8cK549magv4ZuHBRlWir1BbB8MDolrDlQlXBeWDM,6139
+firefox_tab_extractor/exceptions.py,sha256=_6VvzpP33ggA8FrT2jTKJWqArGqU6foAyWPc1FWuuF8,638
+firefox_tab_extractor/extractor.py,sha256=9o_ZgQlv0PxINUyHUjr3pU9HWloG3U21X7xni1PxXLM,10764
+firefox_tab_extractor/models.py,sha256=99wU-c9jr8pSgjyLjT-SN0TUWX4xq2xdyL6S5eTtTMo,2275
+firefox_tab_extractor-1.0.0.dist-info/licenses/LICENSE,sha256=jdbVlpCqP-B8KBId5Tlsl0IZn7PIoqnQkNYX0N4tZV4,1071
+firefox_tab_extractor-1.0.0.dist-info/METADATA,sha256=jTeeF1U_F5ILm5jjgH99CU8x2M60iAzOyOc1jOvRurk,9968
+firefox_tab_extractor-1.0.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+firefox_tab_extractor-1.0.0.dist-info/entry_points.txt,sha256=68RWpxxLTc8IgSXbzLAugvzsDgmpeqT7PmTWIO4TK6w,73
+firefox_tab_extractor-1.0.0.dist-info/top_level.txt,sha256=CN17ax0H_S1UwLbgvKHpscslB2SBv2bIl-6VxeJJ-Jw,22
+firefox_tab_extractor-1.0.0.dist-info/RECORD,,

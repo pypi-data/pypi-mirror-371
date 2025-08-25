@@ -1,0 +1,2 @@
+[console_scripts]
+firefox-tab-extractor = firefox_tab_extractor.cli:main
