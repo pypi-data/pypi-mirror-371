@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+setup.py
+skope/__init__.py
+skope_py.egg-info/PKG-INFO
+skope_py.egg-info/SOURCES.txt
+skope_py.egg-info/dependency_links.txt
+skope_py.egg-info/requires.txt
+skope_py.egg-info/top_level.txt
+tests/test_skope_sdk.py
