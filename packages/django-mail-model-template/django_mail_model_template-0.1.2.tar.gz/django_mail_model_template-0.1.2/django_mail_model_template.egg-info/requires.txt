@@ -1,0 +1,8 @@
+Django>=3.2
+
+[dev]
+pytest
+pytest-django
+pytest-pythonpath
+tox
+factory_boy
