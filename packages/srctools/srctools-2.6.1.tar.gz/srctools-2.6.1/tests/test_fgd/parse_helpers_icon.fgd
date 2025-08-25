@@ -1,0 +1,15 @@
+
+@PointClass 
+	sprite[+B]()
+	sprite[+C]("editor/env_fire")
+	iconsprite[+B]()
+	iconsprite[+C]("editor/env_blood")
+	studio[+B]()
+	studio[+C]("models/error.mdl")
+	studioprop[+B]()
+	studioprop[+C]("models/props/metal_box.mdl")
+	lightprop[+C]("models/editor/spotlight.mdl")
+	lightprop[+B]()
+= some_entity
+	[
+	]

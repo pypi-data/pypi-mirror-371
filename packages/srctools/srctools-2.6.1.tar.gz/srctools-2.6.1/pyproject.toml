@@ -1,0 +1,212 @@
+[build-system]
+requires = [
+	"meson >= 1.8.0",
+	"meson-python == 0.18.0",
+	"cython >= 3.1.0",
+	]
+build-backend = "mesonpy"
+
+[project]
+name = "srctools"
+requires-python = ">=3.9"
+dynamic = ["version"]
+urls = {source="https://github.com/TeamSpen210/srctools"}
+description = "Modules for working with Valve's Source Engine file formats."
+readme = "README.md"
+keywords = ["Valve", "Source Engine"]
+authors = [
+	{name="TeamSpen210", email="spencerb21@live.com"}
+]
+license = {text = "MIT"}
+classifiers = [
+	"Development Status :: 5 - Production/Stable",
+	"Framework :: Pytest",
+	"Framework :: tox",
+	"License :: OSI Approved :: MIT License",
+	"Programming Language :: Cython",
+	"Programming Language :: Python :: 3.9",
+	"Programming Language :: Python :: 3.10",
+	"Programming Language :: Python :: 3.11",
+	"Programming Language :: Python :: 3.12",
+	"Programming Language :: Python :: 3.13",
+	"Programming Language :: Python :: 3 :: Only",
+	"Programming Language :: Python :: Implementation :: CPython",
+	"Programming Language :: Python :: Implementation :: PyPy",
+	"Topic :: Games/Entertainment",
+	"Topic :: Multimedia :: Graphics :: 3D Modeling",
+	"Topic :: Scientific/Engineering :: Mathematics",
+]
+dependencies=[
+	"attrs >= 22.2.0",
+	"typing_extensions >= 4.12.0",
+	"exceptiongroup >= 1.2.0; python_version < '3.11'",
+	"useful_types >= 0.1.0"
+]
+[optional-dependencies]
+# VTF support.
+wx = ["wxPython"]
+
+
+[project.scripts]
+src_dump_parms = "srctools.scripts.dump_parms:main"
+src_diff = "srctools.scripts.diff:main"
+src_find_deps = "srctools.scripts.find_deps:main"
+src_build_scenes = "srctools.scripts.build_scenes_image:main"
+src_mdl_mkdir = "srctools.scripts.make_model_folders:main"
+src_collapse_manifest = "srctools.scripts.collapse_manifest:main"
+
+[project.entry-points]
+pyinstaller40 = {hook-dirs="srctools._pyinstaller:get_hook_dirs"}
+
+[tool.meson-python.args]
+# Use MSVC on Windows.
+setup = ['--vsenv']
+
+[tool.cibuildwheel]
+archs = "auto64"
+enable = ["pypy"]
+
+# After building, run tests to check it works.
+# Disable assertion rewriting since that sometimes has issues on PyPy.
+before-test = "pip install -r test-requirements.txt"
+test-command = 'pytest --assert=plain -m "not slow" {project}/tests'
+
+[tool.pytest.ini_options]
+markers = [
+	"slow: marks especially-slow tests, to skip when building wheels",
+]
+
+[tool.pyright]
+include = [
+	"src/srctools/",
+	"type_tests/",
+	]
+exclude = [
+	"**/__pycache__"
+	]
+stubPath = "src/"   # Use our module for stubs.
+# We want to do conversions when setting.
+reportPropertyTypeMismatch = false
+pythonVersion = "3.9"
+# We omit PIL in the tools CI, not necessary.
+reportMissingModuleSource = false
+
+[tool.mypy]
+local_partial_types = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+warn_return_any = true
+warn_no_return = true
+
+disallow_incomplete_defs = true
+disallow_untyped_defs = true
+disallow_untyped_decorators = true
+disallow_untyped_calls = true
+
+strict_optional = true
+check_untyped_defs = true
+show_error_codes = true
+strict = true
+
+enable_error_code = [
+	'mutable-override',
+	'narrowed-type-not-subtype',
+	'redundant-expr',
+	'redundant-self',
+	'truthy-bool',
+	'truthy-iterable',
+	'unimported-reveal',
+	'unreachable',
+	'unused-awaitable',
+]
+
+[tool.isort]
+sections=["FUTURE", "TYPING", "FRAMEWORK", "STDLIB", "THIRDPARTY", "FIRSTPARTY", "LOCALFOLDER"]
+known_framework = []
+extra_standard_library = []
+known_typing = ["typing", "typing_extensions"]
+no_lines_before = ["TYPING", "FRAMEWORK", "STDLIB"]
+multi_line_output = 5 # hanging grid grouped
+# Wrap to 90 long, but only if it exceeds 100 chars.
+line_length = 100
+wrap_length = 90
+lines_after_imports = 2
+use_parentheses = true
+order_by_type = true
+include_trailing_comma = true
+from_first = true
+combine_as_imports = true
+src_paths = ["src", "tests", "type_tests"]
+
+[tool.ruff]
+line-length = 127
+
+[tool.ruff.lint]
+select = [
+	"UP", "F", "C4", "ANN", "B", "PIE", "RUF", "PYI", "FURB",
+	"PLC", "PLE", "PLW",  # Pylint.
+
+	"TC005",  # Empty type-checking block.
+	"TC008",  # Remove type alias quotes
+	"TC010",  # String in union.
+]
+allowed-confusables = [
+	"×",  # Multiplication sign
+]
+extend-ignore = [
+	"E201", "E202", "E203", "E221", "E222", "E241", # Allow extra whitespace.
+	"E226",  # Allow 4*6 + 8
+	"E402",  # Allow module level import later in the file.
+	# Allow *-imports.
+	"F403",
+	# name may be undefined, or defined from star imports: module
+	"F405",
+	# Flake8-annotations.
+	# Allow typing.Any
+	"ANN401",
+
+	# PyLint:
+	"PLC0414",  # import x as x is used for type checking.
+	"PLC0415",  # We use non-toplevel imports to fetch our databases after initialising the classes.
+	"PLC1901",  # Allow compare to empty string, can be more clear.
+	"PLE1205",  # Too many arguments for logging, doesn't handle our format
+	"PLW0603",  # Allow use of global statement.
+	"PLW2901",  # Allow redefining loop var inside the loop.
+
+	"PYI041",
+
+	# Reburb
+	"FURB154",  # Repeated globals doesn't work if exceeding line limit
+	"FURB189",  # Allow subclassing builtins
+	"FURB122",  # Deliberately using file.write() to avoid requring writelines() methods.
+	"FURB152",
+
+	# Ruff:
+	"RUF100", # Sometimes use # noqa for other linters
+	"RUF022", # All not sorted
+	"RUF023", # Slots not sorted
+	"RUF059",  # Allow unused vars in unpacks.
+
+	# Flake8-bugbear:
+	# Loop control var not used, triggers on unpackings.
+	"B007",
+	# Stacklevel parameter required for warnings.warn() - doesn't detect positional args.
+	"B028",
+
+	# Flake8-pie:
+	# Prefer to use pass in empty functions, even if docstring is present
+	"PIE790",
+	# Allow aliases for enum values, used often.
+	"PIE796",
+	]
+
+[tool.ruff.lint.pyupgrade]
+keep-runtime-typing = true
+
+[tool.ruff.lint.flake8-bugbear]
+extend-immutable-calls = [
+	"srctools.math.FrozenVec", "srctools.math.FrozenAngle", "srctools.math.FrozenMatrix",
+	"typing.cast", "srctools.logger.get_logger",
+	"srctools.choreo.CurveEdge",
+	"srctools.vmf.Vec4"
+]

@@ -1,0 +1,101 @@
+# Folder config file
+Desktop.ini
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+.idea/
+
+# Pytest, Mypy, Pytype
+.cache
+.pytest_cache
+.pytype
+.mypy_cache
+
+# =========================
+# Operating System Files
+# =========================
+
+# OSX
+# =========================
+
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must ends with two \r.
+Icon
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+# Portal 2 stuff
+*.vmx
+*.log
+*.prt
+*.filelist.txt
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*,cover
+dev/reports/
+
+# Translations
+*.mo
+*.pot
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# Exclude Cython generated files.
+src/srctools/*.html
+src/srctools/*.c
+src/srctools/*.cpp
+
+# Version of the package
+_version.py
+
+# Generated from pyproject.toml
+pyproject-deps.txt

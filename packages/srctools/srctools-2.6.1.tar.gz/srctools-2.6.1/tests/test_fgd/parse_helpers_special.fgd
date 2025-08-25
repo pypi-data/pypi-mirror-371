@@ -1,0 +1,18 @@
+
+@PointClass 
+	instance[+D]()
+	decal[+D]()
+	overlay[+D]()
+	overlay_transition[+D]()
+	light[+D]()
+	lightcone[+D]()
+	lightcone(inner, outer, color, -1.5)
+	keyframe[+D]()
+	keyframe[+D](revo_key)
+	animator[+D]()
+	quadbounds[+D]()
+	worldtext[+D]()
+	catapult[+D]()
+= some_entity
+	[
+	]

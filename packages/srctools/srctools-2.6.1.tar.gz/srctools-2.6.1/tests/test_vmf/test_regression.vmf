@@ -1,0 +1,208 @@
+versioninfo
+{
+	"editorversion" "400"
+	"editorbuild" "9999"
+	"mapversion" "8193"
+	"formatversion" "100"
+	"prefab" "0"
+}
+visgroups
+{
+}
+viewsettings
+{
+	"bSnapToGrid" "0"
+	"bShowGrid" "1"
+	"bShowLogicalGrid" "0"
+	"nGridSpacing" "512"
+	"bShow3DGrid" "0"
+	"nInstanceVisibility" "2"
+	views
+	{
+		v0
+		{
+			"3d" "1"
+			"position" "(8 -3 128)"
+			"angle" "[0 90 0]"
+		}
+		v1
+		{
+			"3d" "0"
+			"position" "(128.384 -65536 -12.7467)"
+			"zoom" "4"
+		}
+		v2
+		{
+			"3d" "0"
+			"position" "(65536 128.75 36.25)"
+			"zoom" "0.125"
+		}
+		v3
+		{
+			"3d" "0"
+			"position" "(7181 -282.875 65536)"
+			"zoom" "1"
+		}
+	}
+}
+world
+{
+	"id" "1"
+	"classname" "worldspawn"
+	"mapversion" "8193"
+	solid
+	{
+		"id" "1"
+		side
+		{
+			"id" "1"
+			"plane" "(128 128 128) (256 128 128) (256 512 128)"
+			"material" "tools/toolsnodraw"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 -1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+			"point_data"
+			{
+				"numpts" "4"
+				"point" "0 128 128 128"
+				"point" "1 256 128 128"
+				"point" "2 256 512 128"
+				"point" "3 128 512 128"
+			}
+		}
+		side
+		{
+			"id" "2"
+			"plane" "(128 512 1024) (256 512 1024) (256 128 1024)"
+			"material" "tools/toolsnodraw"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 -1 0 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+			"point_data"
+			{
+				"numpts" "4"
+				"point" "0 128 512 1024"
+				"point" "1 256 512 1024"
+				"point" "2 256 128 1024"
+				"point" "3 128 128 1024"
+			}
+		}
+		side
+		{
+			"id" "6"
+			"plane" "(128 512 128) (256 512 128) (256 512 1024)"
+			"material" "tools/toolsnodraw"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+			"point_data"
+			{
+				"numpts" "4"
+				"point" "0 128 512 128"
+				"point" "1 256 512 128"
+				"point" "2 256 512 1024"
+				"point" "3 128 512 1024"
+			}
+		}
+		side
+		{
+			"id" "5"
+			"plane" "(256 128 128) (128 128 128) (128 128 1024)"
+			"material" "tools/toolsnodraw"
+			"uaxis" "[1 0 0 0] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+			"point_data"
+			{
+				"numpts" "4"
+				"point" "0 256 128 128"
+				"point" "1 128 128 128"
+				"point" "2 128 128 1024"
+				"point" "3 256 128 1024"
+			}
+		}
+		side
+		{
+			"id" "4"
+			"plane" "(256 512 128) (256 128 128) (256 128 1024)"
+			"material" "tools/toolsnodraw"
+			"uaxis" "[0 1 0 0] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+			"point_data"
+			{
+				"numpts" "4"
+				"point" "0 256 512 128"
+				"point" "1 256 128 128"
+				"point" "2 256 128 1024"
+				"point" "3 256 512 1024"
+			}
+		}
+		side
+		{
+			"id" "3"
+			"plane" "(128 512 1024) (128 128 1024) (128 128 128)"
+			"material" "tools/toolsnodraw"
+			"uaxis" "[0 1 0 0] 0.25"
+			"vaxis" "[0 0 -1 0] 0.25"
+			"rotation" "0"
+			"lightmapscale" "16"
+			"smoothing_groups" "0"
+			"point_data"
+			{
+				"numpts" "4"
+				"point" "0 128 512 1024"
+				"point" "1 128 128 1024"
+				"point" "2 128 128 128"
+				"point" "3 128 512 128"
+			}
+		}
+		editor
+		{
+			"color" "255 255 255"
+			"visgroupshown" "1"
+			"visgroupautoshown" "1"
+		}
+	}
+	editor
+	{
+		"color" "255 255 255"
+	}
+}
+entity
+{
+	"id" "2"
+	"angles" "10 270 0"
+	"classname" "info_target"
+	"escaped_key" "Some key with \"quotes\" in it."
+	"origin" "24 38 1028"
+	connections
+	{
+		"OnUser1" "!playerHolster\"Weapon\"0.1-1"
+	}
+	editor
+	{
+		"color" "255 255 255"
+		"visgroupshown" "1"
+		"visgroupautoshown" "1"
+		"logicalpos" "[0 2]"
+	}
+}
+cameras
+{
+	"activecamera" "-1"
+}
+cordons
+{
+	"active" "0"
+}
