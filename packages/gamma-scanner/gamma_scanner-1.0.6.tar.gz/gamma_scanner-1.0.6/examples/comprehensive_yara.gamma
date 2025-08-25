@@ -1,0 +1,140 @@
+/*
+ * Comprehensive YARA-style Gamma Scanner Rules
+ * Demonstrates all enhanced syntactical features
+ */
+
+rule ComprehensiveMalwareDetection {
+    meta:
+        author = "Advanced Security Team"
+        description = "Comprehensive malware detection with all YARA features"
+        version = "3.0"
+        date = "2024-08-23"
+        category = "advanced_malware"
+        reference = "https://security.gamma-scanner.com/comprehensive-detection"
+        severity = "critical"
+        tags = "malware,advanced,comprehensive"
+    
+    strings:
+        // Text strings with modifiers
+        $malware_text1 = "malicious payload" nocase ascii
+        $malware_text2 = "backdoor connection" wide fullword
+        $malware_text3 = "command and control" nocase
+        
+        // Regex patterns
+        $exec_pattern = /exec\([^)]+\)/ nocase
+        $eval_pattern = /(eval|exec|system)\s*\(/
+        $url_pattern = /https?:\/\/[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/
+        
+        // Hex patterns with wildcards
+        $pe_header = { 4D 5A 90 00 03 00 00 00 }
+        $call_wildcard = { E8 ?? ?? ?? ?? 5D }
+        $mov_instruction = { C7 45 ?? 01 00 00 00 }
+        $shellcode = { 31 C0 50 68 2F 2F 73 68 }
+    
+    condition:
+        // File size constraints
+        filesize > 1KB and filesize < 10MB and
+        
+        (
+            // String counting and positioning
+            (#malware_text1 > 1 or @malware_text2[0] < 1000) and
+            
+            // For expressions with quantifiers
+            for any of ($exec_pattern, $eval_pattern): ($ at entrypoint) or
+            
+            // Multiple pattern matching
+            all of ($pe_header, $call_wildcard) or
+            2 of ($malware_text*) or
+            any of them
+        ) and
+        
+        // Bitwise operations and size checks
+        uint32(0) & 0x00020003 and
+        
+        // Complex boolean logic
+        (
+            $url_pattern and #url_pattern > 5 or
+            for 2 of ($hex*): ($ and !$ > 8)
+        )
+}
+
+rule PromptInjectionComprehensive {
+    meta:
+        author = "AI Security Research"
+        description = "Comprehensive prompt injection detection"
+        version = "2.5"
+        category = "ai_security"
+        severity = "high"
+    
+    strings:
+        $ignore1 = "ignore all previous" nocase
+        $ignore2 = "disregard all previous" nocase  
+        $ignore3 = "forget all previous" nocase
+        $ignore4 = "override all previous" nocase
+        
+        $injection_pattern = /(?i)(ignore|disregard|forget|override).*(all|previous|prior).*(instruction|prompt|rule|command)/
+        $jailbreak_pattern = /(?i)(jailbreak|bypass|circumvent).*(safety|filter|restriction)/
+        
+        $roleplay = "you are now" nocase
+        $pretend = "pretend to be" nocase
+        
+    condition:
+        // Multiple detection strategies
+        (
+            // Simple string matches
+            any of ($ignore*) or
+            
+            // Pattern-based detection  
+            $injection_pattern or $jailbreak_pattern or
+            
+            // Counting-based detection
+            for any of ($ignore*): (#$ > 0 and !$ > 10) or
+            
+            // Combination detection
+            ($roleplay or $pretend) and filesize < 2KB
+        ) and
+        
+        // File constraints
+        filesize > 10 and filesize < 50KB
+}
+
+rule AdvancedEncodingDetection {
+    meta:
+        author = "Encoding Detection Team"
+        description = "Advanced encoding and obfuscation detection"
+        version = "1.8"
+        category = "encoding_detection"
+    
+    strings:
+        // Base64 patterns
+        $base64_long = /[A-Za-z0-9+\/]{50,}={0,2}/
+        $base64_chunk = /[A-Za-z0-9+\/]{20,}/
+        
+        // Hex encoding
+        $hex_encoded = /\\x[0-9a-fA-F]{2}/
+        $hex_string = /[0-9a-fA-F]{40,}/
+        
+        // URL encoding
+        $url_encoded = /%[0-9a-fA-F]{2}/
+        
+        // Unicode escapes
+        $unicode_escape = /\\u[0-9a-fA-F]{4}/
+        
+    condition:
+        // Multiple encoding detection
+        (
+            // High confidence detection
+            (#base64_long > 3 and @base64_long[0] < filesize - 100) or
+            
+            // Pattern combinations
+            for 2 of ($hex_encoded, $url_encoded, $unicode_escape): 
+                (#$ > 10 and $) or
+                
+            // Size-based detection
+            all of ($base64_chunk, $hex_string) and 
+            filesize > 500
+        ) and
+        
+        // Exclude false positives
+        not uint32(0) == 0x464c457f  // Not ELF
+}
