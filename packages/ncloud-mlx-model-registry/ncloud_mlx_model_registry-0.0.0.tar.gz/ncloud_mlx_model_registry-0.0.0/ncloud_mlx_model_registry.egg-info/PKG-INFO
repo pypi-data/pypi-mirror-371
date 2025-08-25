@@ -1,0 +1,6 @@
+Metadata-Version: 2.4
+Name: ncloud-mlx-model-registry
+Version: 0.0.0
+Author-email: navercloud-mlxp <dl_mlx_ncp_dev@navercorp.com>
+Requires-Python: <4.0.0,>=3.9.0
+Description-Content-Type: text/markdown
