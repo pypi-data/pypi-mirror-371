@@ -1,0 +1,6 @@
+inginx/__init__.py,sha256=e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855,0
+inginx/inginx.py,sha256=fc925031719c552c4d288dc446cb0c96c1491ed05996759f743a669a22916da5,4566
+inginx-0.3.5.dist-info/WHEEL,sha256=0f7d664a881437bddec71c703c3c2f01fd13581519f95130abcc96e296ef0426,79
+inginx-0.3.5.dist-info/entry_points.txt,sha256=ee83f93d8e9de98ae6ec33176e0967a7f877643c59f55e3d3e7c323e91ce7ce9,47
+inginx-0.3.5.dist-info/METADATA,sha256=78af48a1313dff0911e466c2c560a871ecf504bbec5e70e6ae06c098d53ff93e,2905
+inginx-0.3.5.dist-info/RECORD,,
