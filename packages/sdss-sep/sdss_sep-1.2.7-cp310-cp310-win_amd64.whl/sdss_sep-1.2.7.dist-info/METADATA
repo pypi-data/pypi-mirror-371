@@ -1,0 +1,29 @@
+Metadata-Version: 2.4
+Name: sdss-sep
+Version: 1.2.7
+Summary: Astronomical source extraction and photometry library
+Home-page: https://github.com/kbarbary/sep
+Author: Kyle Barbary
+Author-email: kylebarbary@gmail.com
+License: LGPLv3+
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)
+Classifier: Topic :: Scientific/Engineering :: Astronomy
+Classifier: Intended Audience :: Science/Research
+Requires-Python: >=3.9
+License-File: AUTHORS.md
+Requires-Dist: numpy<2,>=1.25; python_version < "3.11"
+Requires-Dist: numpy<3,>=2.0; python_version >= "3.11" and python_version < "3.14"
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: home-page
+Dynamic: license
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+http://sep.readthedocs.org
