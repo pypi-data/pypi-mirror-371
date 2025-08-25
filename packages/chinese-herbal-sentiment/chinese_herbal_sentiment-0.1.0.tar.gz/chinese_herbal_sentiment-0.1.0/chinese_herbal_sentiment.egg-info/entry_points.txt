@@ -1,0 +1,4 @@
+[console_scripts]
+chinese-herbal-analyze = scripts.analyze_sentiment:main
+chinese-herbal-full = scripts.full_analysis:main
+chinese-herbal-keywords = scripts.extract_keywords:main
