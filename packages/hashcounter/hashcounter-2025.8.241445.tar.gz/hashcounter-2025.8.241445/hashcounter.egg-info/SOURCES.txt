@@ -1,0 +1,9 @@
+LICENSE
+README.md
+setup.py
+hashcounter/__init__.py
+hashcounter.egg-info/PKG-INFO
+hashcounter.egg-info/SOURCES.txt
+hashcounter.egg-info/dependency_links.txt
+hashcounter.egg-info/requires.txt
+hashcounter.egg-info/top_level.txt
