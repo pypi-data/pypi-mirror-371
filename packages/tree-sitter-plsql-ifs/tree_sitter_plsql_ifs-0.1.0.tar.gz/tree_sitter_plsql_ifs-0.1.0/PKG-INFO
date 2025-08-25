@@ -1,0 +1,19 @@
+Metadata-Version: 2.4
+Name: tree-sitter-plsql-ifs
+Version: 0.1.0
+Summary: IFS Cloud PL/SQL parser for Tree-sitter - 100% success rate
+Author-email: Sindre van der Linden <sindre@apply.no>
+License-Expression: MIT
+Project-URL: Homepage, https://github.com/graknol/ifs-parser
+Project-URL: Repository, https://github.com/graknol/ifs-parser
+Keywords: tree-sitter,plsql,ifs,oracle,parser
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Python: >=3.8
+Requires-Dist: tree-sitter>=0.20.0

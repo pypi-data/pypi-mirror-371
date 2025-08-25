@@ -1,0 +1,15 @@
+MANIFEST.in
+README.md
+binding.cc
+grammar.json
+node-types.json
+pyproject.toml
+setup.py
+src/parser.c
+src/scanner.c
+src/tree_sitter/parser.h
+src/tree_sitter_plsql_ifs.egg-info/PKG-INFO
+src/tree_sitter_plsql_ifs.egg-info/SOURCES.txt
+src/tree_sitter_plsql_ifs.egg-info/dependency_links.txt
+src/tree_sitter_plsql_ifs.egg-info/requires.txt
+src/tree_sitter_plsql_ifs.egg-info/top_level.txt
