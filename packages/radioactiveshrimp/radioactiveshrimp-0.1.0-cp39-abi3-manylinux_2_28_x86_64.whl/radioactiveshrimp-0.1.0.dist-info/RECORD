@@ -1,0 +1,9 @@
+radioactiveshrimp-0.1.0.dist-info/METADATA,sha256=hBcyOB8eYNUHqcmuxiZE3ymZbJTnA-H15M7MmDhDaEs,322
+radioactiveshrimp-0.1.0.dist-info/WHEEL,sha256=rXa1hNKJPd-J1se02jkvuZn4v_WM-W9q2R8LeAdqQiM,97
+radioactiveshrimp/__init__.py,sha256=QY4ait-Lo2WQdyx7MU8N6a1v2ZYyAmYRqzYqdNbiavI,101
+radioactiveshrimp/_core.abi3.so,sha256=3IMwsP7UrgNWdKdw2Pl11_VUQF8NqPy1xyyPuzkREdA,489672
+radioactiveshrimp/_core.pyi,sha256=b6oJaUXUzEzqUE5rpqefV06hl8o_JCU8pgKgIIzQgmc,33
+radioactiveshrimp/differential/__init.py__,sha256=jOhQKr6xM_7TVUt0GWRddtkgBvNn5I873WZcArT-GtE,101
+radioactiveshrimp/differential/discrete.py,sha256=9-w6Avz4MZfu8gFhJU8kTvryn9oT2xS1TvvYQ_8pmPU,1371
+radioactiveshrimp/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+radioactiveshrimp-0.1.0.dist-info/RECORD,,
