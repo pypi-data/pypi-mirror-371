@@ -1,0 +1,3 @@
+[console_scripts]
+yjf-mcp = yjf_mcp:main
+
