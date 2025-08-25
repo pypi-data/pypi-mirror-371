@@ -1,0 +1,9 @@
+LICENSE
+README.md
+setup.py
+hashkv/__init__.py
+hashkv.egg-info/PKG-INFO
+hashkv.egg-info/SOURCES.txt
+hashkv.egg-info/dependency_links.txt
+hashkv.egg-info/requires.txt
+hashkv.egg-info/top_level.txt
