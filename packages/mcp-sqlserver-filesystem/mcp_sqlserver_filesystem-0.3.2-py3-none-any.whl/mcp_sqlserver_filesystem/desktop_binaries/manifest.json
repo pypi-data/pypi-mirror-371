@@ -1,0 +1,20 @@
+{
+  "platforms": {
+    "windows-x64": {
+      "binary": "mcp-sqlserver-filesystem.exe",
+      "built": true,
+      "build_type": "debug"
+    }
+  },
+  "build_time": "2025-08-24T12:00:00Z",
+  "version": "0.3.0",
+  "note": "Desktop binary successfully built with Tauri",
+  "deployment_strategy": "local_build_and_include",
+  "supported_platforms": ["windows-x64", "macos-x64", "macos-arm64", "linux-x64"],
+  "current_platforms": ["windows-x64"],
+  "build_info": {
+    "tauri_version": "1.6.6",
+    "features": ["web-ui", "desktop-app", "sql-server", "filesystem"],
+    "description": "MCP SQL Server Filesystem Desktop Application - Provides database and filesystem operations for AI assistants with a native desktop interface."
+  }
+}
