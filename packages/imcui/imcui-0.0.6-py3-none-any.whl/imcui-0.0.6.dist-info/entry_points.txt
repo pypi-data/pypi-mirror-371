@@ -1,0 +1,2 @@
+[console_scripts]
+imcui = imcui.cli.main:main
