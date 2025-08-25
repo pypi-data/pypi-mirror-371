@@ -1,0 +1,48 @@
+Metadata-Version: 2.4
+Name: stash-mcp-server
+Version: 0.1.2
+Summary: Stash MCP Server for issue analysis and task management
+Project-URL: Homepage, https://github.com/lambersonistaken/stash-mcp-server
+Project-URL: Repository, https://github.com/lambersonistaken/stash-mcp-server
+Project-URL: Documentation, https://github.com/lambersonistaken/stash-mcp-server#readme
+Project-URL: Issues, https://github.com/lambersonistaken/stash-mcp-server/issues
+Author-email: Lamberson <lambersonistaken@gmail.com>
+Maintainer-email: Lamberson <lambersonistaken@gmail.com>
+License: MIT
+Keywords: issue-analysis,mcp,stash,task-management
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.12
+Requires-Dist: httpx>=0.25.0
+Requires-Dist: mcp>=1.13.0
+Requires-Dist: pydantic-settings>=2.0.0
+Requires-Dist: python-dotenv>=1.0.0
+Description-Content-Type: text/markdown
+
+# Stash MCP Server
+
+A Model Context Protocol (MCP) server for Stash issue analysis and task management.
+
+## Features
+
+- Issue analysis and similarity search
+- Document similarity search
+- Code file similarity search
+- Project management integration
+- Authentication via MCP tokens
+
+## Installation
+
+```bash
+pip install stash-mcp-server
+```
+
+## Usage
+
+1. Set up your Stash API credentials
+2. Configure the MCP server with your Stash instance URL
+3. Use with any MCP-compatible client
