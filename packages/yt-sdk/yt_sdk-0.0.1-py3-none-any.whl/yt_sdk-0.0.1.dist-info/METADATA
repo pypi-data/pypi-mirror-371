@@ -1,0 +1,33 @@
+Metadata-Version: 2.4
+Name: yt_sdk
+Version: 0.0.1
+Summary: Youtube SDK - Download video audio, etc...
+Home-page: https://pypi.org/project/yt-sdk/
+Author: Alejo Prieto Dávalos
+Project-URL: Source, https://github.com/AlejoPrietoDavalos/yt-sdk/
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: yt_dlp>=2025.1.26
+Dynamic: author
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: project-url
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# Youtube SDK
+## youtube_id
+- String de `11 caracteres alfanuméricos (incluye '-' y '_')` identificador único de un video.
+- `Example:`
+1. `url:` https://www.youtube.com/watch?v=5ViMA_qDKTU
+2. `youtube_id:` 5ViMA_qDKTU
+
+## QuickStart
+```bash
+pip install yt-sdk
+```
+
