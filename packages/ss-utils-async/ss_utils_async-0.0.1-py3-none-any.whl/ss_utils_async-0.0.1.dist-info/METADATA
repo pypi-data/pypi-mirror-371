@@ -1,0 +1,11 @@
+Metadata-Version: 2.4
+Name: ss-utils-async
+Version: 0.0.1
+Summary: Simple Utilities for Async
+Project-URL: Homepage, https://github.com/shern2/ss-utils-async
+Project-URL: Repository, https://github.com/shern2/ss-utils-async
+Project-URL: Issues, https://github.com/shern2/ss-utils-async/issues
+Author: shern
+License: MIT
+Keywords: async
+Requires-Python: <3.13,>=3.12
