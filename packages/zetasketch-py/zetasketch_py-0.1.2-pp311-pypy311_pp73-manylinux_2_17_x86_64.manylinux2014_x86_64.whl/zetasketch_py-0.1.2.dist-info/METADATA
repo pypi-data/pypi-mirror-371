@@ -1,0 +1,27 @@
+Metadata-Version: 2.4
+Name: zetasketch-py
+Version: 0.1.2
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Rust
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Summary: Python bindings for zetasketch-rs - unofficial Rust reimplementation of the ZetaSketch Java library for HyperLogLog++ implementation used by Google BigQuery and BigTable.
+Keywords: zetasketch,hyperloglog,google,hll,sketch
+Home-Page: https://crates.io/crates/zetasketch-py
+Author-email: Daniel Vrátil <me@dvratil.cz>
+License: MIT
+Requires-Python: >=3.8
+Project-URL: Homepage, https://github.com/danvratil/zetasketch-rs
+Project-URL: Repository, https://github.com/danvratil/zetasketch-rs
+Project-URL: Documentation, https://docs.rs/zetasketch-rs
+Project-URL: Issues, https://github.com/danvratil/zetasketch-rs/issues
