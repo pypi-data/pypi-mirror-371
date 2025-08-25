@@ -1,0 +1,4 @@
+[console_scripts]
+benchmark-estimators = lrdbench.analysis.benchmark:main
+confound-analysis = lrdbench.analysis.benchmark:main
+lrdbench = lrdbench.analysis.benchmark:main
