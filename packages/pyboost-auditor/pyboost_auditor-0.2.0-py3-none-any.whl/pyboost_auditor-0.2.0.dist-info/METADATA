@@ -1,0 +1,33 @@
+Metadata-Version: 2.4
+Name: pyboost-auditor
+Version: 0.2.0
+Summary: An upgrade assistant to audit Python projects and estimate cloud cost savings.
+Author-email: Anoop Johny <anoopjohny@gmail.com>
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Topic :: System :: Systems Administration
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: rich>=13.0.0
+Dynamic: license-file
+
+# pyboost
+
+**pyboost** is a Python CLI tool that helps you identify and quantify the financial impact of outdated Python versions in your projects. It provides a detailed report on potential cloud cost savings and offers actionable upgrade recommendations.
+
+## Features
+
+- **Automated Scanning:** Scans for `Dockerfile` and `environment.yaml` files to automatically detect Python versions.
+- **Cost Analysis:** Estimates annual cloud savings based on your monthly bill and a hard-coded knowledge base of Python performance improvements.
+- **Dependency Checks:** Runs `pip check` to find potential dependency conflicts before you upgrade.
+- **CI/CD Ready:** Designed to be easily integrated into your CI/CD pipeline as a proactive guardrail.
+- **Visual Reports:** Provides a clear, color-coded report in the terminal for easy reading.
+
+## Installation
+
+```bash
+pip install pyboost
