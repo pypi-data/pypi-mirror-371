@@ -1,0 +1,12 @@
+prootvec/__init__.py,sha256=P6mPd3c_EwYarIi7275Ied3ZYPGXiBe7m9BCzRfhgR0,361
+prootvec/__main__.py,sha256=xVxMryJPFT8yVDthvPFHSqtIlbS6bPiu3zxCy1LbqtI,728
+prootvec/losses.py,sha256=b2Mt9ZyDEaTSmaoGwb6kuo87Ai7io0Tl41DGfeBuEjc,361
+prootvec/model.py,sha256=BexIwnupUI2wbfT4kTejoOWJhERmX78m7LwF34svcAY,1084
+prootvec/reinforce.py,sha256=sVhU09tesHJ1w8ru5heRwG_GrFdDHxvBV3LKb21e2NA,1272
+prootvec/tokenizer.py,sha256=AYUTpJnZhaLeSsjjvhPYZRTV9VK45M2LmKcv5LB8FiU,1704
+prootvec/trainer.py,sha256=6FYaDoURARg6EK4TcZpwvM79qZlisW6Q1SCQe-vufk4,1657
+prootvec/utils.py,sha256=_21aF0rUvEH9ThCzo8IrFX203mQHaMynRgNSPik5i9E,857
+prootvec-0.2.0b1.dist-info/METADATA,sha256=UvYi3fJCGEzdRujyq7-IkC8GHlRxtxGvisfVv1Wp_c8,1766
+prootvec-0.2.0b1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+prootvec-0.2.0b1.dist-info/top_level.txt,sha256=8XEfvoYmYJmY-zln405YMCMh4BNx5tJfmG1XTPaQcA4,9
+prootvec-0.2.0b1.dist-info/RECORD,,
