@@ -1,0 +1,2 @@
+[console_scripts]
+job-worth-calculator-mcp = job_worth_calculator_mcp.main:main
