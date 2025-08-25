@@ -1,0 +1,7 @@
+include README.md
+include LICENSE
+include requirements.txt
+include src/poi_sdk/py.typed
+recursive-include src/poi_sdk *.py
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
