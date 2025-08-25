@@ -1,0 +1,13 @@
+# Improvements
+- **ci(docker)**: add OCI labels and build metadata to Docker images
+- **Web UI**: Show an "Update available" badge next to the version and a toast notification when a newer version is detected
+- **Web UI**: Add integrated docs with collapsible sections
+- **ci(build)**: Publish to PyPI
+- **Category**: Allow category changes regardless of the "Category Update All" status (Fixes #913)
+
+# Bug Fixes
+- Fixes container hanging when using run command with QBT_RUN flag (Fixes #911)
+- Fixes bug on interval scheduler not displaying the correct next run time
+- Fix bug on webAPI requests not being queued correctly when called during a scheduled run
+
+**Full Changelog**: https://github.com/StuffAnThings/qbit_manage/compare/v4.5.4...v4.5.5
