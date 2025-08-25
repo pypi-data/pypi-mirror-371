@@ -1,0 +1,8 @@
+tree-sitter<0.26.0,>=0.25.0
+
+[dev]
+pytest>=6.0
+black>=22.0
+flake8>=4.0
+wheel
+build

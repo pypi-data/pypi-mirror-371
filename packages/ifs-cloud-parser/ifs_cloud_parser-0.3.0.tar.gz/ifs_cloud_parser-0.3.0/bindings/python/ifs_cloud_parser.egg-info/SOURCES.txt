@@ -1,0 +1,15 @@
+README.md
+pyproject.toml
+setup.py
+bindings/python/ifs_cloud_parser.egg-info/PKG-INFO
+bindings/python/ifs_cloud_parser.egg-info/SOURCES.txt
+bindings/python/ifs_cloud_parser.egg-info/dependency_links.txt
+bindings/python/ifs_cloud_parser.egg-info/not-zip-safe
+bindings/python/ifs_cloud_parser.egg-info/requires.txt
+bindings/python/ifs_cloud_parser.egg-info/top_level.txt
+bindings/python/tree_sitter_ifs_cloud_parser/__init__.py
+bindings/python/tree_sitter_ifs_cloud_parser/__init__.pyi
+bindings/python/tree_sitter_ifs_cloud_parser/binding.c
+bindings/python/tree_sitter_ifs_cloud_parser/py.typed
+src/parser.c
+src/scanner.c
