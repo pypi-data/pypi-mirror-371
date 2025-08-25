@@ -1,0 +1,2 @@
+[console_scripts]
+mcp-cd-youth = mcp_cd_youth.server:main
