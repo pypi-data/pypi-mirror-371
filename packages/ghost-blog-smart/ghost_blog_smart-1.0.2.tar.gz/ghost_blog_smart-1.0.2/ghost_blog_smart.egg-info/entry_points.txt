@@ -1,0 +1,2 @@
+[console_scripts]
+ghost-blog-smart = main_functions:main
