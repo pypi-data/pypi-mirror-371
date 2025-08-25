@@ -1,0 +1,105 @@
+name: 🎪 Superset Showtime
+
+# Ultra-simple: just sync on any PR state change
+on:
+  pull_request_target:
+    types: [labeled, synchronize, closed]
+
+  # Manual testing
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: 'PR number to sync'
+        required: true
+        type: number
+      sha:
+        description: 'Specific SHA to deploy (optional, defaults to latest)'
+        required: false
+        type: string
+        pattern: '^[a-f0-9]{40}$'
+
+# Common environment variables for all jobs
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  AWS_REGION: us-west-2
+  GITHUB_ORG: ${{ github.repository_owner }}
+  GITHUB_REPO: ${{ github.event.repository.name }}
+  GITHUB_ACTOR: ${{ github.actor }}
+  DOCKERHUB_USER: ${{ secrets.DOCKERHUB_USER }}
+  DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+
+jobs:
+  sync:
+    name: 🎪 Sync PR to desired state
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+      - name: Install Superset Showtime
+        run: pip install superset-showtime
+
+      - name: Check what actions are needed
+        id: check
+        run: |
+          # Bulletproof PR number extraction
+          if [[ -n "${{ github.event.pull_request.number }}" ]]; then
+            PR_NUM="${{ github.event.pull_request.number }}"
+          elif [[ -n "${{ github.event.inputs.pr_number }}" ]]; then
+            PR_NUM="${{ github.event.inputs.pr_number }}"
+          else
+            echo "❌ No PR number found in event or inputs"
+            exit 1
+          fi
+
+          echo "Using PR number: $PR_NUM"
+
+          # Run sync check-only with optional SHA override
+          if [[ -n "${{ github.event.inputs.sha }}" ]]; then
+            OUTPUT=$(python -m showtime sync $PR_NUM --check-only --sha "${{ github.event.inputs.sha }}")
+          else
+            OUTPUT=$(python -m showtime sync $PR_NUM --check-only)
+          fi
+          echo "$OUTPUT"
+
+          # Extract the outputs we need for conditional steps
+          BUILD=$(echo "$OUTPUT" | grep "build_needed=" | cut -d'=' -f2)
+          SYNC=$(echo "$OUTPUT" | grep "sync_needed=" | cut -d'=' -f2)
+          PR_NUM_OUT=$(echo "$OUTPUT" | grep "pr_number=" | cut -d'=' -f2)
+          TARGET_SHA=$(echo "$OUTPUT" | grep "target_sha=" | cut -d'=' -f2)
+
+          echo "build_needed=$BUILD" >> $GITHUB_OUTPUT
+          echo "sync_needed=$SYNC" >> $GITHUB_OUTPUT
+          echo "pr_number=$PR_NUM_OUT" >> $GITHUB_OUTPUT
+          echo "target_sha=$TARGET_SHA" >> $GITHUB_OUTPUT
+
+      - name: Checkout PR code (only if build needed)
+        if: steps.check.outputs.build_needed == 'true'
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ steps.check.outputs.target_sha }}
+          persist-credentials: false
+
+      - name: Setup Docker Environment (only if build needed)
+        if: steps.check.outputs.build_needed == 'true'
+        uses: ./.github/actions/setup-docker
+        with:
+          dockerhub-user: ${{ env.DOCKERHUB_USER }}
+          dockerhub-token: ${{ env.DOCKERHUB_TOKEN }}
+          build: "true"
+
+      - name: Execute sync (handles everything)
+        if: steps.check.outputs.sync_needed == 'true'
+        run: |
+          PR_NUM="${{ steps.check.outputs.pr_number }}"
+          TARGET_SHA="${{ steps.check.outputs.target_sha }}"
+          if [[ -n "$TARGET_SHA" ]]; then
+            python -m showtime sync $PR_NUM --sha "$TARGET_SHA"
+          else
+            python -m showtime sync $PR_NUM
+          fi
