@@ -1,0 +1,7 @@
+bb_mcp/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+bb_mcp/__main__.py,sha256=yHt9ogX9qYE-4Xuf0LN5gUMqfa3TLAzEVRd5P3HUHb8,198
+bb_mcp/bb_mcp.py,sha256=XEoVbl74xsO40FiC-ZBKxVspnEl0UKUFt6vja9EM13w,12443
+mcp_server_bb-0.1.8.dist-info/METADATA,sha256=hEIRLlX9UflJJdYv2rOtEkajklnDYPrVX5Tpnaj0vgM,381
+mcp_server_bb-0.1.8.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+mcp_server_bb-0.1.8.dist-info/entry_points.txt,sha256=6qehSLpUzabiMH6E8we9bB0nL3ZTEZMeDnQs7LtqlrQ,55
+mcp_server_bb-0.1.8.dist-info/RECORD,,
