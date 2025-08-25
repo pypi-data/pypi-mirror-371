@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/qywx_toolkit/__init__.py
+src/qywx_toolkit/client.py
+src/qywx_toolkit.egg-info/PKG-INFO
+src/qywx_toolkit.egg-info/SOURCES.txt
+src/qywx_toolkit.egg-info/dependency_links.txt
+src/qywx_toolkit.egg-info/requires.txt
+src/qywx_toolkit.egg-info/top_level.txt
+tests/test_client.py
