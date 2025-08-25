@@ -1,0 +1,55 @@
+"""Application FastAPI générée automatiquement"""
+
+from fastapi import FastAPI
+{% if include_docker %}
+from fastapi.middleware.cors import CORSMiddleware
+{% endif %}
+{% if database != 'none' %}
+from app.core.database import engine, Base
+{% endif %}
+from app.routers import items
+
+# Créer les tables de base de données
+{% if database != 'none' %}
+Base.metadata.create_all(bind=engine)
+{% endif %}
+
+app = FastAPI(
+    title="{{ project_name.title() }} API",
+    description="API générée avec FastAPI Generator",
+    version="1.0.0",
+    docs_url="/docs",
+    redoc_url="/redoc"
+)
+
+{% if include_docker %}
+# Configuration CORS pour Docker
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # À configurer selon vos besoins
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+{% endif %}
+
+# Inclusion des routers
+app.include_router(items.router)
+
+@app.get("/")
+async def root():
+    """Point d'entrée principal de l'API"""
+    return {
+        "message": "Bienvenue sur {{ project_name.title() }} API!",
+        "docs": "/docs",
+        "redoc": "/redoc"
+    }
+
+@app.get("/health")
+async def health_check():
+    """Endpoint de vérification de santé"""
+    return {"status": "healthy", "service": "{{ project_name }}"}
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000, reload=True)

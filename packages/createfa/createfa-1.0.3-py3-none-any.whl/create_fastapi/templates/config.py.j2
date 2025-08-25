@@ -1,0 +1,39 @@
+"""Configuration de l'application"""
+
+from pydantic_settings import BaseSettings
+from typing import Optional
+
+class Settings(BaseSettings):
+    """Paramètres de configuration de l'application"""
+    
+    # Configuration générale
+    app_name: str = "{{ project_name.title() }} API"
+    debug: bool = False
+    version: str = "1.0.0"
+    
+    # Configuration de la base de données
+    {% if database == 'postgresql' %}
+    database_url: str = "postgresql://user:password@localhost/{{ project_name }}"
+    {% elif database == 'mysql' %}
+    database_url: str = "mysql://user:password@localhost/{{ project_name }}"
+    {% elif database == 'sqlite' %}
+    database_url: str = "sqlite:///./{{ project_name }}.db"
+    {% else %}
+    database_url: Optional[str] = None
+    {% endif %}
+    
+    {% if include_auth %}
+    # Configuration JWT
+    secret_key: str = "your-secret-key-change-this-in-production"
+    algorithm: str = "HS256"
+    access_token_expire_minutes: int = 30
+    {% endif %}
+    
+    # Configuration CORS
+    cors_origins: list = ["http://localhost:3000", "http://localhost:8080"]
+    
+    class Config:
+        env_file = ".env"
+        env_file_encoding = "utf-8"
+
+settings = Settings()

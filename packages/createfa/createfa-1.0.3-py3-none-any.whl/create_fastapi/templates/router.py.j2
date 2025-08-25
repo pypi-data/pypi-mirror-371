@@ -1,0 +1,120 @@
+"""Router pour {{ router_name }}"""
+
+from fastapi import APIRouter, HTTPException, Depends
+from pydantic import BaseModel
+from typing import List, Optional
+{% if database != 'none' %}
+from sqlalchemy.orm import Session
+from app.core.database import get_db
+{% endif %}
+
+router = APIRouter(
+    prefix="/{{ router_name }}",
+    tags=["{{ router_name }}"],
+    responses={404: {"description": "Not found"}},
+)
+
+# Modèles Pydantic
+class {{ model_name }}Base(BaseModel):
+    {% if fields %}
+    {% for field_name, field_type in fields.items() %}
+    {{ field_name }}: {{ field_type }}
+    {% endfor %}
+    {% else %}
+    name: str
+    description: Optional[str] = None
+    {% endif %}
+
+class {{ model_name }}Create({{ model_name }}Base):
+    pass
+
+class {{ model_name }}({{ model_name }}Base):
+    id: int
+    
+    class Config:
+        from_attributes = True
+
+{% if include_crud %}
+{% if database == 'none' %}
+# Base de données fictive
+fake_{{ router_name }}_db = [
+    {"id": 1, "name": "Example Item", "description": "Un item d'exemple", "value": 10.0}
+]
+
+@router.get("/", response_model=List[{{ model_name }}])
+async def read_{{ router_name }}():
+    """Récupère tous les {{ router_name }}"""
+    return fake_{{ router_name }}_db
+
+@router.get("/{item_id}", response_model={{ model_name }})
+async def read_{{ router_name.rstrip('s') }}(item_id: int):
+    """Récupère un {{ router_name.rstrip('s') }} par son ID"""
+    for item in fake_{{ router_name }}_db:
+        if item["id"] == item_id:
+            return item
+    raise HTTPException(status_code=404, detail="{{ model_name }} not found")
+
+@router.post("/", response_model={{ model_name }})
+async def create_{{ router_name.rstrip('s') }}(item: {{ model_name }}Create):
+    """Crée un nouveau {{ router_name.rstrip('s') }}"""
+    new_id = max([item["id"] for item in fake_{{ router_name }}_db], default=0) + 1
+    new_item = {"id": new_id, **item.dict()}
+    fake_{{ router_name }}_db.append(new_item)
+    return new_item
+
+@router.put("/{item_id}", response_model={{ model_name }})
+async def update_{{ router_name.rstrip('s') }}(item_id: int, item: {{ model_name }}Create):
+    """Met à jour un {{ router_name.rstrip('s') }}"""
+    for i, db_item in enumerate(fake_{{ router_name }}_db):
+        if db_item["id"] == item_id:
+            fake_{{ router_name }}_db[i] = {"id": item_id, **item.dict()}
+            return fake_{{ router_name }}_db[i]
+    raise HTTPException(status_code=404, detail="{{ model_name }} not found")
+
+@router.delete("/{item_id}")
+async def delete_{{ router_name.rstrip('s') }}(item_id: int):
+    """Supprime un {{ router_name.rstrip('s') }}"""
+    for i, item in enumerate(fake_{{ router_name }}_db):
+        if item["id"] == item_id:
+            del fake_{{ router_name }}_db[i]
+            return {"message": "{{ model_name }} deleted"}
+    raise HTTPException(status_code=404, detail="{{ model_name }} not found")
+
+{% else %}
+# Avec base de données
+@router.get("/", response_model=List[{{ model_name }}])
+async def read_{{ router_name }}(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
+    """Récupère tous les {{ router_name }}"""
+    # TODO: Implémenter avec votre ORM
+    return []
+
+@router.get("/{item_id}", response_model={{ model_name }})
+async def read_{{ router_name.rstrip('s') }}(item_id: int, db: Session = Depends(get_db)):
+    """Récupère un {{ router_name.rstrip('s') }} par son ID"""
+    # TODO: Implémenter avec votre ORM
+    raise HTTPException(status_code=404, detail="{{ model_name }} not found")
+
+@router.post("/", response_model={{ model_name }})
+async def create_{{ router_name.rstrip('s') }}(item: {{ model_name }}Create, db: Session = Depends(get_db)):
+    """Crée un nouveau {{ router_name.rstrip('s') }}"""
+    # TODO: Implémenter avec votre ORM
+    return item
+
+@router.put("/{item_id}", response_model={{ model_name }})
+async def update_{{ router_name.rstrip('s') }}(item_id: int, item: {{ model_name }}Create, db: Session = Depends(get_db)):
+    """Met à jour un {{ router_name.rstrip('s') }}"""
+    # TODO: Implémenter avec votre ORM
+    raise HTTPException(status_code=404, detail="{{ model_name }} not found")
+
+@router.delete("/{item_id}")
+async def delete_{{ router_name.rstrip('s') }}(item_id: int, db: Session = Depends(get_db)):
+    """Supprime un {{ router_name.rstrip('s') }}"""
+    # TODO: Implémenter avec votre ORM
+    return {"message": "{{ model_name }} deleted"}
+{% endif %}
+{% else %}
+@router.get("/")
+async def get_{{ router_name }}():
+    """Endpoint de base pour {{ router_name }}"""
+    return {"message": "{{ router_name.title() }} endpoint"}
+{% endif %}
