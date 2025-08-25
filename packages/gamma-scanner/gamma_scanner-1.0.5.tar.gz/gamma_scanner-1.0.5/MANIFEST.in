@@ -1,0 +1,8 @@
+include README.md
+include LICENSE
+include pyproject.toml
+include setup.py
+recursive-include gamma_scanner *.py
+recursive-include examples *.gamma *.dsl
+global-exclude __pycache__
+global-exclude *.py[co]
