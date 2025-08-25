@@ -1,0 +1,36 @@
+Metadata-Version: 2.4
+Name: tortitle
+Version: 0.0.1
+Summary: A title parser for torrent filenames
+Author: ccf2012
+Project-URL: Homepage, https://github.com/ccf-2012/tortitle
+Project-URL: Bug Tracker, https://github.com/ccf-2012/tortitle/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: license-file
+
+# TorTitle
+
+A title parser for torrent filenames.
+
+This library helps parse torrent filenames to extract structured information like title, year, season, episode, etc.
+
+## Installation
+
+```bash
+pip install tortitle
+```
+
+## Usage
+
+```python
+from tortitle import TorTitle
+
+
+result = TorTitle("The.Mandalorian.S01E01.1080p.WEB-DL.DDP5.1.H.264-NTb.mkv")
+print(result.to_dict())
+```
