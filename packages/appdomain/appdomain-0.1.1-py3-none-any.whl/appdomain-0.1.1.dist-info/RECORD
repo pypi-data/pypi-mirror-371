@@ -1,0 +1,9 @@
+appdomain/__init__.py,sha256=eW44wriJOZy4a5-KHklLwWQl9--q2yMY0OLn51TMQF0,350
+appdomain/base.py,sha256=KRkCKJy65YIXBaSjhe4_LtEDwYQaj0vf3rAEZZei9s8,931
+appdomain/classisolation.py,sha256=5UhZD0bMz__PnkEed8zp_Q6gMHsKCJKR4BNZyt0holo,5288
+appdomain/ensemble.py,sha256=qMPISnFxtomgNOeYSb6ZDKo3U2M_MKHRqPeMsuGfXzg,2545
+appdomain/knn.py,sha256=k6B8Pp8vX-26vjLJXojE0Bw7nP_X5iLtmib1LeZHccU,4515
+appdomain-0.1.1.dist-info/METADATA,sha256=w61KiWl21morfkpl3LDjKsFpdkWCM59ajrpaLlD91Ck,732
+appdomain-0.1.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+appdomain-0.1.1.dist-info/top_level.txt,sha256=aAKxB2My_AAZDUpmkoxaUlS7g2fVumLC-hqihxx7yOY,10
+appdomain-0.1.1.dist-info/RECORD,,
