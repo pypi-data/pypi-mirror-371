@@ -1,0 +1,14 @@
+zlang/__init__.py,sha256=ftmnQ3oDjjunJUaZpmN0nfdLrb2RwR9_ASaQ4BD7z4k,39
+zlang/__main__.py,sha256=pVQG5V4ofwDFal8HVUvweV3TzM8vTIJvTzMkVqrAMDo,4192
+zlang/logger.py,sha256=goG4ULvD4aZhYoJ9Kc45VC91QmQwoz9Ay8mMtdjDXr0,639
+zlang/memz.py,sha256=HWEnZK07Vn8rTY3iB2QMg2aJxKVPJCO5IVWb7xHYUsQ,7058
+zlang/translators/__init__.py,sha256=3W1crzFslps6F8el0w6FPrFA7ZcTpV_jK3ttmkiAx1s,106
+zlang/translators/_lua.py,sha256=HXeaXL9-Dv-vCjDLubsQVAkre6tsoLo92kg8uk1vrf0,10168
+zlang/translators/_py.py,sha256=pMfKbPlp-2DUNQfT7DvLP9QX6RCuuNzxj6dENU571Hc,22070
+zlang/translators/t.py,sha256=7KCfGLDzYqOY0Ob-77sLijS5Ou5hkXpmk_b6ZDHvnMs,1984
+zlang/zink.py,sha256=CNah4tMPBeV5wTEa1EAQyvEeWZwfXdI1rOtLhdbsKKI,35059
+zlang-2.3.5.dist-info/LICENSE.md,sha256=mDtLXVGZtYSsmy9_PvBczu2m8XeVHrLodBEYbWOcH5c,1067
+zlang-2.3.5.dist-info/METADATA,sha256=zb43qOrNCeEnh5loYZy2ibo-4jp2amjaVFwJNOf2XwI,3197
+zlang-2.3.5.dist-info/WHEEL,sha256=b4K_helf-jlQoXBBETfwnf4B04YC67LOev0jo4fX5m8,88
+zlang-2.3.5.dist-info/entry_points.txt,sha256=WhevUps4YFEHU3IRt6RS913c2oySVkH-PXuQ6hxdjxE,41
+zlang-2.3.5.dist-info/RECORD,,
