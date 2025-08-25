@@ -1,0 +1,5 @@
+[mdformat.parser_extension]
+vuepress = mdformat_vuepress.plugin
+
+[mdformat.plugins]
+vuepress = mdformat_vuepress.plugin:plugin
