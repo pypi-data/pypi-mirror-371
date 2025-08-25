@@ -1,0 +1,110 @@
+{% if include_tests %}
+"""Tests pour l'application principale"""
+
+import pytest
+from fastapi.testclient import TestClient
+from main import app
+
+client = TestClient(app)
+
+def test_read_main():
+    """Test du endpoint racine"""
+    response = client.get("/")
+    assert response.status_code == 200
+    data = response.json()
+    assert "message" in data
+    assert "{{ project_name.title() }}" in data["message"]
+
+def test_health_check():
+    """Test du endpoint de santé"""
+    response = client.get("/health")
+    assert response.status_code == 200
+    data = response.json()
+    assert data["status"] == "healthy"
+    assert data["service"] == "{{ project_name }}"
+
+def test_read_items():
+    """Test de lecture des items"""
+    response = client.get("/items/")
+    assert response.status_code == 200
+    data = response.json()
+    assert isinstance(data, list)
+
+def test_read_item():
+    """Test de lecture d'un item spécifique"""
+    response = client.get("/items/1")
+    assert response.status_code == 200
+    data = response.json()
+    assert data["id"] == 1
+    assert "name" in data
+
+def test_create_item():
+    """Test de création d'item"""
+    item_data = {
+        "name": "Test Item",
+        "description": "Item de test",
+        "price": 99.99
+    }
+    response = client.post("/items/", json=item_data)
+    assert response.status_code == 200
+    data = response.json()
+    assert data["name"] == item_data["name"]
+    assert "id" in data
+
+def test_read_nonexistent_item():
+    """Test de lecture d'un item inexistant"""
+    response = client.get("/items/9999")
+    assert response.status_code == 404
+
+@pytest.fixture
+def sample_item():
+    """Fixture pour un item de test"""
+    return {
+        "name": "Sample Item",
+        "description": "Description de test",
+        "price": 149.99
+    }
+
+class TestItemsCRUD:
+    """Tests CRUD pour les items"""
+    
+    def test_create_and_read_item(self, sample_item):
+        """Test création puis lecture d'item"""
+        # Créer
+        response = client.post("/items/", json=sample_item)
+        assert response.status_code == 200
+        created_item = response.json()
+        
+        # Lire
+        response = client.get(f"/items/{created_item['id']}")
+        assert response.status_code == 200
+        read_item = response.json()
+        assert read_item["name"] == sample_item["name"]
+    
+    def test_update_item(self, sample_item):
+        """Test de mise à jour d'item"""
+        # Créer d'abord
+        response = client.post("/items/", json=sample_item)
+        created_item = response.json()
+        
+        # Mettre à jour
+        updated_data = {**sample_item, "name": "Updated Item"}
+        response = client.put(f"/items/{created_item['id']}", json=updated_data)
+        assert response.status_code == 200
+        updated_item = response.json()
+        assert updated_item["name"] == "Updated Item"
+    
+    def test_delete_item(self, sample_item):
+        """Test de suppression d'item"""
+        # Créer d'abord
+        response = client.post("/items/", json=sample_item)
+        created_item = response.json()
+        
+        # Supprimer
+        response = client.delete(f"/items/{created_item['id']}")
+        assert response.status_code == 200
+        
+        # Vérifier que l'item n'existe plus
+        response = client.get(f"/items/{created_item['id']}")
+        assert response.status_code == 404
+{% endif %}

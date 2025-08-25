@@ -1,0 +1,110 @@
+"""Router d'exemple pour les items"""
+
+from fastapi import APIRouter, HTTPException, Depends
+from pydantic import BaseModel
+from typing import List, Optional
+{% if database != 'none' %}
+from sqlalchemy.orm import Session
+from app.core.database import get_db
+{% endif %}
+
+router = APIRouter(
+    prefix="/items",
+    tags=["items"],
+    responses={404: {"description": "Not found"}},
+)
+
+# Modèles Pydantic
+class ItemBase(BaseModel):
+    name: str
+    description: Optional[str] = None
+    price: float
+
+class ItemCreate(ItemBase):
+    pass
+
+class Item(ItemBase):
+    id: int
+    
+    class Config:
+        from_attributes = True
+
+{% if database == 'none' %}
+# Base de données fictive en mémoire
+fake_items_db = [
+    {"id": 1, "name": "Laptop", "description": "Ordinateur portable", "price": 999.99},
+    {"id": 2, "name": "Mouse", "description": "Souris sans fil", "price": 29.99},
+    {"id": 3, "name": "Keyboard", "description": "Clavier mécanique", "price": 129.99},
+]
+
+@router.get("/", response_model=List[Item])
+async def read_items():
+    """Récupère tous les items"""
+    return fake_items_db
+
+@router.get("/{item_id}", response_model=Item)
+async def read_item(item_id: int):
+    """Récupère un item par son ID"""
+    for item in fake_items_db:
+        if item["id"] == item_id:
+            return item
+    raise HTTPException(status_code=404, detail="Item not found")
+
+@router.post("/", response_model=Item)
+async def create_item(item: ItemCreate):
+    """Crée un nouvel item"""
+    new_id = max([item["id"] for item in fake_items_db], default=0) + 1
+    new_item = {"id": new_id, **item.dict()}
+    fake_items_db.append(new_item)
+    return new_item
+
+@router.put("/{item_id}", response_model=Item)
+async def update_item(item_id: int, item: ItemCreate):
+    """Met à jour un item"""
+    for i, db_item in enumerate(fake_items_db):
+        if db_item["id"] == item_id:
+            fake_items_db[i] = {"id": item_id, **item.dict()}
+            return fake_items_db[i]
+    raise HTTPException(status_code=404, detail="Item not found")
+
+@router.delete("/{item_id}")
+async def delete_item(item_id: int):
+    """Supprime un item"""
+    for i, item in enumerate(fake_items_db):
+        if item["id"] == item_id:
+            del fake_items_db[i]
+            return {"message": "Item deleted"}
+    raise HTTPException(status_code=404, detail="Item not found")
+
+{% else %}
+# Avec base de données
+@router.get("/", response_model=List[Item])
+async def read_items(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
+    """Récupère tous les items"""
+    # TODO: Implémenter avec votre ORM
+    return []
+
+@router.get("/{item_id}", response_model=Item)
+async def read_item(item_id: int, db: Session = Depends(get_db)):
+    """Récupère un item par son ID"""
+    # TODO: Implémenter avec votre ORM
+    raise HTTPException(status_code=404, detail="Item not found")
+
+@router.post("/", response_model=Item)
+async def create_item(item: ItemCreate, db: Session = Depends(get_db)):
+    """Crée un nouvel item"""
+    # TODO: Implémenter avec votre ORM
+    return item
+
+@router.put("/{item_id}", response_model=Item)
+async def update_item(item_id: int, item: ItemCreate, db: Session = Depends(get_db)):
+    """Met à jour un item"""
+    # TODO: Implémenter avec votre ORM
+    raise HTTPException(status_code=404, detail="Item not found")
+
+@router.delete("/{item_id}")
+async def delete_item(item_id: int, db: Session = Depends(get_db)):
+    """Supprime un item"""
+    # TODO: Implémenter avec votre ORM
+    return {"message": "Item deleted"}
+{% endif %}

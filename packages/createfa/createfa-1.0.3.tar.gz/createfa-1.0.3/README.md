@@ -1,0 +1,237 @@
+# FastAPI Generator
+
+Un générateur puissant et flexible pour créer des applications FastAPI avec une structure professionnelle.
+
+## 🚀 Installation
+
+```bash
+pip install createfastapi
+```
+
+## ✨ Fonctionnalités
+
+- 🏗️ **Templates multiples** : minimal, full, api, microservice
+- 🗄️ **Support bases de données** : SQLite, PostgreSQL, MySQL
+- 🔐 **Authentification JWT** intégrée
+- 🐳 **Configuration Docker** automatique
+- 🧪 **Tests** pré-configurés avec pytest
+- 📚 **Documentation** automatique
+- 🎨 **Interface CLI** intuitive
+- 🔧 **Extensible** - ajout facile de routers et modèles
+
+## 🎯 Utilisation rapide
+
+### Créer une nouvelle application
+
+```bash
+# Application minimale
+fastapi-gen create mon_api
+
+# Application complète avec base de données
+fastapi-gen create mon_api --template full --database postgresql --auth --docker
+
+# Voir toutes les options
+fastapi-gen create --help
+```
+
+### Ajouter des composants
+
+```bash
+# Ajouter un router avec CRUD complet
+fastapi-gen add-router users --model User --crud
+
+# Ajouter un modèle personnalisé  
+fastapi-gen add-model Product --fields "name:str,price:float,available:bool"
+
+# Voir les infos du projet
+fastapi-gen info
+```
+
+## 📋 Templates disponibles
+
+| Template | Description | Inclus |
+|----------|-------------|---------|
+| `minimal` | Application basique | Routes de base, modèles Pydantic |
+| `full` | Application complète | BDD, config, Docker, tests |
+| `api` | API RESTful | CRUD complet, validation |
+| `microservice` | Microservice | Santé, métriques, logging |
+
+## 🗄️ Bases de données supportées
+
+- **SQLite** - Parfait pour le développement
+- **PostgreSQL** - Production robuste  
+- **MySQL** - Alternative populaire
+- **Aucune** - API sans persistance
+
+## 🔧 Options avancées
+
+```bash
+# Créer avec toutes les options
+fastapi-gen create enterprise_api \
+  --template full \
+  --database postgresql \
+  --auth \
+  --docker \
+  --tests \
+  --force
+
+# Structure générée :
+enterprise_api/
+├── main.py                 # Application FastAPI
+├── requirements.txt        # Dépendances
+├── Dockerfile             # Container
+├── docker-compose.yml     # Services
+├── .env.example           # Variables d'environnement  
+├── app/
+│   ├── core/
+│   │   ├── config.py      # Configuration
+│   │   └── database.py    # Base de données
+│   ├── models/            # Modèles SQLAlchemy/Pydantic
+│   ├── routers/           # Routes de l'API
+│   └── auth/              # Authentification JWT
+├── tests/                 # Tests pytest
+└── .fastapi-gen.json     # Configuration du générateur
+```
+
+## 🔐 Authentification JWT
+
+Avec l'option `--auth`, le générateur inclut :
+
+- Modèle utilisateur avec hash de mot de passe
+- Endpoints d'inscription/connexion
+- Middleware de vérification JWT
+- Décorateurs de protection des routes
+
+## 🐳 Support Docker
+
+L'option `--docker` génère :
+
+- `Dockerfile` optimisé pour FastAPI
+- `docker-compose.yml` avec services
+- Configuration pour base de données containerisée
+- Scripts de déploiement
+
+## 🧪 Tests intégrés
+
+Les tests incluent :
+
+- Tests unitaires avec pytest
+- Client de test FastAPI
+- Fixtures pour les données de test
+- Couverture de code
+- Tests des endpoints CRUD
+
+## 🎨 Interface CLI
+
+```bash
+# Commandes principales
+fastapi-gen create <nom>           # Créer une application
+fastapi-gen add-router <nom>       # Ajouter un router
+fastapi-gen add-model <nom>        # Ajouter un modèle  
+fastapi-gen info                   # Infos du projet
+
+# Aliases disponibles
+createfastapi create <nom>     # Même que fastapi-gen
+```
+
+## 📚 Exemples d'utilisation
+
+### API E-commerce
+
+```bash
+fastapi-gen create ecommerce_api --template full --database postgresql --auth
+
+cd ecommerce_api
+
+# Ajouter les modèles métier
+fastapi-gen add-model Product --fields "name:str,price:float,category:str,stock:int"
+fastapi-gen add-model Order --fields "user_id:int,total:float,status:str"
+
+# Ajouter les routers
+fastapi-gen add-router products --model Product --crud
+fastapi-gen add-router orders --model Order --crud
+```
+
+### Microservice simple
+
+```bash
+fastapi-gen create user_service --template microservice --database sqlite
+
+cd user_service
+fastapi-gen add-router users --crud
+```
+
+### API sans base de données
+
+```bash
+fastapi-gen create calculator_api --template api --database none
+cd calculator_api
+
+# L'API utilisera des données en mémoire
+python main.py
+```
+
+## 🛠️ Développement
+
+### Structure du package
+
+```
+createfastapi/
+├── create_fastapi/
+│   ├── __init__.py
+│   ├── cli.py              # Interface ligne de commande
+│   ├── generator.py        # Logique principale
+│   ├── templates.py        # Gestionnaire de templates
+│   ├── utils.py           # Utilitaires
+│   └── templates/         # Templates Jinja2
+├── setup.py               # Configuration du package
+├── pyproject.toml        # Configuration moderne
+└── README.md             # Cette documentation
+```
+
+### Contribuer
+
+1. Fork le projet
+2. Créer une branche feature
+3. Commiter les changements
+4. Pousser vers la branche
+5. Ouvrir une Pull Request
+
+### Installation en mode développement
+
+```bash
+git clone https://github.com/bonitoFotso/create_fastapi
+cd createfastapi
+pip install -e .
+```
+
+## 🔄 Changelog
+
+### v1.0.0
+- ✨ Version initiale
+- 🏗️ Templates : minimal, full, api, microservice
+- 🗄️ Support SQLite, PostgreSQL, MySQL
+- 🔐 Authentification JWT
+- 🐳 Support Docker
+- 🧪 Tests intégrés
+- 🎨 CLI complète
+
+## 📄 License
+
+MIT License - voir [LICENSE](LICENSE) pour plus de détails.
+
+## 🆘 Support
+
+- 📖 [Documentation](https://createfastapi.readthedocs.io)
+- 🐛 [Issues GitHub](https://github.com/bonitoFotso/create_fastapi/issues)
+- 💬 [Discussions](https://github.com/bonitoFotso/create_fastapi/discussions)
+
+## 🙏 Remerciements
+
+- [FastAPI](https://fastapi.tiangolo.com/) pour le framework fantastique
+- [Click](https://click.palletsprojects.com/) pour l'interface CLI
+- [Jinja2](https://jinja.palletsprojects.com/) pour les templates
+
+---
+
+*Créé avec ❤️ pour la communauté FastAPI*

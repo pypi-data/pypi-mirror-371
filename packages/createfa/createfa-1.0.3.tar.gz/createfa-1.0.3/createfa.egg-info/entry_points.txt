@@ -1,0 +1,3 @@
+[console_scripts]
+createfastapi = create_fastapi.cli:main
+fastapi-gen = create_fastapi.cli:main

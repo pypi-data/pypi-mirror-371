@@ -1,0 +1,45 @@
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+
+# Validation et sérialisation
+pydantic==2.4.2
+pydantic-settings==2.0.3
+
+# Autres dépendances
+python-multipart==0.0.6
+python-jose[cryptography]==3.3.0
+
+{% if database == 'postgresql' %}
+# PostgreSQL
+asyncpg==0.29.0
+psycopg2-binary==2.9.7
+{% elif database == 'mysql' %}
+# MySQL
+aiomysql==0.2.0
+PyMySQL==1.1.0
+{% elif database == 'sqlite' %}
+# SQLite
+aiosqlite==0.19.0
+{% endif %}
+
+{% if database != 'none' %}
+# ORM
+sqlalchemy==2.0.23
+alembic==1.12.1
+{% endif %}
+
+{% if include_auth %}
+# Authentification
+passlib[bcrypt]==1.7.4
+python-multipart==0.0.6
+{% endif %}
+
+{% if include_tests %}
+# Tests
+pytest==7.4.3
+pytest-asyncio==0.21.1
+httpx==0.25.2
+{% endif %}
+
+# Développement
+python-dotenv==1.0.0
