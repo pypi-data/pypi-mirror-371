@@ -1,0 +1,8 @@
+LICENSE
+README.md
+inotify_simple.py
+pyproject.toml
+inotify_simple.egg-info/PKG-INFO
+inotify_simple.egg-info/SOURCES.txt
+inotify_simple.egg-info/dependency_links.txt
+inotify_simple.egg-info/top_level.txt
