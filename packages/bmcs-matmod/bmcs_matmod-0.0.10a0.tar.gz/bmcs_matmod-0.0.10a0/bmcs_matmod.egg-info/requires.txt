@@ -1,0 +1,9 @@
+bmcs_utils
+numpy
+sympy
+traits
+
+[dev]
+pytest
+pytest-cov
+twine

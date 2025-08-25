@@ -1,0 +1,64 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bmcs_matmod"
+version = "0.0.10a"
+description = "Suite of utilities for material model development."
+readme = "README.md"
+authors = [
+    { name = "BMCS-Group", email = "rostislav.chudoba@rwt-aachen.de" }
+]
+license = { file = "LICENSE" }
+requires-python = ">=3.6"
+dependencies = [
+    "bmcs_utils",
+    "numpy",
+    "sympy", 
+    "traits",
+]
+
+[project.urls]
+Homepage = "https://github.com/bmcs-group/bmcs_matmod"
+
+[tool.setuptools.packages.find]
+where = ["."]
+exclude = ["tests*"]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-cov",
+    "twine",
+]
+
+[project.entry-points."aiida.data"]
+# AiiDA DataNode for GSM simulation results
+"bmcs_matmod.gsm_lagrange.response_data" = "bmcs_matmod.gsm_lagrange.aiida_plugin.response_data_node:ResponseDataNode"
+
+[tool.pylance]
+typeCheckingMode = "basic"
+reportCallIssue = false
+reportOperatorIssue = false      # This should fix (-self.phi_) issues
+reportUnknownMemberType = false
+reportAttributeAccessIssue = false
+reportUnknownArgumentType = false
+reportReturnType = false
+reportUnknownVariableType = false
+reportMissingTypeStubs = false
+reportPrivateImportUsage = false
+reportArgumentType = false
+
+[tool.pyright]
+typeCheckingMode = "basic"
+reportCallIssue = false
+reportOperatorIssue = false      # Backup for Pyright
+reportUnknownMemberType = false
+reportAttributeAccessIssue = false
+reportUnknownArgumentType = false
+reportReturnType = false
+reportUnknownVariableType = false
+reportMissingTypeStubs = false
+reportPrivateImportUsage = false
+reportArgumentType = false

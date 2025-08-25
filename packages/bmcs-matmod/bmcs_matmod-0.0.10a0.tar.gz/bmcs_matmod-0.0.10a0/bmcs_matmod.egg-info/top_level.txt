@@ -1,0 +1,6 @@
+bmcs_matmod
+build
+dist
+examples
+notebooks
+uml
