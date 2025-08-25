@@ -1,0 +1,9 @@
+ec2_connect_manager-0.1.0.dist-info/licenses/LICENSE,sha256=UtWDM6w7nMyyFqRyOZnsYCr408jfBPWGJGVXAx8pIKM,1065
+ec2manager/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+ec2manager/cli.py,sha256=b7xhNwvoY5ChChlwfykxE8ECLdBCTLVX9O_x2cRhJpc,399
+ec2manager/manager.py,sha256=esp61yeJFRM3SY-STCO8Pq7T3EM8oAFlwpfttmtI_fY,15657
+ec2_connect_manager-0.1.0.dist-info/METADATA,sha256=Z-cHfaJP5MUT_b1i4uPfvYaGbzYZXj0MMVyA8RQdY0I,6920
+ec2_connect_manager-0.1.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+ec2_connect_manager-0.1.0.dist-info/entry_points.txt,sha256=1E1NkFFrOn-28YEWNUygRreYPKKWpPLGLQvRwL7wYtI,52
+ec2_connect_manager-0.1.0.dist-info/top_level.txt,sha256=3RWkaTCFyk2JhyLAphRvA5hglTQc5u_HT8VzcoZbyfY,11
+ec2_connect_manager-0.1.0.dist-info/RECORD,,
