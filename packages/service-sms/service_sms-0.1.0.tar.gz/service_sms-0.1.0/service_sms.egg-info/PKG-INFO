@@ -1,0 +1,50 @@
+Metadata-Version: 2.4
+Name: service-sms
+Version: 0.1.0
+Summary: Un package Python pour envoyer des SMS via Airtel et des messages WhatsApp (OTP).
+Home-page: https://github.com/ton-compte/service-sms
+Author: Abdou Khamiss
+Author-email: abdougarbahamissou833@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: requests
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# Service SMS 📱
+
+Un package Python simple pour envoyer des **SMS via Airtel** et des **messages WhatsApp (OTP)**.
+
+## 🚀 Installation
+
+```bash
+pip install service-sms
+
+
+
+pip install .
+```)
+
+## 📌 Utilisation
+
+```python
+from service_sms import SmsService, WhatsAppService, generate_otp
+
+# Génération OTP
+otp = generate_otp()
+
+# Envoi SMS
+SmsService.send_sms("91234567", f"Votre code OTP est {otp}")
+
+# Envoi WhatsApp
+WhatsAppService.send_whatsapp("91234567", otp)
