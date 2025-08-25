@@ -1,0 +1,7 @@
+{% macro render(variables, selector) %}
+{% for variable_key in variables if variables[variable_key].selector == selector -%}
+{% for n in range(variables[variable_key].repeats) -%}
+{{ variable_key }}
+
+{% endfor %}
+{% endmacro %}

@@ -1,0 +1,39 @@
+{%- set all_variables = {
+  'A': {
+    'repeats': 5,
+    'selector': 'ab',
+  },
+  'b': {
+    'repeats': 3,
+    'selector': 'ab',
+  },
+  'c': {
+    'repeats': 2,
+    'selector': 'cd',
+  },
+  'D': {
+    'repeats': 10,
+    'selector': 'cd',
+  },
+} -%}
+
+{% macro render(variables, selector) %}
+{% for variable_key in variables if variables[variable_key].selector == selector -%}
+{% for n in range(variables[variable_key].repeats) -%}
+{{ variable_key }}
+{%- endfor %}
+
+{% endfor %}
+{% endmacro %}
+
+{# -------------------------------------------------------------------------- #}
+
+{{- 'ab.txt' | start_new_file -}}
+
+{{- render(all_variables, 'ab') -}}
+
+{# -------------------------------------------------------------------------- #}
+
+{{- 'cd.txt' | start_new_file -}}
+
+{{- render(all_variables, 'cd') -}}

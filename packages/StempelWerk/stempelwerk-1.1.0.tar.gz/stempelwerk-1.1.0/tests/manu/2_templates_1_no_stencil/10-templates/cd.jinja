@@ -1,0 +1,23 @@
+{%- set all_variables = {
+  'c': {
+    'repeats': 2,
+  },
+  'D': {
+    'repeats': 10,
+  },
+} -%}
+
+{% macro render(variables) %}
+{% for variable_key in variables -%}
+{%- for n in range(variables[variable_key].repeats) -%}
+{{ variable_key }}
+{%- endfor %}
+
+{% endfor %}
+{% endmacro %}
+
+{# -------------------------------------------------------------------------- #}
+
+{{- 'cd.txt' | start_new_file -}}
+
+{{- render(all_variables) -}}

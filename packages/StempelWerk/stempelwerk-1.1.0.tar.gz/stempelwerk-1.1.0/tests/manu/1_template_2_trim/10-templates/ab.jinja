@@ -1,0 +1,19 @@
+{%- set all_variables = {
+  'A': 5,
+  'b': 3,
+} -%}
+
+{% macro render(variables) %}
+{% for variable in variables -%}
+{% for n in range(variables[variable]) -%}
+{{ variable }}
+{%- endfor %}
+
+{% endfor %}
+{% endmacro %}
+
+{# -------------------------------------------------------------------------- #}
+
+{{- 'ab.txt' | start_new_file -}}
+
+{{- render(all_variables) -}}

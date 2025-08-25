@@ -1,0 +1,34 @@
+{%- import '00-stencils/NOT_FOUND.jinja' as common -%}
+
+{# -------------------------------------------------------------------------- #}
+
+{%- set all_variables = {
+  'A': {
+    'repeats': 5,
+    'selector': 'ab',
+  },
+  'b': {
+    'repeats': 3,
+    'selector': 'ab',
+  },
+  'c': {
+    'repeats': 2,
+    'selector': 'cd',
+  },
+  'D': {
+    'repeats': 10,
+    'selector': 'cd',
+  },
+} -%}
+
+{# -------------------------------------------------------------------------- #}
+
+{{- 'ab.txt' | start_new_file -}}
+
+{{- common.render(all_variables, 'ab') -}}
+
+{# -------------------------------------------------------------------------- #}
+
+{{- 'cd.txt' | start_new_file -}}
+
+{{- common.render(all_variables, 'cd') -}}

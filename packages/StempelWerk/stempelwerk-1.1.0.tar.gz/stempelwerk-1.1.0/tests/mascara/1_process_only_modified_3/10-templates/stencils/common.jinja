@@ -1,0 +1,8 @@
+{% macro render(variables) %}
+{% for variable_key in variables -%}
+{%- for n in range(variables[variable_key].repeats) -%}
+{{ variable_key }}
+{%- endfor %}
+
+{% endfor %}
+{% endmacro %}
