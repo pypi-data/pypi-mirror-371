@@ -1,0 +1,2 @@
+[console_scripts]
+stempelwerk = stempelwerk.StempelWerk:main_cli
