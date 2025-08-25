@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "shellhorn"
+version = "0.1.0"
+description = "🐚📯 A lightweight command wrapper that sounds the horn when your shell commands complete, fail, or die unexpectedly"
+authors = [{name = "Mitchell Currie"}]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "paho-mqtt>=1.6.0",
+    "requests>=2.25.0",
+]
+keywords = ["shell", "command", "wrapper", "notification", "monitoring", "mqtt", "pushover"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers", 
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9", 
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: System :: Monitoring",
+    "Topic :: System :: Shells",
+    "Topic :: Utilities",
+]
+
+[project.urls]
+Homepage = "https://github.com/mitchellcurrie/shellhorn"
+Repository = "https://github.com/mitchellcurrie/shellhorn"
+Issues = "https://github.com/mitchellcurrie/shellhorn/issues"
+
+[project.scripts]
+shellhorn = "conch.cli:main"
+conch = "conch.cli:main"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0",
+    "black",
+    "flake8",
+]
+
+[tool.setuptools]
+packages = ["conch"]

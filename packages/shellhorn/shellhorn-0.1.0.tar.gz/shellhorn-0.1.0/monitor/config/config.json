@@ -1,0 +1,14 @@
+{
+  "mqtt": {
+    "broker_host": "localhost",
+    "broker_port": 1883,
+    "topic_prefix": "conch"
+  },
+  "monitoring": {
+    "timeout_minutes": 30,
+    "check_interval_seconds": 60,
+    "status_interval_seconds": 300
+  },
+  "client_id": "conch-monitor-001",
+  "secrets_file": "/etc/conch-monitor/secrets.json"
+}

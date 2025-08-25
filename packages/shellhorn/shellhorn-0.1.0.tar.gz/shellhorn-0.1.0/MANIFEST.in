@@ -1,0 +1,22 @@
+# Include additional files in the package
+include README.md
+include LICENSE
+include MANIFEST.in
+
+# Include monitor files
+recursive-include monitor *.py *.json *.yml *.dockerfile
+include monitor/README.md
+include monitor/requirements.txt
+
+# Include tests
+recursive-include tests *.py
+
+# Include examples
+include example*.py
+
+# Exclude development files
+exclude setup_pypi.py
+exclude .env.example
+global-exclude *.pyc
+global-exclude __pycache__
+global-exclude .DS_Store

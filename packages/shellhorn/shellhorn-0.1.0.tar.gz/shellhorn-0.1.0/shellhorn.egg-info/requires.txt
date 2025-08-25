@@ -1,0 +1,7 @@
+paho-mqtt>=1.6.0
+requests>=2.25.0
+
+[dev]
+pytest>=6.0
+black
+flake8
