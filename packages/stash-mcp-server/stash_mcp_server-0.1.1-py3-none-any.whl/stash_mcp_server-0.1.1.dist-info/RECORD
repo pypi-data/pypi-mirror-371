@@ -1,0 +1,12 @@
+./.gitignore,sha256=lzMNssg_M1okQOpbrB2emouiDQJk5HVML9RNq0L2Fjc,3307
+./.python-version,sha256=e1X45ntWI8S-8_ppEojalDfXnTq6FW3kjUgdsyrH0W0,5
+./PKG-INFO,sha256=1ve9rekdyWc4ls3eVtucSNkFxqi-XodnD9k1mKxAHn8,1596
+./README.md,sha256=GxAgXMXGucL7vcQEo_kkMrYSc5YPXJgGYPBRClymNA8,506
+./__init__.py,sha256=VpKWTGKKxEH7d1yamiWFFkj4uNMsfghtTwJtC3wHNoc,209
+./main.py,sha256=IaQRoS-KiFY11hRU8Qia2EGrkQ92wa8GxxByy7UzSgo,8573
+./pyproject.toml,sha256=owKD3ufvAqUDA9V_zq_o8Iei9m-JhkGC381qyCXrpRE,1374
+./uv.lock,sha256=YQJn53xqaWil5zrYNb5CpWLmExkkrqay7ffO65c0g5E,107234
+stash_mcp_server-0.1.1.dist-info/METADATA,sha256=1ve9rekdyWc4ls3eVtucSNkFxqi-XodnD9k1mKxAHn8,1596
+stash_mcp_server-0.1.1.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+stash_mcp_server-0.1.1.dist-info/entry_points.txt,sha256=Yeh0B91Mc2GrtxqX08RdcD0LlakF1jvW6LWZgeBn-sU,47
+stash_mcp_server-0.1.1.dist-info/RECORD,,
