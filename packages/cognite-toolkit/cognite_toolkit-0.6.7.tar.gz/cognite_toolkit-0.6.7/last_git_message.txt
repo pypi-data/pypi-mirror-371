@@ -1,0 +1,29 @@
+[CDF-25324] 🙃 Download raw app (#1837)
+
+# Description
+
+<del>Stacked on #1826 </del>
+
+Adds the CLI interface for downloading raw tables
+<img width="1302" height="414" alt="image"
+src="https://github.com/user-attachments/assets/ab1e5d7d-67b4-44fe-a0fb-81fffad8e173"
+/>
+
+Note we have no tests for the CLI interfaces in Toolkit. This calls well
+tested functions.
+
+## Changelog
+
+- [x] Patch
+- [ ] Skip
+
+## cdf
+
+### Added
+
+- [alpha] New command `cdf download` and with the subcommand `cdf
+download raw`.
+
+## templates
+
+No changes.
