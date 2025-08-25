@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+onesharepy/__init__.py
+onesharepy/__main__.py
+onesharepy.egg-info/PKG-INFO
+onesharepy.egg-info/SOURCES.txt
+onesharepy.egg-info/dependency_links.txt
+onesharepy.egg-info/requires.txt
+onesharepy.egg-info/top_level.txt
