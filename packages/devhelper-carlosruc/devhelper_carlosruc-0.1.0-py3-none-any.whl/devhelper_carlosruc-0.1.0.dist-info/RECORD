@@ -1,0 +1,9 @@
+devhelper/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+devhelper/cli.py,sha256=MmsC0JugEG7fT_a_HniIcR1NvyTWpUzbBcbte_QSeOA,517
+devhelper/tasks.py,sha256=Y6H1FLyRcn90dkymXE8tPbfCluYN5xtJMgVBmUXmm7Y,205
+devhelper_carlosruc-0.1.0.dist-info/licenses/LICENSE,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+devhelper_carlosruc-0.1.0.dist-info/METADATA,sha256=ds1PTet_MYkUkl4NlULyGStqAwbQUNn-agfufFdST_g,195
+devhelper_carlosruc-0.1.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+devhelper_carlosruc-0.1.0.dist-info/entry_points.txt,sha256=dWS0883pG8SpS0-nJpdc1kcVHE7pE-MRQqP0xcIsdxY,48
+devhelper_carlosruc-0.1.0.dist-info/top_level.txt,sha256=1I0bl95vOfPxtr3BPuwIi1er-ntMIxYEqaaYP1P5-qM,10
+devhelper_carlosruc-0.1.0.dist-info/RECORD,,
