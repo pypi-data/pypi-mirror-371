@@ -1,0 +1,11 @@
+mbr_test_pckg/__init__.py,sha256=Z46AGYm6e5cTde56Aj7xc_CQtPlyMR1SUUE0fH4Vmhc,56
+mbr_test_pckg/__main__.py,sha256=c32ZHX_5zmMetKHv5yGMDUEqRxUWQTXxiIuoPFbDk9w,145
+mbr_test_pckg/speaker.py,sha256=Filx-KNvHE5Qj4iwwEstzDJVHLOV-nfW8r2CiPXvOok,238
+mbr_test_pckg/speakers/__init__.py,sha256=_wmrv8oCRvyNrQc-yU1B-2f4GXcmnn99t4Kp0KWpmeE,24
+mbr_test_pckg/speakers/milan.py,sha256=zuz8_lbp7TA4sRMQhSXzDVHhuhqT8I_lX4uFdwVj2iE,81
+mbr_test_pckg-0.2.0.dist-info/licenses/LICENSE.txt,sha256=Skr_8w4Nr9aQ21ReV3yrPlUG1c568efbDjXmxboEoXA,1459
+mbr_test_pckg-0.2.0.dist-info/METADATA,sha256=gP15iKBAVxeBZSA8o32gUvR0yTflnq4KOmppca170jk,2554
+mbr_test_pckg-0.2.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+mbr_test_pckg-0.2.0.dist-info/entry_points.txt,sha256=fPAAf5DxUOXqmbdD4NH9a82wfUqKkqJEC0lSXiszxa4,58
+mbr_test_pckg-0.2.0.dist-info/top_level.txt,sha256=E5c0XGUD4AwKrsytoHQpCAkmi0vYoCazh_mS76HGnCk,14
+mbr_test_pckg-0.2.0.dist-info/RECORD,,

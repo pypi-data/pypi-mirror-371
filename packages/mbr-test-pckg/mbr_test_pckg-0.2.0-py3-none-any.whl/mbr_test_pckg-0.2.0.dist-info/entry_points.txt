@@ -1,0 +1,2 @@
+[console_scripts]
+milan_brzon = milan_brzon.__main__:main
