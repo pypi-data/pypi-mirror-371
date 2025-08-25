@@ -1,0 +1,2 @@
+[console_scripts]
+mcp-gosling = mcp_docling:main
