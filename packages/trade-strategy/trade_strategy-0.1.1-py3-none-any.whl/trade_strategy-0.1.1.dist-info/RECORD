@@ -1,0 +1,8 @@
+trade_strategy/__about__.py,sha256=zqZKi1dCo2loqedq7zlcpwHMJPeCadx97VmN5OvcQYU,423
+trade_strategy/__init__.py,sha256=YBacfZFDF3m7RzIYN_kqA_P5FUMIuQsBxPJ0lLcFyG0,158
+trade_strategy/portfolio_construction/return_allocations/allocations.py,sha256=oR9QHxxZV8QUa9bV6ESXFROrx5_XnbrQY0oK92zEdq0,222
+trade_strategy/portfolio_construction/return_allocations/efficient_frontier.py,sha256=JwDTWMMPj_45RKJGg5dST-8Vu6nibx5BDinIRAj52qA,10586
+trade_strategy-0.1.1.dist-info/METADATA,sha256=QKkumFUKYWaARd6AOMw5t6AtoDTZzm1uBUSusGaefPc,2799
+trade_strategy-0.1.1.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+trade_strategy-0.1.1.dist-info/licenses/LICENSE,sha256=Y087-45WGs1n73TBrw9gdB1XxrwtNJMZd4MyExOuu9Q,1091
+trade_strategy-0.1.1.dist-info/RECORD,,
