@@ -1,0 +1,31 @@
+{
+  "_index-Dqr7SJQ0.js": {
+    "file": "index-Dqr7SJQ0.js",
+    "name": "index",
+    "dynamicImports": [
+      "node_modules/.pnpm/@tabler+icons-react@3.34.1_react@19.0.0/node_modules/@tabler/icons-react/dist/esm/tabler-icons-react.mjs"
+    ]
+  },
+  "node_modules/.pnpm/@tabler+icons-react@3.34.1_react@19.0.0/node_modules/@tabler/icons-react/dist/esm/tabler-icons-react.mjs": {
+    "file": "tabler-icons-react-CdxdaKnQ.js",
+    "name": "tabler-icons-react",
+    "src": "node_modules/.pnpm/@tabler+icons-react@3.34.1_react@19.0.0/node_modules/@tabler/icons-react/dist/esm/tabler-icons-react.mjs",
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-Dqr7SJQ0.js"
+    ]
+  },
+  "src/index.ts": {
+    "file": "routelit-mantine.es.js",
+    "name": "index",
+    "src": "src/index.ts",
+    "isEntry": true,
+    "imports": [
+      "_index-Dqr7SJQ0.js"
+    ]
+  },
+  "style.css": {
+    "file": "frontend.css",
+    "src": "style.css"
+  }
+}
