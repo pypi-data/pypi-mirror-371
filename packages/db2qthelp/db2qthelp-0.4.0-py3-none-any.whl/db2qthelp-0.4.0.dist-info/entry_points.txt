@@ -1,0 +1,2 @@
+[console_scripts]
+db2qthelp = db2qthelp:script_run
