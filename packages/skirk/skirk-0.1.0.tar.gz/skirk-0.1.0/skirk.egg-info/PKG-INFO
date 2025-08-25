@@ -1,0 +1,95 @@
+Metadata-Version: 2.4
+Name: skirk
+Version: 0.1.0
+Summary: Add your description here
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: pydantic>=2.11.7
+Requires-Dist: pyyaml>=6.0.2
+Requires-Dist: types-pyyaml>=6.0.12.20250809
+
+# Skirk
+
+A lightweight configuration management library that supports loading configurations from multiple sources with type conversion and validation.
+
+## Features
+
+- **Multi-source Configuration Loading**: Load configurations from files, command-line arguments, and other sources
+- **Type Safety**: Provide type conversion and validation to ensure configuration values match expected types
+- **Flexible Extension**: Customize configuration sources, parsers, and type factories
+- **Dataclass Integration**: Based on Python dataclasses for simple and intuitive usage
+- **Multiple Format Support**: Built-in YAML and JSON parsers
+
+## Installation
+
+Install with pip:
+
+```bash
+pip install skirk
+```
+
+Or install with uv:
+
+```bash
+uv add skirk
+```
+
+## Quick Start
+
+```python
+from dataclasses import dataclass
+from pathlib import Path
+from skirk import BaseConfig, FileSource
+
+@dataclass
+class AppConfig(BaseConfig):
+    host: str
+    port: int
+    debug: bool = False
+
+# Load configuration from file
+config = AppConfig.from_file("config.yaml")
+
+print(config.host)
+print(config.port)
+print(config.debug)
+```
+
+## Custom Config Parser
+
+```python
+from skirk import config_parser, BaseConfigParser
+
+@config_parser(suffix="custom")
+class CustomParser(BaseConfigParser):
+    @classmethod
+    def parse(cls, f):
+        ...
+
+    @classmethod
+    def dump(cls, f):
+        # support for dump config to custom format config file
+        ...
+```
+
+## Custom Type Support
+
+```python
+from skirk import type_factory
+from datetime import datetime
+
+@type_factory
+def datetime_factory(value: str) -> datetime:
+    return datetime.fromisoformat(value)
+
+class DateConfig(BaseConfig):
+    launch_date: datetime
+```
+
+
+
+## Contact
+
+For any questions or suggestions, please contact [kujou-kazuya@outlook.com](mailto:kujou-kazuya@outlook.com)
+
+© 2025 Kujou Kazuya
