@@ -1,0 +1,90 @@
+Metadata-Version: 2.4
+Name: ids-iforest
+Version: 0.1.0
+Summary: Network intrusion detection system based on Isolation Forest and PyShark
+Author-email: Rachid Bellaali <bellaalirachid@gmail.com>
+License-Expression: MIT
+Project-URL: Homepage, https://gitlab.com/rachiid007/network_traffic_analysis
+Project-URL: Documentation, https://gitlab.com/rachiid007/network_traffic_analysis/-/blob/main/README.md
+Keywords: ids,machine learning,isolation forest,network,security
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Security
+Classifier: Topic :: System :: Networking
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pyshark<0.7,>=0.6
+Requires-Dist: scikit-learn<1.8,>=1.5
+Requires-Dist: pandas<3.0,>=1.5
+Requires-Dist: numpy
+Requires-Dist: pyyaml>=6.0
+Requires-Dist: colorama>=0.4
+Requires-Dist: joblib>=1.3
+Requires-Dist: Flask>=2.3
+Provides-Extra: test
+Requires-Dist: pytest>=7.0.0; extra == "test"
+Requires-Dist: pytest-cov>=4.0.0; extra == "test"
+Requires-Dist: pytest-mock>=3.10.0; extra == "test"
+Requires-Dist: pytest-xdist>=3.3.0; extra == "test"
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0.0; extra == "dev"
+Requires-Dist: pytest-cov>=4.0.0; extra == "dev"
+Requires-Dist: pytest-mock>=3.10.0; extra == "dev"
+Requires-Dist: pytest-xdist>=3.3.0; extra == "dev"
+Requires-Dist: black>=23.0.0; extra == "dev"
+Requires-Dist: flake8>=6.0.0; extra == "dev"
+Requires-Dist: mypy>=1.0.0; extra == "dev"
+Requires-Dist: build>=1.0.0; extra == "dev"
+Requires-Dist: twine>=4.0.0; extra == "dev"
+Dynamic: license-file
+
+# IDS-IForest
+
+Network intrusion detection system based on Isolation Forest and PyShark.
+
+## Overview
+
+This package provides tools for network traffic analysis and anomaly detection using machine learning. It uses the Isolation Forest algorithm to detect unusual network behavior that may indicate potential security threats.
+
+## Features
+
+- Train anomaly detection models on network traffic data
+- Detect anomalies in live network traffic or PCAP files
+- Convert PCAP files to flow-based CSV format
+- Generate synthetic datasets for testing
+
+## Installation
+
+```bash
+pip install ids-iforest
+```
+
+## Usage
+
+### Training a model
+
+```bash
+ids-iforest-train --input data/train.csv --output models/ids_iforest.joblib
+```
+
+### Detecting anomalies
+
+```bash
+ids-iforest-detect --model models/ids_iforest.joblib --interface eth0
+```
+
+### Converting PCAP to CSV
+
+```bash
+ids-iforest-pcap2csv --input capture.pcap --output flows.csv
+```
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
