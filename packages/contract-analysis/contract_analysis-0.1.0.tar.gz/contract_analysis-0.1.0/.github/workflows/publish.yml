@@ -1,0 +1,52 @@
+name: Build and Publish to PyPI
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build-test-publish:
+    runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write  # Required for OIDC
+      contents: read   # Required to read repo contents
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install .[test]
+        pip install build setuptools wheel twine pkginfo hatchling
+        python -m pip install twine --upgrade
+        python -m pip install hatchling --upgrade
+        python -m pip install pkginfo --upgrade
+
+    - name: Run tests
+      run: PYTHONPATH=src python -m unittest discover -s tests -p "test_*.py"
+
+    - name: Build package
+      run: python -m build
+
+    - name: List dist contents
+      run: ls -l dist
+
+    - name: Inspect wheel metadata
+      run: |
+        python -m wheel unpack dist/*.whl -d unpacked
+        cat unpacked/*/*.dist-info/METADATA
+
+    - name: Publish to PyPI
+      uses: pypa/gh-action-pypi-publish@v1.8.11
+      with:
+        repository-url: https://upload.pypi.org/legacy/
+        packages-dir: dist
+        verify-metadata: true
