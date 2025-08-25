@@ -1,0 +1,2 @@
+[console_scripts]
+svg-extract-images = scripts.extract_svg_images:main

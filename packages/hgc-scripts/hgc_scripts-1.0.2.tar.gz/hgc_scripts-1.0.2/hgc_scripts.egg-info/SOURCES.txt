@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+hgc_scripts.egg-info/PKG-INFO
+hgc_scripts.egg-info/SOURCES.txt
+hgc_scripts.egg-info/dependency_links.txt
+hgc_scripts.egg-info/entry_points.txt
+hgc_scripts.egg-info/requires.txt
+hgc_scripts.egg-info/top_level.txt
+scripts/__init__.py
+scripts/extract_svg_images.py
