@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+src/cdk_private_api_domain/__init__.py
+src/cdk_private_api_domain/py.typed
+src/cdk_private_api_domain.egg-info/PKG-INFO
+src/cdk_private_api_domain.egg-info/SOURCES.txt
+src/cdk_private_api_domain.egg-info/dependency_links.txt
+src/cdk_private_api_domain.egg-info/requires.txt
+src/cdk_private_api_domain.egg-info/top_level.txt
+src/cdk_private_api_domain/_jsii/__init__.py
+src/cdk_private_api_domain/_jsii/cdk-private-api-domain@0.0.0.jsii.tgz
