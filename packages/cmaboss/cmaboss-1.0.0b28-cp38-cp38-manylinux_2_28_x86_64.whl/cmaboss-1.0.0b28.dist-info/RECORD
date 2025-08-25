@@ -1,0 +1,17 @@
+cmaboss/__init__.py,sha256=lSRM7ZeYwGrcLht9LNI_Y3LsThi3Aupf4vkibRqiCKQ,22
+cmaboss/cmaboss.cpython-38-x86_64-linux-gnu.so,sha256=26uUyuzOr-KcbzX8vofbNGJe-5zvr-kX1fV0S39yek4,8320841
+cmaboss.libs/liblzma-51a76f52.so.5.2.4,sha256=3EDuNDuc_qFaqWfrJ8TjbJH2lPntVHhFdyIyzxLyVuk,167585
+cmaboss.libs/libxml2-39f609e7.so.2.9.7,sha256=QflO4iFzAonXtn84VHjVsaMUkc5Q89PbFxr_jvNqjD0,1597833
+cmaboss_1024n/__init__.py,sha256=jfA5cCfqNuvD1DJTimkFugawONGSjxTb6WmOc8WUSF0,28
+cmaboss_1024n/cmaboss_1024n.cpython-38-x86_64-linux-gnu.so,sha256=94OaJ3CLJAzMro7mkjKY6osr5BkVd2xoeGR9LIO_zk0,8433329
+cmaboss_128n/__init__.py,sha256=pe27nB1Xae9NdG1RikXDfIvkAGphWi_dZjGkaw58eZA,27
+cmaboss_128n/cmaboss_128n.cpython-38-x86_64-linux-gnu.so,sha256=Vfe2EkQIvhZDrCkShXPOQvWUh-lj4cOR2Od_VcVGjUg,8357337
+cmaboss_256n/__init__.py,sha256=EYsWWs-pksQW9u9iBiAEAuWz-62kYfhOXWZw7dS1xpg,27
+cmaboss_256n/cmaboss_256n.cpython-38-x86_64-linux-gnu.so,sha256=OQ5tdpiKTd67OZ-4k2DVtiz3Ogym2a7DFiGbWbUqmpA,8367385
+cmaboss_512n/__init__.py,sha256=7WxEdH-roPpggcsWehkJ29he6dVqJbVIXrVBtP3Xmjw,27
+cmaboss_512n/cmaboss_512n.cpython-38-x86_64-linux-gnu.so,sha256=Epl3PeSAPlVFFYzsDRbKAAyJ_k-qmlmU0KFr4ZG7YhA,8392537
+cmaboss_dn/__init__.py,sha256=Sykqvbd7NCLCAV91jpefGmIKav37JQXLCyMdl3Yzd3w,25
+cmaboss_dn/cmaboss_dn.cpython-38-x86_64-linux-gnu.so,sha256=oXFLv60J1WQLeNZ2R3iQlzl5sadhOqCywRs1G-XW2EU,8444505
+cmaboss-1.0.0b28.dist-info/METADATA,sha256=nPqqXUGSKOjTTePeez38icRN5s3CmUqX9qZBvZN2u_w,90
+cmaboss-1.0.0b28.dist-info/WHEEL,sha256=bKtBd2Y01bPNvwWQdkWtUr_JJojfYjoR2u8AhaLkE6I,116
+cmaboss-1.0.0b28.dist-info/RECORD,,
