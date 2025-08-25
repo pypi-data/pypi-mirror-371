@@ -1,0 +1,2 @@
+[console_scripts]
+rprob = rprob.__main__:main
