@@ -1,0 +1,17 @@
+ormantism/__init__.py,sha256=G8RbJPUkQaorpbIhUnNDdJnawSuAd8ggUmv1hLtvmNo,118
+ormantism/connection.py,sha256=HdHbqNhw3k2ulr6bwBQQ4dO_adgLKO__f-ALxqfvHEU,1411
+ormantism/field.py,sha256=DIgEyyLy-WAwOoAxt2vTxKgs4xI4S2P2UEHVBSdExcI,5911
+ormantism/join_info.py,sha256=LiuAJ4byeh_G0I0DF9wN2nIvbVyjUd3By70fMyKO65E,3375
+ormantism/table.py,sha256=sQbFazg20o5RKdOTMjbqgglQl9z-Brw6-HRncFd9kw0,15454
+ormantism/transaction.py,sha256=KslgQJxtShwEp8_catqTI4ZnqCKmeYRhbVSB_LlGETg,5629
+ormantism/utils/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+ormantism/utils/get_base_type.py,sha256=DHs3n6AgZl0mucTxBdo5GZUCq2cJbOO0QRcpMwJb98w,2801
+ormantism/utils/is_type_annotation.py,sha256=w7UZXNz0GJHVqLUc2G66Du6yJO6ZGi5lg2m-RyfmWQk,1316
+ormantism/utils/make_hashable.py,sha256=jPDOIWoS9CJdEcibTnSTiWYBs9R38uXZcTYCtiR7VEs,1136
+ormantism/utils/rebuild_pydantic_model.py,sha256=UNArE-DlYr-ejFHK3dd-YnKFb3kx7KquAmfeKGtUlpI,3101
+ormantism/utils/supermodel.py,sha256=j7UJqfXj1LJfnhLs38cci8m16cdzX6itnelXbt5Kdu0,8991
+ormantism-0.4.3.dist-info/licenses/LICENCE,sha256=0PhS3saE9Nw4aFGdzIj1QrARWimBqVym_co-MRUU3-U,1070
+ormantism-0.4.3.dist-info/METADATA,sha256=bpwAsQjhLgKuTo2Pq4OdlTVdWcLqZ9w_T8mOCYM8eTA,6694
+ormantism-0.4.3.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+ormantism-0.4.3.dist-info/top_level.txt,sha256=Vyn_Vil-CDCSrD_RdOwswnOjgec6gbcFUQgYYLC08uE,10
+ormantism-0.4.3.dist-info/RECORD,,
