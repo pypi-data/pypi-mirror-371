@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+fffa/__init__.py
+fffa/fff.py
+fffa/main.py
+fffa/update.py
+fffa/utils.py
+fffa.egg-info/PKG-INFO
+fffa.egg-info/SOURCES.txt
+fffa.egg-info/dependency_links.txt
+fffa.egg-info/top_level.txt
+tests/test_fffa.py
