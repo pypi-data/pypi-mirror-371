@@ -1,0 +1,11 @@
+Metadata-Version: 2.3
+Name: filedial
+Version: 0.1.0
+Summary: Cross-platform file dialogs using tkinter
+Requires-Python: >=3.13
+Project-URL: Repository, https://github.com/ductorex/filedial
+Description-Content-Type: text/markdown
+
+# filedial
+
+Simple cross-platform GUI file dialogs. Currently using tkinter as backend.
