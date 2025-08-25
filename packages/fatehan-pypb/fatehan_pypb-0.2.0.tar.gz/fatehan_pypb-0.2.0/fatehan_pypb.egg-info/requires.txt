@@ -1,0 +1,5 @@
+protobuf<7,>=6.31.1
+grpcio<2,>=1.62
+
+[dev]
+grpcio-tools>=1.74.0
