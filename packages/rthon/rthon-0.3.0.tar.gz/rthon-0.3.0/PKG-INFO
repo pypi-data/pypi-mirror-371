@@ -1,0 +1,63 @@
+Metadata-Version: 2.4
+Name: rthon
+Version: 0.3.0
+Summary: R-style probability functions for Python: Normal, Uniform, Binomial, Poisson, Exponential, and Gamma distributions
+Project-URL: Homepage, https://github.com/sdswitz/rthon
+Author-email: Sam Switz <samuel76@illinois.edu>
+License: MIT
+License-File: LICENSE
+Keywords: R,binomial,distributions,exponential,gamma,normal,poisson,probability,statistics,uniform
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Requires-Python: >=3.8
+Provides-Extra: dev
+Requires-Dist: black; extra == 'dev'
+Requires-Dist: build; extra == 'dev'
+Requires-Dist: hypothesis; extra == 'dev'
+Requires-Dist: pytest; extra == 'dev'
+Requires-Dist: ruff; extra == 'dev'
+Requires-Dist: twine; extra == 'dev'
+Description-Content-Type: text/markdown
+
+# rthon
+
+R-style probability functions for Python, providing familiar statistical distribution functions with R-compatible interfaces.
+
+## Features
+
+Currently supports these probability distributions:
+
+- **Normal Distribution**: `dnorm`, `pnorm`, `qnorm`, `rnorm`
+- **Uniform Distribution**: `dunif`, `punif`, `qunif`, `runif`
+- **Binomial Distribution**: `dbinom`, `pbinom`, `qbinom`, `rbinom`
+- **Poisson Distribution**: `dpois`, `ppois`, `qpois`, `rpois`
+- **Exponential Distribution**: `dexp`, `pexp`, `qexp`, `rexp`
+- **Gamma Distribution**: `dgamma`, `pgamma`, `qgamma`, `rgamma`
+
+## Installation
+
+```bash
+pip install rprob
+```
+
+## Quick Start
+
+```python
+from rprob import dnorm, pnorm, qnorm, rnorm
+
+# Normal distribution examples
+dnorm(0)        # PDF at x=0
+pnorm(1.96)     # CDF at x=1.96
+qnorm(0.975)    # Quantile for p=0.975
+rnorm(10)       # 10 random samples
+
+# All functions support R-style parameters
+pnorm(1.96, lower_tail=False, log=True)
+dnorm([0, 1, 2], mean=1, sd=2)
+```
+
+## License
+
+MIT License 
