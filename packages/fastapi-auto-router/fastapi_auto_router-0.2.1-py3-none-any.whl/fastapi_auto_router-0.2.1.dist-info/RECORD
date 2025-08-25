@@ -1,0 +1,6 @@
+fastapi_auto_router/__init__.py,sha256=X9YuKPvX5MWQYDVyuLqAqR5sV01CpEm5ivcDl8Ot-8w,86
+fastapi_auto_router/router_loader.py,sha256=Pd1A5p0ItRwOwd0qDBkX1dJJMpTlL7LyaIThKfhO0_A,3343
+fastapi_auto_router-0.2.1.dist-info/METADATA,sha256=enAGr8OOF6DY0BOd_l7vHXv4OnivB3G9Va7NozPtbU8,2733
+fastapi_auto_router-0.2.1.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+fastapi_auto_router-0.2.1.dist-info/licenses/LICENSE,sha256=yGgDTudjHXn1PB2NjZvTmHQUFfKqGDiQWVTTOl_KYKk,1069
+fastapi_auto_router-0.2.1.dist-info/RECORD,,
