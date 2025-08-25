@@ -1,0 +1,2 @@
+[console_scripts]
+sonarr-mcp = sonarr_mcp_server:main

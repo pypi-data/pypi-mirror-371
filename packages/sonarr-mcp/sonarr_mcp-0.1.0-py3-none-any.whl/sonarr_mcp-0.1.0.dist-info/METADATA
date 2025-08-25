@@ -1,0 +1,199 @@
+Metadata-Version: 2.4
+Name: sonarr-mcp
+Version: 0.1.0
+Summary: MCP server for Sonarr tv-show management
+Requires-Python: >=3.13
+Requires-Dist: httpx>=0.27.0
+Requires-Dist: mcp>=1.0.0
+Requires-Dist: pydantic>=2.0.0
+Description-Content-Type: text/markdown
+
+# Sonarr MCP Server
+
+A Model Context Protocol (MCP) server for [Sonarr](https://sonarr.tv/), enabling AI assistants to manage your TV series collection through natural language interactions.
+
+## Features
+
+- 🔍 **Search Series** - Find TV series to add to your collection
+- ➕ **Add Series** - Add TV series with quality profiles, season monitoring, and search options
+- 📋 **List Series** - View your entire TV series library with episode counts
+- 📺 **Series Details** - Get detailed information including episode status and downloads
+- ⚙️ **Update Series** - Change quality profiles, season monitoring, and trigger searches
+- 🗑️ **Delete Series/Seasons** - Remove entire series or specific seasons (with optional file deletion)
+- 🔍 **Interactive Search** - Browse available releases for episodes with quality and seeder info
+- 📊 **Quality Profiles** - View available quality settings
+- ⬇️ **Download Release** - Manually download specific releases for episodes
+- 🎯 **Season Control** - Granular monitoring and management of individual seasons
+
+## Installation
+
+### From PyPI (Recommended)
+
+```bash
+pip install sonarr-mcp
+```
+
+### From Source
+
+```bash
+git clone https://github.com/MichaelReubenDev/sonarr-mcp.git
+cd sonarr-mcp
+uv sync
+```
+
+## Usage
+
+### Command Line
+
+```bash
+# Using uvx (if installed from PyPI)
+uvx sonarr-mcp --url http://localhost:8989 --api-token YOUR_API_TOKEN
+
+# Using uv run (from source)
+uv run sonarr-mcp --url http://localhost:8989 --api-token YOUR_API_TOKEN
+
+# With debug logging
+uv run sonarr-mcp --url http://localhost:8989 --api-token YOUR_API_TOKEN --debug
+```
+
+### With Claude Desktop
+
+Add this to your Claude Desktop MCP configuration:
+
+```json
+{
+  "mcpServers": {
+    "sonarr": {
+      "command": "uvx",
+      "args": [
+        "sonarr-mcp",
+        "--url", "http://localhost:8989",
+        "--api-token", "YOUR_API_TOKEN"
+      ]
+    }
+  }
+}
+```
+
+### With MCP Inspector
+
+For testing and development:
+
+```bash
+npx @modelcontextprotocol/inspector uv run sonarr-mcp --url http://localhost:8989 --api-token YOUR_API_TOKEN
+```
+
+## Configuration
+
+### Required Parameters
+
+- `--url`: Your Sonarr base URL (e.g., `http://localhost:8989`)
+- `--api-token`: Your Sonarr API token (found in Settings → General → Security)
+
+### Optional Parameters
+
+- `--debug`: Enable debug logging
+
+## Available Tools
+
+| Tool | Description | Parameters |
+|------|-------------|------------|
+| `search_series` | Search for TV series to add | `query` (string) |
+| `add_series` | Add a TV series to Sonarr | `tvdb_id` (int), `quality_profile_id` (int), `monitor_type` (string, **required**), `root_folder_path` (string, default: "/tv"), `season_folder` (bool, default: true), `monitor_seasons` (array, optional), `search_for_missing_episodes` (bool, default: false) |
+| `list_series` | List all TV series in library | None |
+| `get_series` | Get detailed series information | `series_id` (int) |
+| `update_series` | Update series settings | `series_id` (int), `quality_profile_id` (int, optional), `monitor_type` (string, optional), `monitor_seasons` (array, optional), `start_search` (bool, default: false) |
+| `delete_series` | Delete a series or specific seasons | `series_id` (int), `delete_seasons` (array, optional), `delete_files` (bool, default: false) |
+| `interactive_search` | Browse available releases | `series_id` (int), `season_number` (int, optional), `episode_number` (int, optional) |
+| `download_release` | Download a specific release | `release_guid` (string), `series_id` (int) |
+| `get_quality_profiles` | List available quality profiles | None |
+
+### Monitor Types
+
+The `monitor_type` parameter supports these options:
+- `all` - Monitor all episodes
+- `future` - Monitor future episodes only
+- `missing` - Monitor missing episodes
+- `existing` - Monitor existing episodes
+- `recent` - Monitor recent episodes
+- `first` - Monitor first season only
+- `latest` - Monitor latest season only
+- `none` - Monitor no episodes
+- `season_specific` - Monitor specific seasons (requires `monitor_seasons` array)
+
+## Example Workflows
+
+### Adding a TV Series
+
+1. Search for series: "Search for Breaking Bad TV series"
+2. Add series: "Add Breaking Bad with HD-1080p quality, monitor all episodes"
+3. Add with specific seasons: "Add The Office with monitor_type: 'season_specific' and monitor_seasons: [1, 2, 3]"
+4. Check status: "Show me details for Breaking Bad"
+
+### Managing Your Collection
+
+1. List series: "Show me all my TV series"
+2. Update monitoring: "Change series ID 123 to monitor only seasons 2 and 4"
+3. Update quality and search: "Change series ID 123 to 4K quality and start searching for missing episodes"
+4. Browse releases: "Show me available releases for series ID 123 season 2"
+
+### Season-Specific Management
+
+1. Monitor specific seasons: "Update series ID 123 with monitor_type: 'season_specific', monitor_seasons: [1, 3, 5]"
+2. Delete specific seasons: "Delete seasons 2 and 4 from series ID 123 including files"
+3. Search specific episodes: "Show releases for series ID 123 season 3 episode 5"
+
+### Finding Downloads
+
+1. Get series details: "Show me the status of Game of Thrones"
+2. Interactive search: "What releases are available for The Walking Dead season 1?"
+3. Episode search: "Find releases for series ID 456 season 2 episode 10"
+
+## Requirements
+
+- Python 3.13+
+- Sonarr v3+ with API access
+- Network access to your Sonarr instance
+
+## Development
+
+```bash
+# Clone the repository
+git clone https://github.com/MichaelReubenDev/sonarr-mcp.git
+cd sonarr-mcp
+
+# Install dependencies
+uv sync
+
+# Test with the MCP Inspector
+task mcp_inspector
+
+# Run with debug logging
+uv run sonarr-mcp --url http://localhost:8989 --api-token YOUR_TOKEN --debug
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests if applicable
+5. Submit a pull request
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- [Sonarr](https://sonarr.tv/) - The amazing TV series collection manager
+- [Model Context Protocol](https://modelcontextprotocol.io/) - For enabling AI tool integration
+- [Anthropic](https://www.anthropic.com/) - For Claude and MCP development
+
+## Support
+
+- 🐛 [Report Issues](https://github.com/MichaelReubenDev/sonarr-mcp/issues)
+- 💬 [Discussions](https://github.com/MichaelReubenDev/sonarr-mcp/discussions)
+- 📖 [Sonarr API Documentation](https://sonarr.tv/docs/api/)
+
+---
