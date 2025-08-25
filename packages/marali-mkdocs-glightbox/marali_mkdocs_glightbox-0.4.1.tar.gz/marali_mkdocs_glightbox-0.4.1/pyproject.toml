@@ -1,0 +1,83 @@
+[build-system]
+# Besoin d'une version récente pour émettre Metadata-Version>=2.4 (support License-File)
+requires = ["setuptools>=72", "wheel>=0.42"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "marali_mkdocs-glightbox"
+version = "0.4.1"
+description = "MkDocs plugin supports image lightbox with GLightbox."
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [{ name = "Blueswen", email = "blueswen.tw@gmail.com" }]
+keywords = ["mkdocs", "plugin", "lightbox"]
+requires-python = ">=3.8"
+classifiers = [
+	"Development Status :: 4 - Beta",
+	"Intended Audience :: Developers",
+	"License :: OSI Approved :: MIT License",
+	"Programming Language :: Python",
+	"Programming Language :: Python :: 3",
+	"Programming Language :: Python :: 3 :: Only",
+	"Programming Language :: Python :: 3.8",
+	"Programming Language :: Python :: 3.9",
+	"Programming Language :: Python :: 3.10",
+	"Programming Language :: Python :: 3.11",
+	"Programming Language :: Python :: 3.12",
+	"Topic :: Software Development :: Build Tools",
+	"Topic :: Documentation",
+]
+# Runtime dependencies
+dependencies = ["mkdocs>=1.4"]
+
+[project.urls]
+Homepage = "https://blueswen.github.io/mkdocs-glightbox"
+Source = "https://github.com/Blueswen/mkdocs-glightbox"
+
+[project.entry-points."mkdocs.plugins"]
+# expose the plugin under the same name as in setup.py
+glightbox = "mkdocs_glightbox.plugin:LightboxPlugin"
+
+[project.optional-dependencies]
+# Install with: uv add .[dev]
+# or: pip install marali_mkdocs-glightbox[dev]
+dev = [
+	"pytest",
+	"pytest-cov",
+	"mkdocs-material",
+	"click",
+	"codecov; python_version<'3.13'", # optional CI upload tool
+]
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["mkdocs_glightbox", "mkdocs_glightbox.glightbox"]
+# Exclure répertoires indésirables
+exclude = [
+	"tests",
+	"tests.*",
+	"*.tests",
+	"*.tests.*",
+	"mkdocs_glightbox.__pycache__",
+]
+
+[tool.setuptools.package-data]
+# include the bundled JS/CSS assets and license file shipped with GLightbox
+mkdocs_glightbox = ["glightbox/*.js", "glightbox/*.css", "glightbox/*.md"]
+
+[tool.setuptools.exclude-package-data]
+mkdocs_glightbox = ["__pycache__/*"]
+
+[tool.pytest.ini_options]
+addopts = "-ra -q"
+
+[tool.coverage.run]
+branch = true
+source = ["mkdocs_glightbox"]
+
+[tool.uv]
+# Lockfile settings can be added later; placeholder section for uv-specific config
+managed = true
