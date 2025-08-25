@@ -1,0 +1,2 @@
+[nanodjango]
+django_style = django_style.nanodjango
