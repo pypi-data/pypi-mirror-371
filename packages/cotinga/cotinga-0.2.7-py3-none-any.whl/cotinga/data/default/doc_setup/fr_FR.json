@@ -1,0 +1,42 @@
+{
+  "classes": [],
+  "levels": [
+    "Ceinture blanche",
+    "Ceinture jaune",
+    "Ceinture orange",
+    "Ceinture verte",
+    "Ceinture bleue",
+    "Ceinture marron",
+    "Ceinture noire"
+  ],
+  "special_grades": [
+    "ABS",
+    "NN"
+  ],
+  "grading": {
+    "choice": "numeric",
+    "edge_literal": "B",
+    "edge_numeric": 15,
+    "literal_grades": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "maximum": 20,
+    "minimum": 0,
+    "step": 1
+  },
+  "report": {
+    "title": "Prochaine évaluation (<CLASSES>)",
+    "subtitle": "Niveaux actuels (au <DATE>)",
+    "date_fmt": "%d/%m/%Y",
+    "col_width": 4.8,
+    "max_rows": 30,
+    "max_tables": 1
+  },
+  "latex_tpl": {
+    "infolabel": "$^\\text{e}$"
+  }
+}
