@@ -1,0 +1,3 @@
+[console_scripts]
+yttan = yttran.cli:main
+
