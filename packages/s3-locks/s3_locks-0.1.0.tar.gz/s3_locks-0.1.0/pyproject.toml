@@ -1,0 +1,41 @@
+[project]
+name = "s3-locks"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Thom Lane", email = "thom.e.lane@gmail.com" }
+]
+requires-python = ">=3.10"
+dependencies = [
+    "boto3>=1.40.16",
+    "loguru>=0.7.3",
+]
+license = { text = "MIT" }
+keywords = ["s3", "locks", "distributed", "synchronization"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+[project.urls]
+Homepage = "https://github.com/thomelane/s3_locks"
+Repository = "https://github.com/thomelane/s3_locks"
+Issues = "https://github.com/thomelane/s3_locks/issues"
+
+[build-system]
+requires = ["uv_build>=0.8.13,<0.9.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.1",
+    "pytest-cov>=6.2.1",
+    "ruff>=0.12.10",
+    "moto[s3]>=5.0.0",
+]
