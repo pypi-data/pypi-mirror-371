@@ -1,0 +1,76 @@
+Metadata-Version: 2.4
+Name: flowfoundry
+Version: 1.0.0
+Summary: FlowFoundry: a strategy-first, cloud-agnostic agentic workflow framework (LangGraph/LangChain)
+Author: Mandar Parab
+License: Apache-2.0
+Keywords: RAG,LangGraph,LangChain,agents,LLM,framework
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pydantic>=2.7
+Requires-Dist: pyyaml>=6.0
+Requires-Dist: typer>=0.12
+Requires-Dist: fastapi>=0.111
+Requires-Dist: uvicorn>=0.30
+Requires-Dist: langchain>=0.2
+Requires-Dist: langgraph>=0.2
+Requires-Dist: pypdf>=4.2
+Provides-Extra: openai
+Requires-Dist: openai>=1.40; extra == "openai"
+Provides-Extra: llm-openai
+Requires-Dist: langchain-openai>=0.1.20; extra == "llm-openai"
+Provides-Extra: rag
+Requires-Dist: chromadb>=0.5; extra == "rag"
+Requires-Dist: sentence-transformers>=3.0; extra == "rag"
+Provides-Extra: search
+Requires-Dist: duckduckgo-search>=5.3; extra == "search"
+Requires-Dist: tavily-python>=0.3; extra == "search"
+Provides-Extra: rerank
+Requires-Dist: sentence-transformers>=3.0; extra == "rerank"
+Requires-Dist: rank-bm25>=0.2; extra == "rerank"
+Provides-Extra: qdrant
+Requires-Dist: qdrant-client>=1.9; extra == "qdrant"
+Provides-Extra: dev
+Requires-Dist: pytest>=8.2; extra == "dev"
+Requires-Dist: pytest-cov>=5.0; extra == "dev"
+Requires-Dist: mypy>=1.11; extra == "dev"
+Requires-Dist: ruff>=0.5; extra == "dev"
+Requires-Dist: black>=24.8; extra == "dev"
+Requires-Dist: types-PyYAML>=6.0.12.20240808; extra == "dev"
+Dynamic: license-file
+
+# FlowFoundry
+
+> **FlowFoundry** is a cloud-agnostic **agentic workflow framework** built on LangGraph and LangChain.  
+> It helps you design, test, and run agentic workflows locally or in the cloud, with pluggable connectors for storage, LLMs, rerankers, and external tools.
+
+## Features
+- 🔌 Cloud-agnostic core
+- 🧠 Multi-LLM per node
+- 🧪 Testable with in-memory components
+- 🛠️ Extensible for RAG, tool use, DB retrieval, form filing, image interpretation
+
+## Install
+```bash
+pip install flowfoundry           # core
+pip install "flowfoundry[rag]"    # + Chroma & sentence-transformers
+pip install "flowfoundry[rerank]" # + CrossEncoder & BM25
+```
+
+## Run a local RAG 
+```bash
+flowfoundry run examples/ingestion.yaml
+flowfoundry run examples/rag_local.yaml --state '{"query":"What does the doc say about X?"}'
+```
+### Extend with a strategy
+```python
+from flowfoundry.strategies import register_strategy
+
+@register_strategy("chunking", "my_smart_chunker")
+def my_smart_chunker(text: str, *, doc_id: str = "doc"):
+    return [{"doc": doc_id, "text": text}]
+```
