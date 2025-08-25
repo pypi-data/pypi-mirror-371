@@ -1,0 +1,2 @@
+[console_scripts]
+odin-ope = odin_ope.cli:main
