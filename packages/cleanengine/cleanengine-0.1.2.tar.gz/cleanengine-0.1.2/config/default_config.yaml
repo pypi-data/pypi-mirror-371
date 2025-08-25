@@ -1,0 +1,196 @@
+# ========================================================
+# Advanced Dataset Cleaner Configuration
+# Modular, Extensible, and Production-Ready
+# ========================================================
+
+# -------------------------------
+# Data Cleaning Settings
+# -------------------------------
+cleaning:
+  missing_values:
+    threshold: 0.5                  # Drop columns with >50% missing values
+    global_strategy: "auto"         # auto, mean, median, mode, drop
+    fill_numeric: "median"          # mean, median, mode
+    fill_categorical: "mode"        # mode, constant
+    column_strategies:              # Optional overrides per column
+      Age: "median"
+      Country: "mode"
+
+  duplicates:
+    remove: true                    # Remove duplicate rows
+    keep: "first"                   # first, last, false
+
+  outliers:
+    method: "iqr"                   # iqr, zscore, isolation_forest
+    threshold: 1.5                  # IQR multiplier or Z-score threshold
+    action: "cap"                   # remove, cap, flag
+    cap_percentile: [0.01, 0.99]    # For winsorization if cap is chosen
+
+  encoding:
+    categorical:
+      low_cardinality: "onehot"     # onehot, label
+      high_cardinality: "target"    # target, hashing
+    handle_unknown: "ignore"        # ignore, error
+
+  normalization:
+    method: "minmax"                # minmax, standard, robust
+    feature_range: [0, 1]           # For MinMax scaling
+
+# -------------------------------
+# Advanced Analysis Settings
+# -------------------------------
+analysis:
+  enable: true
+  show_user_feedback: true
+
+  statistical:
+    enable: true
+    include_skewness: true
+    include_kurtosis: true
+    normality_test: true
+
+  correlation:
+    enable: true
+    method: "pearson"               # pearson, spearman, kendall
+    threshold: 0.7                  # Strong correlation threshold
+
+  clustering:
+    enable: true
+    method: "kmeans"                # kmeans, hierarchical, dbscan
+    max_clusters: 10
+    dbscan:
+      eps: 0.5
+      min_samples: 5
+    hierarchical:
+      n_clusters: 3
+  anomaly_detection:
+    enable: true
+    method: "isolation_forest"      # isolation_forest, local_outlier_factor
+    contamination: 0.1
+
+  feature_importance:
+    enable: true
+    method: "mutual_info"           # mutual_info, correlation, variance
+
+  quality_assessment:
+    enable: true
+    completeness_weight: 0.4
+    uniqueness_weight: 0.3
+    consistency_weight: 0.3
+
+# -------------------------------
+# Visualization Settings
+# -------------------------------
+visualization:
+  enable: true
+  style: "seaborn-v0_8"
+  color_palette: "viridis"
+  figure_size: [12, 8]
+  dpi: 300
+  format: "png"                     # png, jpg, pdf, svg
+  save_plots: true
+  show_inline: true                 # For notebooks/interactive sessions
+
+# -------------------------------
+# Output Settings
+# -------------------------------
+output:
+  create_folders: true
+  folder_prefix: "Cleans-"
+  save_original: false
+  compress_output: false
+
+  reports:
+    generate_markdown: true
+    generate_json: true
+    generate_html: false
+    include_visualizations: true
+
+# -------------------------------
+# Performance Settings
+# -------------------------------
+performance:
+  chunk_size: 10000
+  parallel_processing:
+    enabled: false
+    backend: "multiprocessing"      # multiprocessing, dask, ray, polars
+    workers: 4
+  memory_limit_gb: 4
+
+# -------------------------------
+# Logging Settings
+# -------------------------------
+logging:
+  level: "INFO"                     # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  file: "dataset_cleaner.log"
+  max_size_mb: 10
+  backup_count: 3
+
+# -------------------------------
+# File Format Settings
+# -------------------------------
+file_formats:
+  csv:
+    encoding: "auto"
+    delimiter: ","
+  excel:
+    engine: "openpyxl"
+  json:
+    orient: "records"
+  parquet:
+    engine: "pyarrow"
+
+# -------------------------------
+# Validation Rules (Custom)
+# -------------------------------
+validation:
+  enable: false              # Enable custom validation rules (pre/post clean)
+  # Example rules (uncomment and customize):
+  # rules:
+  #   - type: column_exists
+  #     params:
+  #       column: "age"
+  #   - type: dtype_in
+  #     params:
+  #       column: "age"
+  #       dtypes: ["int64", "float64"]
+  #   - type: max_missing_pct
+  #     params:
+  #       column: "income"
+  #       threshold: 20
+  #   - type: value_range
+  #     params:
+  #       column: "age"
+  #       min: 0
+  #       max: 120
+  #   - type: allowed_values
+  #     params:
+  #       column: "status"
+  #       values: ["A", "B", "C"]
+  #   - type: max_duplicates_pct
+  #     params:
+  #       threshold: 10
+  rules: []                  # Custom validation rules list
+
+# -------------------------------
+# Advanced Features (Experimental)
+# -------------------------------
+experimental:
+  time_series_analysis:
+    enable: false
+    method: "prophet"
+    forecast_horizon: 12
+    decomposition: true
+
+  text_analysis:
+    enable: false
+    language: "en"
+    tasks: ["sentiment", "keywords"]
+
+  geospatial_analysis:
+    enable: false
+    projection: "WGS84"
+
+  ml_recommendations:
+    enable: false
+    suggest_models: true
