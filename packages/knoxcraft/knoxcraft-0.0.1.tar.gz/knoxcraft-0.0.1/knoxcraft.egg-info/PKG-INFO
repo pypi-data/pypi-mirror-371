@@ -1,0 +1,10 @@
+Metadata-Version: 2.4
+Name: knoxcraft
+Version: 0.0.1
+Summary: Python client code for Knoxcraft Mod. Basically 3D Logo for Minecraft.
+Author: Jaime Spacco
+License: MIT
+Requires-Python: >=3.8
+License-File: LICENSE
+Requires-Dist: requests
+Dynamic: license-file
