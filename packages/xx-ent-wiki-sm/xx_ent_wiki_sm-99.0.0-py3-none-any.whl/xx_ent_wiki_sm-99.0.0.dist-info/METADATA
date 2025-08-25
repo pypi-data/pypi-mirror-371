@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: xx_ent_wiki_sm
+Version: 99.0.0
+Summary: Dummy xx_ent_wiki_sm package for PyPI
+Author-email: Your Name <you@example.com>
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+# xx_ent_wiki_sm\nA dummy Python package version of xx_ent_wiki_sm.
