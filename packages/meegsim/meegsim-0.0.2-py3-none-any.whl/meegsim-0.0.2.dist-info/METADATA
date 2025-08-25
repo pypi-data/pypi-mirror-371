@@ -1,0 +1,126 @@
+Metadata-Version: 2.4
+Name: meegsim
+Version: 0.0.2
+Summary: Building blocks (waveforms, SNR, connectivity) for M/EEG simulations with MNE-Python
+Project-URL: Homepage, https://github.com/ctrltz/meegsim
+Project-URL: Documentation, https://meegsim.readthedocs.io/
+Project-URL: Issues, https://github.com/ctrltz/meegsim/issues
+Author: Alina Studenova, Mina Jamshidi Idaji
+Author-email: Nikolai Kapralov <kapralov@cbs.mpg.de>
+License-File: LICENSE
+Keywords: EEG,MEG,connectivity,simulation
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering
+Requires-Python: >=3.9
+Requires-Dist: colorednoise
+Requires-Dist: mne
+Requires-Dist: networkx
+Requires-Dist: nibabel
+Provides-Extra: deploy
+Requires-Dist: build; extra == 'deploy'
+Requires-Dist: twine; extra == 'deploy'
+Provides-Extra: dev
+Requires-Dist: build; extra == 'dev'
+Requires-Dist: darkdetect; extra == 'dev'
+Requires-Dist: harmoni; extra == 'dev'
+Requires-Dist: intersphinx-registry; extra == 'dev'
+Requires-Dist: mock; extra == 'dev'
+Requires-Dist: myst-parser; extra == 'dev'
+Requires-Dist: neurodsp; extra == 'dev'
+Requires-Dist: numpydoc; extra == 'dev'
+Requires-Dist: pre-commit; extra == 'dev'
+Requires-Dist: pydata-sphinx-theme; extra == 'dev'
+Requires-Dist: pyqt6!=6.6.0; extra == 'dev'
+Requires-Dist: pyqt6-qt6!=6.6.0,!=6.7.0; extra == 'dev'
+Requires-Dist: pytest; extra == 'dev'
+Requires-Dist: pytest-cov; extra == 'dev'
+Requires-Dist: pyvista!=0.35.2,!=0.38.0,!=0.38.1,!=0.38.2,!=0.38.3,!=0.38.4,!=0.38.5,!=0.38.6,!=0.42.0,>=0.32; extra == 'dev'
+Requires-Dist: pyvistaqt>=0.4; extra == 'dev'
+Requires-Dist: ruff; extra == 'dev'
+Requires-Dist: sphinx; extra == 'dev'
+Requires-Dist: sphinx-copybutton; extra == 'dev'
+Requires-Dist: sphinx-gallery; extra == 'dev'
+Requires-Dist: sphinxcontrib-bibtex; extra == 'dev'
+Requires-Dist: twine; extra == 'dev'
+Provides-Extra: docs
+Requires-Dist: harmoni; extra == 'docs'
+Requires-Dist: intersphinx-registry; extra == 'docs'
+Requires-Dist: myst-parser; extra == 'docs'
+Requires-Dist: neurodsp; extra == 'docs'
+Requires-Dist: numpydoc; extra == 'docs'
+Requires-Dist: pydata-sphinx-theme; extra == 'docs'
+Requires-Dist: sphinx; extra == 'docs'
+Requires-Dist: sphinx-copybutton; extra == 'docs'
+Requires-Dist: sphinx-gallery; extra == 'docs'
+Requires-Dist: sphinxcontrib-bibtex; extra == 'docs'
+Provides-Extra: plot
+Requires-Dist: darkdetect; extra == 'plot'
+Requires-Dist: pyqt6!=6.6.0; extra == 'plot'
+Requires-Dist: pyqt6-qt6!=6.6.0,!=6.7.0; extra == 'plot'
+Requires-Dist: pyvista!=0.35.2,!=0.38.0,!=0.38.1,!=0.38.2,!=0.38.3,!=0.38.4,!=0.38.5,!=0.38.6,!=0.42.0,>=0.32; extra == 'plot'
+Requires-Dist: pyvistaqt>=0.4; extra == 'plot'
+Provides-Extra: test
+Requires-Dist: harmoni; extra == 'test'
+Requires-Dist: mock; extra == 'test'
+Requires-Dist: pre-commit; extra == 'test'
+Requires-Dist: pytest; extra == 'test'
+Requires-Dist: pytest-cov; extra == 'test'
+Requires-Dist: ruff; extra == 'test'
+Description-Content-Type: text/markdown
+
+# MEEGsim
+
+[![DOI](https://zenodo.org/badge/832185753.svg)](https://doi.org/10.5281/zenodo.15106042)
+
+## Overview
+
+**MEEGsim** is a Python package that provides template waveforms for simulating M/EEG data with known ground truth source activity. In addition, it simplifies the manipulation of relevant simulation parameters (e.g., signal-to-noise ratio and source connectivity). As a result, the users can focus on _what_ to simulate, not on _how_ to implement the simulation. The package is compatible with MNE-Python and re-uses the forward and inverse modeling functionality provided by MNE.
+
+Find more details about the package in the [documentation](https://meegsim.readthedocs.io/en/latest/). For a brief overview of the functionality, check the [poster](https://drive.google.com/file/d/14KVjHdnnEdUFOrbRWb59Rqsj_cwjElHV/view?usp=sharing) about MEEGsim that was presented at the [CuttingEEGX](https://cuttingeegx.org/) conference (28-31.10.2024, Nijmegen, The Netherlands, and online).
+
+## Development
+
+### Creating a Local Copy of the Project
+
+1. Clone the repository.
+
+2. Create an environment (conda/mamba/virtualenv).
+
+3. Switch to the project folder and install the package and all dependencies:
+
+```bash
+cd meegsim
+pip install -e .[dev]
+```
+
+4. You're ready to start now!
+
+### Running Tests
+
+```
+pytest
+```
+
+### Building the Documentation
+
+1. Install the required packages.
+
+```bash
+pip install -e .[docs]
+```
+
+2. Build the documentation.
+
+```bash
+make html
+```
+
+3. Open it in the web browser.
+
+```bash
+make show
+```
