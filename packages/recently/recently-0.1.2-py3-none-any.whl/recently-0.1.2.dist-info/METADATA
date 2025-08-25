@@ -1,0 +1,11 @@
+Metadata-Version: 2.3
+Name: recently
+Version: 0.1.2
+Summary: Simple datetime wrapper.
+Author: Kirill Lapushinskiy
+Author-email: Kirill Lapushinskiy <kirill@lapushinskiy.ru>
+Requires-Dist: python-dateutil>=2.9.0.post0
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+
+# while
