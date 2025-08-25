@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "create-prisma-app"
+version = "0.3.0"
+description = "A CLI tool to bootstrap Express + Prisma projects with PostgreSQL"
+authors = [{ name = "Sahil K Gupta", email = "sahilkguptaprivate@gmail.com" }]
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.8"
+dependencies = []
+
+[project.scripts]
+create-prisma-app = "create_prisma_app.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["create_prisma_app*"]
