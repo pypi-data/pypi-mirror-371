@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<div class="container-fluid py-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="card mb-4">
+                <div class="card-header pb-0">
+                    <h6>{{ title }}</h6>
+                </div>
+                <div class="card-body px-0 pt-0 pb-2">
+                    <div class="p-4">
+                        <div class="text-center">
+                            <h4>{{ title }}</h4>
+                            <p class="text-muted">{{ content }}</p>
+                            <div class="row mt-4">
+                                <div class="col-md-4">
+                                    <div class="text-center">
+                                        <i class="fas fa-rocket fa-3x text-primary mb-3"></i>
+                                        <h5>Быстро</h5>
+                                        <p class="text-sm">Высокая производительность</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="text-center">
+                                        <i class="fas fa-shield-alt fa-3x text-success mb-3"></i>
+                                        <h5>Безопасно</h5>
+                                        <p class="text-sm">Надежная защита данных</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="text-center">
+                                        <i class="fas fa-cogs fa-3x text-info mb-3"></i>
+                                        <h5>Гибко</h5>
+                                        <p class="text-sm">Легкая настройка</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

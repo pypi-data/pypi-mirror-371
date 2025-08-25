@@ -1,0 +1,12 @@
+from fastapi import APIRouter, Request
+from cotlette.shortcuts import render_template
+
+router = APIRouter()
+
+# Подключение роутеров приложений
+from apps.home.urls import router as home_urls
+router.include_router(home_urls, include_in_schema=False)
+
+# Пример подключения других приложений:
+# from apps.example.urls import router as example_urls
+# router.include_router(example_urls, include_in_schema=False)

@@ -1,0 +1,12 @@
+from cotlette.contrib import admin
+
+# Зарегистрируйте ваши модели здесь.
+# Пример:
+# from .models import Example
+# 
+# @admin.register(Example)
+# class ExampleAdmin(admin.ModelAdmin):
+#     list_display = ['name', 'created_at']
+#     list_filter = ['created_at']
+#     search_fields = ['name', 'description']
+#     readonly_fields = ['created_at']

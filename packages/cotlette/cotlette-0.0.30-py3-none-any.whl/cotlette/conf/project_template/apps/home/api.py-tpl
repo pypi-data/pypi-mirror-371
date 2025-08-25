@@ -1,0 +1,54 @@
+from fastapi import APIRouter, Request
+from cotlette.shortcuts import render_template
+from .models import HomePage
+
+router = APIRouter()
+
+@router.get("/api/home/data")
+async def get_home_data(request: Request):
+    """Получение данных главной страницы"""
+    try:
+        home_page = await HomePage.objects.filter(is_active=True).first()
+        if home_page:
+            return {
+                "status": "success",
+                "data": {
+                    "title": home_page.title,
+                    "content": home_page.content,
+                    "created_at": home_page.created_at.isoformat() if home_page.created_at else None,
+                    "updated_at": home_page.updated_at.isoformat() if home_page.updated_at else None
+                }
+            }
+        else:
+            return {
+                "status": "success",
+                "data": {
+                    "title": "Добро пожаловать",
+                    "content": "Это главная страница вашего приложения.",
+                    "created_at": None,
+                    "updated_at": None
+                }
+            }
+    except Exception as e:
+        return {
+            "status": "error",
+            "message": str(e)
+        }
+
+
+@router.post("/api/home/update")
+async def update_home_page(request: Request):
+    """Обновление данных главной страницы"""
+    try:
+        # Здесь должна быть логика обновления
+        # Для примера возвращаем успешный ответ
+        return {
+            "status": "success",
+            "message": "Главная страница обновлена"
+        }
+    except Exception as e:
+        return {
+            "status": "error",
+            "message": str(e)
+        }
+

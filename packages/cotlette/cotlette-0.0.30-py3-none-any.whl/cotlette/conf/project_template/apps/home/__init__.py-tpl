@@ -1,0 +1,6 @@
+# Приложение home
+
+default_app_config = 'apps.home.apps.AppConfig'
+
+# Экспорт роутера для автоматического подключения
+from .urls import router

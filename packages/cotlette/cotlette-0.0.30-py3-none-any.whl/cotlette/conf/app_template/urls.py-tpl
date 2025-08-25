@@ -1,0 +1,16 @@
+from fastapi import APIRouter, Request
+from cotlette.shortcuts import render_template
+from starlette.authentication import requires
+
+router = APIRouter()
+
+# Подключите ваши маршруты здесь.
+# Пример:
+# @router.get("/")
+# async def home(request: Request):    
+#     return render_template(request=request, template_name="{{ app_name }}/home.html", context={})
+# 
+# @router.get('/private')
+# @requires('user_auth')  # защищенный endpoint, доступен только авторизованным пользователям
+# async def private_page(request: Request):
+#     return render_template(request=request, template_name="{{ app_name }}/private.html", context={})

@@ -1,0 +1,10 @@
+from cotlette.shortcuts import render
+
+# Создайте ваши представления здесь.
+# Пример:
+# async def example_view(request):
+#     context = {
+#         'title': 'Пример страницы',
+#         'message': 'Добро пожаловать!'
+#     }
+#     return render(request, '{{ app_name }}/example.html', context)

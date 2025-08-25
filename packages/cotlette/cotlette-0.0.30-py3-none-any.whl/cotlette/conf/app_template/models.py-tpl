@@ -1,0 +1,16 @@
+from cotlette.core.database import models
+
+# Создайте ваши модели здесь.
+# Пример:
+# class Example(models.Model):
+#     name = models.CharField(max_length=100)
+#     description = models.TextField(blank=True)
+#     created_at = models.DateTimeField(auto_now_add=True)
+#     
+#     class Meta:
+#         db_table = 'example'
+#         verbose_name = 'Пример'
+#         verbose_name_plural = 'Примеры'
+#     
+#     def __str__(self):
+#         return self.name

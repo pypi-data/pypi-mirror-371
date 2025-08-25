@@ -1,0 +1,17 @@
+from fastapi import APIRouter, Request
+from cotlette.shortcuts import render_template
+
+router = APIRouter()
+
+# Подключите ваши API endpoints здесь.
+# Пример:
+# @router.get("/api/{{ app_name }}/data")
+# async def get_data(request: Request):
+#     # Логика получения данных
+#     data = {"message": "Данные из {{ app_name }}"}
+#     return data
+# 
+# @router.post("/api/{{ app_name }}/create")
+# async def create_item(request: Request):
+#     # Логика создания элемента
+#     return {"status": "success", "message": "Элемент создан"}

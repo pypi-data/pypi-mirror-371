@@ -1,0 +1,66 @@
+from fastapi import FastAPI, Request
+from cotlette import Cotlette
+from fastapi.responses import JSONResponse, HTMLResponse
+import jwt
+from config.settings import SECRET_KEY, ALGORITHM
+from starlette.middleware.authentication import AuthenticationMiddleware
+from starlette.authentication import (
+    AuthenticationBackend, AuthenticationError, SimpleUser, UnauthenticatedUser,
+    AuthCredentials
+)
+from starlette.middleware.sessions import SessionMiddleware
+from cotlette.shortcuts import render_template
+from pydantic import BaseModel
+from typing import Union
+from starlette.responses import RedirectResponse
+
+
+class Settings(BaseModel):
+    database_url: str
+    secret_key: str
+    debug: bool
+
+# Инициализация объекта
+settings = Settings(
+    database_url="postgresql://user:password@localhost/dbname",
+    secret_key="your-secret-key",
+    debug=True
+)
+
+
+app = Cotlette()
+
+
+@app.exception_handler(403)
+async def not_found(request, exc):
+    return RedirectResponse("/accounts/login", status_code=303)
+
+
+# Класс для аутентификации
+class UserAuthentication(AuthenticationBackend):
+    async def authenticate(self, request):
+        jwt_cookie = request.cookies.get('jwt')
+        if jwt_cookie:  # cookie exists
+            try:
+                payload = jwt.decode(jwt_cookie.encode('utf8'), str(SECRET_KEY), algorithms=[ALGORITHM])
+                return AuthCredentials(["user_auth"]), SimpleUser(payload['user_id'])
+            except:
+                raise AuthenticationError('Invalid auth credentials')
+        else:
+            return  # unauthenticated
+
+
+# Middleware для отслеживания истории
+@app.middleware("http")
+async def update_session_history(request, call_next):
+    response = await call_next(request)
+    history = request.session.setdefault('history', [])
+    history.append(request.url.path)
+    return response
+
+
+# Middleware для работы с сессиями
+app.add_middleware(SessionMiddleware, secret_key=SECRET_KEY)
+
+# Middleware для аутентификации
+app.add_middleware(AuthenticationMiddleware, backend=UserAuthentication())

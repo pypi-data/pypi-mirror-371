@@ -1,0 +1,16 @@
+from cotlette.apps import AppConfig
+
+
+class AppConfig(AppConfig):
+    name = 'apps.home'
+    verbose_name = 'Главная страница'
+    
+    def ready(self):
+        # Импорт сигналов и других компонентов при инициализации
+        pass
+    
+    @property
+    def router(self):
+        """Возвращает роутер приложения"""
+        from .urls import router
+        return router
