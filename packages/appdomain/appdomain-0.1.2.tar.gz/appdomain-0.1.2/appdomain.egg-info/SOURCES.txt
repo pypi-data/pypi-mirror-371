@@ -1,0 +1,13 @@
+README.md
+setup.cfg
+setup.py
+appdomain/__init__.py
+appdomain/base.py
+appdomain/classisolation.py
+appdomain/ensemble.py
+appdomain/knn.py
+appdomain.egg-info/PKG-INFO
+appdomain.egg-info/SOURCES.txt
+appdomain.egg-info/dependency_links.txt
+appdomain.egg-info/requires.txt
+appdomain.egg-info/top_level.txt
