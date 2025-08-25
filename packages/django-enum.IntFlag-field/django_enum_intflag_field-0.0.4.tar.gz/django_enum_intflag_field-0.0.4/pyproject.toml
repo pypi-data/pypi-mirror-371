@@ -1,0 +1,64 @@
+[build-system]
+requires = [
+    "setuptools>=61.2",
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "django-enum.IntFlag-field"
+authors = [
+    { name = "nullenenenen", email = "nullenenenen@gavagai.eu" },
+]
+description = "django-enum.IntFlag-field — A model field that takes an enum.IntFlag class, stores flag combinations as an IntegerField, and allows convenient bitwise containment predicates through the Django ORM."
+keywords = [
+    "Django",
+    "enum.IntFlag",
+    "bitfield",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Framework :: Django",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development",
+    "Topic :: Database",
+    "Programming Language :: Python :: 3",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "Django >=4.2.0",
+]
+dynamic = [
+    "version",
+]
+
+[project.readme]
+file = "README.md"
+content-type = "text/markdown"
+
+[project.license]
+text = "LGPL-3.0+"
+
+[project.urls]
+Homepage = "https://sr.ht/~nullenenenen/django-enum.IntFlag-field/"
+Documentation = "https://git.sr.ht/~nullenenenen/django-enum.IntFlag-field/tree/master/item/README.md"
+Source = "https://git.sr.ht/~nullenenenen/django-enum.IntFlag-field/"
+
+[tool.setuptools]
+packages = [
+    "enum_intflagfield",
+]
+zip-safe = true
+include-package-data = true
+license-files = [
+    "LICENSE.txt",
+]
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+[tool.setuptools.dynamic.version]
+file = [
+    "VERSION",
+]

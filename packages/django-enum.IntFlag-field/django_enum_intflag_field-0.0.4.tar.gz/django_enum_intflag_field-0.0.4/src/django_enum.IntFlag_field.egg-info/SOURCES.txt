@@ -1,0 +1,13 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+VERSION
+pyproject.toml
+src/django_enum.IntFlag_field.egg-info/PKG-INFO
+src/django_enum.IntFlag_field.egg-info/SOURCES.txt
+src/django_enum.IntFlag_field.egg-info/dependency_links.txt
+src/django_enum.IntFlag_field.egg-info/requires.txt
+src/django_enum.IntFlag_field.egg-info/top_level.txt
+src/django_enum.IntFlag_field.egg-info/zip-safe
+src/enum_intflagfield/__init__.py
+src/enum_intflagfield/enumintflagfield.py
