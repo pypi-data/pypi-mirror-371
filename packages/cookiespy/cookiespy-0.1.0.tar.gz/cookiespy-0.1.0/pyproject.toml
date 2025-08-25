@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cookiespy"
+version = "0.1.0"
+description = "A simple cookie inspection & export CLI tool."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [
+  { name="Fadhli Akbar", email="fadhliakbar125@gmail.com" }
+]
+dependencies = [
+  "requests>=2.0",
+  "pytest>=6.0"
+]
+requires-python = ">=3.10"
+
+keywords = ["cookies", "cli", "http", "export"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/fdhliakbar/cookiespy"
+Issues = "https://github.com/fdhliakbar/cookiespy/issues"
+
+[project.scripts]
+cookiespy = "cookiespy.cli:main"

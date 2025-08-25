@@ -1,0 +1,13 @@
+README.md
+pyproject.toml
+src/cookiespy/__init__.py
+src/cookiespy/cli.py
+src/cookiespy/exporter.py
+src/cookiespy/webapp.py
+src/cookiespy.egg-info/PKG-INFO
+src/cookiespy.egg-info/SOURCES.txt
+src/cookiespy.egg-info/dependency_links.txt
+src/cookiespy.egg-info/entry_points.txt
+src/cookiespy.egg-info/requires.txt
+src/cookiespy.egg-info/top_level.txt
+tests/test_cli.py
