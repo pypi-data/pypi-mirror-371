@@ -1,0 +1,396 @@
+Metadata-Version: 2.1
+Name: stac-repository
+Version: 0.0.6
+Summary: A (git-)versionned STAC catalog storage and management system
+Author-email: Pierre Fontbonne <pierre.fontbonne@uca.fr>
+Maintainer-email: Pierre Fontbonne <pierre.fontbonne@uca.fr>, Yannick Guéhenneux <yannick.guehenneux@uca.fr>
+License: OPEN LICENCE 2.0/LICENCE OUVERTE 2.0
+        
+        
+        "Reuse" of the "Information" covered by this licence
+        
+        The "Grantor" grants the "Reuser" the free, non-exclusive right to "Reuse" the
+        "Information" subject of this licence, for commercial or non-commercial
+        purposes, worldwide and for an unlimited period, in accordance with the
+        conditions stated below.
+        
+        The "Reuser" is free to reuse the "Information":
+        
+        - To reproduce it, copy it.
+        - To adapt, modify, retrieve and transform it in order to create "derived
+          information", products and services.
+        - To share, disseminate, redistribute, publish and transmit it.
+        - To exploit it for commercial purposes, e.g., by combining it with other
+          information, or by including it in his/her own product or application.
+        
+        Subject to:
+        
+        - An acknowledgement of the authorship of the "Information": its source (at
+          least, the name of the "Grantor") and the date of the most recent update of
+          the reused "Information".
+        
+        Specifically, the "Reuser" may satisfy this condition by pointing, via a
+        hypertext link, to the source of the "Information" and so supplying an actual
+        acknowledgement of its authorship.
+        
+        For example:
+        
+        "Ministry of xxx—Original data downloaded from
+        'http://www.data.gouv.fr/fr/datasets/xxx/', updated on 14 February 2017".
+        
+        This acknowledgement of authorship does not confer any official status on the
+        "Reuse" of the "Information", and must not suggest any sort of recognition or
+        endorsement on the part of the "Grantor", or any other public entity, of the
+        "Reuser" or of their "Reuse".
+        
+        
+        Personal data
+        
+        The "Information" made available may contain "Personal data" that may be
+        subject to "Reuse". If this is the case, the "Grantor" informs the "Reuser"
+        about its existence. The "Information" may be freely reused, within the rights
+        granted by this licence, subject to compliance with the legal framework
+        relating to personal data protection.
+        
+        
+        Intellectual property rights
+        
+        It is guaranteed to The "Reuser" that potential "Intellectual property rights"
+        held by third parties or by the "Grantor" on "Information" do not interfere
+        with the rights granted by this licence.
+        
+        When the "Grantor" holds transferable "Intellectual property rights" on the
+        "Information", he/she assigns these to the "Reuser" on a non-exclusive basis,
+        free of charge, worldwide, for the entire duration of the "Intellectual
+        property rights", and the "Reuser" is free to use the "Information" for any
+        purpose that complies with the rights and conditions defined in this licence.
+        
+        
+        Liability
+        
+        The "Information" is made available as it is produced or received by the
+        "Grantor", without any other express or tacit guarantee than those set out in
+        this licence. The "Grantor" does not guarantee the absence of errors or
+        inaccuracies in the "Information", nor a continuous supply of the
+        "Information". He/she cannot be held responsible for any loss, prejudice or
+        damage of any kind caused to third parties as a result of the "Reuse".
+        
+        The "Reuser" is solely responsible for the "Reuse" of the "Information". This
+        "Reuse" must not mislead third parties as to the contents of the "Information",
+        its source or its date of update.
+        
+        
+        Applicable legislation
+        
+        This licence is governed by French law.
+        
+        Compatibility of this licence
+        
+        This licence has been designed to be compatible with any free licence that at
+        least requires an acknowledgement of authorship, and specifically with the
+        previous version of this licence as well as with the following licences: United
+        Kingdom's "Open Government Licence" (OGL), Creative Commons' "Creative Commons
+        Attribution" (CC-BY) and Open Knowledge Foundation's "Open Data Commons
+        Attribution" (ODC-BY).
+        
+        
+        Definitions
+        
+        Within the meaning of this licence, are to be considered as:
+        
+        - The "Grantor": any person granting the right to "Reuse" "Information" under
+          the rights and conditions set out in this licence.
+        - The "Information":
+          - any public information contained in documents disclosed or published by any
+            administration referred to in the first paragraph of Article L. 300-2 of
+            the "Code des relations entre le public et l'administration (CRPA)",
+          - any information made available by any person under the terms and conditions
+            of this licence.
+        - The "Reuse": the use of the "Information" for other purposes than those for
+          which it was produced or received.
+        - The "Reuser": any person reusing the "Information" in accordance with the
+          conditions of this licence.
+        - "Personal data": any information relating to an identified or identifiable
+          natural person who may be identified directly or indirectly. Its "Reuse" is
+          conditional on the respect of the existing legal framework.
+        - "Derived information": any new data or information created directly from the
+          "Information" or from a combination of the "Information" and other data or
+          information not subject to this licence.
+        - "Intellectual property rights": all rights identified as such under the "Code
+          de la propriété intellectuelle" (including copyright, rights related to
+          copyright, sui generis rights of database producers, etc.).
+        
+        
+        About this licence
+        
+        This licence is intended to be used by administrations for the reuse of their
+        public information. It can also be used by any individual wishing to supply
+        "Information" under the conditions defined in this licence.
+        
+        France has a comprehensive legal framework aiming at the spontaneous
+        dissemination by the administrations of their public information in order to
+        ensure the widest possible reuse of this information.
+        
+        The right to "Reuse" the administrations' "Information" is governed by the
+        "Code des relations entre le public et l'administration (CRPA)".
+        
+        This licence facilitates the unrestricted and free of charge reuse of public
+        information and is one of the licences which can be used by the administration
+        pursuant to the decree issued under article L. 323-2 of the CRPA.
+        
+        Under the Prime Minister's authority, the Etalab mission is mandated to open up
+        the maximum amount of data held by State administrations and public
+        institutions. Etalab has drawn up the Open Licence to facilitate the
+        unrestricted and free of charge reuse of public information, as defined by
+        article L. 321-1 of the CRPA.
+        
+        This licence is version 2.0 of the Open Licence.
+        
+        Etalab reserves the right to propose new versions of the Open Licence.
+        Nevertheless, "Reusers" may continue to reuse information obtained under this
+        licence should they so wish.
+Project-URL: Homepage, https://github.com/fntb/stac-repository
+Project-URL: Documentation, https://github.com/fntb/stac-repository
+Project-URL: Repository, https://github.com/fntb/stac-repository
+Project-URL: Issues, https://github.com/fntb/stac-repository
+Keywords: pystac,stac,database,git,repository,storage,store
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Development Status :: 4 - Beta
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: pydantic~=2.10.3
+Requires-Dist: stac-pydantic~=3.2.0
+Requires-Dist: orjson~=3.10
+Requires-Dist: shapely~=2.0.0
+Requires-Dist: typer~=0.15.1
+Requires-Dist: typing-extensions>=4.13.2
+Requires-Dist: requests>=2.32.4
+Requires-Dist: tomlkit>=0.13.3
+
+# STAC Repository
+
+<p align="center">
+  <img src="https://stacspec.org/public/images-original/STAC-01.png" style="vertical-align: middle; max-width: 400px; max-height: 100px; margin: 20px;" />
+  <img src="https://git-scm.com/images/logo@2x.png" alt="FastAPI" style="vertical-align: middle; max-width: 100px; max-height: 100px; margin: 20px;" />
+</p>
+
+A (git-)versionned [STAC](https://stacspec.org/en) catalog storage and management system.
+
+Project in late stage development phase.
+
+## Introduction and Features
+
+`stac-repository` is a storage system and command-line interface for managing STAC catalogs. It implements advanced features necessary to build and maintain a complex STAC catalog :
+
+- **Automated ingestions (Non-STAC)**
+
+  Automated ingestion of non-STAC products via custom `stac-processors` modules. These are designed for ease of implementation via the `StacProcessor` Protocol. To view installed processors, run `stac-repository show-processors`.
+
+- **Automated Ingestions (STAC)**
+
+  Automated ingestion of STAC items and collections using a built-in `stac-processor`.
+
+- **Backend Support**
+
+  Support for multiple storage backends, including built-in Git+LFS `"git"` and local filesystem `"file"`. To view installed backends, run `stac-repository show-backends`. The architecture is also designed to facilitate the development of additional backends (e.g. FTP, NoSQL databases).
+
+- **Transactional Operations**
+
+  Transactional ingestions, updates, and deletions to ensure catalog integrity and atomicity
+
+- **Immutable History**
+
+  Immutable history of all transactions (note: this feature is not supported by the local filesystem backend).
+
+- **Backup and Rollback**
+
+  Backup and rollback of the catalog at any point in history.
+
+- **Export**
+
+  Export command to extract the catalog to the local filesystem independently of the underlying storage backend.
+
+These capabilities make stac-repository a powerful tool for robust STAC catalog management.
+
+## Installation
+
+`stac-repository` is available directly on [pypi](https://pypi.org/project/stac-repository/).
+
+```bach
+pip install stac-repository
+```
+
+This installs two commands : `stac-repository`, and `stac-processor` to try out a processor without ingesting.
+
+## Usage
+
+```bash
+stac-repository --help
+```
+
+```bash
+Usage: stac_repository_cli [OPTIONS] COMMAND [ARGS]...
+
+ 🌍🛰️     STAC Repository
+
+ The interface to manage STAC catalogs.
+
+╭─ Options ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ --repository                TEXT  Repository URI - interpreted by the chosen backend. [default: None]                                                                                  │
+│ --backend                   TEXT  Backend. [default: file]                                                                                                                             │
+│ --install-completion              Install completion for the current shell.                                                                                                            │
+│ --show-completion                 Show completion for the current shell, to copy it or customize the installation.                                                                     │
+│ --help                            Show this message and exit.                                                                                                                          │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─ Commands ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ version           Shows stac-repository version number.                                                                                                                                │
+│ show-backends     Shows installed stac-repository backends.                                                                                                                            │
+│ show-processors   Shows installed stac-repository processors.                                                                                                                          │
+│ init              Initializes the repository.                                                                                                                                          │
+│ config            Get or set the repository configuration options - interpreted by the chosen backend.                                                                                 │
+│ ingest            Ingests some products from various sources (eventually using an installed processor).                                                                                │
+│ prune             Removes some products from the catalog.                                                                                                                              │
+│ history           Logs the catalog history.                                                                                                                                            │
+│ rollback          Rollbacks the catalog to a previous commit. Support depends on the chosen backend.                                                                                   │
+│ export            Exports the catalog. If a commit ref is specified, exports the catalog as it was at that point in time.                                                              │
+│ backup            Backups the repository. If a commit ref is specified, backups the repository only up to this point in time.                                                          │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+```
+
+Let's initialize a new repository (using the default `"file"` backend - implicit `--backend file`)
+
+```bash
+stac-repository --repository test_repository init
+```
+
+Since we didn't specify `--root-catalog` we are prompted for some basic information :
+
+```
+Initialize from an existing root catalog file ? (Leave blank to use the interactive initializer):
+id (root): test_catalog
+title: A Simple Demo Catalog
+description: This is a simple demo catalog.
+license (proprietary):
+{
+    'id': 'test_catalog',
+    'description': 'This is a simple demo catalog.',
+    'stac_version': '1.0.0',
+    'links': [],
+    'title': 'A Simple Demo Catalog',
+    'type': 'Catalog',
+    'license': 'proprietary'
+}
+Use as root catalog ? [y/n] (n): y
+```
+
+The newly created catalog :
+
+```
+test_repository/
+test_repository/catalog.json
+```
+
+Let's ingest some STAC product using the default processor (implicit `--processor stac`)
+
+```bash
+stac-repository --repository test_repository ingest ~/test_catalogs/thermavolc/
+```
+
+```
+ • ~/test_catalogs/thermavolc/ : Discovered products ~/test_catalogs/thermavolc/collection.json
+ • ~/test_catalogs/thermavolc/collection.json : Cataloged
+```
+
+Our catalog now looks like this :
+
+```
+test_repository/
+test_repository/orthophotos-Summit-20221116
+test_repository/orthophotos-Summit-20221116/collection.json
+test_repository/orthophotos-Summit-20221116/orthophoto-Summit-20221116-Visible
+test_repository/orthophotos-Summit-20221116/orthophoto-Summit-20221116-Visible/20221116_Summit_Visible_orthophoto.png
+test_repository/orthophotos-Summit-20221116/orthophoto-Summit-20221116-Visible/20221116_Summit_Visible_orthophoto.tif.aux.xml
+test_repository/orthophotos-Summit-20221116/orthophoto-Summit-20221116-Visible/20221116_Summit_Visible_orthophoto.tif
+test_repository/orthophotos-Summit-20221116/orthophoto-Summit-20221116-Visible/orthophoto-Summit-20221116-Visible.json
+test_repository/orthophotos-Summit-20221116/orthophoto-Summit-20221116-DTM
+test_repository/orthophotos-Summit-20221116/orthophoto-Summit-20221116-DTM/20221116_Summit_DTM.tif.aux.xml
+test_repository/orthophotos-Summit-20221116/orthophoto-Summit-20221116-DTM/orthophoto-Summit-20221116-DTM.json
+test_repository/orthophotos-Summit-20221116/orthophoto-Summit-20221116-DTM/20221116_Summit_DTM.png
+test_repository/orthophotos-Summit-20221116/orthophoto-Summit-20221116-DTM/20221116_Summit_DTM.tif
+test_repository/orthophotos-Summit-20221116/orthophoto-Summit-20221116-Thermal
+test_repository/orthophotos-Summit-20221116/orthophoto-Summit-20221116-Thermal/20221116_Summit_Thermal_orthophoto.png
+test_repository/orthophotos-Summit-20221116/orthophoto-Summit-20221116-Thermal/20221116_Summit_Thermal_orthophoto.tif
+test_repository/orthophotos-Summit-20221116/orthophoto-Summit-20221116-Thermal/orthophoto-Summit-20221116-Thermal.json
+test_repository/orthophotos-Summit-20221116/orthophoto-Summit-20221116-Thermal/20221116_Summit_Thermal_orthophoto.tif.aux.xml
+test_repository/catalog.json
+```
+
+Finally let's delete some product
+
+```bash
+stac-repository --repository test_repository prune orthophoto-Summit-20221116-Visible
+```
+
+```
+ • orthophoto-Summit-20221116-Visible : Uncataloged
+```
+
+Finally our demo catalog looks like this :
+
+```
+test_repository/
+test_repository/orthophotos-Summit-20221116
+test_repository/orthophotos-Summit-20221116/collection.json
+test_repository/orthophotos-Summit-20221116/orthophoto-Summit-20221116-DTM
+test_repository/orthophotos-Summit-20221116/orthophoto-Summit-20221116-DTM/20221116_Summit_DTM.tif.aux.xml
+test_repository/orthophotos-Summit-20221116/orthophoto-Summit-20221116-DTM/orthophoto-Summit-20221116-DTM.json
+test_repository/orthophotos-Summit-20221116/orthophoto-Summit-20221116-DTM/20221116_Summit_DTM.png
+test_repository/orthophotos-Summit-20221116/orthophoto-Summit-20221116-DTM/20221116_Summit_DTM.tif
+test_repository/orthophotos-Summit-20221116/orthophoto-Summit-20221116-Thermal
+test_repository/orthophotos-Summit-20221116/orthophoto-Summit-20221116-Thermal/20221116_Summit_Thermal_orthophoto.png
+test_repository/orthophotos-Summit-20221116/orthophoto-Summit-20221116-Thermal/20221116_Summit_Thermal_orthophoto.tif
+test_repository/orthophotos-Summit-20221116/orthophoto-Summit-20221116-Thermal/orthophoto-Summit-20221116-Thermal.json
+test_repository/orthophotos-Summit-20221116/orthophoto-Summit-20221116-Thermal/20221116_Summit_Thermal_orthophoto.tif.aux.xml
+test_repository/catalog.json
+```
+
+## Motivation - _Why this Project ?_
+
+**Full motivation is detailed in [`motivation.md`](https://github.com/fntb/stac-repository/blob/main/docs/motivation.md).**
+
+Presenting scientific data products as STAC catalogs is primarily motivated by the objective of achieving data [FAIR](https://en.wikipedia.org/wiki/FAIR_data)-ness (Findable, Accessible, Interoperable, Reusable). The mature [STAC ecosystem](https://stacindex.org/ecosystem) makes building such a catalog relatively straightforward for simple cases (e.g. [pystac | Creating a Landsat 8 STAC](https://pystac.readthedocs.io/en/stable/tutorials.html#creating-a-landsat-8-stac)).
+
+However, building and maintaining a complex STAC catalog - one subject to incremental changes over an extended period and encompassing diverse product types (e.g., satellite scenes, InSAR interferograms, InSAR time series) - introduces significant challenges. Effective maintenance necessitates capabilities for data rollback, backup, and exploring historical changes. And routine data ingestion requires automation of product conversion and ingestion, which itself requires transactional operations to ensure data integrity.
+
+It is precisely to address these complex catalog management challenges that `stac-repository` was developed. It provides a robust storage system and CLI that integrates with and abstracts away the complexities of the underlying chosen backend (like Git+LFS). This approach allows `stac-repository` to offer transactional integrity, immutable history, backup/rollback capabilities, by treating the STAC catalog as a versioned data product, without requiring users to directly interact with the underlying backend.
+
+While `stac-repository` greatly simplifies complex STAC catalog management, the underlying architecture introduces limitations. The Git+LFS backend, for instance, provides strong versioning capabilities but introduces a dependency on Git and Git LFS, which may require some foundational understanding for advanced operations or troubleshooting. For extremely large catalogs with millions of items or very high update frequencies, performance characteristics of the current backends will not be enough. While the local filesystem backend simplifies setup, it foregoes the immutable history provided by Git-based backends.
+
+## The Processor Protocol
+
+A processor is a python module implementing the processor protocol described [processor.py](https://github.com/fntb/stac-repository/blob/main/stac_repository/processor.py).
+
+An example can be found in [`stac-processor.py`](https://github.com/fntb/stac-repository/blob/main/stac_repository/stac_processor.py)
+
+## Source & Contributing
+
+```bash
+just --list
+```
+
+See [the Justfile](https://github.com/fntb/stac-repository/blob/main/justfile).
+
+## History
+
+**stac-repository** is being actively developped at the [OPGC](https://opgc.uca.fr/) an observatory for the sciences of the universe (OSU) belonging to the [CNRS](https://www.cnrs.fr/en) and the [UCA](https://www.uca.fr/) by its main author Pierre Fontbonne [@fntb](https://github.com/fntb).
+
+## License
+
+[OPEN LICENCE 2.0](https://github.com/fntb/stac-repository/blob/main/LICENCE.txt)
