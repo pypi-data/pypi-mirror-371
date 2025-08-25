@@ -1,0 +1,22 @@
+[project]
+name = "qcdb"
+version = "0.2.0"
+description = "Knowledge management app to interface with quantum chemical calculations"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.11"
+dependencies = [
+    "orca-studio>=0.2.13",
+    "typer>=0.16.1",
+]
+
+[project.scripts]
+qcdb = "qcdb.cli:app"
+
+[project.urls]
+Repository = "https://codeberg.org/crabby/qcdb"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
