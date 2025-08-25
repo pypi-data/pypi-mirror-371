@@ -1,0 +1,11 @@
+mcp_sqlserver_filesystem/__init__.py,sha256=wtoGXMrBsUH0p5ZeV883C46NIycXV_xgCEyZdFwRgJc,717
+mcp_sqlserver_filesystem/__main__.py,sha256=6Dn6MIikGCsrP_CJujznqkbxjvvGcL7uWi6cOB7c4Dw,2099
+mcp_sqlserver_filesystem/config.py,sha256=JubcdHdiQFpxNOHCm24FmdjAlg34Zs6frbDktMVVwKI,10688
+mcp_sqlserver_filesystem/database.py,sha256=SzCy36vK3gRSsIXGxWsNgB8kTPtXmwxFDqJSYNnaDsA,17475
+mcp_sqlserver_filesystem/filesystem.py,sha256=qHlzLe3k7hFqxydSy0u6LuIK7X-_59Ikqv9p5aW6txs,16289
+mcp_sqlserver_filesystem/server.py,sha256=JpakoGYY3ZJR1gxr8idS1ILKYpJa8X5ZCwFkjaCC95g,25199
+mcp_sqlserver_filesystem-1.0.1.dist-info/METADATA,sha256=jrvLGCF8-En35H3PSgK_v4ahrRRED32UqL3xMOEn1HM,6792
+mcp_sqlserver_filesystem-1.0.1.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+mcp_sqlserver_filesystem-1.0.1.dist-info/entry_points.txt,sha256=hgj5x4ugc0GOXIAQG8sr2LDlESsKbxdbucb0T4pLsSk,84
+mcp_sqlserver_filesystem-1.0.1.dist-info/licenses/LICENSE,sha256=Ms0sEejNdRCdfQlay3jJ1mPnNWRJpvLG3iRwstGF0T8,1080
+mcp_sqlserver_filesystem-1.0.1.dist-info/RECORD,,
