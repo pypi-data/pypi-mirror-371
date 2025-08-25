@@ -1,0 +1,8 @@
+README.md
+pyproject.toml
+ambade_api_client/__init__.py
+ambade_test.egg-info/PKG-INFO
+ambade_test.egg-info/SOURCES.txt
+ambade_test.egg-info/dependency_links.txt
+ambade_test.egg-info/requires.txt
+ambade_test.egg-info/top_level.txt

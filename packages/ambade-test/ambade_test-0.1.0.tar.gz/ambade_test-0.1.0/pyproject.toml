@@ -1,0 +1,14 @@
+[project]
+name = "ambade-test"
+version = "0.1.0"
+description = "Client for Ambade embedding API"
+authors = [{ name = "ambade", email = "ambade@email.com" }]
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.8"
+dependencies = [
+  "requests"
+]
+
+[tool.setuptools.packages.find]
+include = ["ambade_api_client"]
