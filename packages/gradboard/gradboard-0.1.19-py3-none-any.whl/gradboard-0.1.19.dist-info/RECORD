@@ -1,0 +1,8 @@
+gradboard/__init__.py,sha256=57AkHusYwLCsusiVnajH5pMFKioRCj-3IjF9qpdOzE0,69
+gradboard/cycles.py,sha256=E2WDo8_5arw1-gdhJ5oUCBlBKco7z6D1j0QmEUI8laE,10114
+gradboard/optimiser.py,sha256=Iw1piQkQkWdNUW8d9f3iPrvP9qEGVxEKmerK7ATDgOI,6189
+gradboard/scheduler.py,sha256=V5JImjirtmsMEhbrzu9gbqKlxRj0aaZTQw3mMN1Fk4c,6763
+gradboard-0.1.19.dist-info/LICENSE,sha256=0BAzJE5BqQ7Iixp_AFdB2W1uO-HCRX-Qfun8PHt6yVM,1073
+gradboard-0.1.19.dist-info/METADATA,sha256=-WboEtrdVXMMdVtgMsE1g8zOZkSpy8r1yCt6l3WIrQs,2174
+gradboard-0.1.19.dist-info/WHEEL,sha256=b4K_helf-jlQoXBBETfwnf4B04YC67LOev0jo4fX5m8,88
+gradboard-0.1.19.dist-info/RECORD,,
