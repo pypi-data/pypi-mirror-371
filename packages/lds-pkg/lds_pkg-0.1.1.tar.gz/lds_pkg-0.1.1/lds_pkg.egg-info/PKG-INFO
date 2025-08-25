@@ -1,0 +1,12 @@
+Metadata-Version: 2.4
+Name: lds-pkg
+Version: 0.1.1
+Summary: A modified version of googletrans with async support
+Author-email: ldss <your_email@example.com>
+License: MIT
+Project-URL: Homepage, https://github.com/ldss/googletrans-ldss
+Project-URL: Source, https://github.com/ldss/googletrans-ldss
+Project-URL: Issues, https://github.com/ldss/googletrans-ldss/issues
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: httpx==0.28.1

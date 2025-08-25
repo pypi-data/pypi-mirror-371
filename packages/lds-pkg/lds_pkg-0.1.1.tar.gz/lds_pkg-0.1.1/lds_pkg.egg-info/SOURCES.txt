@@ -1,0 +1,15 @@
+pyproject.toml
+googletrans/__init__.py
+googletrans/async_client.py
+googletrans/client.py
+googletrans/constants.py
+googletrans/gtoken.py
+googletrans/gtoken_async.py
+googletrans/models.py
+googletrans/urls.py
+googletrans/utils.py
+lds_pkg.egg-info/PKG-INFO
+lds_pkg.egg-info/SOURCES.txt
+lds_pkg.egg-info/dependency_links.txt
+lds_pkg.egg-info/requires.txt
+lds_pkg.egg-info/top_level.txt
