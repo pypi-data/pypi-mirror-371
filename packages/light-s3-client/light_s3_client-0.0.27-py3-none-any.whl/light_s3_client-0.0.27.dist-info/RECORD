@@ -1,0 +1,8 @@
+light_s3_client/__init__.py,sha256=nGIjnD0dv6hmFHG_qd1e8Blrnyi6ITkLQegFVj6QB1Y,11359
+light_s3_client/exceptions.py,sha256=iuXjECTxcYm4Zvn9DWpE1CVa0t9YnM6z3SBufGXc2iE,140
+light_s3_client/version.py,sha256=sUYcnIsZcqDYXefNtHRicFxc3SAg8_IfCz5mhsPimSM,23
+light_s3_client-0.0.27.dist-info/licenses/LICENSE,sha256=9-BsR7C7oWLVd9BJmlBlaiHCkIkSZytrBCJ7qNcjT_A,1071
+light_s3_client-0.0.27.dist-info/METADATA,sha256=eCNjmy_P8Cttkn2h8sQohWHmkAWPxT4czQbq1HSajn0,6847
+light_s3_client-0.0.27.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+light_s3_client-0.0.27.dist-info/top_level.txt,sha256=hrkJM4Y_EJ9i_QLZwlU90AzEWPqsqiP8-_owgRjtLEM,16
+light_s3_client-0.0.27.dist-info/RECORD,,
