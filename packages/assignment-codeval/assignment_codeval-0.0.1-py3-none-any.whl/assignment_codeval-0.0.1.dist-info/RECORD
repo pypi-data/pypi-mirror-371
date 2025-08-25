@@ -1,0 +1,13 @@
+assignment_codeval/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+assignment_codeval/canvas_utils.py,sha256=LpNOYznMagA6t9_Dm8-liSgcDQE2BZpR_RdCazS2nco,2536
+assignment_codeval/cli.py,sha256=lfToqPg6s4txTKvFHhLTiSgp5QozgHtjojjmz22MiFc,448
+assignment_codeval/commons.py,sha256=iVCayl1AVeoJBRkF2ye2037qoM457eEdRd54F51ePlM,1209
+assignment_codeval/evaluate.py,sha256=CptkqpZXiy_mVLN_mt5pgGhEf2En7t9RwBVwSeQvyBc,17024
+assignment_codeval/file_utils.py,sha256=9wHuZACuU-1oMQqmwfFbN95WExVO2UPui7m_y9g9my8,2081
+assignment_codeval/github_connect.py,sha256=Xhgee4b-a-3iVpy0TKmXalJdhOW3bkeWnSgaAn9LN_U,2688
+assignment_codeval/submissions.py,sha256=_I1ylksbzrAfTfCT3KxjSMivmHdPE40SrABOykOTEN0,6968
+assignment_codeval-0.0.1.dist-info/METADATA,sha256=n0knrTyC_QfkEsHTE-7mLUOE4Ty7HWkC12bysfZ5COk,11328
+assignment_codeval-0.0.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+assignment_codeval-0.0.1.dist-info/entry_points.txt,sha256=Pk0eAhsXBpCsgkv6HYLSHTRf5x_zUf-Lg8KK9KsK2B8,66
+assignment_codeval-0.0.1.dist-info/top_level.txt,sha256=a_P8W2IWjAELxKlTV2t4rLwWVoTxElxUMvWgWjR_1n4,19
+assignment_codeval-0.0.1.dist-info/RECORD,,
