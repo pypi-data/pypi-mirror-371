@@ -1,0 +1,8 @@
+[console_scripts]
+format-code = devrig.scripts:format_code
+full-coverage = devrig.scripts:full_coverage
+lint = devrig.scripts:lint
+quality = devrig.scripts:quality
+report-coverage = devrig.scripts:report_coverage
+run-coverage = devrig.scripts:run_coverage
+type-check = devrig.scripts:type_check
