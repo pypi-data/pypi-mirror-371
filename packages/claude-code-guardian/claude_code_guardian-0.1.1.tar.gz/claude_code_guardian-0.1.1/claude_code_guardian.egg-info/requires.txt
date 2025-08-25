@@ -1,0 +1,5 @@
+cchooks<0.2,>=0.1.2
+click>=8.0.0
+platformdirs>=4.3.0
+pydantic>=2.0.0
+PyYAML>=6.0
