@@ -1,0 +1,70 @@
+[project]
+name = "loading2"
+version = "0.0.1"
+description = "A simple and elegant Python library for adding loading animations to your functions with a decorator"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
+authors = [
+    { name = "r1cardohj", email = "houjun447@gmail.com" }
+]
+maintainers = [
+    { name = "r1cardohj", email = "houjun447@gmail.com" }
+]
+license = { text = "MIT" }
+keywords = ["loading", "animation", "decorator", "spinner", "progress"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Utilities",
+    "Topic :: System :: Shells",
+]
+
+[project.urls]
+Homepage = "https://github.com/r1cardohj/loading2"
+Repository = "https://github.com/r1cardohj/loading2"
+Issues = "https://github.com/r1cardohj/loading2/issues"
+Documentation = "https://github.com/r1cardohj/loading2#readme"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "pytest-mock>=3.10",
+    "black>=22.0",
+    "ruff>=0.1.0",
+    "mypy>=1.0",
+    "hatchling>=1.0",
+]
+test = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "pytest-mock>=3.10",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["loading2.py"]
+
+[tool.black]
+line-length = 88
+target-version = ["py312"]
+
+[tool.mypy]
+python_version = "3.12"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q --strict-markers"
+testpaths = ["tests"]
