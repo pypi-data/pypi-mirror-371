@@ -1,0 +1,31 @@
+[project]
+name = "star-privateer"
+version = "1.3.0"
+authors = [
+  { name="Sylvain N. Breton", email="sylvain.breton@inaf.it" },
+]
+description = "Module for stellar surface rotation and activity analysis"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: CMU License (MIT-CMU)",
+    "Operating System :: OS Independent",
+]
+dependencies = ['numpy', 'pandas', 'matplotlib', 'astropy', 'scipy',
+                'tqdm', 'scikit-learn', 'scikit-image', 'ssqueezepy',
+                'h5py', 'pycwt', 'pywavelets']
+keywords = ["stellar physics", "stellar rotation", "stellar activity",
+            "solar-type stars", "light curves"]
+license = {file = "LICENSE"}
+
+[build-system]
+requires = ["setuptools >= 40.8.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project.urls]
+"Homepage" = "https://gitlab.com/sybreton/star_privateer"
+"Documentation" = "https://star-privateer.readthedocs.io/en/latest/"
