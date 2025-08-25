@@ -1,0 +1,241 @@
+Metadata-Version: 2.4
+Name: tps-rck
+Version: 0.1.0
+Summary: Official Python SDK for the Relational Calculate Kernel (RCK)
+Author-email: Topos-Pathless-Service <omorsablin@gmail.com>
+Project-URL: Homepage, https://github.com/TPS/rck-sdk
+Project-URL: Issues, https://github.com/TPS/rck-sdk/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: requests>=2.28.0
+Requires-Dist: pydantic>=2.0
+Requires-Dist: ratelimit>=2.2.1
+
+# TPS@RCK Python SDK(Topos Pathless Service :Relational Calculate Kernel)
+
+The official Python SDK for the Relational Calculate Kernel (RCK).
+
+This SDK provides a high-level, developer-friendly interface for all RCK engine types, including structured data transformation, example-based learning, text generation, and image generation.
+
+## Installation
+
+```bash
+pip install tps-rck-sdk
+```
+
+## Configuration
+
+The SDK uses a straightforward configuration model. You perform a one-time setup for credentials and connection settings, and then pass any computational parameters directly into each API call.
+
+### 1. Initial SDK Setup (Required)
+
+Use `tps_rck_sdk.configure()` once when your application starts to set your API key and global request settings like rate limits and timeouts.
+
+```python
+import tps_rck_sdk
+
+# Basic setup with an API key
+tps_rck_sdk.configure(api_key="your-rck-api-key-here")
+
+# Advanced setup also sourcing the API key from the RCK_API_KEY environment variable
+tps_rck_sdk.configure(
+    rate_limit_calls=15,          # Max 15 calls
+    rate_limit_period=60,         # per 60 seconds
+    max_concurrent_requests=5,    # Max 5 requests at the same time
+    default_timeout=90.0          # Default request timeout in seconds
+)
+```
+
+
+
+All computational parameters, such as  `speed`, `scale`, or `temperature`, are specified on a per-call basis using the `config_overrides` argument. This ensures that the behavior of each API call is explicit and self-contained.
+### Speed Profiles
+
+| Engine | fast | balanced | quality |
+|--------|------|----------|--------|
+| Standard | 900 tokens/sec | 150 tokens/sec | 300 tokens/sec |
+| Attractor | 900 tokens/sec | 150 tokens/sec | 300 tokens/sec | 
+| Pure | 900 tokens/sec | 150 tokens1/sec | 300 tokens/sec |
+| Image | Not configurable | Not configurable1 | Not configurable |
+
+### Scale Options
+
+| Scale | Standard | Attractor | Pure | Image |
+|-------|---------|----------|------|-------|
+| low | 1,000 tokens | 1,000 tokens | 1,000 tokens | Not applicable |
+| medium | 16,000 tokens | 16,000 tokens | 8,000 tokens | Not applicable |
+| high1 | 66,000 tokens | 66,000 tokens | 16,000 tokens | Not applicable |
+```python
+# Example of passing configuration to a specific call
+result = tps_rck_sdk.structured_transform(
+    start_point="Some text...",
+    output_schema=MySchema,
+    instructions="Extract data.",
+    config_overrides={"speed": "fast", "temperature": 0.2}
+)
+```
+
+---
+
+## Usage Examples
+
+### 1. Standard Engine: Structured Data Extraction
+
+Use `structured_transform` to convert natural language into a structured Pydantic object.
+
+```python
+import tps_rck_sdk
+from tps_rck_sdk import EndpointModel
+from pydantic import Field
+from typing import List
+
+# Assume tps_rck_sdk is already configured with an API key
+# tps_rck_sdk.configure(api_key="your-rck-api-key")
+
+# Define your desired output structure
+class TechStack(EndpointModel):
+    languages: List[str] = Field(description="Programming languages mentioned.")
+    frameworks: List[str] = Field(description="Frameworks or libraries mentioned.")
+
+# Call the high-level API with specific configuration for this task
+try:
+    result = tps_rck_sdk.structured_transform(
+        start_point="The project requires a backend in Python with Django and a frontend built using React.",
+        output_schema=TechStack,
+        instructions="Extract the technology stack from the user's requirement.",
+        config_overrides={"speed": "balanced"}
+    )
+    print("--- Standard Engine Result ---")
+    print(result.model_dump_json(indent=2))
+    # Expected output:
+    # {
+    #   "languages": [ "Python" ],
+    #   "frameworks": [ "Django", "React" ]
+    # }
+
+except tps_rck_sdk.RCKAPIError as e:
+    print(f"An API error occurred: {e}")
+
+```
+
+### 2. Attractor Engine: Learning from Examples
+
+Use `learn_from_examples` to teach the AI a pattern and then apply it to new data.
+
+```python
+import tps_rck_sdk
+from tps_rck_sdk import AttractorInputBase, EndpointModel
+
+# Assume tps_rck_sdk is already configured
+
+# Define input and output models
+class Product(AttractorInputBase):
+    name: str
+    description: str
+
+class Category(EndpointModel):
+    main_category: str
+    sub_category: str
+
+# Provide examples to teach the pattern
+examples = [
+    (Product(name="iPhone 15", description="Latest smartphone from Apple."), 
+     Category(main_category="Electronics", sub_category="Mobile Phones")),
+    (Product(name="Organic Apples", description="Freshly picked Fuji apples."), 
+     Category(main_category="Groceries", sub_category="Fresh Produce")),
+]
+
+# Provide a new input to classify
+new_product = Product(name="The Lord of the Rings", description="A fantasy novel by J.R.R. Tolkien.")
+
+# For complex pattern matching, we can specify a higher quality profile in the call
+try:
+    result = tps_rck_sdk.learn_from_examples(
+        start_point=new_product,
+        output_schema=Category,
+        examples=examples,
+        config_overrides={"speed": "quality", "scale": "high"}
+    )
+    print("\n--- Attractor Engine Result ---")
+    print(result.model_dump_json(indent=2))
+    # Expected output:
+    # {
+    #   "main_category": "Books",
+    #   "sub_category": "Fantasy"
+    # }
+except tps_rck_sdk.RCKAPIError as e:
+    print(f"An API error occurred: {e}")
+```
+
+### 3. Pure Engine: Text and Code Generation
+
+Use `generate_text` for creative writing, summarization, or code generation where you need plain text output.
+
+```python
+import tps_rck_sdk
+
+# Assume tps_rck_sdk is already configured
+
+# For code generation, we want fast and deterministic outputs
+try:
+    code_prompt = "A Python function that takes a list of integers and returns a new list with only the even numbers."
+    
+    generated_code = tps_rck_sdk.generate_text(
+        start_point=code_prompt,
+        instructions="Generate only the Python code, without any explanation.",
+        config_overrides={ "speed": "fast", "temperature": 0.1}
+    )
+    print("\n--- Pure Engine Result ---")
+    print(generated_code)
+    # Expected output:
+    # def get_even_numbers(numbers):
+    #     return [num for num in numbers if num % 2 == 0]
+
+except tps_rck_sdk.RCKAPIError as e:
+    print(f"An API error occurred: {e}")
+```
+
+### 4. Image Engine: Image Generation
+
+Use `generate_image` to create images from a structured text description.
+
+```python
+import tps_rck_sdk
+import base64
+
+# Assume tps_rck_sdk is already configured
+# Note: The Image Engine uses a fixed model and does not require speed/temperature configs.
+
+try:
+    image_response = tps_rck_sdk.generate_image(
+        subject="A majestic dragon flying over a crystalline castle",
+        composition="Wide-angle shot from below, emphasizing the dragon's scale",
+        lighting="Golden hour sunlight glinting off the crystals",
+        style="Epic fantasy digital painting"
+    )
+    
+    if image_response.images:
+        image_data = image_response.images[0].imageData
+        file_name = "dragon_castle.png"
+        
+        with open(file_name, "wb") as f:
+            f.write(base64.b64decode(image_data))
+            
+        print(f"\n--- Image Engine Result ---")
+        print(f"Image successfully generated and saved to '{file_name}'")
+
+except tps_rck_sdk.RCKAPIError as e:
+    print(f"An API error occurred: {e}")
+```
+
+## Error Handling
+
+The SDK uses custom exceptions to signal different types of errors. It's recommended to wrap API calls in a `try...except` block to handle potential issues gracefully.
+
+- `RCKAPIError`: Raised for any error returned by the RCK API (e.g., status code 4xx or 5xx).
+- `RCKConfigurationError`: Raised if the SDK is used before being configured.
+- `RCKException`: The base exception for all SDK-specific errors.
