@@ -1,0 +1,2 @@
+[console_scripts]
+chart-to-code = chart_to_code.cli:main
