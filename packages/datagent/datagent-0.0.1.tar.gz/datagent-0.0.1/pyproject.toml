@@ -1,0 +1,69 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "datagent"
+version = "0.0.1"
+description = "A comprehensive data analysis toolkit with universal sklearn and statsmodels tools for LangGraph agents"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Haris Jabbar", email = "haris@superpandas.ai"}
+]
+maintainers = [
+    {name = "Haris Jabbar", email = "haris@superpandas.ai"}
+]
+keywords = ["machine-learning", "scikit-learn", "statsmodels", "data-analysis", "langgraph", "langchain"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "statsmodels>=0.14.0",
+    "pandas>=1.5.0",
+    "numpy>=1.21.0",
+    "scipy>=1.9.0",
+    "scikit-learn>=1.1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "pytest-mock>=3.10.0",
+    "pytest-html>=3.1.0",
+    "coverage>=7.0.0",
+    "black>=22.0.0",
+    "flake8>=5.0.0",
+    "mypy>=1.0.0",
+]
+langgraph = [
+    "langgraph>=0.1.0",
+    "langchain>=0.1.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/superpandas-ai/datagent"
+Documentation = "https://datagent.readthedocs.io/"
+Repository = "https://github.com/superpandas-ai/datagent"
+"Bug Tracker" = "https://github.com/superpandas-ai/datagent/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["datagent*"]
+
+[tool.setuptools.package-data]
+datagent = ["*.md", "*.txt", "*.json"]

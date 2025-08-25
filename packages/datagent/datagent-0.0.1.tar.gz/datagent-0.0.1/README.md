@@ -1,0 +1,197 @@
+# DataAgent
+
+A comprehensive data analysis toolkit with universal sklearn and statsmodels tools for LangGraph agents.
+
+## Overview
+
+DataAgent provides a unified interface for machine learning and statistical analysis, making it easy to integrate with LangGraph agents for automated data analysis workflows. The package includes:
+
+- **Universal Scikit-learn Tools**: Comprehensive machine learning estimators with automated parameter validation and model selection
+- **Universal Statsmodels Tools**: Statistical analysis tools including linear models, GLM, nonparametric methods, robust linear models, and ANOVA
+
+## Installation
+
+```bash
+pip install datagent
+```
+
+For development dependencies:
+```bash
+pip install datagent[dev]
+```
+
+For LangGraph integration:
+```bash
+pip install datagent[langgraph]
+```
+
+## Quick Start
+
+### Using Scikit-learn Tools
+
+```python
+import datagent
+import pandas as pd
+from sklearn.datasets import load_iris
+
+# Load sample data
+iris = load_iris()
+X = pd.DataFrame(iris.data, columns=iris.feature_names)
+y = pd.Series(iris.target)
+
+# Use universal sklearn estimator
+result = datagent.universal_sklearn_estimator(
+    model_name="random_forest_classifier",
+    X=X,
+    y=y,
+    test_size=0.2,
+    random_state=42
+)
+
+print(f"Accuracy: {result['metrics']['accuracy']:.4f}")
+```
+
+### Using Statsmodels Tools
+
+```python
+import datagent
+import pandas as pd
+import numpy as np
+
+# Create sample data
+np.random.seed(42)
+n = 100
+X = np.random.randn(n, 2)
+y = 2 * X[:, 0] + 1.5 * X[:, 1] + np.random.randn(n)
+
+df = pd.DataFrame({
+    'y': y,
+    'x1': X[:, 0],
+    'x2': X[:, 1]
+})
+
+# Use universal linear model
+result = datagent.universal_linear_models(
+    model_name="ols",
+    data=df,
+    formula="y ~ x1 + x2"
+)
+
+print(f"R-squared: {result['model_info']['r_squared']:.4f}")
+```
+
+## Features
+
+### Scikit-learn Tools
+
+- **Classification**: Logistic Regression, Random Forest, SVM, Neural Networks, and more
+- **Regression**: Linear Regression, Ridge, Lasso, Elastic Net, and more
+- **Clustering**: K-Means, DBSCAN, Hierarchical Clustering, and more
+- **Preprocessing**: StandardScaler, LabelEncoder, and more
+- **Model Selection**: Cross-validation, hyperparameter tuning
+- **Metrics**: Comprehensive evaluation metrics for each task type
+
+### Statsmodels Tools
+
+- **Linear Models**: OLS, WLS, GLS, and more
+- **Generalized Linear Models (GLM)**: Logistic, Poisson, Gamma, and more
+- **Nonparametric Methods**: Kernel density estimation, smoothing
+- **Robust Linear Models**: RLM with various M-estimators
+- **ANOVA**: Analysis of variance for experimental designs
+
+## LangGraph Integration
+
+DataAgent is designed to work seamlessly with LangGraph agents. Here's an example:
+
+```python
+from langgraph.graph import StateGraph
+import datagent
+
+# Create a LangGraph tool
+sklearn_tool = datagent.create_sklearn_langgraph_tool()
+
+# Use in your agent workflow
+def analyze_data(state):
+    # Your data analysis logic here
+    result = sklearn_tool.invoke({
+        "model_name": "random_forest_classifier",
+        "X": state["data"],
+        "y": state["target"]
+    })
+    return {"analysis_result": result}
+
+# Build your graph
+workflow = StateGraph()
+workflow.add_node("analyze", analyze_data)
+```
+
+## API Reference
+
+### Scikit-learn Functions
+
+- `universal_sklearn_estimator()`: Main function for sklearn model training
+- `extract_sklearn_model_info()`: Extract model information
+- `get_sklearn_tool_description()`: Get tool description for LangGraph
+- `create_sklearn_langgraph_tool()`: Create LangGraph tool
+- `get_available_sklearn_models()`: List available models
+- `validate_sklearn_parameters()`: Validate model parameters
+
+### Statsmodels Functions
+
+- `universal_linear_models()`: Linear model analysis
+- `universal_glm()`: Generalized linear model analysis
+- `universal_nonparametric()`: Nonparametric analysis
+- `universal_rlm()`: Robust linear model analysis
+- `universal_anova()`: ANOVA analysis
+
+Each function has corresponding helper functions for model info extraction, tool creation, and parameter validation.
+
+## Examples
+
+See the `examples/` directory for comprehensive examples:
+
+- **`basic_usage.py`** - Basic usage demonstration (Python script)
+- **`basic_usage.ipynb`** - Interactive Jupyter notebook with basic usage
+- **`langgraph_integration.py`** - LangGraph integration example (Python script)
+- **`langgraph_integration.ipynb`** - Interactive Jupyter notebook with LangGraph integration
+
+### Running Examples
+
+**Python Scripts:**
+```bash
+python examples/basic_usage.py
+python examples/langgraph_integration.py
+```
+
+**Jupyter Notebooks:**
+```bash
+jupyter notebook examples/basic_usage.ipynb
+jupyter notebook examples/langgraph_integration.ipynb
+```
+
+## Contributing
+
+We welcome contributions! Please see our contributing guidelines for details.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Support
+
+- Documentation: [https://datagent.readthedocs.io/](https://datagent.readthedocs.io/)
+- Issues: [https://github.com/yourusername/datagent/issues](https://github.com/yourusername/datagent/issues)
+- Discussions: [https://github.com/yourusername/datagent/discussions](https://github.com/yourusername/datagent/discussions)
+
+## Citation
+
+If you use DataAgent in your research, please cite:
+
+```bibtex
+@software{datagent2024,
+  title={DataAgent: A comprehensive data analysis toolkit for LangGraph agents},
+  author={DataAgent Team},
+  year={2024},
+  url={https://github.com/yourusername/datagent}
+}
+```

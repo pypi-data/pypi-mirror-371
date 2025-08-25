@@ -1,0 +1,25 @@
+include README.md
+include LICENSE
+include requirements.txt
+include pyproject.toml
+
+# Include the tool directories
+recursive-include universal_sklearn_tool *.py
+recursive-include universal_sklearn_tool *.md
+recursive-include universal_sklearn_tool *.txt
+recursive-include universal_sklearn_tool *.json
+
+recursive-include universal_statsmodels_tool *.py
+recursive-include universal_statsmodels_tool *.md
+recursive-include universal_statsmodels_tool *.txt
+recursive-include universal_statsmodels_tool *.json
+
+# Include examples
+recursive-include examples *.py
+recursive-include examples *.ipynb
+recursive-include examples *.md
+
+# Include tests
+recursive-include tests *.py
+recursive-include tests *.md
+recursive-include tests *.ini
