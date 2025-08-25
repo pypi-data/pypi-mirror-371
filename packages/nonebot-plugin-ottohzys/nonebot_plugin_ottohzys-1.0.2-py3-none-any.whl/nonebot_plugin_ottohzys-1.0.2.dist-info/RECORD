@@ -1,0 +1,14 @@
+nonebot_plugin_ottohzys/__init__.py,sha256=rsnLF96qUnfRGbzfMBK7DLB0S6yBopnbnP3WkIOtF7U,1540
+nonebot_plugin_ottohzys/__main__.py,sha256=zrioloYyQ6JOE1JiNZAGIxHmmTHwxn7jBKGrcpZg8lQ,7527
+nonebot_plugin_ottohzys/config.py,sha256=23yF51Od7bs1pSxeC-wXJhHzqtf6Bk3s9nWV5C95kNI,1186
+nonebot_plugin_ottohzys/migrate.py,sha256=QWOFrE4c-QK3KkT335jFfFclM9O-CyqXE2U_4x2sjH8,959
+nonebot_plugin_ottohzys/pack/__init__.py,sha256=L2eIkPOAEGQr7KbWHhTC6Ed6MvYEhs5JPdw0Yz__K5I,111
+nonebot_plugin_ottohzys/pack/audio.py,sha256=IdefZCuVMPG0ETCBYJwj5DloT-_bdxpGsfrVJLgS7og,2846
+nonebot_plugin_ottohzys/pack/hzys.py,sha256=BvRmVd0B-xE02cZHS6mqocNbSa0RYeavizHeIh7fo84,3405
+nonebot_plugin_ottohzys/pack/manager.py,sha256=42nM48bHkzrv1CGoZME961jEa0sK68jgyOLLZ4mwAUM,1654
+nonebot_plugin_ottohzys/pack/online.py,sha256=yXXEWUgdFzpyEWVRbztpG_2D1W586TigL1wvuK6bXQI,1521
+nonebot_plugin_ottohzys/pack/pack.py,sha256=gkFrdyh0Q5yxNDUmubwtBVPt4oJ9HinWjaxGUNri5_M,3827
+nonebot_plugin_ottohzys/res/chinglish.json,sha256=czxGamKvJFhrNZ0EOsKXpqY2boVe-rjdH8co6pKaXKQ,512
+nonebot_plugin_ottohzys-1.0.2.dist-info/METADATA,sha256=9S72FeHtuRycAn5HbgWL25j9kb8zbkcyu5XobwRDCnY,6669
+nonebot_plugin_ottohzys-1.0.2.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+nonebot_plugin_ottohzys-1.0.2.dist-info/RECORD,,
