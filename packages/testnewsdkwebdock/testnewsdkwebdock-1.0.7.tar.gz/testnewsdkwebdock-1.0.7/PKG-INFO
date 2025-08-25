@@ -1,0 +1,71 @@
+Metadata-Version: 2.4
+Name: testnewsdkwebdock
+Version: 1.0.7
+Summary: Webdock Python SDK
+Author: ahmad
+Author-email: a4amado@gmail.com
+Keywords: webdock,sdk,api,cloud,hosting
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENCE
+Requires-Dist: requests<3,>=2.31.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: keywords
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# Webdock Python SDK
+
+A Python SDK for interacting with the Webdock API.
+
+## Installation
+
+```bash
+pip install webdock-python-sdk
+```
+
+## Usage
+
+```python
+from webdock import Webdock
+
+# Initialize the SDK with your API token
+webdock = Webdock("your-api-token-here")
+
+# Use the SDK to interact with different resources
+servers = webdock.servers
+account = webdock.account
+# ... and more
+```
+
+## Available Resources
+
+- `webdock.servers` - Manage servers
+- `webdock.account` - Account information
+- `webdock.images` - Server images
+- `webdock.profiles` - Server profiles
+- `webdock.events` - Events
+- `webdock.hooks` - Webhooks
+- `webdock.locations` - Server locations
+- `webdock.scripts` - Scripts
+- `webdock.shellUsers` - Shell users
+- `webdock.sshkeys` - SSH keys
+- `webdock.snapshots` - Snapshots
+- `webdock.operation` - Operations
