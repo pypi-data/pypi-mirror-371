@@ -1,0 +1,10 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+evercode.egg-info/PKG-INFO
+evercode.egg-info/SOURCES.txt
+evercode.egg-info/dependency_links.txt
+evercode.egg-info/top_level.txt
+stack/__init__.py
+stack/data.py

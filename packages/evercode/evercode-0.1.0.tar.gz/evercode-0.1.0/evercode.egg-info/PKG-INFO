@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: evercode
+Version: 0.1.0
+Summary: EverCode пакет с содержимым из test.txt
+Home-page: https://github.com/yourusername/evercode
+Author: Vladimir
+Author-email: your.email@example.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# EverCode Package
+
+EverCode Python пакет, содержащий данные из файла `test.txt`.
+
+## Установка
+
+```bash
+pip install evercode
+```
+
+## Использование
+
+```python
+from stack import data
+
+# Получить содержимое test.txt
+print(data.get_content())
+```
+
+## Лицензия
+
+MIT License 
+
