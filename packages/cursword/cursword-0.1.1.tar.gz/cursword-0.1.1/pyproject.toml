@@ -1,0 +1,25 @@
+[project]
+name = "cursword"
+version = "0.1.1"
+description = "Simple functions to move by words in a string"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = []
+
+[project.urls]
+Repository = "https://github.com/ductorex/cursword"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.1",
+    "pytest-cov>=6.2.1",
+    "ruff>=0.12.10",
+]
+
+[tool.ruff.lint.per-file-ignores]
+# Do not complain about unused imports in __init__ files.
+"__init__.py" = ["F401"]
+
+[build-system]
+requires = ["hatchling >= 1.26"]
+build-backend = "hatchling.build"
