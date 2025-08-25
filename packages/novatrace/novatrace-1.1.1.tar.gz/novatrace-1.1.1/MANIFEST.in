@@ -1,0 +1,5 @@
+include README.md
+include LICENSE
+recursive-include novatrace/web_interface *
+recursive-exclude novatrace/web_interface/node_modules *
+recursive-exclude novatrace/web_interface/.git *
