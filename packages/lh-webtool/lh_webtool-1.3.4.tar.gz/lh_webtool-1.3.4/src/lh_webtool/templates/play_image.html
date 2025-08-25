@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Viewer</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        #image-container {
+            text-align: center; /* 水平居中 */
+        }
+        #image {
+            width: auto;
+            height: auto;
+            max-width: 100vw; /* 图像宽度最大为屏幕宽度 */
+            max-height: 88vh; /* 图像高度最大为屏幕高度 */
+        }
+        #progress {
+            width: 100%;
+        }
+        .btn-container {
+            text-align: center; /* 水平居中 */
+        }
+    </style>
+    <script>
+        var imageIndex = 0;
+        var imageUrls = [
+            {% for url in image_urls %}
+                {% if url.startswith("http://") or url.startswith("https://") or url.startswith("static/")%}
+                    "{{ url }}",
+                {% else %}
+                    "{{ url_for('serve_image', filename=url) }}",
+                {% endif %}
+            {% endfor %}
+        ];
+
+        function displayImage(index) {
+            $('#image').attr('src', imageUrls[index]);
+            $('#progress').val(index);
+        }
+
+        $(document).ready(function() {
+            displayImage(imageIndex);
+
+            $(document).keydown(function(e) {
+                if (e.keyCode == 37) {  // 左箭头键
+                    imageIndex = (imageIndex - 1 + imageUrls.length) % imageUrls.length;
+                    displayImage(imageIndex);
+                } else if (e.keyCode == 39) {  // 右箭头键
+                    imageIndex = (imageIndex + 1) % imageUrls.length;
+                    displayImage(imageIndex);
+                }
+            });
+
+            $('#prevButton').click(function() {
+                imageIndex = (imageIndex - 1 + imageUrls.length) % imageUrls.length;
+                displayImage(imageIndex);
+            });
+
+            $('#nextButton').click(function() {
+                imageIndex = (imageIndex + 1) % imageUrls.length;
+                displayImage(imageIndex);
+            });
+
+            // 滑块拖动跳转
+            $('#progress').on('input change', function() {
+                imageIndex = parseInt($(this).val());
+                displayImage(imageIndex);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="image-container">
+        <img id="image" src="">
+    </div>
+    <br>
+    <input type="range" id="progress" value="0" min="0" max="{{ image_urls|length - 1 }}" style="width: 100%;">
+    <div class="btn-container">
+        <button class="btn" id="prevButton">Prev</button>
+        <button class="btn" id="nextButton">Next</button>
+    </div>
+</body>
+</html>
