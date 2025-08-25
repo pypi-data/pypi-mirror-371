@@ -1,0 +1,3 @@
+[console_scripts]
+reddit-export=reddit_export.scrape:main
+
