@@ -1,0 +1,6 @@
+include README.md
+include CLAUDE.md
+include *.py
+recursive-include . *.py
+global-exclude __pycache__/*
+global-exclude *.pyc
