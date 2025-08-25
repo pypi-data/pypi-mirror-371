@@ -1,0 +1,148 @@
+Metadata-Version: 2.4
+Name: hashcounter
+Version: 2025.8.241412
+Summary: Atomic per-string counter with sliding TTL in Redis (async).
+Home-page: https://github.com/chigwell/hashcounter
+Author: Eugene Evstafev
+Author-email: chigwel@gmail.com
+License: MIT
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Database
+Classifier: Topic :: Internet
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: redis>=5.0.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+[![PyPI version](https://badge.fury.io/py/hashcounter.svg)](https://badge.fury.io/py/hashcounter)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![Downloads](https://static.pepy.tech/badge/hashcounter)](https://pepy.tech/project/hashcounter)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-blue)](https://www.linkedin.com/in/eugene-evstafev-716669181/)
+
+# hashcounter
+
+`hashcounter` is a tiny async Redis helper: **per-string counter with a sliding TTL**.  
+Input string → SHA-256 → key `"{prefix}:{hash}"` → atomic `INCR` + `EXPIRE` in one transaction.
+
+## Installation
+
+```bash
+pip install hashcounter
+````
+
+Requires `redis>=5.0.0` and a running Redis server.
+
+## Quick start
+
+```python
+import asyncio
+from hashcounter import bump_string_counter
+
+async def main() -> None:
+    count = await bump_string_counter(
+        "world_debug_test_v234",
+        redis_url="redis://localhost:6379/0",
+        key_prefix="llm7:seen",
+        ttl_seconds=600,  # 10 minutes
+    )
+    print(count)  # 1 on first call, then 2, 3, ...
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+## FastAPI (shared Redis client)
+
+```python
+from __future__ import annotations
+
+import redis.asyncio as redis
+from fastapi import FastAPI
+from hashcounter import bump_string_counter
+
+app = FastAPI()
+r = redis.from_url("redis://localhost:6379/0", decode_responses=False)
+
+@app.on_event("shutdown")
+async def _shutdown() -> None:
+    await r.aclose()
+
+@app.post("/hit")
+async def hit(s: str) -> dict[str, int]:
+    count = await bump_string_counter(
+        s,
+        redis_url="redis://localhost:6379/0",
+        key_prefix="llm7:seen",
+        ttl_seconds=600,
+        client=r,  # reuse connection pool
+    )
+    return {"count": count}
+```
+
+## Behaviour
+
+* **Key:** `f"{key_prefix}:{sha256(value)}"`.
+* **Atomicity:** `INCR` and `EXPIRE` run in a single `MULTI/EXEC` transaction.
+* **Sliding TTL:** TTL resets to `ttl_seconds` on every call.
+* **First call:** creates the key with value `1`.
+* **Return:** current counter value (`int`).
+* **Validation:** raises `ValueError` if `ttl_seconds <= 0`.
+
+## API
+
+```python
+async def bump_string_counter(
+    value: str,
+    *,
+    redis_url: str,
+    key_prefix: str,
+    ttl_seconds: int = 600,
+    client: Optional[redis.Redis] = None,
+) -> int:
+    """Increment the counter and refresh TTL. Return the current value."""
+```
+
+Parameters:
+
+* `value`: arbitrary string to count.
+* `redis_url`: Redis connection URL (ignored if `client` is provided).
+* `key_prefix`: namespace prefix for keys.
+* `ttl_seconds`: key time-to-live (seconds), refreshed on each call.
+* `client`: existing `redis.asyncio.Redis` instance (recommended in services).
+
+## Use cases
+
+* Prompt/request deduplication and anti-spam windows.
+* Per-key rate limiting by arbitrary features (prompt hash, user token, IP).
+* Telemetry: “seen count in the last N minutes”.
+
+## Contributing
+
+Issues and PRs are welcome: [https://github.com/chigwell/hashcounter/issues](https://github.com/chigwell/hashcounter/issues).
+
+## License
+
+[MIT](LICENSE) © [Eugene Evstafev](https://www.linkedin.com/in/eugene-evstafev-716669181/)
+
