@@ -1,0 +1,45 @@
+# Include the README and license files
+include README.md
+include LICENSE
+
+# Include requirements files
+include requirements.txt
+
+# Include configuration files
+include pyproject.toml
+
+# Include type information
+include owlib/py.typed
+
+# Exclude development files
+exclude .gitignore
+exclude .flake8
+exclude .pre-commit-config.yaml
+exclude tox.ini
+
+# Exclude build artifacts
+global-exclude *.pyc
+global-exclude *.pyo
+global-exclude *.pyd
+global-exclude __pycache__
+global-exclude .pytest_cache
+global-exclude *.so
+global-exclude .coverage
+global-exclude .coverage.*
+
+# Exclude development directories
+prune .git
+prune .github
+prune .tox
+prune .mypy_cache
+prune build
+prune dist
+prune *.egg-info
+prune .venv
+prune venv
+prune env
+
+# Exclude test files from distribution
+prune tests
+exclude test_*.py
+exclude *_test.py

@@ -1,0 +1,363 @@
+Metadata-Version: 2.4
+Name: owlib
+Version: 0.1.0
+Summary: Python SDK for the Owlib AI Knowledge Platform
+Author-email: Xiang Fei <xfey99@gmail.com>
+Maintainer-email: Xiang Fei <xfey99@gmail.com>
+License: MIT License
+        
+        Copyright (c) 2025 Owlib
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+Project-URL: Homepage, https://owlib.ai
+Project-URL: Documentation, https://docs.owlib.ai
+Project-URL: Repository, https://github.com/owlib/owlib-python
+Project-URL: Bug Tracker, https://github.com/owlib/owlib-python/issues
+Project-URL: Changelog, https://github.com/owlib/owlib-python/blob/main/CHANGELOG.md
+Keywords: ai,artificial-intelligence,knowledge-base,embedding,vector-search,nlp
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests>=2.28.0
+Requires-Dist: python-dotenv>=0.19.0
+Provides-Extra: dev
+Requires-Dist: pytest>=6.0.0; extra == "dev"
+Requires-Dist: pytest-cov>=2.0.0; extra == "dev"
+Requires-Dist: black>=22.0.0; extra == "dev"
+Requires-Dist: flake8>=4.0.0; extra == "dev"
+Requires-Dist: mypy>=0.900; extra == "dev"
+Requires-Dist: twine>=3.0.0; extra == "dev"
+Requires-Dist: build>=0.7.0; extra == "dev"
+Provides-Extra: test
+Requires-Dist: pytest>=6.0.0; extra == "test"
+Requires-Dist: pytest-cov>=2.0.0; extra == "test"
+Requires-Dist: pytest-mock>=3.0.0; extra == "test"
+Requires-Dist: responses>=0.20.0; extra == "test"
+Dynamic: license-file
+
+# Owlib Python SDK
+
+A Python client library for the [Owlib AI Knowledge Platform](https://owlib.ai) - making structured knowledge accessible to AI applications.
+
+## Overview
+
+Owlib is an AI-first knowledge platform that allows developers to create, share, and query structured knowledge bases optimized for AI applications. Similar to how Hugging Face hosts models and datasets, Owlib provides a platform for hosting and accessing AI-ready knowledge repositories.
+
+This Python SDK provides a simple and intuitive interface to query knowledge bases and retrieve structured information for your AI applications.
+
+## Features
+
+- 🚀 **Simple API** - Clean, intuitive interface for querying knowledge bases
+- 🔍 **Powerful Search** - Vector similarity search with metadata filtering
+- 🛡️ **Robust Error Handling** - Comprehensive exception handling with meaningful error messages
+- 🔑 **Flexible Authentication** - Support for API keys and environment variables
+- 📦 **Rich Data Models** - Structured response objects with type hints
+- ⚡ **Async Ready** - Built with modern Python practices
+
+## Installation
+
+Install the Owlib Python SDK using pip:
+
+```bash
+pip install owlib
+```
+
+## Quick Start
+
+### 1. Get Your API Key
+
+First, sign up for an account at [owlib.ai](https://owlib.ai) and obtain your API key from the dashboard.
+
+### 2. Basic Usage
+
+```python
+from owlib import OwlibClient
+
+# Initialize the client
+client = OwlibClient(api_key="your-api-key-here")
+
+# Or use environment variable OWLIB_API_KEY
+# client = OwlibClient()
+
+# Select a knowledge base
+kb = client.knowledge_base("history/chinese_ancient")
+
+# Query the knowledge base
+results = kb.query("秦始皇统一六国", top_k=5)
+
+# Process the results
+for entry in results.entries:
+    print(f"Title: {entry.title}")
+    print(f"Similarity: {entry.similarity_score:.2f}")
+    print(f"Content: {entry.content[:200]}...")
+    print("---")
+```
+
+### 3. Fetch Specific Entries
+
+```python
+# Get a specific entry by ID
+if results.entries:
+    entry_id = results.entries[0].id
+    full_entry = kb.fetch(entry_id)
+    print(f"Full content: {full_entry.content}")
+```
+
+## Authentication
+
+### Using API Key Parameter
+
+```python
+from owlib import OwlibClient
+
+client = OwlibClient(api_key="your-api-key")
+```
+
+### Using Environment Variable
+
+Set the `OWLIB_API_KEY` environment variable:
+
+```bash
+export OWLIB_API_KEY="your-api-key"
+```
+
+Then initialize the client without parameters:
+
+```python
+from owlib import OwlibClient
+
+client = OwlibClient()  # Automatically reads from environment
+```
+
+### Using .env File
+
+Create a `.env` file in your project root:
+
+```
+OWLIB_API_KEY=your-api-key-here
+```
+
+The SDK will automatically load environment variables from `.env` files.
+
+## API Reference
+
+### OwlibClient
+
+The main client class for interacting with the Owlib platform.
+
+#### Constructor
+
+```python
+OwlibClient(api_key=None, base_url="https://api.owlib.ai", timeout=30)
+```
+
+**Parameters:**
+- `api_key` (str, optional): API key for authentication. If None, reads from `OWLIB_API_KEY` environment variable.
+- `base_url` (str): Base URL for the API. Default: "https://api.owlib.ai"
+- `timeout` (int): Request timeout in seconds. Default: 30
+
+#### Methods
+
+##### `knowledge_base(path: str) -> KnowledgeBase`
+
+Get a KnowledgeBase instance for the specified path.
+
+**Parameters:**
+- `path` (str): Knowledge base path in format "namespace/name"
+
+**Returns:**
+- `KnowledgeBase`: Instance for querying and fetching entries
+
+### KnowledgeBase
+
+Represents a specific knowledge base and provides methods to query and fetch entries.
+
+#### Methods
+
+##### `query(query_text: str, top_k: int = 5) -> QueryResult`
+
+Query the knowledge base for similar entries.
+
+**Parameters:**
+- `query_text` (str): The text to search for
+- `top_k` (int): Maximum number of results to return (1-100, default: 5)
+
+**Returns:**
+- `QueryResult`: Object containing matching entries and metadata
+
+##### `fetch(entry_id: str) -> Entry`
+
+Fetch a specific entry by its ID.
+
+**Parameters:**
+- `entry_id` (str): Unique identifier of the entry
+
+**Returns:**
+- `Entry`: Complete entry object with all fields
+
+### Data Models
+
+#### Entry
+
+Represents a knowledge entry from the knowledge base.
+
+**Attributes:**
+- `id` (str): Unique identifier
+- `title` (str): Entry title
+- `content` (str): Full text content
+- `similarity_score` (float): Similarity score (0.0-1.0)
+- `metadata` (dict): Additional metadata
+
+#### QueryResult
+
+Represents the result of a knowledge base query.
+
+**Attributes:**
+- `entries` (List[Entry]): List of matching entries
+- `query_text` (str): Original query text
+- `total_count` (int): Total number of results
+
+**Methods:**
+- `__len__()`: Returns number of entries
+- `__iter__()`: Allows iteration over entries
+- `__getitem__(index)`: Allows indexing into entries
+
+## Error Handling
+
+The SDK provides comprehensive error handling with specific exception types:
+
+```python
+from owlib import OwlibClient
+from owlib.exceptions import (
+    AuthenticationError,
+    KnowledgeBaseNotFoundError,
+    EntryNotFoundError,
+    ValidationError,
+    APIError,
+    NetworkError,
+    TimeoutError
+)
+
+try:
+    client = OwlibClient(api_key="invalid-key")
+    kb = client.knowledge_base("history/chinese_ancient")
+    results = kb.query("test query")
+except AuthenticationError:
+    print("Invalid API key")
+except KnowledgeBaseNotFoundError:
+    print("Knowledge base not found")
+except ValidationError as e:
+    print(f"Invalid input: {e}")
+except NetworkError as e:
+    print(f"Network error: {e}")
+except TimeoutError:
+    print("Request timed out")
+except APIError as e:
+    print(f"API error: {e}")
+```
+
+## Advanced Usage
+
+### Custom Configuration
+
+```python
+from owlib import OwlibClient
+
+# Custom API endpoint and timeout
+client = OwlibClient(
+    api_key="your-api-key",
+    base_url="https://your-custom-api.com",
+    timeout=60  # 60 seconds
+)
+```
+
+### Working with Metadata
+
+```python
+kb = client.knowledge_base("tech/machine_learning")
+results = kb.query("transformer architecture", top_k=3)
+
+for entry in results.entries:
+    print(f"Title: {entry.title}")
+    print(f"Category: {entry.metadata.get('category', 'N/A')}")
+    print(f"Author: {entry.metadata.get('author', 'Unknown')}")
+    print("---")
+```
+
+### Batch Processing
+
+```python
+queries = [
+    "深度学习基础",
+    "神经网络架构", 
+    "机器学习算法"
+]
+
+kb = client.knowledge_base("tech/ai_concepts")
+
+for query in queries:
+    results = kb.query(query, top_k=3)
+    print(f"Query: {query}")
+    print(f"Found {len(results)} results")
+    for entry in results:
+        print(f"  - {entry.title} (score: {entry.similarity_score:.2f})")
+    print()
+```
+
+## Requirements
+
+- Python 3.7+
+- requests >= 2.28.0
+- python-dotenv >= 0.19.0
+
+## Contributing
+
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Support
+
+- **Documentation**: [docs.owlib.ai](https://docs.owlib.ai)
+- **Issues**: [GitHub Issues](https://github.com/owlib/owlib-python/issues)
+- **Email**: support@owlib.ai
+
+## Changelog
+
+### v1.0.0
+- Initial release
+- Basic querying and fetching functionality
+- Comprehensive error handling
+- Environment variable support
+- Full documentation and examples
