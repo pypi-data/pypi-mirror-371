@@ -1,0 +1,3 @@
+[console_scripts]
+kymo-stream = kymo_stream.main:main
+
