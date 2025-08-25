@@ -1,0 +1,3 @@
+[console_scripts]
+goat-mcp-add-server = goat_mcp_add_server:main
+
