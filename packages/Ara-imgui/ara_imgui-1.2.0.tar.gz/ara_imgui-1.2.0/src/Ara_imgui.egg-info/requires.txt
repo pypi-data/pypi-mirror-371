@@ -1,0 +1,4 @@
+glfw>=2.8.0
+imgui==2.0.0
+pyopengl>=3.1.9
+ara_core>=1.1.0
