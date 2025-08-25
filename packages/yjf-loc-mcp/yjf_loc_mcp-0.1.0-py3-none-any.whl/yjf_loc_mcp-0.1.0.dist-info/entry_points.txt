@@ -1,0 +1,3 @@
+[console_scripts]
+yjf-loc-mcp = yjf_loc_mcp:main
+
