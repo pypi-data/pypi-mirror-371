@@ -1,0 +1,2 @@
+[pennylane.plugins]
+cqlib.device = cqlib_adapter.pennylane_ext.device:CQLibDevice
