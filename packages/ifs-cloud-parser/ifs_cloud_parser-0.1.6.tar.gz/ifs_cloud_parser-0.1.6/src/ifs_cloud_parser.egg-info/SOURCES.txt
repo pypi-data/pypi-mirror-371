@@ -1,0 +1,15 @@
+MANIFEST.in
+README.md
+binding.cc
+grammar.json
+node-types.json
+pyproject.toml
+setup.py
+src/parser.c
+src/scanner.c
+src/ifs_cloud_parser.egg-info/PKG-INFO
+src/ifs_cloud_parser.egg-info/SOURCES.txt
+src/ifs_cloud_parser.egg-info/dependency_links.txt
+src/ifs_cloud_parser.egg-info/requires.txt
+src/ifs_cloud_parser.egg-info/top_level.txt
+src/tree_sitter/parser.h
