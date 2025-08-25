@@ -1,0 +1,2 @@
+[console_scripts]
+pyenvsearch = pyenvsearch.main:main
