@@ -1,0 +1,9 @@
+qtradex-1.1.0.dist-info/RECORD,,
+qtradex-1.1.0.dist-info/METADATA,sha256=ghiJb72CRUYHy54rPeD_4qxaMobkrp56SJ9vltvxTLc,7504
+qtradex-1.1.0.dist-info/entry_points.txt,sha256=_IaOzRCiFVtLwZtvf1E2pcK6YCdtDC8q6RazBSG_zwk,72
+qtradex-1.1.0.dist-info/top_level.txt,sha256=C04aDt_TgnYWsNr-yZdKuf271scYWjxACNcY5MdhXRA,8
+qtradex-1.1.0.dist-info/WHEEL,sha256=YwwXoTw3GiS2opXg0pzOK8Fu-l551Ce8Kl0KgSy3Zy8,216
+qtradex-1.1.0.dist-info/licenses/LICENSE,sha256=b-gGeSfieR3OzUbZOk2JuHnlGqkTLQNP8aUb1vmyoWc,229
+qtradex/__init__.py,sha256=ddbS5nTu3UVvMDPEO_ldExR34YxOGrCW8zhdBV7wjkE,1165
+qtradex/indicators/utilities.cpython-39-x86_64-linux-gnu.so,sha256=7z4fs9kSzb65WhlXtjO_GGcGJY3oT7j_QReVdJuY_hs,486816
+qtradex/indicators/qi.cpython-39-x86_64-linux-gnu.so,sha256=34hOVfHu0kyb2Z1BDkCwCmZ7JlShi_Tpj1dNPKm5tUI,4552552
