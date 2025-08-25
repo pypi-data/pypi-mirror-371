@@ -1,0 +1,50 @@
+[project]
+name = "stash-mcp-server"
+version = "0.1.3"
+description = "Stash MCP Server for issue analysis and task management"
+readme = "README.md"
+requires-python = ">=3.12"
+license = {text = "MIT"}
+authors = [
+    {name = "Lamberson", email = "lambersonistaken@gmail.com"},
+]
+maintainers = [
+    {name = "Lamberson", email = "lambersonistaken@gmail.com"},
+]
+keywords = ["mcp", "stash", "issue-analysis", "task-management"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    "mcp>=1.13.0",
+    "httpx>=0.25.0",
+    "python-dotenv>=1.0.0",
+    "pydantic-settings>=2.0.0",
+]
+
+[project.scripts]
+stash-mcp-server = "stash_mcp_server.main:main"
+
+[project.urls]
+Homepage = "https://github.com/lambersonistaken/stash-mcp-server"
+Repository = "https://github.com/lambersonistaken/stash-mcp-server"
+Documentation = "https://github.com/lambersonistaken/stash-mcp-server#readme"
+Issues = "https://github.com/lambersonistaken/stash-mcp-server/issues"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["stash_mcp_server"]
+
+[tool.uv]
+dev-dependencies = [
+    "build>=1.3.0",
+    "twine>=6.1.0",
+]
