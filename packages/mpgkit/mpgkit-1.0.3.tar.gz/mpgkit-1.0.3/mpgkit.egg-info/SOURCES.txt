@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+mpgkit/__init__.py
+mpgkit/cli.py
+mpgkit/keymanager.py
+mpgkit.egg-info/PKG-INFO
+mpgkit.egg-info/SOURCES.txt
+mpgkit.egg-info/dependency_links.txt
+mpgkit.egg-info/entry_points.txt
+mpgkit.egg-info/requires.txt
+mpgkit.egg-info/top_level.txt
