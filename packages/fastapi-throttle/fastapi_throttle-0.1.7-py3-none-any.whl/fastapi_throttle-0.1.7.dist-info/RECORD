@@ -1,0 +1,10 @@
+fastapi_throttle/__init__.py,sha256=yVHOoNXvg14zrjW_afAAxpgcka4dH4XGR42WyvBEqhQ,60
+fastapi_throttle/limiter.py,sha256=hxNK5e--bMs14DDfo-6Gu6E3GVgzaWcpfmVWWogKTqA,2944
+fastapi_throttle/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+fastapi_throttle-0.1.7.dist-info/licenses/LICENSE,sha256=Jphx0UrXfS7TWpqHt8Twoa445T4pHDzpdoyEB8SpuXs,1066
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/test_limiter.py,sha256=T-2S5vKknPp8MiXX_p4k0TuuuN3V6zLjZPdEs8b87iw,1536
+fastapi_throttle-0.1.7.dist-info/METADATA,sha256=Q5bONk1y3WmfYe_G8rHK85EGHiJjQJp3ue6xZbHDhtw,4986
+fastapi_throttle-0.1.7.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+fastapi_throttle-0.1.7.dist-info/top_level.txt,sha256=2FLtwyQfib7jsiozrtDT16ZOtt7_TtaiA0YFRXT-jj4,23
+fastapi_throttle-0.1.7.dist-info/RECORD,,
