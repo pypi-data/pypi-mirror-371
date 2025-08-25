@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+cinetica/cinetica.egg-info/PKG-INFO
+cinetica/cinetica.egg-info/SOURCES.txt
+cinetica/cinetica.egg-info/dependency_links.txt
+cinetica/cinetica.egg-info/top_level.txt
+tests/test_cinetica.py
+tests/test_movimiento_rectilineo.py
