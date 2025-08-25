@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+Dire/__init__.py
+TorchDire.egg-info/PKG-INFO
+TorchDire.egg-info/SOURCES.txt
+TorchDire.egg-info/dependency_links.txt
+TorchDire.egg-info/requires.txt
+TorchDire.egg-info/top_level.txt
