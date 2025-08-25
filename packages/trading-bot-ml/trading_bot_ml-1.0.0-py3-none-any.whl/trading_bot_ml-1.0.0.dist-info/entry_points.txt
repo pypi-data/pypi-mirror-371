@@ -1,0 +1,2 @@
+[console_scripts]
+trading-bot = arbi.main:main

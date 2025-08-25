@@ -1,0 +1,166 @@
+Metadata-Version: 2.4
+Name: trading-bot-ml
+Version: 1.0.0
+Summary: Advanced ML-powered trading bot with real-time market analysis
+Home-page: https://github.com/krish567366/bot-model
+Author: Trading Bot Team
+Author-email: Trading Bot Team <krish567366@example.com>
+License: MIT
+Project-URL: Homepage, https://github.com/krish567366/bot-model
+Project-URL: Repository, https://github.com/krish567366/bot-model
+Project-URL: Issues, https://github.com/krish567366/bot-model/issues
+Keywords: trading,machine-learning,finance,cryptocurrency,bot
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Financial and Insurance Industry
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Office/Business :: Financial :: Investment
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: pandas>=1.5.0
+Requires-Dist: numpy>=1.21.0
+Requires-Dist: scikit-learn>=1.1.0
+Requires-Dist: lightgbm>=3.3.0
+Requires-Dist: xgboost>=1.6.0
+Requires-Dist: joblib>=1.1.0
+Requires-Dist: matplotlib>=3.5.0
+Requires-Dist: seaborn>=0.11.0
+Requires-Dist: yfinance>=0.2.0
+Requires-Dist: ccxt>=4.0.0
+Requires-Dist: ta>=0.10.0
+Requires-Dist: alpha-vantage>=2.3.0
+Requires-Dist: sqlalchemy>=1.4.0
+Requires-Dist: nest-asyncio>=1.5.0
+Requires-Dist: requests>=2.28.0
+Requires-Dist: python-dotenv>=0.19.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.4.0; extra == "dev"
+Requires-Dist: pytest-asyncio>=0.21.0; extra == "dev"
+Requires-Dist: pytest-cov>=4.1.0; extra == "dev"
+Requires-Dist: pytest-mock>=3.12.0; extra == "dev"
+Requires-Dist: black>=23.11.0; extra == "dev"
+Requires-Dist: flake8>=6.1.0; extra == "dev"
+Requires-Dist: mypy>=1.7.0; extra == "dev"
+Requires-Dist: isort>=5.12.0; extra == "dev"
+Requires-Dist: pre-commit>=3.6.0; extra == "dev"
+Provides-Extra: ml-extra
+Requires-Dist: catboost>=1.2.0; extra == "ml-extra"
+Requires-Dist: optuna>=3.0.0; extra == "ml-extra"
+Requires-Dist: shap>=0.41.0; extra == "ml-extra"
+Requires-Dist: plotly>=5.15.0; extra == "ml-extra"
+Requires-Dist: jupyter>=1.0.0; extra == "ml-extra"
+Requires-Dist: notebook>=6.5.0; extra == "ml-extra"
+Dynamic: author
+Dynamic: home-page
+Dynamic: requires-python
+
+# Crypto Arbitrage Trading Platform
+
+Production-grade arbitrage trading system in Python 3.11 with real-time market data, signal generation, and automated execution.
+
+## Features
+
+- **Real-time Market Data**: WebSocket feeds from Binance, Kraken, Coinbase, Bybit
+- **Arbitrage Signals**: Cross-exchange and triangular arbitrage detection
+- **Smart Execution**: Atomic multi-leg orders with SOR (Smart Order Router)
+- **Risk Management**: Position limits, circuit breakers, audit logging
+- **Backtesting**: Event-driven simulation with realistic latency/slippage models
+- **Monitoring**: Streamlit dashboard with P&L tracking and performance metrics
+- **API**: FastAPI REST + WebSocket endpoints
+
+## Architecture
+
+```txt
+/arbi/
+├── core/
+│   ├── data_feed.py       # WebSocket market data feeds
+│   ├── marketdata.py      # Data models and schemas
+│   ├── signal.py          # Arbitrage signal generation
+│   ├── execution.py       # Smart order router
+│   ├── risk.py            # Risk management and limits
+│   ├── portfolio.py       # Portfolio tracking and P&L
+│   ├── backtest.py        # Backtesting engine
+│   └── storage.py         # Data storage (Parquet + SQLite)
+├── api/
+│   └── server.py          # FastAPI REST + WebSocket API
+├── ui/
+│   └── dashboard.py       # Streamlit monitoring dashboard
+├── config/
+│   └── settings.py        # Configuration management
+└── tests/                 # Unit and integration tests
+```
+
+## Quick Start
+
+1. **Install Dependencies**:
+
+```bash
+pip install -r requirements.txt
+```
+
+### 2. **Configure Environment**
+
+```bash
+cp .env.example .env
+# Edit .env with your API keys and settings
+```
+
+### 3. **Run Market Data Feed**
+
+```bash
+python -m arbi.core.data_feed
+```
+
+#### 4. **Start API Server**
+
+```bash
+python -m arbi.api.server
+```
+
+#### 5. **Launch Dashboard**
+
+```bash
+streamlit run arbi/ui/dashboard.py
+```
+
+## Configuration
+
+All configuration is managed through environment variables and `arbi/config/settings.py`:
+
+- **API Keys**: Exchange API credentials
+- **Risk Limits**: Position sizes, daily loss limits
+- **Strategy Parameters**: Signal thresholds, execution delays
+- **Monitoring**: Slack/Telegram webhooks
+
+## Development
+
+### Running Tests
+
+```bash
+pytest tests/ -v --cov=arbi
+```
+
+### Code Quality
+
+```bash
+black arbi/
+flake8 arbi/
+mypy arbi/
+```
+
+### Docker Deployment
+
+```bash
+docker-compose up -d
+```
+
+## License
+
+MIT License - see LICENSE file for details.
