@@ -1,0 +1,110 @@
+Metadata-Version: 2.4
+Name: dtumathtools
+Version: 2025.2.0
+Summary: A plotting package for the Mathematics 1a/1b courses at the Technical University of Denmark
+Author-email: Christian Mikkelstrup <s194345@student.dtu.dk>, Hans Henrik Hermansen <s194042@student.dtu.dk>
+Maintainer-email: Christian Mikkelstrup <s194345@student.dtu.dk>
+License: BSD-3-Clause
+Project-URL: Url, https://github.com/dtudk/dtumathtools
+Project-URL: Homepage, https://github.com/dtudk/dtumathtools
+Project-URL: Releases, https://github.com/dtudk/dtumathtools/releases
+Project-URL: Documentation, https://github.com/dtudk/dtumathtools
+Project-URL: Repository, https://github.com/dtudk/dtumathtools.git
+Project-URL: Source, https://github.com/dtudk/dtumathtools
+Project-URL: Tracker, https://github.com/dtudk/dtumathtools/issues
+Project-URL: Discussions, https://github.com/dtudk/dtumathtools/discussions
+Project-URL: Chat, https://discord.gg/h8EVaV9ShP
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Education
+Classifier: Topic :: Education
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Requires-Python: <3.13,>=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: sympy-plot-backends<3.3,>=3.1.1; python_version <= "3.9"
+Requires-Dist: sympy-plot-backends<4.0,>=3.4; python_version >= "3.10"
+Requires-Dist: sympy~=1.12
+Requires-Dist: matplotlib<3.10,>=3.8
+Requires-Dist: jupyter>=1.0.0
+Requires-Dist: numpy<2,>=1.24
+Provides-Extra: ipympl
+Requires-Dist: ipympl>=0.7.0; extra == "ipympl"
+Provides-Extra: plotly
+Requires-Dist: plotly>=4.14.3; extra == "plotly"
+Provides-Extra: bokeh
+Requires-Dist: panel>=1.0.0; extra == "bokeh"
+Requires-Dist: ipywidgets_bokeh; extra == "bokeh"
+Requires-Dist: colorcet; extra == "bokeh"
+Provides-Extra: k3d
+Requires-Dist: vtk; extra == "k3d"
+Requires-Dist: k3d>=2.9.7; extra == "k3d"
+Provides-Extra: qt
+Requires-Dist: PyQt5~=5.15.9; extra == "qt"
+Provides-Extra: test
+Requires-Dist: pytest; extra == "test"
+Provides-Extra: dev
+Requires-Dist: flake8; extra == "dev"
+Requires-Dist: black; extra == "dev"
+Dynamic: license-file
+
+# dtumathtools
+
+## Description
+This package is a collection of easy-to-use commands for plotting using SymPy. It is
+designed to fit the requirements of the *Mathematics 1a/1b* courses at the Technical University of Denmark. This includes, but is not limited to:
+
+- Plotting of vector fields and vectors
+- 2D plotting of SymPy functions
+- 3D plotting of SymPy functions
+- Scatterplots in 2D and 3D
+
+The plotting functions are an extension of `sympy-plot-backends`, and so documentation and examples of plots (for all functions but `dtuplot.scatter()` and `dtuplot.quiver()`) can be found at [sympy-plot-backends.readthedocs.io/](https://sympy-plot-backends.readthedocs.io/en/latest/index.html). Additional functionality and usage is given through course material.
+
+## Installation
+To install dtumathtools using conda, run the following command:
+```shell
+conda install dtumathtools
+```
+
+To install using PyPi, run the following command
+```shell
+pip install dtumathtools
+```
+
+Then one can import all the utility by writing
+
+```python
+from dtumathtools import *
+```
+
+All plotting functionality can be found using `dtuplot.xxx` (including all `spb` plotting functions).
+
+## Usage
+Use is designed for the *Mathematics 1a/1b* courses at the Technical University of Denmark. Any use-case outside this scope is thus not considered, but very welcome!
+
+## Backends
+Multiple different backends (plotting libraries) can be used (especially helpful for some 3D plots). Currently, [Matplotlib](https://matplotlib.org/) (MB), [Plotly](https://plotly.com/) (PB), [Bokeh](https://github.com/bokeh/bokeh) (BB, *2D only*), and [K3D-Jupyter](https://github.com/K3D-tools/K3D-jupyter) (KB, *3D only*) are supported ([Mayavi](https://docs.enthought.com/mayavi/mayavi/) (MAB, *3D only*) might be supported in the future). The user can change the backend for a plot using the *backend* keyword argument (eg. `backend=dtuplot.PB`), or change the default (here for 3D, but similar for 2D) using:
+
+```python
+dtuplot.cfg["backend_3D"] = "plotly"
+dtuplot.set_defaults(dtuplot.cfg)
+```
+
+For further descriptions of the strengths and benefits of each, see [this page](https://sympy-plot-backends.readthedocs.io/en/latest/modules/backends/index.html).
+
+## Contributing
+
+You are very welcome to contribute in the way that makes sense to you! The development team will consider all pull requests at the repo [here](https://github.com/dtudk/dtumathtools). For changes to plotting functionality outside `scatter` and `quiver`, direct queries to [spb](https://github.com/Davide-sd/sympy-plot-backends).
+
+## Authors and acknowledgment
+The project would have never gotten off the ground without Jakob Lemvig and his engagement with SymPy in Mathematics 1. Thank you to Ulrik Engelund Pedersen for trusting us with this task. Finally, a huge thanks to the professors of the course for making great and engaging education: Michael Pedersen and Karsten Schmidt.
+
+## License
+Open-source under the BSD license. This means that you are free to use it however you like, be it academic, commercial, creating forks or derivatives, as long as you copy the BSD statement if you redistribute it (see the LICENSE file for details).

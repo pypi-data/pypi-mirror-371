@@ -1,0 +1,35 @@
+sympy~=1.12
+matplotlib<3.10,>=3.8
+jupyter>=1.0.0
+numpy<2,>=1.24
+
+[:python_version <= "3.9"]
+sympy-plot-backends<3.3,>=3.1.1
+
+[:python_version >= "3.10"]
+sympy-plot-backends<4.0,>=3.4
+
+[bokeh]
+panel>=1.0.0
+ipywidgets_bokeh
+colorcet
+
+[dev]
+flake8
+black
+
+[ipympl]
+ipympl>=0.7.0
+
+[k3d]
+vtk
+k3d>=2.9.7
+
+[plotly]
+plotly>=4.14.3
+
+[qt]
+PyQt5~=5.15.9
+
+[test]
+pytest
