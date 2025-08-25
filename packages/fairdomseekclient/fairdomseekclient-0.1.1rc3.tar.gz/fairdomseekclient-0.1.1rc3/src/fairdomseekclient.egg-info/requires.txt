@@ -1,0 +1,9 @@
+requests>=2.25.1
+fairdomseek-openapi-client==1.0.0
+tenacity==9.1.2
+
+[dev]
+pytest
+black
+mypy
+isort
