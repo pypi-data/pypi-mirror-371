@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: databricks_optimize
+Version: 0.2.0
+Summary: Databricks utility to identify which column to use for z-ordering and partitioning.
+Author-email: Marco Lombardi <m.lombardi@live.it>
+License: MIT
+Project-URL: Homepage, https://github.com/LombMarc/databricks-optimize
+Project-URL: Documentation, https://github.com/LombMarc/databricks-optimize#readme
+Project-URL: Repository, https://github.com/LombMarc/databricks-optimize
+Project-URL: Issues, https://github.com/lombmarc/databricks-optimize/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pyspark>=3.0.0
