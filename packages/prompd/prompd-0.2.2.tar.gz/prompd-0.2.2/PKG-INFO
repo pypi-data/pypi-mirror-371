@@ -1,0 +1,95 @@
+Metadata-Version: 2.4
+Name: prompd
+Version: 0.2.2
+Summary: Structured prompt management CLI with universal LLM provider support, version control, and git integration
+Author-email: Logikbug <contact@logikbug.com>
+Maintainer-email: Logikbug <contact@logikbug.com>
+License: MIT
+Project-URL: Homepage, https://github.com/Logikbug/prompd-cli
+Project-URL: Repository, https://github.com/Logikbug/prompd-cli
+Project-URL: Documentation, https://github.com/Logikbug/prompd-cli/tree/main/docs
+Project-URL: Issues, https://github.com/Logikbug/prompd-cli/issues
+Keywords: prompt,prompd,prompt-management,prompt-engineering,template,ai,cli,llm,openai,anthropic,ollama,local-llm,groq,together-ai
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Text Processing :: Markup
+Classifier: Topic :: Utilities
+Classifier: Environment :: Console
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: pyyaml>=6.0
+Requires-Dist: click>=8.0
+Requires-Dist: rich>=13.0
+Requires-Dist: jinja2>=3.0
+Requires-Dist: jsonschema>=4.0
+Requires-Dist: pydantic>=2.0
+Requires-Dist: httpx>=0.24.0
+Requires-Dist: python-dotenv>=1.0.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0; extra == "dev"
+Requires-Dist: pytest-cov>=4.0; extra == "dev"
+Requires-Dist: black>=23.0; extra == "dev"
+Requires-Dist: ruff>=0.1.0; extra == "dev"
+
+# Prompd Python CLI
+
+This is the Python implementation of the Prompd CLI with rich features and LLM provider integrations.
+
+## Features
+
+- Full LLM provider support (OpenAI, Anthropic, Ollama, etc.)
+- Rich terminal output with colors and formatting
+- Advanced validation and error reporting
+- Git integration for version control
+- Template engine with Jinja2
+- Configuration management
+
+## Installation
+
+```bash
+cd cli/prompd/python
+pip install -e .
+```
+
+## Usage
+
+```bash
+# Validate a .prompd file
+prompd validate example.prompd
+
+# List available files
+prompd list prompts/
+
+# Show file structure
+prompd show example.prompd
+
+# Execute with LLM
+prompd execute example.prompd --provider openai --model gpt-4 -p name=Alice
+
+# Provider management
+prompd provider list
+prompd provider add custom-llm http://localhost:8080/v1 model1 model2
+
+# Git operations
+prompd git status
+prompd git commit -m "Update prompts"
+
+# Version management
+prompd version bump example.prompd minor
+prompd version history example.prompd
+```
+
+## Dependencies
+
+See `pyproject.toml` for full dependency list. Requires Python 3.8+.
