@@ -1,0 +1,6 @@
+filedial/__init__.py,sha256=55f0552bad1e1a488f01878404abaa036f415ac3b141cf4dc27d20c3154aae69,135
+filedial/_wip_.py,sha256=360469b016590731c5e005c67c11c9225ff535a6d00132003b7553958ed2a5ad,853
+filedial/filedial.py,sha256=72e06f725e09e1d5a72c7041c0f3193098c522bea356ce7e388891651d07d2ae,1338
+filedial-0.1.0.dist-info/WHEEL,sha256=b6dc288e80aa2d1b1518ddb3502fd5b53e8fd6cb507ed2a4f932e9e6088b264a,78
+filedial-0.1.0.dist-info/METADATA,sha256=cbbf972f6b5024cd567575a434bb0ed2f850b89854a4d23c43ebd06a69eb2c0c,321
+filedial-0.1.0.dist-info/RECORD,,
