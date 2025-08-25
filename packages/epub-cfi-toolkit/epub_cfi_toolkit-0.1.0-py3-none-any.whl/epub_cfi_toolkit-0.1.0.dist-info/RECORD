@@ -1,0 +1,11 @@
+epub_cfi_toolkit/__init__.py,sha256=amilPwOTZ0cQU6i6p8SqMq8BDgOP7vdw48pxPTf8Tqg,539
+epub_cfi_toolkit/cfi_parser.py,sha256=5haCtI9_wc5RO--pe3BVmJYkZTGgcE_NMRNBl2HEhuM,6100
+epub_cfi_toolkit/cfi_processor.py,sha256=DnH0QvCwAG-tkchnuZk7vjZpshkzr1Ji4Ow1DlpF18s,19308
+epub_cfi_toolkit/cfi_validator.py,sha256=RavYDRT-21RHDjM4f5Nkv-iMUW64N6GkiLVX08SPLz4,1699
+epub_cfi_toolkit/epub_parser.py,sha256=gx_rK3yAAYGsOh1-FHS7nzhW0eLSo1Nvq8yYW_5HXDE,7117
+epub_cfi_toolkit/exceptions.py,sha256=WlfqX43NXzx-3h5ROm1iQieEFZQWkeK8J50kEGRbMqo,340
+epub_cfi_toolkit-0.1.0.dist-info/licenses/LICENSE,sha256=y3kev8sNfiCGcunqGzsXt_sII8NOpEH7b-Ie8ijyPw8,1066
+epub_cfi_toolkit-0.1.0.dist-info/METADATA,sha256=El_VGYswBk2f_CsPmEggcTTz_x_wcXqH_CNjl3HVggg,10978
+epub_cfi_toolkit-0.1.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+epub_cfi_toolkit-0.1.0.dist-info/top_level.txt,sha256=BKonNpjmr1LenAF_-c6LyR8F_Y4QxoZA6wGYG-BnF9A,17
+epub_cfi_toolkit-0.1.0.dist-info/RECORD,,
