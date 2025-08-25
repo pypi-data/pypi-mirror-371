@@ -1,0 +1,10 @@
+devhelper/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+devhelper/cli.py,sha256=Us0FEMUHy7ChXrxkL5MkQ3P0edoZZw2wZw8fgUmJMv4,729
+devhelper/solution_parser.py,sha256=Wx4kI_qwLt66EPwGQLkKcKktzHqz-Rt_cFvz4gTCcP8,1450
+devhelper/tasks.py,sha256=SY9pisTiqKC0egCYon5CrJASaiy80LK2do3qgkBrwIo,2426
+devhelper_carlosruc-0.1.1.dist-info/licenses/LICENSE,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+devhelper_carlosruc-0.1.1.dist-info/METADATA,sha256=az1o7kIzNfKzc_raesJSpplkBw-kC0pxGTEWhu3t1DY,195
+devhelper_carlosruc-0.1.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+devhelper_carlosruc-0.1.1.dist-info/entry_points.txt,sha256=dWS0883pG8SpS0-nJpdc1kcVHE7pE-MRQqP0xcIsdxY,48
+devhelper_carlosruc-0.1.1.dist-info/top_level.txt,sha256=1I0bl95vOfPxtr3BPuwIi1er-ntMIxYEqaaYP1P5-qM,10
+devhelper_carlosruc-0.1.1.dist-info/RECORD,,
