@@ -1,0 +1,12 @@
+HardView/HardView.pyd,sha256=5--klZFKyNufbgZX-7ElR1Xb70kB1rAVo-blHVr2Gu4,108032
+HardView/HardwareWrapper.dll,sha256=Juguf94euZCfUbRAjqkPnyjTUjQ5Ujm1ogCpC_S4Xi8,222720
+HardView/HidSharp.dll,sha256=jFjl-6IqzHUQMt_pfOYz5PikyWCJdJvzFtVSg7NmScI,242608
+HardView/LibreHardwareMonitorLib.dll,sha256=oPJyjxc0wjap0C2eJaiLxPjLe9H6_xdwcmvrevBr-Nw,712192
+HardView/LiveView.pyd,sha256=5vbIpSROB0tiFPiiVzpLcIFRdbAryQ1pJFj3Rx4lKxE,563712
+HardView/__init__.py,sha256=5LDt9U2f8NnlAT3d52TW0knd5Uw520fW2oNSWdinZiI,965
+hardview-3.1.0b2.dist-info/LICENSE,sha256=xbNKMGlX95zRdIqolf_g5bKDxUfTFOCz5tmx5T4g6-g,1083
+hardview-3.1.0b2.dist-info/LICENSE.GPL3,sha256=jI5fMRx0wXGVsPbYH46fi4duOg2ghV3f-hJar3Xfh_Y,35812
+hardview-3.1.0b2.dist-info/METADATA,sha256=MtnF0EjeDoS58vlhYPHX5BI7lhOaFaCIc__Lcl9IEcs,4956
+hardview-3.1.0b2.dist-info/WHEEL,sha256=2M046GvC9RLU1f1TWyM-2sB7cRKLhAC7ucAFK8l8f24,99
+hardview-3.1.0b2.dist-info/top_level.txt,sha256=NC7izSVh5XYvshkVpbSsTpxXkYUGHTZ_vVGUrXwS8j0,9
+hardview-3.1.0b2.dist-info/RECORD,,
