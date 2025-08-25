@@ -1,0 +1,63 @@
+Bodies
+------
+
+.. automodule:: pyb_utils.bodies
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Camera
+------
+
+.. automodule:: pyb_utils.camera
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Collision
+---------
+
+.. automodule:: pyb_utils.collision
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Frame
+-----
+
+.. automodule:: pyb_utils.frame
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Ghost
+-----
+
+.. automodule:: pyb_utils.ghost
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Math
+----
+
+.. automodule:: pyb_utils.math
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Named Tuples
+------------
+
+.. automodule:: pyb_utils.named_tuples
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Robots
+------
+
+.. automodule:: pyb_utils.robots
+    :members:
+    :undoc-members:
+    :show-inheritance:

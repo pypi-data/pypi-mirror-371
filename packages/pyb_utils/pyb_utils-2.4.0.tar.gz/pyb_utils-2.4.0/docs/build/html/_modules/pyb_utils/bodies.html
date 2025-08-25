@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pyb_utils.bodies &mdash; pyb_utils 2.1.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=0218eca2"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            pyb_utils
+          </a>
+              <div class="version">
+                2.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Module Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">Bodies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html#module-pyb_utils.camera">Camera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html#module-pyb_utils.contact">Contact</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html#module-pyb_utils.collision">Collision</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html#module-pyb_utils.frame">Frame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html#module-pyb_utils.ghost">Ghost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html#module-pyb_utils.math">Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html#module-pyb_utils.named_tuples">Named Tuples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html#module-pyb_utils.robots">Robots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html#module-pyb_utils.utils">Utils</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">pyb_utils</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pyb_utils.bodies</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pyb_utils.bodies</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;This module provides a utility class for creating rigid bodies in PyBullet.&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">pybullet</span> <span class="k">as</span> <span class="nn">pyb</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">.math</span> <span class="kn">import</span> <span class="n">quaternion_to_matrix</span>
+
+
+<div class="viewcode-block" id="BulletBody"><a class="viewcode-back" href="../../modules.html#pyb_utils.bodies.BulletBody">[docs]</a><span class="k">class</span> <span class="nc">BulletBody</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Generic rigid body in PyBullet.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    position : iterable</span>
+<span class="sd">        The :math:`(x, y, z)` position of the body in the world.</span>
+<span class="sd">    collision_uid : int</span>
+<span class="sd">        ID of the collision shape to use.</span>
+<span class="sd">    visual_uid : int</span>
+<span class="sd">        ID of the visual shape to use.</span>
+<span class="sd">    mass : float</span>
+<span class="sd">        mass of the body; defaults to `1`.</span>
+<span class="sd">    orientation : iterable</span>
+<span class="sd">        A quaternion :math:`(x, y, z, w)` representing the orientation of the body; if</span>
+<span class="sd">        not provided, orientation is aligned with the world frame axes.</span>
+<span class="sd">    client_id : int</span>
+<span class="sd">        physics client ID; only required if connected to multiple servers.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">position</span><span class="p">,</span>
+        <span class="n">collision_uid</span><span class="p">,</span>
+        <span class="n">visual_uid</span><span class="p">,</span>
+        <span class="n">mass</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">orientation</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">client_id</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span>
+    <span class="p">):</span>
+        <span class="k">if</span> <span class="n">orientation</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">orientation</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">client_id</span> <span class="o">=</span> <span class="n">client_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">uid</span> <span class="o">=</span> <span class="n">pyb</span><span class="o">.</span><span class="n">createMultiBody</span><span class="p">(</span>
+            <span class="n">baseMass</span><span class="o">=</span><span class="n">mass</span><span class="p">,</span>
+            <span class="n">baseCollisionShapeIndex</span><span class="o">=</span><span class="n">collision_uid</span><span class="p">,</span>
+            <span class="n">baseVisualShapeIndex</span><span class="o">=</span><span class="n">visual_uid</span><span class="p">,</span>
+            <span class="n">basePosition</span><span class="o">=</span><span class="nb">tuple</span><span class="p">(</span><span class="n">position</span><span class="p">),</span>
+            <span class="n">baseOrientation</span><span class="o">=</span><span class="nb">tuple</span><span class="p">(</span><span class="n">orientation</span><span class="p">),</span>
+            <span class="n">physicsClientId</span><span class="o">=</span><span class="n">client_id</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+        <span class="p">)</span>
+
+<div class="viewcode-block" id="BulletBody.box"><a class="viewcode-back" href="../../modules.html#pyb_utils.bodies.BulletBody.box">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">box</span><span class="p">(</span>
+        <span class="bp">cls</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> <span class="n">half_extents</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">client_id</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create a cuboid body.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        position : iterable</span>
+<span class="sd">            The `(x, y, z)` position of the box in the world.</span>
+<span class="sd">        half_extents : iterable</span>
+<span class="sd">            The three half lengths of the box.</span>
+<span class="sd">        color : iterable</span>
+<span class="sd">            The `(r, g, b, α)` color of the box.</span>
+<span class="sd">        client_id : int</span>
+<span class="sd">            Physics client ID; only required if connected to multiple servers.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">collision_uid</span> <span class="o">=</span> <span class="n">pyb</span><span class="o">.</span><span class="n">createCollisionShape</span><span class="p">(</span>
+            <span class="n">shapeType</span><span class="o">=</span><span class="n">pyb</span><span class="o">.</span><span class="n">GEOM_BOX</span><span class="p">,</span>
+            <span class="n">halfExtents</span><span class="o">=</span><span class="nb">tuple</span><span class="p">(</span><span class="n">half_extents</span><span class="p">),</span>
+            <span class="n">physicsClientId</span><span class="o">=</span><span class="n">client_id</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">visual_uid</span> <span class="o">=</span> <span class="n">pyb</span><span class="o">.</span><span class="n">createVisualShape</span><span class="p">(</span>
+            <span class="n">shapeType</span><span class="o">=</span><span class="n">pyb</span><span class="o">.</span><span class="n">GEOM_BOX</span><span class="p">,</span>
+            <span class="n">halfExtents</span><span class="o">=</span><span class="nb">tuple</span><span class="p">(</span><span class="n">half_extents</span><span class="p">),</span>
+            <span class="n">rgbaColor</span><span class="o">=</span><span class="nb">tuple</span><span class="p">(</span><span class="n">color</span><span class="p">),</span>
+            <span class="n">physicsClientId</span><span class="o">=</span><span class="n">client_id</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
+            <span class="n">position</span><span class="p">,</span> <span class="n">collision_uid</span><span class="p">,</span> <span class="n">visual_uid</span><span class="p">,</span> <span class="n">client_id</span><span class="o">=</span><span class="n">client_id</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="BulletBody.sphere"><a class="viewcode-back" href="../../modules.html#pyb_utils.bodies.BulletBody.sphere">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">sphere</span><span class="p">(</span>
+        <span class="bp">cls</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">client_id</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create a spherical body.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        position : iterable</span>
+<span class="sd">            The `(x, y, z)` position of the sphere in the world.</span>
+<span class="sd">        radius : float</span>
+<span class="sd">            The radius of the sphere.</span>
+<span class="sd">        color : iterable</span>
+<span class="sd">            The `(r, g, b, α)` color of the sphere.</span>
+<span class="sd">        client_id : int</span>
+<span class="sd">            Physics client ID; only required if connected to multiple servers.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">collision_uid</span> <span class="o">=</span> <span class="n">pyb</span><span class="o">.</span><span class="n">createCollisionShape</span><span class="p">(</span>
+            <span class="n">shapeType</span><span class="o">=</span><span class="n">pyb</span><span class="o">.</span><span class="n">GEOM_SPHERE</span><span class="p">,</span>
+            <span class="n">radius</span><span class="o">=</span><span class="n">radius</span><span class="p">,</span>
+            <span class="n">physicsClientId</span><span class="o">=</span><span class="n">client_id</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">visual_uid</span> <span class="o">=</span> <span class="n">pyb</span><span class="o">.</span><span class="n">createVisualShape</span><span class="p">(</span>
+            <span class="n">shapeType</span><span class="o">=</span><span class="n">pyb</span><span class="o">.</span><span class="n">GEOM_SPHERE</span><span class="p">,</span>
+            <span class="n">radius</span><span class="o">=</span><span class="n">radius</span><span class="p">,</span>
+            <span class="n">rgbaColor</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
+            <span class="n">physicsClientId</span><span class="o">=</span><span class="n">client_id</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
+            <span class="n">position</span><span class="p">,</span> <span class="n">collision_uid</span><span class="p">,</span> <span class="n">visual_uid</span><span class="p">,</span> <span class="n">client_id</span><span class="o">=</span><span class="n">client_id</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="BulletBody.cylinder"><a class="viewcode-back" href="../../modules.html#pyb_utils.bodies.BulletBody.cylinder">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">cylinder</span><span class="p">(</span>
+        <span class="bp">cls</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">client_id</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create a cylindrical body.</span>
+
+<span class="sd">        The cylinder is oriented along its z-axis, which corresponds to the</span>
+<span class="sd">        height.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        position : iterable</span>
+<span class="sd">            The `(x, y, z)` position of the cylinder in the world.</span>
+<span class="sd">        radius : float</span>
+<span class="sd">            The radius of the cylinder.</span>
+<span class="sd">        height: float</span>
+<span class="sd">            The height of the cylinder.</span>
+<span class="sd">        color : iterable</span>
+<span class="sd">            The `(r, g, b, α)` color of the cylinder.</span>
+<span class="sd">        client_id : int</span>
+<span class="sd">            Physics client ID; only required if connected to multiple servers.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">collision_uid</span> <span class="o">=</span> <span class="n">pyb</span><span class="o">.</span><span class="n">createCollisionShape</span><span class="p">(</span>
+            <span class="n">shapeType</span><span class="o">=</span><span class="n">pyb</span><span class="o">.</span><span class="n">GEOM_CYLINDER</span><span class="p">,</span>
+            <span class="n">radius</span><span class="o">=</span><span class="n">radius</span><span class="p">,</span>
+            <span class="n">height</span><span class="o">=</span><span class="n">height</span><span class="p">,</span>
+            <span class="n">physicsClientId</span><span class="o">=</span><span class="n">client_id</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">visual_uid</span> <span class="o">=</span> <span class="n">pyb</span><span class="o">.</span><span class="n">createVisualShape</span><span class="p">(</span>
+            <span class="n">shapeType</span><span class="o">=</span><span class="n">pyb</span><span class="o">.</span><span class="n">GEOM_CYLINDER</span><span class="p">,</span>
+            <span class="n">radius</span><span class="o">=</span><span class="n">radius</span><span class="p">,</span>
+            <span class="n">length</span><span class="o">=</span><span class="n">height</span><span class="p">,</span>
+            <span class="n">rgbaColor</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
+            <span class="n">physicsClientId</span><span class="o">=</span><span class="n">client_id</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
+            <span class="n">position</span><span class="p">,</span> <span class="n">collision_uid</span><span class="p">,</span> <span class="n">visual_uid</span><span class="p">,</span> <span class="n">client_id</span><span class="o">=</span><span class="n">client_id</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="BulletBody.capsule"><a class="viewcode-back" href="../../modules.html#pyb_utils.bodies.BulletBody.capsule">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">capsule</span><span class="p">(</span>
+        <span class="bp">cls</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">client_id</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create a capsular body. A capsule is a cylinder with half-spheres on</span>
+<span class="sd">        the ends.</span>
+
+<span class="sd">        The capsule is oriented along its z-axis, which corresponds to the</span>
+<span class="sd">        height.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        position : iterable</span>
+<span class="sd">            The `(x, y, z)` position of the capsule in the world.</span>
+<span class="sd">        radius : float</span>
+<span class="sd">            The radius of the capsule.</span>
+<span class="sd">        height: float</span>
+<span class="sd">            The height of the capsule.</span>
+<span class="sd">        color : iterable</span>
+<span class="sd">            The `(r, g, b, α)` color of the capsule.</span>
+<span class="sd">        client_id : int</span>
+<span class="sd">            Physics client ID; only required if connected to multiple servers.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">collision_uid</span> <span class="o">=</span> <span class="n">pyb</span><span class="o">.</span><span class="n">createCollisionShape</span><span class="p">(</span>
+            <span class="n">shapeType</span><span class="o">=</span><span class="n">pyb</span><span class="o">.</span><span class="n">GEOM_CAPSULE</span><span class="p">,</span>
+            <span class="n">radius</span><span class="o">=</span><span class="n">radius</span><span class="p">,</span>
+            <span class="n">height</span><span class="o">=</span><span class="n">height</span><span class="p">,</span>
+            <span class="n">physicsClientId</span><span class="o">=</span><span class="n">client_id</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">visual_uid</span> <span class="o">=</span> <span class="n">pyb</span><span class="o">.</span><span class="n">createVisualShape</span><span class="p">(</span>
+            <span class="n">shapeType</span><span class="o">=</span><span class="n">pyb</span><span class="o">.</span><span class="n">GEOM_CAPSULE</span><span class="p">,</span>
+            <span class="n">radius</span><span class="o">=</span><span class="n">radius</span><span class="p">,</span>
+            <span class="n">length</span><span class="o">=</span><span class="n">height</span><span class="p">,</span>
+            <span class="n">rgbaColor</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
+            <span class="n">physicsClientId</span><span class="o">=</span><span class="n">client_id</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
+            <span class="n">position</span><span class="p">,</span> <span class="n">collision_uid</span><span class="p">,</span> <span class="n">visual_uid</span><span class="p">,</span> <span class="n">client_id</span><span class="o">=</span><span class="n">client_id</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="BulletBody.get_pose"><a class="viewcode-back" href="../../modules.html#pyb_utils.bodies.BulletBody.get_pose">[docs]</a>    <span class="k">def</span> <span class="nf">get_pose</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">as_rotation_matrix</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get the position and orientation of the body&#39;s inertial frame.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        as_rotation_matrix : bool</span>
+<span class="sd">            Set to ``True`` to return the orientation as a rotation matrix,</span>
+<span class="sd">            ``False`` to return a quaternion.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        :</span>
+<span class="sd">            A tuple containing the position and orientation of the link&#39;s</span>
+<span class="sd">            center of mass in the world frame. If ``as_rotation_matrix=True``,</span>
+<span class="sd">            then the orientation is represented as a :math:`3\\times3` rotation</span>
+<span class="sd">            matrix. If ``False``, then it is represented as a quaternion in</span>
+<span class="sd">            xyzw order.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">pos</span><span class="p">,</span> <span class="n">orn</span> <span class="o">=</span> <span class="n">pyb</span><span class="o">.</span><span class="n">getBasePositionAndOrientation</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">uid</span><span class="p">,</span> <span class="n">physicsClientId</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">client_id</span>
+        <span class="p">)</span>
+        <span class="n">pos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span>
+        <span class="n">orn</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">orn</span><span class="p">)</span>
+        <span class="n">orn</span> <span class="o">/=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">orn</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">as_rotation_matrix</span><span class="p">:</span>
+            <span class="n">orn</span> <span class="o">=</span> <span class="n">quaternion_to_matrix</span><span class="p">(</span><span class="n">orn</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">pos</span><span class="p">,</span> <span class="n">orn</span></div>
+
+<div class="viewcode-block" id="BulletBody.get_velocity"><a class="viewcode-back" href="../../modules.html#pyb_utils.bodies.BulletBody.get_velocity">[docs]</a>    <span class="k">def</span> <span class="nf">get_velocity</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get the velocity of the body&#39;s inertial frame.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        :</span>
+<span class="sd">            A tuple ``(linear, angular)`` containing the linear and angular</span>
+<span class="sd">            velocity, each an array of length 3.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">linear</span><span class="p">,</span> <span class="n">angular</span> <span class="o">=</span> <span class="n">pyb</span><span class="o">.</span><span class="n">getBaseVelocity</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">uid</span><span class="p">,</span> <span class="n">physicsClientId</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">client_id</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">linear</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">angular</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="BulletBody.set_pose"><a class="viewcode-back" href="../../modules.html#pyb_utils.bodies.BulletBody.set_pose">[docs]</a>    <span class="k">def</span> <span class="nf">set_pose</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the position and orientation of the body&#39;s inertial frame.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        position : iterable</span>
+<span class="sd">            The :math:`(x, y, z)` position of the body in the world.</span>
+<span class="sd">        orientation : iterable</span>
+<span class="sd">            A quaternion :math:`(x, y, z, w)` representing the orientation of</span>
+<span class="sd">            the body.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">current_pos</span><span class="p">,</span> <span class="n">current_orn</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_pose</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">position</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">position</span> <span class="o">=</span> <span class="n">current_pos</span>
+        <span class="k">if</span> <span class="n">orientation</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">orientation</span> <span class="o">=</span> <span class="n">current_orn</span>
+        <span class="n">pyb</span><span class="o">.</span><span class="n">resetBasePositionAndOrientation</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">uid</span><span class="p">,</span>
+            <span class="nb">list</span><span class="p">(</span><span class="n">position</span><span class="p">),</span>
+            <span class="nb">list</span><span class="p">(</span><span class="n">orientation</span><span class="p">),</span>
+            <span class="n">physicsClientId</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">client_id</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="BulletBody.set_velocity"><a class="viewcode-back" href="../../modules.html#pyb_utils.bodies.BulletBody.set_velocity">[docs]</a>    <span class="k">def</span> <span class="nf">set_velocity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">linear</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">angular</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the velocity of the body&#39;s inertial frame.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        linear : iterable</span>
+<span class="sd">            Linear velocity of the body. If not provided, linear velocity is</span>
+<span class="sd">            unchanged.</span>
+<span class="sd">        angular : iterable</span>
+<span class="sd">            Angular velocity of the body. If not provided, angular velocity is</span>
+<span class="sd">            unchanged.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">current_linear</span><span class="p">,</span> <span class="n">current_angular</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_velocity</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">linear</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">linear</span> <span class="o">=</span> <span class="n">current_linear</span>
+        <span class="k">if</span> <span class="n">angular</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">angular</span> <span class="o">=</span> <span class="n">current_angular</span>
+        <span class="n">pyb</span><span class="o">.</span><span class="n">resetBaseVelocity</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">uid</span><span class="p">,</span>
+            <span class="nb">list</span><span class="p">(</span><span class="n">linear</span><span class="p">),</span>
+            <span class="nb">list</span><span class="p">(</span><span class="n">angular</span><span class="p">),</span>
+            <span class="n">physicsClientId</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">client_id</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="BulletBody.apply_wrench"><a class="viewcode-back" href="../../modules.html#pyb_utils.bodies.BulletBody.apply_wrench">[docs]</a>    <span class="k">def</span> <span class="nf">apply_wrench</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">torque</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">frame</span><span class="o">=</span><span class="n">pyb</span><span class="o">.</span><span class="n">LINK_FRAME</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Apply a wrench (i.e., force and torque) to the body about its</span>
+<span class="sd">        inertial frame.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        force : iterable</span>
+<span class="sd">            Force to apply to the body. If not provided, no force is applied.</span>
+<span class="sd">        torque : iterable</span>
+<span class="sd">            Torque to apply to the body. If not provided, no torque is applied.</span>
+<span class="sd">        position : iterable</span>
+<span class="sd">            Position at which to apply the force. If not provided, force acts</span>
+<span class="sd">            at the origin of the specified frame. Has no effect on the torque.</span>
+<span class="sd">        frame : int</span>
+<span class="sd">            The coordinate frame (i.e., orientation). Can be either</span>
+<span class="sd">            ``pyb.LINK_FRAME`` (the default) or ``pyb.WORLD_FRAME``.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">position</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">position</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">force</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">pyb</span><span class="o">.</span><span class="n">applyExternalForce</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">uid</span><span class="p">,</span>
+                <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+                <span class="n">forceObj</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">force</span><span class="p">),</span>
+                <span class="n">posObj</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">position</span><span class="p">),</span>
+                <span class="n">flags</span><span class="o">=</span><span class="n">frame</span><span class="p">,</span>
+                <span class="n">physicsClientId</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">client_id</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="n">torque</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">pyb</span><span class="o">.</span><span class="n">applyExternalTorque</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">uid</span><span class="p">,</span>
+                <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+                <span class="n">torqueObj</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">torque</span><span class="p">),</span>
+                <span class="n">flags</span><span class="o">=</span><span class="n">frame</span><span class="p">,</span>
+                <span class="n">physicsClientId</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">client_id</span><span class="p">,</span>
+            <span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Adam Heins.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

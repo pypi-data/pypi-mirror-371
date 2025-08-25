@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pyb_utils.robots &mdash; pyb_utils 2.1.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=0218eca2"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            pyb_utils
+          </a>
+              <div class="version">
+                2.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Module Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">Bodies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html#module-pyb_utils.camera">Camera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html#module-pyb_utils.contact">Contact</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html#module-pyb_utils.collision">Collision</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html#module-pyb_utils.frame">Frame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html#module-pyb_utils.ghost">Ghost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html#module-pyb_utils.math">Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html#module-pyb_utils.named_tuples">Named Tuples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html#module-pyb_utils.robots">Robots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html#module-pyb_utils.utils">Utils</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">pyb_utils</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pyb_utils.robots</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pyb_utils.robots</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;This module provides a simple wrapper for a velocity- or torque-controlled</span>
+<span class="sd">robot.&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pybullet</span> <span class="k">as</span> <span class="nn">pyb</span>
+
+<span class="kn">from</span> <span class="nn">.named_tuples</span> <span class="kn">import</span> <span class="n">getJointInfo</span><span class="p">,</span> <span class="n">getJointStates</span><span class="p">,</span> <span class="n">getLinkState</span>
+<span class="kn">from</span> <span class="nn">.math</span> <span class="kn">import</span> <span class="n">quaternion_to_matrix</span>
+
+
+<div class="viewcode-block" id="Robot"><a class="viewcode-back" href="../../modules.html#pyb_utils.robots.Robot">[docs]</a><span class="k">class</span> <span class="nc">Robot</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Wrapper for a PyBullet robot.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    uid : int</span>
+<span class="sd">        The unique ID of the underlying PyBullet robot body.</span>
+<span class="sd">    client_id : int</span>
+<span class="sd">        The unique ID of the physics server this robot belongs to.</span>
+<span class="sd">    tool_idx : int</span>
+<span class="sd">        The index of the tool joint/link (in PyBullet each link has the same</span>
+<span class="sd">        index as its parent joint).</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    uid : int</span>
+<span class="sd">        The UID of the body representing the robot.</span>
+<span class="sd">    tool_link_name : str</span>
+<span class="sd">        If provided, use this link as the end effector. If it is ``None``, then</span>
+<span class="sd">        the last link is used. The index of this link is stored in</span>
+<span class="sd">        ``self.tool_idx``.</span>
+<span class="sd">    actuated_joint_names : iterable</span>
+<span class="sd">        An optional list of actuated joint names. These joints will be</span>
+<span class="sd">        &quot;actuated&quot;, in that they take commands from the ``command_`` methods.</span>
+<span class="sd">        If not provided, all moveable joints are considered actuated. To have a</span>
+<span class="sd">        free-moving joint (whether actuated or not), see</span>
+<span class="sd">        :meth:`set_joint_friction_forces`.</span>
+<span class="sd">    client_id : int</span>
+<span class="sd">        The physics server UID to connect to, if multiple servers are being</span>
+<span class="sd">        used.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        If ``tool_link_name`` is provided but the robot has no link with that</span>
+<span class="sd">        name.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">uid</span><span class="p">,</span>
+        <span class="n">tool_link_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">actuated_joint_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">client_id</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">uid</span> <span class="o">=</span> <span class="n">uid</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client_id</span> <span class="o">=</span> <span class="n">client_id</span>
+
+        <span class="n">n</span> <span class="o">=</span> <span class="n">pyb</span><span class="o">.</span><span class="n">getNumJoints</span><span class="p">(</span><span class="n">uid</span><span class="p">,</span> <span class="n">physicsClientId</span><span class="o">=</span><span class="n">client_id</span><span class="p">)</span>
+
+        <span class="c1"># build mappings of joint and link names to their respective indices</span>
+        <span class="c1"># for look up later</span>
+        <span class="c1"># also record the indices of the moveable joints</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_link_index_map</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_joint_index_map</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_moveable_joint_indices</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="n">info</span> <span class="o">=</span> <span class="n">getJointInfo</span><span class="p">(</span>
+                <span class="n">uid</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">decode</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span> <span class="n">physicsClientId</span><span class="o">=</span><span class="n">client_id</span>
+            <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_joint_index_map</span><span class="p">[</span><span class="n">info</span><span class="o">.</span><span class="n">jointName</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_link_index_map</span><span class="p">[</span><span class="n">info</span><span class="o">.</span><span class="n">linkName</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
+
+            <span class="k">if</span> <span class="n">info</span><span class="o">.</span><span class="n">jointType</span> <span class="o">!=</span> <span class="n">pyb</span><span class="o">.</span><span class="n">JOINT_FIXED</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_moveable_joint_indices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">actuated_joint_names</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_actuated_joint_indices</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_moveable_joint_indices</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_actuated_joint_indices</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_joint_index_map</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">actuated_joint_names</span>
+            <span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">tool_link_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tool_idx</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tool_idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_link_index</span><span class="p">(</span><span class="n">tool_link_name</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">num_total_joints</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;int: The total number of joints, including fixed and moveable joints.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_joint_index_map</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">num_moveable_joints</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;int: The number of moveable joints.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_moveable_joint_indices</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">num_actuated_joints</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;int: The number of actuated (i.e., controlled) joints. This should</span>
+<span class="sd">        never be more than `num_joints`.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_actuated_joint_indices</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">link_names</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;list: A list of all link names.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_link_index_map</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">all_joint_names</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;list: A list of all joint names, including fixed and moveable joints.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_joint_index_map</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">moveable_joint_names</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;list: A list of the names of the moveable joints.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">all_joint_names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_moveable_joint_indices</span><span class="p">]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">actuated_joint_names</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;list: A list of the actuated joint names. This is the same as the</span>
+<span class="sd">        list of joint names unless ``actuated_joint_names`` is provided to the</span>
+<span class="sd">        constructor.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">all_joint_names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_actuated_joint_indices</span><span class="p">]</span>
+
+<div class="viewcode-block" id="Robot.get_joint_index"><a class="viewcode-back" href="../../modules.html#pyb_utils.robots.Robot.get_joint_index">[docs]</a>    <span class="k">def</span> <span class="nf">get_joint_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get the index of the joint named ``name``.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        name : str</span>
+<span class="sd">            The name of the joint.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        :</span>
+<span class="sd">            The index of the joint.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the robot has no joint named ``name``.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_joint_index_map</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Robot has no joint named </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Robot.get_link_index"><a class="viewcode-back" href="../../modules.html#pyb_utils.robots.Robot.get_link_index">[docs]</a>    <span class="k">def</span> <span class="nf">get_link_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get the index of the link named ``name``.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        name : str</span>
+<span class="sd">            The name of the link.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        :</span>
+<span class="sd">            The index of the link.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the robot has no link named ``name``.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_link_index_map</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Robot has no link named </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Robot.get_joint_states"><a class="viewcode-back" href="../../modules.html#pyb_utils.robots.Robot.get_joint_states">[docs]</a>    <span class="k">def</span> <span class="nf">get_joint_states</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get position and velocity of the robot&#39;s moveable joints.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        :</span>
+<span class="sd">            A tuple ``(q, v)`` where ``q`` is the robot&#39;s joint configuration</span>
+<span class="sd">            and ``v`` is the joint velocity.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">states</span> <span class="o">=</span> <span class="n">getJointStates</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">uid</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_moveable_joint_indices</span><span class="p">,</span>
+            <span class="n">physicsClientId</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">client_id</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">state</span><span class="o">.</span><span class="n">jointPosition</span> <span class="k">for</span> <span class="n">state</span> <span class="ow">in</span> <span class="n">states</span><span class="p">])</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">state</span><span class="o">.</span><span class="n">jointVelocity</span> <span class="k">for</span> <span class="n">state</span> <span class="ow">in</span> <span class="n">states</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">q</span><span class="p">,</span> <span class="n">v</span></div>
+
+<div class="viewcode-block" id="Robot.reset_joint_configuration"><a class="viewcode-back" href="../../modules.html#pyb_utils.robots.Robot.reset_joint_configuration">[docs]</a>    <span class="k">def</span> <span class="nf">reset_joint_configuration</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">q</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Reset the robot to a particular configuration.</span>
+
+<span class="sd">        It is best not to do this during a simulation, as it overrides all</span>
+<span class="sd">        dynamic effects.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        q : iterable</span>
+<span class="sd">            The vector of joint values to set. Must be of length</span>
+<span class="sd">            ``self.num_moveable_joints``.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">angle</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_moveable_joint_indices</span><span class="p">,</span> <span class="n">q</span><span class="p">):</span>
+            <span class="n">pyb</span><span class="o">.</span><span class="n">resetJointState</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">uid</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="n">angle</span><span class="p">,</span> <span class="n">physicsClientId</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">client_id</span>
+            <span class="p">)</span></div>
+
+<div class="viewcode-block" id="Robot.set_joint_friction_forces"><a class="viewcode-back" href="../../modules.html#pyb_utils.robots.Robot.set_joint_friction_forces">[docs]</a>    <span class="k">def</span> <span class="nf">set_joint_friction_forces</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">forces</span><span class="p">,</span> <span class="n">joint_indices</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the friction forces at each joint.</span>
+
+<span class="sd">        Set the force to a small value (or zero) to have free-moving joints.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        forces : iterable</span>
+<span class="sd">            The friction forces for the specified joints.</span>
+<span class="sd">        joint_indices : iterable</span>
+<span class="sd">            An optional list of joint indices to specify forces for. If not</span>
+<span class="sd">            provided, then it is assumed forces are being provided for all</span>
+<span class="sd">            moveable joints.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">joint_indices</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">joint_indices</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_moveable_joint_indices</span>
+
+        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">forces</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span>
+            <span class="n">joint_indices</span>
+        <span class="p">),</span> <span class="sa">f</span><span class="s2">&quot;Number of friction forces does not match number of joints.&quot;</span>
+
+        <span class="n">pyb</span><span class="o">.</span><span class="n">setJointMotorControlArray</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">uid</span><span class="p">,</span>
+            <span class="n">joint_indices</span><span class="p">,</span>
+            <span class="n">controlMode</span><span class="o">=</span><span class="n">pyb</span><span class="o">.</span><span class="n">VELOCITY_CONTROL</span><span class="p">,</span>
+            <span class="n">targetVelocities</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">forces</span><span class="p">)),</span>
+            <span class="n">forces</span><span class="o">=</span><span class="n">forces</span><span class="p">,</span>
+            <span class="n">physicsClientId</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">client_id</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="Robot.command_velocity"><a class="viewcode-back" href="../../modules.html#pyb_utils.robots.Robot.command_velocity">[docs]</a>    <span class="k">def</span> <span class="nf">command_velocity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Send a joint velocity command to the robot.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        u : iterable</span>
+<span class="sd">            The joint velocity to command. Must be of length</span>
+<span class="sd">            ``self.num_actuated_joints``.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="p">(</span>
+            <span class="nb">len</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_actuated_joints</span>
+        <span class="p">),</span> <span class="sa">f</span><span class="s2">&quot;Command length does not match number of actuated joints.&quot;</span>
+        <span class="n">pyb</span><span class="o">.</span><span class="n">setJointMotorControlArray</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">uid</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_actuated_joint_indices</span><span class="p">,</span>
+            <span class="n">controlMode</span><span class="o">=</span><span class="n">pyb</span><span class="o">.</span><span class="n">VELOCITY_CONTROL</span><span class="p">,</span>
+            <span class="n">targetVelocities</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">u</span><span class="p">),</span>
+            <span class="n">physicsClientId</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">client_id</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="Robot.command_effort"><a class="viewcode-back" href="../../modules.html#pyb_utils.robots.Robot.command_effort">[docs]</a>    <span class="k">def</span> <span class="nf">command_effort</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Send a joint effort (force/torque) command to the robot.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        u : iterable</span>
+<span class="sd">            The joint effort to command. Must be of length</span>
+<span class="sd">            ``self.num_actuated_joints``.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="p">(</span>
+            <span class="nb">len</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_actuated_joints</span>
+        <span class="p">),</span> <span class="sa">f</span><span class="s2">&quot;Command length does not match number of actuated joints.&quot;</span>
+
+        <span class="n">pyb</span><span class="o">.</span><span class="n">setJointMotorControlArray</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">uid</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_actuated_joint_indices</span><span class="p">,</span>
+            <span class="n">controlMode</span><span class="o">=</span><span class="n">pyb</span><span class="o">.</span><span class="n">TORQUE_CONTROL</span><span class="p">,</span>
+            <span class="n">forces</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">u</span><span class="p">),</span>
+            <span class="n">physicsClientId</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">client_id</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="Robot.get_link_com_pose"><a class="viewcode-back" href="../../modules.html#pyb_utils.robots.Robot.get_link_com_pose">[docs]</a>    <span class="k">def</span> <span class="nf">get_link_com_pose</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">link_idx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">as_rotation_matrix</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get the pose of a link&#39;s center of mass.</span>
+
+<span class="sd">        The pose is computed about the link&#39;s center of mass with respect to</span>
+<span class="sd">        the world frame and expressed in the world frame.</span>
+
+<span class="sd">        Let :math:`\\mathcal{F}_w` be the world frame, :math:`\\mathcal{F}_f` be</span>
+<span class="sd">        the link&#39;s URDF frame, and let :math:`\\mathcal{F}_c` be the link&#39;s CoM</span>
+<span class="sd">        frame. This function returns the position :math:`\\boldsymbol{r}^{cw}_w` and</span>
+<span class="sd">        orientation quaternion :math:`\\boldsymbol{Q}_{wc}`. The relationship</span>
+<span class="sd">        between :math:`(\\boldsymbol{r}^{cw}_w,\\boldsymbol{Q}_{wc})` from this function</span>
+<span class="sd">        and :math:`(\\boldsymbol{r}^{fw}_w,\\boldsymbol{Q}_{wf})` from</span>
+<span class="sd">        :meth:`get_link_frame_pose` is</span>
+
+<span class="sd">        .. math::</span>
+<span class="sd">           \\boldsymbol{r}^{cw}_w &amp;= \\boldsymbol{r}^{fw}_w + \\boldsymbol{C}_{wf}\\boldsymbol{r}^{cf}_f \\\\</span>
+<span class="sd">           \\boldsymbol{Q}_{wc} &amp;= \\boldsymbol{Q}_{wf} \\otimes \\boldsymbol{Q}_{fc},</span>
+
+<span class="sd">        where :math:`\\boldsymbol{C}_{wf}` is the rotation matrix representing the</span>
+<span class="sd">        same rotation as :math:`\\boldsymbol{Q}_{wf}`, and :math:`\\boldsymbol{r}^{cf}_f`</span>
+<span class="sd">        and :math:`\\boldsymbol{Q}_{fc}` are the position and quaternion from</span>
+<span class="sd">        ``LinkState.localInertialFramePosition`` and</span>
+<span class="sd">        ``LinkState.localInertialFrameOrientation``, respectively, obtained</span>
+<span class="sd">        from a call to :func:`pyb_utils.named_tuples.getLinkState`. The symbol</span>
+<span class="sd">        :math:`\\otimes` refers to Hamilton/quaternion multiplication.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        link_idx :</span>
+<span class="sd">            Index of the link to use. If not provided, defaults to the end</span>
+<span class="sd">            effector ``self.tool_idx``.</span>
+<span class="sd">        as_rotation_matrix : bool</span>
+<span class="sd">            Set to ``True`` to return the orientation as a rotation matrix,</span>
+<span class="sd">            ``False`` to return a quaternion.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        :</span>
+<span class="sd">            A tuple containing the position and orientation of the link&#39;s</span>
+<span class="sd">            center of mass in the world frame. If ``as_rotation_matrix=True``,</span>
+<span class="sd">            then the orientation is represented as a :math:`3\\times3` rotation</span>
+<span class="sd">            matrix. If ``False``, then it is represented as a quaternion in</span>
+<span class="sd">            xyzw order.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">link_idx</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">link_idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tool_idx</span>
+        <span class="n">state</span> <span class="o">=</span> <span class="n">getLinkState</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">uid</span><span class="p">,</span>
+            <span class="n">link_idx</span><span class="p">,</span>
+            <span class="n">computeForwardKinematics</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">physicsClientId</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">client_id</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">position</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">linkWorldPosition</span><span class="p">)</span>
+        <span class="n">orientation</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">linkWorldOrientation</span><span class="p">)</span>
+        <span class="n">orientation</span> <span class="o">/=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">orientation</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">as_rotation_matrix</span><span class="p">:</span>
+            <span class="n">orientation</span> <span class="o">=</span> <span class="n">quaternion_to_matrix</span><span class="p">(</span><span class="n">orientation</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">position</span><span class="p">,</span> <span class="n">orientation</span></div>
+
+<div class="viewcode-block" id="Robot.get_link_frame_pose"><a class="viewcode-back" href="../../modules.html#pyb_utils.robots.Robot.get_link_frame_pose">[docs]</a>    <span class="k">def</span> <span class="nf">get_link_frame_pose</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">link_idx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">as_rotation_matrix</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get the pose of a link&#39;s URDF frame.</span>
+
+<span class="sd">        The pose is computed about the link&#39;s parent joint position, which is</span>
+<span class="sd">        its URDF frame.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        link_idx :</span>
+<span class="sd">            Index of the link to use. If not provided, defaults to the end</span>
+<span class="sd">            effector ``self.tool_idx``.</span>
+<span class="sd">        as_rotation_matrix : bool</span>
+<span class="sd">            Set to ``True`` to return the orientation as a rotation matrix,</span>
+<span class="sd">            ``False`` to return a quaternion.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        :</span>
+<span class="sd">            A tuple containing the position and orientation of the link&#39;s frame</span>
+<span class="sd">            with respect to the world. If ``as_rotation_matrix=True``, then the</span>
+<span class="sd">            orientation is represented as a :math:`3\\times3` rotation matrix.</span>
+<span class="sd">            If ``False``, then it is represented as a quaternion in xyzw order.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">link_idx</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">link_idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tool_idx</span>
+        <span class="n">state</span> <span class="o">=</span> <span class="n">getLinkState</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">uid</span><span class="p">,</span>
+            <span class="n">link_idx</span><span class="p">,</span>
+            <span class="n">computeForwardKinematics</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">physicsClientId</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">client_id</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">position</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">worldLinkFramePosition</span><span class="p">)</span>
+        <span class="n">orientation</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">worldLinkFrameOrientation</span><span class="p">)</span>
+        <span class="n">orientation</span> <span class="o">/=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">orientation</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">as_rotation_matrix</span><span class="p">:</span>
+            <span class="n">orientation</span> <span class="o">=</span> <span class="n">quaternion_to_matrix</span><span class="p">(</span><span class="n">orientation</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">position</span><span class="p">,</span> <span class="n">orientation</span></div>
+
+<div class="viewcode-block" id="Robot.get_link_com_velocity"><a class="viewcode-back" href="../../modules.html#pyb_utils.robots.Robot.get_link_com_velocity">[docs]</a>    <span class="k">def</span> <span class="nf">get_link_com_velocity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">link_idx</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get the velocity of a link&#39;s center of mass with respect to the world.</span>
+
+<span class="sd">        With reference to the documentation of :meth:`get_link_com_pose`, the</span>
+<span class="sd">        relationship between the CoM velocity</span>
+<span class="sd">        :math:`(\\boldsymbol{v}^{cw}_w,\\boldsymbol{\\omega}^{cw}_w)` from this</span>
+<span class="sd">        function and</span>
+<span class="sd">        :math:`(\\boldsymbol{v}^{fw}_w,\\boldsymbol{\\omega}^{fw}_w)` from</span>
+<span class="sd">        :meth:`get_link_frame_velocity` is</span>
+
+<span class="sd">        .. math::</span>
+<span class="sd">           \\boldsymbol{v}^{cw}_w &amp;= \\boldsymbol{v}^{fw}_w + \\boldsymbol{\\omega}^{fw}_w\\times\\boldsymbol{C}_{wf}\\boldsymbol{r}^{cf}_f \\\\</span>
+<span class="sd">           \\boldsymbol{\\omega}^{cw}_w &amp;= \\boldsymbol{\\omega}^{fw}_w,</span>
+
+<span class="sd">        where :math:`\\times` denotes the cross product.</span>
+
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        link_idx :</span>
+<span class="sd">            Index of the link to use. If not provided, defaults to the end</span>
+<span class="sd">            effector ``self.tool_idx``.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        :</span>
+<span class="sd">            A tuple containing the linear and angular velocity vectors for the</span>
+<span class="sd">            link&#39;s center of mass in the world frame.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">link_idx</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">link_idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tool_idx</span>
+        <span class="n">state</span> <span class="o">=</span> <span class="n">getLinkState</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">uid</span><span class="p">,</span>
+            <span class="n">link_idx</span><span class="p">,</span>
+            <span class="n">computeLinkVelocity</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">physicsClientId</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">client_id</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">v_com</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">worldLinkLinearVelocity</span><span class="p">)</span>
+        <span class="n">ω_com</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">worldLinkAngularVelocity</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">v_com</span><span class="p">,</span> <span class="n">ω_com</span></div>
+
+<div class="viewcode-block" id="Robot.get_link_frame_velocity"><a class="viewcode-back" href="../../modules.html#pyb_utils.robots.Robot.get_link_frame_velocity">[docs]</a>    <span class="k">def</span> <span class="nf">get_link_frame_velocity</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">link_idx</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get the velocity of a link&#39;s URDF frame with respect to the world.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        link_idx :</span>
+<span class="sd">            Index of the link to use. If not provided, defaults to the end</span>
+<span class="sd">            effector ``self.tool_idx``.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        :</span>
+<span class="sd">            A tuple containing the linear and angular velocity vectors for the</span>
+<span class="sd">            link&#39;s URDF frame with respect to the world.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">link_idx</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">link_idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tool_idx</span>
+        <span class="n">state</span> <span class="o">=</span> <span class="n">getLinkState</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">uid</span><span class="p">,</span>
+            <span class="n">link_idx</span><span class="p">,</span>
+            <span class="n">computeLinkVelocity</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">computeForwardKinematics</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">physicsClientId</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">client_id</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">C</span> <span class="o">=</span> <span class="n">quaternion_to_matrix</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">worldLinkFrameOrientation</span><span class="p">)</span>
+        <span class="n">v_com</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">worldLinkLinearVelocity</span><span class="p">)</span>
+        <span class="n">ω_com</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">worldLinkAngularVelocity</span><span class="p">)</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="n">v_com</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">ω_com</span><span class="p">,</span> <span class="n">C</span> <span class="o">@</span> <span class="n">state</span><span class="o">.</span><span class="n">localInertialFramePosition</span><span class="p">)</span>
+        <span class="n">ω</span> <span class="o">=</span> <span class="n">ω_com</span>
+        <span class="k">return</span> <span class="n">v</span><span class="p">,</span> <span class="n">ω</span></div>
+
+<div class="viewcode-block" id="Robot.compute_link_jacobian"><a class="viewcode-back" href="../../modules.html#pyb_utils.robots.Robot.compute_link_jacobian">[docs]</a>    <span class="k">def</span> <span class="nf">compute_link_jacobian</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">link_idx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get the Jacobian of a point on a link at the given configuration.</span>
+
+<span class="sd">        When ``offset`` is ``None`` or zeros, the Jacobian is computed around</span>
+<span class="sd">        the URDF link frame (i.e., the parent joint position).</span>
+
+<span class="sd">        See also</span>
+<span class="sd">        https://github.com/bulletphysics/bullet3/issues/2429#issuecomment-538431246.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        q :</span>
+<span class="sd">            The joint configuration at which to compute the Jacobian. If no</span>
+<span class="sd">            configuration is given, then the current one is used.</span>
+<span class="sd">        link_idx :</span>
+<span class="sd">            The index of the link to compute the Jacobian for. The end effector</span>
+<span class="sd">            link ``self.tool_idx`` is used if not given.</span>
+<span class="sd">        offset :</span>
+<span class="sd">            Offset from the parent joint position at which to compute the</span>
+<span class="sd">            Jacobian. Defaults to zero (no offset).</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        :</span>
+<span class="sd">            The :math:`6\\times n` Jacobian matrix, where :math:`n` is the</span>
+<span class="sd">            number of joints.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">q</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">q</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_joint_states</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">offset</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">offset</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">link_idx</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">link_idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tool_idx</span>
+
+        <span class="n">z</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">q</span><span class="p">))</span>
+        <span class="n">q</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+        <span class="n">offset</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">offset</span><span class="p">)</span>
+
+        <span class="n">Jv</span><span class="p">,</span> <span class="n">Jw</span> <span class="o">=</span> <span class="n">pyb</span><span class="o">.</span><span class="n">calculateJacobian</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">uid</span><span class="p">,</span> <span class="n">link_idx</span><span class="p">,</span> <span class="n">offset</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">physicsClientId</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">client_id</span>
+        <span class="p">)</span>
+        <span class="n">J</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">Jv</span><span class="p">,</span> <span class="n">Jw</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">J</span></div>
+
+<div class="viewcode-block" id="Robot.compute_link_frame_jacobian"><a class="viewcode-back" href="../../modules.html#pyb_utils.robots.Robot.compute_link_frame_jacobian">[docs]</a>    <span class="k">def</span> <span class="nf">compute_link_frame_jacobian</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">link_idx</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Compute the Jacobian around the URDF link frame.</span>
+
+<span class="sd">        This is the same as calling ``compute_link_jacobian`` with</span>
+<span class="sd">        ``offset=None``.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        q :</span>
+<span class="sd">            The joint configuration at which to compute the Jacobian. If no</span>
+<span class="sd">            configuration is given, then the current one is used.</span>
+<span class="sd">        link_idx :</span>
+<span class="sd">            The index of the link to compute the Jacobian for. The end effector</span>
+<span class="sd">            link ``self.tool_idx`` is used if not given.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        :</span>
+<span class="sd">            The :math:`6\\times n` Jacobian matrix, where :math:`n` is the</span>
+<span class="sd">            number of joints.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">compute_link_jacobian</span><span class="p">(</span><span class="n">q</span><span class="o">=</span><span class="n">q</span><span class="p">,</span> <span class="n">link_idx</span><span class="o">=</span><span class="n">link_idx</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Robot.compute_link_com_jacobian"><a class="viewcode-back" href="../../modules.html#pyb_utils.robots.Robot.compute_link_com_jacobian">[docs]</a>    <span class="k">def</span> <span class="nf">compute_link_com_jacobian</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">link_idx</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Compute the Jacobian around the link&#39;s center of mass.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        q :</span>
+<span class="sd">            The joint configuration at which to compute the Jacobian. If no</span>
+<span class="sd">            configuration is given, then the current one is used.</span>
+<span class="sd">        link_idx :</span>
+<span class="sd">            The index of the link to compute the Jacobian for. The end effector</span>
+<span class="sd">            link ``self.tool_idx`` is used if not given.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        :</span>
+<span class="sd">            The :math:`6\\times n` Jacobian matrix, where :math:`n` is the</span>
+<span class="sd">            number of joints.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">link_idx</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">link_idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tool_idx</span>
+        <span class="n">state</span> <span class="o">=</span> <span class="n">getLinkState</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">uid</span><span class="p">,</span> <span class="n">link_idx</span><span class="p">,</span> <span class="n">physicsClientId</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">client_id</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">compute_link_jacobian</span><span class="p">(</span>
+            <span class="n">q</span><span class="o">=</span><span class="n">q</span><span class="p">,</span> <span class="n">link_idx</span><span class="o">=</span><span class="n">link_idx</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="n">state</span><span class="o">.</span><span class="n">localInertialFramePosition</span>
+        <span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Adam Heins.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

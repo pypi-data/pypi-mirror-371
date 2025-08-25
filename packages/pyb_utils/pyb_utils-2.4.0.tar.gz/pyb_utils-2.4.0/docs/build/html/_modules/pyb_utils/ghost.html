@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pyb_utils.ghost &mdash; pyb_utils 2.4.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=6fe989de"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            pyb_utils
+          </a>
+              <div class="version">
+                2.4.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Module Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">Bodies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html#module-pyb_utils.camera">Camera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html#module-pyb_utils.contact">Contact</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html#module-pyb_utils.collision">Collision</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html#module-pyb_utils.frame">Frame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html#module-pyb_utils.ghost">Ghost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html#module-pyb_utils.math">Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html#module-pyb_utils.named_tuples">Named Tuples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html#module-pyb_utils.robots">Robots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html#module-pyb_utils.utils">Utils</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">pyb_utils</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pyb_utils.ghost</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pyb_utils.ghost</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;This module provides utilities for &quot;ghost&quot; (visual-only) objects.&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pybullet</span> <span class="k">as</span> <span class="nn">pyb</span>
+
+<span class="kn">from</span> <span class="nn">.math</span> <span class="kn">import</span> <span class="n">quaternion_rotate</span><span class="p">,</span> <span class="n">quaternion_multiply</span>
+
+
+<div class="viewcode-block" id="GhostObject"><a class="viewcode-back" href="../../modules.html#pyb_utils.ghost.GhostObject">[docs]</a><span class="k">class</span> <span class="nc">GhostObject</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;A purely visual PyBullet object.</span>
+
+<span class="sd">    The GhostObject can be &quot;attached&quot; to another body and positioned relative</span>
+<span class="sd">    to that body, or it can be positioned at an absolute location in the world</span>
+<span class="sd">    frame.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    visual_uid : int</span>
+<span class="sd">        The UID of the visual PyBullet object to use.</span>
+<span class="sd">    position : iterable</span>
+<span class="sd">        The object&#39;s position (optional). Defaults to</span>
+<span class="sd">        ``(0, 0, 0)``. If ``parent_body_uid`` is also specified, then the</span>
+<span class="sd">        position is relative to that body, otherwise it is relative to the</span>
+<span class="sd">        world.</span>
+<span class="sd">    orientation : iterable</span>
+<span class="sd">        The object&#39;s orientation, as a quaternion :math:`(x, y, z, w)`</span>
+<span class="sd">        (optional). Defaults to ``(0, 0, 0, 1)``. If ``parent_body_uid`` is</span>
+<span class="sd">        also specified, then the orientation is relative to that body,</span>
+<span class="sd">        otherwise it is relative to the world.</span>
+<span class="sd">    parent_body_uid : int</span>
+<span class="sd">        The UID of an existing body to &quot;attach&quot; this object to (optional).</span>
+<span class="sd">    parent_link_index : int</span>
+<span class="sd">        The index of the link on the parent body to attach this object to</span>
+<span class="sd">        (optional). Defaults to `-1` (the base link).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">visual_uid</span><span class="p">,</span>
+        <span class="n">position</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">orientation</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">parent_body_uid</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">parent_link_index</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">client_id</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="k">if</span> <span class="n">position</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">position</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">orientation</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">orientation</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">position</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">orientation</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">orientation</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">parent_body_uid</span> <span class="o">=</span> <span class="n">parent_body_uid</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parent_link_index</span> <span class="o">=</span> <span class="n">parent_link_index</span>
+
+        <span class="n">world_position</span><span class="p">,</span> <span class="n">world_orientation</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compute_world_position</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">uid</span> <span class="o">=</span> <span class="n">pyb</span><span class="o">.</span><span class="n">createMultiBody</span><span class="p">(</span>
+            <span class="n">baseMass</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>  <span class="c1"># non-dynamic body has mass = 0</span>
+            <span class="n">baseVisualShapeIndex</span><span class="o">=</span><span class="n">visual_uid</span><span class="p">,</span>
+            <span class="n">basePosition</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">world_position</span><span class="p">),</span>
+            <span class="n">baseOrientation</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">world_orientation</span><span class="p">),</span>
+            <span class="n">physicsClientId</span><span class="o">=</span><span class="n">client_id</span><span class="p">,</span>
+        <span class="p">)</span>
+
+<div class="viewcode-block" id="GhostObject.sphere"><a class="viewcode-back" href="../../modules.html#pyb_utils.ghost.GhostObject.sphere">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">sphere</span><span class="p">(</span>
+        <span class="bp">cls</span><span class="p">,</span>
+        <span class="n">radius</span><span class="p">,</span>
+        <span class="n">position</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">parent_body_uid</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">parent_link_index</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+        <span class="n">client_id</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create a spherical ghost object.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        radius : float</span>
+<span class="sd">            The radius of the sphere.</span>
+<span class="sd">        position : iterable</span>
+<span class="sd">            The object&#39;s position (optional). Defaults to</span>
+<span class="sd">            ``(0, 0, 0)``. If ``parent_body_uid`` is also specified, then the</span>
+<span class="sd">            position is relative to that body, otherwise it is relative to the</span>
+<span class="sd">            world.</span>
+<span class="sd">        parent_body_uid : int</span>
+<span class="sd">            The UID of an existing body to &quot;attach&quot; this object to (optional).</span>
+<span class="sd">        parent_link_index : int</span>
+<span class="sd">            The index of the link on the parent body to attach this object to</span>
+<span class="sd">            (optional). Defaults to `-1` (the base link).</span>
+<span class="sd">        color : iterable</span>
+<span class="sd">            The ``(r, g, b, α)`` color of the sphere (optional). Defaults to</span>
+<span class="sd">            red.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">visual_uid</span> <span class="o">=</span> <span class="n">pyb</span><span class="o">.</span><span class="n">createVisualShape</span><span class="p">(</span>
+            <span class="n">shapeType</span><span class="o">=</span><span class="n">pyb</span><span class="o">.</span><span class="n">GEOM_SPHERE</span><span class="p">,</span>
+            <span class="n">radius</span><span class="o">=</span><span class="n">radius</span><span class="p">,</span>
+            <span class="n">rgbaColor</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
+            <span class="n">visual_uid</span><span class="p">,</span>
+            <span class="n">position</span><span class="o">=</span><span class="n">position</span><span class="p">,</span>
+            <span class="n">parent_body_uid</span><span class="o">=</span><span class="n">parent_body_uid</span><span class="p">,</span>
+            <span class="n">parent_link_index</span><span class="o">=</span><span class="n">parent_link_index</span><span class="p">,</span>
+            <span class="n">client_id</span><span class="o">=</span><span class="n">client_id</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="GhostObject.box"><a class="viewcode-back" href="../../modules.html#pyb_utils.ghost.GhostObject.box">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">box</span><span class="p">(</span>
+        <span class="bp">cls</span><span class="p">,</span>
+        <span class="n">position</span><span class="p">,</span>
+        <span class="n">half_extents</span><span class="p">,</span>
+        <span class="n">parent_body_uid</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">parent_link_index</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+        <span class="n">client_id</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create a cuboid ghost.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        position : iterable</span>
+<span class="sd">            The `(x, y, z)` position of the box in the world.</span>
+<span class="sd">        half_extents : iterable</span>
+<span class="sd">            The three half lengths of the box.</span>
+<span class="sd">        parent_body_uid : int</span>
+<span class="sd">            The UID of an existing body to &quot;attach&quot; this object to (optional).</span>
+<span class="sd">        parent_link_index : int</span>
+<span class="sd">            The index of the link on the parent body to attach this object to</span>
+<span class="sd">            (optional). Defaults to `-1` (the base link).</span>
+<span class="sd">        color : iterable</span>
+<span class="sd">            The `(r, g, b, α)` color of the box.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">visual_uid</span> <span class="o">=</span> <span class="n">pyb</span><span class="o">.</span><span class="n">createVisualShape</span><span class="p">(</span>
+            <span class="n">shapeType</span><span class="o">=</span><span class="n">pyb</span><span class="o">.</span><span class="n">GEOM_BOX</span><span class="p">,</span>
+            <span class="n">halfExtents</span><span class="o">=</span><span class="nb">tuple</span><span class="p">(</span><span class="n">half_extents</span><span class="p">),</span>
+            <span class="n">rgbaColor</span><span class="o">=</span><span class="nb">tuple</span><span class="p">(</span><span class="n">color</span><span class="p">),</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
+            <span class="n">visual_uid</span><span class="p">,</span>
+            <span class="n">position</span><span class="o">=</span><span class="n">position</span><span class="p">,</span>
+            <span class="n">parent_body_uid</span><span class="o">=</span><span class="n">parent_body_uid</span><span class="p">,</span>
+            <span class="n">parent_link_index</span><span class="o">=</span><span class="n">parent_link_index</span><span class="p">,</span>
+            <span class="n">client_id</span><span class="o">=</span><span class="n">client_id</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">_compute_world_position</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># If the object is attached to a parent, then its position and</span>
+        <span class="c1"># orientation are relative to the parent</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent_body_uid</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">pyb</span><span class="o">.</span><span class="n">getLinkState</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">parent_body_uid</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">parent_link_index</span><span class="p">,</span>
+                <span class="n">computeForwardKinematics</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="n">parent_position</span><span class="p">,</span> <span class="n">parent_orientation</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">state</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+
+            <span class="c1"># compute world pose given parent pose and relative pose</span>
+            <span class="n">world_position</span> <span class="o">=</span> <span class="n">parent_position</span> <span class="o">+</span> <span class="n">quaternion_rotate</span><span class="p">(</span>
+                <span class="n">parent_orientation</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">position</span>
+            <span class="p">)</span>
+            <span class="n">world_orientation</span> <span class="o">=</span> <span class="n">quaternion_multiply</span><span class="p">(</span>
+                <span class="n">parent_orientation</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">orientation</span>
+            <span class="p">)</span>
+            <span class="k">return</span> <span class="n">world_position</span><span class="p">,</span> <span class="n">world_orientation</span>
+
+        <span class="c1"># Otherwise, the position and orientation are already in the world</span>
+        <span class="c1"># frame</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">position</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">orientation</span>
+
+<div class="viewcode-block" id="GhostObject.update"><a class="viewcode-back" href="../../modules.html#pyb_utils.ghost.GhostObject.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Update the pose of the object.</span>
+
+<span class="sd">        If the object has a parent, then this should be called every time the</span>
+<span class="sd">        simulation rendering is updated. The object&#39;s pose in the world is</span>
+<span class="sd">        updated to reflect the parent&#39;s new pose. If position or orientation is</span>
+<span class="sd">        supplied, then the pose relative to the parent is updated.</span>
+
+<span class="sd">        Otherwise, this function can be used to change the object&#39;s absolute</span>
+<span class="sd">        pose in the world.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        position : iterable</span>
+<span class="sd">            The new position of the object (optional).</span>
+<span class="sd">        orientation : iterable</span>
+<span class="sd">            The new orientation of the object, as a quaternion :math:`(x, y, z,</span>
+<span class="sd">            w)` (optional).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">position</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">position</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">orientation</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">orientation</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">orientation</span><span class="p">)</span>
+
+        <span class="n">world_position</span><span class="p">,</span> <span class="n">world_orientation</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compute_world_position</span><span class="p">()</span>
+
+        <span class="n">pyb</span><span class="o">.</span><span class="n">resetBasePositionAndOrientation</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">uid</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">world_position</span><span class="p">),</span> <span class="nb">list</span><span class="p">(</span><span class="n">world_orientation</span><span class="p">)</span>
+        <span class="p">)</span></div></div>
+
+
+<span class="k">def</span> <span class="nf">GhostSphere</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="kn">import</span> <span class="nn">logging</span>
+
+    <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+        <span class="s2">&quot;GhostSphere is deprecated. Use GhostObject.sphere instead.&quot;</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">GhostObject</span><span class="o">.</span><span class="n">sphere</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Adam Heins.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

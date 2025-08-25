@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pyb_utils.named_tuples &mdash; pyb_utils 2.1.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=0218eca2"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            pyb_utils
+          </a>
+              <div class="version">
+                2.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Module Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">Bodies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html#module-pyb_utils.camera">Camera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html#module-pyb_utils.contact">Contact</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html#module-pyb_utils.collision">Collision</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html#module-pyb_utils.frame">Frame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html#module-pyb_utils.ghost">Ghost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html#module-pyb_utils.math">Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html#module-pyb_utils.named_tuples">Named Tuples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html#module-pyb_utils.robots">Robots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html#module-pyb_utils.utils">Utils</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">pyb_utils</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pyb_utils.named_tuples</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pyb_utils.named_tuples</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Wrappers for PyBullet methods that return large tuples.</span>
+
+<span class="sd">This submodule returns the same information in a named tuple, so the fields can</span>
+<span class="sd">be easily identified.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+
+<span class="kn">import</span> <span class="nn">pybullet</span> <span class="k">as</span> <span class="nn">pyb</span>
+
+
+<span class="c1"># field names are camel case to match PyBullet convention</span>
+<span class="n">DynamicsInfo</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span>
+    <span class="s2">&quot;DynamicsInfo&quot;</span><span class="p">,</span>
+    <span class="p">[</span>
+        <span class="s2">&quot;mass&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;lateralFriction&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;localInertiaDiagonal&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;localInerialPos&quot;</span><span class="p">,</span>  <span class="c1"># TODO fix this name in a future major release</span>
+        <span class="s2">&quot;localInertialOrn&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;restitution&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;rollingFriction&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;spinningFriction&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;contactDamping&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;contactStiffness&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;bodyType&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;collisionMargin&quot;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">)</span>
+
+<span class="n">ContactPoint</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span>
+    <span class="s2">&quot;ContactPoint&quot;</span><span class="p">,</span>
+    <span class="p">[</span>
+        <span class="s2">&quot;contactFlag&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;bodyUniqueIdA&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;bodyUniqueIdB&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;linkIndexA&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;linkIndexB&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;positionOnA&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;positionOnB&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;contactNormalOnB&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;contactDistance&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;normalForce&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;lateralFriction1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;lateralFrictionDir1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;lateralFriction2&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;lateralFrictionDir2&quot;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">)</span>
+
+<span class="n">ConstraintInfo</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span>
+    <span class="s2">&quot;ConstraintInfo&quot;</span><span class="p">,</span>
+    <span class="p">[</span>
+        <span class="s2">&quot;parentBodyUniqueId&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;parentJointIndex&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;childBodyUniqueId&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;childLinkIndex&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;constraintType&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;jointAxis&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;jointPivotInParent&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;jointPivotInChild&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;jointFrameOrientationParent&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;jointFrameOrientationChild&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;maxAppliedForce&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;gearRatio&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;gearAuxLink&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;relativePositionTarget&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;erp&quot;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">)</span>
+
+<span class="n">JointInfo</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span>
+    <span class="s2">&quot;JointInfo&quot;</span><span class="p">,</span>
+    <span class="p">[</span>
+        <span class="s2">&quot;jointIndex&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;jointName&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;jointType&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;qIndex&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;uIndex&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;flags&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;jointDamping&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;jointFriction&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;jointLowerLimit&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;jointUpperLimit&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;jointMaxForce&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;jointMaxVelocity&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;linkName&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;jointAxis&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;parentFramePos&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;parentFrameOrn&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;parentIndex&quot;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">)</span>
+
+<span class="n">JointState</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span>
+    <span class="s2">&quot;JointState&quot;</span><span class="p">,</span>
+    <span class="p">[</span>
+        <span class="s2">&quot;jointPosition&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;jointVelocity&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;jointReactionForces&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;appliedJointMotorTorque&quot;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">)</span>
+
+<span class="n">LinkState</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span>
+    <span class="s2">&quot;LinkState&quot;</span><span class="p">,</span>
+    <span class="p">[</span>
+        <span class="s2">&quot;linkWorldPosition&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;linkWorldOrientation&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;localInertialFramePosition&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;localInertialFrameOrientation&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;worldLinkFramePosition&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;worldLinkFrameOrientation&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;worldLinkLinearVelocity&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;worldLinkAngularVelocity&quot;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">)</span>
+
+
+<div class="viewcode-block" id="getDynamicsInfo"><a class="viewcode-back" href="../../modules.html#pyb_utils.named_tuples.getDynamicsInfo">[docs]</a><span class="k">def</span> <span class="nf">getDynamicsInfo</span><span class="p">(</span><span class="n">bodyUniqueId</span><span class="p">,</span> <span class="n">linkIndex</span><span class="p">,</span> <span class="n">physicsClientId</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get information about the dynamic properties of a link.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    bodyUniqueId : int</span>
+<span class="sd">        The UID of the body.</span>
+<span class="sd">    linkIndex : int</span>
+<span class="sd">        The index of the link on the body.</span>
+<span class="sd">    physicsClientId : int</span>
+<span class="sd">        The UID of the physics server to use.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    DynamicsInfo</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">DynamicsInfo</span><span class="p">(</span>
+        <span class="o">*</span><span class="n">pyb</span><span class="o">.</span><span class="n">getDynamicsInfo</span><span class="p">(</span>
+            <span class="n">bodyUniqueId</span><span class="o">=</span><span class="n">bodyUniqueId</span><span class="p">,</span>
+            <span class="n">linkIndex</span><span class="o">=</span><span class="n">linkIndex</span><span class="p">,</span>
+            <span class="n">physicsClientId</span><span class="o">=</span><span class="n">physicsClientId</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="getContactPoints"><a class="viewcode-back" href="../../modules.html#pyb_utils.named_tuples.getContactPoints">[docs]</a><span class="k">def</span> <span class="nf">getContactPoints</span><span class="p">(</span>
+    <span class="n">bodyA</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">bodyB</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">linkIndexA</span><span class="o">=-</span><span class="mi">2</span><span class="p">,</span> <span class="n">linkIndexB</span><span class="o">=-</span><span class="mi">2</span><span class="p">,</span> <span class="n">physicsClientId</span><span class="o">=</span><span class="mi">0</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get the contact points between two bodies or specific links.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    bodyA : int</span>
+<span class="sd">        The UID of the first body.</span>
+<span class="sd">    bodyB : int</span>
+<span class="sd">        The UID of the second body.</span>
+<span class="sd">    linkIndexA : int</span>
+<span class="sd">        The index of the link on the first body (optional). If not provided,</span>
+<span class="sd">        checks all links on the body.</span>
+<span class="sd">    linkIndexB : int</span>
+<span class="sd">        The index of the link on the second body (optional). If not provided,</span>
+<span class="sd">        checks all links on the body.</span>
+<span class="sd">    physicsClientId : int</span>
+<span class="sd">        The UID of the physics server to use.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    :</span>
+<span class="sd">        A list of ``ContactPoint``.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">points_raw</span> <span class="o">=</span> <span class="n">pyb</span><span class="o">.</span><span class="n">getContactPoints</span><span class="p">(</span>
+        <span class="n">bodyA</span><span class="o">=</span><span class="n">bodyA</span><span class="p">,</span>
+        <span class="n">bodyB</span><span class="o">=</span><span class="n">bodyB</span><span class="p">,</span>
+        <span class="n">linkIndexA</span><span class="o">=</span><span class="n">linkIndexA</span><span class="p">,</span>
+        <span class="n">linkIndexB</span><span class="o">=</span><span class="n">linkIndexB</span><span class="p">,</span>
+        <span class="n">physicsClientId</span><span class="o">=</span><span class="n">physicsClientId</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">ContactPoint</span><span class="p">(</span><span class="o">*</span><span class="n">point</span><span class="p">)</span> <span class="k">for</span> <span class="n">point</span> <span class="ow">in</span> <span class="n">points_raw</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="getClosestPoints"><a class="viewcode-back" href="../../modules.html#pyb_utils.named_tuples.getClosestPoints">[docs]</a><span class="k">def</span> <span class="nf">getClosestPoints</span><span class="p">(</span>
+    <span class="n">bodyA</span><span class="p">,</span> <span class="n">bodyB</span><span class="p">,</span> <span class="n">distance</span><span class="p">,</span> <span class="n">linkIndexA</span><span class="o">=-</span><span class="mi">2</span><span class="p">,</span> <span class="n">linkIndexB</span><span class="o">=-</span><span class="mi">2</span><span class="p">,</span> <span class="n">physicsClientId</span><span class="o">=</span><span class="mi">0</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get the closest points between two bodies or specific links.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    bodyA : int</span>
+<span class="sd">        The UID of the first body.</span>
+<span class="sd">    bodyB : int</span>
+<span class="sd">        The UID of the second body.</span>
+<span class="sd">    linkIndexA : int</span>
+<span class="sd">        The index of the link on the first body (optional). If not provided,</span>
+<span class="sd">        checks all links on the body.</span>
+<span class="sd">    linkIndexB : int</span>
+<span class="sd">        The index of the link on the second body (optional). If not provided,</span>
+<span class="sd">        checks all links on the body.</span>
+<span class="sd">    physicsClientId : int</span>
+<span class="sd">        The UID of the physics server to use.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    :</span>
+<span class="sd">        A list of ``ContactPoint`` representing the closest points. Normal</span>
+<span class="sd">        force is always zero.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">points_raw</span> <span class="o">=</span> <span class="n">pyb</span><span class="o">.</span><span class="n">getClosestPoints</span><span class="p">(</span>
+        <span class="n">bodyA</span><span class="o">=</span><span class="n">bodyA</span><span class="p">,</span>
+        <span class="n">bodyB</span><span class="o">=</span><span class="n">bodyB</span><span class="p">,</span>
+        <span class="n">distance</span><span class="o">=</span><span class="n">distance</span><span class="p">,</span>
+        <span class="n">linkIndexA</span><span class="o">=</span><span class="n">linkIndexA</span><span class="p">,</span>
+        <span class="n">linkIndexB</span><span class="o">=</span><span class="n">linkIndexB</span><span class="p">,</span>
+        <span class="n">physicsClientId</span><span class="o">=</span><span class="n">physicsClientId</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">ContactPoint</span><span class="p">(</span><span class="o">*</span><span class="n">point</span><span class="p">)</span> <span class="k">for</span> <span class="n">point</span> <span class="ow">in</span> <span class="n">points_raw</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="getConstraintInfo"><a class="viewcode-back" href="../../modules.html#pyb_utils.named_tuples.getConstraintInfo">[docs]</a><span class="k">def</span> <span class="nf">getConstraintInfo</span><span class="p">(</span><span class="n">constraintUniqueId</span><span class="p">,</span> <span class="n">physicsClientId</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get information about a constraint.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    constraintUniqueId : int</span>
+<span class="sd">        UID of the constraint</span>
+<span class="sd">    physicsClientId : int</span>
+<span class="sd">        UID of the physics server to use.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    ConstraintInfo</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">ConstraintInfo</span><span class="p">(</span>
+        <span class="o">*</span><span class="n">pyb</span><span class="o">.</span><span class="n">getConstraintInfo</span><span class="p">(</span>
+            <span class="n">constraintUniqueId</span><span class="o">=</span><span class="n">constraintUniqueId</span><span class="p">,</span>
+            <span class="n">physicsClientId</span><span class="o">=</span><span class="n">physicsClientId</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="getJointInfo"><a class="viewcode-back" href="../../modules.html#pyb_utils.named_tuples.getJointInfo">[docs]</a><span class="k">def</span> <span class="nf">getJointInfo</span><span class="p">(</span><span class="n">bodyUniqueId</span><span class="p">,</span> <span class="n">jointIndex</span><span class="p">,</span> <span class="n">physicsClientId</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">decode</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get information about a joint.</span>
+
+<span class="sd">    The one difference from the PyBullet API is the addition of the optional</span>
+<span class="sd">    ``decode`` argument.</span>
+
+<span class="sd">    If ``decode`` is not ``None``, then it is used to decode the strings of bytes</span>
+<span class="sd">    returned by the PyBullet API for the ``jointName`` and ``linkName`` fields.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    bodyUniqueId : int</span>
+<span class="sd">        UID of the body with the joint.</span>
+<span class="sd">    jointIndex : int</span>
+<span class="sd">        Index of the joint on the body.</span>
+<span class="sd">    physicsClientId : int</span>
+<span class="sd">        The UID of the physics server to use.</span>
+<span class="sd">    decode : str</span>
+<span class="sd">        The encoding to use to convert the bytes fields to strings.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    JointInfo</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">info</span> <span class="o">=</span> <span class="n">JointInfo</span><span class="p">(</span>
+        <span class="o">*</span><span class="n">pyb</span><span class="o">.</span><span class="n">getJointInfo</span><span class="p">(</span>
+            <span class="n">bodyUniqueId</span><span class="o">=</span><span class="n">bodyUniqueId</span><span class="p">,</span>
+            <span class="n">jointIndex</span><span class="o">=</span><span class="n">jointIndex</span><span class="p">,</span>
+            <span class="n">physicsClientId</span><span class="o">=</span><span class="n">physicsClientId</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="k">if</span> <span class="n">decode</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">info</span> <span class="o">=</span> <span class="n">info</span><span class="o">.</span><span class="n">_replace</span><span class="p">(</span>
+            <span class="n">jointName</span><span class="o">=</span><span class="n">info</span><span class="o">.</span><span class="n">jointName</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">decode</span><span class="p">),</span>
+            <span class="n">linkName</span><span class="o">=</span><span class="n">info</span><span class="o">.</span><span class="n">linkName</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">decode</span><span class="p">),</span>
+        <span class="p">)</span>
+    <span class="k">return</span> <span class="n">info</span></div>
+
+
+<div class="viewcode-block" id="getJointState"><a class="viewcode-back" href="../../modules.html#pyb_utils.named_tuples.getJointState">[docs]</a><span class="k">def</span> <span class="nf">getJointState</span><span class="p">(</span><span class="n">bodyUniqueId</span><span class="p">,</span> <span class="n">jointIndex</span><span class="p">,</span> <span class="n">physicsClientId</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get the state of a joint.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    bodyUniqueId : int</span>
+<span class="sd">        UID of the body with the joint.</span>
+<span class="sd">    jointIndex : int</span>
+<span class="sd">        Index of the joint on the body.</span>
+<span class="sd">    physicsClientId : int</span>
+<span class="sd">        The UID of the physics server to use.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    JointState</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">JointState</span><span class="p">(</span>
+        <span class="o">*</span><span class="n">pyb</span><span class="o">.</span><span class="n">getJointState</span><span class="p">(</span>
+            <span class="n">bodyUniqueId</span><span class="o">=</span><span class="n">bodyUniqueId</span><span class="p">,</span>
+            <span class="n">jointIndex</span><span class="o">=</span><span class="n">jointIndex</span><span class="p">,</span>
+            <span class="n">physicsClientId</span><span class="o">=</span><span class="n">physicsClientId</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="getJointStates"><a class="viewcode-back" href="../../modules.html#pyb_utils.named_tuples.getJointStates">[docs]</a><span class="k">def</span> <span class="nf">getJointStates</span><span class="p">(</span><span class="n">bodyUniqueId</span><span class="p">,</span> <span class="n">jointIndices</span><span class="p">,</span> <span class="n">physicsClientId</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get the state of multiple joints at once.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    bodyUniqueId : int</span>
+<span class="sd">        UID of the body with the joint.</span>
+<span class="sd">    jointIndices :</span>
+<span class="sd">        List of indices of joints on the body.</span>
+<span class="sd">    physicsClientId : int</span>
+<span class="sd">        The UID of the physics server to use.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    :</span>
+<span class="sd">        A list of ``JointState``.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">states_raw</span> <span class="o">=</span> <span class="n">pyb</span><span class="o">.</span><span class="n">getJointStates</span><span class="p">(</span>
+        <span class="n">bodyUniqueId</span><span class="o">=</span><span class="n">bodyUniqueId</span><span class="p">,</span>
+        <span class="n">jointIndices</span><span class="o">=</span><span class="n">jointIndices</span><span class="p">,</span>
+        <span class="n">physicsClientId</span><span class="o">=</span><span class="n">physicsClientId</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">JointState</span><span class="p">(</span><span class="o">*</span><span class="n">state</span><span class="p">)</span> <span class="k">for</span> <span class="n">state</span> <span class="ow">in</span> <span class="n">states_raw</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="getLinkState"><a class="viewcode-back" href="../../modules.html#pyb_utils.named_tuples.getLinkState">[docs]</a><span class="k">def</span> <span class="nf">getLinkState</span><span class="p">(</span>
+    <span class="n">bodyUniqueId</span><span class="p">,</span>
+    <span class="n">linkIndex</span><span class="p">,</span>
+    <span class="n">computeLinkVelocity</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">computeForwardKinematics</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">physicsClientId</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get the state of a link.</span>
+
+<span class="sd">    One difference from the PyBullet API is that if</span>
+<span class="sd">    ``computeLinkVelocity=False``, we still return the</span>
+<span class="sd">    ``worldLinkLinearVelocity`` and ``worldLinkAngularVelocity`` fields, but</span>
+<span class="sd">    they are set to ``None``. PyBullet just doesn&#39;t return the fields, such</span>
+<span class="sd">    that the tuple has 6 fields rather than 8.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    bodyUniqueId : int</span>
+<span class="sd">        UID of the body with the link.</span>
+<span class="sd">    linkIndex : int</span>
+<span class="sd">        Index of the link on the body. Note that the link index corresponds to</span>
+<span class="sd">        the index of its parent joint.</span>
+<span class="sd">    computeLinkVelocity : bool</span>
+<span class="sd">        If ``True``, compute the velocity of the link&#39;s CoM in the world frame.</span>
+<span class="sd">        Otherwise, these fields are set to ``None``.</span>
+<span class="sd">    computeForwardKinematics : bool</span>
+<span class="sd">        If ``True``, update the position and orientation of the link in the</span>
+<span class="sd">        world frame. Otherwise, the position and orientation will not be up to</span>
+<span class="sd">        date if the simulation has been stepped.</span>
+<span class="sd">    physicsClientId : int</span>
+<span class="sd">        The UID of the physics server to use.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    LinkState</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">state_raw</span> <span class="o">=</span> <span class="n">pyb</span><span class="o">.</span><span class="n">getLinkState</span><span class="p">(</span>
+            <span class="n">bodyUniqueId</span><span class="o">=</span><span class="n">bodyUniqueId</span><span class="p">,</span>
+            <span class="n">linkIndex</span><span class="o">=</span><span class="n">linkIndex</span><span class="p">,</span>
+            <span class="n">computeLinkVelocity</span><span class="o">=</span><span class="n">computeLinkVelocity</span><span class="p">,</span>
+            <span class="n">computeForwardKinematics</span><span class="o">=</span><span class="n">computeForwardKinematics</span><span class="p">,</span>
+            <span class="n">physicsClientId</span><span class="o">=</span><span class="n">physicsClientId</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="c1"># pybullet just returns a smaller tuple when link velocity is not computed;</span>
+    <span class="c1"># we instead keep it the same size but set velocity fields to None</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">computeLinkVelocity</span><span class="p">:</span>
+        <span class="n">state_raw</span> <span class="o">=</span> <span class="n">state_raw</span> <span class="o">+</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">LinkState</span><span class="p">(</span><span class="o">*</span><span class="n">state_raw</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="getLinkStates"><a class="viewcode-back" href="../../modules.html#pyb_utils.named_tuples.getLinkStates">[docs]</a><span class="k">def</span> <span class="nf">getLinkStates</span><span class="p">(</span>
+    <span class="n">bodyUniqueId</span><span class="p">,</span>
+    <span class="n">linkIndices</span><span class="p">,</span>
+    <span class="n">computeLinkVelocity</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">computeForwardKinematics</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">physicsClientId</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get the state of multiple links at once.</span>
+
+<span class="sd">    One difference from the PyBullet API is that if</span>
+<span class="sd">    ``computeLinkVelocity=False``, we still return the</span>
+<span class="sd">    ``worldLinkLinearVelocity`` and ``worldLinkAngularVelocity`` fields, but</span>
+<span class="sd">    they are set to ``None``. PyBullet just doesn&#39;t return the fields, such</span>
+<span class="sd">    that the tuple has 6 fields rather than 8.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    bodyUniqueId : int</span>
+<span class="sd">        UID of the body with the link.</span>
+<span class="sd">    linkIndices :</span>
+<span class="sd">        List of indices of the link on the body. Note that the link index</span>
+<span class="sd">        corresponds to the index of its parent joint.</span>
+<span class="sd">    computeLinkVelocity : bool</span>
+<span class="sd">        If ``True``, compute the velocity of the link&#39;s CoM in the world frame.</span>
+<span class="sd">        Otherwise, these fields are set to ``None``.</span>
+<span class="sd">    computeForwardKinematics : bool</span>
+<span class="sd">        If ``True``, update the position and orientation of the link in the</span>
+<span class="sd">        world frame. Otherwise, the position and orientation will not be up to</span>
+<span class="sd">        date if the simulation has been stepped.</span>
+<span class="sd">    physicsClientId : int</span>
+<span class="sd">        The UID of the physics server to use.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    :</span>
+<span class="sd">        List of ``LinkState``.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">states_raw</span> <span class="o">=</span> <span class="n">pyb</span><span class="o">.</span><span class="n">getLinkStates</span><span class="p">(</span>
+        <span class="n">bodyUniqueId</span><span class="o">=</span><span class="n">bodyUniqueId</span><span class="p">,</span>
+        <span class="n">linkIndices</span><span class="o">=</span><span class="n">linkIndices</span><span class="p">,</span>
+        <span class="n">computeLinkVelocity</span><span class="o">=</span><span class="n">computeLinkVelocity</span><span class="p">,</span>
+        <span class="n">computeForwardKinematics</span><span class="o">=</span><span class="n">computeForwardKinematics</span><span class="p">,</span>
+        <span class="n">physicsClientId</span><span class="o">=</span><span class="n">physicsClientId</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">computeLinkVelocity</span><span class="p">:</span>
+        <span class="n">states_raw</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="o">+</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">states_raw</span><span class="p">]</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">LinkState</span><span class="p">(</span><span class="o">*</span><span class="n">state</span><span class="p">)</span> <span class="k">for</span> <span class="n">state</span> <span class="ow">in</span> <span class="n">states_raw</span><span class="p">]</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Adam Heins.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pyb_utils.camera &mdash; pyb_utils 2.1.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=0218eca2"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            pyb_utils
+          </a>
+              <div class="version">
+                2.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Module Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">Bodies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html#module-pyb_utils.camera">Camera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html#module-pyb_utils.contact">Contact</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html#module-pyb_utils.collision">Collision</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html#module-pyb_utils.frame">Frame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html#module-pyb_utils.ghost">Ghost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html#module-pyb_utils.math">Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html#module-pyb_utils.named_tuples">Named Tuples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html#module-pyb_utils.robots">Robots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html#module-pyb_utils.utils">Utils</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">pyb_utils</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pyb_utils.camera</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pyb_utils.camera</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;This module provides a utility ``Camera`` class for PyBullet.&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pybullet</span> <span class="k">as</span> <span class="nn">pyb</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">import</span> <span class="nn">cv2</span>
+
+
+<div class="viewcode-block" id="Camera"><a class="viewcode-back" href="../../modules.html#pyb_utils.camera.Camera">[docs]</a><span class="k">class</span> <span class="nc">Camera</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;A PyBullet camera, which captures images of the simulation environment.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    view_matrix : iterable</span>
+<span class="sd">        The camera&#39;s view matrix.</span>
+<span class="sd">    near : float</span>
+<span class="sd">        Near value</span>
+<span class="sd">    far : float</span>
+<span class="sd">        Far value</span>
+<span class="sd">    fov : float</span>
+<span class="sd">        Field of view</span>
+<span class="sd">    width : int</span>
+<span class="sd">        Width of the image in pixels</span>
+<span class="sd">    height : int</span>
+<span class="sd">        Height of the image in pixels</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">view_matrix</span><span class="p">,</span>
+        <span class="n">near</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+        <span class="n">far</span><span class="o">=</span><span class="mf">1000.0</span><span class="p">,</span>
+        <span class="n">fov</span><span class="o">=</span><span class="mf">60.0</span><span class="p">,</span>
+        <span class="n">width</span><span class="o">=</span><span class="mi">1280</span><span class="p">,</span>
+        <span class="n">height</span><span class="o">=</span><span class="mi">720</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">near</span> <span class="o">=</span> <span class="n">near</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">far</span> <span class="o">=</span> <span class="n">far</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">width</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">height</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">view_matrix</span> <span class="o">=</span> <span class="n">view_matrix</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">proj_matrix</span> <span class="o">=</span> <span class="n">pyb</span><span class="o">.</span><span class="n">computeProjectionMatrixFOV</span><span class="p">(</span>
+            <span class="n">fov</span><span class="o">=</span><span class="n">fov</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="n">width</span> <span class="o">/</span> <span class="n">height</span><span class="p">,</span> <span class="n">nearVal</span><span class="o">=</span><span class="n">near</span><span class="p">,</span> <span class="n">farVal</span><span class="o">=</span><span class="n">far</span>
+        <span class="p">)</span>
+
+<div class="viewcode-block" id="Camera.from_camera_position"><a class="viewcode-back" href="../../modules.html#pyb_utils.camera.Camera.from_camera_position">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_camera_position</span><span class="p">(</span>
+        <span class="bp">cls</span><span class="p">,</span>
+        <span class="n">target_position</span><span class="p">,</span>
+        <span class="n">camera_position</span><span class="p">,</span>
+        <span class="n">near</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+        <span class="n">far</span><span class="o">=</span><span class="mf">1000.0</span><span class="p">,</span>
+        <span class="n">fov</span><span class="o">=</span><span class="mf">60.0</span><span class="p">,</span>
+        <span class="n">width</span><span class="o">=</span><span class="mi">1280</span><span class="p">,</span>
+        <span class="n">height</span><span class="o">=</span><span class="mi">720</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Construct a new camera from target and camera positions.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        target_position : iterable</span>
+<span class="sd">            The position of the camera&#39;s target point.</span>
+<span class="sd">        camera_position : iterable</span>
+<span class="sd">            The position of the camera in the world.</span>
+<span class="sd">        near : float</span>
+<span class="sd">            Near value</span>
+<span class="sd">        far : float</span>
+<span class="sd">            Far value</span>
+<span class="sd">        fov : float</span>
+<span class="sd">            Field of view</span>
+<span class="sd">        width : int</span>
+<span class="sd">            Width of the image in pixels</span>
+<span class="sd">        height : int</span>
+<span class="sd">            Height of the image in pixels</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">view_matrix</span> <span class="o">=</span> <span class="n">pyb</span><span class="o">.</span><span class="n">computeViewMatrix</span><span class="p">(</span>
+            <span class="n">cameraEyePosition</span><span class="o">=</span><span class="n">camera_position</span><span class="p">,</span>
+            <span class="n">cameraTargetPosition</span><span class="o">=</span><span class="n">target_position</span><span class="p">,</span>
+            <span class="n">cameraUpVector</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
+            <span class="n">view_matrix</span><span class="o">=</span><span class="n">view_matrix</span><span class="p">,</span>
+            <span class="n">near</span><span class="o">=</span><span class="n">near</span><span class="p">,</span>
+            <span class="n">far</span><span class="o">=</span><span class="n">far</span><span class="p">,</span>
+            <span class="n">fov</span><span class="o">=</span><span class="n">fov</span><span class="p">,</span>
+            <span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">,</span>
+            <span class="n">height</span><span class="o">=</span><span class="n">height</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="Camera.from_distance_rpy"><a class="viewcode-back" href="../../modules.html#pyb_utils.camera.Camera.from_distance_rpy">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_distance_rpy</span><span class="p">(</span>
+        <span class="bp">cls</span><span class="p">,</span>
+        <span class="n">target_position</span><span class="p">,</span>
+        <span class="n">distance</span><span class="p">,</span>
+        <span class="n">roll</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+        <span class="n">pitch</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+        <span class="n">yaw</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+        <span class="n">near</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+        <span class="n">far</span><span class="o">=</span><span class="mf">1000.0</span><span class="p">,</span>
+        <span class="n">fov</span><span class="o">=</span><span class="mf">60.0</span><span class="p">,</span>
+        <span class="n">width</span><span class="o">=</span><span class="mi">1280</span><span class="p">,</span>
+        <span class="n">height</span><span class="o">=</span><span class="mi">720</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Construct a new camera from target position, distance, and roll,</span>
+<span class="sd">        pitch, yaw angles.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        target_position : iterable</span>
+<span class="sd">            The position of the camera&#39;s target point.</span>
+<span class="sd">        distance : float</span>
+<span class="sd">            The distance of camera from target.</span>
+<span class="sd">        roll : float</span>
+<span class="sd">            Roll of the camera&#39;s orientation.</span>
+<span class="sd">        pitch : float</span>
+<span class="sd">            Pitch of the camera&#39;s orientation.</span>
+<span class="sd">        yaw : float</span>
+<span class="sd">            Yaw of the camera&#39;s orientation.</span>
+<span class="sd">        near : float</span>
+<span class="sd">            Near value</span>
+<span class="sd">        far : float</span>
+<span class="sd">            Far value</span>
+<span class="sd">        fov : float</span>
+<span class="sd">            Field of view</span>
+<span class="sd">        width : int</span>
+<span class="sd">            Width of the image in pixels</span>
+<span class="sd">        height : int</span>
+<span class="sd">            Height of the image in pixels</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">view_matrix</span> <span class="o">=</span> <span class="n">pyb</span><span class="o">.</span><span class="n">computeViewMatrixFromYawPitchRoll</span><span class="p">(</span>
+            <span class="n">distance</span><span class="o">=</span><span class="n">distance</span><span class="p">,</span>
+            <span class="n">yaw</span><span class="o">=</span><span class="n">yaw</span><span class="p">,</span>
+            <span class="n">pitch</span><span class="o">=</span><span class="n">pitch</span><span class="p">,</span>
+            <span class="n">roll</span><span class="o">=</span><span class="n">roll</span><span class="p">,</span>
+            <span class="n">cameraTargetPosition</span><span class="o">=</span><span class="n">target_position</span><span class="p">,</span>
+            <span class="n">upAxisIndex</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
+            <span class="n">view_matrix</span><span class="o">=</span><span class="n">view_matrix</span><span class="p">,</span>
+            <span class="n">near</span><span class="o">=</span><span class="n">near</span><span class="p">,</span>
+            <span class="n">far</span><span class="o">=</span><span class="n">far</span><span class="p">,</span>
+            <span class="n">fov</span><span class="o">=</span><span class="n">fov</span><span class="p">,</span>
+            <span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">,</span>
+            <span class="n">height</span><span class="o">=</span><span class="n">height</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="Camera.get_frame"><a class="viewcode-back" href="../../modules.html#pyb_utils.camera.Camera.get_frame">[docs]</a>    <span class="k">def</span> <span class="nf">get_frame</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get a frame from the camera.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        :</span>
+<span class="sd">            A tuple ``(rgba, depth, seg)``, where ``rgba`` is the RGBA color</span>
+<span class="sd">            data of shape ``(height, width, 4)``, ``depth`` is the depth buffer</span>
+<span class="sd">            of shape ``(height, width)``, and ``seg`` is the segmentation mask</span>
+<span class="sd">            of shape ``(height, width)``.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">rgba</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="n">seg</span> <span class="o">=</span> <span class="n">pyb</span><span class="o">.</span><span class="n">getCameraImage</span><span class="p">(</span>
+            <span class="n">width</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">,</span>
+            <span class="n">height</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">,</span>
+            <span class="n">shadow</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+            <span class="n">viewMatrix</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">view_matrix</span><span class="p">,</span>
+            <span class="n">projectionMatrix</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">proj_matrix</span><span class="p">,</span>
+            <span class="n">renderer</span><span class="o">=</span><span class="n">pyb</span><span class="o">.</span><span class="n">ER_BULLET_HARDWARE_OPENGL</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="c1"># the image has height rows x width columns</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">rgba</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span>
+                <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+            <span class="p">),</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">depth</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">)),</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">seg</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">)),</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="Camera.save_frame"><a class="viewcode-back" href="../../modules.html#pyb_utils.camera.Camera.save_frame">[docs]</a>    <span class="k">def</span> <span class="nf">save_frame</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">rgba</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Save a frame to a file.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        filename : str</span>
+<span class="sd">            The name of the image file.</span>
+<span class="sd">        rgba : np.ndarray</span>
+<span class="sd">            Optionally, the user can provide the RGBA data from a previous call</span>
+<span class="sd">            to :meth:`Camera.get_frame()`. If not provided,</span>
+<span class="sd">            ``self.get_frame()`` is called to retrieve this data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">rgba</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">rgba</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_frame</span><span class="p">()</span>
+        <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">rgba</span><span class="p">,</span> <span class="s2">&quot;RGBA&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Camera.linearize_depth"><a class="viewcode-back" href="../../modules.html#pyb_utils.camera.Camera.linearize_depth">[docs]</a>    <span class="k">def</span> <span class="nf">linearize_depth</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">depth</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Convert depth map to actual distance from camera plane.</span>
+
+<span class="sd">        See https://stackoverflow.com/a/6657284.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        depth : np.ndarray</span>
+<span class="sd">            Optionally, the user can provide the depth buffer from a previous</span>
+<span class="sd">            call to :meth:`Camera.get_frame()`. If not provided,</span>
+<span class="sd">            ``self.get_frame()`` is called to retrieve this data.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        :</span>
+<span class="sd">            Linearized depth buffer, consisting of the actual depth values from</span>
+<span class="sd">            the camera plane.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">depth</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">_</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_frame</span><span class="p">()</span>
+        <span class="n">depth_ndc</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">depth</span> <span class="o">-</span> <span class="mi">1</span>  <span class="c1"># normalized device coordinates</span>
+        <span class="n">depth_linear</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="mf">2.0</span>
+            <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">near</span>
+            <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">far</span>
+            <span class="o">/</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">far</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">near</span> <span class="o">-</span> <span class="n">depth_ndc</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">far</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">near</span><span class="p">))</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">depth_linear</span></div>
+
+<div class="viewcode-block" id="Camera.set_camera_pose"><a class="viewcode-back" href="../../modules.html#pyb_utils.camera.Camera.set_camera_pose">[docs]</a>    <span class="k">def</span> <span class="nf">set_camera_pose</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Change the position and target of the camera.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        position : iterable</span>
+<span class="sd">            The position of the camera in the world.</span>
+<span class="sd">        target : iterable</span>
+<span class="sd">            The position of the camera&#39;s target point.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="n">position</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">target</span> <span class="o">=</span> <span class="n">target</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">view_matrix</span> <span class="o">=</span> <span class="n">pyb</span><span class="o">.</span><span class="n">computeViewMatrix</span><span class="p">(</span>
+            <span class="n">cameraEyePosition</span><span class="o">=</span><span class="n">position</span><span class="p">,</span>
+            <span class="n">cameraTargetPosition</span><span class="o">=</span><span class="n">target</span><span class="p">,</span>
+            <span class="n">cameraUpVector</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="Camera.get_point_cloud"><a class="viewcode-back" href="../../modules.html#pyb_utils.camera.Camera.get_point_cloud">[docs]</a>    <span class="k">def</span> <span class="nf">get_point_cloud</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">depth</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Convert depth buffer to 3D point cloud in world coordinates.</span>
+
+<span class="sd">        See https://stackoverflow.com/a/62247245 for the main source of this</span>
+<span class="sd">        code.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        depth : np.ndarray</span>
+<span class="sd">            Optionally, the user can provide the depth buffer from a previous</span>
+<span class="sd">            call to :meth:`Camera.get_frame()`. If not provided,</span>
+<span class="sd">            ``self.get_frame()`` is called to retrieve this data.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        An array of shape ``(height, width, 3)`` representing the points seen</span>
+<span class="sd">        by the camera.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">depth</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">_</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_frame</span><span class="p">()</span>
+
+        <span class="c1"># view matrix maps world coordinates to camera coordinates (extrinsics)</span>
+        <span class="n">V</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">view_matrix</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">order</span><span class="o">=</span><span class="s2">&quot;F&quot;</span><span class="p">)</span>
+
+        <span class="c1"># camera projection matrix: map camera coordinates to clip coordinates</span>
+        <span class="c1"># (intrinsics)</span>
+        <span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">proj_matrix</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">order</span><span class="o">=</span><span class="s2">&quot;F&quot;</span><span class="p">)</span>
+
+        <span class="n">PV_inv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">P</span> <span class="o">@</span> <span class="n">V</span><span class="p">)</span>
+
+        <span class="n">points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">):</span>
+                <span class="c1"># convert to normalized device coordinates</span>
+                <span class="c1"># notice that the y-transform is negative---we actually have a</span>
+                <span class="c1"># left-handed coordinate frame here (x = right, y = down, z =</span>
+                <span class="c1"># out of the screen)</span>
+                <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">w</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span>
+                <span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">h</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span>
+
+                <span class="c1"># depth buffer is already in range [0, 1]</span>
+                <span class="n">z</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">depth</span><span class="p">[</span><span class="n">h</span><span class="p">,</span> <span class="n">w</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span>
+
+                <span class="c1"># back out to world coordinates by applying inverted projection</span>
+                <span class="c1"># and view matrices</span>
+                <span class="n">r_ndc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+                <span class="n">r_world_unnormalized</span> <span class="o">=</span> <span class="n">PV_inv</span> <span class="o">@</span> <span class="n">r_ndc</span>
+
+                <span class="c1"># normalize homogenous coordinates to get rid of perspective</span>
+                <span class="c1"># divide</span>
+                <span class="n">points</span><span class="p">[</span><span class="n">h</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="n">r_world_unnormalized</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span> <span class="o">/</span> <span class="n">r_world_unnormalized</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+                <span class="p">)</span>
+        <span class="k">return</span> <span class="n">points</span></div></div>
+
+
+<div class="viewcode-block" id="VideoRecorder"><a class="viewcode-back" href="../../modules.html#pyb_utils.camera.VideoRecorder">[docs]</a><span class="k">class</span> <span class="nc">VideoRecorder</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Recorder for a video of a PyBullet simulation.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    filename : str</span>
+<span class="sd">        The name of the file to write the video to.</span>
+<span class="sd">    camera : Camera</span>
+<span class="sd">        Camera object to use for rendering frames.</span>
+<span class="sd">    fps : int</span>
+<span class="sd">        Frames per second. Each ``fps`` frames will be played over one second</span>
+<span class="sd">        of video.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">camera</span><span class="p">,</span> <span class="n">fps</span><span class="p">,</span> <span class="n">codec</span><span class="o">=</span><span class="s2">&quot;mp4v&quot;</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">camera</span> <span class="o">=</span> <span class="n">camera</span>
+        <span class="n">fourcc</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter_fourcc</span><span class="p">(</span><span class="o">*</span><span class="n">codec</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">writer</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter</span><span class="p">(</span>
+            <span class="nb">str</span><span class="p">(</span><span class="n">filename</span><span class="p">),</span>
+            <span class="n">fourcc</span><span class="p">,</span>
+            <span class="n">fps</span><span class="p">,</span>
+            <span class="p">(</span><span class="n">camera</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="n">camera</span><span class="o">.</span><span class="n">height</span><span class="p">),</span>
+        <span class="p">)</span>
+
+<div class="viewcode-block" id="VideoRecorder.capture_frame"><a class="viewcode-back" href="../../modules.html#pyb_utils.camera.VideoRecorder.capture_frame">[docs]</a>    <span class="k">def</span> <span class="nf">capture_frame</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rgba</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Capture a frame and write it to the video.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        rgba : np.ndarray</span>
+<span class="sd">            Optionally, the user can provide the RGBA data from a previous call</span>
+<span class="sd">            to :meth:`Camera.get_frame()`. This can be used to avoid multiple</span>
+<span class="sd">            renderings with the camera. If not provided,</span>
+<span class="sd">            ``self.camera.get_frame()`` is called to retrieve this data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">rgba</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">rgba</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">get_frame</span><span class="p">()</span>
+
+        <span class="c1"># OpenCV uses BGR instead of RGB</span>
+        <span class="n">bgr</span> <span class="o">=</span> <span class="n">rgba</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">bgr</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="FrameRecorder"><a class="viewcode-back" href="../../modules.html#pyb_utils.camera.FrameRecorder">[docs]</a><span class="k">class</span> <span class="nc">FrameRecorder</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Recorder for a set of frames from a PyBullet simulation.</span>
+
+<span class="sd">    This is an alternative to the :class:`VideoRecorder`, which directly saves</span>
+<span class="sd">    a video.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    camera : Camera</span>
+<span class="sd">        Camera object to use for rendering frames.</span>
+<span class="sd">    fps : int</span>
+<span class="sd">        Frames per second. Each ``fps`` frames will be played over one second</span>
+<span class="sd">        of video.</span>
+<span class="sd">    dirname : str</span>
+<span class="sd">        The name of the directory to write the frames to. The directory will be</span>
+<span class="sd">        created if it doesn&#39;t already exist.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">camera</span><span class="p">,</span> <span class="n">fps</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">dirname</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">camera</span> <span class="o">=</span> <span class="n">camera</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">timestep</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">fps</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">save</span> <span class="o">=</span> <span class="ow">not</span> <span class="p">(</span><span class="n">dirname</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">save</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">dirname</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">frame_count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last_record_time</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+
+<div class="viewcode-block" id="FrameRecorder.capture_frame"><a class="viewcode-back" href="../../modules.html#pyb_utils.camera.FrameRecorder.capture_frame">[docs]</a>    <span class="k">def</span> <span class="nf">capture_frame</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">rgba</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Capture and save a frame if enough time has past since the last</span>
+<span class="sd">        capture.</span>
+
+<span class="sd">        This does nothing if less than ``1. / fps`` time has elapsed since the</span>
+<span class="sd">        last frame was captured.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        t : float</span>
+<span class="sd">            The current time.</span>
+<span class="sd">        rgba :</span>
+<span class="sd">            Image data as returned by :meth:`Camera.get_frame`. Otherwise,</span>
+<span class="sd">            ``self.camera.get_frame`` is called to retrieve this data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">save</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="c1"># bail if not enough time has elapsed to record a new frame</span>
+        <span class="k">if</span> <span class="n">t</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_record_time</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">timestep</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="c1"># capture and save the frame</span>
+        <span class="n">frame_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;frame_</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">frame_count</span><span class="si">}</span><span class="s2">.png&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">save_frame</span><span class="p">(</span><span class="n">frame_path</span><span class="p">,</span> <span class="n">rgba</span><span class="o">=</span><span class="n">rgba</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">frame_count</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last_record_time</span> <span class="o">=</span> <span class="n">t</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Adam Heins.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
