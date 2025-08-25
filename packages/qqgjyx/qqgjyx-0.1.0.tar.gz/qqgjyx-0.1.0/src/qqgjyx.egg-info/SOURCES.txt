@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+src/qqgjyx/__init__.py
+src/qqgjyx.egg-info/PKG-INFO
+src/qqgjyx.egg-info/SOURCES.txt
+src/qqgjyx.egg-info/dependency_links.txt
+src/qqgjyx.egg-info/top_level.txt
+test/test_version.py
