@@ -1,0 +1,9 @@
+qt_web_bridge/__init__.py,sha256=MXHJ4789Ns3p-RLe0xLeTlE2GVf99t2f-ZQ5FBstbYs,1802
+qt_web_bridge/bridge.py,sha256=5qVaxYnX1jOr8PKCt0I3FIqkVnmTDJ61BMnh21JlunE,8992
+qt_web_bridge/panel.py,sha256=m3FvOFClbFe7lOfEzjcVq7wDdhfZkDX2my9lG_AM01Y,4606
+qt_web_bridge/utils.py,sha256=Q1C9EG5vaHG61G8crOyjVC1c4H4e7qGOs_IXUtcnXOI,8758
+qt_web_bridge/webview.py,sha256=rKqCTwmr_sCkNrQh2soT3yU-ll2BdkFYNFGqZiIAECM,8341
+qt_web_bridge/temp/__init__.py,sha256=5nlAJlL--XkmqDMWPzI0YWsu9gqc1KTTdnmuKhgArho,28
+soren_n_qt_web_bridge-1.1.10.dist-info/METADATA,sha256=IrvjD-Im8xooUIP8cpV7MvRTma2VFNMY1Xi27l_w61M,6414
+soren_n_qt_web_bridge-1.1.10.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+soren_n_qt_web_bridge-1.1.10.dist-info/RECORD,,
