@@ -1,0 +1,1 @@
+/Users/eric/Documents/Code/oxidize/oxidize/target/release/liboxidize.dylib: /Users/eric/Documents/Code/oxidize/oxidize/src/io/mod.rs /Users/eric/Documents/Code/oxidize/oxidize/src/io/xml_parser.rs /Users/eric/Documents/Code/oxidize/oxidize/src/io/xml_utils.rs /Users/eric/Documents/Code/oxidize/oxidize/src/lib.rs

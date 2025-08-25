@@ -1,0 +1,14 @@
+/Users/eric/Documents/Code/pyo3_utils/rust_utils/target/release/deps/libpyo3_build_config-7fa0637c4f0cce45.rmeta: /Users/eric/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/pyo3-build-config-0.25.1/src/lib.rs /Users/eric/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/pyo3-build-config-0.25.1/src/errors.rs /Users/eric/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/pyo3-build-config-0.25.1/src/impl_.rs /Users/eric/Documents/Code/pyo3_utils/rust_utils/target/release/build/pyo3-build-config-cda500737e859edb/out/pyo3-build-config-file.txt /Users/eric/Documents/Code/pyo3_utils/rust_utils/target/release/build/pyo3-build-config-cda500737e859edb/out/pyo3-build-config.txt
+
+/Users/eric/Documents/Code/pyo3_utils/rust_utils/target/release/deps/libpyo3_build_config-7fa0637c4f0cce45.rlib: /Users/eric/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/pyo3-build-config-0.25.1/src/lib.rs /Users/eric/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/pyo3-build-config-0.25.1/src/errors.rs /Users/eric/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/pyo3-build-config-0.25.1/src/impl_.rs /Users/eric/Documents/Code/pyo3_utils/rust_utils/target/release/build/pyo3-build-config-cda500737e859edb/out/pyo3-build-config-file.txt /Users/eric/Documents/Code/pyo3_utils/rust_utils/target/release/build/pyo3-build-config-cda500737e859edb/out/pyo3-build-config.txt
+
+/Users/eric/Documents/Code/pyo3_utils/rust_utils/target/release/deps/pyo3_build_config-7fa0637c4f0cce45.d: /Users/eric/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/pyo3-build-config-0.25.1/src/lib.rs /Users/eric/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/pyo3-build-config-0.25.1/src/errors.rs /Users/eric/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/pyo3-build-config-0.25.1/src/impl_.rs /Users/eric/Documents/Code/pyo3_utils/rust_utils/target/release/build/pyo3-build-config-cda500737e859edb/out/pyo3-build-config-file.txt /Users/eric/Documents/Code/pyo3_utils/rust_utils/target/release/build/pyo3-build-config-cda500737e859edb/out/pyo3-build-config.txt
+
+/Users/eric/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/pyo3-build-config-0.25.1/src/lib.rs:
+/Users/eric/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/pyo3-build-config-0.25.1/src/errors.rs:
+/Users/eric/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/pyo3-build-config-0.25.1/src/impl_.rs:
+/Users/eric/Documents/Code/pyo3_utils/rust_utils/target/release/build/pyo3-build-config-cda500737e859edb/out/pyo3-build-config-file.txt:
+/Users/eric/Documents/Code/pyo3_utils/rust_utils/target/release/build/pyo3-build-config-cda500737e859edb/out/pyo3-build-config.txt:
+
+# env-dep:CARGO_PKG_VERSION=0.25.1
+# env-dep:OUT_DIR=/Users/eric/Documents/Code/pyo3_utils/rust_utils/target/release/build/pyo3-build-config-cda500737e859edb/out
