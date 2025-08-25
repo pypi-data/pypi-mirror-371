@@ -1,0 +1,11 @@
+tree_sitter_bosque/__init__.py,sha256=r_kpYPen8HSFWlOesXPjR0CsFOz8mdvlGETQI0JKePg,1128
+tree_sitter_bosque/__init__.pyi,sha256=oixFm8lXsZZWYa5cRwj6brbqh37_fzN2rLE-dmX9_rA,247
+tree_sitter_bosque/_binding.abi3.so,sha256=5mA67NYILxhctjAV5SlHKR-1Ol1XKr6Ts9rul5pThjE,949552
+tree_sitter_bosque/binding.c,sha256=EuqD6fjHht7_atSe8abaxKyYu7L1EVZruRUfNtYAg-g,836
+tree_sitter_bosque/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tree_sitter_bosque/queries/highlights.scm,sha256=b1noHlPxhrz780ngKZobLqVndiY42y107rX6pU0bBnA,2915
+tree_sitter_bosque/queries/injections.scm,sha256=aK9Vb0j9LyYIh0NDB7EFUeKHlcX0lLHmvnktwe0odh0,132
+tree_sitter_bosque-0.1.5.dist-info/METADATA,sha256=lWRZOBPwJeR_QdvBB9guO-jpp99DCDWsjvBJ_h8xFRU,576
+tree_sitter_bosque-0.1.5.dist-info/WHEEL,sha256=RLTeeIVGGszrHIp46_PGEkqkg0ZOBqBbIDNIwOdtd7A,111
+tree_sitter_bosque-0.1.5.dist-info/top_level.txt,sha256=HMaK2iDh5K6jJyiSUruUWGireKSd4vgLTajR-CvHgRE,28
+tree_sitter_bosque-0.1.5.dist-info/RECORD,,
