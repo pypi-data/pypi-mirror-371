@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+src/ec2_simple_connect.egg-info/PKG-INFO
+src/ec2_simple_connect.egg-info/SOURCES.txt
+src/ec2_simple_connect.egg-info/dependency_links.txt
+src/ec2_simple_connect.egg-info/entry_points.txt
+src/ec2_simple_connect.egg-info/requires.txt
+src/ec2_simple_connect.egg-info/top_level.txt
+src/ec2simpleconnect/__init__.py
+src/ec2simpleconnect/cli.py
+src/ec2simpleconnect/manager.py
