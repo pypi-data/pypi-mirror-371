@@ -1,0 +1,6 @@
+.copierignore
+CHANGELOG.md
+pyproject.toml
+release.yaml
+_version.py
+__init__.py
