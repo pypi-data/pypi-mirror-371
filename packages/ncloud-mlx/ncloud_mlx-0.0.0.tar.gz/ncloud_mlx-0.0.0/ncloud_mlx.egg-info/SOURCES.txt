@@ -1,0 +1,7 @@
+README.md
+main.py
+pyproject.toml
+ncloud_mlx.egg-info/PKG-INFO
+ncloud_mlx.egg-info/SOURCES.txt
+ncloud_mlx.egg-info/dependency_links.txt
+ncloud_mlx.egg-info/top_level.txt

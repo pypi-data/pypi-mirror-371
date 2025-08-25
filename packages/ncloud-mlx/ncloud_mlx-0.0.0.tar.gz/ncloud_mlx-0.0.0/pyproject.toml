@@ -1,0 +1,29 @@
+[project]
+name = "ncloud-mlx"
+dynamic = ["version"]
+description = ""
+authors = [
+    { name = "navercloud-mlxp", email = "dl_mlx_ncp_dev@navercorp.com" },
+]
+requires-python = ">=3.9.0,<4.0.0"
+readme = "README.md"
+
+[tool.uv]
+
+[[tool.uv.index]]
+name = "PyPI"
+url = "https://pypi.org/simple/"
+default = true
+
+[tool.hatch.build.targets.sdist]
+include = [""]
+
+[tool.hatch.build.targets.wheel]
+include = [""]
+
+[tool.hatch.version]
+source = "uv-dynamic-versioning"
+
+[tool.uv-dynamic-versioning]
+fallback-version = "0.0.0"
+pattern = "default-unprefixed"
