@@ -1,0 +1,150 @@
+name: Publish to PyPI
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python-version: ["3.10", "3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - run: python -m pip install -U pip
+      - run: python -m pip install -e .[test,vis]
+      - run: pytest tests/ -v --cov=pyflowreg -k "not test_progress_callback_performance"
+      - name: Verify MDF support (Windows only)
+        if: runner.os == 'Windows'
+        run: python -c "from pyflowreg.util.io.mdf import MDFFileReader; print('MDF support verified')"
+
+  build:
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: [test]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: python -m pip install -U build twine
+      - name: Rewrite README image links for PyPI
+        run: |
+          python - <<'PY'
+          import os, re, pathlib
+          src = pathlib.Path("README.md")
+          text = src.read_text(encoding="utf-8")
+          repo = os.environ["GITHUB_REPOSITORY"]           # e.g. FlowRegSuite/pyflowreg
+          ref  = os.environ["GITHUB_REF_NAME"]             # e.g. v0.3.2 when building on a tag
+          raw  = f"https://raw.githubusercontent.com/{repo}/{ref}/"
+          text = re.sub(r'(!\[[^\]]*\]\()((?!https?://)[^)]+)(\))',
+                        lambda m: m.group(1) + raw + m.group(2).lstrip("./") + m.group(3),
+                        text)
+          pathlib.Path("README-pypi.md").write_text(text, encoding="utf-8")
+          PY
+      - name: Swap README for build
+        run: |
+          mv README.md README.dev.md
+          mv README-pypi.md README.md
+      - run: python -m build
+      - name: Restore original README
+        if: always()
+        run: |
+          if [ -f README.dev.md ]; then
+            mv README.dev.md README.md
+          fi
+      - run: python -m twine check dist/*
+      - uses: actions/upload-artifact@v4
+        with:
+          name: release-dists
+          path: dist/
+
+  wheel-smoke:
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: [build]
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python-version: ["3.11"]
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: release-dists
+          path: dist/
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install wheel
+        shell: bash
+        run: python -m pip install dist/*.whl
+      - name: Test wheel imports
+        run: |
+          python -c "import pyflowreg; print('PyFlowReg version:', getattr(pyflowreg, '__version__', 'unknown'))"
+          python -c "from pyflowreg.core.optical_flow import get_displacement; print('Core imports working')"
+      - name: Verify MDF on Windows
+        if: runner.os == 'Windows'
+        run: python -c "from pyflowreg.util.io.mdf import MDFFileReader; print('MDF working from wheel')"
+
+  sdist-smoke:
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: release-dists
+          path: dist/
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install sdist
+        shell: bash
+        run: python -m pip install dist/*.tar.gz
+      - run: python -c "import pyflowreg, importlib; importlib.import_module('pyflowreg'); print('sdist import OK')"
+
+  publish:
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: [wheel-smoke, sdist-smoke]
+    runs-on: ubuntu-latest
+    environment: pypi
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: release-dists
+          path: dist/
+      - name: Publish RCs to TestPyPI
+        if: contains(github.ref_name, 'rc')
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          repository-url: https://test.pypi.org/legacy/
+          packages-dir: dist/
+          skip-existing: true
+      - name: Publish to PyPI
+        if: "!contains(github.ref_name, 'rc')"
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: dist/
+          skip-existing: true
