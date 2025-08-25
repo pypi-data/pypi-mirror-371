@@ -1,0 +1,67 @@
+Metadata-Version: 2.4
+Name: amsky01
+Version: 1.0.0
+Summary: AMSKY01 Sensor Data Viewer - Real-time visualization of sensor data
+Home-page: https://github.com/AstroMeters/AMSKY01
+Author: AstroMeters
+Author-email: info@astrometers.eu
+License: MIT
+Project-URL: Bug Reports, https://github.com/AstroMeters/AMSKY01/issues
+Project-URL: Source, https://github.com/AstroMeters/AMSKY01
+Project-URL: Documentation, https://github.com/AstroMeters/AMSKY01#readme
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Atmospheric Science
+Classifier: Topic :: System :: Monitoring
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pyserial>=3.5
+Requires-Dist: numpy>=1.22.0
+Requires-Dist: pandas
+Requires-Dist: psutil
+Requires-Dist: matplotlib
+Provides-Extra: dev
+Requires-Dist: pytest>=6.0; extra == "dev"
+Requires-Dist: black>=21.0; extra == "dev"
+Requires-Dist: flake8>=3.8; extra == "dev"
+Requires-Dist: mypy>=0.910; extra == "dev"
+Dynamic: license-file
+
+# AMSKY01
+
+AMSKY01 je kompaktní astronomický senzor pro měření kvality oblohy.
+
+## Funkce
+
+- Měření jasnosti oblohy pomocí TSL2591 senzoru
+- Měření teploty pomocí MLX90641 termálního senzoru
+- Real-time vizualizace naměřených dat
+- Exportování dat pro další analýzu
+
+## Instalace
+
+```bash
+pip install amsky01
+```
+
+## Použití
+
+```bash
+# Spuštění vieweru
+amsky01-viewer
+
+# Debug režim
+amsky01-debug
+
+# Zobrazení grafů
+amsky01-plot
+```
