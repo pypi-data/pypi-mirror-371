@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "custos-labs"
+version = "0.2.5"
+description = "Custos – The AI Alignment Guardian. Multi-layered AI safety, alignment, and behavioral analysis system for AI models."
+readme = "README.md"
+requires-python = ">=3.8"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Sylvester Duah", email = "dev@custoslabs.com" }]
+keywords = ["ai-alignment", "AGI", "AI safety", "LLM", "machine learning", "ethics", "alignment", "AI monitoring", "AI Violations", "Compliances"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Operating System :: OS Independent",
+  "Topic :: Software Development :: Libraries",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Science/Research"
+]
+dependencies = ["requests>=2.31.0"]
+
+[project.urls]
+Homepage = "https://custoslabs.com/"
+Documentation = "https://custoslabs.com/documentation"
+Source = "https://github.com/dev-77-sys/custos-labs"
+BugTracker = "https://github.com/dev-77-sys/custos-labs/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["custos*"]
