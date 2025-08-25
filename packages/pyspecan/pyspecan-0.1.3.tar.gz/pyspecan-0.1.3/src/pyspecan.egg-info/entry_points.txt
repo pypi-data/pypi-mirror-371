@@ -1,0 +1,6 @@
+[console_scripts]
+pyspecan = pyspecan._internal.main:main
+pyspecan-cui = pyspecan._internal.main:main_cli
+
+[gui_scripts]
+pyspecan-gui = pyspecan._internal.main:main_gui
