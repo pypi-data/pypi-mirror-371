@@ -1,0 +1,16 @@
+.python-version
+LICENSE
+MANIFEST.in
+README.md
+VERSION
+pyproject.toml
+requirements.txt
+setup.py
+MoneyMate/__init__.py
+MoneyMate/__main__.py
+MoneyMate.egg-info/PKG-INFO
+MoneyMate.egg-info/SOURCES.txt
+MoneyMate.egg-info/dependency_links.txt
+MoneyMate.egg-info/not-zip-safe
+MoneyMate.egg-info/requires.txt
+MoneyMate.egg-info/top_level.txt
