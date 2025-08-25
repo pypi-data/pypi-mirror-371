@@ -1,0 +1,4 @@
+nonebot-plugin-alconna>=0.59.4
+nonebot2>=2.4.3
+pillow>=11.3.0
+pygments>=2.19.2
