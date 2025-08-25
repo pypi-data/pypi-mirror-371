@@ -1,0 +1,9 @@
+[environ_odoo_config.converter]
+filestore-s3 = odoo.addons.odoo_filestore_s3.environ_odoo_config.converter:FilestoreS3EnvConverter
+
+[environ_odoo_config.mapper]
+filestore-s3 = odoo.addons.odoo_filestore_s3.environ_odoo_config.mapper:s3_mapper
+
+[environ_odoo_config.server_wide_module]
+filestore-s3 = odoo.addons.odoo_filestore_s3.environ_odoo_config.auto_load:load_modules
+
