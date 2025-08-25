@@ -1,0 +1,15 @@
+uuRest/__init__.py,sha256=brqEDinHyYHiUc8hxtKMhrfmcpL-j4YeJmO5BVo6yug,183
+uuRest/multipartEncoder.py,sha256=AJKpNR2jF9VMp2bzQ8ZXbbl2qyOpIw2x_I9vkmSucDw,16911
+uuRest/uuCommand.py,sha256=C4caQ_1oGM9Yugbr3_HnaLranNsphIgdP4s-3oHOz8w,10977
+uuRest/uuCommon.py,sha256=A-QFJtWf60GFDek0hHPbbEn3yZJxARYiFlu20OXbBlI,8903
+uuRest/uuIO.py,sha256=b9tA-WrwHkXT5iqx_U0jGk0txn4uUMPMHKDYHFw0TFc,9148
+uuRest/uuLoging.py,sha256=mhgHDYcGGi80F-Ua3HKTbi1ZEsOJft902Xx0aMtTW6w,2855
+uuRest/uuRest.py,sha256=oF_OphT1DXRYIgSSvIuOwS0GkjbiwlOmNbmWsA0-l-4,25724
+uuRest/uuRestLogin.py,sha256=aHg0YIcYSx2OiV7nQgdURdIzonuC9-7D0IqIO-X2SV0,2081
+uuRest/uuStopwatch.py,sha256=fKuVwgae3Pc_THICj57MkmNGsu4LpppSaFlsbEvRIXw,2630
+uuRest/install_windows/__init__.py,sha256=PHzKOFFaS9aSWMdajCnn7u_trQUuReAy-R9JiSAlnDo,133
+uuRest/install_windows/install_windows.py,sha256=gxGAOX9UJ8WWBSHmDd2Ef53u5E6eJzudKYE5vnWf_Vw,152
+uurest-1.0.1.dist-info/METADATA,sha256=2se2rZnL7b_XIjh3y6X1w5BolnLPMwRVa-he2o1UL0c,3545
+uurest-1.0.1.dist-info/WHEEL,sha256=v8slff5hmCpvciQ3G55d2d1CnOBupjDFJHDE2dUb1Ao,97
+uurest-1.0.1.dist-info/top_level.txt,sha256=G7zJk8nxx5IFB-JnUqcPr8j4eIEImlZ8bEUr4Mlu2AU,7
+uurest-1.0.1.dist-info/RECORD,,
