@@ -1,0 +1,265 @@
+Metadata-Version: 2.4
+Name: langchain-hreflang
+Version: 0.1.0
+Summary: LangChain tools for hreflang SEO analysis using hreflang.org API
+Home-page: https://github.com/diffen/langchain-hreflang
+Author: Nick Jasuja
+Author-email: Nick Jasuja <nikhilesh@gmail.com>
+License: MIT License
+        
+        Copyright (c) 2025 Your Name
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+Project-URL: Homepage, https://github.com/diffen/langchain-hreflang
+Project-URL: Documentation, https://github.com/diffen/langchain-hreflang#readme
+Project-URL: Repository, https://github.com/diffen/langchain-hreflang.git
+Project-URL: Bug Reports, https://github.com/diffen/langchain-hreflang/issues
+Project-URL: Changelog, https://github.com/diffen/langchain-hreflang/blob/main/CHANGELOG.md
+Keywords: langchain,hreflang,seo,international,ai,agents,crewai
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: langchain>=0.1.0
+Requires-Dist: requests>=2.25.0
+Requires-Dist: pydantic>=2.0.0
+Requires-Dist: python-dotenv>=0.19.0
+Provides-Extra: dev
+Requires-Dist: pytest>=6.0; extra == "dev"
+Requires-Dist: pytest-cov>=2.0; extra == "dev"
+Requires-Dist: black>=21.0; extra == "dev"
+Requires-Dist: flake8>=3.8; extra == "dev"
+Requires-Dist: mypy>=0.800; extra == "dev"
+Requires-Dist: twine>=3.0; extra == "dev"
+Requires-Dist: build>=0.7; extra == "dev"
+Requires-Dist: python-dotenv>=0.19.0; extra == "dev"
+Provides-Extra: crewai
+Requires-Dist: crewai>=0.1.0; extra == "crewai"
+Provides-Extra: all
+Requires-Dist: crewai>=0.1.0; extra == "all"
+Requires-Dist: pytest>=6.0; extra == "all"
+Requires-Dist: black>=21.0; extra == "all"
+Dynamic: author
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-python
+
+# LangChain Hreflang Tools
+
+[![PyPI version](https://badge.fury.io/py/langchain-hreflang.svg)](https://badge.fury.io/py/langchain-hreflang)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+A comprehensive set of LangChain tools for analyzing hreflang implementation using the [hreflang.org](https://hreflang.org) API. Perfect for international SEO analysis with AI agents.
+
+## 🚀 Features
+
+- **Three powerful LangChain tools** for hreflang analysis
+- **Compatible with CrewAI** and any LangChain-based framework
+- **Comprehensive hreflang auditing** for international websites
+- **Sitemap analysis** for large-scale SEO audits
+- **Account management** and usage tracking
+- **Detailed error reporting** and recommendations
+
+## 📦 Installation
+
+```bash
+pip install langchain-hreflang
+```
+
+For development with all extras:
+```bash
+pip install langchain-hreflang[all]
+```
+
+For CrewAI integration:
+```bash
+pip install langchain-hreflang[crewai]
+```
+
+## 🔑 Setup
+
+1. **Get API Key**: Visit [hreflang.org](https://app.hreflang.org/), sign up (free), and generate an API key
+2. **Set Environment Variable**:
+   ```bash
+   export HREFLANG_API_KEY="your_api_key_here"
+   ```
+   Or add to your `.env` file:
+   ```
+   HREFLANG_API_KEY=your_api_key_here
+   ```
+
+## 🛠️ Available Tools
+
+### 1. `test_hreflang_urls`
+Test specific URLs for hreflang implementation.
+
+### 2. `test_hreflang_sitemap`
+Analyze entire sitemaps for international SEO compliance.
+
+### 3. `check_hreflang_account_status`
+Monitor your API usage limits and test history.
+
+## 📚 Usage Examples
+
+### Basic LangChain Usage
+
+```python
+from langchain_hreflang import test_hreflang_urls, test_hreflang_sitemap
+
+# Test specific URLs
+result = test_hreflang_urls.run("https://example.com/en/, https://example.com/es/")
+print(result)
+
+# Test entire sitemap
+result = test_hreflang_sitemap.run("https://example.com/sitemap.xml")
+print(result)
+```
+
+### CrewAI Integration
+
+```python
+from crewai import Agent, Task, Crew
+from langchain_hreflang import hreflang_tools
+
+# Create SEO specialist agent
+seo_agent = Agent(
+    role="International SEO Specialist",
+    goal="Analyze and optimize hreflang implementation for international websites",
+    backstory="Expert in international SEO with deep knowledge of hreflang best practices.",
+    tools=hreflang_tools,  # All three tools included
+    verbose=True
+)
+
+# Create analysis task
+task = Task(
+    description="""
+    Analyze the hreflang implementation for https://example.com:
+    1. Test the main language versions
+    2. Check the sitemap for comprehensive coverage
+    3. Identify any implementation issues
+    4. Provide specific recommendations
+    """,
+    agent=seo_agent
+)
+
+# Run the analysis
+crew = Crew(agents=[seo_agent], tasks=[task])
+result = crew.kickoff()
+```
+
+### LangChain Agents
+
+```python
+from langchain.agents import initialize_agent, AgentType
+from langchain.llms import OpenAI
+from langchain_hreflang import hreflang_tools
+
+llm = OpenAI(temperature=0)
+agent = initialize_agent(
+    hreflang_tools,
+    llm,
+    agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION,
+    verbose=True
+)
+
+result = agent.run("""
+Analyze the hreflang implementation for airbnb.com.
+Check their main international pages and provide a summary
+including any issues found.
+""")
+```
+
+## 🔍 What Gets Analyzed
+
+- **Hreflang tag implementation** across language versions
+- **Self-declared language detection** (`<html lang="en">`)
+- **Bidirectional linking** between language versions  
+- **Return tag errors** and missing connections
+- **Site-wide statistics** for entire domains
+- **Broken URLs** and loading issues
+- **Language coverage analysis**
+
+## 📊 Example Output
+
+```
+Hreflang Test Results (Test ID: abc123...)
+Total URLs tested: 3
+
+URL: https://example.com/en/
+  Self-declared language: en
+  Hreflang links found: 3
+    en: https://example.com/en/
+    es: https://example.com/es/
+    fr: https://example.com/fr/
+
+URL: https://example.com/es/
+  Self-declared language: es
+  Hreflang links found: 3
+    en: https://example.com/en/
+    es: https://example.com/es/
+    fr: https://example.com/fr/
+
+Issues Found:
+  ⚠️  Missing return link from FR to EN version
+  ❌  https://example.com/de/ returns 404 error
+```
+
+## 🎯 Rate Limits
+
+- **Free Tier**: 50 URLs per test, 10 tests per day
+- **Premium Tier**: 1,000 URLs per test, 500 tests per day
+
+Check your limits with `check_hreflang_account_status()`.
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- [hreflang.org](https://hreflang.org) for providing the excellent hreflang testing API
+- [LangChain](https://langchain.com) for the powerful AI agent framework
+- [CrewAI](https://crewai.com) for the collaborative AI agent platform
+
+## 📞 Support
+
+- **Issues**: [GitHub Issues](https://github.com/yourusername/langchain-hreflang/issues)
+- **Documentation**: [README](https://github.com/yourusername/langchain-hreflang#readme)
+- **API Documentation**: [hreflang.org API docs](https://app.hreflang.org/api-docs.php)
+
+---
+
+**Made with ❤️ for the international SEO and AI community**
