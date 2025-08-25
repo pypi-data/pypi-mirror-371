@@ -1,0 +1,97 @@
+import logging
+import threading
+from typing import Set, List
+
+import ray
+from ray import serve
+from ray._private.services import get_node_ip_address
+from ray.util.state import list_actors
+
+
+@serve.deployment(autoscaling_config=dict(min_replicas=0, max_replicas=1),
+                  ray_actor_options=dict(num_cpus=0.1))
+class NodeHealthTracker:
+    """Maintains a list of bad nodes, as reported by replicas that call the report_bad_node func.
+    Bad nodes are those that fail GPU/CUDA health check.
+    What's the purpose? Because when an embedding model replica becomes unhealthy
+    (due to GPU/CUDA issues), we want Ray to kill all replicas running on the node.
+    When Ray detects that there are no running replicas on a node, the node is stopped
+    and replaced with a new one.
+    """
+    def __init__(self, tracked_model_deployments: List[str] = None):
+        logging.basicConfig(level=logging.INFO)
+        self.logger = logging.getLogger(self.__class__.__name__)
+        self.tracked_model_deployments = tracked_model_deployments or []
+        self.bad_gpu_node_ips: Set[str] = set()
+        self.lock = threading.RLock()
+        replica_context = serve.get_replica_context()
+        self.app_name = replica_context.app_name
+        self.deployment_name = replica_context.deployment
+        self.replica_actor_name = replica_context.replica_id.to_full_id_str()
+        self.node_ip = get_node_ip_address()
+        self.logger.info(f"Successfully initialized NodeHealthTracker. Tracked model deployments: {self.tracked_model_deployments}")
+
+    async def report_bad_gpu_node(self, node_ip: str, deployment_name: str, replica_actor_name: str):
+        with self.lock:
+            if node_ip not in self.bad_gpu_node_ips:
+                self.bad_gpu_node_ips.add(node_ip)
+                self.logger.warning(
+                    f"[Bad GPU node reported] Deployment: {deployment_name}, Replica: {replica_actor_name}, Node IP: {node_ip}"
+                )
+
+    async def is_bad_gpu_node(self, node_ip: str) -> bool:
+        self.logger.info(f"Checking if node {node_ip} is marked bad.")
+        with self.lock:
+            is_bad_gpu_node = node_ip in self.bad_gpu_node_ips
+            self.logger.info(f"Node {node_ip} is marked bad: {is_bad_gpu_node}")
+            return is_bad_gpu_node
+
+    async def is_bad_gpu_or_no_model_replica_on_node(self, node_ip: str):
+        self.logger.info(f"Checking if node {node_ip} is marked bad or no model replica running on the node.")
+        is_bad_gpu_node = await self.is_bad_gpu_node(node_ip)
+        is_no_model_replica_running_on_node = not await self.is_model_replica_running_on_node(node_ip)
+        return is_bad_gpu_node or is_no_model_replica_running_on_node
+
+    async def check_health(self):
+        """Called periodically by Ray Serve. Used here to clean up stale node IDs."""
+        try:
+            current_node_ips = {node["NodeManagerAddress"] for node in ray.nodes() if node["Alive"]}
+            with self.lock:
+                stale_nodes = self.bad_gpu_node_ips - current_node_ips
+                if stale_nodes:
+                    self.logger.info(f"Removing stale bad node_ips: {stale_nodes}")
+                self.bad_gpu_node_ips.intersection_update(current_node_ips)
+            self.logger.info(f"Current nodes: {current_node_ips}. Bad GPU nodes: {self.bad_gpu_node_ips}.")
+        except Exception as e:
+            raise RuntimeError(f"An error occurred in check_health during bad node cleanup: {e}")
+
+    async def is_model_replica_running_on_node(self, node_ip: str) -> bool:
+        """
+        Return True if there is at least one replica of the self.tracked_model_deployments
+        running on the specified node_ip.
+        """
+        try:
+            self.logger.info(f"Checking if there is at least one replica of tracked_deployments={self.tracked_model_deployments} "
+                             f"running on node {node_ip}.")
+            target_node_id = next(node["NodeID"] for node in ray.nodes() if node["Alive"] and node["NodeManagerAddress"] == node_ip)
+            assert target_node_id, f"No node found with IP {node_ip}"
+            prefixes = tuple(f"SERVE_REPLICA::{self.app_name}#{d}" for d in self.tracked_model_deployments)
+
+            actors_list = list_actors(detail=True, filters=[("node_id", "=", target_node_id), ("state", "!=", "DEAD")])
+            if actors_list:
+                self.logger.info(f"Checking non-dead actors with prefixes: {prefixes} in node IP {node_ip}, ID {target_node_id}")
+                for actor in actors_list:
+                    self.logger.info(f"Checking actor: {actor}")
+                    if actor.state in ["DEPENDENCIES_UNREADY", 'PENDING_CREATION', 'ALIVE', 'RESTARTING']:
+                        for prefix in prefixes:
+                            if actor.name.startswith(prefix):
+                                self.logger.info(f"Found a replica {actor.name} of "
+                                                 f"tracked_deployments={self.tracked_model_deployments} "
+                                                 f"running in node IP {node_ip}, node ID {target_node_id}.")
+                                return True
+
+            self.logger.info(f"No replicas of tracked deployments={self.tracked_model_deployments} running on node: {node_ip}.")
+        except Exception as e:
+            self.logger.error(f"An error occurred while checking replicas on node {node_ip}: {e}")
+
+        return False
