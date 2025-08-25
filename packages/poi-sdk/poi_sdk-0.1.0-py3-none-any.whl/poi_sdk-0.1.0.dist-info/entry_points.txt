@@ -1,0 +1,2 @@
+[console_scripts]
+poi-cli = poi_sdk.cli:main
