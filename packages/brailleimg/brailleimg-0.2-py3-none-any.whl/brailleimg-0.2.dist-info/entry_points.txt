@@ -1,0 +1,2 @@
+[console_scripts]
+brailleimg = brailleimg.__main__:main

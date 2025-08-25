@@ -1,0 +1,12 @@
+brailleimg/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+brailleimg/__main__.py,sha256=wKhwKSCtn4U9gR7_3vRp4e-2pwQSIrrZXkNAqnzU6SE,143
+brailleimg/cli.py,sha256=g6QNiZdBHFgCQ9xvK0t5ONrwR4jT86Xo40WiIImivA8,4922
+brailleimg/conversion.py,sha256=UwSn3NfJV2I-QDb1qICYsAwDQ_Kf-OU18wvEPs_Ggcc,3535
+brailleimg/dither.py,sha256=H-mokTQehf6pBmTGvSgGPEhzTZ3GTKxLNPRESNQSnmk,3331
+brailleimg/preprocess.py,sha256=-9srX04CNekTmMPduAhlFztLubfSoguI9G7_MRfJ1ZI,1213
+brailleimg/util.py,sha256=kqVI5cEs_q1f8RhDNwmz_8PaQCnBPm03avwo4HmuC4o,258
+brailleimg-0.2.dist-info/METADATA,sha256=mL4_hUGvvZ551eM8BMVN1nGoWj7FoL1d2QyTcQuae9Q,267
+brailleimg-0.2.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+brailleimg-0.2.dist-info/entry_points.txt,sha256=YdXBOmHSR1F9M4cl-YAmtiXa7kGTCJthb08_wDTvuuo,56
+brailleimg-0.2.dist-info/top_level.txt,sha256=9QCwC6Qf8T1HsLsBwts6RbJB2f99vdjCYip-HgDMj7A,11
+brailleimg-0.2.dist-info/RECORD,,
