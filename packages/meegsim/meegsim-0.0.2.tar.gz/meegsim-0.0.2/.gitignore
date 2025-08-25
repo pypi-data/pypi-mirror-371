@@ -1,0 +1,19 @@
+# Python
+__pycache__
+*.py[cod]
+
+# Pytest
+.coverage
+.pytest_cache
+
+# Ruff
+.ruff_cache
+
+# Sphinx
+_build/
+docs/auto_examples/
+docs/generated/
+docs/sg_execution_times.rst
+
+# Build
+dist/

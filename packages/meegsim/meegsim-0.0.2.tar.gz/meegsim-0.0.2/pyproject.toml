@@ -1,0 +1,94 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "meegsim"
+version = "0.0.2"
+authors = [
+  { name="Nikolai Kapralov", email="kapralov@cbs.mpg.de" },
+  { name="Alina Studenova" },
+  { name="Mina Jamshidi Idaji" },
+]
+description = "Building blocks (waveforms, SNR, connectivity) for M/EEG simulations with MNE-Python"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: BSD License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering"
+]
+dependencies = [
+    "colorednoise",
+    "mne",
+    "networkx",
+    "nibabel"
+]
+keywords = [
+    "MEG",
+    "EEG",
+    "simulation",
+    "connectivity"
+]
+license-files = ["LICENSE"]
+
+[project.urls]
+Homepage = "https://github.com/ctrltz/meegsim"
+Documentation = "https://meegsim.readthedocs.io/"
+Issues = "https://github.com/ctrltz/meegsim/issues"
+
+[project.optional-dependencies]
+dev = ["meegsim[deploy,docs,plot,test]"]
+deploy = [
+    "build",
+    "twine"
+]
+docs = [
+    "intersphinx-registry",
+    "harmoni",
+    "myst-parser",
+    "neurodsp",
+    "numpydoc",
+    "pydata-sphinx-theme",
+    "sphinx",
+    "sphinx-copybutton",
+    "sphinx-gallery",
+    "sphinxcontrib-bibtex"
+]
+# copied from MNE-Python, last updated on 27.01.2025
+plot = [
+    "darkdetect",
+    "pyvista >= 0.32, != 0.35.2, != 0.38.0, != 0.38.1, != 0.38.2, != 0.38.3, != 0.38.4, != 0.38.5, != 0.38.6, != 0.42.0",
+    "pyvistaqt >= 0.4",
+    "PyQt6 != 6.6.0",
+    "PyQt6-Qt6 != 6.6.0, != 6.7.0"
+]
+test = [
+    "harmoni",
+    "mock",
+    "pre-commit",
+    "pytest",
+    "pytest-cov",
+    "ruff"
+]
+
+[tool.hatch.build]
+exclude = [
+  "/*.yaml",
+  "/.*",
+  "/CHANGELOG.md",
+  "/docs",
+  "/examples",
+  "/Makefile",
+  "/tests",
+]
+
+[tool.pytest.ini_options]
+pythonpath = "."
+testpaths = [
+    "tests",
+]
+addopts = "--cov=src/meegsim --cov-report term-missing"
