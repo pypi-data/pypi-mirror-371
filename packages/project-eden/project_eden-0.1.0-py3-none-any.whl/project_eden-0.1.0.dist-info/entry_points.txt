@@ -1,0 +1,3 @@
+[console_scripts]
+eden=project_eden.cli:cli
+
