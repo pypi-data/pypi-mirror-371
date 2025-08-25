@@ -1,0 +1,2 @@
+[console_scripts]
+plsno429-cli = plsno429.cli:main
