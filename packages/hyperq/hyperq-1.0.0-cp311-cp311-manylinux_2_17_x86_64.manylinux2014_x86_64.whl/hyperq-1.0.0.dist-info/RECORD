@@ -1,0 +1,11 @@
+hyperq-1.0.0.dist-info/RECORD,,
+hyperq-1.0.0.dist-info/METADATA,sha256=KRfuOAcl48enU_gFMqZlSjYwt4yH1gDGEIuzbJO_M94,48471
+hyperq-1.0.0.dist-info/top_level.txt,sha256=2wDirHGf7xhSKpplFDzim9L02a8pra8v1qdfi4gCIjI,7
+hyperq-1.0.0.dist-info/WHEEL,sha256=_CFvICYDmZlAYHt8L7Zn3n-BGLj8dkZLQPp22Piy5JE,151
+hyperq-1.0.0.dist-info/licenses/LICENSE,sha256=KR6H6_wt7IttNdEgcmHasSrbhgUEAvu8GDrLwdXJaQ4,1074
+hyperq/hyperq.cpp,sha256=ux5QRPD6E45-LnJT1PFCVxPpFVK5BhN9yub1ua-wxR0,573977
+hyperq/hyperq.pyx,sha256=ZcpigdbL9Qr_EN1u0MCBOygJwr72cEVHHVL-TDT-Trg,7605
+hyperq/hyperq.cpython-311-x86_64-linux-gnu.so,sha256=-Udw6G6u45MvkO7oeh-2mIQC-q0KOcgA8akhGUc0B00,254880
+hyperq/__init__.pyi,sha256=Z1VR-Qbaj9tD4CTFBO849YS0mwjSedSSK41T18Oa8hs,1512
+hyperq/hyperq.hpp,sha256=tU3Q-m13sclsQ8AIJbTqQPOUqpa4MuLnY8jKgKpg3IQ,11185
+hyperq/__init__.py,sha256=kt6S8fcM1yEM7uceVv1r5_D6XdPWCrWFPtkn5MlUDGY,279
