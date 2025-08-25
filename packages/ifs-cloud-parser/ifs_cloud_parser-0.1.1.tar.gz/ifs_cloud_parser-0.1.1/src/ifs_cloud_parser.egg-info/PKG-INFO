@@ -1,0 +1,19 @@
+Metadata-Version: 2.4
+Name: ifs-cloud-parser
+Version: 0.1.1
+Summary: A parser for IFS Cloud source code, made with tree-sitter. Tested on the entire 25.1.0 code-base with 100% success rate. Native support for SQL included.
+Author-email: Sindre van der Linden <sindre@apply.no>
+License-Expression: MIT
+Project-URL: Homepage, https://github.com/graknol/ifs-parser
+Project-URL: Repository, https://github.com/graknol/ifs-parser
+Keywords: tree-sitter,plsql,ifs,oracle,parser
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Python: >=3.8
+Requires-Dist: tree-sitter>=0.20.0
