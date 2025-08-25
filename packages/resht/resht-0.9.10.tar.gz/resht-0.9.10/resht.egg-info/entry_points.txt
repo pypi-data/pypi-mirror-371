@@ -1,0 +1,2 @@
+[console_scripts]
+resht = resht:main
