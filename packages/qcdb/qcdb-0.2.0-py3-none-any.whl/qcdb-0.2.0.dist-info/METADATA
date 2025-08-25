@@ -1,0 +1,98 @@
+Metadata-Version: 2.4
+Name: qcdb
+Version: 0.2.0
+Summary: Knowledge management app to interface with quantum chemical calculations
+Project-URL: Repository, https://codeberg.org/crabby/qcdb
+License-Expression: MIT
+License-File: LICENSE
+Requires-Python: >=3.11
+Requires-Dist: orca-studio>=0.2.13
+Requires-Dist: typer>=0.16.1
+Description-Content-Type: text/markdown
+
+Quantum Chemistry Database
+==========================
+
+Python app to build a knowledge database from a directory structure of ORCA calculations.
+
+The database takes the form of a directory structure of markdown files,
+representing structure and information on the calculations.
+This allows establishing relationships between calculations and
+forms a lab notebook type structure.
+
+
+Installation
+------------
+
+There is nothing to install - given you're using [`uv`](https://github.com/astral-sh/uv).
+The QCDB tool is on [PyPI](https://pypi.org/project/qcdb), so you can use it asynchroniously with `uv tool run` (`uvx` for short):
+
+```bash
+uvx qcdb --root /path/to/project/root --vault-dir /path/to/vault
+```
+
+To inspect the vault, download and use [Obsidian](https://obsidian.md/) and use it to inspect the vault.
+
+
+Architecture
+------------
+
+The scraper can be updated in the future to
+  1. support more QC codes
+  2. extract more metadata
+  3. automatically prepare dashboards for e.g. SCF or optimization convergence, IR spectra, ..
+  4. be parallel
+
+The idea is that we can scrape arbitrary directory structures and "load them into the database" -
+except here we use a managed directory structure (the "vault") with plain [Markdown](https://www.markdownguide.org/basic-syntax).
+
+This "vault" _is_ the database.
+
+We don't store the actual calculation's data (too big), but represent it in our knowledge graph as a Markdown (`.md`) note with
+the automatically extracted metadata and links to other notes that e.g. use the same geometry.
+
+All the metadata is stored in the YAML frontmatter of each note:
+
+```md
+---
+charge: 0
+mult: 1
+date: '2024-06-05'
+geometry: '47 ...'
+input: '! D4 TPSSh ..'
+..
+---
+
+# Notes
+
+Experimenting with increased grid size to converge [[link_to_previous, failed calc]]
+...
+```
+
+The beauty is that we retain the information from failed experiments as well, without needing to hold
+onto the raw data itself. We only keep the _knowledge_ we gained from the experiment.
+
+By (automatically) creating provenance trees (i.e. calculation "timelines", what led to what etc) we can,
+in the future, pick a specific result and export its provenance tree only.
+This way we can fully reproduce a given result with minimal needed experiments.
+
+Because all the notes are plain `.md` files, the whole vault can be versioned (and shared?) with `git`.
+
+The links are also important for e.g. selecting a bunch of calculations, and then exporting them as a fully
+self-contained vault, or building a citation bibliography from them, or compiling geometry tables for the Supporting Information,
+or archiving them for long-term storage, ...
+
+By defining custom code-fences, one can create new experiments direclty in the vault and then have a runner run them.
+Imagine a code block like
+
+```orca
+! D4 TPSSh OPT FREQ
+```
+
+and linking a geometry. Then run e.g. `uvx qcdb --run /path/to/vault` to detect and run such experiments automatically.
+
+One also gets to use the whole Obsidian ecosystem to directly work with the knowledge graph:
+  1. use regular markdown notes to link e.g. meeting notes or papers with experiments
+  2. write short notes on insights gained, and link them - create a network of knowledge, and how it came to be (reproducibly!)
+  3. use obsidian bases or the dataview plugin to create tables straight from the notes
+  4. use excalidraw plugin for visual note taking and experiment design
