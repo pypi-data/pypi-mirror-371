@@ -1,0 +1,2 @@
+[wrfplot.main]
+wrfplot = wrfplot:main
