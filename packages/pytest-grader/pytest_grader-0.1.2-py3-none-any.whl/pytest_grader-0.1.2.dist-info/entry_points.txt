@@ -1,0 +1,2 @@
+[console_scripts]
+pytest-grader = pytest_grader:main
