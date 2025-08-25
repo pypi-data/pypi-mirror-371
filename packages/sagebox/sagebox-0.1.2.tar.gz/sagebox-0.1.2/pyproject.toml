@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sagebox"
+version = "0.1.2"
+description = "Sagebox Procedural GUI for Python"
+readme = "README.md"
+requires-python = ">=3.7,<3.13"
+dependencies = ["numpy"]
+license = {text = "MIT"}
+authors = [
+    {name = "Your Name", email = "rob@sagebox.org"}
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: Microsoft :: Windows",
+    "License :: OSI Approved :: MIT License",
+]
+
+
+[tool.setuptools]
+packages = ["sagebox"]
+py-modules = []
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+[tool.setuptools.package-data]
+sagebox = ["*.pyd"]
+
+

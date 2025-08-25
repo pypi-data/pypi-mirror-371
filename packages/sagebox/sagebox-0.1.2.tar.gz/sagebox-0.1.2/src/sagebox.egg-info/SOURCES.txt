@@ -1,0 +1,12 @@
+MANIFEST.in
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+src/sagebox/__init__.py
+src/sagebox/_pybox.cp312-win_amd64.pyd
+src/sagebox.egg-info/PKG-INFO
+src/sagebox.egg-info/SOURCES.txt
+src/sagebox.egg-info/dependency_links.txt
+src/sagebox.egg-info/requires.txt
+src/sagebox.egg-info/top_level.txt
