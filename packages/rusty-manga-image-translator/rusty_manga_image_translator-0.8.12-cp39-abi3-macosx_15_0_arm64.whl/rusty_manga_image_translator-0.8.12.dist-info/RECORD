@@ -1,0 +1,13 @@
+rusty_manga_image_translator/__init__.py,sha256=BMepa5Hey-hgywWsA9Z9HhC3hbO9_mIvJg732zyaax8,195
+rusty_manga_image_translator/rusty_manga_image_translator.abi3.so,sha256=tIfSvqPxC0nmlcctJhjV6iThel8ifF7-tSOkobhEKHk,30544560
+rusty_manga_image_translator/.dylibs/libopencv_core.4.12.0.dylib,sha256=s26HMKzouFLzoH8-KX2mbTFfGTUFka4lSpClAjdx1Vk,3034400
+rusty_manga_image_translator/.dylibs/libopenblasp-r0.3.30.dylib,sha256=dsEpnKYMbSd8JleK57E-0pJLF4lXDn_H2LpPVUcoJJM,21861520
+rusty_manga_image_translator/.dylibs/libopencv_imgproc.4.12.0.dylib,sha256=Ufc4PGGiXSOILzg9ksdTG6ZGbyGlkIqACdfJ1eqiqXI,3526160
+rusty_manga_image_translator/.dylibs/libgfortran.5.dylib,sha256=-q5O2LGoqIV6NAZV_J7HvSa6xVKh9o3bnQdm5Jh2iaA,2161472
+rusty_manga_image_translator/.dylibs/libtbb.12.16.dylib,sha256=E66-hknctFzFmO3ZRYf77JWTQvrAhqVgNi5Q-HHrZqc,339056
+rusty_manga_image_translator/.dylibs/libquadmath.0.dylib,sha256=ZUd7HEshvm_CVjSrKfk9NlHNxmwCcjamtbYsB4ANk5g,362768
+rusty_manga_image_translator/.dylibs/libgcc_s.1.1.dylib,sha256=rB8-2ZzimP21cfh1Su4LimmpPruMkg9d2GFwM9sJUZM,220288
+rusty_manga_image_translator/.dylibs/libgomp.1.dylib,sha256=JjnTQeuGNJSbglbwalNFcwKSD2J280OjzSNMK7_kQKs,424832
+rusty_manga_image_translator-0.8.12.dist-info/RECORD,,
+rusty_manga_image_translator-0.8.12.dist-info/WHEEL,sha256=bCYefInsf7urnmj5TEHKYZKjpcNHVTE33Ow4j2ZFaR4,130
+rusty_manga_image_translator-0.8.12.dist-info/METADATA,sha256=RUWcZKQTjoCLCKH3VJz8EF96ivPxDV6C5xmFYgS2R9Q,1707
