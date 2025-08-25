@@ -1,0 +1,60 @@
+
+/* Responsive Utilities */
+
+/* Hide on mobile */
+@media (max-width: 640px) {
+  .sm\:hidden { display: none; }
+  .sm\:block { display: block; }
+  .sm\:flex { display: flex; }
+  .sm\:text-center { text-align: center; }
+  .sm\:text-left { text-align: left; }
+
+  /* Mobile spacing */
+  .sm\:p-sm { padding: var(--space-sm); }
+  .sm\:p-md { padding: var(--space-md); }
+  .sm\:p-lg { padding: var(--space-lg); }
+  .sm\:m-0 { margin: 0; }
+  .sm\:mt-md { margin-top: var(--space-md); }
+  .sm\:mb-md { margin-bottom: var(--space-md); }
+}
+
+/* Hide on tablet */
+@media (max-width: 768px) {
+  .md\:hidden { display: none; }
+  .md\:block { display: block; }
+  .md\:flex { display: flex; }
+
+  /* Tablet layout adjustments */
+  .md\:flex-col { flex-direction: column; }
+  .md\:text-center { text-align: center; }
+  .md\:w-full { width: 100%; }
+}
+
+/* Hide on desktop */
+@media (min-width: 1024px) {
+  .lg\:hidden { display: none; }
+  .lg\:block { display: block; }
+  .lg\:flex { display: flex; }
+  .lg\:grid { display: grid; }
+}
+
+/* Container responsive behavior */
+@media (max-width: 640px) {
+  .container {
+    padding: 0 var(--space-md);
+  }
+
+  .glass-card {
+    margin: var(--space-md);
+    padding: var(--space-lg);
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .btn:not(.btn-sm):not(.btn-lg) {
+    padding: var(--space-md) var(--space-lg);
+  }
+}

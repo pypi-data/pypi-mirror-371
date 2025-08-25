@@ -1,0 +1,78 @@
+
+/* Particle Animations */
+@keyframes particleFloat {
+  0%, 100% { 
+    transform: translateY(100vh) rotate(0deg); 
+    opacity: 0; 
+  }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { 
+    transform: translateY(-100px) rotate(360deg); 
+    opacity: 0; 
+  }
+}
+
+@keyframes sparkleEffect {
+  0% {
+    transform: scale(0) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1) rotate(180deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}
+
+@keyframes drift {
+  0% { transform: translateX(0) translateY(0); }
+  33% { transform: translateX(30px) translateY(-30px); }
+  66% { transform: translateX(-20px) translateY(20px); }
+  100% { transform: translateX(0) translateY(0); }
+}
+
+/* Particle Classes */
+.particle-twinkle {
+  animation: particleFloat 6s ease-in-out infinite, 
+             twinkle 3s ease-in-out infinite;
+}
+
+.particle-drift {
+  animation: particleFloat 8s ease-in-out infinite, 
+             drift 4s ease-in-out infinite;
+}
+
+.particle-glow {
+  box-shadow: 0 0 10px currentColor;
+  animation: particleFloat 6s ease-in-out infinite, 
+             pulse 2s ease-in-out infinite;
+}
+
+/* Interactive Particles */
+.particles-interactive .particle {
+  transition: all 0.3s ease;
+}
+
+.particles-interactive .particle:hover {
+  transform: scale(1.5);
+  opacity: 1 !important;
+  animation-play-state: paused;
+}
+
+/* Particle Colors */
+.particle-blue { background: rgba(0, 120, 212, 0.3); }
+.particle-purple { background: rgba(118, 75, 162, 0.3); }
+.particle-white { background: rgba(255, 255, 255, 0.1); }
+.particle-gradient {
+  background: var(--gradient-primary);
+  opacity: 0.1;
+}

@@ -1,0 +1,57 @@
+<body class="no-scroll">
+
+  <!-- Intro: quick gradient card over animated bg -->
+<!--  <section class="intro-screen fullscreen-layout bg-gradient-primary bg-gradient-animated z-50">-->
+<!--    <div class="floating-particles">-->
+<!--      <span class="particle particle-white particle-drift particle-glow"></span>-->
+<!--      <span class="particle particle-blue particle-drift particle-twinkle"></span>-->
+<!--      <span class="particle particle-purple particle-drift"></span>-->
+<!--      <span class="particle particle-white particle-drift"></span>-->
+<!--      <span class="particle particle-blue particle-drift"></span>-->
+<!--      <span class="particle particle-white particle-drift"></span>-->
+<!--    </div>-->
+
+<!--    <div class="intro-intro-content glass-card glass-card&#45;&#45;lg glass-card&#45;&#45;center animate-scale-in">-->
+<!--      <h1 class="intro-title text-white text-2xl font-bold text-left text-gradient">Getting ready</h1>-->
+<!--      <p class="intro-subtitle text-gray text-sm mt-sm">Preparing your experience</p>-->
+<!--    </div>-->
+<!--  </section>-->
+
+  <!-- Wipe Overlay: fast enter, then hold -->
+  <section class="wipe-overlay fullscreen-layout bg-gradient-primary bg-gradient-animated z-40">
+    <div class="floating-particles pointer-events-none">
+      <span class="particle particle-white particle-drift"></span>
+      <span class="particle particle-blue particle-drift particle-glow"></span>
+      <span class="particle particle-purple particle-drift"></span>
+      <span class="particle particle-white particle-drift"></span>
+      <span class="particle particle-blue particle-drift"></span>
+      <span class="particle particle-white particle-drift"></span>
+    </div>
+
+    <div class="wipe-intro-content centered-intro-content">
+      <h1 class="wipe-title text-5xl text-white text-center text-shadow-lg animate-fade-in-up">Welcome, {{ user }}</h1>
+      <p class="click-subtitle text-center text-xs mt-sm opacity-50">Click anywhere to begin</p>
+    </div>
+  </section>
+
+  <main class="intro-content fullscreen-layout">
+    <div class="final-intro-content centered-intro-content animate-card-enter">
+      <h2 class="final-title text-4xl font-semibold text-gradient-primary mb-md">You're all set!</h2>
+      <button class="ready-button btn btn-primary btn-lg btn-ripple">Ready to begin</button>
+    </div>
+  </main>
+
+  <script>
+    const btn = document.querySelector('.ready-button');
+    if (btn) {
+      btn.addEventListener('click', () => {
+        btn.style.transform = 'translateY(0) scale(0.98)';
+        setTimeout(() => { btn.style.transform = ''; }, 100);
+      });
+    }
+    document.addEventListener('click', () => {
+      window.location.href = '{{ redirect_url }}';
+    });
+  </script>
+</body>
+</html>

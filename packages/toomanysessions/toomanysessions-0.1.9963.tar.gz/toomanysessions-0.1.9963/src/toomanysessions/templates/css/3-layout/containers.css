@@ -1,0 +1,61 @@
+
+/* Layout Containers */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+  position: relative;
+  z-index: var(--z-content);
+}
+
+.container--sm {
+  max-width: 640px;
+}
+
+.container--md {
+  max-width: 768px;
+}
+
+.container--lg {
+  max-width: 1024px;
+}
+
+.container--xl {
+  max-width: 1280px;
+}
+
+/* Centering Layouts */
+.centered-layout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: var(--space-lg);
+}
+
+.centered-content {
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+}
+
+/* Fullscreen Layout */
+.fullscreen-layout {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Content Sections */
+.content-section {
+  margin-bottom: var(--space-3xl);
+}
+
+.content-section:last-child {
+  margin-bottom: 0;
+}
