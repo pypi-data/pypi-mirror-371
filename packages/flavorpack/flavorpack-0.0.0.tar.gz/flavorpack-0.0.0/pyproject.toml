@@ -1,0 +1,7 @@
+[project]
+name = "flavorpack"
+version = "0.0.0"
+description = "Flavor Pack (flavorpack) is a cross-language packaging system that creates self-contained, portable executables using the Progressive Secure Package Format (PSPF) 2025 Edition."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []

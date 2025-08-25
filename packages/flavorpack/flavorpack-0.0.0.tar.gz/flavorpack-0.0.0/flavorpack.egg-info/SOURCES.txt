@@ -1,0 +1,7 @@
+README.md
+main.py
+pyproject.toml
+flavorpack.egg-info/PKG-INFO
+flavorpack.egg-info/SOURCES.txt
+flavorpack.egg-info/dependency_links.txt
+flavorpack.egg-info/top_level.txt

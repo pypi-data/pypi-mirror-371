@@ -1,0 +1,6 @@
+Metadata-Version: 2.4
+Name: flavorpack
+Version: 0.0.0
+Summary: Flavor Pack (flavorpack) is a cross-language packaging system that creates self-contained, portable executables using the Progressive Secure Package Format (PSPF) 2025 Edition.
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
