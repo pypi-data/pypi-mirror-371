@@ -1,0 +1,10 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+stack/__init__.py
+stack/data.py
+stack_package.egg-info/PKG-INFO
+stack_package.egg-info/SOURCES.txt
+stack_package.egg-info/dependency_links.txt
+stack_package.egg-info/top_level.txt
