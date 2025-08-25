@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+src/wspr_ai_lite/__init__.py
+src/wspr_ai_lite/cli.py
+src/wspr_ai_lite/ingest.py
+src/wspr_ai_lite/wspr_ai_lite.py
+src/wspr_ai_lite.egg-info/PKG-INFO
+src/wspr_ai_lite.egg-info/SOURCES.txt
+src/wspr_ai_lite.egg-info/dependency_links.txt
+src/wspr_ai_lite.egg-info/entry_points.txt
+src/wspr_ai_lite.egg-info/requires.txt
+src/wspr_ai_lite.egg-info/top_level.txt
+tests/test_ingest.py
+tests/test_ingest_io.py
