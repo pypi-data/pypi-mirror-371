@@ -1,0 +1,15 @@
+README.md
+pyproject.toml
+prootvec/__init__.py
+prootvec/__main__.py
+prootvec/losses.py
+prootvec/model.py
+prootvec/reinforce.py
+prootvec/tokenizer.py
+prootvec/trainer.py
+prootvec/utils.py
+prootvec.egg-info/PKG-INFO
+prootvec.egg-info/SOURCES.txt
+prootvec.egg-info/dependency_links.txt
+prootvec.egg-info/requires.txt
+prootvec.egg-info/top_level.txt

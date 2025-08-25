@@ -1,0 +1,20 @@
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "prootvec"
+version = "0.2.0b1"
+description = "ProotVec: librería mínima para vectorización y entrenamiento básico en ARM64/Ubuntu/Termux"
+authors = [
+    { name = "TuNombre", email = "tucorreo@example.com" }
+]
+license = { text = "MIT" }
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "numpy>=1.20",
+    "regex>=2020.0.0"
+]
+
+[project.urls]
+Homepage = "https://pypi.org/project/prootvec/"
