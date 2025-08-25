@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="generator" content="epijats" />
+</head>
+<body>
+  <p>
+    The <a href="pandoc.xml">Pandoc generated XML</a> has
+    {% if not issues %}
+    no Baseprint document format issues.
+    {% else %}
+    {{ issues | length }} Baseprint document format issues:
+    {% endif %}
+  </p>
+  {% if issues %}
+  <ol>
+    {% for issue in issues %}
+    <li>
+      <code>{{ issue.condition | tojson }}</code>
+      {% if issue.sourceline %}
+      (line {{ issue.sourceline }})
+      {% endif %}
+      {% if issue.info %}
+      "{{ issue.info }}"
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ol>
+  {% endif %}
+</body>
+</html>
