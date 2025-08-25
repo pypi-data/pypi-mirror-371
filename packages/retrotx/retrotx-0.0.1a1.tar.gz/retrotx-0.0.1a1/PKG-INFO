@@ -1,0 +1,23 @@
+Metadata-Version: 2.4
+Name: retrotx
+Version: 0.0.1a1
+Summary: A Python package for RetroTx
+Author-email: RetroTx Team <retrotx@retrotx.org>
+Project-URL: Homepage, https://github.com/HZACODE/RetroTx
+Project-URL: Bug Tracker, https://github.com/HZACODE/RetroTx/issues
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: license-file
+
+# RetroTx
