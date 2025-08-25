@@ -1,0 +1,9 @@
+grpfpy-0.1.8.dist-info/RECORD,,
+grpfpy-0.1.8.dist-info/WHEEL,sha256=sunMa2yiYbrNLGeMVDqEA0ayyJbHlex7SCn1TZrEq60,136
+grpfpy-0.1.8.dist-info/top_level.txt,sha256=HLBGZsEIm7KNNzn3IVQwodeltzfaMwxhkaHNkGCTtPs,15
+grpfpy-0.1.8.dist-info/METADATA,sha256=7Zvs6ixjstcfccAyuD2L8R8WAhnw5SpVcFlECX6nKNk,1881
+grpfpy-0.1.8.dist-info/licenses/LICENSE,sha256=BuYb1bT7BOsJ7eWEg25IznbSaxvRLWjRzAI9En70FEM,1067
+grpfpy/_grpfpy.cpython-312-darwin.so,sha256=GmHEkXDCyWu84dgSa14v8I0RFR5LVSgIPRKgY2_ewLM,269232
+grpfpy/version.py,sha256=JXFbgf160k_CF80C-f801s5CT3h3WNLGCfZN1ybOMgk,395
+grpfpy/__init__.py,sha256=_KTmu7B1CBVsvNrsvaudSWGGC1mrABEKkzB9QH7ffis,99
+grpfpy/core.py,sha256=AKTbqpcpuIyNcXhbXRkFrZyMJxPsKJN79b-GH4BU7mw,2976
