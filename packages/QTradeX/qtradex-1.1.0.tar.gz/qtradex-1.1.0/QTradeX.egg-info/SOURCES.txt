@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+QTradeX.egg-info/PKG-INFO
+QTradeX.egg-info/SOURCES.txt
+QTradeX.egg-info/dependency_links.txt
+QTradeX.egg-info/entry_points.txt
+QTradeX.egg-info/requires.txt
+QTradeX.egg-info/top_level.txt
+qtradex/__init__.py
+qtradex/indicators/qi.c
+qtradex/indicators/utilities.c

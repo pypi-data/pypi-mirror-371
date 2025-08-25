@@ -1,0 +1,12 @@
+ccxt
+jsonpickle
+setuptools>=64
+cachetools
+yfinance
+tulipy
+finance-datareader
+bitshares-signing
+numpy
+matplotlib
+scipy
+ttkbootstrap
