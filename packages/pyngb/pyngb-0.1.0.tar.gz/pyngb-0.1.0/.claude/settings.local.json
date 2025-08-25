@@ -1,0 +1,31 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python:*)",
+      "Bash(uv run:*)",
+      "Bash(grep:*)",
+      "Bash(find:*)",
+      "Bash(git checkout:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git remote set-url:*)",
+      "Bash(pre-commit run:*)",
+      "Bash(source:*)",
+      "Bash(ruff check:*)",
+      "Bash(mypy:*)",
+      "Bash(git reset:*)",
+      "Bash(git pull:*)",
+      "Bash(ruff format:*)",
+      "Bash(od:*)",
+      "Bash(uv sync:*)",
+      "Bash(uv add:*)",
+      "Bash(rm:*)",
+      "Bash(pytest:*)",
+      "Bash(gh release list:*)",
+      "Bash(git tag:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
