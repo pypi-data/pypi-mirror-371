@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mtls-pluggable"                # what people will pip install
+version = "0.1.0"
+description = "A pluggable mutual TLS (mTLS) library with PKI, crypto, and handshake utilities."
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [
+  { name="Vishal Kumar", email="2003.v.vishal@gmail.com" }
+]
+keywords = ["mtls", "pki", "security", "tls", "authentication"]
+requires-python = ">=3.8"
+
+dependencies = [
+  "cryptography>=42.0.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/3002vishal/MTLS_Pluggable"
