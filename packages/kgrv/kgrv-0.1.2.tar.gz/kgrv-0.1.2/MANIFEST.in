@@ -1,0 +1,24 @@
+# Файлы для включения в дистрибутив пакета
+
+include README.md
+include LICENSE
+include requirements.txt
+include pyproject.toml
+include CHANGELOG.md
+
+# Документация
+recursive-include docs *.md *.txt
+
+# Исключения
+recursive-exclude tests *
+recursive-exclude scripts *
+recursive-exclude .git *
+recursive-exclude htmlcov *
+recursive-exclude __pycache__ *
+recursive-exclude *.egg-info *
+exclude .gitignore
+exclude .coverage
+exclude *.pyc
+exclude *.pyo
+exclude *~
+exclude .DS_Store
