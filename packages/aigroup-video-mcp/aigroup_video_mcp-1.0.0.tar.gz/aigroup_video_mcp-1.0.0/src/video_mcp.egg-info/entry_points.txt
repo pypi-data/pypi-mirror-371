@@ -1,0 +1,2 @@
+[console_scripts]
+video-mcp = video_mcp.cli:main
