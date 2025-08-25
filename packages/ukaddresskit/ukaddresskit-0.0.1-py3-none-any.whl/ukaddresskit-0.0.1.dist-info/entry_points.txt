@@ -1,0 +1,3 @@
+[console_scripts]
+uk-address = ukaddress.cli:main
+ukaddress = ukaddress.cli:main
