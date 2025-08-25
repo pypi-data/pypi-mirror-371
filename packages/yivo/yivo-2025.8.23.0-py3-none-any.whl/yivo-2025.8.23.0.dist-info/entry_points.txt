@@ -1,0 +1,3 @@
+[console_scripts]
+yivogen=yivo.gen.yivogen:main
+
