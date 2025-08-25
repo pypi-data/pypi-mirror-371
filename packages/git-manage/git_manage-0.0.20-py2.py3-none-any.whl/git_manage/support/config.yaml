@@ -1,0 +1,10 @@
+archive_path:
+- ~/repos/archive
+- ~/repos/external
+clone_path: ~/repos/users
+exclude_local: []
+exclude_remote: []
+github_accounts: []
+index_cache: ~/.repositories.yaml
+index_depth: 6
+index_location: '~/repos'

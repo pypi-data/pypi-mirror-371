@@ -1,0 +1,22 @@
+Metadata-Version: 2.4
+Name: git_manage
+Version: 0.0.20
+Summary: Git Management Tools are a collection of tools for making it easier to manage 100+ local repos
+Home-page: https://github.com/danb0b/code_git_tools
+Author: Dan Aukes
+Author-email: danaukes@danaukes.com
+License: MIT
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+License-File: LICENSE
+Requires-Dist: pygithub
+Requires-Dist: gitpython
+Requires-Dist: pyyaml
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: home-page
+Dynamic: license
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: summary
