@@ -1,0 +1,40 @@
+Metadata-Version: 2.4
+Name: videre
+Version: 0.1.0
+Summary: Simple GUI framework based on Pygame
+Project-URL: Repository, https://github.com/ductorex/videre
+Requires-Python: >=3.13
+Requires-Dist: cursword>=0.1.1
+Requires-Dist: filedial>=0.1.0
+Requires-Dist: fonttools>=4.59.1
+Requires-Dist: numpy>=2.3.2
+Requires-Dist: pillow>=11.3.0
+Requires-Dist: pygame>=2.6.1
+Requires-Dist: pyperclip>=1.9.0
+Requires-Dist: tqdm>=4.67.1
+Requires-Dist: unicodedataplus>=16.0.0.post1
+Description-Content-Type: text/markdown
+
+# Videre
+
+Simple Python GUI framework based on Pygame.
+
+Still Work In Progress.
+
+## Development
+
+To run unit tests with Pytest + Coverage:
+
+```
+uv run pytest --cov=videre --cov-report=term-missing --cov-report=html --cov-report=json videre_tests
+```
+
+To format code with Ruff:
+
+```
+uv run ruff format
+
+uv run ruff check
+
+uv run ruff check --fix
+```
