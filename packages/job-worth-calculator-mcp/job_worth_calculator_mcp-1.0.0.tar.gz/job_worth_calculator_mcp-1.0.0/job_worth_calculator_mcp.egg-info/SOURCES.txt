@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+job_worth_calculator_mcp/__init__.py
+job_worth_calculator_mcp/main.py
+job_worth_calculator_mcp.egg-info/PKG-INFO
+job_worth_calculator_mcp.egg-info/SOURCES.txt
+job_worth_calculator_mcp.egg-info/dependency_links.txt
+job_worth_calculator_mcp.egg-info/entry_points.txt
+job_worth_calculator_mcp.egg-info/requires.txt
+job_worth_calculator_mcp.egg-info/top_level.txt
