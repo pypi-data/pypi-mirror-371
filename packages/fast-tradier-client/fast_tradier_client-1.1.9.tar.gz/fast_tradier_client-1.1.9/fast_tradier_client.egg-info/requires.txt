@@ -1,0 +1,12 @@
+jsonpickle
+httpx
+arrow
+autoscraper
+pandas
+python-interface
+pytest
+pytest_httpx
+pytest-asyncio
+pydantic
+beautifulsoup4
+requests
