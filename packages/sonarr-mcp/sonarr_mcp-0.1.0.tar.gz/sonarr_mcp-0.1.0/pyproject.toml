@@ -1,0 +1,26 @@
+[project]
+name = "sonarr-mcp"
+version = "0.1.0"
+description = "MCP server for Sonarr tv-show management"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "mcp>=1.0.0",
+    "httpx>=0.27.0",
+    "pydantic>=2.0.0",
+]
+
+[project.scripts]
+sonarr-mcp = "sonarr_mcp_server:main"
+
+[dependency-groups]
+dev = [
+    "twine>=5.0.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["sonarr_mcp_server"]
