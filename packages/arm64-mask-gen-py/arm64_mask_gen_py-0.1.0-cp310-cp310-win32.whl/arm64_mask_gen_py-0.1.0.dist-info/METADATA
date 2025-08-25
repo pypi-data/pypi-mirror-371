@@ -1,0 +1,39 @@
+Metadata-Version: 2.4
+Name: arm64-mask-gen-py
+Version: 0.1.0
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: C++
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Operating System :: OS Independent
+License-File: LICENSE
+Author-email: Fran <fran@logicode.es>
+License-Expression: MIT
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
+Project-URL: Homepage, https://github.com/xliee/arm64-mask-gen-py-wrapper
+Project-URL: Repository, https://github.com/xliee/arm64-mask-gen-py-wrapper
+
+arm64_mask_gen_py
+
+PyO3 wrapper around `arm64-mask-gen` to expose pattern:mask generation to Python (used by the IDA plugin).
+
+Build (recommended with maturin):
+
+1. Install maturin:
+
+   pip install maturin
+
+2. Build & install into your current Python:
+
+   maturin develop --release
+
+
+## License
+
+Licensed under the MIT License. See [LICENSE](LICENSE) for details.
