@@ -1,0 +1,33 @@
+[project]
+name = "dl-md"
+version = "0.0.1"
+description = "A command-line tool for downloading and converting website content from sitemaps to markdown format"
+license = {text = "MIT"}
+authors = [
+    {name = "Don Bowman"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "trafilatura (>=2.0.0,<3.0.0)",
+    "click (>=8.0.0,<9.0.0)",
+    "requests (>=2.25.0,<3.0.0)"
+]
+
+[project.scripts]
+dl = "dl_md.cli:main"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.4.1"
+pytest-cov = "^6.2.1"
+pre-commit = "^3.0.0"
+black = "^23.0.0"
+flake8 = "^7.0.0"
+isort = "^5.0.0"
+mypy = "^1.0.0"
+commitizen = "^3.0.0"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
