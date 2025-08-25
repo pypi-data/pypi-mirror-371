@@ -1,0 +1,3 @@
+[console_scripts]
+context-packer = context_packer:main
+ctxpack = context_packer:main
