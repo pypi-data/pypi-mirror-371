@@ -1,0 +1,17 @@
+LICENSE
+README.md
+pyproject.toml
+epub_cfi_toolkit/__init__.py
+epub_cfi_toolkit/cfi_parser.py
+epub_cfi_toolkit/cfi_processor.py
+epub_cfi_toolkit/cfi_validator.py
+epub_cfi_toolkit/epub_parser.py
+epub_cfi_toolkit/exceptions.py
+epub_cfi_toolkit.egg-info/PKG-INFO
+epub_cfi_toolkit.egg-info/SOURCES.txt
+epub_cfi_toolkit.egg-info/dependency_links.txt
+epub_cfi_toolkit.egg-info/requires.txt
+epub_cfi_toolkit.egg-info/top_level.txt
+tests/test_cfi_processor.py
+tests/test_cfi_range_extraction.py
+tests/test_cfi_validator.py
