@@ -1,0 +1,27 @@
+[console_scripts]
+flowfoundry = flowfoundry.cli:app
+
+[flowfoundry.nodes]
+io.pdf_load = flowfoundry.nodes.io_pdf:PdfLoadNode
+llm.chat = flowfoundry.nodes.llm_chat:LLMChatNode
+prompt.rag = flowfoundry.nodes.prompt:RagPromptNode
+strategy.chunking = flowfoundry.nodes.strategy_nodes:ChunkingStrategyNode
+strategy.indexing = flowfoundry.nodes.strategy_nodes:IndexingStrategyNode
+strategy.rerank = flowfoundry.nodes.strategy_nodes:RerankStrategyNode
+strategy.retrieve = flowfoundry.nodes.strategy_nodes:RetrieveStrategyNode
+
+[flowfoundry.strategies.chunking]
+fixed = flowfoundry.functional.chunking.fixed:fixed
+hybrid = flowfoundry.functional.chunking.hybrid:hybrid
+recursive = flowfoundry.functional.chunking.recursive:recursive
+
+[flowfoundry.strategies.indexing]
+chroma_query = flowfoundry.functional.indexing.chroma:chroma_query
+chroma_upsert = flowfoundry.functional.indexing.chroma:chroma_upsert
+qdrant_query = flowfoundry.functional.indexing.qdrant:qdrant_query
+qdrant_upsert = flowfoundry.functional.indexing.qdrant:qdrant_upsert
+
+[flowfoundry.strategies.rerank]
+bm25_preselect = flowfoundry.functional.rerank.bm25:bm25_preselect
+cross_encoder = flowfoundry.functional.rerank.cross_encoder:cross_encoder
+identity = flowfoundry.functional.rerank.identity:identity
