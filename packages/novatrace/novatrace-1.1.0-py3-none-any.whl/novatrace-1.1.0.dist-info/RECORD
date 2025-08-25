@@ -1,0 +1,15 @@
+novatrace/__init__.py,sha256=6HYz9z-W-yCt7SqDsV_5gEXEcGkvrNpvlrfhsTwmwtY,33
+novatrace/api.py,sha256=VTBQmv82_fpaxvf7EPGzlPFNz8Jyi1kQ6xOrggN6ZhM,21011
+novatrace/novatrace.py,sha256=ll-bX1WUG5jIcCJCqkc10YA9s-9AMYhq713Z5crRdwQ,50716
+novatrace/system_info.py,sha256=QbmfOkamOEXoPKklXNiPNgOenRBpc89AmeGP5iLz3CQ,8404
+novatrace/connect/__init__.py,sha256=9ApamnwwxRm3PJ66CiScwFn-iERh-2SJ1Lusbe4ISkI,535
+novatrace/database/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+novatrace/database/init_db.py,sha256=Dls72A603vpAB2OuKBIuwxeuZ088rapd5PpUBC_02FI,1125
+novatrace/database/model.py,sha256=qAQQi0MtUbTQl56QbZNK7AwMOnZLT1UyJJ-esGQqLSU,3823
+novatrace/system/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+novatrace/system/system.py,sha256=ODhHALpffjrdo3QZBaw_7Cs3RTt9SV6LgqOyatKSIbo,2753
+novatrace-1.1.0.dist-info/licenses/LICENSE,sha256=UPlbwWBYDdJBirY-zIsRdWSb6RxhIbCRiukYcL5pW_I,1049
+novatrace-1.1.0.dist-info/METADATA,sha256=ePtFSCm5_g-Us462KWnAKMQUqJx48x2LZ5c8Ymia4VU,2262
+novatrace-1.1.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+novatrace-1.1.0.dist-info/top_level.txt,sha256=KfHHUBAfwPWOlSskIAJ0RJM9vtdlTdYVlXB44-zA-wQ,10
+novatrace-1.1.0.dist-info/RECORD,,
