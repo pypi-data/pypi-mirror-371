@@ -1,0 +1,5 @@
+pytest
+shutil; python_version<'3.8'
+requests
+urllib3
+-e .
