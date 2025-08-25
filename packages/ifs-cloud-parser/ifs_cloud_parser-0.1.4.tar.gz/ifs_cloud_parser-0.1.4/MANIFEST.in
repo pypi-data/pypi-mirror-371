@@ -1,0 +1,13 @@
+include README.md
+include pyproject.toml
+include setup.py
+include binding.cc
+include grammar.json
+include node-types.json
+recursive-include src *.c *.h
+global-exclude *.pyc
+global-exclude __pycache__
+global-exclude *.pyd
+global-exclude *.so
+global-exclude *.dylib
+global-exclude *.dll
