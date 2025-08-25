@@ -1,0 +1,17 @@
+main.py,sha256=etUb7TrjW7TqZM5SrKE_XiLBnVXHuoDCmkdaP1w2OaM,349
+smartloop/__init__.py,sha256=VKCJXzXwiB-Vsn_gap04sxgdh-iuQqnC4moV-tigMxI,1124
+smartloop/app.py,sha256=8MwrPmYrsq3eWqAaq-h7bpM19K3d4nI00C1zktGZB4Y,6522
+smartloop/constants.py,sha256=4BA-lPEM6xuJ7ewfEPJk46YlcSrKBu7cL5HtK27gsbA,211
+smartloop/cmd/__init__.py,sha256=RvgLVVPKhPnAh4Q8Av3wSGOaGj86gwitv3RsjqxuVd0,31
+smartloop/cmd/projects.py,sha256=zHQzSthB7ND1DNWZKD_VpBBCHz9Imp_XER0sA-SX-yI,9855
+smartloop/services/__init__.py,sha256=SH2q_5MbWCaRzgM9dQYxW5MbUW089GaJhJfRKS3wjX0,30
+smartloop/services/projects.py,sha256=48Y0Taw0VOH5wmo8tFrEd12HHRUHMfVlWz69EUPCq-Y,1015
+smartloop/utils/__init__.py,sha256=zYwzB3yoDRS0qKioH_O02EwMmWTsd3KB_0jbjs7uJiU,38
+smartloop/utils/user_profile.py,sha256=yqD84qE-TBaMZdP_HqSTLtLWiWN9WWcQtMyY4KwZrcU,906
+smartloop/utils/templates/callback.html,sha256=VxFUs0N2tKWwdLpM4hOMIA3QSWetewvObzi4KSNSt4s,4006
+smartloop-1.3.2.dist-info/licenses/LICENSE.txt,sha256=3iWYQ0p0uEM906pL-HmxFO7LD7K9F1ZzVZpAvIeFRpY,1065
+smartloop-1.3.2.dist-info/METADATA,sha256=cT3BhJdSkPJp9YJdrJ-MaLNYpjUOm5usD1o8lFitm_w,8261
+smartloop-1.3.2.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+smartloop-1.3.2.dist-info/entry_points.txt,sha256=AyBFyviXVIbS9rUDSuF4rE0Z-Nmu2KVYeLcq73OC15g,45
+smartloop-1.3.2.dist-info/top_level.txt,sha256=fEh7XUjT_ERZrxFzPcRT0S6Qv4-R6osmRhvItq43PTY,25
+smartloop-1.3.2.dist-info/RECORD,,
