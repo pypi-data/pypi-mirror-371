@@ -1,0 +1,207 @@
+Metadata-Version: 2.2
+Name: py-p-audio
+Version: 0.2.2
+Summary: High-performance cross-platform audio library with recording, playback, and loopback capture
+Author-Email: py-p-audio Contributors <dev@example.com>
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: C++
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: License :: OSI Approved :: MIT License
+Project-URL: Homepage, https://github.com/py-p-audio/py-p-audio
+Project-URL: Repository, https://github.com/py-p-audio/py-p-audio
+Project-URL: Issues, https://github.com/py-p-audio/py-p-audio/issues
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+# py-p-audio (paudio)
+
+A cross-platform audio library for Python with playback, recording, and device management capabilities. Built with C++ and PortAudio, providing high-performance audio I/O with ASIO/WASAPI support on Windows.
+
+## Installation
+
+```bash
+pip install py-p-audio
+```
+
+No additional dependencies required. All necessary libraries are bundled in the wheel package.
+
+> Note
+> - Package name on PyPI: `py-p-audio`
+> - Import name in Python: `paudio`
+
+## Features
+
+- **Cross-platform audio playback and recording**
+- **WASAPI Loopback recording support** (Windows)
+- **ASIO support** (Windows, when ASIO SDK available)
+- **Simple Python API** with both synchronous and asynchronous operations
+- **Device enumeration and selection**
+- **No external dependencies** - everything is statically linked
+
+## Quick Start
+
+```python
+import paudio
+
+# List all audio devices
+paudio.list_devices()
+
+# Play an audio file (blocking)
+paudio.play("audio.wav")
+
+# Record audio (blocking, press Ctrl+C to stop)
+paudio.record("output.wav")
+
+# Advanced: Record from specific device with specific channels
+paudio.record("output.wav", device_index=1, channels=(0, 1))
+```
+
+## API Reference
+
+### Module Functions
+
+#### `paudio.list_devices()`
+List all available audio devices including input, output, and loopback devices.
+
+#### `paudio.play(file_path: str)`
+Play an audio file. Blocks until playback is complete.
+- `file_path`: Path to the audio file to play
+
+#### `paudio.record(output_path: str, device_index: int = -1, channels: tuple = (-1, -1))`
+Record audio to a file. Blocks until recording is stopped (Ctrl+C).
+- `output_path`: Path where the recorded audio will be saved
+- `device_index`: (Optional) Specific device index to record from. -1 for default device
+- `channels`: (Optional) Tuple of (start_channel, end_channel) for multi-channel recording
+
+### Classes
+
+#### `paudio.Player`
+Non-blocking audio player for advanced playback control.
+
+##### Methods:
+- `load(file_path: str) -> bool`: Load an audio file
+- `start()`: Start playback
+- `stop()`: Stop playback
+- `is_playing() -> bool`: Check if currently playing
+- `current_time() -> float`: Get current playback position in seconds
+- `total_time() -> float`: Get total duration in seconds
+- `format_time(seconds: float) -> str`: Format seconds to MM:SS string
+
+##### Example:
+```python
+import paudio
+import time
+
+player = paudio.Player()
+player.load("music.wav")
+player.start()
+
+while player.is_playing():
+    print(f"Playing: {player.format_time(player.current_time())} / {player.format_time(player.total_time())}")
+    time.sleep(1)
+```
+
+#### `paudio.Recorder`
+Non-blocking audio recorder for advanced recording control.
+
+##### Methods:
+- `setup(output_path: str) -> bool`: Setup recording with default device
+- `setup(output_path: str, device_index: int, channels: tuple) -> bool`: Setup with specific device and channels
+- `start()`: Start recording
+- `stop()`: Stop recording
+- `is_recording() -> bool`: Check if currently recording
+- `current_time() -> float`: Get current recording duration in seconds
+
+##### Example:
+```python
+import paudio
+import time
+
+recorder = paudio.Recorder()
+recorder.setup("recording.wav")
+recorder.start()
+
+# Record for 10 seconds
+time.sleep(10)
+
+recorder.stop()
+print(f"Recorded {recorder.current_time()} seconds")
+```
+
+## Device Selection
+
+To record from a specific device, first list all devices to find the device index:
+
+```python
+import paudio
+
+# This will print all devices with their indices
+paudio.list_devices()
+
+# Example output:
+# 1,W,I,Microphone Array (Intel SST),2
+# 2,W,O,Speakers (SoundWire Audio) (WASAPI-Loopback),2,LOOPBACK
+# ...
+
+# Record from device index 2 (loopback recording)
+paudio.record("system_audio.wav", device_index=2)
+```
+
+## WASAPI Loopback Recording (Windows)
+
+Record system audio output (what you hear from speakers):
+
+```python
+import paudio
+
+# List devices to find loopback devices (marked with LOOPBACK)
+paudio.list_devices()
+
+# Record system audio
+recorder = paudio.Recorder()
+recorder.setup("system_output.wav", device_index=2, channels=(0, 1))  # Stereo recording
+recorder.start()
+# ... recording ...
+recorder.stop()
+```
+
+## Building from Source
+
+If you need to build from source:
+
+```bash
+git clone https://github.com/yourusername/py-p-audio.git
+cd py-p-audio
+pip install .
+```
+
+Requirements for building:
+- CMake 3.15+
+- C++17 compatible compiler
+- Python 3.8+
+
+## License
+
+MIT License
+
+## Changelog
+
+### 0.2.1
+- Ensure the extension module installs to site-packages root for `import paudio`
+- Wheel includes statically linked PortAudio (WASAPI/ASIO enabled)
+- Verified non-blocking `Player`/`Recorder` APIs
+
+### 0.2.0
+- Internal build system refactor (CMake + scikit-build-core)
+- PortAudio is fetched and built in wheel builds
+
+### 0.1.5
+- Fixed MinGW runtime DLL dependencies
+- All dependencies are now statically linked
+- No external DLL requirements for end users
+
+### 0.1.4
+- Initial release
+- Basic playback and recording functionality
+- WASAPI loopback support
