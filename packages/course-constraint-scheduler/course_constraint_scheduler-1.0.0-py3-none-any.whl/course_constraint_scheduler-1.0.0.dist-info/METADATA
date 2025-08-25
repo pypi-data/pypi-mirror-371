@@ -1,0 +1,344 @@
+Metadata-Version: 2.4
+Name: course-constraint-scheduler
+Version: 1.0.0
+Summary: A constraint solver for generating schedules
+License-Expression: MIT
+License-File: LICENSE
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.12
+Requires-Python: >=3.12
+Requires-Dist: click>=8.1.0
+Requires-Dist: fastapi>=0.104.0
+Requires-Dist: pydantic>=2.11.5
+Requires-Dist: requests>=2.31.0
+Requires-Dist: uvicorn[standard]>=0.24.0
+Requires-Dist: z3-solver>=4.15.1.0
+Description-Content-Type: text/markdown
+
+# Course Scheduler
+
+A constraint satisfaction solver for generating course schedules using Z3 theorem prover.
+
+## Features
+
+- **Constraint Satisfaction**: Uses Z3 theorem prover for optimal schedule generation
+- **Faculty Preferences**: Supports faculty course, room, and lab preferences with granular optimization
+- **Room & Lab Assignment**: Intelligent assignment of rooms and labs with packing optimization
+- **Conflict Resolution**: Handles course conflicts and scheduling constraints
+- **HTTP API**: RESTful API for schedule generation with session management
+- **Concurrent Processing**: Thread pool for handling multiple Z3 operations simultaneously
+- **Performance Optimized**: Aggressive Z3 settings for faster solving
+
+## Optimizer Options
+
+The scheduler supports various optimization strategies that can be enabled individually:
+
+- **`faculty_course`**: Optimize for faculty course preferences (1-5 scale -- see JSON schema)
+- **`faculty_room`**: Optimize for faculty room preferences (1-5 scale -- see JSON schema)
+- **`faculty_lab`**: Optimize for faculty lab preferences (1-5 scale -- see JSON schema)
+- **`same_room`**: Prefer same faculty assigned to same rooms
+- **`same_lab`**: Prefer same faculty assigned to same labs
+- **`pack_rooms`**: Pack courses into fewer rooms when possible (fitness score based on maximizing overall room utilization)
+- **`pack_labs`**: Pack courses into fewer labs when possible (fitness score based on maximizing overall lab utilization)
+
+### Faculty Preferences
+
+Faculty can now specify preferences for courses, rooms, and labs separately:
+
+- **`course_preferences`**: Map of course IDs to preference values (1-5, where 5 is strongly preferred)
+- **`room_preferences`**: Map of room names to preference values (1-5, where 5 is strongly preferred)
+- **`lab_preferences`**: Map of lab names to preference values (1-5, where 5 is strongly preferred)
+
+## Installation
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd scheduler
+```
+
+2. Install `uv` (if not already installed) by following the directions [here](https://docs.astral.sh/uv/getting-started/installation/)
+
+3. Create a virtual environment and install package + dependencies
+```bash
+# Install dependencies
+uv sync
+
+# Install the local package in editable mode
+uv pip install -e .
+```
+
+## Usage
+
+### Command Line Interface
+
+Generate schedules using the CLI:
+
+```bash
+# Using the installed script with combined configuration
+uv run scheduler --config example_rest_config.json --limit 10
+```
+
+### Python API
+
+```python
+from scheduler import Scheduler, load_config_from_file, CombinedConfig, OptimizerFlags
+
+# Load combined configuration
+combined_config = load_config_from_file(CombinedConfig, "example_rest_config.json")
+
+# Create scheduler and generate schedules
+scheduler = Scheduler(combined_config)
+
+# Use specific optimizer options
+optimizer_options = [
+    OptimizerFlags.FACULTY_COURSE,
+    OptimizerFlags.FACULTY_ROOM,
+    OptimizerFlags.FACULTY_LAB,
+    OptimizerFlags.SAME_ROOM,
+    OptimizerFlags.SAME_LAB,
+    OptimizerFlags.PACK_ROOMS,
+    OptimizerFlags.PACK_LABS
+]
+
+for schedule in scheduler.get_models(limit=5, optimizer_options=optimizer_options):
+    # schedule is a list of CourseInstance objects
+    for course_instance in schedule:
+        print(f"{course_instance.course.course_id}: {course_instance.faculty}")
+        print(f"  Room: {course_instance.room if course_instance.room else 'None'}")
+        print(f"  Lab: {course_instance.lab if course_instance.lab else 'None'}")
+        print(f"  Time: {course_instance.time}")
+```
+
+### HTTP API Server
+
+Start the HTTP API server:
+
+```bash
+# Using the installed script with default settings
+uv run scheduler-server
+
+# With custom configuration
+uv run scheduler-server --port 8000 --host 0.0.0.0 --log-level info --workers 6
+```
+
+#### Server Options
+
+- `--port, -p`: Port to run the server on (default: 8000)
+- `--host, -h`: Host to bind the server to (default: 0.0.0.0)
+- `--log-level, -l`: Log level (debug, info, warning, error, critical) (default: info)
+- `--workers, -w`: Number of Z3 worker threads for concurrent processing (default: 4)
+
+#### Performance Tuning
+
+The server uses a thread pool to handle Z3 operations concurrently. For optimal performance set the number of workers to number of CPU cores
+
+Example:
+```bash
+scheduler-server --workers 8 --log-level warning
+```
+
+### API Endpoints
+
+#### Submit Schedule Request
+```http
+POST /submit
+Content-Type: application/json
+
+{
+  "config": {
+    "courses": [...],
+    "faculty": [...],
+    "rooms": [...],
+    "labs": [...]
+  },
+  "time_slot_config": {
+    "times": {
+      "MON": [{"start": "08:00", "spacing": 60, "end": "19:00"}],
+      "TUE": [{"start": "08:00", "spacing": 60, "end": "17:00"}]
+    },
+    "classes": [
+      {
+        "credits": 4,
+        "meetings": [
+          {"day": "MON", "duration": 110, "lab": true},
+          {"day": "WED", "duration": 110}
+        ]
+      }
+    ]
+  },
+  "limit": 100,
+  "optimizer_options": [
+    "faculty_course",
+    "faculty_room",
+    "faculty_lab",
+    "same_room",
+    "same_lab",
+    "pack_rooms",
+    "pack_labs"
+  ]
+}
+```
+
+#### Generate Next Schedule
+```http
+POST /schedules/{schedule_id}/next
+```
+
+#### Get Schedule by Index
+```http
+GET /schedules/{schedule_id}/index/{index}
+```
+
+#### Get Schedule Details
+```http
+GET /schedules/{schedule_id}/details
+```
+
+#### Delete Schedule Session
+```http
+DELETE /schedules/{schedule_id}/delete
+```
+
+#### Health Check
+```http
+GET /health
+```
+
+## Configuration
+
+The scheduler now uses a combined configuration format that includes all settings in a single file. See `example_rest_config.json` for a complete example.
+
+### Combined Configuration Structure
+
+```json
+{
+  "config": {
+    "courses": [
+      {
+        "course_id": "CS101",
+        "credits": 4,
+        "faculty": ["Dr. Smith"],
+        "room": ["Room A", "Room B"],
+        "lab": ["Lab 1"],
+        "conflicts": []
+      }
+    ],
+    "faculty": [
+      {
+        "name": "Dr. Smith",
+        "maximum_credits": 12,
+        "minimum_credits": 6,
+        "unique_course_limit": 2,
+        "course_preferences": {"CS101": 5},
+        "room_preferences": {"Room A": 5},
+        "lab_preferences": {"Lab 1": 5},
+        "times": {
+          "MON": ["09:00-12:00", "14:00-17:00"],
+          "TUE": ["09:00-12:00", "14:00-17:00"]
+        }
+      }
+    ],
+    "rooms": ["Room A", "Room B"],
+    "labs": ["Lab 1", "Lab 2"]
+  },
+  "time_slot_config": {
+    "times": {
+      "MON": [
+        {"start": "08:00", "spacing": 60, "end": "19:00"}
+      ],
+      "TUE": [
+        {"start": "08:00", "spacing": 60, "end": "12:00"},
+        {"start": "13:10", "spacing": 60, "end": "17:10"}
+      ]
+    },
+    "classes": [
+      {
+        "credits": 4,
+        "meetings": [
+          {"day": "MON", "duration": 110, "lab": true},
+          {"day": "WED", "duration": 110}
+        ]
+      }
+    ]
+  },
+  "limit": 100,
+  "optimizer_options": [
+    "faculty_course",
+    "faculty_room",
+    "faculty_lab",
+    "same_room",
+    "same_lab",
+    "pack_rooms",
+    "pack_labs"
+  ]
+}
+```
+
+## Performance Optimizations
+
+### Z3 Configuration
+The scheduler uses aggressive Z3 settings for faster solving:
+
+- **Parallel solving**: Enabled with configurable thread count
+- **Timeouts**: 30-second timeout per solve operation
+- **Resource limits**: Optimized memory and CPU usage
+- **Caching**: Extensive caching of slot relationships and simplifications
+
+### Thread Pool
+- **Concurrent Z3 operations**: Multiple schedule generations can run simultaneously
+- **Configurable workers**: Adjust based on system resources
+- **Non-blocking API**: Async endpoints with thread pool execution
+
+### Memory Management
+- **Session cleanup**: Automatic cleanup of completed sessions
+- **Resource limits**: Z3 resource limits prevent memory exhaustion
+- **Garbage collection**: Aggressive GC settings for faster memory cleanup
+
+## Architecture (for REST)
+
+```
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│   HTTP Client   │───▶│  FastAPI Server │───▶│  Thread Pool    │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+                                │                       │
+                                ▼                       ▼
+                       ┌─────────────────┐    ┌─────────────────┐
+                       │ Session Manager │    │   Z3 Solver     │
+                       └─────────────────┘    └─────────────────┘
+```
+
+## Development
+
+**Development Setup with `uv`**
+
+For development, you can use `uv` to manage dependencies and run commands:
+
+**macOS and Linux**
+```bash
+# Activate the virtual environment
+source .venv/bin/activate
+```
+**Windows**
+```console
+.venv\Scripts\activate
+```
+
+Some common commands which you may find valuable:
+
+```console
+# Add new dependencies
+uv add package-name
+
+# Add development dependencies
+uv add --dev package-name
+
+# Update dependencies
+uv lock --upgrade
+
+# Run tests or scripts
+uv run python -m pytest
+uv run examples/rest_api.py
+```
