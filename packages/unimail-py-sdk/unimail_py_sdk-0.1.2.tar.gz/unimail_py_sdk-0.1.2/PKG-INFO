@@ -1,0 +1,238 @@
+Metadata-Version: 2.1
+Name: unimail-py-sdk
+Version: 0.1.2
+Summary: This is a Python SDK for Unimail. Quickly integrate into your project
+Home-page: https://github.com/i-curve/unimail-py-sdk
+License: BSD-3-Clause
+Keywords: unimail,unimail-py-sdk
+Author: i-curve
+Author-email: i-curve@qq.com
+Requires-Python: >=3.12,<4.0
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: requests (>=2.32.3,<3.0.0)
+Project-URL: Bug Tracker, https://github.com/i-curve/unimail-py-sdk/issues
+Project-URL: Documentation, https://github.com/i-curve/unimail-py-sdk
+Project-URL: Repository, https://github.com/i-curve/unimail-py-sdk
+Description-Content-Type: text/markdown
+
+# unimal-py-sdk
+
+This is a Python SDK for Unimail. Quickly integrate into your project
+
+[github](https://github.com/i-curve/unimail-py-sdk) [中文文档](README_zh.md)
+
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+
+<!-- code_chunk_output -->
+
+- [unimal-py-sdk](#unimal-py-sdk)
+  - [simple usage](#simple-usage)
+  - [api docs](#api-docs)
+  - [support language](#support-language)
+
+<!-- /code_chunk_output -->
+
+## simple usage
+
+- pip install
+
+```shell
+pip install unimail-py-sdk
+```
+
+- init a unimail client
+
+you need a authorization key.
+
+main.py
+
+```python
+from unimail-py-sdk import Client, Result
+
+# please input your key here
+key: str = ""
+
+client: Client = Client(key)
+
+client.check_connect()
+```
+
+- send email
+
+example
+receiver: aaa@gmail.com  
+email subject: email subject  
+email content: this is a email content
+
+```python
+    result: Result := client.send_email("aaa@gmail.com", "email subject", "this is a email content")
+
+    if result.is_success:
+        print("send email success")
+    else:
+        print(f"send email fail, error: {result.msg}")
+```
+
+- batch send email
+
+example
+receivers: aaa@gmail.com,bbb@gmail.com  
+email subject: email subject  
+email content: this is a email content
+
+```python
+    result: Result := client.batch_send_email("aaa@gmail.com", "email subject", "this is a email content")
+
+    if result.is_success:
+        print("send email success")
+    else:
+        print(f"send email fail, error: {result.msg}")
+```
+
+## api docs
+
+1. Client(key: str, host: str, data: str, obj: json): Client
+
+init a client by key
+
+2. client.set_language(language :str) -> bool
+
+set language for the client,default is zh
+
+3. client.check_connect() -> bool
+
+check the host and key is ok
+
+4. client.send_email(receiver :str, subject :str, content :str) -> Result
+
+send email to receiver. if you have many receiver, you can concat the receiver by ";" or use BatchSendEmail
+
+5. client.batch_send_email(receivers :list, subject :str, content :str) -> Result
+
+like SendEmail, but receivers is a slice
+
+## support language
+
+chinese is the default language for the sdk.
+
+- [x] english (en)
+- [x] simple chinese (zh)
+- [x] vietnamese (vi)
+- [x] idonesian (id)
+- [x] thai (th)
+- [x] gujarati (gu)
+
+if you want to support other language, please open a issue.
+
+# unimal-py-sdk
+
+unimail 的 python 语言 sdk, 快速集成到你的项目
+
+[github](https://github.com/i-curve/unimail-py-sdk) [英文文档](README.md)
+
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+
+<!-- code_chunk_output -->
+
+- [unimal-py-sdk](#unimal-py-sdk)
+  - [简单使用](#简单使用)
+  - [api docs](#api-docs)
+  - [支持的语言](#支持的语言)
+
+<!-- /code_chunk_output -->
+
+## 简单使用
+
+- pip 安装包
+
+```shell
+pip install unimail-py-sdk
+```
+
+- 初始化客户端
+
+你需要申请一个 key
+
+main.py
+
+```python
+from unimail-py-sdk import Client, Result
+
+# please input your key here
+key: str = ""
+
+client: Client = Client(key)
+
+client.check_connect()
+```
+
+- 发邮件
+
+例如
+收件人: aaa@gmail.com  
+邮件标题: email subject  
+邮件正文: this is a email content
+
+```python
+    result: Result := client.send_email("aaa@gmail.com", "email subject", "this is a email content")
+
+    if result.is_success:
+        print("send email success")
+    else:
+        print(f"send email fail, error: {result.msg}")
+```
+
+- 批量发送邮件
+
+例如
+收件人: aaa@gmail.com,bbb@gmail.com  
+邮件标题: email subject  
+邮件正文: this is a email content
+
+```python
+    result: Result := client.batch_send_email("aaa@gmail.com", "email subject", "this is a email content")
+
+    if result.is_success:
+        print("send email success")
+    else:
+        print(f"send email fail, error: {result.msg}")
+```
+
+## api docs
+
+1. Client(key: str, host: str, data: str, obj: json): Client
+
+init a client by key
+
+2. client.set_language(language :str) -> bool
+
+set language for the client,default is zh
+
+3. client.check_connect() -> bool
+
+check the host and key is ok
+
+4. client.send_email(receiver :str, subject :str, content :str) -> Result
+
+send email to receiver. if you have many receiver, you can concat the receiver by ";" or use BatchSendEmail
+
+5. client.batch_send_email(receivers :list, subject :str, content :str) -> Result
+
+like SendEmail, but receivers is a slice
+
+## 支持的语言
+
+sdk 默认返回的 msg 为中文
+
+- [x] english (en)
+- [x] simple chinese (zh)
+- [x] vietnamese (vi)
+- [x] idonesian (id)
+- [x] thai (th)
+- [x] gujarati (gu)
+
+如果你需要添加了更多语言，欢迎提 issue
+

@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "unimail-py-sdk"
+version = "0.1.2"
+description = "This is a Python SDK for Unimail. Quickly integrate into your project"
+keywords = [ "unimail", "unimail-py-sdk" ]
+authors = ["i-curve <i-curve@qq.com>"]
+
+homepage = "https://github.com/i-curve/unimail-py-sdk"
+repository = "https://github.com/i-curve/unimail-py-sdk"
+documentation = "https://github.com/i-curve/unimail-py-sdk"
+readme = ["README.md", "README_zh.md"]
+license = "BSD-3-Clause"
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/i-curve/unimail-py-sdk/issues"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+requests = "^2.32.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
