@@ -1,0 +1,10 @@
+pydra/tasks/fastsurfer/__init__.py,sha256=X3K7VUbR-meflmwnKJ6nbeQ-0coGli_TGcbb1mP9ERs,220
+pydra/tasks/fastsurfer/_version.py,sha256=Dg8AmJomLVpjKL6prJylOONZAPRtB86LOce7dorQS_A,704
+pydra/tasks/fastsurfer/latest.py,sha256=JEyq6y145fHl4AcvSeAHoHEloz-2cIE17tMku8UhufY,63
+pydra/tasks/fastsurfer/v2_2/__init__.py,sha256=8AsPkGXKfF93ceJ951-CIvtzT3YEsNcQjgNMWsBhMJc,5231
+pydra/tasks/fastsurfer/v2_2/tests/conftest.py,sha256=XR-l8ZlaRYTOrbn5h8Ea318nUh7qansuONxeFS7TrAI,2051
+pydra/tasks/fastsurfer/v2_2/tests/test_fastsurfer.py,sha256=qGleiTrBoECvx8P3gBfw3ZT68ACnXFlfhLW50v1-T1k,1113
+pydra_tasks_fastsurfer-0.2.0.dist-info/METADATA,sha256=xens1g6bpWlvqB7MWneyo0la3_TATeupZrn-BI_sn2Q,5329
+pydra_tasks_fastsurfer-0.2.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+pydra_tasks_fastsurfer-0.2.0.dist-info/licenses/LICENSE,sha256=1UwTTk2FSa_OpgWlBMDqe_u6T0NNnRbBx3oGHHgxzpo,588
+pydra_tasks_fastsurfer-0.2.0.dist-info/RECORD,,
