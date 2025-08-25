@@ -1,0 +1,9 @@
+grpfpy/__init__.py,sha256=_KTmu7B1CBVsvNrsvaudSWGGC1mrABEKkzB9QH7ffis,99
+grpfpy/_grpfpy.cpython-311-x86_64-linux-musl.so,sha256=1NAspFeKOchGJ6_Gsog5zIr4q7L2apvtoFB5lHMH3D0,1908656
+grpfpy/core.py,sha256=AKTbqpcpuIyNcXhbXRkFrZyMJxPsKJN79b-GH4BU7mw,2976
+grpfpy/version.py,sha256=t2GFu2LzhqA9yoOoMlMftADglKKVEhZXep-cANXX_GA,396
+grpfpy-0.1.11.dist-info/METADATA,sha256=Y0BQ1dGrhu6nBQgEkOvMfx-zPD9Z_uRr9BDbFI1sYYc,2325
+grpfpy-0.1.11.dist-info/WHEEL,sha256=kA_iIvT-cxTFNl4I8QDfFHN1DAyqZDYakVXCaObxeLo,112
+grpfpy-0.1.11.dist-info/top_level.txt,sha256=HLBGZsEIm7KNNzn3IVQwodeltzfaMwxhkaHNkGCTtPs,15
+grpfpy-0.1.11.dist-info/RECORD,,
+grpfpy-0.1.11.dist-info/licenses/LICENSE,sha256=BuYb1bT7BOsJ7eWEg25IznbSaxvRLWjRzAI9En70FEM,1067
