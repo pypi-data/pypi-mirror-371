@@ -1,0 +1,12 @@
+activities
+apis
+areas
+devices
+financial
+identities
+models
+notifies
+packets
+reports
+services
+trips

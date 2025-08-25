@@ -1,0 +1,70 @@
+Metadata-Version: 2.4
+Name: fatehan-pypb
+Version: 0.2.0
+Summary: gRPC/Protobuf message and service stubs for Fatehan
+Author-email: Mehdi Rajabi <96rajabi@gmail.com>
+License-Expression: MIT
+Project-URL: Repository, https://github.com/FatehanNew/pypb
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Code Generators
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: protobuf<7,>=6.31.1
+Requires-Dist: grpcio<2,>=1.62
+Provides-Extra: dev
+Requires-Dist: grpcio-tools>=1.74.0; extra == "dev"
+Dynamic: license-file
+
+# fatehan
+
+### gRPC/Protobuf message & service stubs.
+
+## Install
+
+```bash
+pip install fatehan-pypb
+```
+
+## GRPC Usage
+
+```python
+import grpc
+from services import api_pb2, api_pb2_grpc
+
+channel = grpc.insecure_channel("localhost:50051")
+stub = api_pb2_grpc.ApiService(channel) 
+resp = stub.DeviceIndex(api_pb2.DeviceRequest(page=1, page_size=25))
+print(resp)
+```
+
+## Compile
+
+```bash
+python -m grpc_tools.protoc \
+  -I ../protocols \
+  --python_out=. \
+  --grpc_python_out=. \
+  --pyi_out=. \
+  $(find ../protocols -name "*.proto" -print)
+```
+
+## Build And Test Locally
+```bash
+python -m pip install --upgrade build twine
+python -m build
+python -m twine check dist/*
+```
+
+## Try a local install
+```bash
+python -m venv .venv && . .venv/bin/activate
+pip install dist/fatehan-0.2.0-py3-none-any.whl
+python -c "from devices import devices_pb2; print('ok', bool(devices_pb2))"
+```
+
+## Publish
+```bash
+python -m twine upload dist/*
+```

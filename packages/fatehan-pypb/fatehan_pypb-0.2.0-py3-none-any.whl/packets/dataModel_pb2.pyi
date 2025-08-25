@@ -1,0 +1,2735 @@
+import datetime
+
+from google.protobuf import timestamp_pb2 as _timestamp_pb2
+from google.protobuf.internal import containers as _containers
+from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
+from google.protobuf import descriptor as _descriptor
+from google.protobuf import message as _message
+from collections.abc import Iterable as _Iterable, Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+
+DESCRIPTOR: _descriptor.FileDescriptor
+
+class Alert(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    Normal: _ClassVar[Alert]
+    IgnitionOn: _ClassVar[Alert]
+    IgnitionOFF: _ClassVar[Alert]
+    Movement: _ClassVar[Alert]
+    Unplug: _ClassVar[Alert]
+    Plug: _ClassVar[Alert]
+    Towing: _ClassVar[Alert]
+    Jamming: _ClassVar[Alert]
+    OverSpeed: _ClassVar[Alert]
+    Idling: _ClassVar[Alert]
+    LowBattery: _ClassVar[Alert]
+    Crash: _ClassVar[Alert]
+    Humidity: _ClassVar[Alert]
+    DoorOpen: _ClassVar[Alert]
+    DigitalInput1: _ClassVar[Alert]
+    DigitalInput2: _ClassVar[Alert]
+    DigitalInput3: _ClassVar[Alert]
+    DigitalInput4: _ClassVar[Alert]
+    DigitalInput5: _ClassVar[Alert]
+    DigitalInput6: _ClassVar[Alert]
+    DigitalOutput1: _ClassVar[Alert]
+    DigitalOutput2: _ClassVar[Alert]
+    DigitalOutput3: _ClassVar[Alert]
+    DigitalOutput4: _ClassVar[Alert]
+    AnalogInput1: _ClassVar[Alert]
+    AnalogInput2: _ClassVar[Alert]
+    AnalogInput3: _ClassVar[Alert]
+    AnalogInput4: _ClassVar[Alert]
+    SOS: _ClassVar[Alert]
+    Shock: _ClassVar[Alert]
+    BonnetOpen: _ClassVar[Alert]
+    FootBrake: _ClassVar[Alert]
+    Temperature: _ClassVar[Alert]
+    Fuel: _ClassVar[Alert]
+    Maintenance: _ClassVar[Alert]
+    CrashTrace: _ClassVar[Alert]
+    DataMode: _ClassVar[Alert]
+    GSM: _ClassVar[Alert]
+    SleepMode: _ClassVar[Alert]
+    GNSS: _ClassVar[Alert]
+    GPS: _ClassVar[Alert]
+    ExternalVoltage: _ClassVar[Alert]
+    Speed: _ClassVar[Alert]
+    BatteryVoltage: _ClassVar[Alert]
+    BatteryCurrent: _ClassVar[Alert]
+    Trips: _ClassVar[Alert]
+    Odometer: _ClassVar[Alert]
+    AxisX: _ClassVar[Alert]
+    AxisY: _ClassVar[Alert]
+    AxisZ: _ClassVar[Alert]
+    SDStatus: _ClassVar[Alert]
+    BrakeSwitch: _ClassVar[Alert]
+    WheelBasedSpeed: _ClassVar[Alert]
+    AccelerationPedalPosition: _ClassVar[Alert]
+    EngineCurrentLoad: _ClassVar[Alert]
+    FuelLevel: _ClassVar[Alert]
+    EngineSpeed: _ClassVar[Alert]
+    BrakePedalPosition: _ClassVar[Alert]
+    DTC: _ClassVar[Alert]
+    Driving: _ClassVar[Alert]
+    Charging: _ClassVar[Alert]
+    PowerON: _ClassVar[Alert]
+    PowerOFF: _ClassVar[Alert]
+    Airplane: _ClassVar[Alert]
+    Disassemble: _ClassVar[Alert]
+    HarshAcceleration: _ClassVar[Alert]
+    HarshBraking: _ClassVar[Alert]
+    SharpLeft: _ClassVar[Alert]
+    SharpRight: _ClassVar[Alert]
+    Pull: _ClassVar[Alert]
+    SimChange: _ClassVar[Alert]
+    OpenCover: _ClassVar[Alert]
+    InsertCharger: _ClassVar[Alert]
+    AbruptLane: _ClassVar[Alert]
+    LowExternalVoltageProtection: _ClassVar[Alert]
+    PseudoBaseStation: _ClassVar[Alert]
+    Fall: _ClassVar[Alert]
+    Rolling: _ClassVar[Alert]
+    Tilting: _ClassVar[Alert]
+    Stability: _ClassVar[Alert]
+    AngleAbnormality: _ClassVar[Alert]
+    Theft: _ClassVar[Alert]
+    IllegalStart: _ClassVar[Alert]
+    ExitDeadGps: _ClassVar[Alert]
+    EnterDeadGps: _ClassVar[Alert]
+    TrunkDoorClose: _ClassVar[Alert]
+    TrunkDoorOpen: _ClassVar[Alert]
+    EngineDoorClose: _ClassVar[Alert]
+    EngineDoorOpen: _ClassVar[Alert]
+    Disconnected: _ClassVar[Alert]
+    IllegalDoorOpen: _ClassVar[Alert]
+    DoorClose: _ClassVar[Alert]
+    PowerBtn: _ClassVar[Alert]
+    BatteryPercent: _ClassVar[Alert]
+    SoftwareZoneEnter: _ClassVar[Alert]
+    SoftwareZoneExit: _ClassVar[Alert]
+    Brake: _ClassVar[Alert]
+    Acceleration: _ClassVar[Alert]
+    AnalogInput1Min: _ClassVar[Alert]
+    AnalogInput2Min: _ClassVar[Alert]
+    Vibration: _ClassVar[Alert]
+    LowExternalVoltage: _ClassVar[Alert]
+    BatteryShutdown: _ClassVar[Alert]
+    Sound: _ClassVar[Alert]
+    Park: _ClassVar[Alert]
+    SpeedSlopeMinusZ: _ClassVar[Alert]
+    SpeedSlopeMinusY: _ClassVar[Alert]
+    SpeedSlopeMinusX: _ClassVar[Alert]
+    SpeedSlopePlusZ: _ClassVar[Alert]
+    SpeedSlopePlusY: _ClassVar[Alert]
+    SpeedSlopePlusX: _ClassVar[Alert]
+    HarshCorner: _ClassVar[Alert]
+    FatigueDriving: _ClassVar[Alert]
+    CameraWarning: _ClassVar[Alert]
+    OilError: _ClassVar[Alert]
+    VSSFault: _ClassVar[Alert]
+    RoadDeparture: _ClassVar[Alert]
+    RoadDriveNotEnoughTime: _ClassVar[Alert]
+    RoadIO: _ClassVar[Alert]
+    AreaIO: _ClassVar[Alert]
+    TotalDriveTimeout: _ClassVar[Alert]
+    RightBlindSpot: _ClassVar[Alert]
+    PreIllegally: _ClassVar[Alert]
+    PreTirePressure: _ClassVar[Alert]
+    PreTired: _ClassVar[Alert]
+    ICCardFault: _ClassVar[Alert]
+    TTSFault: _ClassVar[Alert]
+    LCDFault: _ClassVar[Alert]
+    TermPowerFail: _ClassVar[Alert]
+    AerialShortCircuit: _ClassVar[Alert]
+    AerialUnConn: _ClassVar[Alert]
+    TermFault: _ClassVar[Alert]
+    Danger: _ClassVar[Alert]
+    Emergency: _ClassVar[Alert]
+    StopTimeout: _ClassVar[Alert]
+    PhoneTalking: _ClassVar[Alert]
+    Smoking: _ClassVar[Alert]
+    Distracted: _ClassVar[Alert]
+    AbnormalDriving: _ClassVar[Alert]
+    DriverChangeEvent: _ClassVar[Alert]
+    DeviceAbnormal: _ClassVar[Alert]
+    CameraAbnormal: _ClassVar[Alert]
+    MainMemoryError: _ClassVar[Alert]
+    AuxiliaryMemoryError: _ClassVar[Alert]
+    AbnormalInfraredFillLight: _ClassVar[Alert]
+    SpeakerAbnormal: _ClassVar[Alert]
+    BatteryAbnormal: _ClassVar[Alert]
+    ForwardCollisionWarning: _ClassVar[Alert]
+    LaneDepartureWarning: _ClassVar[Alert]
+    VehicleDistanceTooCloseAlarm: _ClassVar[Alert]
+    PedestrianCollisionAlarm: _ClassVar[Alert]
+    FrequentLaneChangeAlarm: _ClassVar[Alert]
+    RoadSignOverrunAlarm: _ClassVar[Alert]
+    Obstacle: _ClassVar[Alert]
+    ActiveCapture: _ClassVar[Alert]
+    Displacement: _ClassVar[Alert]
+    ACCFlameout: _ClassVar[Alert]
+    ACCIgnition: _ClassVar[Alert]
+    Disarmed: _ClassVar[Alert]
+    Fortification: _ClassVar[Alert]
+    OilAndElectricityDisconnected: _ClassVar[Alert]
+    OilAndElectricityConnected: _ClassVar[Alert]
+    GpsNotPositioned: _ClassVar[Alert]
+    GpsHasPositioned: _ClassVar[Alert]
+    HighTemperature: _ClassVar[Alert]
+    LowTemperature: _ClassVar[Alert]
+    LightSensor: _ClassVar[Alert]
+    ACTurnOff: _ClassVar[Alert]
+    AcTurnOn: _ClassVar[Alert]
+    ChargeOn: _ClassVar[Alert]
+    ChargeOff: _ClassVar[Alert]
+    InvalidAlert: _ClassVar[Alert]
+
+class Protocol(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    PROTOCOL_UNKNOWN: _ClassVar[Protocol]
+    PROTOCOL_COBAN: _ClassVar[Protocol]
+    PROTOCOL_COBAN_WR: _ClassVar[Protocol]
+    PROTOCOL_ACCURATE: _ClassVar[Protocol]
+    PROTOCOL_A9: _ClassVar[Protocol]
+    PROTOCOL_CONCOX: _ClassVar[Protocol]
+    PROTOCOL_DOLPHIN: _ClassVar[Protocol]
+    PROTOCOL_GT07: _ClassVar[Protocol]
+    PROTOCOL_JTT808: _ClassVar[Protocol]
+    PROTOCOL_R16: _ClassVar[Protocol]
+    PROTOCOL_R31: _ClassVar[Protocol]
+    PROTOCOL_R56: _ClassVar[Protocol]
+    PROTOCOL_S11: _ClassVar[Protocol]
+    PROTOCOL_PROTOCOL_S15: _ClassVar[Protocol]
+    PROTOCOL_SAYEH: _ClassVar[Protocol]
+    PROTOCOL_SINOTRACK: _ClassVar[Protocol]
+    PROTOCOL_TELTONIKA: _ClassVar[Protocol]
+    PROTOCOL_TOPIN: _ClassVar[Protocol]
+    PROTOCOL_WEFINDER: _ClassVar[Protocol]
+    PROTOCOL_RUBTELLA: _ClassVar[Protocol]
+    PROTOCOL_LANDER: _ClassVar[Protocol]
+    PROTOCOL_RAMMA: _ClassVar[Protocol]
+    PROTOCOL_SINERE: _ClassVar[Protocol]
+    PROTOCOL_GALLO_SKY: _ClassVar[Protocol]
+    PROTOCOL_GITINAMA: _ClassVar[Protocol]
+    PROTOCOL_BCE: _ClassVar[Protocol]
+    PROTOCOL_TOP_FLY_TECH: _ClassVar[Protocol]
+    PROTOCOL_QUICK: _ClassVar[Protocol]
+    PROTOCOL_RADSHID: _ClassVar[Protocol]
+    PROTOCOL_MEITRACK: _ClassVar[Protocol]
+    PROTOCOL_GT30X: _ClassVar[Protocol]
+    PROTOCOL_WP: _ClassVar[Protocol]
+    PROTOCOL_SR03: _ClassVar[Protocol]
+    PROTOCOL_TELTONIKA650: _ClassVar[Protocol]
+
+class FileType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    NoneType: _ClassVar[FileType]
+    Image: _ClassVar[FileType]
+    Video: _ClassVar[FileType]
+    Audio: _ClassVar[FileType]
+    Text: _ClassVar[FileType]
+    OtherType: _ClassVar[FileType]
+
+class FileFormat(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    NoneFormat: _ClassVar[FileFormat]
+    Jpeg: _ClassVar[FileFormat]
+    Png: _ClassVar[FileFormat]
+    Gif: _ClassVar[FileFormat]
+    Bmp: _ClassVar[FileFormat]
+    Tiff: _ClassVar[FileFormat]
+    Avi: _ClassVar[FileFormat]
+    Mp4: _ClassVar[FileFormat]
+    Wav: _ClassVar[FileFormat]
+    Mp3: _ClassVar[FileFormat]
+    Txt: _ClassVar[FileFormat]
+    Jpg: _ClassVar[FileFormat]
+    Bin: _ClassVar[FileFormat]
+    OtherFormat: _ClassVar[FileFormat]
+Normal: Alert
+IgnitionOn: Alert
+IgnitionOFF: Alert
+Movement: Alert
+Unplug: Alert
+Plug: Alert
+Towing: Alert
+Jamming: Alert
+OverSpeed: Alert
+Idling: Alert
+LowBattery: Alert
+Crash: Alert
+Humidity: Alert
+DoorOpen: Alert
+DigitalInput1: Alert
+DigitalInput2: Alert
+DigitalInput3: Alert
+DigitalInput4: Alert
+DigitalInput5: Alert
+DigitalInput6: Alert
+DigitalOutput1: Alert
+DigitalOutput2: Alert
+DigitalOutput3: Alert
+DigitalOutput4: Alert
+AnalogInput1: Alert
+AnalogInput2: Alert
+AnalogInput3: Alert
+AnalogInput4: Alert
+SOS: Alert
+Shock: Alert
+BonnetOpen: Alert
+FootBrake: Alert
+Temperature: Alert
+Fuel: Alert
+Maintenance: Alert
+CrashTrace: Alert
+DataMode: Alert
+GSM: Alert
+SleepMode: Alert
+GNSS: Alert
+GPS: Alert
+ExternalVoltage: Alert
+Speed: Alert
+BatteryVoltage: Alert
+BatteryCurrent: Alert
+Trips: Alert
+Odometer: Alert
+AxisX: Alert
+AxisY: Alert
+AxisZ: Alert
+SDStatus: Alert
+BrakeSwitch: Alert
+WheelBasedSpeed: Alert
+AccelerationPedalPosition: Alert
+EngineCurrentLoad: Alert
+FuelLevel: Alert
+EngineSpeed: Alert
+BrakePedalPosition: Alert
+DTC: Alert
+Driving: Alert
+Charging: Alert
+PowerON: Alert
+PowerOFF: Alert
+Airplane: Alert
+Disassemble: Alert
+HarshAcceleration: Alert
+HarshBraking: Alert
+SharpLeft: Alert
+SharpRight: Alert
+Pull: Alert
+SimChange: Alert
+OpenCover: Alert
+InsertCharger: Alert
+AbruptLane: Alert
+LowExternalVoltageProtection: Alert
+PseudoBaseStation: Alert
+Fall: Alert
+Rolling: Alert
+Tilting: Alert
+Stability: Alert
+AngleAbnormality: Alert
+Theft: Alert
+IllegalStart: Alert
+ExitDeadGps: Alert
+EnterDeadGps: Alert
+TrunkDoorClose: Alert
+TrunkDoorOpen: Alert
+EngineDoorClose: Alert
+EngineDoorOpen: Alert
+Disconnected: Alert
+IllegalDoorOpen: Alert
+DoorClose: Alert
+PowerBtn: Alert
+BatteryPercent: Alert
+SoftwareZoneEnter: Alert
+SoftwareZoneExit: Alert
+Brake: Alert
+Acceleration: Alert
+AnalogInput1Min: Alert
+AnalogInput2Min: Alert
+Vibration: Alert
+LowExternalVoltage: Alert
+BatteryShutdown: Alert
+Sound: Alert
+Park: Alert
+SpeedSlopeMinusZ: Alert
+SpeedSlopeMinusY: Alert
+SpeedSlopeMinusX: Alert
+SpeedSlopePlusZ: Alert
+SpeedSlopePlusY: Alert
+SpeedSlopePlusX: Alert
+HarshCorner: Alert
+FatigueDriving: Alert
+CameraWarning: Alert
+OilError: Alert
+VSSFault: Alert
+RoadDeparture: Alert
+RoadDriveNotEnoughTime: Alert
+RoadIO: Alert
+AreaIO: Alert
+TotalDriveTimeout: Alert
+RightBlindSpot: Alert
+PreIllegally: Alert
+PreTirePressure: Alert
+PreTired: Alert
+ICCardFault: Alert
+TTSFault: Alert
+LCDFault: Alert
+TermPowerFail: Alert
+AerialShortCircuit: Alert
+AerialUnConn: Alert
+TermFault: Alert
+Danger: Alert
+Emergency: Alert
+StopTimeout: Alert
+PhoneTalking: Alert
+Smoking: Alert
+Distracted: Alert
+AbnormalDriving: Alert
+DriverChangeEvent: Alert
+DeviceAbnormal: Alert
+CameraAbnormal: Alert
+MainMemoryError: Alert
+AuxiliaryMemoryError: Alert
+AbnormalInfraredFillLight: Alert
+SpeakerAbnormal: Alert
+BatteryAbnormal: Alert
+ForwardCollisionWarning: Alert
+LaneDepartureWarning: Alert
+VehicleDistanceTooCloseAlarm: Alert
+PedestrianCollisionAlarm: Alert
+FrequentLaneChangeAlarm: Alert
+RoadSignOverrunAlarm: Alert
+Obstacle: Alert
+ActiveCapture: Alert
+Displacement: Alert
+ACCFlameout: Alert
+ACCIgnition: Alert
+Disarmed: Alert
+Fortification: Alert
+OilAndElectricityDisconnected: Alert
+OilAndElectricityConnected: Alert
+GpsNotPositioned: Alert
+GpsHasPositioned: Alert
+HighTemperature: Alert
+LowTemperature: Alert
+LightSensor: Alert
+ACTurnOff: Alert
+AcTurnOn: Alert
+ChargeOn: Alert
+ChargeOff: Alert
+InvalidAlert: Alert
+PROTOCOL_UNKNOWN: Protocol
+PROTOCOL_COBAN: Protocol
+PROTOCOL_COBAN_WR: Protocol
+PROTOCOL_ACCURATE: Protocol
+PROTOCOL_A9: Protocol
+PROTOCOL_CONCOX: Protocol
+PROTOCOL_DOLPHIN: Protocol
+PROTOCOL_GT07: Protocol
+PROTOCOL_JTT808: Protocol
+PROTOCOL_R16: Protocol
+PROTOCOL_R31: Protocol
+PROTOCOL_R56: Protocol
+PROTOCOL_S11: Protocol
+PROTOCOL_PROTOCOL_S15: Protocol
+PROTOCOL_SAYEH: Protocol
+PROTOCOL_SINOTRACK: Protocol
+PROTOCOL_TELTONIKA: Protocol
+PROTOCOL_TOPIN: Protocol
+PROTOCOL_WEFINDER: Protocol
+PROTOCOL_RUBTELLA: Protocol
+PROTOCOL_LANDER: Protocol
+PROTOCOL_RAMMA: Protocol
+PROTOCOL_SINERE: Protocol
+PROTOCOL_GALLO_SKY: Protocol
+PROTOCOL_GITINAMA: Protocol
+PROTOCOL_BCE: Protocol
+PROTOCOL_TOP_FLY_TECH: Protocol
+PROTOCOL_QUICK: Protocol
+PROTOCOL_RADSHID: Protocol
+PROTOCOL_MEITRACK: Protocol
+PROTOCOL_GT30X: Protocol
+PROTOCOL_WP: Protocol
+PROTOCOL_SR03: Protocol
+PROTOCOL_TELTONIKA650: Protocol
+NoneType: FileType
+Image: FileType
+Video: FileType
+Audio: FileType
+Text: FileType
+OtherType: FileType
+NoneFormat: FileFormat
+Jpeg: FileFormat
+Png: FileFormat
+Gif: FileFormat
+Bmp: FileFormat
+Tiff: FileFormat
+Avi: FileFormat
+Mp4: FileFormat
+Wav: FileFormat
+Mp3: FileFormat
+Txt: FileFormat
+Jpg: FileFormat
+Bin: FileFormat
+OtherFormat: FileFormat
+
+class IoElement(_message.Message):
+    __slots__ = ("gsm", "sleep_mode", "gnss", "pdop", "hdop", "external_voltage", "cell_id", "area_code", "battery_voltage", "battery_current", "battery_percent", "operator_code", "trip_odometer", "ai1", "ai2", "ai3", "ai4", "di1", "di2", "di3", "di4", "do1", "do2", "do3", "do4", "fuel_rate_gps", "fuel_used_gps", "axis_x", "axis_y", "axis_z", "icc_id", "sd_status", "i_button", "dallas", "lls", "eye", "ble", "driver", "msp500", "rfid", "eco_score", "network_type", "pulse_counter_din1", "pulse_counter_din2", "bt_status", "barcode_id", "instant_movement", "ul20202_sensor_fuel_level", "ul20202_sensor_status", "ground_sense", "iso6709_coordinates", "umts_lte_cell_id", "ain_speed", "wake_reason", "axl_calibration_status", "frequency_din1", "frequency_din2", "ignition", "idling", "towing", "unplug", "jamming", "movement", "data_mode", "speed", "temperature", "slope_x", "slope_y", "slope_z", "humidity", "fuel_flow", "door_car", "realtime", "positioning", "admin_phone_number", "fuel_counter", "impulse_frequency1", "impulse_counter1", "impulse_rpm1", "impulse_frequency2", "impulse_counter2", "impulse_rpm2", "impulse_frequency3", "impulse_counter3", "impulse_rpm3", "impulse_frequency4", "impulse_counter4", "impulse_rpm4", "number_of_data", "rfid_com2", "imsi", "ultrasonic_fuel_level1", "ultrasonic_fuel_level2", "ultrasonic_software_status1", "ultrasonic_software_status2", "one_wire_humidity1", "one_wire_humidity2", "one_wire_humidity3", "one_wire_humidity4", "one_wire_humidity5", "one_wire_humidity6", "imei", "no_sim_counter", "connectivity_quality")
+    class DallasTemperature(_message.Message):
+        __slots__ = ("dallas_temperature1", "dallas_temperature2", "dallas_temperature3", "dallas_temperature4", "dallas_temperature_id1", "dallas_temperature_id2", "dallas_temperature_id3", "dallas_temperature_id4", "dallas_temperature5", "dallas_temperature6", "dallas_temperature_id5", "dallas_temperature_id6")
+        DALLAS_TEMPERATURE1_FIELD_NUMBER: _ClassVar[int]
+        DALLAS_TEMPERATURE2_FIELD_NUMBER: _ClassVar[int]
+        DALLAS_TEMPERATURE3_FIELD_NUMBER: _ClassVar[int]
+        DALLAS_TEMPERATURE4_FIELD_NUMBER: _ClassVar[int]
+        DALLAS_TEMPERATURE_ID1_FIELD_NUMBER: _ClassVar[int]
+        DALLAS_TEMPERATURE_ID2_FIELD_NUMBER: _ClassVar[int]
+        DALLAS_TEMPERATURE_ID3_FIELD_NUMBER: _ClassVar[int]
+        DALLAS_TEMPERATURE_ID4_FIELD_NUMBER: _ClassVar[int]
+        DALLAS_TEMPERATURE5_FIELD_NUMBER: _ClassVar[int]
+        DALLAS_TEMPERATURE6_FIELD_NUMBER: _ClassVar[int]
+        DALLAS_TEMPERATURE_ID5_FIELD_NUMBER: _ClassVar[int]
+        DALLAS_TEMPERATURE_ID6_FIELD_NUMBER: _ClassVar[int]
+        dallas_temperature1: int
+        dallas_temperature2: int
+        dallas_temperature3: int
+        dallas_temperature4: int
+        dallas_temperature_id1: int
+        dallas_temperature_id2: int
+        dallas_temperature_id3: int
+        dallas_temperature_id4: int
+        dallas_temperature5: int
+        dallas_temperature6: int
+        dallas_temperature_id5: int
+        dallas_temperature_id6: int
+        def __init__(self, dallas_temperature1: _Optional[int] = ..., dallas_temperature2: _Optional[int] = ..., dallas_temperature3: _Optional[int] = ..., dallas_temperature4: _Optional[int] = ..., dallas_temperature_id1: _Optional[int] = ..., dallas_temperature_id2: _Optional[int] = ..., dallas_temperature_id3: _Optional[int] = ..., dallas_temperature_id4: _Optional[int] = ..., dallas_temperature5: _Optional[int] = ..., dallas_temperature6: _Optional[int] = ..., dallas_temperature_id5: _Optional[int] = ..., dallas_temperature_id6: _Optional[int] = ...) -> None: ...
+    class LLS(_message.Message):
+        __slots__ = ("lls1_fuel_level", "lls1_temperature", "lls2_fuel_level", "lls2_temperature", "lls3_fuel_level", "lls3_temperature", "lls4_fuel_level", "lls4_temperature", "lls5_fuel_level", "lls5_temperature")
+        LLS1_FUEL_LEVEL_FIELD_NUMBER: _ClassVar[int]
+        LLS1_TEMPERATURE_FIELD_NUMBER: _ClassVar[int]
+        LLS2_FUEL_LEVEL_FIELD_NUMBER: _ClassVar[int]
+        LLS2_TEMPERATURE_FIELD_NUMBER: _ClassVar[int]
+        LLS3_FUEL_LEVEL_FIELD_NUMBER: _ClassVar[int]
+        LLS3_TEMPERATURE_FIELD_NUMBER: _ClassVar[int]
+        LLS4_FUEL_LEVEL_FIELD_NUMBER: _ClassVar[int]
+        LLS4_TEMPERATURE_FIELD_NUMBER: _ClassVar[int]
+        LLS5_FUEL_LEVEL_FIELD_NUMBER: _ClassVar[int]
+        LLS5_TEMPERATURE_FIELD_NUMBER: _ClassVar[int]
+        lls1_fuel_level: int
+        lls1_temperature: int
+        lls2_fuel_level: int
+        lls2_temperature: int
+        lls3_fuel_level: int
+        lls3_temperature: int
+        lls4_fuel_level: int
+        lls4_temperature: int
+        lls5_fuel_level: int
+        lls5_temperature: int
+        def __init__(self, lls1_fuel_level: _Optional[int] = ..., lls1_temperature: _Optional[int] = ..., lls2_fuel_level: _Optional[int] = ..., lls2_temperature: _Optional[int] = ..., lls3_fuel_level: _Optional[int] = ..., lls3_temperature: _Optional[int] = ..., lls4_fuel_level: _Optional[int] = ..., lls4_temperature: _Optional[int] = ..., lls5_fuel_level: _Optional[int] = ..., lls5_temperature: _Optional[int] = ...) -> None: ...
+    class Eye(_message.Message):
+        __slots__ = ("eye_temperature1", "eye_temperature2", "eye_temperature3", "eye_temperature4", "eye_humidity1", "eye_humidity2", "eye_humidity3", "eye_humidity4", "eye_magnet1", "eye_magnet2", "eye_magnet3", "eye_magnet4", "eye_movement1", "eye_movement2", "eye_movement3", "eye_movement4", "eye_pitch1", "eye_pitch2", "eye_pitch3", "eye_pitch4", "eye_low_battery1", "eye_low_battery2", "eye_low_battery3", "eye_low_battery4", "eye_battery_voltage1", "eye_battery_voltage2", "eye_battery_voltage3", "eye_battery_voltage4", "eye_roll1", "eye_roll2", "eye_roll3", "eye_roll4", "eye_movement_count1", "eye_movement_count2", "eye_movement_count3", "eye_movement_count4", "eye_magnet_count1", "eye_magnet_count2", "eye_magnet_count3", "eye_magnet_count4")
+        EYE_TEMPERATURE1_FIELD_NUMBER: _ClassVar[int]
+        EYE_TEMPERATURE2_FIELD_NUMBER: _ClassVar[int]
+        EYE_TEMPERATURE3_FIELD_NUMBER: _ClassVar[int]
+        EYE_TEMPERATURE4_FIELD_NUMBER: _ClassVar[int]
+        EYE_HUMIDITY1_FIELD_NUMBER: _ClassVar[int]
+        EYE_HUMIDITY2_FIELD_NUMBER: _ClassVar[int]
+        EYE_HUMIDITY3_FIELD_NUMBER: _ClassVar[int]
+        EYE_HUMIDITY4_FIELD_NUMBER: _ClassVar[int]
+        EYE_MAGNET1_FIELD_NUMBER: _ClassVar[int]
+        EYE_MAGNET2_FIELD_NUMBER: _ClassVar[int]
+        EYE_MAGNET3_FIELD_NUMBER: _ClassVar[int]
+        EYE_MAGNET4_FIELD_NUMBER: _ClassVar[int]
+        EYE_MOVEMENT1_FIELD_NUMBER: _ClassVar[int]
+        EYE_MOVEMENT2_FIELD_NUMBER: _ClassVar[int]
+        EYE_MOVEMENT3_FIELD_NUMBER: _ClassVar[int]
+        EYE_MOVEMENT4_FIELD_NUMBER: _ClassVar[int]
+        EYE_PITCH1_FIELD_NUMBER: _ClassVar[int]
+        EYE_PITCH2_FIELD_NUMBER: _ClassVar[int]
+        EYE_PITCH3_FIELD_NUMBER: _ClassVar[int]
+        EYE_PITCH4_FIELD_NUMBER: _ClassVar[int]
+        EYE_LOW_BATTERY1_FIELD_NUMBER: _ClassVar[int]
+        EYE_LOW_BATTERY2_FIELD_NUMBER: _ClassVar[int]
+        EYE_LOW_BATTERY3_FIELD_NUMBER: _ClassVar[int]
+        EYE_LOW_BATTERY4_FIELD_NUMBER: _ClassVar[int]
+        EYE_BATTERY_VOLTAGE1_FIELD_NUMBER: _ClassVar[int]
+        EYE_BATTERY_VOLTAGE2_FIELD_NUMBER: _ClassVar[int]
+        EYE_BATTERY_VOLTAGE3_FIELD_NUMBER: _ClassVar[int]
+        EYE_BATTERY_VOLTAGE4_FIELD_NUMBER: _ClassVar[int]
+        EYE_ROLL1_FIELD_NUMBER: _ClassVar[int]
+        EYE_ROLL2_FIELD_NUMBER: _ClassVar[int]
+        EYE_ROLL3_FIELD_NUMBER: _ClassVar[int]
+        EYE_ROLL4_FIELD_NUMBER: _ClassVar[int]
+        EYE_MOVEMENT_COUNT1_FIELD_NUMBER: _ClassVar[int]
+        EYE_MOVEMENT_COUNT2_FIELD_NUMBER: _ClassVar[int]
+        EYE_MOVEMENT_COUNT3_FIELD_NUMBER: _ClassVar[int]
+        EYE_MOVEMENT_COUNT4_FIELD_NUMBER: _ClassVar[int]
+        EYE_MAGNET_COUNT1_FIELD_NUMBER: _ClassVar[int]
+        EYE_MAGNET_COUNT2_FIELD_NUMBER: _ClassVar[int]
+        EYE_MAGNET_COUNT3_FIELD_NUMBER: _ClassVar[int]
+        EYE_MAGNET_COUNT4_FIELD_NUMBER: _ClassVar[int]
+        eye_temperature1: int
+        eye_temperature2: int
+        eye_temperature3: int
+        eye_temperature4: int
+        eye_humidity1: int
+        eye_humidity2: int
+        eye_humidity3: int
+        eye_humidity4: int
+        eye_magnet1: bool
+        eye_magnet2: bool
+        eye_magnet3: bool
+        eye_magnet4: bool
+        eye_movement1: bool
+        eye_movement2: bool
+        eye_movement3: bool
+        eye_movement4: bool
+        eye_pitch1: int
+        eye_pitch2: int
+        eye_pitch3: int
+        eye_pitch4: int
+        eye_low_battery1: bool
+        eye_low_battery2: bool
+        eye_low_battery3: bool
+        eye_low_battery4: bool
+        eye_battery_voltage1: int
+        eye_battery_voltage2: int
+        eye_battery_voltage3: int
+        eye_battery_voltage4: int
+        eye_roll1: int
+        eye_roll2: int
+        eye_roll3: int
+        eye_roll4: int
+        eye_movement_count1: int
+        eye_movement_count2: int
+        eye_movement_count3: int
+        eye_movement_count4: int
+        eye_magnet_count1: int
+        eye_magnet_count2: int
+        eye_magnet_count3: int
+        eye_magnet_count4: int
+        def __init__(self, eye_temperature1: _Optional[int] = ..., eye_temperature2: _Optional[int] = ..., eye_temperature3: _Optional[int] = ..., eye_temperature4: _Optional[int] = ..., eye_humidity1: _Optional[int] = ..., eye_humidity2: _Optional[int] = ..., eye_humidity3: _Optional[int] = ..., eye_humidity4: _Optional[int] = ..., eye_magnet1: bool = ..., eye_magnet2: bool = ..., eye_magnet3: bool = ..., eye_magnet4: bool = ..., eye_movement1: bool = ..., eye_movement2: bool = ..., eye_movement3: bool = ..., eye_movement4: bool = ..., eye_pitch1: _Optional[int] = ..., eye_pitch2: _Optional[int] = ..., eye_pitch3: _Optional[int] = ..., eye_pitch4: _Optional[int] = ..., eye_low_battery1: bool = ..., eye_low_battery2: bool = ..., eye_low_battery3: bool = ..., eye_low_battery4: bool = ..., eye_battery_voltage1: _Optional[int] = ..., eye_battery_voltage2: _Optional[int] = ..., eye_battery_voltage3: _Optional[int] = ..., eye_battery_voltage4: _Optional[int] = ..., eye_roll1: _Optional[int] = ..., eye_roll2: _Optional[int] = ..., eye_roll3: _Optional[int] = ..., eye_roll4: _Optional[int] = ..., eye_movement_count1: _Optional[int] = ..., eye_movement_count2: _Optional[int] = ..., eye_movement_count3: _Optional[int] = ..., eye_movement_count4: _Optional[int] = ..., eye_magnet_count1: _Optional[int] = ..., eye_magnet_count2: _Optional[int] = ..., eye_magnet_count3: _Optional[int] = ..., eye_magnet_count4: _Optional[int] = ...) -> None: ...
+    class Ble(_message.Message):
+        __slots__ = ("ble_rfid1", "ble_rfid2", "ble_rfid3", "ble_rfid4", "ble_button1_state1", "ble_button1_state2", "ble_button1_state3", "ble_button1_state4", "ble_button2_state1", "ble_button2_state2", "ble_button2_state3", "ble_button2_state4")
+        BLE_RFID1_FIELD_NUMBER: _ClassVar[int]
+        BLE_RFID2_FIELD_NUMBER: _ClassVar[int]
+        BLE_RFID3_FIELD_NUMBER: _ClassVar[int]
+        BLE_RFID4_FIELD_NUMBER: _ClassVar[int]
+        BLE_BUTTON1_STATE1_FIELD_NUMBER: _ClassVar[int]
+        BLE_BUTTON1_STATE2_FIELD_NUMBER: _ClassVar[int]
+        BLE_BUTTON1_STATE3_FIELD_NUMBER: _ClassVar[int]
+        BLE_BUTTON1_STATE4_FIELD_NUMBER: _ClassVar[int]
+        BLE_BUTTON2_STATE1_FIELD_NUMBER: _ClassVar[int]
+        BLE_BUTTON2_STATE2_FIELD_NUMBER: _ClassVar[int]
+        BLE_BUTTON2_STATE3_FIELD_NUMBER: _ClassVar[int]
+        BLE_BUTTON2_STATE4_FIELD_NUMBER: _ClassVar[int]
+        ble_rfid1: bytes
+        ble_rfid2: bytes
+        ble_rfid3: bytes
+        ble_rfid4: bytes
+        ble_button1_state1: bool
+        ble_button1_state2: bool
+        ble_button1_state3: bool
+        ble_button1_state4: bool
+        ble_button2_state1: bool
+        ble_button2_state2: bool
+        ble_button2_state3: bool
+        ble_button2_state4: bool
+        def __init__(self, ble_rfid1: _Optional[bytes] = ..., ble_rfid2: _Optional[bytes] = ..., ble_rfid3: _Optional[bytes] = ..., ble_rfid4: _Optional[bytes] = ..., ble_button1_state1: bool = ..., ble_button1_state2: bool = ..., ble_button1_state3: bool = ..., ble_button1_state4: bool = ..., ble_button2_state1: bool = ..., ble_button2_state2: bool = ..., ble_button2_state3: bool = ..., ble_button2_state4: bool = ...) -> None: ...
+    class Driver(_message.Message):
+        __slots__ = ("user_id", "driver_name", "driver_card_license_type", "driver_gender", "driver_card_id", "driver_card_expiration_date", "driver_card_place_of_issue", "driver_status_event")
+        USER_ID_FIELD_NUMBER: _ClassVar[int]
+        DRIVER_NAME_FIELD_NUMBER: _ClassVar[int]
+        DRIVER_CARD_LICENSE_TYPE_FIELD_NUMBER: _ClassVar[int]
+        DRIVER_GENDER_FIELD_NUMBER: _ClassVar[int]
+        DRIVER_CARD_ID_FIELD_NUMBER: _ClassVar[int]
+        DRIVER_CARD_EXPIRATION_DATE_FIELD_NUMBER: _ClassVar[int]
+        DRIVER_CARD_PLACE_OF_ISSUE_FIELD_NUMBER: _ClassVar[int]
+        DRIVER_STATUS_EVENT_FIELD_NUMBER: _ClassVar[int]
+        user_id: int
+        driver_name: str
+        driver_card_license_type: int
+        driver_gender: int
+        driver_card_id: int
+        driver_card_expiration_date: int
+        driver_card_place_of_issue: int
+        driver_status_event: int
+        def __init__(self, user_id: _Optional[int] = ..., driver_name: _Optional[str] = ..., driver_card_license_type: _Optional[int] = ..., driver_gender: _Optional[int] = ..., driver_card_id: _Optional[int] = ..., driver_card_expiration_date: _Optional[int] = ..., driver_card_place_of_issue: _Optional[int] = ..., driver_status_event: _Optional[int] = ...) -> None: ...
+    class MSP500(_message.Message):
+        __slots__ = ("msp500_vendor_name", "msp500_vehicle_number", "msp500_speed_sensor")
+        MSP500_VENDOR_NAME_FIELD_NUMBER: _ClassVar[int]
+        MSP500_VEHICLE_NUMBER_FIELD_NUMBER: _ClassVar[int]
+        MSP500_SPEED_SENSOR_FIELD_NUMBER: _ClassVar[int]
+        msp500_vendor_name: str
+        msp500_vehicle_number: str
+        msp500_speed_sensor: bool
+        def __init__(self, msp500_vendor_name: _Optional[str] = ..., msp500_vehicle_number: _Optional[str] = ..., msp500_speed_sensor: bool = ...) -> None: ...
+    GSM_FIELD_NUMBER: _ClassVar[int]
+    SLEEP_MODE_FIELD_NUMBER: _ClassVar[int]
+    GNSS_FIELD_NUMBER: _ClassVar[int]
+    PDOP_FIELD_NUMBER: _ClassVar[int]
+    HDOP_FIELD_NUMBER: _ClassVar[int]
+    EXTERNAL_VOLTAGE_FIELD_NUMBER: _ClassVar[int]
+    CELL_ID_FIELD_NUMBER: _ClassVar[int]
+    AREA_CODE_FIELD_NUMBER: _ClassVar[int]
+    BATTERY_VOLTAGE_FIELD_NUMBER: _ClassVar[int]
+    BATTERY_CURRENT_FIELD_NUMBER: _ClassVar[int]
+    BATTERY_PERCENT_FIELD_NUMBER: _ClassVar[int]
+    OPERATOR_CODE_FIELD_NUMBER: _ClassVar[int]
+    TRIP_ODOMETER_FIELD_NUMBER: _ClassVar[int]
+    AI1_FIELD_NUMBER: _ClassVar[int]
+    AI2_FIELD_NUMBER: _ClassVar[int]
+    AI3_FIELD_NUMBER: _ClassVar[int]
+    AI4_FIELD_NUMBER: _ClassVar[int]
+    DI1_FIELD_NUMBER: _ClassVar[int]
+    DI2_FIELD_NUMBER: _ClassVar[int]
+    DI3_FIELD_NUMBER: _ClassVar[int]
+    DI4_FIELD_NUMBER: _ClassVar[int]
+    DO1_FIELD_NUMBER: _ClassVar[int]
+    DO2_FIELD_NUMBER: _ClassVar[int]
+    DO3_FIELD_NUMBER: _ClassVar[int]
+    DO4_FIELD_NUMBER: _ClassVar[int]
+    FUEL_RATE_GPS_FIELD_NUMBER: _ClassVar[int]
+    FUEL_USED_GPS_FIELD_NUMBER: _ClassVar[int]
+    AXIS_X_FIELD_NUMBER: _ClassVar[int]
+    AXIS_Y_FIELD_NUMBER: _ClassVar[int]
+    AXIS_Z_FIELD_NUMBER: _ClassVar[int]
+    ICC_ID_FIELD_NUMBER: _ClassVar[int]
+    SD_STATUS_FIELD_NUMBER: _ClassVar[int]
+    I_BUTTON_FIELD_NUMBER: _ClassVar[int]
+    DALLAS_FIELD_NUMBER: _ClassVar[int]
+    LLS_FIELD_NUMBER: _ClassVar[int]
+    EYE_FIELD_NUMBER: _ClassVar[int]
+    BLE_FIELD_NUMBER: _ClassVar[int]
+    DRIVER_FIELD_NUMBER: _ClassVar[int]
+    MSP500_FIELD_NUMBER: _ClassVar[int]
+    RFID_FIELD_NUMBER: _ClassVar[int]
+    ECO_SCORE_FIELD_NUMBER: _ClassVar[int]
+    NETWORK_TYPE_FIELD_NUMBER: _ClassVar[int]
+    PULSE_COUNTER_DIN1_FIELD_NUMBER: _ClassVar[int]
+    PULSE_COUNTER_DIN2_FIELD_NUMBER: _ClassVar[int]
+    BT_STATUS_FIELD_NUMBER: _ClassVar[int]
+    BARCODE_ID_FIELD_NUMBER: _ClassVar[int]
+    INSTANT_MOVEMENT_FIELD_NUMBER: _ClassVar[int]
+    UL20202_SENSOR_FUEL_LEVEL_FIELD_NUMBER: _ClassVar[int]
+    UL20202_SENSOR_STATUS_FIELD_NUMBER: _ClassVar[int]
+    GROUND_SENSE_FIELD_NUMBER: _ClassVar[int]
+    ISO6709_COORDINATES_FIELD_NUMBER: _ClassVar[int]
+    UMTS_LTE_CELL_ID_FIELD_NUMBER: _ClassVar[int]
+    AIN_SPEED_FIELD_NUMBER: _ClassVar[int]
+    WAKE_REASON_FIELD_NUMBER: _ClassVar[int]
+    AXL_CALIBRATION_STATUS_FIELD_NUMBER: _ClassVar[int]
+    FREQUENCY_DIN1_FIELD_NUMBER: _ClassVar[int]
+    FREQUENCY_DIN2_FIELD_NUMBER: _ClassVar[int]
+    IGNITION_FIELD_NUMBER: _ClassVar[int]
+    IDLING_FIELD_NUMBER: _ClassVar[int]
+    TOWING_FIELD_NUMBER: _ClassVar[int]
+    UNPLUG_FIELD_NUMBER: _ClassVar[int]
+    JAMMING_FIELD_NUMBER: _ClassVar[int]
+    MOVEMENT_FIELD_NUMBER: _ClassVar[int]
+    DATA_MODE_FIELD_NUMBER: _ClassVar[int]
+    SPEED_FIELD_NUMBER: _ClassVar[int]
+    TEMPERATURE_FIELD_NUMBER: _ClassVar[int]
+    SLOPE_X_FIELD_NUMBER: _ClassVar[int]
+    SLOPE_Y_FIELD_NUMBER: _ClassVar[int]
+    SLOPE_Z_FIELD_NUMBER: _ClassVar[int]
+    HUMIDITY_FIELD_NUMBER: _ClassVar[int]
+    FUEL_FLOW_FIELD_NUMBER: _ClassVar[int]
+    DOOR_CAR_FIELD_NUMBER: _ClassVar[int]
+    REALTIME_FIELD_NUMBER: _ClassVar[int]
+    POSITIONING_FIELD_NUMBER: _ClassVar[int]
+    ADMIN_PHONE_NUMBER_FIELD_NUMBER: _ClassVar[int]
+    FUEL_COUNTER_FIELD_NUMBER: _ClassVar[int]
+    IMPULSE_FREQUENCY1_FIELD_NUMBER: _ClassVar[int]
+    IMPULSE_COUNTER1_FIELD_NUMBER: _ClassVar[int]
+    IMPULSE_RPM1_FIELD_NUMBER: _ClassVar[int]
+    IMPULSE_FREQUENCY2_FIELD_NUMBER: _ClassVar[int]
+    IMPULSE_COUNTER2_FIELD_NUMBER: _ClassVar[int]
+    IMPULSE_RPM2_FIELD_NUMBER: _ClassVar[int]
+    IMPULSE_FREQUENCY3_FIELD_NUMBER: _ClassVar[int]
+    IMPULSE_COUNTER3_FIELD_NUMBER: _ClassVar[int]
+    IMPULSE_RPM3_FIELD_NUMBER: _ClassVar[int]
+    IMPULSE_FREQUENCY4_FIELD_NUMBER: _ClassVar[int]
+    IMPULSE_COUNTER4_FIELD_NUMBER: _ClassVar[int]
+    IMPULSE_RPM4_FIELD_NUMBER: _ClassVar[int]
+    NUMBER_OF_DATA_FIELD_NUMBER: _ClassVar[int]
+    RFID_COM2_FIELD_NUMBER: _ClassVar[int]
+    IMSI_FIELD_NUMBER: _ClassVar[int]
+    ULTRASONIC_FUEL_LEVEL1_FIELD_NUMBER: _ClassVar[int]
+    ULTRASONIC_FUEL_LEVEL2_FIELD_NUMBER: _ClassVar[int]
+    ULTRASONIC_SOFTWARE_STATUS1_FIELD_NUMBER: _ClassVar[int]
+    ULTRASONIC_SOFTWARE_STATUS2_FIELD_NUMBER: _ClassVar[int]
+    ONE_WIRE_HUMIDITY1_FIELD_NUMBER: _ClassVar[int]
+    ONE_WIRE_HUMIDITY2_FIELD_NUMBER: _ClassVar[int]
+    ONE_WIRE_HUMIDITY3_FIELD_NUMBER: _ClassVar[int]
+    ONE_WIRE_HUMIDITY4_FIELD_NUMBER: _ClassVar[int]
+    ONE_WIRE_HUMIDITY5_FIELD_NUMBER: _ClassVar[int]
+    ONE_WIRE_HUMIDITY6_FIELD_NUMBER: _ClassVar[int]
+    IMEI_FIELD_NUMBER: _ClassVar[int]
+    NO_SIM_COUNTER_FIELD_NUMBER: _ClassVar[int]
+    CONNECTIVITY_QUALITY_FIELD_NUMBER: _ClassVar[int]
+    gsm: int
+    sleep_mode: int
+    gnss: int
+    pdop: int
+    hdop: int
+    external_voltage: int
+    cell_id: int
+    area_code: int
+    battery_voltage: int
+    battery_current: int
+    battery_percent: int
+    operator_code: int
+    trip_odometer: int
+    ai1: int
+    ai2: int
+    ai3: int
+    ai4: int
+    di1: bool
+    di2: bool
+    di3: bool
+    di4: bool
+    do1: bool
+    do2: bool
+    do3: bool
+    do4: bool
+    fuel_rate_gps: int
+    fuel_used_gps: int
+    axis_x: int
+    axis_y: int
+    axis_z: int
+    icc_id: int
+    sd_status: bool
+    i_button: int
+    dallas: IoElement.DallasTemperature
+    lls: IoElement.LLS
+    eye: IoElement.Eye
+    ble: IoElement.Ble
+    driver: IoElement.Driver
+    msp500: IoElement.MSP500
+    rfid: int
+    eco_score: int
+    network_type: int
+    pulse_counter_din1: int
+    pulse_counter_din2: int
+    bt_status: int
+    barcode_id: str
+    instant_movement: bool
+    ul20202_sensor_fuel_level: int
+    ul20202_sensor_status: int
+    ground_sense: bool
+    iso6709_coordinates: bytes
+    umts_lte_cell_id: int
+    ain_speed: int
+    wake_reason: bool
+    axl_calibration_status: int
+    frequency_din1: int
+    frequency_din2: int
+    ignition: bool
+    idling: bool
+    towing: bool
+    unplug: bool
+    jamming: bool
+    movement: bool
+    data_mode: int
+    speed: int
+    temperature: float
+    slope_x: int
+    slope_y: int
+    slope_z: int
+    humidity: int
+    fuel_flow: int
+    door_car: bool
+    realtime: bool
+    positioning: bool
+    admin_phone_number: int
+    fuel_counter: int
+    impulse_frequency1: int
+    impulse_counter1: int
+    impulse_rpm1: int
+    impulse_frequency2: int
+    impulse_counter2: int
+    impulse_rpm2: int
+    impulse_frequency3: int
+    impulse_counter3: int
+    impulse_rpm3: int
+    impulse_frequency4: int
+    impulse_counter4: int
+    impulse_rpm4: int
+    number_of_data: int
+    rfid_com2: int
+    imsi: int
+    ultrasonic_fuel_level1: int
+    ultrasonic_fuel_level2: int
+    ultrasonic_software_status1: int
+    ultrasonic_software_status2: int
+    one_wire_humidity1: int
+    one_wire_humidity2: int
+    one_wire_humidity3: int
+    one_wire_humidity4: int
+    one_wire_humidity5: int
+    one_wire_humidity6: int
+    imei: int
+    no_sim_counter: int
+    connectivity_quality: int
+    def __init__(self, gsm: _Optional[int] = ..., sleep_mode: _Optional[int] = ..., gnss: _Optional[int] = ..., pdop: _Optional[int] = ..., hdop: _Optional[int] = ..., external_voltage: _Optional[int] = ..., cell_id: _Optional[int] = ..., area_code: _Optional[int] = ..., battery_voltage: _Optional[int] = ..., battery_current: _Optional[int] = ..., battery_percent: _Optional[int] = ..., operator_code: _Optional[int] = ..., trip_odometer: _Optional[int] = ..., ai1: _Optional[int] = ..., ai2: _Optional[int] = ..., ai3: _Optional[int] = ..., ai4: _Optional[int] = ..., di1: bool = ..., di2: bool = ..., di3: bool = ..., di4: bool = ..., do1: bool = ..., do2: bool = ..., do3: bool = ..., do4: bool = ..., fuel_rate_gps: _Optional[int] = ..., fuel_used_gps: _Optional[int] = ..., axis_x: _Optional[int] = ..., axis_y: _Optional[int] = ..., axis_z: _Optional[int] = ..., icc_id: _Optional[int] = ..., sd_status: bool = ..., i_button: _Optional[int] = ..., dallas: _Optional[_Union[IoElement.DallasTemperature, _Mapping]] = ..., lls: _Optional[_Union[IoElement.LLS, _Mapping]] = ..., eye: _Optional[_Union[IoElement.Eye, _Mapping]] = ..., ble: _Optional[_Union[IoElement.Ble, _Mapping]] = ..., driver: _Optional[_Union[IoElement.Driver, _Mapping]] = ..., msp500: _Optional[_Union[IoElement.MSP500, _Mapping]] = ..., rfid: _Optional[int] = ..., eco_score: _Optional[int] = ..., network_type: _Optional[int] = ..., pulse_counter_din1: _Optional[int] = ..., pulse_counter_din2: _Optional[int] = ..., bt_status: _Optional[int] = ..., barcode_id: _Optional[str] = ..., instant_movement: bool = ..., ul20202_sensor_fuel_level: _Optional[int] = ..., ul20202_sensor_status: _Optional[int] = ..., ground_sense: bool = ..., iso6709_coordinates: _Optional[bytes] = ..., umts_lte_cell_id: _Optional[int] = ..., ain_speed: _Optional[int] = ..., wake_reason: bool = ..., axl_calibration_status: _Optional[int] = ..., frequency_din1: _Optional[int] = ..., frequency_din2: _Optional[int] = ..., ignition: bool = ..., idling: bool = ..., towing: bool = ..., unplug: bool = ..., jamming: bool = ..., movement: bool = ..., data_mode: _Optional[int] = ..., speed: _Optional[int] = ..., temperature: _Optional[float] = ..., slope_x: _Optional[int] = ..., slope_y: _Optional[int] = ..., slope_z: _Optional[int] = ..., humidity: _Optional[int] = ..., fuel_flow: _Optional[int] = ..., door_car: bool = ..., realtime: bool = ..., positioning: bool = ..., admin_phone_number: _Optional[int] = ..., fuel_counter: _Optional[int] = ..., impulse_frequency1: _Optional[int] = ..., impulse_counter1: _Optional[int] = ..., impulse_rpm1: _Optional[int] = ..., impulse_frequency2: _Optional[int] = ..., impulse_counter2: _Optional[int] = ..., impulse_rpm2: _Optional[int] = ..., impulse_frequency3: _Optional[int] = ..., impulse_counter3: _Optional[int] = ..., impulse_rpm3: _Optional[int] = ..., impulse_frequency4: _Optional[int] = ..., impulse_counter4: _Optional[int] = ..., impulse_rpm4: _Optional[int] = ..., number_of_data: _Optional[int] = ..., rfid_com2: _Optional[int] = ..., imsi: _Optional[int] = ..., ultrasonic_fuel_level1: _Optional[int] = ..., ultrasonic_fuel_level2: _Optional[int] = ..., ultrasonic_software_status1: _Optional[int] = ..., ultrasonic_software_status2: _Optional[int] = ..., one_wire_humidity1: _Optional[int] = ..., one_wire_humidity2: _Optional[int] = ..., one_wire_humidity3: _Optional[int] = ..., one_wire_humidity4: _Optional[int] = ..., one_wire_humidity5: _Optional[int] = ..., one_wire_humidity6: _Optional[int] = ..., imei: _Optional[int] = ..., no_sim_counter: _Optional[int] = ..., connectivity_quality: _Optional[int] = ...) -> None: ...
+
+class EventualIoElements(_message.Message):
+    __slots__ = ("geo_fence_zone01", "geo_fence_zone02", "geo_fence_zone03", "geo_fence_zone04", "geo_fence_zone05", "geo_fence_zone06", "geo_fence_zone07", "geo_fence_zone08", "geo_fence_zone09", "geo_fence_zone10", "geo_fence_zone11", "geo_fence_zone12", "geo_fence_zone13", "geo_fence_zone14", "geo_fence_zone15", "geo_fence_zone16", "geo_fence_zone17", "geo_fence_zone18", "geo_fence_zone19", "geo_fence_zone20", "geo_fence_zone21", "geo_fence_zone22", "geo_fence_zone23", "geo_fence_zone24", "geo_fence_zone25", "geo_fence_zone26", "geo_fence_zone27", "geo_fence_zone28", "geo_fence_zone29", "geo_fence_zone30", "geo_fence_zone31", "geo_fence_zone32", "geo_fence_zone33", "geo_fence_zone34", "geo_fence_zone35", "geo_fence_zone36", "geo_fence_zone37", "geo_fence_zone38", "geo_fence_zone39", "geo_fence_zone40", "geo_fence_zone41", "geo_fence_zone42", "geo_fence_zone43", "geo_fence_zone44", "geo_fence_zone45", "geo_fence_zone46", "geo_fence_zone47", "geo_fence_zone48", "geo_fence_zone49", "geo_fence_zone50", "green_driving_type", "green_driving_value", "crash_detection", "immobilizer", "icc_id2", "green_driving_event_duration", "alarm", "eco_maximum", "eco_average", "eco_duration", "driving_state", "driving_records", "crash_event_counter", "gnss_jamming", "private_mode", "ignition_on_counter", "motorcycle_fall_detection", "trip", "over_speeding", "crash_trace_data", "blood_alcohol_content", "auto_geo_fence", "icc_id3", "geo_fence_zone51", "geo_fence_zone52", "geo_fence_zone53", "geo_fence_zone54", "geo_fence_zone55", "geo_fence_zone56", "geo_fence_zone57", "geo_fence_zone58", "geo_fence_zone59", "geo_fence_zone60", "geo_fence_zone61", "geo_fence_zone62", "geo_fence_zone63", "geo_fence_zone64", "geo_fence_zone65", "geo_fence_zone66", "geo_fence_zone67", "geo_fence_zone68", "geo_fence_zone69", "geo_fence_zone70", "geo_fence_zone71", "geo_fence_zone72", "geo_fence_zone73", "geo_fence_zone74", "geo_fence_zone75", "geo_fence_zone76", "geo_fence_zone77", "geo_fence_zone78", "geo_fence_zone79", "geo_fence_zone80", "geo_fence_zone81", "geo_fence_zone82", "geo_fence_zone83", "geo_fence_zone84", "geo_fence_zone85", "geo_fence_zone86", "geo_fence_zone87", "geo_fence_zone88", "geo_fence_zone89", "geo_fence_zone90", "geo_fence_zone91", "geo_fence_zone92", "geo_fence_zone93", "geo_fence_zone94", "geo_fence_zone95", "geo_fence_zone96", "geo_fence_zone97", "geo_fence_zone98", "geo_fence_zone99", "geo_fence_zone100")
+    class ZoneEvent(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+        __slots__ = ()
+        LEFT: _ClassVar[EventualIoElements.ZoneEvent]
+        ENTER: _ClassVar[EventualIoElements.ZoneEvent]
+        SPEEDING_END: _ClassVar[EventualIoElements.ZoneEvent]
+        SPEEDING_START: _ClassVar[EventualIoElements.ZoneEvent]
+    LEFT: EventualIoElements.ZoneEvent
+    ENTER: EventualIoElements.ZoneEvent
+    SPEEDING_END: EventualIoElements.ZoneEvent
+    SPEEDING_START: EventualIoElements.ZoneEvent
+    GEO_FENCE_ZONE01_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE02_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE03_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE04_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE05_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE06_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE07_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE08_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE09_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE10_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE11_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE12_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE13_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE14_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE15_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE16_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE17_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE18_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE19_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE20_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE21_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE22_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE23_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE24_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE25_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE26_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE27_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE28_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE29_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE30_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE31_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE32_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE33_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE34_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE35_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE36_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE37_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE38_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE39_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE40_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE41_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE42_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE43_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE44_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE45_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE46_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE47_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE48_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE49_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE50_FIELD_NUMBER: _ClassVar[int]
+    GREEN_DRIVING_TYPE_FIELD_NUMBER: _ClassVar[int]
+    GREEN_DRIVING_VALUE_FIELD_NUMBER: _ClassVar[int]
+    CRASH_DETECTION_FIELD_NUMBER: _ClassVar[int]
+    IMMOBILIZER_FIELD_NUMBER: _ClassVar[int]
+    ICC_ID2_FIELD_NUMBER: _ClassVar[int]
+    GREEN_DRIVING_EVENT_DURATION_FIELD_NUMBER: _ClassVar[int]
+    ALARM_FIELD_NUMBER: _ClassVar[int]
+    ECO_MAXIMUM_FIELD_NUMBER: _ClassVar[int]
+    ECO_AVERAGE_FIELD_NUMBER: _ClassVar[int]
+    ECO_DURATION_FIELD_NUMBER: _ClassVar[int]
+    DRIVING_STATE_FIELD_NUMBER: _ClassVar[int]
+    DRIVING_RECORDS_FIELD_NUMBER: _ClassVar[int]
+    CRASH_EVENT_COUNTER_FIELD_NUMBER: _ClassVar[int]
+    GNSS_JAMMING_FIELD_NUMBER: _ClassVar[int]
+    PRIVATE_MODE_FIELD_NUMBER: _ClassVar[int]
+    IGNITION_ON_COUNTER_FIELD_NUMBER: _ClassVar[int]
+    MOTORCYCLE_FALL_DETECTION_FIELD_NUMBER: _ClassVar[int]
+    TRIP_FIELD_NUMBER: _ClassVar[int]
+    OVER_SPEEDING_FIELD_NUMBER: _ClassVar[int]
+    CRASH_TRACE_DATA_FIELD_NUMBER: _ClassVar[int]
+    BLOOD_ALCOHOL_CONTENT_FIELD_NUMBER: _ClassVar[int]
+    AUTO_GEO_FENCE_FIELD_NUMBER: _ClassVar[int]
+    ICC_ID3_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE51_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE52_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE53_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE54_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE55_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE56_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE57_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE58_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE59_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE60_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE61_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE62_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE63_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE64_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE65_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE66_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE67_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE68_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE69_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE70_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE71_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE72_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE73_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE74_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE75_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE76_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE77_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE78_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE79_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE80_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE81_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE82_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE83_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE84_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE85_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE86_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE87_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE88_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE89_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE90_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE91_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE92_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE93_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE94_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE95_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE96_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE97_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE98_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE99_FIELD_NUMBER: _ClassVar[int]
+    GEO_FENCE_ZONE100_FIELD_NUMBER: _ClassVar[int]
+    geo_fence_zone01: EventualIoElements.ZoneEvent
+    geo_fence_zone02: EventualIoElements.ZoneEvent
+    geo_fence_zone03: EventualIoElements.ZoneEvent
+    geo_fence_zone04: EventualIoElements.ZoneEvent
+    geo_fence_zone05: EventualIoElements.ZoneEvent
+    geo_fence_zone06: EventualIoElements.ZoneEvent
+    geo_fence_zone07: EventualIoElements.ZoneEvent
+    geo_fence_zone08: EventualIoElements.ZoneEvent
+    geo_fence_zone09: EventualIoElements.ZoneEvent
+    geo_fence_zone10: EventualIoElements.ZoneEvent
+    geo_fence_zone11: EventualIoElements.ZoneEvent
+    geo_fence_zone12: EventualIoElements.ZoneEvent
+    geo_fence_zone13: EventualIoElements.ZoneEvent
+    geo_fence_zone14: EventualIoElements.ZoneEvent
+    geo_fence_zone15: EventualIoElements.ZoneEvent
+    geo_fence_zone16: EventualIoElements.ZoneEvent
+    geo_fence_zone17: EventualIoElements.ZoneEvent
+    geo_fence_zone18: EventualIoElements.ZoneEvent
+    geo_fence_zone19: EventualIoElements.ZoneEvent
+    geo_fence_zone20: EventualIoElements.ZoneEvent
+    geo_fence_zone21: EventualIoElements.ZoneEvent
+    geo_fence_zone22: EventualIoElements.ZoneEvent
+    geo_fence_zone23: EventualIoElements.ZoneEvent
+    geo_fence_zone24: EventualIoElements.ZoneEvent
+    geo_fence_zone25: EventualIoElements.ZoneEvent
+    geo_fence_zone26: EventualIoElements.ZoneEvent
+    geo_fence_zone27: EventualIoElements.ZoneEvent
+    geo_fence_zone28: EventualIoElements.ZoneEvent
+    geo_fence_zone29: EventualIoElements.ZoneEvent
+    geo_fence_zone30: EventualIoElements.ZoneEvent
+    geo_fence_zone31: EventualIoElements.ZoneEvent
+    geo_fence_zone32: EventualIoElements.ZoneEvent
+    geo_fence_zone33: EventualIoElements.ZoneEvent
+    geo_fence_zone34: EventualIoElements.ZoneEvent
+    geo_fence_zone35: EventualIoElements.ZoneEvent
+    geo_fence_zone36: EventualIoElements.ZoneEvent
+    geo_fence_zone37: EventualIoElements.ZoneEvent
+    geo_fence_zone38: EventualIoElements.ZoneEvent
+    geo_fence_zone39: EventualIoElements.ZoneEvent
+    geo_fence_zone40: EventualIoElements.ZoneEvent
+    geo_fence_zone41: EventualIoElements.ZoneEvent
+    geo_fence_zone42: EventualIoElements.ZoneEvent
+    geo_fence_zone43: EventualIoElements.ZoneEvent
+    geo_fence_zone44: EventualIoElements.ZoneEvent
+    geo_fence_zone45: EventualIoElements.ZoneEvent
+    geo_fence_zone46: EventualIoElements.ZoneEvent
+    geo_fence_zone47: EventualIoElements.ZoneEvent
+    geo_fence_zone48: EventualIoElements.ZoneEvent
+    geo_fence_zone49: EventualIoElements.ZoneEvent
+    geo_fence_zone50: EventualIoElements.ZoneEvent
+    green_driving_type: int
+    green_driving_value: int
+    crash_detection: int
+    immobilizer: int
+    icc_id2: int
+    green_driving_event_duration: int
+    alarm: bool
+    eco_maximum: int
+    eco_average: int
+    eco_duration: int
+    driving_state: int
+    driving_records: int
+    crash_event_counter: int
+    gnss_jamming: int
+    private_mode: int
+    ignition_on_counter: int
+    motorcycle_fall_detection: int
+    trip: bool
+    over_speeding: int
+    crash_trace_data: bytes
+    blood_alcohol_content: int
+    auto_geo_fence: bool
+    icc_id3: int
+    geo_fence_zone51: EventualIoElements.ZoneEvent
+    geo_fence_zone52: EventualIoElements.ZoneEvent
+    geo_fence_zone53: EventualIoElements.ZoneEvent
+    geo_fence_zone54: EventualIoElements.ZoneEvent
+    geo_fence_zone55: EventualIoElements.ZoneEvent
+    geo_fence_zone56: EventualIoElements.ZoneEvent
+    geo_fence_zone57: EventualIoElements.ZoneEvent
+    geo_fence_zone58: EventualIoElements.ZoneEvent
+    geo_fence_zone59: EventualIoElements.ZoneEvent
+    geo_fence_zone60: EventualIoElements.ZoneEvent
+    geo_fence_zone61: EventualIoElements.ZoneEvent
+    geo_fence_zone62: EventualIoElements.ZoneEvent
+    geo_fence_zone63: EventualIoElements.ZoneEvent
+    geo_fence_zone64: EventualIoElements.ZoneEvent
+    geo_fence_zone65: EventualIoElements.ZoneEvent
+    geo_fence_zone66: EventualIoElements.ZoneEvent
+    geo_fence_zone67: EventualIoElements.ZoneEvent
+    geo_fence_zone68: EventualIoElements.ZoneEvent
+    geo_fence_zone69: EventualIoElements.ZoneEvent
+    geo_fence_zone70: EventualIoElements.ZoneEvent
+    geo_fence_zone71: EventualIoElements.ZoneEvent
+    geo_fence_zone72: EventualIoElements.ZoneEvent
+    geo_fence_zone73: EventualIoElements.ZoneEvent
+    geo_fence_zone74: EventualIoElements.ZoneEvent
+    geo_fence_zone75: EventualIoElements.ZoneEvent
+    geo_fence_zone76: EventualIoElements.ZoneEvent
+    geo_fence_zone77: EventualIoElements.ZoneEvent
+    geo_fence_zone78: EventualIoElements.ZoneEvent
+    geo_fence_zone79: EventualIoElements.ZoneEvent
+    geo_fence_zone80: EventualIoElements.ZoneEvent
+    geo_fence_zone81: EventualIoElements.ZoneEvent
+    geo_fence_zone82: EventualIoElements.ZoneEvent
+    geo_fence_zone83: EventualIoElements.ZoneEvent
+    geo_fence_zone84: EventualIoElements.ZoneEvent
+    geo_fence_zone85: EventualIoElements.ZoneEvent
+    geo_fence_zone86: EventualIoElements.ZoneEvent
+    geo_fence_zone87: EventualIoElements.ZoneEvent
+    geo_fence_zone88: EventualIoElements.ZoneEvent
+    geo_fence_zone89: EventualIoElements.ZoneEvent
+    geo_fence_zone90: EventualIoElements.ZoneEvent
+    geo_fence_zone91: EventualIoElements.ZoneEvent
+    geo_fence_zone92: EventualIoElements.ZoneEvent
+    geo_fence_zone93: EventualIoElements.ZoneEvent
+    geo_fence_zone94: EventualIoElements.ZoneEvent
+    geo_fence_zone95: EventualIoElements.ZoneEvent
+    geo_fence_zone96: EventualIoElements.ZoneEvent
+    geo_fence_zone97: EventualIoElements.ZoneEvent
+    geo_fence_zone98: EventualIoElements.ZoneEvent
+    geo_fence_zone99: EventualIoElements.ZoneEvent
+    geo_fence_zone100: EventualIoElements.ZoneEvent
+    def __init__(self, geo_fence_zone01: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone02: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone03: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone04: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone05: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone06: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone07: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone08: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone09: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone10: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone11: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone12: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone13: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone14: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone15: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone16: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone17: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone18: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone19: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone20: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone21: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone22: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone23: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone24: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone25: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone26: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone27: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone28: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone29: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone30: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone31: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone32: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone33: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone34: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone35: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone36: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone37: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone38: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone39: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone40: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone41: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone42: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone43: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone44: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone45: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone46: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone47: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone48: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone49: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone50: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., green_driving_type: _Optional[int] = ..., green_driving_value: _Optional[int] = ..., crash_detection: _Optional[int] = ..., immobilizer: _Optional[int] = ..., icc_id2: _Optional[int] = ..., green_driving_event_duration: _Optional[int] = ..., alarm: bool = ..., eco_maximum: _Optional[int] = ..., eco_average: _Optional[int] = ..., eco_duration: _Optional[int] = ..., driving_state: _Optional[int] = ..., driving_records: _Optional[int] = ..., crash_event_counter: _Optional[int] = ..., gnss_jamming: _Optional[int] = ..., private_mode: _Optional[int] = ..., ignition_on_counter: _Optional[int] = ..., motorcycle_fall_detection: _Optional[int] = ..., trip: bool = ..., over_speeding: _Optional[int] = ..., crash_trace_data: _Optional[bytes] = ..., blood_alcohol_content: _Optional[int] = ..., auto_geo_fence: bool = ..., icc_id3: _Optional[int] = ..., geo_fence_zone51: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone52: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone53: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone54: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone55: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone56: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone57: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone58: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone59: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone60: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone61: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone62: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone63: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone64: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone65: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone66: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone67: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone68: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone69: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone70: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone71: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone72: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone73: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone74: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone75: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone76: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone77: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone78: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone79: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone80: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone81: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone82: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone83: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone84: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone85: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone86: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone87: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone88: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone89: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone90: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone91: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone92: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone93: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone94: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone95: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone96: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone97: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone98: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone99: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ..., geo_fence_zone100: _Optional[_Union[EventualIoElements.ZoneEvent, str]] = ...) -> None: ...
+
+class ObdElements(_message.Message):
+    __slots__ = ("vin", "short_fuel_trim", "fuel_pressure", "intake_map", "vehicle_speed", "timing_advance", "intake_air_temperature", "maf", "throttle_position", "runtime_since_engine_start", "distance_traveled_mil_on", "relative_fuel_rail_pressure", "direct_fuel_rail_pressure", "commanded_egr", "egr_error", "distance_since_codes_clear", "barometric_pressure", "control_module_voltage", "absolute_load_value", "fuel_type", "ambient_air_temperature", "time_run_with_mil_on", "time_since_codes_cleared", "absolute_fuel_rail_pressure", "hybrid_battery_pack_life", "engine_oil_temperature", "fuel_injection_timing", "throttle_position_group", "commanded_equivalence_r", "intake_map_2_bytes", "hybrid_system_voltage", "hybrid_system_current", "fault_codes", "ecu_break_switch", "coolant_temperature", "number_of_dtc", "engine_load", "engine_rpm", "fuel_level", "fuel_rate", "tire_pressure", "analog", "oil")
+    VIN_FIELD_NUMBER: _ClassVar[int]
+    SHORT_FUEL_TRIM_FIELD_NUMBER: _ClassVar[int]
+    FUEL_PRESSURE_FIELD_NUMBER: _ClassVar[int]
+    INTAKE_MAP_FIELD_NUMBER: _ClassVar[int]
+    VEHICLE_SPEED_FIELD_NUMBER: _ClassVar[int]
+    TIMING_ADVANCE_FIELD_NUMBER: _ClassVar[int]
+    INTAKE_AIR_TEMPERATURE_FIELD_NUMBER: _ClassVar[int]
+    MAF_FIELD_NUMBER: _ClassVar[int]
+    THROTTLE_POSITION_FIELD_NUMBER: _ClassVar[int]
+    RUNTIME_SINCE_ENGINE_START_FIELD_NUMBER: _ClassVar[int]
+    DISTANCE_TRAVELED_MIL_ON_FIELD_NUMBER: _ClassVar[int]
+    RELATIVE_FUEL_RAIL_PRESSURE_FIELD_NUMBER: _ClassVar[int]
+    DIRECT_FUEL_RAIL_PRESSURE_FIELD_NUMBER: _ClassVar[int]
+    COMMANDED_EGR_FIELD_NUMBER: _ClassVar[int]
+    EGR_ERROR_FIELD_NUMBER: _ClassVar[int]
+    DISTANCE_SINCE_CODES_CLEAR_FIELD_NUMBER: _ClassVar[int]
+    BAROMETRIC_PRESSURE_FIELD_NUMBER: _ClassVar[int]
+    CONTROL_MODULE_VOLTAGE_FIELD_NUMBER: _ClassVar[int]
+    ABSOLUTE_LOAD_VALUE_FIELD_NUMBER: _ClassVar[int]
+    FUEL_TYPE_FIELD_NUMBER: _ClassVar[int]
+    AMBIENT_AIR_TEMPERATURE_FIELD_NUMBER: _ClassVar[int]
+    TIME_RUN_WITH_MIL_ON_FIELD_NUMBER: _ClassVar[int]
+    TIME_SINCE_CODES_CLEARED_FIELD_NUMBER: _ClassVar[int]
+    ABSOLUTE_FUEL_RAIL_PRESSURE_FIELD_NUMBER: _ClassVar[int]
+    HYBRID_BATTERY_PACK_LIFE_FIELD_NUMBER: _ClassVar[int]
+    ENGINE_OIL_TEMPERATURE_FIELD_NUMBER: _ClassVar[int]
+    FUEL_INJECTION_TIMING_FIELD_NUMBER: _ClassVar[int]
+    THROTTLE_POSITION_GROUP_FIELD_NUMBER: _ClassVar[int]
+    COMMANDED_EQUIVALENCE_R_FIELD_NUMBER: _ClassVar[int]
+    INTAKE_MAP_2_BYTES_FIELD_NUMBER: _ClassVar[int]
+    HYBRID_SYSTEM_VOLTAGE_FIELD_NUMBER: _ClassVar[int]
+    HYBRID_SYSTEM_CURRENT_FIELD_NUMBER: _ClassVar[int]
+    FAULT_CODES_FIELD_NUMBER: _ClassVar[int]
+    ECU_BREAK_SWITCH_FIELD_NUMBER: _ClassVar[int]
+    COOLANT_TEMPERATURE_FIELD_NUMBER: _ClassVar[int]
+    NUMBER_OF_DTC_FIELD_NUMBER: _ClassVar[int]
+    ENGINE_LOAD_FIELD_NUMBER: _ClassVar[int]
+    ENGINE_RPM_FIELD_NUMBER: _ClassVar[int]
+    FUEL_LEVEL_FIELD_NUMBER: _ClassVar[int]
+    FUEL_RATE_FIELD_NUMBER: _ClassVar[int]
+    TIRE_PRESSURE_FIELD_NUMBER: _ClassVar[int]
+    ANALOG_FIELD_NUMBER: _ClassVar[int]
+    OIL_FIELD_NUMBER: _ClassVar[int]
+    vin: str
+    short_fuel_trim: int
+    fuel_pressure: int
+    intake_map: int
+    vehicle_speed: int
+    timing_advance: int
+    intake_air_temperature: int
+    maf: int
+    throttle_position: int
+    runtime_since_engine_start: int
+    distance_traveled_mil_on: int
+    relative_fuel_rail_pressure: int
+    direct_fuel_rail_pressure: int
+    commanded_egr: int
+    egr_error: int
+    distance_since_codes_clear: int
+    barometric_pressure: int
+    control_module_voltage: int
+    absolute_load_value: int
+    fuel_type: int
+    ambient_air_temperature: int
+    time_run_with_mil_on: int
+    time_since_codes_cleared: int
+    absolute_fuel_rail_pressure: int
+    hybrid_battery_pack_life: int
+    engine_oil_temperature: int
+    fuel_injection_timing: int
+    throttle_position_group: int
+    commanded_equivalence_r: int
+    intake_map_2_bytes: int
+    hybrid_system_voltage: int
+    hybrid_system_current: int
+    fault_codes: str
+    ecu_break_switch: bool
+    coolant_temperature: int
+    number_of_dtc: int
+    engine_load: int
+    engine_rpm: int
+    fuel_level: int
+    fuel_rate: int
+    tire_pressure: int
+    analog: int
+    oil: int
+    def __init__(self, vin: _Optional[str] = ..., short_fuel_trim: _Optional[int] = ..., fuel_pressure: _Optional[int] = ..., intake_map: _Optional[int] = ..., vehicle_speed: _Optional[int] = ..., timing_advance: _Optional[int] = ..., intake_air_temperature: _Optional[int] = ..., maf: _Optional[int] = ..., throttle_position: _Optional[int] = ..., runtime_since_engine_start: _Optional[int] = ..., distance_traveled_mil_on: _Optional[int] = ..., relative_fuel_rail_pressure: _Optional[int] = ..., direct_fuel_rail_pressure: _Optional[int] = ..., commanded_egr: _Optional[int] = ..., egr_error: _Optional[int] = ..., distance_since_codes_clear: _Optional[int] = ..., barometric_pressure: _Optional[int] = ..., control_module_voltage: _Optional[int] = ..., absolute_load_value: _Optional[int] = ..., fuel_type: _Optional[int] = ..., ambient_air_temperature: _Optional[int] = ..., time_run_with_mil_on: _Optional[int] = ..., time_since_codes_cleared: _Optional[int] = ..., absolute_fuel_rail_pressure: _Optional[int] = ..., hybrid_battery_pack_life: _Optional[int] = ..., engine_oil_temperature: _Optional[int] = ..., fuel_injection_timing: _Optional[int] = ..., throttle_position_group: _Optional[int] = ..., commanded_equivalence_r: _Optional[int] = ..., intake_map_2_bytes: _Optional[int] = ..., hybrid_system_voltage: _Optional[int] = ..., hybrid_system_current: _Optional[int] = ..., fault_codes: _Optional[str] = ..., ecu_break_switch: bool = ..., coolant_temperature: _Optional[int] = ..., number_of_dtc: _Optional[int] = ..., engine_load: _Optional[int] = ..., engine_rpm: _Optional[int] = ..., fuel_level: _Optional[int] = ..., fuel_rate: _Optional[int] = ..., tire_pressure: _Optional[int] = ..., analog: _Optional[int] = ..., oil: _Optional[int] = ...) -> None: ...
+
+class FmsElement(_message.Message):
+    __slots__ = ("brake_switch", "wheel_based_speed", "cruise_control_active", "clutch_switch", "pto_state", "acceleration_pedal_position", "engine_current_load", "engine_total_fuel_used", "fuel_level_percentage", "engine_speed", "axle_weight1", "axle_weight2", "axle_weight3", "axle_weight4", "axle_weight5", "axle_weight6", "axle_weight7", "axle_weight8", "axle_weight9", "axle_weight10", "axle_weight11", "axle_weight12", "axle_weight13", "axle_weight14", "axle_weight15", "engine_total_hours_of_operation", "software_version_supported", "diagnostic_supported", "requests_supported", "server_distance", "direction_indication", "tachograph_performance", "handling_info", "system_event", "engine_coolant_temperature", "ambient_air_temperature", "fuel_rate", "instantaneous_fuel_economy", "pto_drive_engagement", "high_resolution_engine_total_fuel_used", "gross_combination_vehicle_weight", "ad_blue_status", "brake_pedal_position", "fuel_level2", "mil_indicator", "tell_tale0", "tell_tale1", "tell_tale2", "tell_tale3", "tell_tale4", "ad_blue_level", "dtc_dm1", "dtc_time_dm1", "dtc_dm2", "dtc_time_dm2")
+    BRAKE_SWITCH_FIELD_NUMBER: _ClassVar[int]
+    WHEEL_BASED_SPEED_FIELD_NUMBER: _ClassVar[int]
+    CRUISE_CONTROL_ACTIVE_FIELD_NUMBER: _ClassVar[int]
+    CLUTCH_SWITCH_FIELD_NUMBER: _ClassVar[int]
+    PTO_STATE_FIELD_NUMBER: _ClassVar[int]
+    ACCELERATION_PEDAL_POSITION_FIELD_NUMBER: _ClassVar[int]
+    ENGINE_CURRENT_LOAD_FIELD_NUMBER: _ClassVar[int]
+    ENGINE_TOTAL_FUEL_USED_FIELD_NUMBER: _ClassVar[int]
+    FUEL_LEVEL_PERCENTAGE_FIELD_NUMBER: _ClassVar[int]
+    ENGINE_SPEED_FIELD_NUMBER: _ClassVar[int]
+    AXLE_WEIGHT1_FIELD_NUMBER: _ClassVar[int]
+    AXLE_WEIGHT2_FIELD_NUMBER: _ClassVar[int]
+    AXLE_WEIGHT3_FIELD_NUMBER: _ClassVar[int]
+    AXLE_WEIGHT4_FIELD_NUMBER: _ClassVar[int]
+    AXLE_WEIGHT5_FIELD_NUMBER: _ClassVar[int]
+    AXLE_WEIGHT6_FIELD_NUMBER: _ClassVar[int]
+    AXLE_WEIGHT7_FIELD_NUMBER: _ClassVar[int]
+    AXLE_WEIGHT8_FIELD_NUMBER: _ClassVar[int]
+    AXLE_WEIGHT9_FIELD_NUMBER: _ClassVar[int]
+    AXLE_WEIGHT10_FIELD_NUMBER: _ClassVar[int]
+    AXLE_WEIGHT11_FIELD_NUMBER: _ClassVar[int]
+    AXLE_WEIGHT12_FIELD_NUMBER: _ClassVar[int]
+    AXLE_WEIGHT13_FIELD_NUMBER: _ClassVar[int]
+    AXLE_WEIGHT14_FIELD_NUMBER: _ClassVar[int]
+    AXLE_WEIGHT15_FIELD_NUMBER: _ClassVar[int]
+    ENGINE_TOTAL_HOURS_OF_OPERATION_FIELD_NUMBER: _ClassVar[int]
+    SOFTWARE_VERSION_SUPPORTED_FIELD_NUMBER: _ClassVar[int]
+    DIAGNOSTIC_SUPPORTED_FIELD_NUMBER: _ClassVar[int]
+    REQUESTS_SUPPORTED_FIELD_NUMBER: _ClassVar[int]
+    SERVER_DISTANCE_FIELD_NUMBER: _ClassVar[int]
+    DIRECTION_INDICATION_FIELD_NUMBER: _ClassVar[int]
+    TACHOGRAPH_PERFORMANCE_FIELD_NUMBER: _ClassVar[int]
+    HANDLING_INFO_FIELD_NUMBER: _ClassVar[int]
+    SYSTEM_EVENT_FIELD_NUMBER: _ClassVar[int]
+    ENGINE_COOLANT_TEMPERATURE_FIELD_NUMBER: _ClassVar[int]
+    AMBIENT_AIR_TEMPERATURE_FIELD_NUMBER: _ClassVar[int]
+    FUEL_RATE_FIELD_NUMBER: _ClassVar[int]
+    INSTANTANEOUS_FUEL_ECONOMY_FIELD_NUMBER: _ClassVar[int]
+    PTO_DRIVE_ENGAGEMENT_FIELD_NUMBER: _ClassVar[int]
+    HIGH_RESOLUTION_ENGINE_TOTAL_FUEL_USED_FIELD_NUMBER: _ClassVar[int]
+    GROSS_COMBINATION_VEHICLE_WEIGHT_FIELD_NUMBER: _ClassVar[int]
+    AD_BLUE_STATUS_FIELD_NUMBER: _ClassVar[int]
+    BRAKE_PEDAL_POSITION_FIELD_NUMBER: _ClassVar[int]
+    FUEL_LEVEL2_FIELD_NUMBER: _ClassVar[int]
+    MIL_INDICATOR_FIELD_NUMBER: _ClassVar[int]
+    TELL_TALE0_FIELD_NUMBER: _ClassVar[int]
+    TELL_TALE1_FIELD_NUMBER: _ClassVar[int]
+    TELL_TALE2_FIELD_NUMBER: _ClassVar[int]
+    TELL_TALE3_FIELD_NUMBER: _ClassVar[int]
+    TELL_TALE4_FIELD_NUMBER: _ClassVar[int]
+    AD_BLUE_LEVEL_FIELD_NUMBER: _ClassVar[int]
+    DTC_DM1_FIELD_NUMBER: _ClassVar[int]
+    DTC_TIME_DM1_FIELD_NUMBER: _ClassVar[int]
+    DTC_DM2_FIELD_NUMBER: _ClassVar[int]
+    DTC_TIME_DM2_FIELD_NUMBER: _ClassVar[int]
+    brake_switch: bool
+    wheel_based_speed: int
+    cruise_control_active: bool
+    clutch_switch: bool
+    pto_state: bool
+    acceleration_pedal_position: int
+    engine_current_load: int
+    engine_total_fuel_used: int
+    fuel_level_percentage: int
+    engine_speed: int
+    axle_weight1: int
+    axle_weight2: int
+    axle_weight3: int
+    axle_weight4: int
+    axle_weight5: int
+    axle_weight6: int
+    axle_weight7: int
+    axle_weight8: int
+    axle_weight9: int
+    axle_weight10: int
+    axle_weight11: int
+    axle_weight12: int
+    axle_weight13: int
+    axle_weight14: int
+    axle_weight15: int
+    engine_total_hours_of_operation: int
+    software_version_supported: int
+    diagnostic_supported: int
+    requests_supported: int
+    server_distance: int
+    direction_indication: int
+    tachograph_performance: int
+    handling_info: int
+    system_event: int
+    engine_coolant_temperature: int
+    ambient_air_temperature: int
+    fuel_rate: int
+    instantaneous_fuel_economy: int
+    pto_drive_engagement: int
+    high_resolution_engine_total_fuel_used: int
+    gross_combination_vehicle_weight: int
+    ad_blue_status: int
+    brake_pedal_position: int
+    fuel_level2: int
+    mil_indicator: int
+    tell_tale0: bytes
+    tell_tale1: bytes
+    tell_tale2: bytes
+    tell_tale3: bytes
+    tell_tale4: bytes
+    ad_blue_level: int
+    dtc_dm1: int
+    dtc_time_dm1: int
+    dtc_dm2: int
+    dtc_time_dm2: int
+    def __init__(self, brake_switch: bool = ..., wheel_based_speed: _Optional[int] = ..., cruise_control_active: bool = ..., clutch_switch: bool = ..., pto_state: bool = ..., acceleration_pedal_position: _Optional[int] = ..., engine_current_load: _Optional[int] = ..., engine_total_fuel_used: _Optional[int] = ..., fuel_level_percentage: _Optional[int] = ..., engine_speed: _Optional[int] = ..., axle_weight1: _Optional[int] = ..., axle_weight2: _Optional[int] = ..., axle_weight3: _Optional[int] = ..., axle_weight4: _Optional[int] = ..., axle_weight5: _Optional[int] = ..., axle_weight6: _Optional[int] = ..., axle_weight7: _Optional[int] = ..., axle_weight8: _Optional[int] = ..., axle_weight9: _Optional[int] = ..., axle_weight10: _Optional[int] = ..., axle_weight11: _Optional[int] = ..., axle_weight12: _Optional[int] = ..., axle_weight13: _Optional[int] = ..., axle_weight14: _Optional[int] = ..., axle_weight15: _Optional[int] = ..., engine_total_hours_of_operation: _Optional[int] = ..., software_version_supported: _Optional[int] = ..., diagnostic_supported: _Optional[int] = ..., requests_supported: _Optional[int] = ..., server_distance: _Optional[int] = ..., direction_indication: _Optional[int] = ..., tachograph_performance: _Optional[int] = ..., handling_info: _Optional[int] = ..., system_event: _Optional[int] = ..., engine_coolant_temperature: _Optional[int] = ..., ambient_air_temperature: _Optional[int] = ..., fuel_rate: _Optional[int] = ..., instantaneous_fuel_economy: _Optional[int] = ..., pto_drive_engagement: _Optional[int] = ..., high_resolution_engine_total_fuel_used: _Optional[int] = ..., gross_combination_vehicle_weight: _Optional[int] = ..., ad_blue_status: _Optional[int] = ..., brake_pedal_position: _Optional[int] = ..., fuel_level2: _Optional[int] = ..., mil_indicator: _Optional[int] = ..., tell_tale0: _Optional[bytes] = ..., tell_tale1: _Optional[bytes] = ..., tell_tale2: _Optional[bytes] = ..., tell_tale3: _Optional[bytes] = ..., tell_tale4: _Optional[bytes] = ..., ad_blue_level: _Optional[int] = ..., dtc_dm1: _Optional[int] = ..., dtc_time_dm1: _Optional[int] = ..., dtc_dm2: _Optional[int] = ..., dtc_time_dm2: _Optional[int] = ...) -> None: ...
+
+class ObdOemElements(_message.Message):
+    __slots__ = ("total_mileage", "fuel_level", "until_service", "battery_charge_state", "battery_charge_level", "battery_power_consumption", "remaining_distance", "battery_state_of_health", "battery_temperature", "distance_until_service")
+    TOTAL_MILEAGE_FIELD_NUMBER: _ClassVar[int]
+    FUEL_LEVEL_FIELD_NUMBER: _ClassVar[int]
+    UNTIL_SERVICE_FIELD_NUMBER: _ClassVar[int]
+    BATTERY_CHARGE_STATE_FIELD_NUMBER: _ClassVar[int]
+    BATTERY_CHARGE_LEVEL_FIELD_NUMBER: _ClassVar[int]
+    BATTERY_POWER_CONSUMPTION_FIELD_NUMBER: _ClassVar[int]
+    REMAINING_DISTANCE_FIELD_NUMBER: _ClassVar[int]
+    BATTERY_STATE_OF_HEALTH_FIELD_NUMBER: _ClassVar[int]
+    BATTERY_TEMPERATURE_FIELD_NUMBER: _ClassVar[int]
+    DISTANCE_UNTIL_SERVICE_FIELD_NUMBER: _ClassVar[int]
+    total_mileage: int
+    fuel_level: int
+    until_service: int
+    battery_charge_state: bool
+    battery_charge_level: int
+    battery_power_consumption: int
+    remaining_distance: int
+    battery_state_of_health: int
+    battery_temperature: int
+    distance_until_service: int
+    def __init__(self, total_mileage: _Optional[int] = ..., fuel_level: _Optional[int] = ..., until_service: _Optional[int] = ..., battery_charge_state: bool = ..., battery_charge_level: _Optional[int] = ..., battery_power_consumption: _Optional[int] = ..., remaining_distance: _Optional[int] = ..., battery_state_of_health: _Optional[int] = ..., battery_temperature: _Optional[int] = ..., distance_until_service: _Optional[int] = ...) -> None: ...
+
+class BleSensorsIoElements(_message.Message):
+    __slots__ = ("beacon", "advanced_ble_beacon_data", "temperature01", "temperature02", "temperature03", "temperature04", "battery01", "battery02", "battery03", "battery04", "humidity01", "humidity02", "humidity03", "humidity04", "fuel_level01", "fuel_level02", "fuel_level03", "fuel_level04", "fuel_frequency01", "fuel_frequency02", "fuel_frequency03", "fuel_frequency04", "luminosity01", "luminosity02", "luminosity03", "luminosity04", "ble01_custom01", "ble01_custom02", "ble01_custom03", "ble01_custom04", "ble01_custom05", "ble02_custom01", "ble02_custom02", "ble02_custom03", "ble02_custom04", "ble02_custom05", "ble03_custom01", "ble03_custom02", "ble03_custom03", "ble03_custom04", "ble03_custom05", "ble04_custom01", "ble04_custom02", "ble04_custom03", "ble04_custom04", "ble04_custom05", "sensor01", "sensor02", "sensor03", "sensor04", "illum01", "illum02", "illum03", "illum04")
+    BEACON_FIELD_NUMBER: _ClassVar[int]
+    ADVANCED_BLE_BEACON_DATA_FIELD_NUMBER: _ClassVar[int]
+    TEMPERATURE01_FIELD_NUMBER: _ClassVar[int]
+    TEMPERATURE02_FIELD_NUMBER: _ClassVar[int]
+    TEMPERATURE03_FIELD_NUMBER: _ClassVar[int]
+    TEMPERATURE04_FIELD_NUMBER: _ClassVar[int]
+    BATTERY01_FIELD_NUMBER: _ClassVar[int]
+    BATTERY02_FIELD_NUMBER: _ClassVar[int]
+    BATTERY03_FIELD_NUMBER: _ClassVar[int]
+    BATTERY04_FIELD_NUMBER: _ClassVar[int]
+    HUMIDITY01_FIELD_NUMBER: _ClassVar[int]
+    HUMIDITY02_FIELD_NUMBER: _ClassVar[int]
+    HUMIDITY03_FIELD_NUMBER: _ClassVar[int]
+    HUMIDITY04_FIELD_NUMBER: _ClassVar[int]
+    FUEL_LEVEL01_FIELD_NUMBER: _ClassVar[int]
+    FUEL_LEVEL02_FIELD_NUMBER: _ClassVar[int]
+    FUEL_LEVEL03_FIELD_NUMBER: _ClassVar[int]
+    FUEL_LEVEL04_FIELD_NUMBER: _ClassVar[int]
+    FUEL_FREQUENCY01_FIELD_NUMBER: _ClassVar[int]
+    FUEL_FREQUENCY02_FIELD_NUMBER: _ClassVar[int]
+    FUEL_FREQUENCY03_FIELD_NUMBER: _ClassVar[int]
+    FUEL_FREQUENCY04_FIELD_NUMBER: _ClassVar[int]
+    LUMINOSITY01_FIELD_NUMBER: _ClassVar[int]
+    LUMINOSITY02_FIELD_NUMBER: _ClassVar[int]
+    LUMINOSITY03_FIELD_NUMBER: _ClassVar[int]
+    LUMINOSITY04_FIELD_NUMBER: _ClassVar[int]
+    BLE01_CUSTOM01_FIELD_NUMBER: _ClassVar[int]
+    BLE01_CUSTOM02_FIELD_NUMBER: _ClassVar[int]
+    BLE01_CUSTOM03_FIELD_NUMBER: _ClassVar[int]
+    BLE01_CUSTOM04_FIELD_NUMBER: _ClassVar[int]
+    BLE01_CUSTOM05_FIELD_NUMBER: _ClassVar[int]
+    BLE02_CUSTOM01_FIELD_NUMBER: _ClassVar[int]
+    BLE02_CUSTOM02_FIELD_NUMBER: _ClassVar[int]
+    BLE02_CUSTOM03_FIELD_NUMBER: _ClassVar[int]
+    BLE02_CUSTOM04_FIELD_NUMBER: _ClassVar[int]
+    BLE02_CUSTOM05_FIELD_NUMBER: _ClassVar[int]
+    BLE03_CUSTOM01_FIELD_NUMBER: _ClassVar[int]
+    BLE03_CUSTOM02_FIELD_NUMBER: _ClassVar[int]
+    BLE03_CUSTOM03_FIELD_NUMBER: _ClassVar[int]
+    BLE03_CUSTOM04_FIELD_NUMBER: _ClassVar[int]
+    BLE03_CUSTOM05_FIELD_NUMBER: _ClassVar[int]
+    BLE04_CUSTOM01_FIELD_NUMBER: _ClassVar[int]
+    BLE04_CUSTOM02_FIELD_NUMBER: _ClassVar[int]
+    BLE04_CUSTOM03_FIELD_NUMBER: _ClassVar[int]
+    BLE04_CUSTOM04_FIELD_NUMBER: _ClassVar[int]
+    BLE04_CUSTOM05_FIELD_NUMBER: _ClassVar[int]
+    SENSOR01_FIELD_NUMBER: _ClassVar[int]
+    SENSOR02_FIELD_NUMBER: _ClassVar[int]
+    SENSOR03_FIELD_NUMBER: _ClassVar[int]
+    SENSOR04_FIELD_NUMBER: _ClassVar[int]
+    ILLUM01_FIELD_NUMBER: _ClassVar[int]
+    ILLUM02_FIELD_NUMBER: _ClassVar[int]
+    ILLUM03_FIELD_NUMBER: _ClassVar[int]
+    ILLUM04_FIELD_NUMBER: _ClassVar[int]
+    beacon: bytes
+    advanced_ble_beacon_data: bytes
+    temperature01: int
+    temperature02: int
+    temperature03: int
+    temperature04: int
+    battery01: int
+    battery02: int
+    battery03: int
+    battery04: int
+    humidity01: int
+    humidity02: int
+    humidity03: int
+    humidity04: int
+    fuel_level01: int
+    fuel_level02: int
+    fuel_level03: int
+    fuel_level04: int
+    fuel_frequency01: int
+    fuel_frequency02: int
+    fuel_frequency03: int
+    fuel_frequency04: int
+    luminosity01: int
+    luminosity02: int
+    luminosity03: int
+    luminosity04: int
+    ble01_custom01: bytes
+    ble01_custom02: int
+    ble01_custom03: int
+    ble01_custom04: int
+    ble01_custom05: int
+    ble02_custom01: bytes
+    ble02_custom02: int
+    ble02_custom03: int
+    ble02_custom04: int
+    ble02_custom05: int
+    ble03_custom01: bytes
+    ble03_custom02: int
+    ble03_custom03: int
+    ble03_custom04: int
+    ble03_custom05: int
+    ble04_custom01: bytes
+    ble04_custom02: int
+    ble04_custom03: int
+    ble04_custom04: int
+    ble04_custom05: int
+    sensor01: int
+    sensor02: int
+    sensor03: int
+    sensor04: int
+    illum01: int
+    illum02: int
+    illum03: int
+    illum04: int
+    def __init__(self, beacon: _Optional[bytes] = ..., advanced_ble_beacon_data: _Optional[bytes] = ..., temperature01: _Optional[int] = ..., temperature02: _Optional[int] = ..., temperature03: _Optional[int] = ..., temperature04: _Optional[int] = ..., battery01: _Optional[int] = ..., battery02: _Optional[int] = ..., battery03: _Optional[int] = ..., battery04: _Optional[int] = ..., humidity01: _Optional[int] = ..., humidity02: _Optional[int] = ..., humidity03: _Optional[int] = ..., humidity04: _Optional[int] = ..., fuel_level01: _Optional[int] = ..., fuel_level02: _Optional[int] = ..., fuel_level03: _Optional[int] = ..., fuel_level04: _Optional[int] = ..., fuel_frequency01: _Optional[int] = ..., fuel_frequency02: _Optional[int] = ..., fuel_frequency03: _Optional[int] = ..., fuel_frequency04: _Optional[int] = ..., luminosity01: _Optional[int] = ..., luminosity02: _Optional[int] = ..., luminosity03: _Optional[int] = ..., luminosity04: _Optional[int] = ..., ble01_custom01: _Optional[bytes] = ..., ble01_custom02: _Optional[int] = ..., ble01_custom03: _Optional[int] = ..., ble01_custom04: _Optional[int] = ..., ble01_custom05: _Optional[int] = ..., ble02_custom01: _Optional[bytes] = ..., ble02_custom02: _Optional[int] = ..., ble02_custom03: _Optional[int] = ..., ble02_custom04: _Optional[int] = ..., ble02_custom05: _Optional[int] = ..., ble03_custom01: _Optional[bytes] = ..., ble03_custom02: _Optional[int] = ..., ble03_custom03: _Optional[int] = ..., ble03_custom04: _Optional[int] = ..., ble03_custom05: _Optional[int] = ..., ble04_custom01: _Optional[bytes] = ..., ble04_custom02: _Optional[int] = ..., ble04_custom03: _Optional[int] = ..., ble04_custom04: _Optional[int] = ..., ble04_custom05: _Optional[int] = ..., sensor01: _Optional[int] = ..., sensor02: _Optional[int] = ..., sensor03: _Optional[int] = ..., sensor04: _Optional[int] = ..., illum01: _Optional[int] = ..., illum02: _Optional[int] = ..., illum03: _Optional[int] = ..., illum04: _Optional[int] = ...) -> None: ...
+
+class CanAdaptersElements(_message.Message):
+    __slots__ = ("vehicle_speed", "accelerator_pedal_position", "fuel_consumed", "fuel_level", "engine_rpm", "total_mileage", "door_status", "program_number", "module_id8b", "module_id17b", "engine_worktime", "engine_worktime_counted", "total_mileage_counted", "fuel_consumed_counted", "fuel_rate", "ad_blue_level_percentage", "ad_blue_level", "engine_load", "engine_temperature", "axle1_load", "axle2_load", "axle3_load", "axle4_load", "axle5_load", "control_state_flags", "agricultural_machinery_flags", "harvesting_time", "area_of_harvest", "mowing_efficiency", "grain_mown_volume", "grain_moisture", "harvesting_drum_rpm", "gap_under_harvesting_drum", "security_state_flags", "tachograph_total_vehicle_distance", "trip_distance", "tachograph_vehicle_speed", "tacho_driver_card_presence", "driver1_states", "driver2_states", "driver1_continuous_driving_time", "driver2_continuous_driving_time", "driver1_cumulative_break_time", "driver2_cumulative_break_time", "driver1_selected_activity_duration", "driver2_selected_activity_duration", "driver1_cumulative_driving_time", "driver2_cumulative_driving_time", "driver1_id_high", "driver1_id_low", "driver2_id_high", "driver2_id_low", "battery_temperature", "hv_battery_level", "dtc_faults", "slope_of_arm", "rotation_of_arm", "eject_of_arm", "horizontal_distance_arm_vehicle", "height_arm_above_ground", "drill_rpm", "amount_of_spread_salt_square_meter", "battery_voltage", "amount_of_spread_fine_grained_salt", "amount_of_coarse_grained_salt", "amount_of_spread_di_mix", "amount_of_spread_coarse_grained_calcium", "amount_of_spread_calcium_chloride", "amount_of_spread_sodium_chloride", "amount_of_spread_magnesium_chloride", "amount_of_spread_gravel", "amount_of_spread_sand", "width_pouring_left", "width_pouring_right", "salt_spreader_working_hours", "distance_during_salting", "load_weight", "retarder_load", "cruise_time", "cng_status", "cng_used", "cng_level", "oil_level", "vehicles_range_on_battery", "vehicles_range_on_additional_fuel", "vin", "fault_codes", "security_state_flags_p4", "control_state_flags_p4", "indicator_state_flags_p4", "agricultural_state_flags_p4", "utility_state_flags_p4", "cistern_state_flags_p4", "lng_used", "lng_used_counted", "lng_level_percentage", "lng_level", "total_lpg_used", "total_lpg_used_counted", "lpg_level_proc", "lpg_level_liters", "ssf", "csf", "isf", "asf", "usf", "cisf", "distance_to_next_service", "cng_level_kg", "distance_from_need_of_service", "distance_from_last_service", "time_to_next_service", "time_from_need_of_service", "time_from_last_service", "distance_to_next_oil_service", "time_to_next_oil_service", "total_bale_count", "bale_count", "cut_bale_count", "bale_slices", "lv_can", "fuel_level_percent", "tire_status")
+    class Ssf(_message.Message):
+        __slots__ = ("ignition", "key_in_ignition_lock", "webasto", "engine_working", "standalone_engine", "ready_to_drive", "engine_working_on_cng", "work_mode", "operator", "interlock", "engine_lock_active", "request_to_lock_engine", "handbrake_is_active", "foot_brake_is_active", "clutch_pushed", "hazard_warning_lights", "front_left_door_open", "front_right_door_open", "rear_left_door_open", "rear_right_door_open", "trunk_door_open", "engine_cover_open", "roof_open", "charging_wire_plugged", "battery_charging", "electric_engine_state", "car_closed_factory_remote", "car_is_closed", "factory_alarm_actuated", "factory_alarm_emulated", "signal_close_factory_remote", "signal_open_factory_remote", "rearming_signal", "trunk_door_opened_factory_remote", "can_module_in_sleep", "factory_remote_3x", "factory_armed", "parking_gear_active_automatic_gear_box", "reverse_gear_active", "neutral_gear_active", "drive_is_active", "engine_working_on_dual_fuel", "engine_working_on_lpg", "engine_door_open")
+        IGNITION_FIELD_NUMBER: _ClassVar[int]
+        KEY_IN_IGNITION_LOCK_FIELD_NUMBER: _ClassVar[int]
+        WEBASTO_FIELD_NUMBER: _ClassVar[int]
+        ENGINE_WORKING_FIELD_NUMBER: _ClassVar[int]
+        STANDALONE_ENGINE_FIELD_NUMBER: _ClassVar[int]
+        READY_TO_DRIVE_FIELD_NUMBER: _ClassVar[int]
+        ENGINE_WORKING_ON_CNG_FIELD_NUMBER: _ClassVar[int]
+        WORK_MODE_FIELD_NUMBER: _ClassVar[int]
+        OPERATOR_FIELD_NUMBER: _ClassVar[int]
+        INTERLOCK_FIELD_NUMBER: _ClassVar[int]
+        ENGINE_LOCK_ACTIVE_FIELD_NUMBER: _ClassVar[int]
+        REQUEST_TO_LOCK_ENGINE_FIELD_NUMBER: _ClassVar[int]
+        HANDBRAKE_IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
+        FOOT_BRAKE_IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
+        CLUTCH_PUSHED_FIELD_NUMBER: _ClassVar[int]
+        HAZARD_WARNING_LIGHTS_FIELD_NUMBER: _ClassVar[int]
+        FRONT_LEFT_DOOR_OPEN_FIELD_NUMBER: _ClassVar[int]
+        FRONT_RIGHT_DOOR_OPEN_FIELD_NUMBER: _ClassVar[int]
+        REAR_LEFT_DOOR_OPEN_FIELD_NUMBER: _ClassVar[int]
+        REAR_RIGHT_DOOR_OPEN_FIELD_NUMBER: _ClassVar[int]
+        TRUNK_DOOR_OPEN_FIELD_NUMBER: _ClassVar[int]
+        ENGINE_COVER_OPEN_FIELD_NUMBER: _ClassVar[int]
+        ROOF_OPEN_FIELD_NUMBER: _ClassVar[int]
+        CHARGING_WIRE_PLUGGED_FIELD_NUMBER: _ClassVar[int]
+        BATTERY_CHARGING_FIELD_NUMBER: _ClassVar[int]
+        ELECTRIC_ENGINE_STATE_FIELD_NUMBER: _ClassVar[int]
+        CAR_CLOSED_FACTORY_REMOTE_FIELD_NUMBER: _ClassVar[int]
+        CAR_IS_CLOSED_FIELD_NUMBER: _ClassVar[int]
+        FACTORY_ALARM_ACTUATED_FIELD_NUMBER: _ClassVar[int]
+        FACTORY_ALARM_EMULATED_FIELD_NUMBER: _ClassVar[int]
+        SIGNAL_CLOSE_FACTORY_REMOTE_FIELD_NUMBER: _ClassVar[int]
+        SIGNAL_OPEN_FACTORY_REMOTE_FIELD_NUMBER: _ClassVar[int]
+        REARMING_SIGNAL_FIELD_NUMBER: _ClassVar[int]
+        TRUNK_DOOR_OPENED_FACTORY_REMOTE_FIELD_NUMBER: _ClassVar[int]
+        CAN_MODULE_IN_SLEEP_FIELD_NUMBER: _ClassVar[int]
+        FACTORY_REMOTE_3X_FIELD_NUMBER: _ClassVar[int]
+        FACTORY_ARMED_FIELD_NUMBER: _ClassVar[int]
+        PARKING_GEAR_ACTIVE_AUTOMATIC_GEAR_BOX_FIELD_NUMBER: _ClassVar[int]
+        REVERSE_GEAR_ACTIVE_FIELD_NUMBER: _ClassVar[int]
+        NEUTRAL_GEAR_ACTIVE_FIELD_NUMBER: _ClassVar[int]
+        DRIVE_IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
+        ENGINE_WORKING_ON_DUAL_FUEL_FIELD_NUMBER: _ClassVar[int]
+        ENGINE_WORKING_ON_LPG_FIELD_NUMBER: _ClassVar[int]
+        ENGINE_DOOR_OPEN_FIELD_NUMBER: _ClassVar[int]
+        ignition: bool
+        key_in_ignition_lock: bool
+        webasto: bool
+        engine_working: bool
+        standalone_engine: bool
+        ready_to_drive: bool
+        engine_working_on_cng: bool
+        work_mode: bool
+        operator: bool
+        interlock: bool
+        engine_lock_active: bool
+        request_to_lock_engine: bool
+        handbrake_is_active: bool
+        foot_brake_is_active: bool
+        clutch_pushed: bool
+        hazard_warning_lights: bool
+        front_left_door_open: bool
+        front_right_door_open: bool
+        rear_left_door_open: bool
+        rear_right_door_open: bool
+        trunk_door_open: bool
+        engine_cover_open: bool
+        roof_open: bool
+        charging_wire_plugged: bool
+        battery_charging: bool
+        electric_engine_state: bool
+        car_closed_factory_remote: bool
+        car_is_closed: bool
+        factory_alarm_actuated: bool
+        factory_alarm_emulated: bool
+        signal_close_factory_remote: bool
+        signal_open_factory_remote: bool
+        rearming_signal: bool
+        trunk_door_opened_factory_remote: bool
+        can_module_in_sleep: bool
+        factory_remote_3x: bool
+        factory_armed: bool
+        parking_gear_active_automatic_gear_box: bool
+        reverse_gear_active: bool
+        neutral_gear_active: bool
+        drive_is_active: bool
+        engine_working_on_dual_fuel: bool
+        engine_working_on_lpg: bool
+        engine_door_open: bool
+        def __init__(self, ignition: bool = ..., key_in_ignition_lock: bool = ..., webasto: bool = ..., engine_working: bool = ..., standalone_engine: bool = ..., ready_to_drive: bool = ..., engine_working_on_cng: bool = ..., work_mode: bool = ..., operator: bool = ..., interlock: bool = ..., engine_lock_active: bool = ..., request_to_lock_engine: bool = ..., handbrake_is_active: bool = ..., foot_brake_is_active: bool = ..., clutch_pushed: bool = ..., hazard_warning_lights: bool = ..., front_left_door_open: bool = ..., front_right_door_open: bool = ..., rear_left_door_open: bool = ..., rear_right_door_open: bool = ..., trunk_door_open: bool = ..., engine_cover_open: bool = ..., roof_open: bool = ..., charging_wire_plugged: bool = ..., battery_charging: bool = ..., electric_engine_state: bool = ..., car_closed_factory_remote: bool = ..., car_is_closed: bool = ..., factory_alarm_actuated: bool = ..., factory_alarm_emulated: bool = ..., signal_close_factory_remote: bool = ..., signal_open_factory_remote: bool = ..., rearming_signal: bool = ..., trunk_door_opened_factory_remote: bool = ..., can_module_in_sleep: bool = ..., factory_remote_3x: bool = ..., factory_armed: bool = ..., parking_gear_active_automatic_gear_box: bool = ..., reverse_gear_active: bool = ..., neutral_gear_active: bool = ..., drive_is_active: bool = ..., engine_working_on_dual_fuel: bool = ..., engine_working_on_lpg: bool = ..., engine_door_open: bool = ...) -> None: ...
+    class Csf(_message.Message):
+        __slots__ = ("parking_lights", "dipped_head_lights", "full_beam_headlights", "rear_fog_lights", "front_fog_lights", "additional_front_lights", "additional_rear_lights", "light_signal", "air_conditioning", "cruise_control", "automatic_retarder", "manual_retarder", "driver_seatbelt_fastened", "front_driver_seatbelt_fastened", "left_driver_seatbelt_fastened", "right_driver_seatbelt_fastened", "centre_driver_seatbelt_fastened", "front_passenger_present", "pto", "front_differential_locked", "rear_differential_locked", "central_differential4hi_locked", "rear_differential4lo_locked", "trailer_axle1_lift_active", "trailer_axle2_lift_active", "trailer_connected", "start_stop_system_inactive")
+        PARKING_LIGHTS_FIELD_NUMBER: _ClassVar[int]
+        DIPPED_HEAD_LIGHTS_FIELD_NUMBER: _ClassVar[int]
+        FULL_BEAM_HEADLIGHTS_FIELD_NUMBER: _ClassVar[int]
+        REAR_FOG_LIGHTS_FIELD_NUMBER: _ClassVar[int]
+        FRONT_FOG_LIGHTS_FIELD_NUMBER: _ClassVar[int]
+        ADDITIONAL_FRONT_LIGHTS_FIELD_NUMBER: _ClassVar[int]
+        ADDITIONAL_REAR_LIGHTS_FIELD_NUMBER: _ClassVar[int]
+        LIGHT_SIGNAL_FIELD_NUMBER: _ClassVar[int]
+        AIR_CONDITIONING_FIELD_NUMBER: _ClassVar[int]
+        CRUISE_CONTROL_FIELD_NUMBER: _ClassVar[int]
+        AUTOMATIC_RETARDER_FIELD_NUMBER: _ClassVar[int]
+        MANUAL_RETARDER_FIELD_NUMBER: _ClassVar[int]
+        DRIVER_SEATBELT_FASTENED_FIELD_NUMBER: _ClassVar[int]
+        FRONT_DRIVER_SEATBELT_FASTENED_FIELD_NUMBER: _ClassVar[int]
+        LEFT_DRIVER_SEATBELT_FASTENED_FIELD_NUMBER: _ClassVar[int]
+        RIGHT_DRIVER_SEATBELT_FASTENED_FIELD_NUMBER: _ClassVar[int]
+        CENTRE_DRIVER_SEATBELT_FASTENED_FIELD_NUMBER: _ClassVar[int]
+        FRONT_PASSENGER_PRESENT_FIELD_NUMBER: _ClassVar[int]
+        PTO_FIELD_NUMBER: _ClassVar[int]
+        FRONT_DIFFERENTIAL_LOCKED_FIELD_NUMBER: _ClassVar[int]
+        REAR_DIFFERENTIAL_LOCKED_FIELD_NUMBER: _ClassVar[int]
+        CENTRAL_DIFFERENTIAL4HI_LOCKED_FIELD_NUMBER: _ClassVar[int]
+        REAR_DIFFERENTIAL4LO_LOCKED_FIELD_NUMBER: _ClassVar[int]
+        TRAILER_AXLE1_LIFT_ACTIVE_FIELD_NUMBER: _ClassVar[int]
+        TRAILER_AXLE2_LIFT_ACTIVE_FIELD_NUMBER: _ClassVar[int]
+        TRAILER_CONNECTED_FIELD_NUMBER: _ClassVar[int]
+        START_STOP_SYSTEM_INACTIVE_FIELD_NUMBER: _ClassVar[int]
+        parking_lights: bool
+        dipped_head_lights: bool
+        full_beam_headlights: bool
+        rear_fog_lights: bool
+        front_fog_lights: bool
+        additional_front_lights: bool
+        additional_rear_lights: bool
+        light_signal: bool
+        air_conditioning: bool
+        cruise_control: bool
+        automatic_retarder: bool
+        manual_retarder: bool
+        driver_seatbelt_fastened: bool
+        front_driver_seatbelt_fastened: bool
+        left_driver_seatbelt_fastened: bool
+        right_driver_seatbelt_fastened: bool
+        centre_driver_seatbelt_fastened: bool
+        front_passenger_present: bool
+        pto: bool
+        front_differential_locked: bool
+        rear_differential_locked: bool
+        central_differential4hi_locked: bool
+        rear_differential4lo_locked: bool
+        trailer_axle1_lift_active: bool
+        trailer_axle2_lift_active: bool
+        trailer_connected: bool
+        start_stop_system_inactive: bool
+        def __init__(self, parking_lights: bool = ..., dipped_head_lights: bool = ..., full_beam_headlights: bool = ..., rear_fog_lights: bool = ..., front_fog_lights: bool = ..., additional_front_lights: bool = ..., additional_rear_lights: bool = ..., light_signal: bool = ..., air_conditioning: bool = ..., cruise_control: bool = ..., automatic_retarder: bool = ..., manual_retarder: bool = ..., driver_seatbelt_fastened: bool = ..., front_driver_seatbelt_fastened: bool = ..., left_driver_seatbelt_fastened: bool = ..., right_driver_seatbelt_fastened: bool = ..., centre_driver_seatbelt_fastened: bool = ..., front_passenger_present: bool = ..., pto: bool = ..., front_differential_locked: bool = ..., rear_differential_locked: bool = ..., central_differential4hi_locked: bool = ..., rear_differential4lo_locked: bool = ..., trailer_axle1_lift_active: bool = ..., trailer_axle2_lift_active: bool = ..., trailer_connected: bool = ..., start_stop_system_inactive: bool = ...) -> None: ...
+    class Isf(_message.Message):
+        __slots__ = ("check_engine_indicator", "abs_indicator", "esp_indicator", "esp_turned_off", "stop_indicator", "oil_level_indicator", "coolant_liquid_level", "battery_not_charging_indicator", "handbrake_system_indicator", "airbag_indicator", "eps_indicator", "warning_indicator", "lights_failure_indicator", "low_tire_pressure_indicator", "wear_of_brake_pads_indicator", "low_fuel_level_indicator", "maintenance_required_indicator", "glow_plug_indicator", "fap_indicator", "epc_electronic_power_control_indicator", "clogged_engine_oil_filter_indicator", "low_engine_oil_pressure_indicator", "too_high_engine_oil_temperature_indicator", "low_coolant_level_indicator", "clogged_hydraulic_system_oil_filter_indicator", "hydraulic_system_low_pressure_indicator", "hydraulic_oil_low_level_indicator", "hydraulic_system_high_temperature_indicator", "oil_overflow_in_hydraulic_chamber_indicator", "clogged_air_filter_indicator", "clogged_fuel_filter_indicator", "water_in_fuel_indicator", "clogged_brake_system_filter_indicator", "low_washer_fluid_level_indicator", "low_ad_blue_level_indicator", "low_trailer_tyre_pressure_indicator", "wear_of_trailer_brake_lining_indicator", "high_trailer_brake_temperature_indicator", "incorrect_trailer_pneumatic_supply_indicator", "low_cng_level_indicator")
+        CHECK_ENGINE_INDICATOR_FIELD_NUMBER: _ClassVar[int]
+        ABS_INDICATOR_FIELD_NUMBER: _ClassVar[int]
+        ESP_INDICATOR_FIELD_NUMBER: _ClassVar[int]
+        ESP_TURNED_OFF_FIELD_NUMBER: _ClassVar[int]
+        STOP_INDICATOR_FIELD_NUMBER: _ClassVar[int]
+        OIL_LEVEL_INDICATOR_FIELD_NUMBER: _ClassVar[int]
+        COOLANT_LIQUID_LEVEL_FIELD_NUMBER: _ClassVar[int]
+        BATTERY_NOT_CHARGING_INDICATOR_FIELD_NUMBER: _ClassVar[int]
+        HANDBRAKE_SYSTEM_INDICATOR_FIELD_NUMBER: _ClassVar[int]
+        AIRBAG_INDICATOR_FIELD_NUMBER: _ClassVar[int]
+        EPS_INDICATOR_FIELD_NUMBER: _ClassVar[int]
+        WARNING_INDICATOR_FIELD_NUMBER: _ClassVar[int]
+        LIGHTS_FAILURE_INDICATOR_FIELD_NUMBER: _ClassVar[int]
+        LOW_TIRE_PRESSURE_INDICATOR_FIELD_NUMBER: _ClassVar[int]
+        WEAR_OF_BRAKE_PADS_INDICATOR_FIELD_NUMBER: _ClassVar[int]
+        LOW_FUEL_LEVEL_INDICATOR_FIELD_NUMBER: _ClassVar[int]
+        MAINTENANCE_REQUIRED_INDICATOR_FIELD_NUMBER: _ClassVar[int]
+        GLOW_PLUG_INDICATOR_FIELD_NUMBER: _ClassVar[int]
+        FAP_INDICATOR_FIELD_NUMBER: _ClassVar[int]
+        EPC_ELECTRONIC_POWER_CONTROL_INDICATOR_FIELD_NUMBER: _ClassVar[int]
+        CLOGGED_ENGINE_OIL_FILTER_INDICATOR_FIELD_NUMBER: _ClassVar[int]
+        LOW_ENGINE_OIL_PRESSURE_INDICATOR_FIELD_NUMBER: _ClassVar[int]
+        TOO_HIGH_ENGINE_OIL_TEMPERATURE_INDICATOR_FIELD_NUMBER: _ClassVar[int]
+        LOW_COOLANT_LEVEL_INDICATOR_FIELD_NUMBER: _ClassVar[int]
+        CLOGGED_HYDRAULIC_SYSTEM_OIL_FILTER_INDICATOR_FIELD_NUMBER: _ClassVar[int]
+        HYDRAULIC_SYSTEM_LOW_PRESSURE_INDICATOR_FIELD_NUMBER: _ClassVar[int]
+        HYDRAULIC_OIL_LOW_LEVEL_INDICATOR_FIELD_NUMBER: _ClassVar[int]
+        HYDRAULIC_SYSTEM_HIGH_TEMPERATURE_INDICATOR_FIELD_NUMBER: _ClassVar[int]
+        OIL_OVERFLOW_IN_HYDRAULIC_CHAMBER_INDICATOR_FIELD_NUMBER: _ClassVar[int]
+        CLOGGED_AIR_FILTER_INDICATOR_FIELD_NUMBER: _ClassVar[int]
+        CLOGGED_FUEL_FILTER_INDICATOR_FIELD_NUMBER: _ClassVar[int]
+        WATER_IN_FUEL_INDICATOR_FIELD_NUMBER: _ClassVar[int]
+        CLOGGED_BRAKE_SYSTEM_FILTER_INDICATOR_FIELD_NUMBER: _ClassVar[int]
+        LOW_WASHER_FLUID_LEVEL_INDICATOR_FIELD_NUMBER: _ClassVar[int]
+        LOW_AD_BLUE_LEVEL_INDICATOR_FIELD_NUMBER: _ClassVar[int]
+        LOW_TRAILER_TYRE_PRESSURE_INDICATOR_FIELD_NUMBER: _ClassVar[int]
+        WEAR_OF_TRAILER_BRAKE_LINING_INDICATOR_FIELD_NUMBER: _ClassVar[int]
+        HIGH_TRAILER_BRAKE_TEMPERATURE_INDICATOR_FIELD_NUMBER: _ClassVar[int]
+        INCORRECT_TRAILER_PNEUMATIC_SUPPLY_INDICATOR_FIELD_NUMBER: _ClassVar[int]
+        LOW_CNG_LEVEL_INDICATOR_FIELD_NUMBER: _ClassVar[int]
+        check_engine_indicator: bool
+        abs_indicator: bool
+        esp_indicator: bool
+        esp_turned_off: bool
+        stop_indicator: bool
+        oil_level_indicator: bool
+        coolant_liquid_level: bool
+        battery_not_charging_indicator: bool
+        handbrake_system_indicator: bool
+        airbag_indicator: bool
+        eps_indicator: bool
+        warning_indicator: bool
+        lights_failure_indicator: bool
+        low_tire_pressure_indicator: bool
+        wear_of_brake_pads_indicator: bool
+        low_fuel_level_indicator: bool
+        maintenance_required_indicator: bool
+        glow_plug_indicator: bool
+        fap_indicator: bool
+        epc_electronic_power_control_indicator: bool
+        clogged_engine_oil_filter_indicator: bool
+        low_engine_oil_pressure_indicator: bool
+        too_high_engine_oil_temperature_indicator: bool
+        low_coolant_level_indicator: bool
+        clogged_hydraulic_system_oil_filter_indicator: bool
+        hydraulic_system_low_pressure_indicator: bool
+        hydraulic_oil_low_level_indicator: bool
+        hydraulic_system_high_temperature_indicator: bool
+        oil_overflow_in_hydraulic_chamber_indicator: bool
+        clogged_air_filter_indicator: bool
+        clogged_fuel_filter_indicator: bool
+        water_in_fuel_indicator: bool
+        clogged_brake_system_filter_indicator: bool
+        low_washer_fluid_level_indicator: bool
+        low_ad_blue_level_indicator: bool
+        low_trailer_tyre_pressure_indicator: bool
+        wear_of_trailer_brake_lining_indicator: bool
+        high_trailer_brake_temperature_indicator: bool
+        incorrect_trailer_pneumatic_supply_indicator: bool
+        low_cng_level_indicator: bool
+        def __init__(self, check_engine_indicator: bool = ..., abs_indicator: bool = ..., esp_indicator: bool = ..., esp_turned_off: bool = ..., stop_indicator: bool = ..., oil_level_indicator: bool = ..., coolant_liquid_level: bool = ..., battery_not_charging_indicator: bool = ..., handbrake_system_indicator: bool = ..., airbag_indicator: bool = ..., eps_indicator: bool = ..., warning_indicator: bool = ..., lights_failure_indicator: bool = ..., low_tire_pressure_indicator: bool = ..., wear_of_brake_pads_indicator: bool = ..., low_fuel_level_indicator: bool = ..., maintenance_required_indicator: bool = ..., glow_plug_indicator: bool = ..., fap_indicator: bool = ..., epc_electronic_power_control_indicator: bool = ..., clogged_engine_oil_filter_indicator: bool = ..., low_engine_oil_pressure_indicator: bool = ..., too_high_engine_oil_temperature_indicator: bool = ..., low_coolant_level_indicator: bool = ..., clogged_hydraulic_system_oil_filter_indicator: bool = ..., hydraulic_system_low_pressure_indicator: bool = ..., hydraulic_oil_low_level_indicator: bool = ..., hydraulic_system_high_temperature_indicator: bool = ..., oil_overflow_in_hydraulic_chamber_indicator: bool = ..., clogged_air_filter_indicator: bool = ..., clogged_fuel_filter_indicator: bool = ..., water_in_fuel_indicator: bool = ..., clogged_brake_system_filter_indicator: bool = ..., low_washer_fluid_level_indicator: bool = ..., low_ad_blue_level_indicator: bool = ..., low_trailer_tyre_pressure_indicator: bool = ..., wear_of_trailer_brake_lining_indicator: bool = ..., high_trailer_brake_temperature_indicator: bool = ..., incorrect_trailer_pneumatic_supply_indicator: bool = ..., low_cng_level_indicator: bool = ...) -> None: ...
+    class Asf(_message.Message):
+        __slots__ = ("right_joystick_moved_right_active", "right_joystick_moved_left_active", "right_joystick_moved_forward_active", "right_joystick_moved_back_active", "left_joystick_moved_right_active", "left_joystick_moved_left_active", "left_joystick_moved_forward_active", "left_joystick_moved_back_active", "first_rear_hydraulic", "second_rear_hydraulic", "third_rear_hydraulic", "fourth_rear_hydraulic", "first_front_hydraulic", "second_front_hydraulic", "third_front_hydraulic", "fourth_front_hydraulic", "front_three_point_hitch", "rear_three_point_hitch", "front_power_take_off", "rear_power_take_off", "mowing_active", "threshing_active", "grain_release_from_hopper", "grain_tank_is_100_full", "grain_tank_is_70_full", "grain_tank_is_opened", "unloader_drive", "cleaning_fan_control_turned_off", "threshing_drum_control_turned_off", "straw_walker_is_clogged", "excessive_clearance_under_the_threshing_drum", "low_temperature_of_drive_system_hydraulics_less_than_5_grades", "high_temperature_of_drive_system_hydraulics_greater_than_86_grades", "ear_auger_speed_below_the_norm", "grain_auger_speed_below_the_norm", "straw_chooper_speed_below_the_norm", "straw_shaker_speed_below_the_norm", "feeder_speed_below_the_norm", "straw_chopper_switched_on", "corn_header_connected", "grain_header_connected", "feeder_reverse_switched_on", "the_pressure_filter_of_the_hydraulic_pump_is_clogged", "adapter_pressure_filter_sensor", "service2_required_indicator", "drain_filter_clogged_indicator", "section1_spraying", "section2_spraying", "section3_spraying", "section4_spraying", "section5_spraying", "section6_spraying", "section7_spraying", "section8_spraying", "section9_spraying")
+        RIGHT_JOYSTICK_MOVED_RIGHT_ACTIVE_FIELD_NUMBER: _ClassVar[int]
+        RIGHT_JOYSTICK_MOVED_LEFT_ACTIVE_FIELD_NUMBER: _ClassVar[int]
+        RIGHT_JOYSTICK_MOVED_FORWARD_ACTIVE_FIELD_NUMBER: _ClassVar[int]
+        RIGHT_JOYSTICK_MOVED_BACK_ACTIVE_FIELD_NUMBER: _ClassVar[int]
+        LEFT_JOYSTICK_MOVED_RIGHT_ACTIVE_FIELD_NUMBER: _ClassVar[int]
+        LEFT_JOYSTICK_MOVED_LEFT_ACTIVE_FIELD_NUMBER: _ClassVar[int]
+        LEFT_JOYSTICK_MOVED_FORWARD_ACTIVE_FIELD_NUMBER: _ClassVar[int]
+        LEFT_JOYSTICK_MOVED_BACK_ACTIVE_FIELD_NUMBER: _ClassVar[int]
+        FIRST_REAR_HYDRAULIC_FIELD_NUMBER: _ClassVar[int]
+        SECOND_REAR_HYDRAULIC_FIELD_NUMBER: _ClassVar[int]
+        THIRD_REAR_HYDRAULIC_FIELD_NUMBER: _ClassVar[int]
+        FOURTH_REAR_HYDRAULIC_FIELD_NUMBER: _ClassVar[int]
+        FIRST_FRONT_HYDRAULIC_FIELD_NUMBER: _ClassVar[int]
+        SECOND_FRONT_HYDRAULIC_FIELD_NUMBER: _ClassVar[int]
+        THIRD_FRONT_HYDRAULIC_FIELD_NUMBER: _ClassVar[int]
+        FOURTH_FRONT_HYDRAULIC_FIELD_NUMBER: _ClassVar[int]
+        FRONT_THREE_POINT_HITCH_FIELD_NUMBER: _ClassVar[int]
+        REAR_THREE_POINT_HITCH_FIELD_NUMBER: _ClassVar[int]
+        FRONT_POWER_TAKE_OFF_FIELD_NUMBER: _ClassVar[int]
+        REAR_POWER_TAKE_OFF_FIELD_NUMBER: _ClassVar[int]
+        MOWING_ACTIVE_FIELD_NUMBER: _ClassVar[int]
+        THRESHING_ACTIVE_FIELD_NUMBER: _ClassVar[int]
+        GRAIN_RELEASE_FROM_HOPPER_FIELD_NUMBER: _ClassVar[int]
+        GRAIN_TANK_IS_100_FULL_FIELD_NUMBER: _ClassVar[int]
+        GRAIN_TANK_IS_70_FULL_FIELD_NUMBER: _ClassVar[int]
+        GRAIN_TANK_IS_OPENED_FIELD_NUMBER: _ClassVar[int]
+        UNLOADER_DRIVE_FIELD_NUMBER: _ClassVar[int]
+        CLEANING_FAN_CONTROL_TURNED_OFF_FIELD_NUMBER: _ClassVar[int]
+        THRESHING_DRUM_CONTROL_TURNED_OFF_FIELD_NUMBER: _ClassVar[int]
+        STRAW_WALKER_IS_CLOGGED_FIELD_NUMBER: _ClassVar[int]
+        EXCESSIVE_CLEARANCE_UNDER_THE_THRESHING_DRUM_FIELD_NUMBER: _ClassVar[int]
+        LOW_TEMPERATURE_OF_DRIVE_SYSTEM_HYDRAULICS_LESS_THAN_5_GRADES_FIELD_NUMBER: _ClassVar[int]
+        HIGH_TEMPERATURE_OF_DRIVE_SYSTEM_HYDRAULICS_GREATER_THAN_86_GRADES_FIELD_NUMBER: _ClassVar[int]
+        EAR_AUGER_SPEED_BELOW_THE_NORM_FIELD_NUMBER: _ClassVar[int]
+        GRAIN_AUGER_SPEED_BELOW_THE_NORM_FIELD_NUMBER: _ClassVar[int]
+        STRAW_CHOOPER_SPEED_BELOW_THE_NORM_FIELD_NUMBER: _ClassVar[int]
+        STRAW_SHAKER_SPEED_BELOW_THE_NORM_FIELD_NUMBER: _ClassVar[int]
+        FEEDER_SPEED_BELOW_THE_NORM_FIELD_NUMBER: _ClassVar[int]
+        STRAW_CHOPPER_SWITCHED_ON_FIELD_NUMBER: _ClassVar[int]
+        CORN_HEADER_CONNECTED_FIELD_NUMBER: _ClassVar[int]
+        GRAIN_HEADER_CONNECTED_FIELD_NUMBER: _ClassVar[int]
+        FEEDER_REVERSE_SWITCHED_ON_FIELD_NUMBER: _ClassVar[int]
+        THE_PRESSURE_FILTER_OF_THE_HYDRAULIC_PUMP_IS_CLOGGED_FIELD_NUMBER: _ClassVar[int]
+        ADAPTER_PRESSURE_FILTER_SENSOR_FIELD_NUMBER: _ClassVar[int]
+        SERVICE2_REQUIRED_INDICATOR_FIELD_NUMBER: _ClassVar[int]
+        DRAIN_FILTER_CLOGGED_INDICATOR_FIELD_NUMBER: _ClassVar[int]
+        SECTION1_SPRAYING_FIELD_NUMBER: _ClassVar[int]
+        SECTION2_SPRAYING_FIELD_NUMBER: _ClassVar[int]
+        SECTION3_SPRAYING_FIELD_NUMBER: _ClassVar[int]
+        SECTION4_SPRAYING_FIELD_NUMBER: _ClassVar[int]
+        SECTION5_SPRAYING_FIELD_NUMBER: _ClassVar[int]
+        SECTION6_SPRAYING_FIELD_NUMBER: _ClassVar[int]
+        SECTION7_SPRAYING_FIELD_NUMBER: _ClassVar[int]
+        SECTION8_SPRAYING_FIELD_NUMBER: _ClassVar[int]
+        SECTION9_SPRAYING_FIELD_NUMBER: _ClassVar[int]
+        right_joystick_moved_right_active: bool
+        right_joystick_moved_left_active: bool
+        right_joystick_moved_forward_active: bool
+        right_joystick_moved_back_active: bool
+        left_joystick_moved_right_active: bool
+        left_joystick_moved_left_active: bool
+        left_joystick_moved_forward_active: bool
+        left_joystick_moved_back_active: bool
+        first_rear_hydraulic: bool
+        second_rear_hydraulic: bool
+        third_rear_hydraulic: bool
+        fourth_rear_hydraulic: bool
+        first_front_hydraulic: bool
+        second_front_hydraulic: bool
+        third_front_hydraulic: bool
+        fourth_front_hydraulic: bool
+        front_three_point_hitch: bool
+        rear_three_point_hitch: bool
+        front_power_take_off: bool
+        rear_power_take_off: bool
+        mowing_active: bool
+        threshing_active: bool
+        grain_release_from_hopper: bool
+        grain_tank_is_100_full: bool
+        grain_tank_is_70_full: bool
+        grain_tank_is_opened: bool
+        unloader_drive: bool
+        cleaning_fan_control_turned_off: bool
+        threshing_drum_control_turned_off: bool
+        straw_walker_is_clogged: bool
+        excessive_clearance_under_the_threshing_drum: bool
+        low_temperature_of_drive_system_hydraulics_less_than_5_grades: bool
+        high_temperature_of_drive_system_hydraulics_greater_than_86_grades: bool
+        ear_auger_speed_below_the_norm: bool
+        grain_auger_speed_below_the_norm: bool
+        straw_chooper_speed_below_the_norm: bool
+        straw_shaker_speed_below_the_norm: bool
+        feeder_speed_below_the_norm: bool
+        straw_chopper_switched_on: bool
+        corn_header_connected: bool
+        grain_header_connected: bool
+        feeder_reverse_switched_on: bool
+        the_pressure_filter_of_the_hydraulic_pump_is_clogged: bool
+        adapter_pressure_filter_sensor: bool
+        service2_required_indicator: bool
+        drain_filter_clogged_indicator: bool
+        section1_spraying: bool
+        section2_spraying: bool
+        section3_spraying: bool
+        section4_spraying: bool
+        section5_spraying: bool
+        section6_spraying: bool
+        section7_spraying: bool
+        section8_spraying: bool
+        section9_spraying: bool
+        def __init__(self, right_joystick_moved_right_active: bool = ..., right_joystick_moved_left_active: bool = ..., right_joystick_moved_forward_active: bool = ..., right_joystick_moved_back_active: bool = ..., left_joystick_moved_right_active: bool = ..., left_joystick_moved_left_active: bool = ..., left_joystick_moved_forward_active: bool = ..., left_joystick_moved_back_active: bool = ..., first_rear_hydraulic: bool = ..., second_rear_hydraulic: bool = ..., third_rear_hydraulic: bool = ..., fourth_rear_hydraulic: bool = ..., first_front_hydraulic: bool = ..., second_front_hydraulic: bool = ..., third_front_hydraulic: bool = ..., fourth_front_hydraulic: bool = ..., front_three_point_hitch: bool = ..., rear_three_point_hitch: bool = ..., front_power_take_off: bool = ..., rear_power_take_off: bool = ..., mowing_active: bool = ..., threshing_active: bool = ..., grain_release_from_hopper: bool = ..., grain_tank_is_100_full: bool = ..., grain_tank_is_70_full: bool = ..., grain_tank_is_opened: bool = ..., unloader_drive: bool = ..., cleaning_fan_control_turned_off: bool = ..., threshing_drum_control_turned_off: bool = ..., straw_walker_is_clogged: bool = ..., excessive_clearance_under_the_threshing_drum: bool = ..., low_temperature_of_drive_system_hydraulics_less_than_5_grades: bool = ..., high_temperature_of_drive_system_hydraulics_greater_than_86_grades: bool = ..., ear_auger_speed_below_the_norm: bool = ..., grain_auger_speed_below_the_norm: bool = ..., straw_chooper_speed_below_the_norm: bool = ..., straw_shaker_speed_below_the_norm: bool = ..., feeder_speed_below_the_norm: bool = ..., straw_chopper_switched_on: bool = ..., corn_header_connected: bool = ..., grain_header_connected: bool = ..., feeder_reverse_switched_on: bool = ..., the_pressure_filter_of_the_hydraulic_pump_is_clogged: bool = ..., adapter_pressure_filter_sensor: bool = ..., service2_required_indicator: bool = ..., drain_filter_clogged_indicator: bool = ..., section1_spraying: bool = ..., section2_spraying: bool = ..., section3_spraying: bool = ..., section4_spraying: bool = ..., section5_spraying: bool = ..., section6_spraying: bool = ..., section7_spraying: bool = ..., section8_spraying: bool = ..., section9_spraying: bool = ...) -> None: ...
+    class Usf(_message.Message):
+        __slots__ = ("spreading", "pouring_chemicals", "conveyor_belt", "salt_spreader_drive_wheel", "brushes", "vacuum_cleaner", "water_supply", "liquid_pump", "unloading_from_the_hopper", "low_salt_sand_level_in_container_indicator", "low_water_level_in_container_indicator", "chemicals", "compressor", "water_valve_is_opened", "cabin_moved_up_status_active", "cabin_moved_down_status_active", "hydraulics_work_not_permitted")
+        SPREADING_FIELD_NUMBER: _ClassVar[int]
+        POURING_CHEMICALS_FIELD_NUMBER: _ClassVar[int]
+        CONVEYOR_BELT_FIELD_NUMBER: _ClassVar[int]
+        SALT_SPREADER_DRIVE_WHEEL_FIELD_NUMBER: _ClassVar[int]
+        BRUSHES_FIELD_NUMBER: _ClassVar[int]
+        VACUUM_CLEANER_FIELD_NUMBER: _ClassVar[int]
+        WATER_SUPPLY_FIELD_NUMBER: _ClassVar[int]
+        LIQUID_PUMP_FIELD_NUMBER: _ClassVar[int]
+        UNLOADING_FROM_THE_HOPPER_FIELD_NUMBER: _ClassVar[int]
+        LOW_SALT_SAND_LEVEL_IN_CONTAINER_INDICATOR_FIELD_NUMBER: _ClassVar[int]
+        LOW_WATER_LEVEL_IN_CONTAINER_INDICATOR_FIELD_NUMBER: _ClassVar[int]
+        CHEMICALS_FIELD_NUMBER: _ClassVar[int]
+        COMPRESSOR_FIELD_NUMBER: _ClassVar[int]
+        WATER_VALVE_IS_OPENED_FIELD_NUMBER: _ClassVar[int]
+        CABIN_MOVED_UP_STATUS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
+        CABIN_MOVED_DOWN_STATUS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
+        HYDRAULICS_WORK_NOT_PERMITTED_FIELD_NUMBER: _ClassVar[int]
+        spreading: bool
+        pouring_chemicals: bool
+        conveyor_belt: bool
+        salt_spreader_drive_wheel: bool
+        brushes: bool
+        vacuum_cleaner: bool
+        water_supply: bool
+        liquid_pump: bool
+        unloading_from_the_hopper: bool
+        low_salt_sand_level_in_container_indicator: bool
+        low_water_level_in_container_indicator: bool
+        chemicals: bool
+        compressor: bool
+        water_valve_is_opened: bool
+        cabin_moved_up_status_active: bool
+        cabin_moved_down_status_active: bool
+        hydraulics_work_not_permitted: bool
+        def __init__(self, spreading: bool = ..., pouring_chemicals: bool = ..., conveyor_belt: bool = ..., salt_spreader_drive_wheel: bool = ..., brushes: bool = ..., vacuum_cleaner: bool = ..., water_supply: bool = ..., liquid_pump: bool = ..., unloading_from_the_hopper: bool = ..., low_salt_sand_level_in_container_indicator: bool = ..., low_water_level_in_container_indicator: bool = ..., chemicals: bool = ..., compressor: bool = ..., water_valve_is_opened: bool = ..., cabin_moved_up_status_active: bool = ..., cabin_moved_down_status_active: bool = ..., hydraulics_work_not_permitted: bool = ...) -> None: ...
+    class Cisf(_message.Message):
+        __slots__ = ("section1_presence_of_fluid_in_the_downpipe", "section1_filled", "section1_overfilled", "section2_presence_of_fluid_in_the_downpipe", "section2_filled", "section2_overfilled", "section3_presence_of_fluid_in_the_downpipe", "section3_filled", "section3_overfilled", "section4_presence_of_fluid_in_the_downpipe", "section4_filled", "section4_overfilled", "section5_presence_of_fluid_in_the_downpipe", "section5_filled", "section5_overfilled", "section6_presence_of_fluid_in_the_downpipe", "section6_filled", "section6_overfilled", "section7_presence_of_fluid_in_the_downpipe", "section7_filled", "section7_overfilled", "section8_presence_of_fluid_in_the_downpipe", "section8_filled", "section8_overfilled")
+        SECTION1_PRESENCE_OF_FLUID_IN_THE_DOWNPIPE_FIELD_NUMBER: _ClassVar[int]
+        SECTION1_FILLED_FIELD_NUMBER: _ClassVar[int]
+        SECTION1_OVERFILLED_FIELD_NUMBER: _ClassVar[int]
+        SECTION2_PRESENCE_OF_FLUID_IN_THE_DOWNPIPE_FIELD_NUMBER: _ClassVar[int]
+        SECTION2_FILLED_FIELD_NUMBER: _ClassVar[int]
+        SECTION2_OVERFILLED_FIELD_NUMBER: _ClassVar[int]
+        SECTION3_PRESENCE_OF_FLUID_IN_THE_DOWNPIPE_FIELD_NUMBER: _ClassVar[int]
+        SECTION3_FILLED_FIELD_NUMBER: _ClassVar[int]
+        SECTION3_OVERFILLED_FIELD_NUMBER: _ClassVar[int]
+        SECTION4_PRESENCE_OF_FLUID_IN_THE_DOWNPIPE_FIELD_NUMBER: _ClassVar[int]
+        SECTION4_FILLED_FIELD_NUMBER: _ClassVar[int]
+        SECTION4_OVERFILLED_FIELD_NUMBER: _ClassVar[int]
+        SECTION5_PRESENCE_OF_FLUID_IN_THE_DOWNPIPE_FIELD_NUMBER: _ClassVar[int]
+        SECTION5_FILLED_FIELD_NUMBER: _ClassVar[int]
+        SECTION5_OVERFILLED_FIELD_NUMBER: _ClassVar[int]
+        SECTION6_PRESENCE_OF_FLUID_IN_THE_DOWNPIPE_FIELD_NUMBER: _ClassVar[int]
+        SECTION6_FILLED_FIELD_NUMBER: _ClassVar[int]
+        SECTION6_OVERFILLED_FIELD_NUMBER: _ClassVar[int]
+        SECTION7_PRESENCE_OF_FLUID_IN_THE_DOWNPIPE_FIELD_NUMBER: _ClassVar[int]
+        SECTION7_FILLED_FIELD_NUMBER: _ClassVar[int]
+        SECTION7_OVERFILLED_FIELD_NUMBER: _ClassVar[int]
+        SECTION8_PRESENCE_OF_FLUID_IN_THE_DOWNPIPE_FIELD_NUMBER: _ClassVar[int]
+        SECTION8_FILLED_FIELD_NUMBER: _ClassVar[int]
+        SECTION8_OVERFILLED_FIELD_NUMBER: _ClassVar[int]
+        section1_presence_of_fluid_in_the_downpipe: bool
+        section1_filled: bool
+        section1_overfilled: bool
+        section2_presence_of_fluid_in_the_downpipe: bool
+        section2_filled: bool
+        section2_overfilled: bool
+        section3_presence_of_fluid_in_the_downpipe: bool
+        section3_filled: bool
+        section3_overfilled: bool
+        section4_presence_of_fluid_in_the_downpipe: bool
+        section4_filled: bool
+        section4_overfilled: bool
+        section5_presence_of_fluid_in_the_downpipe: bool
+        section5_filled: bool
+        section5_overfilled: bool
+        section6_presence_of_fluid_in_the_downpipe: bool
+        section6_filled: bool
+        section6_overfilled: bool
+        section7_presence_of_fluid_in_the_downpipe: bool
+        section7_filled: bool
+        section7_overfilled: bool
+        section8_presence_of_fluid_in_the_downpipe: bool
+        section8_filled: bool
+        section8_overfilled: bool
+        def __init__(self, section1_presence_of_fluid_in_the_downpipe: bool = ..., section1_filled: bool = ..., section1_overfilled: bool = ..., section2_presence_of_fluid_in_the_downpipe: bool = ..., section2_filled: bool = ..., section2_overfilled: bool = ..., section3_presence_of_fluid_in_the_downpipe: bool = ..., section3_filled: bool = ..., section3_overfilled: bool = ..., section4_presence_of_fluid_in_the_downpipe: bool = ..., section4_filled: bool = ..., section4_overfilled: bool = ..., section5_presence_of_fluid_in_the_downpipe: bool = ..., section5_filled: bool = ..., section5_overfilled: bool = ..., section6_presence_of_fluid_in_the_downpipe: bool = ..., section6_filled: bool = ..., section6_overfilled: bool = ..., section7_presence_of_fluid_in_the_downpipe: bool = ..., section7_filled: bool = ..., section7_overfilled: bool = ..., section8_presence_of_fluid_in_the_downpipe: bool = ..., section8_filled: bool = ..., section8_overfilled: bool = ...) -> None: ...
+    class LcCan(_message.Message):
+        __slots__ = ("vehicle_range", "total_cng_counted", "max_road_speed", "exceeded_road_speed", "rsf_speed_limit_sign", "rsf_end_of_speed_limit_sign", "rsf_speed_exceeded", "rsf_time_speed_limit_sign", "rsf_wthr_speed_limit_sign")
+        VEHICLE_RANGE_FIELD_NUMBER: _ClassVar[int]
+        TOTAL_CNG_COUNTED_FIELD_NUMBER: _ClassVar[int]
+        MAX_ROAD_SPEED_FIELD_NUMBER: _ClassVar[int]
+        EXCEEDED_ROAD_SPEED_FIELD_NUMBER: _ClassVar[int]
+        RSF_SPEED_LIMIT_SIGN_FIELD_NUMBER: _ClassVar[int]
+        RSF_END_OF_SPEED_LIMIT_SIGN_FIELD_NUMBER: _ClassVar[int]
+        RSF_SPEED_EXCEEDED_FIELD_NUMBER: _ClassVar[int]
+        RSF_TIME_SPEED_LIMIT_SIGN_FIELD_NUMBER: _ClassVar[int]
+        RSF_WTHR_SPEED_LIMIT_SIGN_FIELD_NUMBER: _ClassVar[int]
+        vehicle_range: int
+        total_cng_counted: int
+        max_road_speed: int
+        exceeded_road_speed: int
+        rsf_speed_limit_sign: bool
+        rsf_end_of_speed_limit_sign: bool
+        rsf_speed_exceeded: bool
+        rsf_time_speed_limit_sign: bool
+        rsf_wthr_speed_limit_sign: bool
+        def __init__(self, vehicle_range: _Optional[int] = ..., total_cng_counted: _Optional[int] = ..., max_road_speed: _Optional[int] = ..., exceeded_road_speed: _Optional[int] = ..., rsf_speed_limit_sign: bool = ..., rsf_end_of_speed_limit_sign: bool = ..., rsf_speed_exceeded: bool = ..., rsf_time_speed_limit_sign: bool = ..., rsf_wthr_speed_limit_sign: bool = ...) -> None: ...
+    class TireStatusEntry(_message.Message):
+        __slots__ = ("key", "value")
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: int
+        value: TireStatus
+        def __init__(self, key: _Optional[int] = ..., value: _Optional[_Union[TireStatus, _Mapping]] = ...) -> None: ...
+    VEHICLE_SPEED_FIELD_NUMBER: _ClassVar[int]
+    ACCELERATOR_PEDAL_POSITION_FIELD_NUMBER: _ClassVar[int]
+    FUEL_CONSUMED_FIELD_NUMBER: _ClassVar[int]
+    FUEL_LEVEL_FIELD_NUMBER: _ClassVar[int]
+    ENGINE_RPM_FIELD_NUMBER: _ClassVar[int]
+    TOTAL_MILEAGE_FIELD_NUMBER: _ClassVar[int]
+    DOOR_STATUS_FIELD_NUMBER: _ClassVar[int]
+    PROGRAM_NUMBER_FIELD_NUMBER: _ClassVar[int]
+    MODULE_ID8B_FIELD_NUMBER: _ClassVar[int]
+    MODULE_ID17B_FIELD_NUMBER: _ClassVar[int]
+    ENGINE_WORKTIME_FIELD_NUMBER: _ClassVar[int]
+    ENGINE_WORKTIME_COUNTED_FIELD_NUMBER: _ClassVar[int]
+    TOTAL_MILEAGE_COUNTED_FIELD_NUMBER: _ClassVar[int]
+    FUEL_CONSUMED_COUNTED_FIELD_NUMBER: _ClassVar[int]
+    FUEL_RATE_FIELD_NUMBER: _ClassVar[int]
+    AD_BLUE_LEVEL_PERCENTAGE_FIELD_NUMBER: _ClassVar[int]
+    AD_BLUE_LEVEL_FIELD_NUMBER: _ClassVar[int]
+    ENGINE_LOAD_FIELD_NUMBER: _ClassVar[int]
+    ENGINE_TEMPERATURE_FIELD_NUMBER: _ClassVar[int]
+    AXLE1_LOAD_FIELD_NUMBER: _ClassVar[int]
+    AXLE2_LOAD_FIELD_NUMBER: _ClassVar[int]
+    AXLE3_LOAD_FIELD_NUMBER: _ClassVar[int]
+    AXLE4_LOAD_FIELD_NUMBER: _ClassVar[int]
+    AXLE5_LOAD_FIELD_NUMBER: _ClassVar[int]
+    CONTROL_STATE_FLAGS_FIELD_NUMBER: _ClassVar[int]
+    AGRICULTURAL_MACHINERY_FLAGS_FIELD_NUMBER: _ClassVar[int]
+    HARVESTING_TIME_FIELD_NUMBER: _ClassVar[int]
+    AREA_OF_HARVEST_FIELD_NUMBER: _ClassVar[int]
+    MOWING_EFFICIENCY_FIELD_NUMBER: _ClassVar[int]
+    GRAIN_MOWN_VOLUME_FIELD_NUMBER: _ClassVar[int]
+    GRAIN_MOISTURE_FIELD_NUMBER: _ClassVar[int]
+    HARVESTING_DRUM_RPM_FIELD_NUMBER: _ClassVar[int]
+    GAP_UNDER_HARVESTING_DRUM_FIELD_NUMBER: _ClassVar[int]
+    SECURITY_STATE_FLAGS_FIELD_NUMBER: _ClassVar[int]
+    TACHOGRAPH_TOTAL_VEHICLE_DISTANCE_FIELD_NUMBER: _ClassVar[int]
+    TRIP_DISTANCE_FIELD_NUMBER: _ClassVar[int]
+    TACHOGRAPH_VEHICLE_SPEED_FIELD_NUMBER: _ClassVar[int]
+    TACHO_DRIVER_CARD_PRESENCE_FIELD_NUMBER: _ClassVar[int]
+    DRIVER1_STATES_FIELD_NUMBER: _ClassVar[int]
+    DRIVER2_STATES_FIELD_NUMBER: _ClassVar[int]
+    DRIVER1_CONTINUOUS_DRIVING_TIME_FIELD_NUMBER: _ClassVar[int]
+    DRIVER2_CONTINUOUS_DRIVING_TIME_FIELD_NUMBER: _ClassVar[int]
+    DRIVER1_CUMULATIVE_BREAK_TIME_FIELD_NUMBER: _ClassVar[int]
+    DRIVER2_CUMULATIVE_BREAK_TIME_FIELD_NUMBER: _ClassVar[int]
+    DRIVER1_SELECTED_ACTIVITY_DURATION_FIELD_NUMBER: _ClassVar[int]
+    DRIVER2_SELECTED_ACTIVITY_DURATION_FIELD_NUMBER: _ClassVar[int]
+    DRIVER1_CUMULATIVE_DRIVING_TIME_FIELD_NUMBER: _ClassVar[int]
+    DRIVER2_CUMULATIVE_DRIVING_TIME_FIELD_NUMBER: _ClassVar[int]
+    DRIVER1_ID_HIGH_FIELD_NUMBER: _ClassVar[int]
+    DRIVER1_ID_LOW_FIELD_NUMBER: _ClassVar[int]
+    DRIVER2_ID_HIGH_FIELD_NUMBER: _ClassVar[int]
+    DRIVER2_ID_LOW_FIELD_NUMBER: _ClassVar[int]
+    BATTERY_TEMPERATURE_FIELD_NUMBER: _ClassVar[int]
+    HV_BATTERY_LEVEL_FIELD_NUMBER: _ClassVar[int]
+    DTC_FAULTS_FIELD_NUMBER: _ClassVar[int]
+    SLOPE_OF_ARM_FIELD_NUMBER: _ClassVar[int]
+    ROTATION_OF_ARM_FIELD_NUMBER: _ClassVar[int]
+    EJECT_OF_ARM_FIELD_NUMBER: _ClassVar[int]
+    HORIZONTAL_DISTANCE_ARM_VEHICLE_FIELD_NUMBER: _ClassVar[int]
+    HEIGHT_ARM_ABOVE_GROUND_FIELD_NUMBER: _ClassVar[int]
+    DRILL_RPM_FIELD_NUMBER: _ClassVar[int]
+    AMOUNT_OF_SPREAD_SALT_SQUARE_METER_FIELD_NUMBER: _ClassVar[int]
+    BATTERY_VOLTAGE_FIELD_NUMBER: _ClassVar[int]
+    AMOUNT_OF_SPREAD_FINE_GRAINED_SALT_FIELD_NUMBER: _ClassVar[int]
+    AMOUNT_OF_COARSE_GRAINED_SALT_FIELD_NUMBER: _ClassVar[int]
+    AMOUNT_OF_SPREAD_DI_MIX_FIELD_NUMBER: _ClassVar[int]
+    AMOUNT_OF_SPREAD_COARSE_GRAINED_CALCIUM_FIELD_NUMBER: _ClassVar[int]
+    AMOUNT_OF_SPREAD_CALCIUM_CHLORIDE_FIELD_NUMBER: _ClassVar[int]
+    AMOUNT_OF_SPREAD_SODIUM_CHLORIDE_FIELD_NUMBER: _ClassVar[int]
+    AMOUNT_OF_SPREAD_MAGNESIUM_CHLORIDE_FIELD_NUMBER: _ClassVar[int]
+    AMOUNT_OF_SPREAD_GRAVEL_FIELD_NUMBER: _ClassVar[int]
+    AMOUNT_OF_SPREAD_SAND_FIELD_NUMBER: _ClassVar[int]
+    WIDTH_POURING_LEFT_FIELD_NUMBER: _ClassVar[int]
+    WIDTH_POURING_RIGHT_FIELD_NUMBER: _ClassVar[int]
+    SALT_SPREADER_WORKING_HOURS_FIELD_NUMBER: _ClassVar[int]
+    DISTANCE_DURING_SALTING_FIELD_NUMBER: _ClassVar[int]
+    LOAD_WEIGHT_FIELD_NUMBER: _ClassVar[int]
+    RETARDER_LOAD_FIELD_NUMBER: _ClassVar[int]
+    CRUISE_TIME_FIELD_NUMBER: _ClassVar[int]
+    CNG_STATUS_FIELD_NUMBER: _ClassVar[int]
+    CNG_USED_FIELD_NUMBER: _ClassVar[int]
+    CNG_LEVEL_FIELD_NUMBER: _ClassVar[int]
+    OIL_LEVEL_FIELD_NUMBER: _ClassVar[int]
+    VEHICLES_RANGE_ON_BATTERY_FIELD_NUMBER: _ClassVar[int]
+    VEHICLES_RANGE_ON_ADDITIONAL_FUEL_FIELD_NUMBER: _ClassVar[int]
+    VIN_FIELD_NUMBER: _ClassVar[int]
+    FAULT_CODES_FIELD_NUMBER: _ClassVar[int]
+    SECURITY_STATE_FLAGS_P4_FIELD_NUMBER: _ClassVar[int]
+    CONTROL_STATE_FLAGS_P4_FIELD_NUMBER: _ClassVar[int]
+    INDICATOR_STATE_FLAGS_P4_FIELD_NUMBER: _ClassVar[int]
+    AGRICULTURAL_STATE_FLAGS_P4_FIELD_NUMBER: _ClassVar[int]
+    UTILITY_STATE_FLAGS_P4_FIELD_NUMBER: _ClassVar[int]
+    CISTERN_STATE_FLAGS_P4_FIELD_NUMBER: _ClassVar[int]
+    LNG_USED_FIELD_NUMBER: _ClassVar[int]
+    LNG_USED_COUNTED_FIELD_NUMBER: _ClassVar[int]
+    LNG_LEVEL_PERCENTAGE_FIELD_NUMBER: _ClassVar[int]
+    LNG_LEVEL_FIELD_NUMBER: _ClassVar[int]
+    TOTAL_LPG_USED_FIELD_NUMBER: _ClassVar[int]
+    TOTAL_LPG_USED_COUNTED_FIELD_NUMBER: _ClassVar[int]
+    LPG_LEVEL_PROC_FIELD_NUMBER: _ClassVar[int]
+    LPG_LEVEL_LITERS_FIELD_NUMBER: _ClassVar[int]
+    SSF_FIELD_NUMBER: _ClassVar[int]
+    CSF_FIELD_NUMBER: _ClassVar[int]
+    ISF_FIELD_NUMBER: _ClassVar[int]
+    ASF_FIELD_NUMBER: _ClassVar[int]
+    USF_FIELD_NUMBER: _ClassVar[int]
+    CISF_FIELD_NUMBER: _ClassVar[int]
+    DISTANCE_TO_NEXT_SERVICE_FIELD_NUMBER: _ClassVar[int]
+    CNG_LEVEL_KG_FIELD_NUMBER: _ClassVar[int]
+    DISTANCE_FROM_NEED_OF_SERVICE_FIELD_NUMBER: _ClassVar[int]
+    DISTANCE_FROM_LAST_SERVICE_FIELD_NUMBER: _ClassVar[int]
+    TIME_TO_NEXT_SERVICE_FIELD_NUMBER: _ClassVar[int]
+    TIME_FROM_NEED_OF_SERVICE_FIELD_NUMBER: _ClassVar[int]
+    TIME_FROM_LAST_SERVICE_FIELD_NUMBER: _ClassVar[int]
+    DISTANCE_TO_NEXT_OIL_SERVICE_FIELD_NUMBER: _ClassVar[int]
+    TIME_TO_NEXT_OIL_SERVICE_FIELD_NUMBER: _ClassVar[int]
+    TOTAL_BALE_COUNT_FIELD_NUMBER: _ClassVar[int]
+    BALE_COUNT_FIELD_NUMBER: _ClassVar[int]
+    CUT_BALE_COUNT_FIELD_NUMBER: _ClassVar[int]
+    BALE_SLICES_FIELD_NUMBER: _ClassVar[int]
+    LV_CAN_FIELD_NUMBER: _ClassVar[int]
+    FUEL_LEVEL_PERCENT_FIELD_NUMBER: _ClassVar[int]
+    TIRE_STATUS_FIELD_NUMBER: _ClassVar[int]
+    vehicle_speed: int
+    accelerator_pedal_position: int
+    fuel_consumed: int
+    fuel_level: int
+    engine_rpm: int
+    total_mileage: int
+    door_status: int
+    program_number: int
+    module_id8b: int
+    module_id17b: bytes
+    engine_worktime: int
+    engine_worktime_counted: int
+    total_mileage_counted: int
+    fuel_consumed_counted: int
+    fuel_rate: int
+    ad_blue_level_percentage: int
+    ad_blue_level: int
+    engine_load: int
+    engine_temperature: int
+    axle1_load: int
+    axle2_load: int
+    axle3_load: int
+    axle4_load: int
+    axle5_load: int
+    control_state_flags: int
+    agricultural_machinery_flags: int
+    harvesting_time: int
+    area_of_harvest: int
+    mowing_efficiency: int
+    grain_mown_volume: int
+    grain_moisture: int
+    harvesting_drum_rpm: int
+    gap_under_harvesting_drum: int
+    security_state_flags: int
+    tachograph_total_vehicle_distance: int
+    trip_distance: int
+    tachograph_vehicle_speed: int
+    tacho_driver_card_presence: int
+    driver1_states: int
+    driver2_states: int
+    driver1_continuous_driving_time: int
+    driver2_continuous_driving_time: int
+    driver1_cumulative_break_time: int
+    driver2_cumulative_break_time: int
+    driver1_selected_activity_duration: int
+    driver2_selected_activity_duration: int
+    driver1_cumulative_driving_time: int
+    driver2_cumulative_driving_time: int
+    driver1_id_high: int
+    driver1_id_low: int
+    driver2_id_high: int
+    driver2_id_low: int
+    battery_temperature: int
+    hv_battery_level: int
+    dtc_faults: int
+    slope_of_arm: int
+    rotation_of_arm: int
+    eject_of_arm: int
+    horizontal_distance_arm_vehicle: int
+    height_arm_above_ground: int
+    drill_rpm: int
+    amount_of_spread_salt_square_meter: int
+    battery_voltage: int
+    amount_of_spread_fine_grained_salt: int
+    amount_of_coarse_grained_salt: int
+    amount_of_spread_di_mix: int
+    amount_of_spread_coarse_grained_calcium: int
+    amount_of_spread_calcium_chloride: int
+    amount_of_spread_sodium_chloride: int
+    amount_of_spread_magnesium_chloride: int
+    amount_of_spread_gravel: int
+    amount_of_spread_sand: int
+    width_pouring_left: int
+    width_pouring_right: int
+    salt_spreader_working_hours: int
+    distance_during_salting: int
+    load_weight: int
+    retarder_load: int
+    cruise_time: int
+    cng_status: int
+    cng_used: int
+    cng_level: int
+    oil_level: int
+    vehicles_range_on_battery: int
+    vehicles_range_on_additional_fuel: int
+    vin: str
+    fault_codes: bytes
+    security_state_flags_p4: bytes
+    control_state_flags_p4: bytes
+    indicator_state_flags_p4: bytes
+    agricultural_state_flags_p4: bytes
+    utility_state_flags_p4: bytes
+    cistern_state_flags_p4: bytes
+    lng_used: int
+    lng_used_counted: int
+    lng_level_percentage: int
+    lng_level: int
+    total_lpg_used: int
+    total_lpg_used_counted: int
+    lpg_level_proc: int
+    lpg_level_liters: int
+    ssf: CanAdaptersElements.Ssf
+    csf: CanAdaptersElements.Csf
+    isf: CanAdaptersElements.Isf
+    asf: CanAdaptersElements.Asf
+    usf: CanAdaptersElements.Usf
+    cisf: CanAdaptersElements.Cisf
+    distance_to_next_service: int
+    cng_level_kg: int
+    distance_from_need_of_service: int
+    distance_from_last_service: int
+    time_to_next_service: int
+    time_from_need_of_service: int
+    time_from_last_service: int
+    distance_to_next_oil_service: int
+    time_to_next_oil_service: int
+    total_bale_count: int
+    bale_count: int
+    cut_bale_count: int
+    bale_slices: int
+    lv_can: CanAdaptersElements.LcCan
+    fuel_level_percent: int
+    tire_status: _containers.MessageMap[int, TireStatus]
+    def __init__(self, vehicle_speed: _Optional[int] = ..., accelerator_pedal_position: _Optional[int] = ..., fuel_consumed: _Optional[int] = ..., fuel_level: _Optional[int] = ..., engine_rpm: _Optional[int] = ..., total_mileage: _Optional[int] = ..., door_status: _Optional[int] = ..., program_number: _Optional[int] = ..., module_id8b: _Optional[int] = ..., module_id17b: _Optional[bytes] = ..., engine_worktime: _Optional[int] = ..., engine_worktime_counted: _Optional[int] = ..., total_mileage_counted: _Optional[int] = ..., fuel_consumed_counted: _Optional[int] = ..., fuel_rate: _Optional[int] = ..., ad_blue_level_percentage: _Optional[int] = ..., ad_blue_level: _Optional[int] = ..., engine_load: _Optional[int] = ..., engine_temperature: _Optional[int] = ..., axle1_load: _Optional[int] = ..., axle2_load: _Optional[int] = ..., axle3_load: _Optional[int] = ..., axle4_load: _Optional[int] = ..., axle5_load: _Optional[int] = ..., control_state_flags: _Optional[int] = ..., agricultural_machinery_flags: _Optional[int] = ..., harvesting_time: _Optional[int] = ..., area_of_harvest: _Optional[int] = ..., mowing_efficiency: _Optional[int] = ..., grain_mown_volume: _Optional[int] = ..., grain_moisture: _Optional[int] = ..., harvesting_drum_rpm: _Optional[int] = ..., gap_under_harvesting_drum: _Optional[int] = ..., security_state_flags: _Optional[int] = ..., tachograph_total_vehicle_distance: _Optional[int] = ..., trip_distance: _Optional[int] = ..., tachograph_vehicle_speed: _Optional[int] = ..., tacho_driver_card_presence: _Optional[int] = ..., driver1_states: _Optional[int] = ..., driver2_states: _Optional[int] = ..., driver1_continuous_driving_time: _Optional[int] = ..., driver2_continuous_driving_time: _Optional[int] = ..., driver1_cumulative_break_time: _Optional[int] = ..., driver2_cumulative_break_time: _Optional[int] = ..., driver1_selected_activity_duration: _Optional[int] = ..., driver2_selected_activity_duration: _Optional[int] = ..., driver1_cumulative_driving_time: _Optional[int] = ..., driver2_cumulative_driving_time: _Optional[int] = ..., driver1_id_high: _Optional[int] = ..., driver1_id_low: _Optional[int] = ..., driver2_id_high: _Optional[int] = ..., driver2_id_low: _Optional[int] = ..., battery_temperature: _Optional[int] = ..., hv_battery_level: _Optional[int] = ..., dtc_faults: _Optional[int] = ..., slope_of_arm: _Optional[int] = ..., rotation_of_arm: _Optional[int] = ..., eject_of_arm: _Optional[int] = ..., horizontal_distance_arm_vehicle: _Optional[int] = ..., height_arm_above_ground: _Optional[int] = ..., drill_rpm: _Optional[int] = ..., amount_of_spread_salt_square_meter: _Optional[int] = ..., battery_voltage: _Optional[int] = ..., amount_of_spread_fine_grained_salt: _Optional[int] = ..., amount_of_coarse_grained_salt: _Optional[int] = ..., amount_of_spread_di_mix: _Optional[int] = ..., amount_of_spread_coarse_grained_calcium: _Optional[int] = ..., amount_of_spread_calcium_chloride: _Optional[int] = ..., amount_of_spread_sodium_chloride: _Optional[int] = ..., amount_of_spread_magnesium_chloride: _Optional[int] = ..., amount_of_spread_gravel: _Optional[int] = ..., amount_of_spread_sand: _Optional[int] = ..., width_pouring_left: _Optional[int] = ..., width_pouring_right: _Optional[int] = ..., salt_spreader_working_hours: _Optional[int] = ..., distance_during_salting: _Optional[int] = ..., load_weight: _Optional[int] = ..., retarder_load: _Optional[int] = ..., cruise_time: _Optional[int] = ..., cng_status: _Optional[int] = ..., cng_used: _Optional[int] = ..., cng_level: _Optional[int] = ..., oil_level: _Optional[int] = ..., vehicles_range_on_battery: _Optional[int] = ..., vehicles_range_on_additional_fuel: _Optional[int] = ..., vin: _Optional[str] = ..., fault_codes: _Optional[bytes] = ..., security_state_flags_p4: _Optional[bytes] = ..., control_state_flags_p4: _Optional[bytes] = ..., indicator_state_flags_p4: _Optional[bytes] = ..., agricultural_state_flags_p4: _Optional[bytes] = ..., utility_state_flags_p4: _Optional[bytes] = ..., cistern_state_flags_p4: _Optional[bytes] = ..., lng_used: _Optional[int] = ..., lng_used_counted: _Optional[int] = ..., lng_level_percentage: _Optional[int] = ..., lng_level: _Optional[int] = ..., total_lpg_used: _Optional[int] = ..., total_lpg_used_counted: _Optional[int] = ..., lpg_level_proc: _Optional[int] = ..., lpg_level_liters: _Optional[int] = ..., ssf: _Optional[_Union[CanAdaptersElements.Ssf, _Mapping]] = ..., csf: _Optional[_Union[CanAdaptersElements.Csf, _Mapping]] = ..., isf: _Optional[_Union[CanAdaptersElements.Isf, _Mapping]] = ..., asf: _Optional[_Union[CanAdaptersElements.Asf, _Mapping]] = ..., usf: _Optional[_Union[CanAdaptersElements.Usf, _Mapping]] = ..., cisf: _Optional[_Union[CanAdaptersElements.Cisf, _Mapping]] = ..., distance_to_next_service: _Optional[int] = ..., cng_level_kg: _Optional[int] = ..., distance_from_need_of_service: _Optional[int] = ..., distance_from_last_service: _Optional[int] = ..., time_to_next_service: _Optional[int] = ..., time_from_need_of_service: _Optional[int] = ..., time_from_last_service: _Optional[int] = ..., distance_to_next_oil_service: _Optional[int] = ..., time_to_next_oil_service: _Optional[int] = ..., total_bale_count: _Optional[int] = ..., bale_count: _Optional[int] = ..., cut_bale_count: _Optional[int] = ..., bale_slices: _Optional[int] = ..., lv_can: _Optional[_Union[CanAdaptersElements.LcCan, _Mapping]] = ..., fuel_level_percent: _Optional[int] = ..., tire_status: _Optional[_Mapping[int, TireStatus]] = ...) -> None: ...
+
+class TireStatus(_message.Message):
+    __slots__ = ("axle", "pressure", "temperature", "status")
+    AXLE_FIELD_NUMBER: _ClassVar[int]
+    PRESSURE_FIELD_NUMBER: _ClassVar[int]
+    TEMPERATURE_FIELD_NUMBER: _ClassVar[int]
+    STATUS_FIELD_NUMBER: _ClassVar[int]
+    axle: int
+    pressure: int
+    temperature: float
+    status: int
+    def __init__(self, axle: _Optional[int] = ..., pressure: _Optional[int] = ..., temperature: _Optional[float] = ..., status: _Optional[int] = ...) -> None: ...
+
+class ADAS(_message.Message):
+    __slots__ = ("front_vehicle_speed", "front_vehicle_pedestrian_distance", "deviation", "types_of_road_sign_recognition", "road_sign_recognition_data")
+    class RoadSignType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+        __slots__ = ()
+        SPEED_LIMIT: _ClassVar[ADAS.RoadSignType]
+        HEIGHT_LIMIT: _ClassVar[ADAS.RoadSignType]
+        WEIGHT_LIMIT: _ClassVar[ADAS.RoadSignType]
+    SPEED_LIMIT: ADAS.RoadSignType
+    HEIGHT_LIMIT: ADAS.RoadSignType
+    WEIGHT_LIMIT: ADAS.RoadSignType
+    class DeviationType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+        __slots__ = ()
+        DEVIATION_RIGHT: _ClassVar[ADAS.DeviationType]
+        DEVIATION_LEFT: _ClassVar[ADAS.DeviationType]
+    DEVIATION_RIGHT: ADAS.DeviationType
+    DEVIATION_LEFT: ADAS.DeviationType
+    FRONT_VEHICLE_SPEED_FIELD_NUMBER: _ClassVar[int]
+    FRONT_VEHICLE_PEDESTRIAN_DISTANCE_FIELD_NUMBER: _ClassVar[int]
+    DEVIATION_FIELD_NUMBER: _ClassVar[int]
+    TYPES_OF_ROAD_SIGN_RECOGNITION_FIELD_NUMBER: _ClassVar[int]
+    ROAD_SIGN_RECOGNITION_DATA_FIELD_NUMBER: _ClassVar[int]
+    front_vehicle_speed: int
+    front_vehicle_pedestrian_distance: int
+    deviation: ADAS.DeviationType
+    types_of_road_sign_recognition: ADAS.RoadSignType
+    road_sign_recognition_data: int
+    def __init__(self, front_vehicle_speed: _Optional[int] = ..., front_vehicle_pedestrian_distance: _Optional[int] = ..., deviation: _Optional[_Union[ADAS.DeviationType, str]] = ..., types_of_road_sign_recognition: _Optional[_Union[ADAS.RoadSignType, str]] = ..., road_sign_recognition_data: _Optional[int] = ...) -> None: ...
+
+class Compact(_message.Message):
+    __slots__ = ("io_element", "eventual_io_elements", "obd_elements", "obd_oem_elements", "ble_sensors_io_elements", "can_adapters_elements", "alerts", "alert_values", "adas", "fms", "unknown_ios")
+    class AlertValuesEntry(_message.Message):
+        __slots__ = ("key", "value")
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: int
+        value: int
+        def __init__(self, key: _Optional[int] = ..., value: _Optional[int] = ...) -> None: ...
+    class UnknownIosEntry(_message.Message):
+        __slots__ = ("key", "value")
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: int
+        value: bytes
+        def __init__(self, key: _Optional[int] = ..., value: _Optional[bytes] = ...) -> None: ...
+    IO_ELEMENT_FIELD_NUMBER: _ClassVar[int]
+    EVENTUAL_IO_ELEMENTS_FIELD_NUMBER: _ClassVar[int]
+    OBD_ELEMENTS_FIELD_NUMBER: _ClassVar[int]
+    OBD_OEM_ELEMENTS_FIELD_NUMBER: _ClassVar[int]
+    BLE_SENSORS_IO_ELEMENTS_FIELD_NUMBER: _ClassVar[int]
+    CAN_ADAPTERS_ELEMENTS_FIELD_NUMBER: _ClassVar[int]
+    ALERTS_FIELD_NUMBER: _ClassVar[int]
+    ALERT_VALUES_FIELD_NUMBER: _ClassVar[int]
+    ADAS_FIELD_NUMBER: _ClassVar[int]
+    FMS_FIELD_NUMBER: _ClassVar[int]
+    UNKNOWN_IOS_FIELD_NUMBER: _ClassVar[int]
+    io_element: IoElement
+    eventual_io_elements: EventualIoElements
+    obd_elements: ObdElements
+    obd_oem_elements: ObdOemElements
+    ble_sensors_io_elements: BleSensorsIoElements
+    can_adapters_elements: CanAdaptersElements
+    alerts: _containers.RepeatedScalarFieldContainer[Alert]
+    alert_values: _containers.ScalarMap[int, int]
+    adas: ADAS
+    fms: FmsElement
+    unknown_ios: _containers.ScalarMap[int, bytes]
+    def __init__(self, io_element: _Optional[_Union[IoElement, _Mapping]] = ..., eventual_io_elements: _Optional[_Union[EventualIoElements, _Mapping]] = ..., obd_elements: _Optional[_Union[ObdElements, _Mapping]] = ..., obd_oem_elements: _Optional[_Union[ObdOemElements, _Mapping]] = ..., ble_sensors_io_elements: _Optional[_Union[BleSensorsIoElements, _Mapping]] = ..., can_adapters_elements: _Optional[_Union[CanAdaptersElements, _Mapping]] = ..., alerts: _Optional[_Iterable[_Union[Alert, str]]] = ..., alert_values: _Optional[_Mapping[int, int]] = ..., adas: _Optional[_Union[ADAS, _Mapping]] = ..., fms: _Optional[_Union[FmsElement, _Mapping]] = ..., unknown_ios: _Optional[_Mapping[int, bytes]] = ...) -> None: ...
+
+class Log(_message.Message):
+    __slots__ = ("id", "imei", "packet", "datetime", "port", "protocol", "payload")
+    ID_FIELD_NUMBER: _ClassVar[int]
+    IMEI_FIELD_NUMBER: _ClassVar[int]
+    PACKET_FIELD_NUMBER: _ClassVar[int]
+    DATETIME_FIELD_NUMBER: _ClassVar[int]
+    PORT_FIELD_NUMBER: _ClassVar[int]
+    PROTOCOL_FIELD_NUMBER: _ClassVar[int]
+    PAYLOAD_FIELD_NUMBER: _ClassVar[int]
+    id: str
+    imei: int
+    packet: Packet
+    datetime: _timestamp_pb2.Timestamp
+    port: int
+    protocol: Protocol
+    payload: bytes
+    def __init__(self, id: _Optional[str] = ..., imei: _Optional[int] = ..., packet: _Optional[_Union[Packet, _Mapping]] = ..., datetime: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., port: _Optional[int] = ..., protocol: _Optional[_Union[Protocol, str]] = ..., payload: _Optional[bytes] = ...) -> None: ...
+
+class Data(_message.Message):
+    __slots__ = ("device_id", "gps_time", "latitude", "longitude", "altitude", "angle", "speed", "satellite", "ignition", "mileage", "compact")
+    DEVICE_ID_FIELD_NUMBER: _ClassVar[int]
+    GPS_TIME_FIELD_NUMBER: _ClassVar[int]
+    LATITUDE_FIELD_NUMBER: _ClassVar[int]
+    LONGITUDE_FIELD_NUMBER: _ClassVar[int]
+    ALTITUDE_FIELD_NUMBER: _ClassVar[int]
+    ANGLE_FIELD_NUMBER: _ClassVar[int]
+    SPEED_FIELD_NUMBER: _ClassVar[int]
+    SATELLITE_FIELD_NUMBER: _ClassVar[int]
+    IGNITION_FIELD_NUMBER: _ClassVar[int]
+    MILEAGE_FIELD_NUMBER: _ClassVar[int]
+    COMPACT_FIELD_NUMBER: _ClassVar[int]
+    device_id: int
+    gps_time: _timestamp_pb2.Timestamp
+    latitude: float
+    longitude: float
+    altitude: int
+    angle: int
+    speed: int
+    satellite: int
+    ignition: bool
+    mileage: int
+    compact: Compact
+    def __init__(self, device_id: _Optional[int] = ..., gps_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., latitude: _Optional[float] = ..., longitude: _Optional[float] = ..., altitude: _Optional[int] = ..., angle: _Optional[int] = ..., speed: _Optional[int] = ..., satellite: _Optional[int] = ..., ignition: bool = ..., mileage: _Optional[int] = ..., compact: _Optional[_Union[Compact, _Mapping]] = ...) -> None: ...
+
+class Authorize(_message.Message):
+    __slots__ = ("device_id",)
+    DEVICE_ID_FIELD_NUMBER: _ClassVar[int]
+    device_id: int
+    def __init__(self, device_id: _Optional[int] = ...) -> None: ...
+
+class Packet(_message.Message):
+    __slots__ = ("type", "data", "authorize", "response", "answer", "custom_type", "custom_payload", "answer_type", "additional", "concox", "teltonika", "stream")
+    class Type(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+        __slots__ = ()
+        FAILED: _ClassVar[Packet.Type]
+        AUTHORIZE: _ClassVar[Packet.Type]
+        DATA: _ClassVar[Packet.Type]
+        HEARTBEAT: _ClassVar[Packet.Type]
+        ANSWER: _ClassVar[Packet.Type]
+        CUSTOM: _ClassVar[Packet.Type]
+    FAILED: Packet.Type
+    AUTHORIZE: Packet.Type
+    DATA: Packet.Type
+    HEARTBEAT: Packet.Type
+    ANSWER: Packet.Type
+    CUSTOM: Packet.Type
+    class CustomPacketType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+        __slots__ = ()
+        None: _ClassVar[Packet.CustomPacketType]
+        MultimediaEventInformationUploading: _ClassVar[Packet.CustomPacketType]
+        MultimediaDataUpload: _ClassVar[Packet.CustomPacketType]
+        JTT808SignalingDataMessage1210: _ClassVar[Packet.CustomPacketType]
+        JTT808SignalingDataMessage1211: _ClassVar[Packet.CustomPacketType]
+        JTT808SignalingDataMessage1212: _ClassVar[Packet.CustomPacketType]
+        JTT808MediaRetrieval0802: _ClassVar[Packet.CustomPacketType]
+        ConcoxLBSInformation: _ClassVar[Packet.CustomPacketType]
+        ConcoxIMSINumber: _ClassVar[Packet.CustomPacketType]
+        ConcoxICCIdNumber: _ClassVar[Packet.CustomPacketType]
+        ConcoxRecordingProtocolPackage0x8d: _ClassVar[Packet.CustomPacketType]
+        DolphinBufferPayload: _ClassVar[Packet.CustomPacketType]
+        DolphinNewBuffer: _ClassVar[Packet.CustomPacketType]
+    None: Packet.CustomPacketType
+    MultimediaEventInformationUploading: Packet.CustomPacketType
+    MultimediaDataUpload: Packet.CustomPacketType
+    JTT808SignalingDataMessage1210: Packet.CustomPacketType
+    JTT808SignalingDataMessage1211: Packet.CustomPacketType
+    JTT808SignalingDataMessage1212: Packet.CustomPacketType
+    JTT808MediaRetrieval0802: Packet.CustomPacketType
+    ConcoxLBSInformation: Packet.CustomPacketType
+    ConcoxIMSINumber: Packet.CustomPacketType
+    ConcoxICCIdNumber: Packet.CustomPacketType
+    ConcoxRecordingProtocolPackage0x8d: Packet.CustomPacketType
+    DolphinBufferPayload: Packet.CustomPacketType
+    DolphinNewBuffer: Packet.CustomPacketType
+    class AnswerType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+        __slots__ = ()
+        Byte: _ClassVar[Packet.AnswerType]
+        String: _ClassVar[Packet.AnswerType]
+        Int: _ClassVar[Packet.AnswerType]
+        Jtt10780x0001: _ClassVar[Packet.AnswerType]
+        ConcoxLikeR31: _ClassVar[Packet.AnswerType]
+    Byte: Packet.AnswerType
+    String: Packet.AnswerType
+    Int: Packet.AnswerType
+    Jtt10780x0001: Packet.AnswerType
+    ConcoxLikeR31: Packet.AnswerType
+    TYPE_FIELD_NUMBER: _ClassVar[int]
+    DATA_FIELD_NUMBER: _ClassVar[int]
+    AUTHORIZE_FIELD_NUMBER: _ClassVar[int]
+    RESPONSE_FIELD_NUMBER: _ClassVar[int]
+    ANSWER_FIELD_NUMBER: _ClassVar[int]
+    CUSTOM_TYPE_FIELD_NUMBER: _ClassVar[int]
+    CUSTOM_PAYLOAD_FIELD_NUMBER: _ClassVar[int]
+    ANSWER_TYPE_FIELD_NUMBER: _ClassVar[int]
+    ADDITIONAL_FIELD_NUMBER: _ClassVar[int]
+    CONCOX_FIELD_NUMBER: _ClassVar[int]
+    TELTONIKA_FIELD_NUMBER: _ClassVar[int]
+    STREAM_FIELD_NUMBER: _ClassVar[int]
+    type: Packet.Type
+    data: _containers.RepeatedCompositeFieldContainer[Data]
+    authorize: Authorize
+    response: bytes
+    answer: bytes
+    custom_type: Packet.CustomPacketType
+    custom_payload: bytes
+    answer_type: Packet.AnswerType
+    additional: _containers.RepeatedCompositeFieldContainer[AdditionalInformation]
+    concox: ReplyConcox
+    teltonika: ReplyTeltonika
+    stream: Stream
+    def __init__(self, type: _Optional[_Union[Packet.Type, str]] = ..., data: _Optional[_Iterable[_Union[Data, _Mapping]]] = ..., authorize: _Optional[_Union[Authorize, _Mapping]] = ..., response: _Optional[bytes] = ..., answer: _Optional[bytes] = ..., custom_type: _Optional[_Union[Packet.CustomPacketType, str]] = ..., custom_payload: _Optional[bytes] = ..., answer_type: _Optional[_Union[Packet.AnswerType, str]] = ..., additional: _Optional[_Iterable[_Union[AdditionalInformation, _Mapping]]] = ..., concox: _Optional[_Union[ReplyConcox, _Mapping]] = ..., teltonika: _Optional[_Union[ReplyTeltonika, _Mapping]] = ..., stream: _Optional[_Union[Stream, _Mapping]] = ...) -> None: ...
+
+class Stream(_message.Message):
+    __slots__ = ("data_length", "payload")
+    DATA_LENGTH_FIELD_NUMBER: _ClassVar[int]
+    PAYLOAD_FIELD_NUMBER: _ClassVar[int]
+    data_length: int
+    payload: bytes
+    def __init__(self, data_length: _Optional[int] = ..., payload: _Optional[bytes] = ...) -> None: ...
+
+class ReplyConcox(_message.Message):
+    __slots__ = ("items",)
+    class Item(_message.Message):
+        __slots__ = ("server_flag_bit", "content")
+        SERVER_FLAG_BIT_FIELD_NUMBER: _ClassVar[int]
+        CONTENT_FIELD_NUMBER: _ClassVar[int]
+        server_flag_bit: int
+        content: str
+        def __init__(self, server_flag_bit: _Optional[int] = ..., content: _Optional[str] = ...) -> None: ...
+    ITEMS_FIELD_NUMBER: _ClassVar[int]
+    items: _containers.RepeatedCompositeFieldContainer[ReplyConcox.Item]
+    def __init__(self, items: _Optional[_Iterable[_Union[ReplyConcox.Item, _Mapping]]] = ...) -> None: ...
+
+class ReplyTeltonika(_message.Message):
+    __slots__ = ("quantity1", "type", "response_size", "response", "quantity2")
+    QUANTITY1_FIELD_NUMBER: _ClassVar[int]
+    TYPE_FIELD_NUMBER: _ClassVar[int]
+    RESPONSE_SIZE_FIELD_NUMBER: _ClassVar[int]
+    RESPONSE_FIELD_NUMBER: _ClassVar[int]
+    QUANTITY2_FIELD_NUMBER: _ClassVar[int]
+    quantity1: int
+    type: int
+    response_size: int
+    response: bytes
+    quantity2: int
+    def __init__(self, quantity1: _Optional[int] = ..., type: _Optional[int] = ..., response_size: _Optional[int] = ..., response: _Optional[bytes] = ..., quantity2: _Optional[int] = ...) -> None: ...
+
+class AdditionalInformation(_message.Message):
+    __slots__ = ("key", "val", "uint32_value", "string_value")
+    class Key(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+        __slots__ = ()
+        NONE: _ClassVar[AdditionalInformation.Key]
+        JTT808AlarmId: _ClassVar[AdditionalInformation.Key]
+        JTT808Speed: _ClassVar[AdditionalInformation.Key]
+        JTT808Latitude: _ClassVar[AdditionalInformation.Key]
+        JTT808Longitude: _ClassVar[AdditionalInformation.Key]
+        JTT808Altitude: _ClassVar[AdditionalInformation.Key]
+        JTT808GpsTime: _ClassVar[AdditionalInformation.Key]
+        JTT808AlarmTerminalId: _ClassVar[AdditionalInformation.Key]
+        JTT808AlarmTime: _ClassVar[AdditionalInformation.Key]
+        JTT808SerialNumber: _ClassVar[AdditionalInformation.Key]
+        JTT808Attachment: _ClassVar[AdditionalInformation.Key]
+        JTT808AlarmType: _ClassVar[AdditionalInformation.Key]
+        DolphinTerminalId: _ClassVar[AdditionalInformation.Key]
+    NONE: AdditionalInformation.Key
+    JTT808AlarmId: AdditionalInformation.Key
+    JTT808Speed: AdditionalInformation.Key
+    JTT808Latitude: AdditionalInformation.Key
+    JTT808Longitude: AdditionalInformation.Key
+    JTT808Altitude: AdditionalInformation.Key
+    JTT808GpsTime: AdditionalInformation.Key
+    JTT808AlarmTerminalId: AdditionalInformation.Key
+    JTT808AlarmTime: AdditionalInformation.Key
+    JTT808SerialNumber: AdditionalInformation.Key
+    JTT808Attachment: AdditionalInformation.Key
+    JTT808AlarmType: AdditionalInformation.Key
+    DolphinTerminalId: AdditionalInformation.Key
+    KEY_FIELD_NUMBER: _ClassVar[int]
+    VAL_FIELD_NUMBER: _ClassVar[int]
+    UINT32_VALUE_FIELD_NUMBER: _ClassVar[int]
+    STRING_VALUE_FIELD_NUMBER: _ClassVar[int]
+    key: AdditionalInformation.Key
+    val: bytes
+    uint32_value: int
+    string_value: str
+    def __init__(self, key: _Optional[_Union[AdditionalInformation.Key, str]] = ..., val: _Optional[bytes] = ..., uint32_value: _Optional[int] = ..., string_value: _Optional[str] = ...) -> None: ...
+
+class Jtt808SignalingDataMessage1211(_message.Message):
+    __slots__ = ("name", "type", "size")
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    TYPE_FIELD_NUMBER: _ClassVar[int]
+    SIZE_FIELD_NUMBER: _ClassVar[int]
+    name: str
+    type: FileType
+    size: int
+    def __init__(self, name: _Optional[str] = ..., type: _Optional[_Union[FileType, str]] = ..., size: _Optional[int] = ...) -> None: ...
+
+class Jtt808SignalingDataMessage1210(_message.Message):
+    __slots__ = ("terminal_id", "alarm_identification", "alarm_no", "info_type", "attachment_count", "attachments")
+    class Attachment(_message.Message):
+        __slots__ = ("name", "size")
+        NAME_FIELD_NUMBER: _ClassVar[int]
+        SIZE_FIELD_NUMBER: _ClassVar[int]
+        name: str
+        size: int
+        def __init__(self, name: _Optional[str] = ..., size: _Optional[int] = ...) -> None: ...
+    TERMINAL_ID_FIELD_NUMBER: _ClassVar[int]
+    ALARM_IDENTIFICATION_FIELD_NUMBER: _ClassVar[int]
+    ALARM_NO_FIELD_NUMBER: _ClassVar[int]
+    INFO_TYPE_FIELD_NUMBER: _ClassVar[int]
+    ATTACHMENT_COUNT_FIELD_NUMBER: _ClassVar[int]
+    ATTACHMENTS_FIELD_NUMBER: _ClassVar[int]
+    terminal_id: bytes
+    alarm_identification: bytes
+    alarm_no: bytes
+    info_type: int
+    attachment_count: int
+    attachments: _containers.RepeatedCompositeFieldContainer[Jtt808SignalingDataMessage1210.Attachment]
+    def __init__(self, terminal_id: _Optional[bytes] = ..., alarm_identification: _Optional[bytes] = ..., alarm_no: _Optional[bytes] = ..., info_type: _Optional[int] = ..., attachment_count: _Optional[int] = ..., attachments: _Optional[_Iterable[_Union[Jtt808SignalingDataMessage1210.Attachment, _Mapping]]] = ...) -> None: ...
+
+class Jtt10780x0001Answer(_message.Message):
+    __slots__ = ("ResponseSerialNumber", "ResponseId", "Result")
+    RESPONSESERIALNUMBER_FIELD_NUMBER: _ClassVar[int]
+    RESPONSEID_FIELD_NUMBER: _ClassVar[int]
+    RESULT_FIELD_NUMBER: _ClassVar[int]
+    ResponseSerialNumber: int
+    ResponseId: int
+    Result: int
+    def __init__(self, ResponseSerialNumber: _Optional[int] = ..., ResponseId: _Optional[int] = ..., Result: _Optional[int] = ...) -> None: ...
+
+class Jtt1078EventMediaInfoUpload(_message.Message):
+    __slots__ = ("media_id", "media_type", "media_format", "event_item_code", "channel_id")
+    MEDIA_ID_FIELD_NUMBER: _ClassVar[int]
+    MEDIA_TYPE_FIELD_NUMBER: _ClassVar[int]
+    MEDIA_FORMAT_FIELD_NUMBER: _ClassVar[int]
+    EVENT_ITEM_CODE_FIELD_NUMBER: _ClassVar[int]
+    CHANNEL_ID_FIELD_NUMBER: _ClassVar[int]
+    media_id: int
+    media_type: int
+    media_format: int
+    event_item_code: int
+    channel_id: int
+    def __init__(self, media_id: _Optional[int] = ..., media_type: _Optional[int] = ..., media_format: _Optional[int] = ..., event_item_code: _Optional[int] = ..., channel_id: _Optional[int] = ...) -> None: ...
+
+class Jtt1078EventMediaDataUpload(_message.Message):
+    __slots__ = ("media_id", "media_type", "media_format", "event_item_code", "channel_id", "payload")
+    MEDIA_ID_FIELD_NUMBER: _ClassVar[int]
+    MEDIA_TYPE_FIELD_NUMBER: _ClassVar[int]
+    MEDIA_FORMAT_FIELD_NUMBER: _ClassVar[int]
+    EVENT_ITEM_CODE_FIELD_NUMBER: _ClassVar[int]
+    CHANNEL_ID_FIELD_NUMBER: _ClassVar[int]
+    PAYLOAD_FIELD_NUMBER: _ClassVar[int]
+    media_id: int
+    media_type: int
+    media_format: int
+    event_item_code: int
+    channel_id: int
+    payload: bytes
+    def __init__(self, media_id: _Optional[int] = ..., media_type: _Optional[int] = ..., media_format: _Optional[int] = ..., event_item_code: _Optional[int] = ..., channel_id: _Optional[int] = ..., payload: _Optional[bytes] = ...) -> None: ...
+
+class Jtt808SignalingDataMessage1212(_message.Message):
+    __slots__ = ("name", "type", "size")
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    TYPE_FIELD_NUMBER: _ClassVar[int]
+    SIZE_FIELD_NUMBER: _ClassVar[int]
+    name: str
+    type: FileType
+    size: int
+    def __init__(self, name: _Optional[str] = ..., type: _Optional[_Union[FileType, str]] = ..., size: _Optional[int] = ...) -> None: ...
+
+class ConcoxLikeR31(_message.Message):
+    __slots__ = ("id", "command")
+    ID_FIELD_NUMBER: _ClassVar[int]
+    COMMAND_FIELD_NUMBER: _ClassVar[int]
+    id: int
+    command: str
+    def __init__(self, id: _Optional[int] = ..., command: _Optional[str] = ...) -> None: ...
+
+class ConcoxRecording0x8d(_message.Message):
+    __slots__ = ("file_type", "file_size", "total_files", "current_sequence", "current_length", "payload")
+    FILE_TYPE_FIELD_NUMBER: _ClassVar[int]
+    FILE_SIZE_FIELD_NUMBER: _ClassVar[int]
+    TOTAL_FILES_FIELD_NUMBER: _ClassVar[int]
+    CURRENT_SEQUENCE_FIELD_NUMBER: _ClassVar[int]
+    CURRENT_LENGTH_FIELD_NUMBER: _ClassVar[int]
+    PAYLOAD_FIELD_NUMBER: _ClassVar[int]
+    file_type: int
+    file_size: int
+    total_files: int
+    current_sequence: int
+    current_length: int
+    payload: bytes
+    def __init__(self, file_type: _Optional[int] = ..., file_size: _Optional[int] = ..., total_files: _Optional[int] = ..., current_sequence: _Optional[int] = ..., current_length: _Optional[int] = ..., payload: _Optional[bytes] = ...) -> None: ...
+
+class Client(_message.Message):
+    __slots__ = ("remote_ip", "remote_port", "local_ip", "local_port")
+    REMOTE_IP_FIELD_NUMBER: _ClassVar[int]
+    REMOTE_PORT_FIELD_NUMBER: _ClassVar[int]
+    LOCAL_IP_FIELD_NUMBER: _ClassVar[int]
+    LOCAL_PORT_FIELD_NUMBER: _ClassVar[int]
+    remote_ip: str
+    remote_port: int
+    local_ip: str
+    local_port: int
+    def __init__(self, remote_ip: _Optional[str] = ..., remote_port: _Optional[int] = ..., local_ip: _Optional[str] = ..., local_port: _Optional[int] = ...) -> None: ...
+
+class OdysseyDevice(_message.Message):
+    __slots__ = ("id", "imei", "object_id", "object_type", "timezone", "is_unlimited", "trip_type", "receive_at", "expires_at", "connect_at", "created_at")
+    class ObjectType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+        __slots__ = ()
+        car: _ClassVar[OdysseyDevice.ObjectType]
+        person: _ClassVar[OdysseyDevice.ObjectType]
+    car: OdysseyDevice.ObjectType
+    person: OdysseyDevice.ObjectType
+    class TripType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+        __slots__ = ()
+        ignition: _ClassVar[OdysseyDevice.TripType]
+        source: _ClassVar[OdysseyDevice.TripType]
+    ignition: OdysseyDevice.TripType
+    source: OdysseyDevice.TripType
+    ID_FIELD_NUMBER: _ClassVar[int]
+    IMEI_FIELD_NUMBER: _ClassVar[int]
+    OBJECT_ID_FIELD_NUMBER: _ClassVar[int]
+    OBJECT_TYPE_FIELD_NUMBER: _ClassVar[int]
+    TIMEZONE_FIELD_NUMBER: _ClassVar[int]
+    IS_UNLIMITED_FIELD_NUMBER: _ClassVar[int]
+    TRIP_TYPE_FIELD_NUMBER: _ClassVar[int]
+    RECEIVE_AT_FIELD_NUMBER: _ClassVar[int]
+    EXPIRES_AT_FIELD_NUMBER: _ClassVar[int]
+    CONNECT_AT_FIELD_NUMBER: _ClassVar[int]
+    CREATED_AT_FIELD_NUMBER: _ClassVar[int]
+    id: int
+    imei: int
+    object_id: int
+    object_type: OdysseyDevice.ObjectType
+    timezone: str
+    is_unlimited: bool
+    trip_type: OdysseyDevice.TripType
+    receive_at: _timestamp_pb2.Timestamp
+    expires_at: _timestamp_pb2.Timestamp
+    connect_at: _timestamp_pb2.Timestamp
+    created_at: _timestamp_pb2.Timestamp
+    def __init__(self, id: _Optional[int] = ..., imei: _Optional[int] = ..., object_id: _Optional[int] = ..., object_type: _Optional[_Union[OdysseyDevice.ObjectType, str]] = ..., timezone: _Optional[str] = ..., is_unlimited: bool = ..., trip_type: _Optional[_Union[OdysseyDevice.TripType, str]] = ..., receive_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., expires_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., connect_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+
+class FusionDevice(_message.Message):
+    __slots__ = ("device_id", "car_id", "imei", "ignition_source", "timezone", "fcm_token", "is_free_use", "can_receive_from", "expire_time", "odo_type", "first_connect", "trip_type", "created_at", "operation")
+    DEVICE_ID_FIELD_NUMBER: _ClassVar[int]
+    CAR_ID_FIELD_NUMBER: _ClassVar[int]
+    IMEI_FIELD_NUMBER: _ClassVar[int]
+    IGNITION_SOURCE_FIELD_NUMBER: _ClassVar[int]
+    TIMEZONE_FIELD_NUMBER: _ClassVar[int]
+    FCM_TOKEN_FIELD_NUMBER: _ClassVar[int]
+    IS_FREE_USE_FIELD_NUMBER: _ClassVar[int]
+    CAN_RECEIVE_FROM_FIELD_NUMBER: _ClassVar[int]
+    EXPIRE_TIME_FIELD_NUMBER: _ClassVar[int]
+    ODO_TYPE_FIELD_NUMBER: _ClassVar[int]
+    FIRST_CONNECT_FIELD_NUMBER: _ClassVar[int]
+    TRIP_TYPE_FIELD_NUMBER: _ClassVar[int]
+    CREATED_AT_FIELD_NUMBER: _ClassVar[int]
+    OPERATION_FIELD_NUMBER: _ClassVar[int]
+    device_id: int
+    car_id: int
+    imei: int
+    ignition_source: int
+    timezone: str
+    fcm_token: str
+    is_free_use: bool
+    can_receive_from: int
+    expire_time: int
+    odo_type: int
+    first_connect: int
+    trip_type: int
+    created_at: int
+    operation: int
+    def __init__(self, device_id: _Optional[int] = ..., car_id: _Optional[int] = ..., imei: _Optional[int] = ..., ignition_source: _Optional[int] = ..., timezone: _Optional[str] = ..., fcm_token: _Optional[str] = ..., is_free_use: bool = ..., can_receive_from: _Optional[int] = ..., expire_time: _Optional[int] = ..., odo_type: _Optional[int] = ..., first_connect: _Optional[int] = ..., trip_type: _Optional[int] = ..., created_at: _Optional[int] = ..., operation: _Optional[int] = ...) -> None: ...
+
+class DeviceData(_message.Message):
+    __slots__ = ("fusion_device", "odyssey_device", "fetched_at")
+    FUSION_DEVICE_FIELD_NUMBER: _ClassVar[int]
+    ODYSSEY_DEVICE_FIELD_NUMBER: _ClassVar[int]
+    FETCHED_AT_FIELD_NUMBER: _ClassVar[int]
+    fusion_device: FusionDevice
+    odyssey_device: OdysseyDevice
+    fetched_at: int
+    def __init__(self, fusion_device: _Optional[_Union[FusionDevice, _Mapping]] = ..., odyssey_device: _Optional[_Union[OdysseyDevice, _Mapping]] = ..., fetched_at: _Optional[int] = ...) -> None: ...
+
+class Task(_message.Message):
+    __slots__ = ("data", "client", "AlertIdNumber", "imei", "device_data", "socket_io_listeners")
+    class AlertIdNumberEntry(_message.Message):
+        __slots__ = ("key", "value")
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: int
+        value: bytes
+        def __init__(self, key: _Optional[int] = ..., value: _Optional[bytes] = ...) -> None: ...
+    DATA_FIELD_NUMBER: _ClassVar[int]
+    CLIENT_FIELD_NUMBER: _ClassVar[int]
+    ALERTIDNUMBER_FIELD_NUMBER: _ClassVar[int]
+    IMEI_FIELD_NUMBER: _ClassVar[int]
+    DEVICE_DATA_FIELD_NUMBER: _ClassVar[int]
+    SOCKET_IO_LISTENERS_FIELD_NUMBER: _ClassVar[int]
+    data: Data
+    client: Client
+    AlertIdNumber: _containers.ScalarMap[int, bytes]
+    imei: int
+    device_data: DeviceData
+    socket_io_listeners: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, data: _Optional[_Union[Data, _Mapping]] = ..., client: _Optional[_Union[Client, _Mapping]] = ..., AlertIdNumber: _Optional[_Mapping[int, bytes]] = ..., imei: _Optional[int] = ..., device_data: _Optional[_Union[DeviceData, _Mapping]] = ..., socket_io_listeners: _Optional[_Iterable[str]] = ...) -> None: ...
+
+class DeviceStatus(_message.Message):
+    __slots__ = ("device_id", "imei", "data", "client", "online", "last_online", "logs")
+    DEVICE_ID_FIELD_NUMBER: _ClassVar[int]
+    IMEI_FIELD_NUMBER: _ClassVar[int]
+    DATA_FIELD_NUMBER: _ClassVar[int]
+    CLIENT_FIELD_NUMBER: _ClassVar[int]
+    ONLINE_FIELD_NUMBER: _ClassVar[int]
+    LAST_ONLINE_FIELD_NUMBER: _ClassVar[int]
+    LOGS_FIELD_NUMBER: _ClassVar[int]
+    device_id: int
+    imei: int
+    data: Data
+    client: Client
+    online: bool
+    last_online: _timestamp_pb2.Timestamp
+    logs: _containers.RepeatedCompositeFieldContainer[Log]
+    def __init__(self, device_id: _Optional[int] = ..., imei: _Optional[int] = ..., data: _Optional[_Union[Data, _Mapping]] = ..., client: _Optional[_Union[Client, _Mapping]] = ..., online: bool = ..., last_online: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., logs: _Optional[_Iterable[_Union[Log, _Mapping]]] = ...) -> None: ...
+
+class JTT808MediaRetrieval0802(_message.Message):
+    __slots__ = ("SerialNo", "MediaCounter", "items")
+    class Item(_message.Message):
+        __slots__ = ("MultimediaId", "MultimediaType", "ChannelId", "EventItemEncoding", "location")
+        MULTIMEDIAID_FIELD_NUMBER: _ClassVar[int]
+        MULTIMEDIATYPE_FIELD_NUMBER: _ClassVar[int]
+        CHANNELID_FIELD_NUMBER: _ClassVar[int]
+        EVENTITEMENCODING_FIELD_NUMBER: _ClassVar[int]
+        LOCATION_FIELD_NUMBER: _ClassVar[int]
+        MultimediaId: int
+        MultimediaType: int
+        ChannelId: int
+        EventItemEncoding: int
+        location: Data
+        def __init__(self, MultimediaId: _Optional[int] = ..., MultimediaType: _Optional[int] = ..., ChannelId: _Optional[int] = ..., EventItemEncoding: _Optional[int] = ..., location: _Optional[_Union[Data, _Mapping]] = ...) -> None: ...
+    SERIALNO_FIELD_NUMBER: _ClassVar[int]
+    MEDIACOUNTER_FIELD_NUMBER: _ClassVar[int]
+    ITEMS_FIELD_NUMBER: _ClassVar[int]
+    SerialNo: int
+    MediaCounter: int
+    items: _containers.RepeatedCompositeFieldContainer[JTT808MediaRetrieval0802.Item]
+    def __init__(self, SerialNo: _Optional[int] = ..., MediaCounter: _Optional[int] = ..., items: _Optional[_Iterable[_Union[JTT808MediaRetrieval0802.Item, _Mapping]]] = ...) -> None: ...
