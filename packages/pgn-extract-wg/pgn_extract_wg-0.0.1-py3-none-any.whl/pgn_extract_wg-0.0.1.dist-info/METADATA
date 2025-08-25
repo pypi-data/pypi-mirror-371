@@ -1,0 +1,8 @@
+Metadata-Version: 2.4
+Name: pgn-extract-wg
+Version: 0.0.1
+Summary: Wrapper to build and install the pgn-extract binary
+Author: William Galvin
+License-File: LICENSE
+License-File: COPYING
+Dynamic: license-file
