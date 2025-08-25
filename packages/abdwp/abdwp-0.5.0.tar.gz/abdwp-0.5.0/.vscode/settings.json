@@ -1,0 +1,38 @@
+{
+    "cSpell.words": [
+        "abdwp",
+        "allstar",
+        "axisbelow",
+        "borderpad",
+        "chadwickbureau",
+        "cwevent",
+        "edgecolor",
+        "facecolor",
+        "fancybox",
+        "framealpha",
+        "frameon",
+        "gamelog",
+        "gamelogs",
+        "handlelength",
+        "handletextpad",
+        "inout",
+        "mlbam",
+        "pushd",
+        "pybaseball",
+        "pytest",
+        "retrosheet",
+        "statcast",
+        "strikezone",
+        "titlesize",
+        "xaxis",
+        "xtick",
+        "yaxis",
+        "ytick",
+        "zorder"
+    ],
+    "python.testing.pytestArgs": [
+        "tests"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
+}
