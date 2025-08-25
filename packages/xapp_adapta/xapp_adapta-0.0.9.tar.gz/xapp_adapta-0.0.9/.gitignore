@@ -1,0 +1,12 @@
+# ignore venv
+bin/
+include/
+lib/
+lib64
+# ignore hatch build .
+dist/
+# desktop fckupiles
+*.desktop
+# sed backups for -i option inplace edits
+*.por
+*.cppr
