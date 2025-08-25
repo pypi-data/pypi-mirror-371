@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=42", "wheel", "pybind11", "scikit-build-core"]
+build-backend = "scikit_build_core.build"
+
+[project]
+name = "py-p-audio"
+version = "0.1.5"
+description = "High-performance cross-platform audio library with recording, playback, and loopback capture"
+authors = [
+  { name="py-p-audio Contributors", email="dev@example.com" }
+]
+license = { text = "MIT" }
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: C++",
+  "Operating System :: Microsoft :: Windows",
+  "License :: OSI Approved :: MIT License",
+]
+
+[project.urls]
+Homepage = "https://github.com/py-p-audio/py-p-audio"
+Repository = "https://github.com/py-p-audio/py-p-audio"
+Issues = "https://github.com/py-p-audio/py-p-audio/issues"
+
+[tool.scikit-build]
+wheel.expand-macos-universal-tags = true
+cmake.args = ["-DBUILD_CLI=OFF", "-DUSE_FETCH_PORTAUDIO=ON"]
