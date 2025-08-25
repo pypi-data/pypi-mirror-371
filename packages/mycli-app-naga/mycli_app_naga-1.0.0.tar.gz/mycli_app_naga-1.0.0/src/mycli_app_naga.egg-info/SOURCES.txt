@@ -1,0 +1,17 @@
+CHANGELOG.md
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+requirements.txt
+setup.py
+src/mycli_app/__init__.py
+src/mycli_app/__main__.py
+src/mycli_app/cli.py
+src/mycli_app_naga.egg-info/PKG-INFO
+src/mycli_app_naga.egg-info/SOURCES.txt
+src/mycli_app_naga.egg-info/dependency_links.txt
+src/mycli_app_naga.egg-info/entry_points.txt
+src/mycli_app_naga.egg-info/not-zip-safe
+src/mycli_app_naga.egg-info/requires.txt
+src/mycli_app_naga.egg-info/top_level.txt
