@@ -1,0 +1,61 @@
+Metadata-Version: 2.4
+Name: sphinx-mekki
+Version: 0.8.9
+Summary: A Sphinx extension to embed images, download files, CSSs, and JSs into a single HTML file.
+Project-URL: Homepage, https://github.com/wakinotani/sphinx-mekki
+Project-URL: Issues, https://github.com/wakinotani/sphinx-mekki/issues
+Author-email: Yoshiyuki Wakinotani <wakinotani@gmail.com>
+License-File: LICENSE
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Sphinx
+Classifier: Framework :: Sphinx :: Extension
+Classifier: Framework :: Sphinx :: Theme
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Documentation :: Sphinx
+Classifier: Topic :: Software Development :: Documentation
+Classifier: Topic :: Text Processing :: Markup :: HTML
+Requires-Python: >=3.8
+Requires-Dist: cssutils
+Requires-Dist: rjsmin
+Description-Content-Type: text/x-rst
+
+========================================================================
+sphinx-mekki
+========================================================================
+
+A `Sphinx <https://www.sphinx-doc.org>`_ extension to embed images, download files, CSSs, and JSs into a single HTML file.
+
+Installation
+========================================================================
+
+You are able to install ``sphinx-mekki`` with ``pip``.
+
+.. code-block:: shell
+
+   pip install sphinx-mekki
+
+Usage
+========================================================================
+
+You must add ``sphinx_mekki`` to your extensions list in your ``conf.py``.
+
+.. code-block:: python
+
+   extensions = [... , "sphinx_mekki", ...]
+
+You are optionally able to change the html_theme to ``mekki`` in the ``conf.py`` to generate simple HTML files with minimal dependency on other pages. (Hopefully, this extension should work with any HTML theme that complies with Sphinx.)
+
+.. code-block:: python
+
+   html_theme = "mekki"
+
+Enjoy writing docs!
