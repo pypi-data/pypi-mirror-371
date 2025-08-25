@@ -1,0 +1,9 @@
+justsdk/__init__.py,sha256=Ck9pC7xcIcltb4XoIJ4A5ptZhwAUkCynKxN2CAHqf2Y,672
+justsdk/ansi.py,sha256=xffxsC36t47auP4eJ8ld_aooXUcOCBcs3GR-xEl6UF8,1653
+justsdk/color_print.py,sha256=CvGeAG4kkLZryYn9SHfR7Kf4byGdn_T5eAK6Mk7QDjs,4470
+justsdk/file_utils.py,sha256=HRT-7H5umTQ9j3hgCDUftYYWIX277oynDBghCWQtRe8,6834
+justsdk/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+justsdk-2.3.1.dist-info/METADATA,sha256=eahGuA27BYQ5R5Tpw9zc7U9VRbOw1EthiRpQFfuDbCo,871
+justsdk-2.3.1.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+justsdk-2.3.1.dist-info/entry_points.txt,sha256=CLlLLbdzgWrMidL1rcxnYA-9vJj3hETMhChwQhtfgMI,41
+justsdk-2.3.1.dist-info/RECORD,,
