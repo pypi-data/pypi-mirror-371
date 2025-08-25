@@ -1,0 +1,17 @@
+[package]
+name = "arm64-mask-gen-py"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+readme = "README.md"
+
+[lib]
+name = "arm64_mask_gen_py"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = "0.25.0"
+arm64-mask-gen = { git = "https://github.com/xliee/arm64-mask-gen.git", branch = "main", version = "0.1.0", features = ["keystone"], default-features = false }
+# arm64-mask-gen = { path = "../arm64-mask-gen", package = "arm64-mask-gen", features = ["keystone"], default-features = false }
+anyhow = "1.0"
+
