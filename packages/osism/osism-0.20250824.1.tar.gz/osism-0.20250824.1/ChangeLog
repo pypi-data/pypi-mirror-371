@@ -1,0 +1,7 @@
+CHANGES
+=======
+
+v0.20250824.1
+-------------
+
+* frontend: improve baremetal nodes layout (#1672)
