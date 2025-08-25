@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "./static/css/main.c5e7a733.css",
+    "main.js": "./static/js/main.a679ce71.js",
+    "static/media/material-symbols-rounded.woff2": "./static/media/material-symbols-rounded.0483b975fd0ac25f323b.woff2",
+    "static/media/material-symbols-outlined.woff2": "./static/media/material-symbols-outlined.55968e9e51644defc4f4.woff2",
+    "static/media/material-symbols-sharp.woff2": "./static/media/material-symbols-sharp.818683d6bda01b35ed0e.woff2",
+    "index.html": "./index.html",
+    "main.c5e7a733.css.map": "./static/css/main.c5e7a733.css.map",
+    "main.a679ce71.js.map": "./static/js/main.a679ce71.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c5e7a733.css",
+    "static/js/main.a679ce71.js"
+  ]
+}
