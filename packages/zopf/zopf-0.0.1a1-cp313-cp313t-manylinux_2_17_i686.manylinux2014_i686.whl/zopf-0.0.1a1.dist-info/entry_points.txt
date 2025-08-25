@@ -1,0 +1,2 @@
+[console_scripts]
+zopf=zopf.__main__:launch_cli
