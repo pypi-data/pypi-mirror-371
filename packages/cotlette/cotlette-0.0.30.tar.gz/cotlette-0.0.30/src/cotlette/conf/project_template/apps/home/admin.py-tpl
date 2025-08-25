@@ -1,0 +1,24 @@
+from cotlette.contrib import admin
+from .models import HomePage
+
+@admin.register(HomePage)
+class HomePageAdmin(admin.ModelAdmin):
+    list_display = ['title', 'is_active', 'created_at', 'updated_at']
+    list_filter = ['is_active', 'created_at', 'updated_at']
+    search_fields = ['title', 'content']
+    readonly_fields = ['created_at', 'updated_at']
+    list_editable = ['is_active']
+    
+    fieldsets = (
+        ('Основная информация', {
+            'fields': ('title', 'content')
+        }),
+        ('Статус', {
+            'fields': ('is_active',)
+        }),
+        ('Временные метки', {
+            'fields': ('created_at', 'updated_at'),
+            'classes': ('collapse',)
+        }),
+    )
+

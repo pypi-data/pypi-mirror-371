@@ -1,0 +1,13 @@
+from cotlette.test import TestCase
+
+# Создайте ваши тесты здесь.
+# Пример:
+# class ExampleTestCase(TestCase):
+#     async def test_example_view(self):
+#         response = await self.client.get('/')
+#         self.assertEqual(response.status_code, 200)
+#         self.assertContains(response, 'Добро пожаловать')
+# 
+#     async def test_private_page_requires_auth(self):
+#         response = await self.client.get('/private')
+#         self.assertEqual(response.status_code, 302)  # Редирект на логин

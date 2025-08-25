@@ -1,0 +1,10 @@
+from cotlette.apps import AppConfig
+
+
+class AppConfig(AppConfig):
+    name = '{{ app_name }}'
+    verbose_name = '{{ app_name|title }}'
+    
+    def ready(self):
+        # Импорт сигналов и других компонентов при инициализации
+        pass

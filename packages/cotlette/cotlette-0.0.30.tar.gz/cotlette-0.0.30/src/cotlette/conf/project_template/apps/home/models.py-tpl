@@ -1,0 +1,18 @@
+from cotlette.core.database import models
+
+
+# Модели для главной страницы
+class HomePage(models.Model):
+    title = models.CharField(max_length=200, verbose_name="Заголовок")
+    content = models.TextField(verbose_name="Содержание")
+    is_active = models.BooleanField(default=True, verbose_name="Активна")
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
+    updated_at = models.DateTimeField(auto_now=True, verbose_name="Дата обновления")
+    
+    class Meta:
+        db_table = "home_page"
+        verbose_name = "Главная страница"
+        verbose_name_plural = "Главные страницы"
+    
+    def __str__(self):
+        return self.title

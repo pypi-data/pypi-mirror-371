@@ -1,0 +1,53 @@
+from cotlette.test import TestCase
+from .models import HomePage
+
+class HomeTestCase(TestCase):
+    """Тесты для приложения home"""
+    
+    async def test_home_view(self):
+        """Тест главной страницы"""
+        response = await self.client.get('/')
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'Добро пожаловать')
+    
+    async def test_about_view(self):
+        """Тест страницы 'О нас'"""
+        response = await self.client.get('/about')
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'О нас')
+    
+    async def test_private_page_requires_auth(self):
+        """Тест что приватная страница требует авторизации"""
+        response = await self.client.get('/private')
+        self.assertEqual(response.status_code, 302)  # Редирект на логин
+    
+    async def test_home_api_data(self):
+        """Тест API для получения данных главной страницы"""
+        response = await self.client.get('/api/home/data')
+        self.assertEqual(response.status_code, 200)
+        data = response.json()
+        self.assertEqual(data['status'], 'success')
+        self.assertIn('data', data)
+
+
+class HomeModelTestCase(TestCase):
+    """Тесты для моделей приложения home"""
+    
+    async def test_home_page_creation(self):
+        """Тест создания модели HomePage"""
+        home_page = await HomePage.objects.create(
+            title='Тестовая страница',
+            content='Тестовое содержание'
+        )
+        self.assertEqual(home_page.title, 'Тестовая страница')
+        self.assertEqual(home_page.content, 'Тестовое содержание')
+        self.assertTrue(home_page.is_active)
+    
+    async def test_home_page_str_representation(self):
+        """Тест строкового представления модели"""
+        home_page = await HomePage.objects.create(
+            title='Тестовая страница',
+            content='Тестовое содержание'
+        )
+        self.assertEqual(str(home_page), 'Тестовая страница')
+

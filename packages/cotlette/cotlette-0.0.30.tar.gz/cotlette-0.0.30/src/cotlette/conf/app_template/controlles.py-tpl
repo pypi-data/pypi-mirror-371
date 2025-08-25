@@ -1,0 +1,18 @@
+from cotlette.shortcuts import render
+
+# Создайте ваши контроллеры здесь.
+# Пример:
+# class ExampleController:
+#     async def index(self, request):
+#         context = {
+#             'title': 'Главная страница',
+#             'items': []  # Здесь будет логика получения данных
+#         }
+#         return render(request, '{{ app_name }}/index.html', context)
+#     
+#     async def show(self, request, item_id):
+#         # Логика получения конкретного элемента
+#         context = {
+#             'item': {'id': item_id, 'name': 'Пример'}
+#         }
+#         return render(request, '{{ app_name }}/show.html', context)

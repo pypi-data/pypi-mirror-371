@@ -1,0 +1,29 @@
+from cotlette.shortcuts import render_template
+from .models import HomePage
+
+async def home_view(request):
+    """Главная страница"""
+    try:
+        home_page = await HomePage.objects.filter(is_active=True).first()
+        context = {
+            'title': home_page.title if home_page else 'Добро пожаловать',
+            'content': home_page.content if home_page else 'Это главная страница вашего приложения.',
+            'home_page': home_page
+        }
+    except:
+        context = {
+            'title': 'Добро пожаловать',
+            'content': 'Это главная страница вашего приложения.',
+            'home_page': None
+        }
+    
+    return render_template(request, 'home/home.html', context)
+
+
+async def about_view(request):
+    """Страница 'О нас'"""
+    context = {
+        'title': 'О нас',
+        'content': 'Информация о вашем проекте.'
+    }
+    return render_template(request, 'home/about.html', context)

@@ -1,0 +1,27 @@
+from fastapi import APIRouter, Request
+from cotlette.shortcuts import render_template
+from starlette.authentication import requires
+from . import views
+
+router = APIRouter()
+
+# Главная страница
+@router.get("/")
+async def home(request: Request):    
+    return await views.home_view(request)
+
+# Страница "О нас"
+@router.get('/about')
+async def about(request: Request):
+    return await views.about_view(request)
+
+# Защищенная страница (требует авторизации)
+@router.get('/private')
+@requires('user_auth')  # защищенный endpoint, доступен только авторизованным пользователям
+async def private_page(request: Request):
+    context = {
+        'title': 'Приватная страница',
+        'message': 'Эта страница доступна только авторизованным пользователям!'
+    }
+    return render_template(request=request, template_name="home/private.html", context=context)
+
