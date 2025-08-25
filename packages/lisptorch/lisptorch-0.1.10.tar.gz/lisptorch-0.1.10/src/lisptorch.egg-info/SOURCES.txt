@@ -1,0 +1,12 @@
+README.md
+lisptorch_core.cpp
+pyproject.toml
+setup.py
+src/lisptorch/final.py
+src/lisptorch/setup.py
+src/lisptorch/test.py
+src/lisptorch.egg-info/PKG-INFO
+src/lisptorch.egg-info/SOURCES.txt
+src/lisptorch.egg-info/dependency_links.txt
+src/lisptorch.egg-info/requires.txt
+src/lisptorch.egg-info/top_level.txt

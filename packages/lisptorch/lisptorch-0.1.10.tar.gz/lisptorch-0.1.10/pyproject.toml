@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61.0", "pybind11"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project]
+name = "lisptorch"
+version = "0.1.10" # Sürüm numarasını zaten güncelledin, harika.
+authors = [
+  { name="Nail Bestaş", email="bestasnail@gmail.com" },
+]
+description = "C++ ile hızlandırılmış, Python için basit ve güçlü bir veri analizi kütüphanesi."
+readme = "README.md"
+requires-python = ">=3.11"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+
+dynamic = ["dependencies"]
+
+[project.urls]
+"Homepage" = "https://github.com/nailBestas/lisptorch"
+"Bug Tracker" = "https://github.com/nailBestas/lisptorch/issues"
