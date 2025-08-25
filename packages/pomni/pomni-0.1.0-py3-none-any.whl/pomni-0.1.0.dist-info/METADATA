@@ -1,0 +1,35 @@
+Metadata-Version: 2.3
+Name: pomni
+Version: 0.1.0
+Summary: JAX Code assistant
+Requires-Dist: dotenv>=0.9.9
+Requires-Dist: google-generativeai>=0.8.5
+Requires-Dist: huggingface-hub>=0.34.4
+Requires-Dist: ipykernel>=6.29.5
+Requires-Dist: jax>=0.7.0
+Requires-Dist: jupyter>=1.1.1
+Requires-Dist: keras>=3.10.0
+Requires-Dist: keras-hub>=0.19.0
+Requires-Dist: nbformat>=5.10.4
+Requires-Dist: pandas>=2.3.0
+Requires-Dist: patdb>=0.1.0
+Requires-Dist: pylsp-rope>=0.1.17
+Requires-Dist: requests>=2.32.3
+Requires-Dist: rich>=14.0.0
+Requires-Dist: sentencepiece>=0.2.0
+Requires-Dist: streamlit>=1.47.1
+Requires-Dist: textual>=5.3.0
+Requires-Dist: torch>=2.8.0
+Requires-Dist: vertexai>=1.71.1
+Requires-Dist: watchdog>=6.0.0
+Requires-Python: >=3.12, <3.13
+Description-Content-Type: text/markdown
+
+# JAX Code Assistant
+Finetuning LLMs on JAX to better aid in code assistance.
+
+## Setup
+Make sure to set the environment variables before running the scripts. You'd need:
+
+- [ ] Github Token
+- [ ] Google API key
