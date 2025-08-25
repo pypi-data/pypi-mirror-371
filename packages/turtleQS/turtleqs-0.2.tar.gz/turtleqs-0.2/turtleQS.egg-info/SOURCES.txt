@@ -1,0 +1,6 @@
+setup.py
+turtleQS.egg-info/PKG-INFO
+turtleQS.egg-info/SOURCES.txt
+turtleQS.egg-info/dependency_links.txt
+turtleQS.egg-info/entry_points.txt
+turtleQS.egg-info/top_level.txt
