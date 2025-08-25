@@ -1,0 +1,22 @@
+Metadata-Version: 2.4
+Name: darkgray_dev_tools
+Version: 0.3.0
+Summary: Tools for development, testing and releasing of Darker, Graylint and Darkgraylib.
+Author-email: Antti Kaihola <13725+akaihola@users.noreply.github.com>
+Requires-Python: >=3.9
+License-File: LICENSE
+Requires-Dist: airium>=0.2.6
+Requires-Dist: click>=8.0.0
+Requires-Dist: keyring
+Requires-Dist: pyproject-parser>=0.13.0b1
+Requires-Dist: requests_cache>=0.7
+Requires-Dist: ruamel.yaml>=0.15.78
+Requires-Dist: setuptools>=61
+Requires-Dist: gql>=3.0.0
+Requires-Dist: codespell ; extra == "dev"
+Requires-Dist: pre-commit ; extra == "dev"
+Requires-Dist: pre-commit-uv ; extra == "dev"
+Requires-Dist: pytest ; extra == "dev"
+Requires-Dist: pytest-kwparametrize>=0.0.3 ; extra == "dev"
+Project-URL: Home, https://github.com/akaihola/darkgray-dev-tools
+Provides-Extra: dev
