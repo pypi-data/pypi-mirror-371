@@ -1,0 +1,8 @@
+
+[dev]
+
+[dev:python_version < "3.8"]
+pytest<8,>=7.4
+
+[dev:python_version >= "3.8"]
+pytest>=8
