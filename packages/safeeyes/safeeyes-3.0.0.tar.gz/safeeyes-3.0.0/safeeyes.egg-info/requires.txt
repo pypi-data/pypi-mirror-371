@@ -1,0 +1,8 @@
+pywayland
+PyGObject
+babel
+packaging
+python-xlib
+
+[healthstats]
+croniter
