@@ -1,0 +1,11 @@
+./.gitignore,sha256=lzMNssg_M1okQOpbrB2emouiDQJk5HVML9RNq0L2Fjc,3307
+./.python-version,sha256=e1X45ntWI8S-8_ppEojalDfXnTq6FW3kjUgdsyrH0W0,5
+./PKG-INFO,sha256=uLfB8Arh4xUsJlJMaHu5CEIYcNcI3qUe9SPni2AuiUg,1596
+./README.md,sha256=GxAgXMXGucL7vcQEo_kkMrYSc5YPXJgGYPBRClymNA8,506
+./__init__.py,sha256=OiyHzVZv2vuSkULf8W-CzI6wguzJcT84vEWaM8uVgEo,209
+./main.py,sha256=cRL4BcH1Cqln3O-ttx97f1br6KSPx9Dih39PKRfEn78,8619
+./pyproject.toml,sha256=iUmp26XHK6dTdUjyhO9B5NrIARloFZ7rNNX8ToyExCI,1324
+./uv.lock,sha256=YQJn53xqaWil5zrYNb5CpWLmExkkrqay7ffO65c0g5E,107234
+stash_mcp_server-0.1.0.dist-info/METADATA,sha256=uLfB8Arh4xUsJlJMaHu5CEIYcNcI3qUe9SPni2AuiUg,1596
+stash_mcp_server-0.1.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+stash_mcp_server-0.1.0.dist-info/RECORD,,
