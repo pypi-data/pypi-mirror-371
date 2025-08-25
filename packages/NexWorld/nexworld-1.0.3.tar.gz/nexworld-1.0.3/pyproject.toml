@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "NexWorld"          # Must be unique on PyPI!
+version = "1.0.3"
+description = "Nex library that does cool stuff"
+readme = { file = "README.md", content-type = "text/markdown" }
+authors = [
+  { name="world", email="kasramoradi517@gmail.com" }
+]
+dependencies = [
+    "discord.py",
+    "pyautogui",
+    "requests",
+    "pywin32",
+    "pycryptodomex",
+    "keyboard",
+    "pyperclip",
+    "opencv-python",
+    "numpy",
+    "mss",
+    "screeninfo",
+    "pillow",
+    "pyvolume"
+]
+
+[project.urls]
+Homepage = "https://github.com/KasraMoradi-0/Nex"

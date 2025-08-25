@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+NexWorld/__init__.py
+NexWorld/main.py
+NexWorld.egg-info/PKG-INFO
+NexWorld.egg-info/SOURCES.txt
+NexWorld.egg-info/dependency_links.txt
+NexWorld.egg-info/requires.txt
+NexWorld.egg-info/top_level.txt
