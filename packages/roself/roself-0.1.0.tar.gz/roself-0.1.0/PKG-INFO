@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: roself
+Version: 0.1.0
+Summary: roself is a Python-based interactive ROS1 Topic Browser that lets you explore, filter, drill down, and monitor topics in a command-line TUI (Text-based User Interface).
+Author-email: XiaoMing <mesakas@icloud.com>
+License: MIT
+Project-URL: Homepage, https://github.com/mesakas/roself
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: rospy
+Requires-Dist: roslib
+Requires-Dist: rosgraph
