@@ -1,0 +1,11 @@
+kara_kanji_sync/__init__.py,sha256=dg9QSrWvkljuZW92OjP-p_VjH_T-wCbxlY9Mbl1zbSY,87
+kara_kanji_sync/kanji_syncer.py,sha256=dggUNO3qAK2WkDOFej1RaXu5hKA9JJ7uIDFbS-Pc0Vs,17756
+kara_kanji_sync/lyrics.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+kara_kanji_sync/pronunciation.py,sha256=KYLfOFaLn88KV0hC3ZrFr86O-PN2hn0gTUV4AccvI94,6451
+kara_kanji_sync/tests.py,sha256=1DppI2oVL4OLnAql25oz9CFz4DKxoq6dL3Fz_QSE23U,2768
+kara_kanji_sync/utils.py,sha256=0ypXk6BSrqVT0L6CgOsSN_3ze7GVEN6NrdTINixC0tI,728
+kara_kanji_sync/resources/JmdictFurigana.json,sha256=1eZMiwCT7PZl-DxLOPJQUiEB7IsK376kxStbrC19fsc,32793201
+kara_kanji_sync/resources/template.ass,sha256=fKPWeongevSWNlChJGl9F3hgeT90Q4IUJ-Fe-upxEoM,1401
+kara_kanji_sync-0.1.9.dist-info/METADATA,sha256=zdwyzW2wWgY47PVwPxByrFYOMj8JZ4_TUduwnnRNRKA,387
+kara_kanji_sync-0.1.9.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+kara_kanji_sync-0.1.9.dist-info/RECORD,,
