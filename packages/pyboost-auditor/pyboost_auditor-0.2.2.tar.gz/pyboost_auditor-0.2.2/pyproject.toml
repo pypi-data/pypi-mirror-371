@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61.0", "rich"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyboost-auditor"
+version = "0.2.2"
+authors = [
+  { name="Anoop Johny", email="anoopjohny@gmail.com" },
+]
+description = "An upgrade assistant to audit Python projects and estimate cloud cost savings."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text="MIT" }
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Build Tools",
+    "Topic :: System :: Systems Administration",
+]
+dependencies = [
+    "rich>=13.0.0"
+]
+
+[project.scripts]
+pyboost = "pyboost.main:run"

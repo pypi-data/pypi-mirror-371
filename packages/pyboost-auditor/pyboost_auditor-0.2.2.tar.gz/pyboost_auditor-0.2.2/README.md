@@ -1,0 +1,52 @@
+# pyboost-auditor
+
+**An upgrade assistant for Python projects that audits code and estimates cloud cost savings.**
+
+## 🚀 About the Project
+
+`pyboost-auditor` is a powerful command-line tool designed to help developers and organizations transition to modern Python versions with confidence. It goes beyond simple dependency checks by providing a clear, financial case for upgrading, helping you identify and quantify potential cloud cost savings.
+
+## ✨ Key Features
+
+  * **Automated Scanning:** Automatically detects the Python version in your project by scanning for `Dockerfile` and `environment.yaml` files.
+  * **Cost Analysis:** Provides a clear estimate of your annual cloud savings based on your monthly bill and a hard-coded knowledge base of performance improvements in recent Python releases. This turns a technical decision into a business-friendly one.
+  * **Dependency Checks:** Runs `pip check` to find potential dependency conflicts before you upgrade, serving as a proactive guardrail to prevent issues.
+  * **CI/CD Ready:** Designed to be easily integrated into your CI/CD pipeline as a quality check.
+  * **Visual Reports:** Provides a clear, color-coded report in the terminal for easy reading and quick decision-making, thanks to the `rich` library.
+
+## 🛠️ How to Use
+
+### 1\. Installation
+
+You can install `pyboost-auditor` directly from PyPI:
+
+```bash
+pip install pyboost-auditor
+```
+
+### 2\. Basic Usage
+
+Navigate to your project directory and run the command with your estimated monthly cloud bill. The tool will then scan your project and provide a report.
+
+```bash
+pyboost --monthly-bill [YOUR_BILL_AMOUNT] --compute-percentage [PERCENTAGE]
+```
+
+  * `--monthly-bill`: Your average monthly cloud bill.
+  * `--compute-percentage`: The percentage of your bill that is allocated to computing resources.
+
+### 3\. Example
+
+```bash
+pyboost --monthly-bill 2300000 --compute-percentage 0.6
+```
+
+This command would analyze your project and provide a report that estimates the annual savings based on a monthly cloud bill of `$2,300,000` with `60%` allocated to compute.
+
+## 🤝 Contributing
+
+We welcome contributions from the community\! Feel free to report a bug, suggest a new feature, or submit a pull request on GitHub.
+
+## 📄 License
+
+This project is licensed under the MIT License.
