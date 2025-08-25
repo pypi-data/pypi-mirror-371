@@ -1,0 +1,12 @@
+slimformers/__init__.py,sha256=n4m_DEvPY3EF_zS5jNl8pWib4ZykCqpuXW94SxThce0,61
+slimformers/cli.py,sha256=rd28nsZNKLr8tmR9A0VPPdN9I5O8uA2-XXtX3FDWOYM,19503
+slimformers/discovery.py,sha256=6WvIAZVdoM_xkb_Z5NHmfvcIqEfS8bCVpoWctFCT0zA,10406
+slimformers/lora.py,sha256=9L7olqaNYGQWEWOtpDJ6_WcBo222Frgg0QCIQ15i9Gg,5671
+slimformers/pruner.py,sha256=hHrlYybJdoVTLBpEZHucuZeaYAjnjr-n8DikMNMGAhw,26805
+slimformers/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+slimformers-1.10.5.dist-info/licenses/LICENSE.txt,sha256=a9AzqFySiOrrAsxSlRdrDaZ0p7TJtBPTTUaJV8ULCyc,1093
+slimformers-1.10.5.dist-info/METADATA,sha256=EvCZ4sTXL3-lk74Xy3UoanfHdu-Y4I-wT_1NOJU0V8o,14226
+slimformers-1.10.5.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+slimformers-1.10.5.dist-info/entry_points.txt,sha256=YrgAUQvdAChGeSl5zmawDqXMytkb8K9ti7E0zztrOo4,53
+slimformers-1.10.5.dist-info/top_level.txt,sha256=FJnWqtZ-PfZviyCUbjtpSI3dsgCgCDvAmieTkbWVxtw,12
+slimformers-1.10.5.dist-info/RECORD,,
