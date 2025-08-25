@@ -1,0 +1,2 @@
+[console_scripts]
+macrorecorder = macrorecorder.macro_gui:main
