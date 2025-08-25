@@ -1,0 +1,2 @@
+[console_scripts]
+babylonrsa = babylonrsa.cli:main
