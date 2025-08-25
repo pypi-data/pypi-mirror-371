@@ -1,0 +1,2 @@
+[console_scripts]
+terracost = terracost.main:main
