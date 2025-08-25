@@ -1,0 +1,11 @@
+HEADER_RATELIMIT_POLICY = "RateLimit-Policy"
+HEADER_RATELIMIT = "RateLimit"
+
+
+STATE_KEY = "farl"
+
+
+DEFAULT_NAMESPACE = "default"
+DEFAULT_TIME = "minute"
+DEFAULT_PERIOD = 1
+DEFAULT_COST = 1
