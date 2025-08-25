@@ -1,0 +1,714 @@
+# CSS Documentation
+*Auto-generated from `C:\Users\cblac\PycharmProjects\TooManySessions\toomanysessions\src\toomanysessions\templates\css/`*
+
+## Classes by Usage Frequency
+
+- `.particle` (3 files)
+- `.btn` (3 files)
+- `.css` (3 files)
+- `.no-scroll` (2 files)
+- `.theme-light` (2 files)
+- `.text-gradient-primary` (2 files)
+- `.text-gradient` (2 files)
+- `.fixed` (2 files)
+- `.floating-particles` (2 files)
+- `.container` (2 files)
+- `.flex` (2 files)
+- `.grid` (2 files)
+- `.glass-card` (2 files)
+- `.icon-success` (2 files)
+- `.icon-content` (2 files)
+- `.ripple` (2 files)
+- `.btn-sm` (2 files)
+- `.btn-lg` (2 files)
+- `.btn-success` (2 files)
+- `.text-success` (2 files)
+- `.animate-bounce-in` (2 files)
+- `.particle-drift` (2 files)
+- `.glass-effect-heavy` (1 files)
+- `.glass-effect-light` (1 files)
+- `.glass-effect` (1 files)
+- `.glass-card--light` (1 files)
+- `.bg-gradient-warning` (1 files)
+- `.bg-overlay-dark` (1 files)
+- `.bg-gradient-primary` (1 files)
+- `.bg-gradient-error` (1 files)
+- `.bg-gradient-animated` (1 files)
+- `.bg-gradient-success` (1 files)
+- `.bg-overlay-light` (1 files)
+- `.bg-gradient-primary-alt` (1 files)
+- `.particle--glow` (1 files)
+- `.sparkle--colored` (1 files)
+- `.sparkle` (1 files)
+- `.particle--colored` (1 files)
+- `.container--lg` (1 files)
+- `.container--md` (1 files)
+- `.container--xl` (1 files)
+- `.container--sm` (1 files)
+- `.content-section` (1 files)
+- `.fullscreen-layout` (1 files)
+- `.centered-layout` (1 files)
+- `.centered-content` (1 files)
+- `.flex--gap` (1 files)
+- `.grid--4` (1 files)
+- `.flex--column` (1 files)
+- `.flex--wrap` (1 files)
+- `.flex--mobile-column` (1 files)
+- `.grid--3` (1 files)
+- `.grid--lg` (1 files)
+- `.flex--gap-sm` (1 files)
+- `.grid--auto` (1 files)
+- `.grid--sm` (1 files)
+- `.flex--center` (1 files)
+- `.grid--2` (1 files)
+- `.grid--responsive` (1 files)
+- `.flex--gap-lg` (1 files)
+- `.flex--between` (1 files)
+- `.glass-card--sm` (1 files)
+- `.info-value` (1 files)
+- `.glass-card--dark` (1 files)
+- `.glass-card--center` (1 files)
+- `.card-footer` (1 files)
+- `.card-header` (1 files)
+- `.glass-card--strong` (1 files)
+- `.info-row` (1 files)
+- `.glass-card--subtle` (1 files)
+- `.info-card` (1 files)
+- `.card-body` (1 files)
+- `.info-label` (1 files)
+- `.glass-card--lg` (1 files)
+- `.modal-overlay` (1 files)
+- `.modal-close` (1 files)
+- `.modal-body` (1 files)
+- `.modal-content` (1 files)
+- `.modal-header` (1 files)
+- `.modal-footer` (1 files)
+- `.form-input` (1 files)
+- `.show` (1 files)
+- `.form-group` (1 files)
+- `.form-label` (1 files)
+- `.form-row` (1 files)
+- `.form-input--error` (1 files)
+- `.error-message` (1 files)
+- `.icon-error` (1 files)
+- `.icon-warning` (1 files)
+- `.profile-picture` (1 files)
+- `.icon-xl` (1 files)
+- `.icon-container` (1 files)
+- `.icon-lg` (1 files)
+- `.profile-initials` (1 files)
+- `.icon-md` (1 files)
+- `.icon-sm` (1 files)
+- `.icon-primary` (1 files)
+- `.status-busy` (1 files)
+- `.status-dot` (1 files)
+- `.badge-error` (1 files)
+- `.badge-success` (1 files)
+- `.badge` (1 files)
+- `.badge-neutral` (1 files)
+- `.badge-warning` (1 files)
+- `.status-away` (1 files)
+- `.badge-primary` (1 files)
+- `.status-available` (1 files)
+- `.status-offline` (1 files)
+- `.status-indicator` (1 files)
+- `.btn-group` (1 files)
+- `.btn-glass` (1 files)
+- `.btn-ripple` (1 files)
+- `.btn-fab` (1 files)
+- `.btn-xl` (1 files)
+- `.btn-block` (1 files)
+- `.btn__icon` (1 files)
+- `.btn__text` (1 files)
+- `.btn--loading` (1 files)
+- `.btn-error` (1 files)
+- `.btn-secondary` (1 files)
+- `.btn-primary` (1 files)
+- `.btn-ghost` (1 files)
+- `.btn-warning` (1 files)
+- `.btn-neutral` (1 files)
+- `.btn-outline` (1 files)
+- `.lg` (1 files)
+- `.sm` (1 files)
+- `.md` (1 files)
+- `.mb-0` (1 files)
+- `.p-2xl` (1 files)
+- `.pt-xl` (1 files)
+- `.mt-0` (1 files)
+- `.mb-md` (1 files)
+- `.mt-lg` (1 files)
+- `.pt-lg` (1 files)
+- `.mt-2xl` (1 files)
+- `.mt-3xl` (1 files)
+- `.p-sm` (1 files)
+- `.ml-auto` (1 files)
+- `.m-sm` (1 files)
+- `.mr-auto` (1 files)
+- `.p-xl` (1 files)
+- `.pt-0` (1 files)
+- `.pb-2xl` (1 files)
+- `.mt-xs` (1 files)
+- `.p-xs` (1 files)
+- `.m-md` (1 files)
+- `.pt-3xl` (1 files)
+- `.pt-md` (1 files)
+- `.mb-3xl` (1 files)
+- `.m-3xl` (1 files)
+- `.pb-0` (1 files)
+- `.mx-auto` (1 files)
+- `.m-xl` (1 files)
+- `.mb-lg` (1 files)
+- `.pt-xs` (1 files)
+- `.mb-xl` (1 files)
+- `.pt-2xl` (1 files)
+- `.pb-3xl` (1 files)
+- `.pb-xl` (1 files)
+- `.mt-md` (1 files)
+- `.mb-xs` (1 files)
+- `.pt-sm` (1 files)
+- `.mb-sm` (1 files)
+- `.mb-2xl` (1 files)
+- `.m-xs` (1 files)
+- `.m-2xl` (1 files)
+- `.m-0` (1 files)
+- `.p-lg` (1 files)
+- `.p-3xl` (1 files)
+- `.pb-xs` (1 files)
+- `.pb-md` (1 files)
+- `.p-0` (1 files)
+- `.mt-sm` (1 files)
+- `.mt-xl` (1 files)
+- `.pb-lg` (1 files)
+- `.pb-sm` (1 files)
+- `.m-lg` (1 files)
+- `.p-md` (1 files)
+- `.text-right` (1 files)
+- `.text-gray` (1 files)
+- `.leading-loose` (1 files)
+- `.tracking-widest` (1 files)
+- `.text-lg` (1 files)
+- `.leading-snug` (1 files)
+- `.text-info` (1 files)
+- `.text-justify` (1 files)
+- `.text-dark-secondary` (1 files)
+- `.text-gray-dark` (1 files)
+- `.text-shadow` (1 files)
+- `.text-disabled` (1 files)
+- `.text-center` (1 files)
+- `.text-3xl` (1 files)
+- `.text-white-50` (1 files)
+- `.leading-tight` (1 files)
+- `.uppercase` (1 files)
+- `.text-5xl` (1 files)
+- `.text-xl` (1 files)
+- `.text-shadow-md` (1 files)
+- `.text-white-70` (1 files)
+- `.text-warning` (1 files)
+- `.leading-normal` (1 files)
+- `.tracking-tight` (1 files)
+- `.text-shadow-none` (1 files)
+- `.text-shadow-lg-legacy` (1 files)
+- `.tracking-normal` (1 files)
+- `.text-dark` (1 files)
+- `.text-base` (1 files)
+- `.font-bold` (1 files)
+- `.text-gradient-success` (1 files)
+- `.text-left` (1 files)
+- `.text-dark-muted` (1 files)
+- `.capitalize` (1 files)
+- `.font-normal` (1 files)
+- `.text-2xl` (1 files)
+- `.leading-relaxed` (1 files)
+- `.text-shadow-lg` (1 files)
+- `.text-white` (1 files)
+- `.text-shadow-legacy` (1 files)
+- `.text-error` (1 files)
+- `.text-primary` (1 files)
+- `.text-sm` (1 files)
+- `.text-secondary` (1 files)
+- `.text-white-90` (1 files)
+- `.font-semibold` (1 files)
+- `.lowercase` (1 files)
+- `.normal-case` (1 files)
+- `.leading-none` (1 files)
+- `.text-muted` (1 files)
+- `.tracking-wide` (1 files)
+- `.text-gray-light` (1 files)
+- `.text-xs` (1 files)
+- `.tracking-wider` (1 files)
+- `.text-4xl` (1 files)
+- `.font-medium` (1 files)
+- `.opacity-50` (1 files)
+- `.sticky` (1 files)
+- `.z-40` (1 files)
+- `.overflow-hidden` (1 files)
+- `.opacity-75` (1 files)
+- `.pointer-events-auto` (1 files)
+- `.relative` (1 files)
+- `.hidden` (1 files)
+- `.select-text` (1 files)
+- `.opacity-0` (1 files)
+- `.overflow-visible` (1 files)
+- `.z-auto` (1 files)
+- `.inline-block` (1 files)
+- `.select-auto` (1 files)
+- `.overflow-auto` (1 files)
+- `.z-30` (1 files)
+- `.overflow-scroll` (1 files)
+- `.visible` (1 files)
+- `.absolute` (1 files)
+- `.z-10` (1 files)
+- `.select-all` (1 files)
+- `.opacity-100` (1 files)
+- `.inline` (1 files)
+- `.invisible` (1 files)
+- `.inline-flex` (1 files)
+- `.pointer-events-none` (1 files)
+- `.static` (1 files)
+- `.opacity-25` (1 files)
+- `.block` (1 files)
+- `.z-20` (1 files)
+- `.z-50` (1 files)
+- `.select-none` (1 files)
+- `.z-0` (1 files)
+- `.animate-delay-300` (1 files)
+- `.animate-delay-500` (1 files)
+- `.animate-slide-in-right` (1 files)
+- `.animate-fade-in` (1 files)
+- `.animate-fade-in-down` (1 files)
+- `.animate-delay-700` (1 files)
+- `.animate-delay-200` (1 files)
+- `.animate-delay-100` (1 files)
+- `.animate-slide-in-left` (1 files)
+- `.animate-card-enter` (1 files)
+- `.animate-scale-in` (1 files)
+- `.animate-delay-400` (1 files)
+- `.animate-delay-800` (1 files)
+- `.animate-delay-600` (1 files)
+- `.animate-fade-in-up` (1 files)
+- `.logo-microsoft--loading` (1 files)
+- `.logo-microsoft--ripple` (1 files)
+- `.logo-microsoft--squares` (1 files)
+- `.logo-microsoft` (1 files)
+- `.microsoft-square--yellow` (1 files)
+- `.microsoft-square--orange` (1 files)
+- `.logo-microsoft--success` (1 files)
+- `.microsoft-square` (1 files)
+- `.microsoft-square--green` (1 files)
+- `.logo-microsoft--lg` (1 files)
+- `.microsoft-square--blue` (1 files)
+- `.logo-microsoft--sm` (1 files)
+- `.logo-microsoft--xl` (1 files)
+- `.particle-purple` (1 files)
+- `.particle-glow` (1 files)
+- `.particle-gradient` (1 files)
+- `.particle-white` (1 files)
+- `.particles-interactive` (1 files)
+- `.particle-twinkle` (1 files)
+- `.particle-blue` (1 files)
+- `.success-checkmark` (1 files)
+- `.success-scale-in` (1 files)
+- `.success-enter` (1 files)
+- `.intro-intro-content` (1 files)
+- `.ready-button` (1 files)
+- `.intro-title` (1 files)
+- `.intro-content` (1 files)
+- `.intro-screen` (1 files)
+- `.final-intro-content` (1 files)
+- `.wipe-overlay` (1 files)
+- `.final-title` (1 files)
+- `.wipe-intro-content` (1 files)
+- `.intro-subtitle` (1 files)
+- `.wipe-title` (1 files)
+
+## Classes by File
+
+### 1-body\base.css
+- `.no-scroll`
+
+### 1-body\typography.css
+- `.glass-card--light`
+- `.text-gradient`
+- `.text-gradient-primary`
+- `.theme-light`
+
+### 2-background\gradients.css
+- `.bg-gradient-animated`
+- `.bg-gradient-error`
+- `.bg-gradient-primary`
+- `.bg-gradient-primary-alt`
+- `.bg-gradient-success`
+- `.bg-gradient-warning`
+- `.bg-overlay-dark`
+- `.bg-overlay-light`
+
+### 2-background\particles.css
+- `.fixed`
+- `.floating-particles`
+- `.particle`
+- `.particle--colored`
+- `.particle--glow`
+- `.sparkle`
+- `.sparkle--colored`
+
+### 3-layout\containers.css
+- `.centered-content`
+- `.centered-layout`
+- `.container`
+- `.container--lg`
+- `.container--md`
+- `.container--sm`
+- `.container--xl`
+- `.content-section`
+- `.fullscreen-layout`
+
+### 3-layout\grid.css
+- `.flex`
+- `.flex--between`
+- `.flex--center`
+- `.flex--column`
+- `.flex--gap`
+- `.flex--gap-lg`
+- `.flex--gap-sm`
+- `.flex--mobile-column`
+- `.flex--wrap`
+- `.grid`
+- `.grid--2`
+- `.grid--3`
+- `.grid--4`
+- `.grid--auto`
+- `.grid--lg`
+- `.grid--responsive`
+- `.grid--sm`
+
+### 4-containers\cards.css
+- `.card-body`
+- `.card-footer`
+- `.card-header`
+- `.glass-card`
+- `.glass-card--center`
+- `.glass-card--dark`
+- `.glass-card--lg`
+- `.glass-card--sm`
+- `.glass-card--strong`
+- `.glass-card--subtle`
+- `.info-card`
+- `.info-label`
+- `.info-row`
+- `.info-value`
+
+### 4-containers\modals.css
+- `.modal-body`
+- `.modal-close`
+- `.modal-content`
+- `.modal-footer`
+- `.modal-header`
+- `.modal-overlay`
+
+### 5-components\forms.css
+- `.error-message`
+- `.form-group`
+- `.form-input`
+- `.form-input--error`
+- `.form-label`
+- `.form-row`
+- `.show`
+
+### 5-components\icons.css
+- `.icon-container`
+- `.icon-content`
+- `.icon-error`
+- `.icon-lg`
+- `.icon-md`
+- `.icon-primary`
+- `.icon-sm`
+- `.icon-success`
+- `.icon-warning`
+- `.icon-xl`
+- `.profile-initials`
+- `.profile-picture`
+
+### 5-components\status.css
+- `.badge`
+- `.badge-error`
+- `.badge-neutral`
+- `.badge-primary`
+- `.badge-success`
+- `.badge-warning`
+- `.status-available`
+- `.status-away`
+- `.status-busy`
+- `.status-dot`
+- `.status-indicator`
+- `.status-offline`
+
+### 6-buttons\effects.css
+- `.btn`
+- `.btn-fab`
+- `.btn-glass`
+- `.btn-group`
+- `.btn-ripple`
+- `.ripple`
+
+### 6-buttons\primary.css
+- `.btn`
+- `.btn--loading`
+- `.btn-block`
+- `.btn-lg`
+- `.btn-sm`
+- `.btn-xl`
+- `.btn__icon`
+- `.btn__text`
+
+### 6-buttons\variants.css
+- `.btn-error`
+- `.btn-ghost`
+- `.btn-neutral`
+- `.btn-outline`
+- `.btn-primary`
+- `.btn-secondary`
+- `.btn-success`
+- `.btn-warning`
+
+### 7-utilities\responsive.css
+- `.btn`
+- `.btn-lg`
+- `.btn-sm`
+- `.container`
+- `.glass-card`
+- `.lg`
+- `.md`
+- `.sm`
+
+### 7-utilities\spacing.css
+- `.m-0`
+- `.m-2xl`
+- `.m-3xl`
+- `.m-lg`
+- `.m-md`
+- `.m-sm`
+- `.m-xl`
+- `.m-xs`
+- `.mb-0`
+- `.mb-2xl`
+- `.mb-3xl`
+- `.mb-lg`
+- `.mb-md`
+- `.mb-sm`
+- `.mb-xl`
+- `.mb-xs`
+- `.ml-auto`
+- `.mr-auto`
+- `.mt-0`
+- `.mt-2xl`
+- `.mt-3xl`
+- `.mt-lg`
+- `.mt-md`
+- `.mt-sm`
+- `.mt-xl`
+- `.mt-xs`
+- `.mx-auto`
+- `.p-0`
+- `.p-2xl`
+- `.p-3xl`
+- `.p-lg`
+- `.p-md`
+- `.p-sm`
+- `.p-xl`
+- `.p-xs`
+- `.pb-0`
+- `.pb-2xl`
+- `.pb-3xl`
+- `.pb-lg`
+- `.pb-md`
+- `.pb-sm`
+- `.pb-xl`
+- `.pb-xs`
+- `.pt-0`
+- `.pt-2xl`
+- `.pt-3xl`
+- `.pt-lg`
+- `.pt-md`
+- `.pt-sm`
+- `.pt-xl`
+- `.pt-xs`
+
+### 7-utilities\text.css
+- `.capitalize`
+- `.css`
+- `.font-bold`
+- `.font-medium`
+- `.font-normal`
+- `.font-semibold`
+- `.leading-loose`
+- `.leading-none`
+- `.leading-normal`
+- `.leading-relaxed`
+- `.leading-snug`
+- `.leading-tight`
+- `.lowercase`
+- `.normal-case`
+- `.text-2xl`
+- `.text-3xl`
+- `.text-4xl`
+- `.text-5xl`
+- `.text-base`
+- `.text-center`
+- `.text-dark`
+- `.text-dark-muted`
+- `.text-dark-secondary`
+- `.text-disabled`
+- `.text-error`
+- `.text-gradient`
+- `.text-gradient-primary`
+- `.text-gradient-success`
+- `.text-gray`
+- `.text-gray-dark`
+- `.text-gray-light`
+- `.text-info`
+- `.text-justify`
+- `.text-left`
+- `.text-lg`
+- `.text-muted`
+- `.text-primary`
+- `.text-right`
+- `.text-secondary`
+- `.text-shadow`
+- `.text-shadow-legacy`
+- `.text-shadow-lg`
+- `.text-shadow-lg-legacy`
+- `.text-shadow-md`
+- `.text-shadow-none`
+- `.text-sm`
+- `.text-success`
+- `.text-warning`
+- `.text-white`
+- `.text-white-50`
+- `.text-white-70`
+- `.text-white-90`
+- `.text-xl`
+- `.text-xs`
+- `.theme-light`
+- `.tracking-normal`
+- `.tracking-tight`
+- `.tracking-wide`
+- `.tracking-wider`
+- `.tracking-widest`
+- `.uppercase`
+
+### 7-utilities\visibility.css
+- `.absolute`
+- `.block`
+- `.fixed`
+- `.flex`
+- `.grid`
+- `.hidden`
+- `.inline`
+- `.inline-block`
+- `.inline-flex`
+- `.invisible`
+- `.opacity-0`
+- `.opacity-100`
+- `.opacity-25`
+- `.opacity-50`
+- `.opacity-75`
+- `.overflow-auto`
+- `.overflow-hidden`
+- `.overflow-scroll`
+- `.overflow-visible`
+- `.pointer-events-auto`
+- `.pointer-events-none`
+- `.relative`
+- `.select-all`
+- `.select-auto`
+- `.select-none`
+- `.select-text`
+- `.static`
+- `.sticky`
+- `.visible`
+- `.z-0`
+- `.z-10`
+- `.z-20`
+- `.z-30`
+- `.z-40`
+- `.z-50`
+- `.z-auto`
+
+### 8-animations\entrance.css
+- `.animate-bounce-in`
+- `.animate-card-enter`
+- `.animate-delay-100`
+- `.animate-delay-200`
+- `.animate-delay-300`
+- `.animate-delay-400`
+- `.animate-delay-500`
+- `.animate-delay-600`
+- `.animate-delay-700`
+- `.animate-delay-800`
+- `.animate-fade-in`
+- `.animate-fade-in-down`
+- `.animate-fade-in-up`
+- `.animate-scale-in`
+- `.animate-slide-in-left`
+- `.animate-slide-in-right`
+
+### 8-animations\microsoft.css
+- `.css`
+- `.logo-microsoft`
+- `.logo-microsoft--lg`
+- `.logo-microsoft--loading`
+- `.logo-microsoft--ripple`
+- `.logo-microsoft--sm`
+- `.logo-microsoft--squares`
+- `.logo-microsoft--success`
+- `.logo-microsoft--xl`
+- `.microsoft-square`
+- `.microsoft-square--blue`
+- `.microsoft-square--green`
+- `.microsoft-square--orange`
+- `.microsoft-square--yellow`
+
+### 8-animations\particle_anims.css
+- `.particle`
+- `.particle-blue`
+- `.particle-drift`
+- `.particle-glow`
+- `.particle-gradient`
+- `.particle-purple`
+- `.particle-twinkle`
+- `.particle-white`
+- `.particles-interactive`
+
+### 8-animations\success.css
+- `.animate-bounce-in`
+- `.btn-success`
+- `.css`
+- `.icon-content`
+- `.icon-success`
+- `.ripple`
+- `.success-checkmark`
+- `.success-enter`
+- `.success-scale-in`
+- `.text-success`
+
+### 8-animations\welcome_intro.css
+- `.final-intro-content`
+- `.final-title`
+- `.floating-particles`
+- `.intro-content`
+- `.intro-intro-content`
+- `.intro-screen`
+- `.intro-subtitle`
+- `.intro-title`
+- `.no-scroll`
+- `.particle`
+- `.particle-drift`
+- `.ready-button`
+- `.wipe-intro-content`
+- `.wipe-overlay`
+- `.wipe-title`
+
+### vars.css
+- `.glass-effect`
+- `.glass-effect-heavy`
+- `.glass-effect-light`
