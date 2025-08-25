@@ -1,0 +1,9 @@
+ocr_stream/__init__.py,sha256=y_Oq6DltQBGRfOp4JehmfR47EKFSSFaihpvHbEXGlnM,260
+ocr_stream/recognize.py,sha256=Vz4jk0aN2qmVdOr-D4nxaL0-tWFjA7hV_7-jOY5Ut3A,4175
+ocr_stream/bin_tess/__init__.py,sha256=9efR0USXjHVHRlmtgpVy4iy--DzntsatEGi5c3YKcHM,2939
+ocr_stream/modules/__init__.py,sha256=qZKjTOczo02ysJkIL4yofz1tfgPgDRSv8EhAsuchNGA,952
+ocr_stream/ocr/__init__.py,sha256=XFbr0xIgZ13QcR6IX7im7O175vcOqjJogjlFE3NR0ag,7493
+ocr_stream-2.2.6.dist-info/METADATA,sha256=CRDIgT48JlA1RhNS6cMulnymBHA-45noO4vYBToXyOk,1399
+ocr_stream-2.2.6.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+ocr_stream-2.2.6.dist-info/top_level.txt,sha256=P8kJ6573XVRx0Sr3lDXhEgKVOCBbGAxc5cqMSRq9Udg,11
+ocr_stream-2.2.6.dist-info/RECORD,,
