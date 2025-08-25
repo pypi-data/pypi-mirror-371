@@ -1,0 +1,193 @@
+# BOSA CLI
+
+A command-line interface for managing BOSA integrations and authentication.
+
+## Installation
+
+The CLI is included with bosa-core. Install it using:
+
+```bash
+pip install bosa-core
+```
+
+## Usage
+
+### Authentication
+
+First, authenticate with your client credentials:
+
+```bash
+bosa auth login
+```
+
+You'll be prompted for:
+
+- **Client API Key**: Your client API key (input will be hidden)
+- **Username**: Your user identifier
+- **User Secret**: Your user secret (input will be hidden)
+
+For development/testing with custom API URL:
+
+```bash
+bosa auth login --api-url http://localhost:8000
+```
+
+Check authentication status:
+
+```bash
+bosa auth status
+```
+
+Logout and clear session:
+
+```bash
+bosa auth logout
+```
+
+### Integration Management
+
+List all available connectors and their integration status:
+
+```bash
+bosa integrations
+# or
+bosa integrations list
+```
+
+This shows a simple table with:
+
+- **Connector**: Name of each available connector
+- **Integrated**: ✓ if you have integrated with that connector, ✗ if not
+
+Add a new integration (initiates OAuth flow):
+
+```bash
+bosa integrations add github
+bosa integrations add google
+```
+
+Show all accounts for a specific connector:
+
+```bash
+bosa integrations show google
+bosa integrations show github
+```
+
+This displays:
+
+- Number of integrations found
+- Table showing account identifiers for each integration
+
+Remove a specific integration:
+
+```bash
+bosa integrations remove github user@example.com
+bosa integrations remove google john.doe@gmail.com
+```
+
+### User Management
+
+Create a new user:
+
+```bash
+bosa users create john.doe@example.com
+```
+
+**Important**: Save the user secret securely! It's only shown once.
+
+## Configuration
+
+The CLI stores configuration in `~/.bosa/config.json`. This file contains:
+
+- Authentication session (client key, user token, API URL)
+- Session expiration information
+
+The API URL is only configurable during authentication using the `--api-url` flag.
+
+## Examples
+
+### Complete workflow
+
+1. **Login with credentials**:
+
+   ```bash
+   bosa auth login
+   # Enter your client API key, username, and user secret when prompted
+   ```
+
+2. **View available integrations**:
+
+   ```bash
+   bosa integrations
+   ```
+
+3. **Add GitHub integration**:
+
+   ```bash
+   bosa integrations add github
+   # Follow the OAuth flow in your browser
+   ```
+
+4. **Check your GitHub accounts**:
+
+   ```bash
+   bosa integrations show github
+   ```
+
+5. **Create a new user** (if you have permissions):
+   ```bash
+   bosa users create newuser@example.com
+   ```
+
+### Development workflow
+
+For local development:
+
+```bash
+# Login to local API
+bosa auth login --api-url http://localhost:8000
+
+# Check status
+bosa auth status
+
+# List integrations
+bosa integrations
+
+# Add local integration
+bosa integrations add github
+```
+
+## Available Connectors
+
+The available connectors depend on your BOSA API configuration. Common connectors include:
+
+- **github**: GitHub API integration
+- **google**: Google services integration
+- **google_drive**: Google Drive integration
+- **google_docs**: Google Docs integration
+- **google_mail**: Google Mail integration
+
+## Help
+
+Get help for any command:
+
+```bash
+bosa --help
+bosa auth --help
+bosa integrations --help
+bosa users --help
+```
+
+## Configuration Options
+
+- `--api-url`: Custom BOSA API URL (only available during `auth login`)
+- `--verbose`: Enable verbose output
+
+## Security Notes
+
+- All credentials are stored securely in `~/.bosa/config.json` with restricted permissions (600)
+- User secrets are only displayed once during user creation
+- Tokens expire based on server configuration
+- API URL is stored in the session and used for subsequent commands
+- Always keep your credentials secure and never share them
+- Use `bosa auth logout` to clear stored credentials when done
