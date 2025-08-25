@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "zenify"
+dynamic = ["version"]
+description = "🧘 A beautiful terminal meditation app with ASCII art, multi-language support, and breathing exercises"
+readme = "README.md"
+requires-python = ">=3.6"
+license = {text = "MIT"}
+authors = [
+    {name = "Zenify Team", email = "zenify.meditation@gmail.com"},
+]
+keywords = ["meditation", "mindfulness", "terminal", "ascii", "wellness", "health", "breathing", "zen", "relaxation"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: End Users/Desktop",
+    "Topic :: Other/Nonlisted Topic",
+    "Topic :: Utilities",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: Chinese (Simplified)",
+    "Natural Language :: English", 
+    "Natural Language :: Japanese",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+[project.scripts]
+zen = "zenify.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/kawarox/zenify"
+"Bug Reports" = "https://github.com/kawarox/zenify/issues"
+"Source" = "https://github.com/kawarox/zenify"
+Documentation = "https://github.com/kawarox/zenify/blob/main/README.md"

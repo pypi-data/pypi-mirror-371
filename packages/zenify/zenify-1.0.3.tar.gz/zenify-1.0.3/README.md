@@ -1,0 +1,212 @@
+# 🧘 Zenify Meditation CLI
+
+[![PyPI version](https://badge.fury.io/py/zenify.svg)](https://badge.fury.io/py/zenify)
+[![Python 3.6+](https://img.shields.io/badge/python-3.6+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+A beautiful terminal-based meditation app with ASCII art, multi-language support, and guided breathing exercises.
+
+## ✨ Features
+
+- 🎨 **Beautiful ASCII Art**: 11 meditation shapes (Diamond, Star, Wave Flow, Tree, Crystal, Infinity, Mandala, Labyrinth, Yin Yang, Spiral, Zen Circle)
+- 🌍 **Multi-language Support**: Chinese (中文), English, Japanese (日本語)
+- 🫁 **Breathing Techniques**: 4-7-8 breathing, Box breathing, Equal breathing, Custom patterns
+- 📊 **Progress Tracking**: Session statistics, streaks, and detailed analytics
+- 🎮 **Two Modes**: Interactive graphical mode and simple progress bar mode
+- ⚡ **Zero Dependencies**: Uses only Python standard library
+
+## 🚀 Quick Install
+
+```bash
+pip install zenify
+```
+
+## 🎯 Quick Start
+
+```bash
+# Start interactive menu
+zen
+
+# Quick 5-minute diamond meditation
+zen -s diamond -d 5
+
+# Progress bar mode with 4-7-8 breathing
+zen -m progress -p 4-7-8 -d 10
+
+# Show your meditation statistics
+zen --stats
+```
+
+## 📖 Usage Examples
+
+### Command Line Options
+
+```bash
+# Meditation modes
+zen -m guided         # Visual shapes with breathing animation
+zen -m progress       # Simple progress bar mode
+
+# Choose shapes (for guided mode)
+zen -s diamond        # 💎 Diamond crystal
+zen -s star           # ⭐ Radiant star
+zen -s wave_flow      # 🌊 Flowing waves
+zen -s tree           # 🌳 Serene tree
+zen -s crystal        # 🔮 Sacred crystal
+zen -s infinity       # ♾️ Infinity symbol
+zen -s mandala        # 🕉️ Sacred mandala
+zen -s labyrinth      # 🌀 Meditative labyrinth
+zen -s yin_yang       # ☯️ Yin Yang symbol
+zen -s spiral         # 🌪️ Spiral pattern
+zen -s zen_circle     # ⭕ Zen circle
+
+# Breathing patterns
+zen -p 4-7-8          # 4-7-8 breathing (relaxation)
+zen -p box            # Box breathing (focus)
+zen -p equal          # Equal breathing
+zen -p custom         # Custom timing
+
+# Duration and language
+zen -d 15             # 15 minute session
+zen --lang zh         # 中文界面
+zen --lang en         # English interface  
+zen --lang ja         # 日本語インターフェース
+```
+
+### Combination Examples
+
+```bash
+# 10-minute diamond meditation with 4-7-8 breathing in English
+zen -s diamond -p 4-7-8 -d 10 --lang en
+
+# Quick 3-minute mandala session
+zen -s mandala -d 3
+
+# Progress mode for focus work
+zen -m progress -p box -d 25
+```
+
+## 🎮 Interactive Mode
+
+Simply run `zen` to enter the interactive menu where you can:
+
+- Select meditation mode and breathing pattern
+- Choose from beautiful ASCII art shapes  
+- Set custom session duration
+- View detailed statistics and progress
+- Switch between languages
+
+## 📊 Statistics & Tracking
+
+Zenify automatically tracks your meditation sessions:
+
+```bash
+zen --stats    # View your meditation statistics
+```
+
+Track your:
+- Total meditation time
+- Session count and streaks
+- Favorite techniques and times
+- Progress over time
+- Completion rates
+
+## 🛠 System Requirements
+
+- Python 3.6 or higher
+- Terminal/Command line interface
+- Works on Windows, macOS, and Linux
+
+## 🌍 Multi-language Support
+
+Zenify supports three languages with full interface translation:
+
+- **中文** - Complete Chinese interface
+- **English** - Full English interface  
+- **日本語** - Complete Japanese interface
+
+Language preference is automatically saved for future sessions.
+
+## 🧘‍♀️ Breathing Techniques
+
+### 4-7-8 Breathing (Relaxation)
+Perfect for stress relief and falling asleep
+- Inhale for 4 seconds
+- Hold for 7 seconds  
+- Exhale for 8 seconds
+
+### Box Breathing (Focus)
+Used by military and athletes for concentration
+- Inhale for 4 seconds
+- Hold for 4 seconds
+- Exhale for 4 seconds
+- Hold for 4 seconds
+
+### Equal Breathing
+Simple and balanced breathing
+- Inhale for 4 seconds
+- Exhale for 4 seconds
+
+### Custom Breathing
+Create your own breathing pattern with custom timing
+
+## 🎨 ASCII Art Shapes
+
+Each shape is mathematically designed with smooth animations:
+
+- **Diamond** 💎 - Beautiful diamond crystal - elegant and minimalist
+- **Star** ⭐ - Radiant star - inspiring and uplifting
+- **Wave Flow** 🌊 - Flowing waves - peaceful and rhythmic
+- **Tree** 🌳 - Serene tree - growth and grounding
+- **Crystal** 🔮 - Sacred crystal - clarity and focus
+- **Infinity** ♾️ - Infinity symbol - endless possibilities
+- **Mandala** 🕉️ - Sacred mandala - harmony and balance
+- **Labyrinth** 🌀 - Meditative labyrinth - journey inward
+- **Yin Yang** ☯️ - Yin Yang - balance and harmony
+- **Spiral** 🌪️ - Spiral pattern - dynamic energy flow
+- **Zen Circle** ⭕ - Perfect enso circle - completeness and unity
+
+## 🚀 Advanced Usage
+
+### Session Controls
+
+During meditation:
+- **[P]** - Pause/Resume
+- **[M]** - Return to menu
+- **[Q]** - Quit session
+
+### Command Line Flags
+
+```bash
+zen --help           # Show all available options
+zen --version        # Show version information
+zen --stats          # Display meditation statistics
+```
+
+## 💡 Tips for Best Experience
+
+1. **Find a quiet space** - Minimize distractions
+2. **Use headphones** - Better focus with audio isolation
+3. **Consistent practice** - Try to meditate at the same time daily
+4. **Start small** - Begin with 3-5 minute sessions
+5. **Track progress** - Use `zen --stats` to see your improvement
+
+## 🤝 Contributing
+
+Zenify is open source! Contributions are welcome:
+
+- Report bugs and request features
+- Submit pull requests  
+- Improve documentation
+- Add new languages or breathing techniques
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+Built with love for the meditation and mindfulness community. 
+
+---
+
+**Start your mindfulness journey today with `pip install zenify`** ✨
