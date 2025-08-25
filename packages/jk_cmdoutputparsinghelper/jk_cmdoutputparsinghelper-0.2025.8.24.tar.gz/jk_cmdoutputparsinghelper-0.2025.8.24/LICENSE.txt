@@ -1,0 +1,2 @@
+Copyright (c) 2023 by Jürgen Knauth.
+All rights reserved. Copying is prohibited.
