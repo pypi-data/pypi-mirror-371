@@ -1,0 +1,9 @@
+README.md
+pyproject.toml
+src/libreriajuan/__init__.py
+src/libreriajuan/elt.py
+src/libreriajuan/srmd.py
+src/libreriajuan.egg-info/PKG-INFO
+src/libreriajuan.egg-info/SOURCES.txt
+src/libreriajuan.egg-info/dependency_links.txt
+src/libreriajuan.egg-info/top_level.txt
