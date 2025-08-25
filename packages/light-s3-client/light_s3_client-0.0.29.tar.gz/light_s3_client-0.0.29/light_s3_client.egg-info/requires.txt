@@ -1,0 +1,12 @@
+requests~=2.31.0
+xmltodict~=0.13.0
+
+[dev]
+pytest
+pytest-cov
+black
+flake8
+
+[test]
+pytest
+pytest-cov
