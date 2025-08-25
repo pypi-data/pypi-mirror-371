@@ -1,0 +1,8 @@
+pycryptodome
+setuptools
+geoip2
+requests
+openpyxl
+ipip-ipdb
+xlrd
+PyJWT
