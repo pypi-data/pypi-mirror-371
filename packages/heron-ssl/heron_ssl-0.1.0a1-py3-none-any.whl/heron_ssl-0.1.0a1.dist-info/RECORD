@@ -1,0 +1,16 @@
+heron_ssl/__init__.py,sha256=Nal9wNndNkVDUPt-JI1Clm4mcC8CAq6AjjWRKQ10xHw,471
+heron_ssl/augmentations/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+heron_ssl/augmentations/pipelines.py,sha256=BIRoqTw6q3BoSezPiMbirBUBowXNtqnEeckWeP0h8zs,131
+heron_ssl/losses/__init__.py,sha256=c-Y17Rws3W814R_esNWYew73PDyi7zdDRmED-auZU3g,62
+heron_ssl/losses/nt_xent.py,sha256=J6mPsk_MTLtD9oiQNcrZf7zhknCBzOEpWIbYAgYCdys,609
+heron_ssl/models/__init__.py,sha256=dfVpQr2dgRx-PIjorZo-xd3N3iKN-vpZn0huPHeIrgs,108
+heron_ssl/models/backbones.py,sha256=eDm3lVJIf-QTgJViZAeArne1qBGfNLKkTBRK98OC3_0,318
+heron_ssl/models/heads.py,sha256=a9p8hAJlpj6nWC9QkZjiFkcQmQfRl9atptSI_Us4bXM,422
+heron_ssl/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+heron_ssl/strategies/__init__.py,sha256=sLD474rhV5f11dMBOhFCN0nkEQBAonFvkGhUYDBnSt0,49
+heron_ssl/strategies/simclr.py,sha256=AlEXxy7g2YWu0l7cOU1afURewlWQfOuwpc6GYU6np2Y,213
+heron_ssl/trainer.py,sha256=SSa9Bfs9lIDESZSrnFN7CanFsKfGYAAeoATySgkGHmo,283
+heron_ssl-0.1.0a1.dist-info/LICENSE,sha256=3EkVXD2ekoSlGjktuxMKZthz_iJ5yHDM4zEcFqizQzA,1069
+heron_ssl-0.1.0a1.dist-info/METADATA,sha256=CEy-r3SBMAWT1W2DFmQj4KRGFto7eapVYlXCO-mPVPA,6012
+heron_ssl-0.1.0a1.dist-info/WHEEL,sha256=b4K_helf-jlQoXBBETfwnf4B04YC67LOev0jo4fX5m8,88
+heron_ssl-0.1.0a1.dist-info/RECORD,,
