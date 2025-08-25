@@ -1,0 +1,11 @@
+mybackup/__init__.py,sha256=wywLCkk0lHcWJaskLPnAtbvZMr406YwWblKto_3T8SQ,82
+mybackup/cli.py,sha256=j1iHCcFro_Oj39zctSmn2cCOuNnYRKEv8iQLygI7UgI,95
+mybackup/core.py,sha256=uqSt9ctjjzDHE0ah39vGwniO_q016BQJmYV9TX8SsWQ,5581
+mybackup/ui.py,sha256=RAu-uPXbjAZz6I29QaQ9zhUUtEWlNPBVQYw0v2YEEIU,3439
+mybackup/utils.py,sha256=nPIQy2Qt4gKez9H5rVltZm2UUMpS2X5adHwgo9ZwPnU,118
+mybackup-0.1.0.dist-info/licenses/LICENSE,sha256=vcEqaCD-B28mzP_dZrL2qN9qgiGuN9hen0Iy1u3rIoE,1055
+mybackup-0.1.0.dist-info/METADATA,sha256=8sJeBp95ljZELjf_dChOdjas-uzKp722HpPvvN1k-YY,319
+mybackup-0.1.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+mybackup-0.1.0.dist-info/entry_points.txt,sha256=VA3IOT2HvGh6WD9Eq-JlCS9TijgHEJGEA00bB1bBLkQ,47
+mybackup-0.1.0.dist-info/top_level.txt,sha256=xTovBiE8RI-m5AB_hUtyyyVx_iFdTk7Asj-6nFh7pm0,9
+mybackup-0.1.0.dist-info/RECORD,,

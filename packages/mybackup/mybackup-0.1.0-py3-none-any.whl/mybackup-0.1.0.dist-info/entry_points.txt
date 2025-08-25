@@ -1,0 +1,2 @@
+[console_scripts]
+mybackup = mybackup.cli:main
