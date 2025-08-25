@@ -1,0 +1,50 @@
+Metadata-Version: 2.1
+Name: wai-logging
+Version: 0.0.4
+Summary: Python library with helper methods for logging.
+Home-page: https://github.com/waikato-datamining/wai-logging
+Author: Peter Reutemann
+Author-email: fracpete@waikato.ac.nz
+License: MIT
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Programming Language :: Python :: 3
+License-File: LICENSE
+
+Python library with helper methods for logging.
+
+* `init_logging` - initializes the logging with a default level, which can be overridden with an environment variable
+* `set_logging_level` - sets the logging level of a `logging.Logger` instance
+* `str_to_logging_level` - turns a string logging level into a `logging` module one, used by `init_logging` and `set_logging_level`
+* `add_logging_level` - adds an option for the logging level to an `argparse.ArgumentParser` instance
+* `add_logger_name` - adds an option for a custom name for a logger to an `argparse.ArgumentParser` instance
+
+
+Changelog
+=========
+
+0.0.4 (2025-08-25)
+------------------
+
+- `add_logging_level` method no longer requires short and long option flag to be specified together,
+  one of them can be omitted (ie None)
+
+
+0.0.3 (2025-01-14)
+------------------
+
+- using underscore in project name now
+
+
+0.0.2 (2025-01-14)
+------------------
+
+- `init_logging` now supports specifying `stream` or `filename` or `handlers` as well as the `log_format`
+
+
+0.0.1 (2023-11-30)
+------------------
+
+- initial release
+
