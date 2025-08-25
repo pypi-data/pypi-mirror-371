@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+src/nyxpy/__init__.py
+src/nyxpy/gateway.py
+src/nyxpy/http.py
+src/nyxpy/http_api.py
+src/nyxpy/http_parsers.py
+src/nyxpy/types.py
+src/nyxpy/utils.py
+src/nyxpy.egg-info/PKG-INFO
+src/nyxpy.egg-info/SOURCES.txt
+src/nyxpy.egg-info/dependency_links.txt
+src/nyxpy.egg-info/requires.txt
+src/nyxpy.egg-info/top_level.txt
