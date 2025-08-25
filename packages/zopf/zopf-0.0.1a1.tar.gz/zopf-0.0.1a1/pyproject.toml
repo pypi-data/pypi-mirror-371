@@ -1,0 +1,31 @@
+[project]
+name = "zopf"
+description = "Python monorepo release management made easy"
+readme = "README.md"
+requires-python = ">=3.10"
+version = "0.0.1a1"
+license = { text = "MIT OR Apache-2.0" }
+authors = [
+    { name = "Eric Egli", email = "43848365+eegli@users.noreply.github.com" },
+]
+classifiers = [
+    "Development Status :: 1 - Planning",
+    "Programming Language :: Python",
+]
+
+[project.scripts]
+zopf = "zopf.__main__:launch_cli"
+
+[dependency-groups]
+dev = ["maturin>=1.9.3"]
+
+[tool.maturin]
+manifest-path = "crates/zopf-bindings-py/Cargo.toml"
+module-name = "zopf._bindings"
+python-source = "python"
+features = ["pyo3/extension-module"]
+
+
+[build-system]
+requires = ["maturin>=1.0,<2.0"]
+build-backend = "maturin"

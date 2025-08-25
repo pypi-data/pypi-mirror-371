@@ -1,0 +1,16 @@
+[workspace]
+members = ["crates/*"]
+default-members = ["crates/zopf"]
+resolver = "3"
+
+[workspace.package]
+edition = "2024"
+rust-version = "1.89"
+authors = ["Eric Egli <43848365+eegli@users.noreply.github.com>"]
+readme = "README.md"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/nougat-dev/zopf"
+homepage = "https://github.com/nougat-dev/zopf"
+
+[workspace.dependencies]
+zopf = { path = "crates/zopf" }

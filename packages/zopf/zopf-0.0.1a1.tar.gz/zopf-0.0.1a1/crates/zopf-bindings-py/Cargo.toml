@@ -1,0 +1,21 @@
+[package]
+name = "zopf-bindings-py"
+description = "Python bindings for the zopf crate"
+version = "0.0.1"
+authors = { workspace = true }
+edition = { workspace = true }
+rust-version = { workspace = true }
+license = { workspace = true }
+readme = "README.md"
+homepage = { workspace = true }
+repository = { workspace = true }
+
+
+[lib]
+name = "zopf"
+# "cdylib" is necessary to produce a shared library for Python to import from.
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = { version = "0.24.0", features = ["abi3-py310", "generate-import-lib"] }
+zopf = { workspace = true }

@@ -1,0 +1,14 @@
+[package]
+name = "zopf"
+description = "Core crate for the zopf project"
+version = "0.0.1"
+authors = { workspace = true }
+edition = { workspace = true }
+rust-version = { workspace = true }
+license = { workspace = true }
+readme = "README.md"
+homepage = { workspace = true }
+repository = { workspace = true }
+
+[dependencies]
+clap = { version = "4.5.45", features = ["derive"] }
