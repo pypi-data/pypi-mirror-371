@@ -1,0 +1,4 @@
+bmcs_matmod
+examples
+notebooks
+uml

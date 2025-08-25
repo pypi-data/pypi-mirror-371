@@ -1,0 +1,55 @@
+Metadata-Version: 2.2
+Name: bmcs_matmod
+Version: 0.0.10a0
+Summary: Suite of utilities for material model development.
+Home-page: https://github.com/bmcs-group/bmcs_matmod
+Author: BMCS-Group
+Author-email: BMCS-Group <rostislav.chudoba@rwt-aachen.de>
+License: MIT License
+        
+        Copyright (c) 2024 BMCS-Group
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        ...
+        
+Project-URL: Homepage, https://github.com/bmcs-group/bmcs_matmod
+Requires-Python: >=3.6.0
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: bmcs_utils
+Requires-Dist: numpy
+Requires-Dist: sympy
+Requires-Dist: traits
+Provides-Extra: dev
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: pytest-cov; extra == "dev"
+Requires-Dist: twine; extra == "dev"
+Dynamic: author
+Dynamic: home-page
+Dynamic: requires-python
+
+# Material model generator and explorer
+
+[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/bmcs-group/bmcs_matmod/master?urlpath=%2Fapps%2Fbmcs_matmod/slide/slide_explorer.ipynb) - SLIDE 3.2 interface model
+
+## Installation
+
+```bash
+pip install .
+# or for development
+pip install -e .
+```
+
+## Usage
+
+```python
+import bmcs_matmod
+# ...your code...
+```
+
+## Testing
+
+```bash
+python -m pytest
+```
+
