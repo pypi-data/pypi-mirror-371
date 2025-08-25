@@ -1,0 +1,8 @@
+azure_waf_deployer/__init__.py,sha256=-DXRkiPucH3gfTnhoGK9Xrpw8MtiOJAO_PeNRAw86xA,12578
+azure_waf_deployer/cli.py,sha256=qJBChOPBZp3YYk7ynm2pAYTA2bVrddjuEUFxMJ0NDaY,6381
+azure_waf_deployer/templates.py,sha256=ojxYhEZ1LyA0g6E6FIZ9UYdS0qFAcLv93f4laGcGKx8,13082
+azure_waf_deployer-1.0.0.dist-info/METADATA,sha256=RBfRt4KoqdrcYDGArLx1a2Snr8ER_ZjIGVIlx55iBw4,9385
+azure_waf_deployer-1.0.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+azure_waf_deployer-1.0.0.dist-info/entry_points.txt,sha256=upSUp_u_lelKjO35hA9905H5324xt193Zqny3swGShU,65
+azure_waf_deployer-1.0.0.dist-info/top_level.txt,sha256=W7VtWeLIvLcXaU_gVXqPZ-4bYVEib6yhMl6J1QBujVU,19
+azure_waf_deployer-1.0.0.dist-info/RECORD,,
