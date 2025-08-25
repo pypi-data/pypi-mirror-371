@@ -1,0 +1,105 @@
+name: pytest
+permissions:
+  contents: read
+  pull-requests: write
+on:
+  push:
+    paths:
+      - '**/*.py'
+      - 'pytest.ini'
+  pull_request:
+    types: [opened, synchronize, reopened]
+  schedule:
+    - cron: 0 5 * * 1 # Every Monday at 5:00 UTC
+  merge_group:
+
+jobs:
+  unittesting:
+    runs-on: ubuntu-22.04
+    if: github.event_name != 'schedule'
+    steps:
+      - uses: actions/checkout@v5
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+      - name: Installing package
+        run: |
+          pip install --require-hashes --no-deps -r requirements.txt
+          pip install --editable ".[dev]"
+      - name: Install workflow dependencies
+        run: |
+          # Install PS drivers
+          wget -O - https://labs.picotech.com/Release.gpg.key | sudo apt-key add -
+          sudo bash -c 'echo "deb https://labs.picotech.com/rc/picoscope7/debian/ picoscope main" >/etc/apt/sources.list.d/picoscope7.list'
+          sudo apt-get update
+          sudo apt-get install libps6000a
+      - name: Installing picosdk package
+        run:
+          pip install --upgrade picosdk
+      - name: Running unit tests
+        run: python -m pytest
+
+  coverage:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v5
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+      - name: Installing package
+        run: |
+          pip install --require-hashes --no-deps -r requirements.txt
+          pip install --editable ".[dev]"
+      - name: Install workflow dependencies
+        run: |
+          # Install PS drivers
+          wget -O - https://labs.picotech.com/Release.gpg.key | sudo apt-key add -
+          sudo bash -c 'echo "deb https://labs.picotech.com/rc/picoscope7/debian/ picoscope main" >/etc/apt/sources.list.d/picoscope7.list'
+          sudo apt-get update
+          sudo apt-get install libps6000a
+      - name: Installing picosdk package
+        run:
+          pip install --upgrade picosdk
+      - name: Install workflow dependencies
+        run: pip install --upgrade pytest coverage
+      - name: Running unit tests with coverage
+        env:
+          DISABLE_AUTOGRAPH: 1
+        run: |
+          coverage run -m pytest
+          coverage xml
+      - name: Upload results
+        uses: coverallsapp/github-action@648a8eb78e6d50909eff900e4ec85cab4524a45b # v2
+        with:
+          file: coverage.xml
+
+  piptest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+      - name: Make sure not to install from source
+        run: rm -rf scaaml/
+      - name: Installing package
+        run: |
+          pip install "scaaml[dev]"
+      - name: Install workflow dependencies
+        run: |
+          # Install PS drivers
+          wget -O - https://labs.picotech.com/Release.gpg.key | sudo apt-key add -
+          sudo bash -c 'echo "deb https://labs.picotech.com/rc/picoscope7/debian/ picoscope main" >/etc/apt/sources.list.d/picoscope7.list'
+          sudo apt-get update
+          sudo apt-get install libps6000a
+      - name: Installing picosdk package
+        run:
+          pip install --upgrade picosdk
+      - name: Running unit tests
+        run: python -m pytest tests/io
