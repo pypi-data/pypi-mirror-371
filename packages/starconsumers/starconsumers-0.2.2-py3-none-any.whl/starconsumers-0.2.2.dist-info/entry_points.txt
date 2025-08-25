@@ -1,0 +1,3 @@
+[console_scripts]
+starconsumers = starconsumers.cli.main:cli_app
+
