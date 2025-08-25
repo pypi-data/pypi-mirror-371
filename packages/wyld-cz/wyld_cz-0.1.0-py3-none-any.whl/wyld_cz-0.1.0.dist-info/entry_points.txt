@@ -1,0 +1,3 @@
+[commitizen.plugin]
+wyld_cz = wyld_cz.base:WyldCommitizen
+
