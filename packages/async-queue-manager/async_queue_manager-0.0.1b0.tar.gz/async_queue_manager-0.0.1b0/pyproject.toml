@@ -1,0 +1,29 @@
+[project]
+name = "async-queue-manager"
+version = "0.0.1b"
+requires-python = ">=3.13"
+readme = "README.md"
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+keywords = ["queue", "asynchronous", "concurrency", "asyncio"]
+
+description = "Asynchronous Task Queue, For managing and executing tasks concurrently using asyncio."
+
+authors = [{name = "Ichinga Samuel", email = "ichingasamuel@gmail.com"}]
+
+[project.urls]
+"Homepage" = "https://github.com/Ichinga-Samuel/taskqueue"
+"Bug Tracker" = "https://github.com/Ichinga-Samuel/taskqueue/issues"
+
+[dependency-groups]
+dev = [
+    "coverage>=7.10.5",
+    "pytest>=8.4.1",
+    "pytest-asyncio>=1.1.0",
+    "ruff>=0.12.10",
+]
