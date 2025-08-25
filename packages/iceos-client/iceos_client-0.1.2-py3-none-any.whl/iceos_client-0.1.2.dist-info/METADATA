@@ -1,0 +1,81 @@
+Metadata-Version: 2.3
+Name: iceos-client
+Version: 0.1.2
+Summary: Typed async Python client for the iceOS Orchestrator API
+License: MIT
+Keywords: iceos,client,async,httpx,orchestrator,mcp,agents
+Author: iceOS Developers
+Author-email: dev@iceos.dev
+Requires-Python: >=3.11,<4.0
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: PyYAML (>=6.0.2,<7.0.0)
+Requires-Dist: httpx (>=0.27.2,<0.28.0)
+Requires-Dist: pydantic (>=2.8.2,<3.0.0)
+Project-URL: Homepage, https://github.com/noozrad/iceOS
+Project-URL: Repository, https://github.com/noozrad/iceOS
+Description-Content-Type: text/markdown
+
+# iceos-client
+
+Typed async Python client for the iceOS Orchestrator API.
+
+## Install
+
+```bash
+pip install iceos-client
+```
+
+## Quickstart
+
+```python
+import asyncio
+from ice_client import IceClient
+
+async def main():
+    client = IceClient("http://localhost:8000")
+    # Quick discovery call (names only) to verify connectivity
+    meta = await client.list_components()
+    print("components (names only):", list(meta.keys()))
+    exec_id = await client.run_bundle(
+        "chatkit.rag_chat",
+        inputs={
+            "query": "Two-sentence summary for Stefano.",
+            "org_id": "demo_org",
+            "user_id": "demo_user",
+            "session_id": "chat_demo"
+        },
+        # If bundle is not pre-registered on the server, auto-register from YAML:
+        blueprint_yaml_path="Plugins/bundles/chatkit/workflows/rag_chat.yaml",
+        wait_seconds=5,
+    )
+    print("execution_id:", exec_id)
+
+asyncio.run(main())
+```
+
+## Smoke test (Dockerized)
+```bash
+docker run --rm -t --network host python:3.11.9-slim bash -lc "\
+  python -m pip install -U pip && \
+  pip install -q iceos-client && \
+  python - <<'PY'\
+import asyncio
+from ice_client import IceClient
+async def main():
+    c = IceClient('http://localhost:8000')
+    res = await c.list_library(limit=5)
+    print('OK:', isinstance(res, dict), 'items:', len(res.get('items', [])))
+    await c.close()
+asyncio.run(main())
+PY"
+```
+
