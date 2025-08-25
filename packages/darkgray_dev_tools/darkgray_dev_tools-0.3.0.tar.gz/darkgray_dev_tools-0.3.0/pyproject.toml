@@ -1,0 +1,92 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "darkgray_dev_tools"
+authors = [{name = "Antti Kaihola", email = "13725+akaihola@users.noreply.github.com"}]
+dynamic = ["version", "description"]
+dependencies = [
+    "airium>=0.2.6",
+    "click>=8.0.0",
+    "keyring",
+    "pyproject-parser>=0.13.0b1",
+    "requests_cache>=0.7",
+    "ruamel.yaml>=0.15.78",
+    "setuptools>=61",
+    "gql>=3.0.0",
+]
+requires-python = ">=3.9"
+
+[project.optional-dependencies]
+dev = [
+    "codespell",
+    "pre-commit",
+    "pre-commit-uv",
+    "pytest",
+    "pytest-kwparametrize>=0.0.3",
+]
+
+[project.urls]
+Home = "https://github.com/akaihola/darkgray-dev-tools"
+
+[project.scripts]
+darkgray_bump_version = "darkgray_dev_tools.darkgray_bump_version:bump_version"
+darkgray_update_contributors = "darkgray_dev_tools.darkgray_update_contributors:update"
+darkgray_show_reviews = "darkgray_dev_tools.darkgray_show_reviews:show_reviews"
+darkgray_collect_contributors = "darkgray_dev_tools.darkgray_collect_contributors:collect_contributors"
+darkgray_suggest_constraint = "darkgray_dev_tools.darkgray_suggest_constraint:suggest_constraint"
+
+[tool.black]
+line-length = 88
+
+[tool.isort]
+profile = "black"
+
+[tool.ruff]
+target-version = "py38"
+line-length = 88
+indent-width = 4
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+docstring-code-format = true
+docstring-code-line-length = "dynamic"
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "COM812",  # Trailing comma missing
+    "D203",  # One blank line required before class docstring
+    "D213",  # Multi-line docstring summary should start at the second line
+    "ISC001",  # Single line implicit string concatenation (conflicts with formatter)
+]
+fixable = ["ALL"]
+unfixable = []
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*.py" = [
+    "C408",  # Unnecessary `dict` call (rewrite as a literal)
+    "INP001",  # File is part of an implicit namespace package. Add an `__init__.py`.
+    "S101",  # Use of `assert` detected
+    "SLF001",  # Private member accessed
+]
+
+[tool.ruff.lint.isort]
+known-first-party = []
+known-third-party = ["pytest"]
+
+[tool.graylint]
+revision = "origin/main"
+lint = [
+    "mypy",
+    "ruff check",
+    "codespell",
+]
+
+[tool.darker]
+revision = "origin/main"
+formatter = "ruff"
