@@ -1,0 +1,7 @@
+README.md
+pyproject.toml
+setup.cfg
+folder_classifier.egg-info/PKG-INFO
+folder_classifier.egg-info/SOURCES.txt
+folder_classifier.egg-info/dependency_links.txt
+folder_classifier.egg-info/top_level.txt
