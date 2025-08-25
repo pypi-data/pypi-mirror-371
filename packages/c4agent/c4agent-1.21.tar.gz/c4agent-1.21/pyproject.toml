@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "c4agent"
+version = "1.21"
+description = "A multi-provider Python code execution and dependency management agent"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Boopathi Raj", email = "boopathiraj.researchbrains@gmail.com" }
+]
+requires-python = ">=3.8"
+dependencies = [
+    "requests",
+    "PyPDF2",
+    "autopep8",
+    "anthropic",
+    "openai",
+    "Pillow>=9.0.0",
+    "setuptools>=60.0.0",
+    "transformers>=4.30.0",
+    "torch>=1.12.0"
+
+]
+
+[project.urls]
+"Homepage" = "https://github.com/rajboopathiking/codeagent"
+"Bug Tracker" = "https://github.com/rajboopathiking/codeagent/issues"   
