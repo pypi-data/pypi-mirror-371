@@ -1,0 +1,730 @@
+Metadata-Version: 2.4
+Name: ghost-blog-smart
+Version: 1.0.7
+Summary: A powerful Python API for creating Ghost CMS blog posts with AI-powered features
+Home-page: https://github.com/preangelleo/ghost-blog-smart
+Author: leowang.net
+Author-email: me@leowang.net
+Project-URL: Bug Reports, https://github.com/preangelleo/ghost-blog-smart/issues
+Project-URL: Source, https://github.com/preangelleo/ghost-blog-smart
+Project-URL: Documentation, https://github.com/preangelleo/ghost-blog-smart#readme
+Keywords: ghost cms blog ai gemini imagen markdown jwt api content-management
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content :: Content Management System
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: pypinyin>=0.50.0
+Requires-Dist: google-generativeai>=0.8.0
+Requires-Dist: markdownify>=0.11.6
+Requires-Dist: markdown-it-py>=3.0.0
+Requires-Dist: markdown>=3.5.0
+Requires-Dist: requests>=2.31.0
+Requires-Dist: PyJWT>=2.8.0
+Requires-Dist: python-dotenv>=1.0.0
+Requires-Dist: google-genai>=1.0.0
+Requires-Dist: Pillow>=10.0.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0; extra == "dev"
+Requires-Dist: black>=22.0; extra == "dev"
+Requires-Dist: flake8>=4.0; extra == "dev"
+Requires-Dist: twine>=4.0; extra == "dev"
+Requires-Dist: wheel>=0.37; extra == "dev"
+Requires-Dist: setuptools>=65.0; extra == "dev"
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: project-url
+Dynamic: provides-extra
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# Ghost Blog Smart API
+
+🚀 A powerful Python API for creating and managing Ghost CMS blog posts with AI-powered features including automatic image generation, content formatting, and comprehensive blog management.
+
+## ✨ Features
+
+### 🤖 Smart Gateway (NEW!)
+- **Intelligent Routing** - Automatically determines if content needs rewriting or can be published directly
+- **Structured Output** - Uses Gemini's structured output for consistent blog formatting
+- **Function Calling** - Leverages Gemini function calling for smart decision making
+- **Auto Enhancement** - Transforms scattered ideas into complete, well-structured blog posts
+- **Missing Component Detection** - Automatically generates titles, excerpts, and tags when missing
+
+### Content Creation
+- 🎨 **AI Image Generation** - Automatically generate feature images using Google Imagen-4
+- 📝 **Smart Content Formatting** - Auto-format plain text to beautiful Markdown with Gemini AI
+- 🔗 **YouTube-Style Slugs** - Generate 11-character slugs like YouTube video IDs
+- 🎬 **YouTube Video Embedding** - Seamlessly embed YouTube videos in posts
+- 🌏 **Multi-language Support** - Chinese to Pinyin conversion for slugs
+- 🌐 **Language Translation** - Auto-translate content to any target language
+- 🖼️ **Flexible Image Handling** - Support for URLs, local files, base64 data
+
+### Blog Management
+- 📋 **Advanced Listing** - Get posts with powerful filtering options
+- 🔍 **Search & Query** - Full-text search across all posts
+- 📅 **Date Range Filtering** - Find posts by publication/creation date
+- 📊 **Detailed Post Info** - Get complete post details including content
+- ✏️ **Update Posts** - Modify any post property (title, content, dates, etc.)
+- ⭐ **Featured Control** - Set posts as featured or unfeatured
+- 👁️ **Visibility Management** - Control post visibility (public/members/paid)
+- 🔄 **Status Toggle** - Publish/unpublish posts instantly
+- 🖼️ **Image Updates** - Replace, generate, or remove feature images
+- 🎯 **Image Regeneration** - Fix abstract images with concrete noun focus
+- 📆 **Date Management** - Update published dates for content organization
+- 🗑️ **Post Deletion** - Remove posts from Ghost CMS
+- ⚡ **Batch Operations** - Process multiple posts efficiently
+
+## 📋 Prerequisites
+
+- Python 3.8+
+- Ghost CMS instance with Admin API access
+- Google Gemini API key (for AI features)
+
+## 🚀 Quick Start
+
+### 1. Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/ghost_blog_smart_api.git
+cd ghost_blog_smart_api
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+### 2. Configuration
+
+Create a `.env` file in the project root:
+
+```env
+# Ghost CMS Configuration (optional - can also pass as parameters)
+GHOST_ADMIN_API_KEY=your_ghost_admin_api_key_here
+GHOST_API_URL=https://your-ghost-site.com
+
+# Google AI Configuration (optional - can also pass as parameters)
+GEMINI_API_KEY=your_gemini_api_key_here
+```
+
+**Note:** All API keys can be provided either through environment variables OR as function parameters. Parameters take precedence over environment variables.
+
+### 3. Basic Usage
+
+#### Traditional Method
+```python
+from main_functions import create_ghost_blog_post
+
+# Create a simple blog post
+result = create_ghost_blog_post(
+    title="My First Post",
+    content="This is the content of my blog post.",
+    excerpt="A brief summary",
+    tags=["Tutorial", "Getting Started"],
+    status="published"  # or "draft"
+)
+
+if result['success']:
+    print(f"Post created: {result['url']}")
+```
+
+#### Smart Gateway Method (NEW!)
+```python
+from smart_gateway import smart_blog_gateway
+
+# Let AI handle everything - just provide your ideas
+result = smart_blog_gateway(
+    "Write about AI transforming healthcare. Better diagnosis, personalized treatment.",
+    status="published"
+)
+
+# Gateway automatically:
+# - Detects if content needs rewriting
+# - Generates title, excerpt, tags if missing
+# - Structures content professionally
+# - Publishes to Ghost CMS
+```
+
+## 🎯 Examples
+
+### Smart Gateway Examples (AI-Powered)
+
+#### Transform Scattered Ideas
+```python
+from smart_gateway import smart_blog_gateway
+
+# Just provide your thoughts - AI handles the rest
+ideas = """
+Remote work benefits:
+- No commute
+- Flexible schedule  
+- Better work-life balance
+- Cost savings for companies
+Challenges: isolation, communication
+"""
+
+result = smart_blog_gateway(ideas, status="published")
+# AI will create a complete, structured blog post with title and sections
+```
+
+#### Enhance Existing Content
+```python
+# Good content but missing title and structure
+content = """
+The tech industry is rapidly adopting sustainable practices.
+Major companies are committing to carbon neutrality.
+Data centers are switching to renewable energy.
+This shift is driven by both environmental concerns and economic benefits.
+"""
+
+result = smart_blog_gateway(content, preferred_language="English")
+# AI adds title, structure, excerpt, and enhances formatting
+```
+
+#### Minimal Input Creation
+```python
+# Just tell it what you want
+result = smart_blog_gateway(
+    "Create a beginner's guide to machine learning",
+    status="draft"
+)
+# AI generates complete tutorial from scratch
+```
+
+### Content Creation Examples
+
+#### Using Different Blog Sites
+```python
+# Post to different Ghost blogs by providing API credentials
+create_ghost_blog_post(
+    title="Post for Blog A",
+    content="Content for blog A",
+    ghost_admin_api_key="blog_a_admin_key",
+    ghost_api_url="https://blog-a.com",
+    status="published"
+)
+
+create_ghost_blog_post(
+    title="Post for Blog B", 
+    content="Content for blog B",
+    ghost_admin_api_key="blog_b_admin_key",
+    ghost_api_url="https://blog-b.com",
+    status="published"
+)
+```
+
+#### Basic Post
+```python
+create_ghost_blog_post(
+    title="Welcome to My Blog",
+    content="This is my first post using Ghost Blog Smart API.",
+    excerpt="Introduction to my blog",
+    tags=["Welcome"],
+    status="draft"
+)
+```
+
+#### Post with AI-Generated Image
+```python
+create_ghost_blog_post(
+    title="The Future of AI",
+    content="Artificial Intelligence is transforming...",
+    excerpt="Exploring AI's impact",
+    use_generated_feature_image=True,  # Enable AI image generation
+    image_aspect_ratio="16:9",
+    tags=["AI", "Technology"],
+    status="published"
+)
+```
+
+#### Post with YouTube Video
+```python
+create_ghost_blog_post(
+    title="Amazing Tutorial",
+    content="Check out this video tutorial...",
+    youtube_video_id="dQw4w9WgXcQ",  # Becomes the post slug
+    use_generated_feature_image=True,  # Still generate preview image
+    tags=["Video", "Tutorial"],
+    status="draft"
+)
+```
+
+#### Post with Custom Image
+```python
+# URL image
+create_ghost_blog_post(
+    title="Beautiful Landscape",
+    content="Nature photography showcase...",
+    feature_image="https://example.com/image.jpg",
+    status="published"
+)
+
+# Local file
+create_ghost_blog_post(
+    title="My Photo",
+    content="Photography collection...",
+    feature_image="./path/to/image.jpg",
+    status="published"
+)
+
+# Base64 data
+create_ghost_blog_post(
+    title="Embedded Image",
+    content="Post with embedded image...",
+    feature_image="data:image/jpeg;base64,/9j/4AAQ...",
+    status="published"
+)
+```
+
+#### Post with Language Translation
+```python
+# Translate Chinese to English
+create_ghost_blog_post(
+    title="AI Revolution",
+    content="人工智能正在改变世界。医疗诊断更准确。",
+    target_language="English",  # Auto-translates to English
+    status="published"
+)
+
+# Translate English to Chinese
+create_ghost_blog_post(
+    title="科技未来",
+    content="Technology is advancing rapidly.",
+    target_language="Chinese",  # Auto-translates to Chinese
+    status="published"
+)
+
+# Preserve original language (default)
+create_ghost_blog_post(
+    title="Multi-language",
+    content="This stays in original language.",
+    # No target_language - preserves original
+    status="published"
+)
+```
+
+### Blog Management Examples
+
+#### Advanced Post Listing & Filtering
+```python
+from post_management import (
+    get_ghost_posts_advanced,
+    get_ghost_post_details,
+    get_posts_summary
+)
+from datetime import datetime, timedelta
+
+# Get posts from last 30 days
+last_month = datetime.now() - timedelta(days=30)
+result = get_ghost_posts_advanced(
+    published_after=last_month,
+    published_before=datetime.now(),
+    status='published',
+    order='published_at DESC'
+)
+
+# Search posts
+result = get_ghost_posts_advanced(
+    search='AI',  # Search term
+    status='all',
+    featured=True  # Only featured posts
+)
+
+# Get complete post details
+post_details = get_ghost_post_details('post_id_here')
+if post_details['success']:
+    post = post_details['post']
+    print(f"Title: {post['title']}")
+    print(f"Content: {post['html']}")
+    print(f"Published: {post['published_at']}")
+
+# Get summary of all posts
+summary = get_posts_summary(status='all')
+print(f"Total posts: {summary['total_posts']}")
+```
+
+#### Update Post Properties
+```python
+from main_functions import update_ghost_post
+
+# Publish/Unpublish a post
+result = update_ghost_post(
+    post_id="your_post_id",
+    status='published'  # or 'draft' to unpublish
+)
+
+# Toggle featured status
+result = update_ghost_post(
+    post_id="your_post_id",
+    featured=True  # or False to unfeature
+)
+
+# Update multiple properties at once
+result = update_ghost_post(
+    post_id="your_post_id",
+    title="Updated Title",
+    excerpt="New excerpt",
+    status='published',
+    featured=True,
+    tags=["New", "Tags"],
+    visibility='public'  # 'public', 'members', 'paid', 'tiers'
+)
+
+# Update published date
+from datetime import datetime, timedelta
+
+# Backdate to last week
+last_week = datetime.now() - timedelta(days=7)
+result = update_ghost_post(
+    post_id="your_post_id",
+    published_at=last_week.isoformat() + 'Z'
+)
+
+# Set specific date
+result = update_ghost_post(
+    post_id="your_post_id",
+    published_at="2024-06-15T09:00:00.000Z"
+)
+```
+
+#### Update Feature Image
+```python
+from main_functions import update_ghost_post_image
+
+# Generate new AI image with custom prompt
+result = update_ghost_post_image(
+    post_id="your_post_id",
+    use_generated_image=True,
+    image_prompt="A serene mountain landscape at sunrise",
+    image_aspect_ratio="16:9"
+)
+
+# Auto-generate image from post content
+result = update_ghost_post_image(
+    post_id="your_post_id",
+    use_generated_image=True,
+    auto_generate_prompt=True  # Analyzes post content
+)
+
+# Use specific image URL
+result = update_ghost_post_image(
+    post_id="your_post_id",
+    feature_image="https://example.com/new-image.jpg"
+)
+
+# Remove feature image
+result = update_ghost_post_image(
+    post_id="your_post_id",
+    feature_image=None
+)
+```
+
+#### Regenerate Feature Images (Fix Abstract Images)
+```python
+from regenerate_feature_image import (
+    regenerate_feature_image,
+    batch_regenerate_images,
+    find_and_fix_abstract_images
+)
+
+# Regenerate single post with concrete noun focus
+result = regenerate_feature_image('post_id_here')
+
+# Dry run to preview without updating
+result = regenerate_feature_image('post_id_here', dry_run=True)
+
+# Batch regenerate multiple posts
+post_ids = ['id1', 'id2', 'id3']
+result = batch_regenerate_images(post_ids)
+
+# Find and fix all abstract images from last 30 days
+result = find_and_fix_abstract_images()
+
+# Custom date range
+from datetime import datetime, timedelta
+result = find_and_fix_abstract_images(
+    date_from=datetime.now() - timedelta(days=60),
+    date_to=datetime.now()
+)
+```
+
+#### Delete Post
+```python
+from main_functions import delete_ghost_post
+
+result = delete_ghost_post(post_id="your_post_id")
+
+if result['success']:
+    print("Post deleted successfully")
+```
+
+## 📚 API Reference
+
+### Smart Gateway (AI-Powered)
+
+#### `smart_blog_gateway(user_input, **kwargs)`
+
+Intelligent gateway that automatically routes blog creation through the optimal path.
+
+**Parameters:**
+- `user_input` (str): Your blog content, ideas, or request
+- `status` (str): 'published' or 'draft' (default: 'published')
+- `preferred_language` (str): Target language for output (optional)
+
+**Returns:**
+```python
+{
+    'success': bool,
+    'response': str,  # Human-readable status message
+    'url': str,       # Ghost post URL (if successful)
+    'post_id': str,   # Ghost post ID (if successful)
+    'rewritten_data': dict  # Rewritten content details (if rewrite path was used)
+}
+```
+
+**How It Works:**
+1. **Analyzes Input** - Determines completeness of content
+2. **Smart Routing:**
+   - **Direct Path**: Complete blogs → format → publish
+   - **Rewrite Path**: Incomplete/scattered → AI rewrite → structure → publish
+3. **Auto-Enhancement** - Generates missing title, excerpt, tags as needed
+
+### Content Creation
+
+#### `create_ghost_blog_post(**kwargs)`
+
+Main function to create Ghost blog posts.
+
+#### Required Parameters:
+- `title` (str): Blog post title
+- `content` (str): Blog post content (Markdown or plain text)
+
+#### Optional Parameters:
+- `excerpt` (str): Post excerpt/summary (max 299 chars)
+- `feature_image` (str): Image path, URL, or base64 data
+- `tags` (list): List of tags (default: ['Blog'])
+- `post_type` (str): 'post' or 'page' (default: 'post')
+- `status` (str): 'published' or 'draft' (default: 'published')
+- `visibility` (str): 'public' or 'private' (default: 'public')
+- `content_type` (str): 'markdown' or 'html' (default: 'markdown')
+- `auto_format` (bool): Auto-format plain text (default: True)
+- `target_language` (str): Target language for content translation (e.g., 'English', 'Chinese')
+- `use_generated_feature_image` (bool): Generate AI image (default: False)
+- `image_generation_prompt` (str): Custom prompt for image generation
+- `image_aspect_ratio` (str): '16:9', '1:1', '9:16', etc. (default: '16:9')
+- `youtube_video_id` (str): YouTube video ID (also becomes slug)
+- `is_test` (bool): Test mode without posting (default: False)
+- `ghost_admin_api_key` (str): Override env Ghost API key
+- `ghost_api_url` (str): Override env Ghost API URL
+- `gemini_api_key` (str): Override env Gemini API key
+
+#### Returns:
+```python
+{
+    'success': bool,
+    'url': str,        # Post URL
+    'post_id': str,    # Ghost post ID
+    'message': str     # Success/error message
+}
+```
+
+### Blog Management
+
+#### `get_ghost_posts(**kwargs)`
+
+Get list of posts from Ghost CMS.
+
+**Parameters:**
+- `limit` (int): Number of posts to retrieve (default: 15)
+- `page` (int): Page number for pagination (default: 1)
+- `status` (str): Filter by status ('published', 'draft', 'all')
+- `ghost_admin_api_key` (str): Override env Ghost API key
+- `ghost_api_url` (str): Override env Ghost API URL
+
+**Returns:**
+```python
+{
+    'success': bool,
+    'posts': list,     # List of post objects
+    'meta': dict       # Pagination metadata
+}
+```
+
+#### `update_ghost_post(post_id, **kwargs)`
+
+Update various properties of a Ghost blog post.
+
+**Parameters:**
+- `post_id` (str): The ID of the post to update
+- `status` (str): Update status to 'published' or 'draft'
+- `featured` (bool): Set featured status (True/False)
+- `title` (str): Update post title
+- `content` (str): Update post content
+- `excerpt` (str): Update post excerpt
+- `tags` (list): Update tags
+- `visibility` (str): Update visibility ('public', 'members', 'paid', 'tiers')
+- `published_at` (str/datetime): Update published date (ISO format or datetime object)
+- `ghost_admin_api_key` (str): Override env Ghost API key
+- `ghost_api_url` (str): Override env Ghost API URL
+
+**Returns:**
+```python
+{
+    'success': bool,
+    'message': str,
+    'post_id': str,
+    'status': str,
+    'featured': bool,
+    'url': str,
+    'updates': list    # List of changes made
+}
+```
+
+#### `update_ghost_post_image(post_id, **kwargs)`
+
+Update the feature image of a Ghost blog post.
+
+**Parameters:**
+- `post_id` (str): The ID of the post to update
+- `feature_image` (str): Path/URL/base64 to new image, or None to remove
+- `use_generated_image` (bool): Generate new AI image (default: False)
+- `image_prompt` (str): Custom prompt for AI image generation
+- `auto_generate_prompt` (bool): Auto-generate prompt from post content (default: True)
+- `image_aspect_ratio` (str): Aspect ratio for generated image (default: '16:9')
+- `ghost_admin_api_key` (str): Override env Ghost API key
+- `ghost_api_url` (str): Override env Ghost API URL
+- `gemini_api_key` (str): Override env Gemini API key
+
+**Returns:**
+```python
+{
+    'success': bool,
+    'message': str,
+    'post_id': str,
+    'feature_image': str,
+    'url': str
+}
+```
+
+#### `delete_ghost_post(post_id, **kwargs)`
+
+Delete a Ghost blog post.
+
+**Parameters:**
+- `post_id` (str): The ID of the post to delete
+- `ghost_admin_api_key` (str): Override env Ghost API key
+- `ghost_api_url` (str): Override env Ghost API URL
+
+**Returns:**
+```python
+{
+    'success': bool,
+    'message': str,
+    'post_id': str
+}
+```
+
+## 🔧 Advanced Features
+
+### Slug Generation
+
+The API automatically generates YouTube-style 11-character slugs:
+- With YouTube ID: `https://blog.site/dQw4w9WgXcQ`
+- Auto-generated: `https://blog.site/a2NvxBWput4`
+
+### AI Image Generation
+
+When `use_generated_feature_image=True`, the API:
+1. Analyzes your blog title, excerpt, and first paragraph
+2. Creates a structured image description
+3. Generates a professional feature image with Google Imagen-4
+4. Automatically uploads it to Ghost CMS
+
+### Content Formatting
+
+With `auto_format=True`, plain text is automatically:
+- Structured with proper paragraphs
+- Enhanced with Markdown formatting
+- Optimized for readability
+
+## 📁 Project Structure
+
+```
+ghost_blog_smart_api/
+├── main_functions.py             # Core API functions
+├── post_management.py            # Advanced post management functions
+├── regenerate_feature_image.py   # Fix abstract images with concrete focus
+├── smart_gateway.py              # AI-powered intelligent routing
+├── example_usage.py              # Complete usage examples for ALL features
+├── blog_to_image_prompt.py       # AI prompt for image generation
+├── blog_post_refine_prompt.py    # Blog refinement system prompt
+├── requirements.txt              # Python dependencies
+├── .env                         # Configuration (create this)
+├── src/
+│   └── clean_imagen_generator.py  # Image generation module
+└── generated_images/            # AI-generated images (auto-created)
+```
+
+## 🛠️ Development
+
+### Running Examples
+
+```bash
+python example_usage.py
+```
+
+### Testing
+
+Set `is_test=True` to test without actually posting:
+
+```python
+result = create_ghost_blog_post(
+    title="Test Post",
+    content="Test content",
+    is_test=True  # Won't actually post
+)
+```
+
+## 📊 Token Optimization
+
+The API optimizes token usage by:
+- Using only title, excerpt, and first paragraph for image generation
+- Caching generated images locally
+- Batch processing when possible
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📄 License
+
+MIT License - see LICENSE file for details
+
+## 🙏 Acknowledgments
+
+- Ghost CMS for the excellent blogging platform
+- Google Gemini & Imagen for AI capabilities
+- The open-source community
+
+## 📞 Support
+
+For issues or questions, please open an issue on GitHub.
+
+---
+
+Made with ❤️ for the Ghost CMS community
