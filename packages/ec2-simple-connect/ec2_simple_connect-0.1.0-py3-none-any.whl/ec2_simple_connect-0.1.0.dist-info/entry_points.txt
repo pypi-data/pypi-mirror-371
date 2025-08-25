@@ -1,0 +1,2 @@
+[console_scripts]
+ec2-simple-connect = ec2simpleconnect.cli:main
