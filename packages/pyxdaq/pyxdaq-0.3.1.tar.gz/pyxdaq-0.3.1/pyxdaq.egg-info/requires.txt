@@ -1,0 +1,8 @@
+colorlog
+dataclass_wizard
+pylibxdaq==0.4.*
+numpy
+rich
+tqdm
+matplotlib
+tzdata
