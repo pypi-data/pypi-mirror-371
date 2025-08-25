@@ -1,0 +1,2 @@
+maleo_soma>=0.1.91
+maleo_metadata>=0.2.47
