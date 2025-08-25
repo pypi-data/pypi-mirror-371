@@ -1,0 +1,9 @@
+README.md
+setup.py
+bdd_tags_processor/__init__.py
+bdd_tags_processor/bdd_tags_expression_processor.py
+bdd_tags_processor.egg-info/PKG-INFO
+bdd_tags_processor.egg-info/SOURCES.txt
+bdd_tags_processor.egg-info/dependency_links.txt
+bdd_tags_processor.egg-info/entry_points.txt
+bdd_tags_processor.egg-info/top_level.txt
