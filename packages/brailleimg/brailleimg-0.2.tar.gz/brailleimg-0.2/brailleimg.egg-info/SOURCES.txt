@@ -1,0 +1,16 @@
+README.md
+pyproject.toml
+brailleimg/__init__.py
+brailleimg/__main__.py
+brailleimg/cli.py
+brailleimg/conversion.py
+brailleimg/dither.py
+brailleimg/preprocess.py
+brailleimg/util.py
+brailleimg.egg-info/PKG-INFO
+brailleimg.egg-info/SOURCES.txt
+brailleimg.egg-info/dependency_links.txt
+brailleimg.egg-info/entry_points.txt
+brailleimg.egg-info/requires.txt
+brailleimg.egg-info/top_level.txt
+tests/test_integration.py
