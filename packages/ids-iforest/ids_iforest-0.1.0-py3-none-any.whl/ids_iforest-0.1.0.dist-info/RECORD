@@ -1,0 +1,16 @@
+ids_iforest/__init__.py,sha256=pfiam9Py6CQx124GGOrx76g7V0cDM2rDhTxUiRQNBBU,646
+ids_iforest/capture.py,sha256=ZsaHrKmPu2550zxWU1TJw2j2ZEL3w-Z1UGS7awvnfPY,5043
+ids_iforest/detect.py,sha256=NiWuU7swYxmhPqjBFlzzr0KziVTmgsVpaCC-KkCY1Jw,17514
+ids_iforest/logging_utils.py,sha256=skUZ7FtQIcdugRbPD3h16Sfu-LxFjI2dhlMLiCvI0uk,973
+ids_iforest/pcap2flows.py,sha256=pqr-nBtajvjkB_RA6GCX4H6-82FO88aVpy-e9Nhbjn0,2972
+ids_iforest/train.py,sha256=9rKMZx27yOuYBERpqPze85lXHpLCg-D-xvUdKDLEtHA,10436
+ids_iforest/utils.py,sha256=W50tLZYNWCuIFeI7_IpE0zRkF6IjsTfmRkz2K-uQV4E,7785
+ids_iforest/scripts/__init__.py,sha256=2fAcr5pYR0r2glUAhTLNtbr_y73JvOAUZGWmSn47ixA,419
+ids_iforest/scripts/generate_datasets.py,sha256=b6JRyPbANBWoQzTRP-tISgHUkdaqmwnfGNMWAj9_dHM,6804
+ids_iforest/scripts/prepare_csecic2018.py,sha256=tej22YFRHqgfVQvFaGz1ojc6UNzbuKEKPH6uyIOqeS4,12654
+ids_iforest-0.1.0.dist-info/licenses/LICENSE,sha256=O1tGzpR1v_Hx70Gy_jTGgUb-TrVZ7njIwfb3AkTQXs4,1072
+ids_iforest-0.1.0.dist-info/METADATA,sha256=5_P1gLyEeW6HIJaH9wfLI0v7S68WJ4A_QGhN2SJHYFo,2912
+ids_iforest-0.1.0.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+ids_iforest-0.1.0.dist-info/entry_points.txt,sha256=CHsZ-9nbhrntGL0xK_fPl2SQsfJBUOTo6k3BgcXstSI,270
+ids_iforest-0.1.0.dist-info/top_level.txt,sha256=kl1b32CgnjK3gp8oFfsKtNCqtJVgby1nYFq4ZvIGKzA,12
+ids_iforest-0.1.0.dist-info/RECORD,,
