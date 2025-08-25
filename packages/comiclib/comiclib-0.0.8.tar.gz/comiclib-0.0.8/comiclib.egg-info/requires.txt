@@ -1,0 +1,13 @@
+fastapi
+pydantic-settings>=2
+sqlalchemy
+python-multipart
+pillow
+Template-Toolkit-Python
+watchfiles
+requests
+
+[full]
+uvicorn[standard]
+psutil
+charset_normalizer

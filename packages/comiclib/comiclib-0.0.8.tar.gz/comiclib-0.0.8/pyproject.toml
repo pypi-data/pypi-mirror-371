@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "comiclib"
+version = "0.0.8"
+authors = [
+  { name="URenko" },
+]
+description = "Manage, read and share your comic/manga library"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "fastapi",
+    'pydantic-settings >= 2',
+    'sqlalchemy',
+    'python-multipart',
+    'pillow',
+    'Template-Toolkit-Python',
+    'watchfiles',
+    'requests'
+]
+
+[project.optional-dependencies]
+full = [
+    "uvicorn[standard]",
+    'psutil',
+    'charset_normalizer'
+]
+
+[project.scripts]
+comiclib = "comiclib.__main__:run"
+comicscan = "comiclib.scan:scannow"
+
+[project.urls]
+"Homepage" = "https://github.com/comiclib/comiclib"
+"Bug Tracker" = "https://github.com/comiclib/comiclib/issues"
+
+[tool.setuptools.package-data]
+comiclib = ["**/*"]
