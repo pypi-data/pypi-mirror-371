@@ -1,0 +1,10 @@
+Metadata-Version: 2.4
+Name: rregex
+Version: 0.1.1
+Classifier: Programming Language :: Rust
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Summary: High-performance regex library for Python using Rust
+Author-email: Your Name <your.email@example.com>
+License: MIT
+Requires-Python: >=3.8
