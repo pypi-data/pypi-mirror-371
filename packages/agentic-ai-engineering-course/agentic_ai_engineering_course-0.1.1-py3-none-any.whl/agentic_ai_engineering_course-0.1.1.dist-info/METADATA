@@ -1,0 +1,67 @@
+Metadata-Version: 2.4
+Name: agentic-ai-engineering-course
+Version: 0.1.1
+Summary: Python modules for the Agentic AI Engineering course.
+Project-URL: Homepage, https://github.com/towardsai/agentic-ai-engineering-course
+Project-URL: Repository, https://github.com/towardsai/agentic-ai-engineering-course
+Project-URL: Issues, https://github.com/towardsai/agentic-ai-engineering-course/issues
+Author-email: Paul Iusztin <p.b.iusztin@gmail.com>, Fabio chiusano <chiusanofabio94@gmail.com>, Omar solano <omarsolano27@gmail.com>
+License: Apache-2.0
+License-File: LICENSE
+Keywords: agents,ai,course,utilities
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.13
+Requires-Python: >=3.13
+Requires-Dist: python-dotenv>=1.1.0
+Description-Content-Type: text/markdown
+
+# Course AI Agents Utils
+
+A collection of utility functions for AI agents development, extracted from the AI Agents course by Towards AI and Decoding ML.
+
+## Installation
+
+```bash
+pip install course-ai-agents-utils
+```
+
+## Usage
+
+### Environment Utilities
+
+```python
+from lessons.utils import load
+
+# Load environment variables from .env file
+load()
+
+# Load with custom path and required variables
+load(dotenv_path="path/to/.env", required_env_vars=["API_KEY", "SECRET"])
+```
+
+### Pretty Print Utilities
+
+```python
+from lessons.utils import wrapped, function_call, Color
+
+# Pretty print text with custom formatting
+wrapped("Hello World", title="My Message", header_color=Color.BLUE)
+
+# Pretty print function calls
+function_call(
+    function_call=my_function_call,
+    title="Function Execution",
+    header_color=Color.GREEN
+)
+```
+
+## Development
+
+This package is part of the AI Agents course materials. For the full course experience, visit the main repository.
+
+## License
+
+Apache License 2.0 - see LICENSE file for details.
