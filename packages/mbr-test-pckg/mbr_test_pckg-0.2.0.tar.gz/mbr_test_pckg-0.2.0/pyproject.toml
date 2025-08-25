@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mbr-test-pckg"
+version = "0.2.0"
+requires-python = ">=3.9"
+description = "My first package!"
+readme = "README.md"
+authors = [
+    {name = "Milan Brzon", email = "mbrzon@gmail.com"},
+]
+maintainers = [
+  {name = "Milan Brzon", email = "mbrzon@gmail.com"}
+]
+license = {file = "LICENSE.txt"}
+keywords = [
+    "Brzon"
+]
+classifiers = [
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "License :: OSI Approved :: BSD License",
+    "Intended Audience :: Developers",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: MacOS",
+    "Operating System :: MacOS :: MacOS X",
+]
+dependencies = [
+    "colorama~=0.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "twine",
+    "build"
+]
+
+[project.urls]
+Homepage = "https://github.com/mbrzon/milan_brzon"
+Documentation = "https://github.com/mbrzon/milan_brzon/README.md"
+
+[project.scripts]
+milan_brzon = "milan_brzon.__main__:main"
