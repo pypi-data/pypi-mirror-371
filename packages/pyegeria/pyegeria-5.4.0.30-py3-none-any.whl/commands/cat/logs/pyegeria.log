@@ -1,0 +1,4 @@
+2025-08-19 08:03:29 | INFO | main:399 - view server @ https://localhost:9443-{}
+2025-08-19 08:03:31 | SUCCESS | get_platform_origin:367 - Got response from https://localhost:9443/open-metadata/platform-services/users/erinoverview/server-platform/origin
+ Response: Egeria OMAG Server Platform (version 5.4-SNAPSHOT)-{}
+2025-08-19 08:03:31 | INFO | __init__:133 - CollectionManager initialized, platform origin is: True-{}

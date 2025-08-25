@@ -1,0 +1,1126 @@
+D [32m 2025-08-22T16:40:57.130610-0500 [0m | ERROR | invoke | 794 | An error has been caught in function 'invoke', process 'MainProcess' (51067), thread 'MainThread' (8761270464): | {}
+[33m[1mTraceback (most recent call last):[0m
+
+  File "[32m/Users/dwolfson/localGit/egeria-v5-3/egeria-python/commands/cat/[0m[32m[1mdr_egeria_md.py[0m", line [33m349[0m, in [35m<module>[0m
+    [1mprocess_markdown_file[0m[1m([0m[1m)[0m
+    [36m└ [0m[36m[1m<Command process_markdown_file>[0m
+
+  File "/Users/dwolfson/localGit/egeria-v5-3/egeria-python/.venv/lib/python3.13/site-packages/click/core.py", line 1442, in __call__
+    return self.main(*args, **kwargs)
+           │    │     │       └ {}
+           │    │     └ ()
+           │    └ <function Command.main at 0x104aa2b60>
+           └ <Command process_markdown_file>
+  File "/Users/dwolfson/localGit/egeria-v5-3/egeria-python/.venv/lib/python3.13/site-packages/click/core.py", line 1363, in main
+    rv = self.invoke(ctx)
+         │    │      └ <click.core.Context object at 0x10a9f8050>
+         │    └ <function Command.invoke at 0x104aa2840>
+         └ <Command process_markdown_file>
+  File "/Users/dwolfson/localGit/egeria-v5-3/egeria-python/.venv/lib/python3.13/site-packages/click/core.py", line 1226, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           │   │      │    │           │   └ {'input_file': 'dr_egeria_intro_part1.md', 'output_folder': 'friday', 'directive': 'process', 'server': 'qs-view-server', 'ur...
+           │   │      │    │           └ <click.core.Context object at 0x10a9f8050>
+           │   │      │    └ <function process_markdown_file at 0x10a9e2840>
+           │   │      └ <Command process_markdown_file>
+           │   └ <function Context.invoke at 0x104aa1a80>
+           └ <click.core.Context object at 0x10a9f8050>
+> File "/Users/dwolfson/localGit/egeria-v5-3/egeria-python/.venv/lib/python3.13/site-packages/click/core.py", line 794, in invoke
+    return callback(*args, **kwargs)
+           │         │       └ {'input_file': 'dr_egeria_intro_part1.md', 'output_folder': 'friday', 'directive': 'process', 'server': 'qs-view-server', 'ur...
+           │         └ ()
+           └ <function process_markdown_file at 0x10a9e2840>
+
+  File "[32m/Users/dwolfson/localGit/egeria-v5-3/egeria-python/commands/cat/[0m[32m[1mdr_egeria_md.py[0m", line [33m89[0m, in [35mprocess_markdown_file[0m
+    [1mclient[0m [35m[1m=[0m [1mEgeriaTech[0m[1m([0m[1mserver[0m[1m,[0m [1murl[0m[1m,[0m [1muser_id[0m[35m[1m=[0m[1muserid[0m[1m)[0m
+    [36m         │          │       │            └ [0m[36m[1m'erinoverview'[0m
+    [36m         │          │       └ [0m[36m[1m'https://localhost:9443'[0m
+    [36m         │          └ [0m[36m[1m'qs-view-server'[0m
+    [36m         └ [0m[36m[1m<class 'pyegeria.egeria_tech_client.EgeriaTech'>[0m
+
+  File "[32m/Users/dwolfson/localGit/egeria-v5-3/egeria-python/pyegeria/[0m[32m[1megeria_tech_client.py[0m", line [33m71[0m, in [35m__init__[0m
+    [1mEgeriaCat[0m[35m[1m.[0m[1m__init__[0m[1m([0m[1mself[0m[1m,[0m [1mview_server[0m[1m,[0m [1mplatform_url[0m[1m,[0m [1muser_id[0m[1m,[0m [1muser_pwd[0m[1m,[0m [1mtoken[0m[1m)[0m
+    [36m│         │        │     │            │             │        │         └ [0m[36m[1mNone[0m
+    [36m│         │        │     │            │             │        └ [0m[36m[1mNone[0m
+    [36m│         │        │     │            │             └ [0m[36m[1m'erinoverview'[0m
+    [36m│         │        │     │            └ [0m[36m[1m'https://localhost:9443'[0m
+    [36m│         │        │     └ [0m[36m[1m'qs-view-server'[0m
+    [36m│         │        └ [0m[36m[1m<pyegeria.egeria_tech_client.EgeriaTech object at 0x10a9f82f0>[0m
+    [36m│         └ [0m[36m[1m<function EgeriaCat.__init__ at 0x109ef2160>[0m
+    [36m└ [0m[36m[1m<class 'pyegeria.egeria_cat_client.EgeriaCat'>[0m
+
+  File "[32m/Users/dwolfson/localGit/egeria-v5-3/egeria-python/pyegeria/[0m[32m[1megeria_cat_client.py[0m", line [33m65[0m, in [35m__init__[0m
+    [1mGlossaryManager[0m[35m[1m.[0m[1m__init__[0m[1m([0m
+    [36m│               └ [0m[36m[1m<function GlossaryManager.__init__ at 0x109ef2200>[0m
+    [36m└ [0m[36m[1m<class 'pyegeria.glossary_manager.GlossaryManager'>[0m
+
+  File "[32m/Users/dwolfson/localGit/egeria-v5-3/egeria-python/pyegeria/[0m[32m[1mglossary_manager.py[0m", line [33m114[0m, in [35m__init__[0m
+    [1mCollectionManager[0m[35m[1m.[0m[1m__init__[0m[1m([0m[1mself[0m[1m,[0m [1mview_server[0m[1m,[0m [1mplatform_url[0m[1m,[0m [1muser_id[0m[1m,[0m [1muser_pwd[0m[1m,[0m [1mtoken[0m[1m)[0m
+    [36m│                 │        │     │            │             │        │         └ [0m[36m[1mNone[0m
+    [36m│                 │        │     │            │             │        └ [0m[36m[1mNone[0m
+    [36m│                 │        │     │            │             └ [0m[36m[1m'erinoverview'[0m
+    [36m│                 │        │     │            └ [0m[36m[1m'https://localhost:9443'[0m
+    [36m│                 │        │     └ [0m[36m[1m'qs-view-server'[0m
+    [36m│                 │        └ [0m[36m[1m<pyegeria.egeria_tech_client.EgeriaTech object at 0x10a9f82f0>[0m
+    [36m│                 └ [0m[36m[1m<function CollectionManager.__init__ at 0x109a32160>[0m
+    [36m└ [0m[36m[1m<class 'pyegeria.collection_manager.CollectionManager'>[0m
+
+  File "[32m/Users/dwolfson/localGit/egeria-v5-3/egeria-python/pyegeria/[0m[32m[1mcollection_manager.py[0m", line [33m132[0m, in [35m__init__[0m
+    [1mresult[0m [35m[1m=[0m [1mself[0m[35m[1m.[0m[1mget_platform_origin[0m[1m([0m[1m)[0m
+    [36m         │    └ [0m[36m[1m<function Client2.get_platform_origin at 0x108569580>[0m
+    [36m         └ [0m[36m[1m<pyegeria.egeria_tech_client.EgeriaTech object at 0x10a9f82f0>[0m
+
+  File "[32m/Users/dwolfson/localGit/egeria-v5-3/egeria-python/pyegeria/[0m[32m[1m_client_new.py[0m", line [33m366[0m, in [35mget_platform_origin[0m
+    [1mresponse[0m [35m[1m=[0m [1mself[0m[35m[1m.[0m[1mmake_request[0m[1m([0m[36m"GET"[0m[1m,[0m [1morigin_url[0m[1m,[0m [1mis_json[0m[35m[1m=[0m[36m[1mFalse[0m[1m)[0m
+    [36m           │    │                   └ [0m[36m[1m'https://localhost:9443/open-metadata/platform-services/users/erinoverview/server-platform/origin'[0m
+    [36m           │    └ [0m[36m[1m<function Client.make_request at 0x1083cf920>[0m
+    [36m           └ [0m[36m[1m<pyegeria.egeria_tech_client.EgeriaTech object at 0x10a9f82f0>[0m
+
+[31m[1mTypeError[0m:[1m Client.make_request() got an unexpected keyword argument 'is_json'[0m
+D [32m 2025-08-22T16:43:40.815990-0500 [0m | ERROR | invoke | 794 | An error has been caught in function 'invoke', process 'MainProcess' (51196), thread 'MainThread' (8761270464): | {}
+[33m[1mTraceback (most recent call last):[0m
+
+  File "[32m/Users/dwolfson/localGit/egeria-v5-3/egeria-python/commands/cat/[0m[32m[1mdr_egeria_md.py[0m", line [33m349[0m, in [35m<module>[0m
+    [1mprocess_markdown_file[0m[1m([0m[1m)[0m
+    [36m└ [0m[36m[1m<Command process_markdown_file>[0m
+
+  File "/Users/dwolfson/localGit/egeria-v5-3/egeria-python/.venv/lib/python3.13/site-packages/click/core.py", line 1442, in __call__
+    return self.main(*args, **kwargs)
+           │    │     │       └ {}
+           │    │     └ ()
+           │    └ <function Command.main at 0x103ba2b60>
+           └ <Command process_markdown_file>
+  File "/Users/dwolfson/localGit/egeria-v5-3/egeria-python/.venv/lib/python3.13/site-packages/click/core.py", line 1363, in main
+    rv = self.invoke(ctx)
+         │    │      └ <click.core.Context object at 0x113a378c0>
+         │    └ <function Command.invoke at 0x103ba2840>
+         └ <Command process_markdown_file>
+  File "/Users/dwolfson/localGit/egeria-v5-3/egeria-python/.venv/lib/python3.13/site-packages/click/core.py", line 1226, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           │   │      │    │           │   └ {'input_file': 'dr_egeria_intro_part1.md', 'output_folder': 'friday', 'directive': 'process', 'server': 'qs-view-server', 'ur...
+           │   │      │    │           └ <click.core.Context object at 0x113a378c0>
+           │   │      │    └ <function process_markdown_file at 0x1143f89a0>
+           │   │      └ <Command process_markdown_file>
+           │   └ <function Context.invoke at 0x103ba1a80>
+           └ <click.core.Context object at 0x113a378c0>
+> File "/Users/dwolfson/localGit/egeria-v5-3/egeria-python/.venv/lib/python3.13/site-packages/click/core.py", line 794, in invoke
+    return callback(*args, **kwargs)
+           │         │       └ {'input_file': 'dr_egeria_intro_part1.md', 'output_folder': 'friday', 'directive': 'process', 'server': 'qs-view-server', 'ur...
+           │         └ ()
+           └ <function process_markdown_file at 0x1143f89a0>
+
+  File "[32m/Users/dwolfson/localGit/egeria-v5-3/egeria-python/commands/cat/[0m[32m[1mdr_egeria_md.py[0m", line [33m89[0m, in [35mprocess_markdown_file[0m
+    [1mclient[0m [35m[1m=[0m [1mEgeriaTech[0m[1m([0m[1mserver[0m[1m,[0m [1murl[0m[1m,[0m [1muser_id[0m[35m[1m=[0m[1muserid[0m[1m)[0m
+    [36m         │          │       │            └ [0m[36m[1m'erinoverview'[0m
+    [36m         │          │       └ [0m[36m[1m'https://localhost:9443'[0m
+    [36m         │          └ [0m[36m[1m'qs-view-server'[0m
+    [36m         └ [0m[36m[1m<class 'pyegeria.egeria_tech_client.EgeriaTech'>[0m
+
+  File "[32m/Users/dwolfson/localGit/egeria-v5-3/egeria-python/pyegeria/[0m[32m[1megeria_tech_client.py[0m", line [33m71[0m, in [35m__init__[0m
+    [1mEgeriaCat[0m[35m[1m.[0m[1m__init__[0m[1m([0m[1mself[0m[1m,[0m [1mview_server[0m[1m,[0m [1mplatform_url[0m[1m,[0m [1muser_id[0m[1m,[0m [1muser_pwd[0m[1m,[0m [1mtoken[0m[1m)[0m
+    [36m│         │        │     │            │             │        │         └ [0m[36m[1mNone[0m
+    [36m│         │        │     │            │             │        └ [0m[36m[1mNone[0m
+    [36m│         │        │     │            │             └ [0m[36m[1m'erinoverview'[0m
+    [36m│         │        │     │            └ [0m[36m[1m'https://localhost:9443'[0m
+    [36m│         │        │     └ [0m[36m[1m'qs-view-server'[0m
+    [36m│         │        └ [0m[36m[1m<pyegeria.egeria_tech_client.EgeriaTech object at 0x113a37b60>[0m
+    [36m│         └ [0m[36m[1m<function EgeriaCat.__init__ at 0x11392c4a0>[0m
+    [36m└ [0m[36m[1m<class 'pyegeria.egeria_cat_client.EgeriaCat'>[0m
+
+  File "[32m/Users/dwolfson/localGit/egeria-v5-3/egeria-python/pyegeria/[0m[32m[1megeria_cat_client.py[0m", line [33m65[0m, in [35m__init__[0m
+    [1mGlossaryManager[0m[35m[1m.[0m[1m__init__[0m[1m([0m
+    [36m│               └ [0m[36m[1m<function GlossaryManager.__init__ at 0x11392c540>[0m
+    [36m└ [0m[36m[1m<class 'pyegeria.glossary_manager.GlossaryManager'>[0m
+
+  File "[32m/Users/dwolfson/localGit/egeria-v5-3/egeria-python/pyegeria/[0m[32m[1mglossary_manager.py[0m", line [33m114[0m, in [35m__init__[0m
+    [1mCollectionManager[0m[35m[1m.[0m[1m__init__[0m[1m([0m[1mself[0m[1m,[0m [1mview_server[0m[1m,[0m [1mplatform_url[0m[1m,[0m [1muser_id[0m[1m,[0m [1muser_pwd[0m[1m,[0m [1mtoken[0m[1m)[0m
+    [36m│                 │        │     │            │             │        │         └ [0m[36m[1mNone[0m
+    [36m│                 │        │     │            │             │        └ [0m[36m[1mNone[0m
+    [36m│                 │        │     │            │             └ [0m[36m[1m'erinoverview'[0m
+    [36m│                 │        │     │            └ [0m[36m[1m'https://localhost:9443'[0m
+    [36m│                 │        │     └ [0m[36m[1m'qs-view-server'[0m
+    [36m│                 │        └ [0m[36m[1m<pyegeria.egeria_tech_client.EgeriaTech object at 0x113a37b60>[0m
+    [36m│                 └ [0m[36m[1m<function CollectionManager.__init__ at 0x1134544a0>[0m
+    [36m└ [0m[36m[1m<class 'pyegeria.collection_manager.CollectionManager'>[0m
+
+  File "[32m/Users/dwolfson/localGit/egeria-v5-3/egeria-python/pyegeria/[0m[32m[1mcollection_manager.py[0m", line [33m132[0m, in [35m__init__[0m
+    [1mresult[0m [35m[1m=[0m [1mself[0m[35m[1m.[0m[1mget_platform_origin[0m[1m([0m[1m)[0m
+    [36m         │    └ [0m[36m[1m<function Client2.get_platform_origin at 0x111f73880>[0m
+    [36m         └ [0m[36m[1m<pyegeria.egeria_tech_client.EgeriaTech object at 0x113a37b60>[0m
+
+  File "[32m/Users/dwolfson/localGit/egeria-v5-3/egeria-python/pyegeria/[0m[32m[1m_client_new.py[0m", line [33m366[0m, in [35mget_platform_origin[0m
+    [1mresponse[0m [35m[1m=[0m [1mself[0m[35m[1m.[0m[1mmake_request[0m[1m([0m[36m"GET"[0m[1m,[0m [1morigin_url[0m[1m,[0m [1mis_json[0m[35m[1m=[0m[36m[1mFalse[0m[1m)[0m
+    [36m           │    │                   └ [0m[36m[1m'https://localhost:9443/open-metadata/platform-services/users/erinoverview/server-platform/origin'[0m
+    [36m           │    └ [0m[36m[1m<function Client.make_request at 0x111dcf920>[0m
+    [36m           └ [0m[36m[1m<pyegeria.egeria_tech_client.EgeriaTech object at 0x113a37b60>[0m
+
+[31m[1mTypeError[0m:[1m Client.make_request() got an unexpected keyword argument 'is_json'[0m
+D [32m 2025-08-22T16:44:05.079414-0500 [0m | ERROR | invoke | 794 | An error has been caught in function 'invoke', process 'MainProcess' (51222), thread 'MainThread' (8761270464): | {}
+[33m[1mTraceback (most recent call last):[0m
+
+  File "[32m/Users/dwolfson/localGit/egeria-v5-3/egeria-python/commands/cat/[0m[32m[1mdr_egeria_md.py[0m", line [33m349[0m, in [35m<module>[0m
+    [1mprocess_markdown_file[0m[1m([0m[1m)[0m
+    [36m└ [0m[36m[1m<Command process_markdown_file>[0m
+
+  File "/Users/dwolfson/localGit/egeria-v5-3/egeria-python/.venv/lib/python3.13/site-packages/click/core.py", line 1442, in __call__
+    return self.main(*args, **kwargs)
+           │    │     │       └ {}
+           │    │     └ ()
+           │    └ <function Command.main at 0x1042beb60>
+           └ <Command process_markdown_file>
+  File "/Users/dwolfson/localGit/egeria-v5-3/egeria-python/.venv/lib/python3.13/site-packages/click/core.py", line 1363, in main
+    rv = self.invoke(ctx)
+         │    │      └ <click.core.Context object at 0x109d2b8c0>
+         │    └ <function Command.invoke at 0x1042be840>
+         └ <Command process_markdown_file>
+  File "/Users/dwolfson/localGit/egeria-v5-3/egeria-python/.venv/lib/python3.13/site-packages/click/core.py", line 1226, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           │   │      │    │           │   └ {'input_file': 'dr_egeria_intro_part1.md', 'output_folder': 'friday', 'directive': 'process', 'server': 'qs-view-server', 'ur...
+           │   │      │    │           └ <click.core.Context object at 0x109d2b8c0>
+           │   │      │    └ <function process_markdown_file at 0x10a2f8900>
+           │   │      └ <Command process_markdown_file>
+           │   └ <function Context.invoke at 0x1042bda80>
+           └ <click.core.Context object at 0x109d2b8c0>
+> File "/Users/dwolfson/localGit/egeria-v5-3/egeria-python/.venv/lib/python3.13/site-packages/click/core.py", line 794, in invoke
+    return callback(*args, **kwargs)
+           │         │       └ {'input_file': 'dr_egeria_intro_part1.md', 'output_folder': 'friday', 'directive': 'process', 'server': 'qs-view-server', 'ur...
+           │         └ ()
+           └ <function process_markdown_file at 0x10a2f8900>
+
+  File "[32m/Users/dwolfson/localGit/egeria-v5-3/egeria-python/commands/cat/[0m[32m[1mdr_egeria_md.py[0m", line [33m89[0m, in [35mprocess_markdown_file[0m
+    [1mclient[0m [35m[1m=[0m [1mEgeriaTech[0m[1m([0m[1mserver[0m[1m,[0m [1murl[0m[1m,[0m [1muser_id[0m[35m[1m=[0m[1muserid[0m[1m)[0m
+    [36m         │          │       │            └ [0m[36m[1m'erinoverview'[0m
+    [36m         │          │       └ [0m[36m[1m'https://localhost:9443'[0m
+    [36m         │          └ [0m[36m[1m'qs-view-server'[0m
+    [36m         └ [0m[36m[1m<class 'pyegeria.egeria_tech_client.EgeriaTech'>[0m
+
+  File "[32m/Users/dwolfson/localGit/egeria-v5-3/egeria-python/pyegeria/[0m[32m[1megeria_tech_client.py[0m", line [33m71[0m, in [35m__init__[0m
+    [1mEgeriaCat[0m[35m[1m.[0m[1m__init__[0m[1m([0m[1mself[0m[1m,[0m [1mview_server[0m[1m,[0m [1mplatform_url[0m[1m,[0m [1muser_id[0m[1m,[0m [1muser_pwd[0m[1m,[0m [1mtoken[0m[1m)[0m
+    [36m│         │        │     │            │             │        │         └ [0m[36m[1mNone[0m
+    [36m│         │        │     │            │             │        └ [0m[36m[1mNone[0m
+    [36m│         │        │     │            │             └ [0m[36m[1m'erinoverview'[0m
+    [36m│         │        │     │            └ [0m[36m[1m'https://localhost:9443'[0m
+    [36m│         │        │     └ [0m[36m[1m'qs-view-server'[0m
+    [36m│         │        └ [0m[36m[1m<pyegeria.egeria_tech_client.EgeriaTech object at 0x109d2bb60>[0m
+    [36m│         └ [0m[36m[1m<function EgeriaCat.__init__ at 0x109c60400>[0m
+    [36m└ [0m[36m[1m<class 'pyegeria.egeria_cat_client.EgeriaCat'>[0m
+
+  File "[32m/Users/dwolfson/localGit/egeria-v5-3/egeria-python/pyegeria/[0m[32m[1megeria_cat_client.py[0m", line [33m65[0m, in [35m__init__[0m
+    [1mGlossaryManager[0m[35m[1m.[0m[1m__init__[0m[1m([0m
+    [36m│               └ [0m[36m[1m<function GlossaryManager.__init__ at 0x109c604a0>[0m
+    [36m└ [0m[36m[1m<class 'pyegeria.glossary_manager.GlossaryManager'>[0m
+
+  File "[32m/Users/dwolfson/localGit/egeria-v5-3/egeria-python/pyegeria/[0m[32m[1mglossary_manager.py[0m", line [33m114[0m, in [35m__init__[0m
+    [1mCollectionManager[0m[35m[1m.[0m[1m__init__[0m[1m([0m[1mself[0m[1m,[0m [1mview_server[0m[1m,[0m [1mplatform_url[0m[1m,[0m [1muser_id[0m[1m,[0m [1muser_pwd[0m[1m,[0m [1mtoken[0m[1m)[0m
+    [36m│                 │        │     │            │             │        │         └ [0m[36m[1mNone[0m
+    [36m│                 │        │     │            │             │        └ [0m[36m[1mNone[0m
+    [36m│                 │        │     │            │             └ [0m[36m[1m'erinoverview'[0m
+    [36m│                 │        │     │            └ [0m[36m[1m'https://localhost:9443'[0m
+    [36m│                 │        │     └ [0m[36m[1m'qs-view-server'[0m
+    [36m│                 │        └ [0m[36m[1m<pyegeria.egeria_tech_client.EgeriaTech object at 0x109d2bb60>[0m
+    [36m│                 └ [0m[36m[1m<function CollectionManager.__init__ at 0x109154400>[0m
+    [36m└ [0m[36m[1m<class 'pyegeria.collection_manager.CollectionManager'>[0m
+
+  File "[32m/Users/dwolfson/localGit/egeria-v5-3/egeria-python/pyegeria/[0m[32m[1mcollection_manager.py[0m", line [33m132[0m, in [35m__init__[0m
+    [1mresult[0m [35m[1m=[0m [1mself[0m[35m[1m.[0m[1mget_platform_origin[0m[1m([0m[1m)[0m
+    [36m         │    └ [0m[36m[1m<function Client2.get_platform_origin at 0x107d737e0>[0m
+    [36m         └ [0m[36m[1m<pyegeria.egeria_tech_client.EgeriaTech object at 0x109d2bb60>[0m
+
+  File "[32m/Users/dwolfson/localGit/egeria-v5-3/egeria-python/pyegeria/[0m[32m[1m_client_new.py[0m", line [33m366[0m, in [35mget_platform_origin[0m
+    [1mresponse[0m [35m[1m=[0m [1mself[0m[35m[1m.[0m[1mmake_request[0m[1m([0m[36m"GET"[0m[1m,[0m [1morigin_url[0m[1m)[0m
+    [36m           │    │                   └ [0m[36m[1m'https://localhost:9443/open-metadata/platform-services/users/erinoverview/server-platform/origin'[0m
+    [36m           │    └ [0m[36m[1m<function Client.make_request at 0x107bcf920>[0m
+    [36m           └ [0m[36m[1m<pyegeria.egeria_tech_client.EgeriaTech object at 0x109d2bb60>[0m
+
+  File "[32m/Users/dwolfson/localGit/egeria-v5-3/egeria-python/pyegeria/[0m[32m[1m_client.py[0m", line [33m354[0m, in [35mmake_request[0m
+    [1mresponse[0m [35m[1m=[0m [1mloop[0m[35m[1m.[0m[1mrun_until_complete[0m[1m([0m
+    [36m           │    └ [0m[36m[1m<function _patch_loop.<locals>.run_until_complete at 0x107faf380>[0m
+    [36m           └ [0m[36m[1m<_UnixSelectorEventLoop running=False closed=False debug=False>[0m
+
+  File "/Users/dwolfson/localGit/egeria-v5-3/egeria-python/.venv/lib/python3.13/site-packages/nest_asyncio.py", line 98, in run_until_complete
+    return f.result()
+           │ └ <function Future.result at 0x10379b9c0>
+           └ <Task finished name='Task-1' coro=<Client._async_make_request() done, defined at /Users/dwolfson/localGit/egeria-v5-3/egeria-...
+  File "/Users/dwolfson/.pyenv/versions/3.13.0/lib/python3.13/asyncio/futures.py", line 200, in result
+    raise self._exception.with_traceback(self._exception_tb)
+          │    │          │              │    └ <traceback object at 0x10a0456c0>
+          │    │          │              └ <Task finished name='Task-1' coro=<Client._async_make_request() done, defined at /Users/dwolfson/localGit/egeria-v5-3/egeria-...
+          │    │          └ <method 'with_traceback' of 'BaseException' objects>
+          │    └ InvalidParameterException('{"class": "VoidResponse", "relatedHTTPCode": 200, "exceptionClassName": "InvalidParameterException...
+          └ <Task finished name='Task-1' coro=<Client._async_make_request() done, defined at /Users/dwolfson/localGit/egeria-v5-3/egeria-...
+  File "/Users/dwolfson/.pyenv/versions/3.13.0/lib/python3.13/asyncio/tasks.py", line 304, in __step_run_and_handle_result
+    result = coro.send(None)
+             │    └ <method 'send' of 'coroutine' objects>
+             └ <coroutine object Client._async_make_request at 0x109db60c0>
+
+  File "[32m/Users/dwolfson/localGit/egeria-v5-3/egeria-python/pyegeria/[0m[32m[1m_client.py[0m", line [33m470[0m, in [35m_async_make_request[0m
+    [35m[1mraise[0m [1mInvalidParameterException[0m[1m([0m[1mexc_msg[0m[1m)[0m
+    [36m      │                         └ [0m[36m[1m'{"class": "VoidResponse", "relatedHTTPCode": 200, "exceptionClassName": "InvalidParameterException", "actionDescription": "_...[0m
+    [36m      └ [0m[36m[1m<class 'pyegeria._exceptions.InvalidParameterException'>[0m
+
+[31m[1mpyegeria._exceptions.InvalidParameterException[0m:[1m A client-side error **invalid JSON response - check parameters** was received by method __step_run_and_handle_result from API call Client during the call https://localhost:9443/open-metadata/platform-services/users/erinoverview/server-platform/origin. The error message was CLIENT-SIDE-REST-API-CONNECTOR-503-002[0m
+D [32m 2025-08-22T16:45:22.299553-0500 [0m | ERROR | invoke | 794 | An error has been caught in function 'invoke', process 'MainProcess' (51295), thread 'MainThread' (8761270464): | {}
+[33m[1mTraceback (most recent call last):[0m
+
+  File "[32m/Users/dwolfson/localGit/egeria-v5-3/egeria-python/commands/cat/[0m[32m[1mdr_egeria_md.py[0m", line [33m349[0m, in [35m<module>[0m
+    [1mprocess_markdown_file[0m[1m([0m[1m)[0m
+    [36m└ [0m[36m[1m<Command process_markdown_file>[0m
+
+  File "/Users/dwolfson/localGit/egeria-v5-3/egeria-python/.venv/lib/python3.13/site-packages/click/core.py", line 1442, in __call__
+    return self.main(*args, **kwargs)
+           │    │     │       └ {}
+           │    │     └ ()
+           │    └ <function Command.main at 0x1043eeb60>
+           └ <Command process_markdown_file>
+  File "/Users/dwolfson/localGit/egeria-v5-3/egeria-python/.venv/lib/python3.13/site-packages/click/core.py", line 1363, in main
+    rv = self.invoke(ctx)
+         │    │      └ <click.core.Context object at 0x11966f8c0>
+         │    └ <function Command.invoke at 0x1043ee840>
+         └ <Command process_markdown_file>
+  File "/Users/dwolfson/localGit/egeria-v5-3/egeria-python/.venv/lib/python3.13/site-packages/click/core.py", line 1226, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           │   │      │    │           │   └ {'input_file': 'dr_egeria_intro_part1.md', 'output_folder': 'friday', 'directive': 'process', 'server': 'qs-view-server', 'ur...
+           │   │      │    │           └ <click.core.Context object at 0x11966f8c0>
+           │   │      │    └ <function process_markdown_file at 0x119ff89a0>
+           │   │      └ <Command process_markdown_file>
+           │   └ <function Context.invoke at 0x1043eda80>
+           └ <click.core.Context object at 0x11966f8c0>
+> File "/Users/dwolfson/localGit/egeria-v5-3/egeria-python/.venv/lib/python3.13/site-packages/click/core.py", line 794, in invoke
+    return callback(*args, **kwargs)
+           │         │       └ {'input_file': 'dr_egeria_intro_part1.md', 'output_folder': 'friday', 'directive': 'process', 'server': 'qs-view-server', 'ur...
+           │         └ ()
+           └ <function process_markdown_file at 0x119ff89a0>
+
+  File "[32m/Users/dwolfson/localGit/egeria-v5-3/egeria-python/commands/cat/[0m[32m[1mdr_egeria_md.py[0m", line [33m89[0m, in [35mprocess_markdown_file[0m
+    [1mclient[0m [35m[1m=[0m [1mEgeriaTech[0m[1m([0m[1mserver[0m[1m,[0m [1murl[0m[1m,[0m [1muser_id[0m[35m[1m=[0m[1muserid[0m[1m)[0m
+    [36m         │          │       │            └ [0m[36m[1m'erinoverview'[0m
+    [36m         │          │       └ [0m[36m[1m'https://localhost:9443'[0m
+    [36m         │          └ [0m[36m[1m'qs-view-server'[0m
+    [36m         └ [0m[36m[1m<class 'pyegeria.egeria_tech_client.EgeriaTech'>[0m
+
+  File "[32m/Users/dwolfson/localGit/egeria-v5-3/egeria-python/pyegeria/[0m[32m[1megeria_tech_client.py[0m", line [33m71[0m, in [35m__init__[0m
+    [1mEgeriaCat[0m[35m[1m.[0m[1m__init__[0m[1m([0m[1mself[0m[1m,[0m [1mview_server[0m[1m,[0m [1mplatform_url[0m[1m,[0m [1muser_id[0m[1m,[0m [1muser_pwd[0m[1m,[0m [1mtoken[0m[1m)[0m
+    [36m│         │        │     │            │             │        │         └ [0m[36m[1mNone[0m
+    [36m│         │        │     │            │             │        └ [0m[36m[1mNone[0m
+    [36m│         │        │     │            │             └ [0m[36m[1m'erinoverview'[0m
+    [36m│         │        │     │            └ [0m[36m[1m'https://localhost:9443'[0m
+    [36m│         │        │     └ [0m[36m[1m'qs-view-server'[0m
+    [36m│         │        └ [0m[36m[1m<pyegeria.egeria_tech_client.EgeriaTech object at 0x11966fb60>[0m
+    [36m│         └ [0m[36m[1m<function EgeriaCat.__init__ at 0x1195844a0>[0m
+    [36m└ [0m[36m[1m<class 'pyegeria.egeria_cat_client.EgeriaCat'>[0m
+
+  File "[32m/Users/dwolfson/localGit/egeria-v5-3/egeria-python/pyegeria/[0m[32m[1megeria_cat_client.py[0m", line [33m65[0m, in [35m__init__[0m
+    [1mGlossaryManager[0m[35m[1m.[0m[1m__init__[0m[1m([0m
+    [36m│               └ [0m[36m[1m<function GlossaryManager.__init__ at 0x119584540>[0m
+    [36m└ [0m[36m[1m<class 'pyegeria.glossary_manager.GlossaryManager'>[0m
+
+  File "[32m/Users/dwolfson/localGit/egeria-v5-3/egeria-python/pyegeria/[0m[32m[1mglossary_manager.py[0m", line [33m114[0m, in [35m__init__[0m
+    [1mCollectionManager[0m[35m[1m.[0m[1m__init__[0m[1m([0m[1mself[0m[1m,[0m [1mview_server[0m[1m,[0m [1mplatform_url[0m[1m,[0m [1muser_id[0m[1m,[0m [1muser_pwd[0m[1m,[0m [1mtoken[0m[1m)[0m
+    [36m│                 │        │     │            │             │        │         └ [0m[36m[1mNone[0m
+    [36m│                 │        │     │            │             │        └ [0m[36m[1mNone[0m
+    [36m│                 │        │     │            │             └ [0m[36m[1m'erinoverview'[0m
+    [36m│                 │        │     │            └ [0m[36m[1m'https://localhost:9443'[0m
+    [36m│                 │        │     └ [0m[36m[1m'qs-view-server'[0m
+    [36m│                 │        └ [0m[36m[1m<pyegeria.egeria_tech_client.EgeriaTech object at 0x11966fb60>[0m
+    [36m│                 └ [0m[36m[1m<function CollectionManager.__init__ at 0x1191504a0>[0m
+    [36m└ [0m[36m[1m<class 'pyegeria.collection_manager.CollectionManager'>[0m
+
+  File "[32m/Users/dwolfson/localGit/egeria-v5-3/egeria-python/pyegeria/[0m[32m[1mcollection_manager.py[0m", line [33m132[0m, in [35m__init__[0m
+    [1mresult[0m [35m[1m=[0m [1mself[0m[35m[1m.[0m[1mget_platform_origin[0m[1m([0m[1m)[0m
+    [36m         │    └ [0m[36m[1m<function Client2.get_platform_origin at 0x107973880>[0m
+    [36m         └ [0m[36m[1m<pyegeria.egeria_tech_client.EgeriaTech object at 0x11966fb60>[0m
+
+  File "[32m/Users/dwolfson/localGit/egeria-v5-3/egeria-python/pyegeria/[0m[32m[1m_client_new.py[0m", line [33m366[0m, in [35mget_platform_origin[0m
+    [1mresponse[0m [35m[1m=[0m [1mself[0m[35m[1m.[0m[1mmake_request[0m[1m([0m[36m"GET"[0m[1m,[0m [1morigin_url[0m[1m,[0m [1mis_json[0m[35m[1m=[0m[36m[1mFalse[0m[1m)[0m
+    [36m           │    │                   └ [0m[36m[1m'https://localhost:9443/open-metadata/platform-services/users/erinoverview/server-platform/origin'[0m
+    [36m           │    └ [0m[36m[1m<function Client.make_request at 0x1077cf920>[0m
+    [36m           └ [0m[36m[1m<pyegeria.egeria_tech_client.EgeriaTech object at 0x11966fb60>[0m
+
+[31m[1mTypeError[0m:[1m Client.make_request() got an unexpected keyword argument 'is_json'[0m
+D [32m 2025-08-22T16:59:20.997925-0500 [0m | INFO | process_markdown_file | 94 | 
+
+====================================================
+
+ | {}
+D [32m 2025-08-22T16:59:20.998449-0500 [0m | INFO | process_markdown_file | 95 | Processing Markdown File: ../../md_processing/dr_egeria_inbox/dr_egeria_intro_part1.md | {}
+D [32m 2025-08-22T16:59:21.001127-0500 [0m | INFO | parse_upsert_command | 84 | 	Processing Create on a Glossary  
+ | {}
+D [32m 2025-08-22T16:59:21.001772-0500 [0m | INFO | print_msg | 142 | INFO-Optional attribute with labels `{'Published Version', 'Version', 'Version Identifier'}` missing | {}
+D [32m 2025-08-22T16:59:21.075997-0500 [0m | INFO | print_msg | 142 | DEBUG-INFO->Glossary `Egeria-Markdown` not found in Egeria | {}
+D [32m 2025-08-22T16:59:21.076100-0500 [0m | INFO | proc_el_id | 732 | Glossary `Egeria-Markdown` does not exist | {}
+D [32m 2025-08-22T16:59:21.076328-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Category'}` missing | {}
+D [32m 2025-08-22T16:59:21.076533-0500 [0m | INFO | proc_el_id | 691 | Optional attribute with label`Glossary` missing | {}
+D [32m 2025-08-22T16:59:21.076723-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'GUID', 'guid', 'Guid'}` missing | {}
+D [32m 2025-08-22T16:59:21.076767-0500 [0m | INFO | parse_upsert_command | 260 | Element `` does not exist so it can be created
+ | {}
+D [32m 2025-08-22T16:59:21.079062-0500 [0m | ERROR | invoke | 794 | An error has been caught in function 'invoke', process 'MainProcess' (55282), thread 'MainThread' (8761270464): | {}
+[33m[1mTraceback (most recent call last):[0m
+
+  File "[32m/Users/dwolfson/localGit/egeria-v5-3/egeria-python/commands/cat/[0m[32m[1mdr_egeria_md.py[0m", line [33m349[0m, in [35m<module>[0m
+    [1mprocess_markdown_file[0m[1m([0m[1m)[0m
+    [36m└ [0m[36m[1m<Command process_markdown_file>[0m
+
+  File "/Users/dwolfson/localGit/egeria-v5-3/egeria-python/.venv/lib/python3.13/site-packages/click/core.py", line 1442, in __call__
+    return self.main(*args, **kwargs)
+           │    │     │       └ {}
+           │    │     └ ()
+           │    └ <function Command.main at 0x1021ceb60>
+           └ <Command process_markdown_file>
+  File "/Users/dwolfson/localGit/egeria-v5-3/egeria-python/.venv/lib/python3.13/site-packages/click/core.py", line 1363, in main
+    rv = self.invoke(ctx)
+         │    │      └ <click.core.Context object at 0x1088241a0>
+         │    └ <function Command.invoke at 0x1021ce840>
+         └ <Command process_markdown_file>
+  File "/Users/dwolfson/localGit/egeria-v5-3/egeria-python/.venv/lib/python3.13/site-packages/click/core.py", line 1226, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           │   │      │    │           │   └ {'input_file': 'dr_egeria_intro_part1.md', 'output_folder': 'friday', 'directive': 'process', 'server': 'qs-view-server', 'ur...
+           │   │      │    │           └ <click.core.Context object at 0x1088241a0>
+           │   │      │    └ <function process_markdown_file at 0x1090e71a0>
+           │   │      └ <Command process_markdown_file>
+           │   └ <function Context.invoke at 0x1021cda80>
+           └ <click.core.Context object at 0x1088241a0>
+> File "/Users/dwolfson/localGit/egeria-v5-3/egeria-python/.venv/lib/python3.13/site-packages/click/core.py", line 794, in invoke
+    return callback(*args, **kwargs)
+           │         │       └ {'input_file': 'dr_egeria_intro_part1.md', 'output_folder': 'friday', 'directive': 'process', 'server': 'qs-view-server', 'ur...
+           │         └ ()
+           └ <function process_markdown_file at 0x1090e71a0>
+
+  File "[32m/Users/dwolfson/localGit/egeria-v5-3/egeria-python/commands/cat/[0m[32m[1mdr_egeria_md.py[0m", line [33m272[0m, in [35mprocess_markdown_file[0m
+    [1mprocess_current_block[0m[1m([0m[1mcurrent_block[0m[1m)[0m
+    [36m│                     └ [0m[36m[1m'# Create Glossary\n\n## Glossary Name\n\nEgeria-Markdown\n\n## Language\n\nEnglish\n\n## Description\n\nGlossary to describe...[0m
+    [36m└ [0m[36m[1m<function process_markdown_file.<locals>.process_current_block at 0x108e66ac0>[0m
+
+  File "[32m/Users/dwolfson/localGit/egeria-v5-3/egeria-python/commands/cat/[0m[32m[1mdr_egeria_md.py[0m", line [33m126[0m, in [35mprocess_current_block[0m
+    [1mresult[0m [35m[1m=[0m [1mprocess_glossary_upsert_command[0m[1m([0m[1mclient[0m[1m,[0m [1mcurrent_block[0m[1m,[0m [1mdirective[0m[1m)[0m
+    [36m         │                               │       │              └ [0m[36m[1m'process'[0m
+    [36m         │                               │       └ [0m[36m[1m'# Create Glossary\n\n## Glossary Name\n\nEgeria-Markdown\n\n## Language\n\nEnglish\n\n## Description\n\nGlossary to describe...[0m
+    [36m         │                               └ [0m[36m[1m<pyegeria.egeria_tech_client.EgeriaTech object at 0x108824440>[0m
+    [36m         └ [0m[36m[1m<function process_glossary_upsert_command at 0x1090e7b00>[0m
+
+  File "[32m/Users/dwolfson/localGit/egeria-v5-3/egeria-python/md_processing/md_commands/[0m[32m[1mglossary_commands.py[0m", line [33m142[0m, in [35mprocess_glossary_upsert_command[0m
+    [1mdisplay_name[0m [35m[1m=[0m [1mattributes[0m[1m[[0m[36m'Display Name'[0m[1m][0m[35m[1m.[0m[1mget[0m[1m([0m[36m'value'[0m[1m,[0m [36m[1mNone[0m[1m)[0m
+    [36m               └ [0m[36m[1m{'Glossary Name': {'status': 'INFO', 'reason': 'Glossary `Egeria-Markdown` does not exist', 'value': 'Egeria-Markdown', 'vali...[0m
+
+[31m[1mKeyError[0m:[1m 'Display Name'[0m
+D [32m 2025-08-22T17:03:26.914432-0500 [0m | INFO | process_markdown_file | 94 | 
+
+====================================================
+
+ | {}
+D [32m 2025-08-22T17:03:26.915008-0500 [0m | INFO | process_markdown_file | 95 | Processing Markdown File: ../../md_processing/dr_egeria_inbox/dr_egeria_intro_part1.md | {}
+D [32m 2025-08-22T17:03:26.917483-0500 [0m | INFO | parse_upsert_command | 84 | 	Processing Create on a Glossary  
+ | {}
+D [32m 2025-08-22T17:03:26.918116-0500 [0m | INFO | print_msg | 142 | INFO-Optional attribute with labels `{'Version', 'Version Identifier', 'Published Version'}` missing | {}
+D [32m 2025-08-22T17:03:26.992838-0500 [0m | INFO | print_msg | 142 | DEBUG-INFO->Glossary `Egeria-Markdown` not found in Egeria | {}
+D [32m 2025-08-22T17:03:26.992967-0500 [0m | INFO | proc_el_id | 732 | Glossary `Egeria-Markdown` does not exist | {}
+D [32m 2025-08-22T17:03:26.993292-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Category'}` missing | {}
+D [32m 2025-08-22T17:03:26.993488-0500 [0m | INFO | proc_el_id | 691 | Optional attribute with label`Glossary` missing | {}
+D [32m 2025-08-22T17:03:26.993666-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Guid', 'GUID', 'guid'}` missing | {}
+D [32m 2025-08-22T17:03:26.993701-0500 [0m | INFO | parse_upsert_command | 260 | Element `` does not exist so it can be created
+ | {}
+D [32m 2025-08-22T17:03:26.996742-0500 [0m | ERROR | process_glossary_upsert_command | 230 | Error performing Create Glossary: cannot access local variable 'obj' where it is not associated with a value | {}
+D [32m 2025-08-22T17:03:26.998221-0500 [0m | ERROR | process_markdown_file | 310 | ===> Unknown Command? <=== | {}
+D [32m 2025-08-22T17:04:33.507519-0500 [0m | INFO | process_markdown_file | 94 | 
+
+====================================================
+
+ | {}
+D [32m 2025-08-22T17:04:33.508010-0500 [0m | INFO | process_markdown_file | 95 | Processing Markdown File: ../../md_processing/dr_egeria_inbox/dr_egeria_intro_part1.md | {}
+D [32m 2025-08-22T17:04:33.510576-0500 [0m | INFO | parse_upsert_command | 84 | 	Processing Create on a Glossary  
+ | {}
+D [32m 2025-08-22T17:04:33.511214-0500 [0m | INFO | print_msg | 142 | INFO-Optional attribute with labels `{'Version Identifier', 'Published Version', 'Version'}` missing | {}
+D [32m 2025-08-22T17:04:33.577894-0500 [0m | INFO | print_msg | 142 | DEBUG-INFO->Glossary `Egeria-Markdown` not found in Egeria | {}
+D [32m 2025-08-22T17:04:33.577995-0500 [0m | INFO | proc_el_id | 732 | Glossary `Egeria-Markdown` does not exist | {}
+D [32m 2025-08-22T17:04:33.578220-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Category'}` missing | {}
+D [32m 2025-08-22T17:04:33.578395-0500 [0m | INFO | proc_el_id | 691 | Optional attribute with label`Glossary` missing | {}
+D [32m 2025-08-22T17:04:33.578577-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'GUID', 'Guid', 'guid'}` missing | {}
+D [32m 2025-08-22T17:04:33.578612-0500 [0m | INFO | parse_upsert_command | 260 | Element `` does not exist so it can be created
+ | {}
+D [32m 2025-08-22T17:04:33.580793-0500 [0m | ERROR | process_glossary_upsert_command | 229 | Error performing Create Glossary: 'Display Name' | {}
+D [32m 2025-08-22T17:04:33.582067-0500 [0m | ERROR | process_markdown_file | 310 | ===> Unknown Command? <=== | {}
+D [32m 2025-08-22T17:05:18.579137-0500 [0m | INFO | process_markdown_file | 94 | 
+
+====================================================
+
+ | {}
+D [32m 2025-08-22T17:05:18.579719-0500 [0m | INFO | process_markdown_file | 95 | Processing Markdown File: ../../md_processing/dr_egeria_inbox/dr_egeria_intro_part1.md | {}
+D [32m 2025-08-22T17:05:18.586207-0500 [0m | INFO | parse_upsert_command | 84 | 	Processing Create on a Glossary  
+ | {}
+D [32m 2025-08-22T17:05:18.587716-0500 [0m | INFO | print_msg | 142 | INFO-Optional attribute with labels `{'Version Identifier', 'Published Version', 'Version'}` missing | {}
+D [32m 2025-08-22T17:05:18.677703-0500 [0m | INFO | print_msg | 142 | DEBUG-INFO->Glossary `Egeria-Markdown` not found in Egeria | {}
+D [32m 2025-08-22T17:05:18.677844-0500 [0m | INFO | proc_el_id | 732 | Glossary `Egeria-Markdown` does not exist | {}
+D [32m 2025-08-22T17:05:18.678888-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Category'}` missing | {}
+D [32m 2025-08-22T17:05:18.679887-0500 [0m | INFO | proc_el_id | 691 | Optional attribute with label`Glossary` missing | {}
+D [32m 2025-08-22T17:05:18.681168-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'GUID', 'guid', 'Guid'}` missing | {}
+D [32m 2025-08-22T17:05:18.681249-0500 [0m | INFO | parse_upsert_command | 260 | Element `` does not exist so it can be created
+ | {}
+D [32m 2025-08-22T17:08:48.825355-0500 [0m | INFO | process_markdown_file | 94 | 
+
+====================================================
+
+ | {}
+D [32m 2025-08-22T17:08:48.825936-0500 [0m | INFO | process_markdown_file | 95 | Processing Markdown File: ../../md_processing/dr_egeria_inbox/dr_egeria_intro_part1.md | {}
+D [32m 2025-08-22T17:08:48.828796-0500 [0m | INFO | parse_upsert_command | 84 | 	Processing Create on a Glossary  
+ | {}
+D [32m 2025-08-22T17:08:48.829475-0500 [0m | INFO | print_msg | 142 | INFO-Optional attribute with labels `{'Version Identifier', 'Version', 'Published Version'}` missing | {}
+D [32m 2025-08-22T17:08:48.896136-0500 [0m | INFO | print_msg | 142 | DEBUG-INFO->Glossary `Egeria-Markdown` not found in Egeria | {}
+D [32m 2025-08-22T17:08:48.896558-0500 [0m | INFO | proc_el_id | 732 | Glossary `Egeria-Markdown` does not exist | {}
+D [32m 2025-08-22T17:08:48.896872-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Category'}` missing | {}
+D [32m 2025-08-22T17:08:48.897099-0500 [0m | INFO | proc_el_id | 691 | Optional attribute with label`Glossary` missing | {}
+D [32m 2025-08-22T17:08:48.897307-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Guid', 'guid', 'GUID'}` missing | {}
+D [32m 2025-08-22T17:08:48.897352-0500 [0m | INFO | parse_upsert_command | 260 | Element `Egeria-Markdown` does not exist so it can be created
+ | {}
+D [32m 2025-08-22T17:08:48.899770-0500 [0m | ERROR | invoke | 794 | An error has been caught in function 'invoke', process 'MainProcess' (55805), thread 'MainThread' (8761270464): | {}
+[33m[1mTraceback (most recent call last):[0m
+
+  File "[32m/Users/dwolfson/localGit/egeria-v5-3/egeria-python/commands/cat/[0m[32m[1mdr_egeria_md.py[0m", line [33m349[0m, in [35m<module>[0m
+    [1mprocess_markdown_file[0m[1m([0m[1m)[0m
+    [36m└ [0m[36m[1m<Command process_markdown_file>[0m
+
+  File "/Users/dwolfson/localGit/egeria-v5-3/egeria-python/.venv/lib/python3.13/site-packages/click/core.py", line 1442, in __call__
+    return self.main(*args, **kwargs)
+           │    │     │       └ {}
+           │    │     └ ()
+           │    └ <function Command.main at 0x1052a2b60>
+           └ <Command process_markdown_file>
+  File "/Users/dwolfson/localGit/egeria-v5-3/egeria-python/.venv/lib/python3.13/site-packages/click/core.py", line 1363, in main
+    rv = self.invoke(ctx)
+         │    │      └ <click.core.Context object at 0x115bf81a0>
+         │    └ <function Command.invoke at 0x1052a2840>
+         └ <Command process_markdown_file>
+  File "/Users/dwolfson/localGit/egeria-v5-3/egeria-python/.venv/lib/python3.13/site-packages/click/core.py", line 1226, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           │   │      │    │           │   └ {'input_file': 'dr_egeria_intro_part1.md', 'output_folder': 'friday', 'directive': 'process', 'server': 'qs-view-server', 'ur...
+           │   │      │    │           └ <click.core.Context object at 0x115bf81a0>
+           │   │      │    └ <function process_markdown_file at 0x115be7060>
+           │   │      └ <Command process_markdown_file>
+           │   └ <function Context.invoke at 0x1052a1a80>
+           └ <click.core.Context object at 0x115bf81a0>
+> File "/Users/dwolfson/localGit/egeria-v5-3/egeria-python/.venv/lib/python3.13/site-packages/click/core.py", line 794, in invoke
+    return callback(*args, **kwargs)
+           │         │       └ {'input_file': 'dr_egeria_intro_part1.md', 'output_folder': 'friday', 'directive': 'process', 'server': 'qs-view-server', 'ur...
+           │         └ ()
+           └ <function process_markdown_file at 0x115be7060>
+
+  File "[32m/Users/dwolfson/localGit/egeria-v5-3/egeria-python/commands/cat/[0m[32m[1mdr_egeria_md.py[0m", line [33m272[0m, in [35mprocess_markdown_file[0m
+    [1mprocess_current_block[0m[1m([0m[1mcurrent_block[0m[1m)[0m
+    [36m│                     └ [0m[36m[1m'# Create Glossary\n\n## Glossary Name\n\nEgeria-Markdown\n\n## Language\n\nEnglish\n\n## Description\n\nGlossary to describe...[0m
+    [36m└ [0m[36m[1m<function process_markdown_file.<locals>.process_current_block at 0x115a6a980>[0m
+
+  File "[32m/Users/dwolfson/localGit/egeria-v5-3/egeria-python/commands/cat/[0m[32m[1mdr_egeria_md.py[0m", line [33m126[0m, in [35mprocess_current_block[0m
+    [1mresult[0m [35m[1m=[0m [1mprocess_glossary_upsert_command[0m[1m([0m[1mclient[0m[1m,[0m [1mcurrent_block[0m[1m,[0m [1mdirective[0m[1m)[0m
+    [36m         │                               │       │              └ [0m[36m[1m'process'[0m
+    [36m         │                               │       └ [0m[36m[1m'# Create Glossary\n\n## Glossary Name\n\nEgeria-Markdown\n\n## Language\n\nEnglish\n\n## Description\n\nGlossary to describe...[0m
+    [36m         │                               └ [0m[36m[1m<pyegeria.egeria_tech_client.EgeriaTech object at 0x115bf8440>[0m
+    [36m         └ [0m[36m[1m<function process_glossary_upsert_command at 0x115be79c0>[0m
+
+  File "[32m/Users/dwolfson/localGit/egeria-v5-3/egeria-python/md_processing/md_commands/[0m[32m[1mglossary_commands.py[0m", line [33m142[0m, in [35mprocess_glossary_upsert_command[0m
+    [1mdisplay_name[0m [35m[1m=[0m [1mattributes[0m[1m[[0m[36m'Glossary Name'[0m[1m][0m[35m[1m.[0m[1mget[0m[1m([0m[36m'value'[0m[1m,[0m [36m[1mNone[0m[1m)[0m
+    [36m               └ [0m[36m[1m{'Display Name': {'status': 'INFO', 'reason': 'Glossary `Egeria-Markdown` does not exist', 'value': 'Egeria-Markdown', 'valid...[0m
+
+[31m[1mKeyError[0m:[1m 'Glossary Name'[0m
+D [32m 2025-08-22T21:21:10.491758-0500 [0m | INFO | process_markdown_file | 94 | 
+
+====================================================
+
+ | {}
+D [32m 2025-08-22T21:21:10.493289-0500 [0m | INFO | process_markdown_file | 95 | Processing Markdown File: ../../md_processing/dr_egeria_inbox/dr_egeria_intro_part1.md | {}
+D [32m 2025-08-22T21:21:10.496591-0500 [0m | INFO | parse_upsert_command | 84 | 	Processing Create on a Glossary  
+ | {}
+D [32m 2025-08-22T21:21:10.497430-0500 [0m | INFO | print_msg | 142 | INFO-Optional attribute with labels `{'Version Identifier', 'Version', 'Published Version'}` missing | {}
+D [32m 2025-08-22T21:21:10.564771-0500 [0m | INFO | print_msg | 142 | DEBUG-INFO->Glossary `Egeria-Markdown` not found in Egeria | {}
+D [32m 2025-08-22T21:21:10.564868-0500 [0m | INFO | proc_el_id | 732 | Glossary `Egeria-Markdown` does not exist | {}
+D [32m 2025-08-22T21:21:10.565083-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Category'}` missing | {}
+D [32m 2025-08-22T21:21:10.565255-0500 [0m | INFO | proc_el_id | 691 | Optional attribute with label`Glossary` missing | {}
+D [32m 2025-08-22T21:21:10.565427-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'GUID', 'guid', 'Guid'}` missing | {}
+D [32m 2025-08-22T21:21:10.565467-0500 [0m | INFO | parse_upsert_command | 260 | Element `Egeria-Markdown` does not exist so it can be created
+ | {}
+D [32m 2025-08-22T21:21:10.568214-0500 [0m | ERROR | invoke | 794 | An error has been caught in function 'invoke', process 'MainProcess' (67512), thread 'MainThread' (8761270464): | {}
+[33m[1mTraceback (most recent call last):[0m
+
+  File "[32m/Users/dwolfson/localGit/egeria-v5-3/egeria-python/commands/cat/[0m[32m[1mdr_egeria_md.py[0m", line [33m349[0m, in [35m<module>[0m
+    [1mprocess_markdown_file[0m[1m([0m[1m)[0m
+    [36m└ [0m[36m[1m<Command process_markdown_file>[0m
+
+  File "/Users/dwolfson/localGit/egeria-v5-3/egeria-python/.venv/lib/python3.13/site-packages/click/core.py", line 1442, in __call__
+    return self.main(*args, **kwargs)
+           │    │     │       └ {}
+           │    │     └ ()
+           │    └ <function Command.main at 0x1033deb60>
+           └ <Command process_markdown_file>
+  File "/Users/dwolfson/localGit/egeria-v5-3/egeria-python/.venv/lib/python3.13/site-packages/click/core.py", line 1363, in main
+    rv = self.invoke(ctx)
+         │    │      └ <click.core.Context object at 0x112b201a0>
+         │    └ <function Command.invoke at 0x1033de840>
+         └ <Command process_markdown_file>
+  File "/Users/dwolfson/localGit/egeria-v5-3/egeria-python/.venv/lib/python3.13/site-packages/click/core.py", line 1226, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           │   │      │    │           │   └ {'input_file': 'dr_egeria_intro_part1.md', 'output_folder': 'friday', 'directive': 'process', 'server': 'qs-view-server', 'ur...
+           │   │      │    │           └ <click.core.Context object at 0x112b201a0>
+           │   │      │    └ <function process_markdown_file at 0x1132e7060>
+           │   │      └ <Command process_markdown_file>
+           │   └ <function Context.invoke at 0x1033dda80>
+           └ <click.core.Context object at 0x112b201a0>
+> File "/Users/dwolfson/localGit/egeria-v5-3/egeria-python/.venv/lib/python3.13/site-packages/click/core.py", line 794, in invoke
+    return callback(*args, **kwargs)
+           │         │       └ {'input_file': 'dr_egeria_intro_part1.md', 'output_folder': 'friday', 'directive': 'process', 'server': 'qs-view-server', 'ur...
+           │         └ ()
+           └ <function process_markdown_file at 0x1132e7060>
+
+  File "[32m/Users/dwolfson/localGit/egeria-v5-3/egeria-python/commands/cat/[0m[32m[1mdr_egeria_md.py[0m", line [33m272[0m, in [35mprocess_markdown_file[0m
+    [1mprocess_current_block[0m[1m([0m[1mcurrent_block[0m[1m)[0m
+    [36m│                     └ [0m[36m[1m'# Create Glossary\n\n## Glossary Name\n\nEgeria-Markdown\n\n## Language\n\nEnglish\n\n## Description\n\nGlossary to describe...[0m
+    [36m└ [0m[36m[1m<function process_markdown_file.<locals>.process_current_block at 0x112fb1440>[0m
+
+  File "[32m/Users/dwolfson/localGit/egeria-v5-3/egeria-python/commands/cat/[0m[32m[1mdr_egeria_md.py[0m", line [33m126[0m, in [35mprocess_current_block[0m
+    [1mresult[0m [35m[1m=[0m [1mprocess_glossary_upsert_command[0m[1m([0m[1mclient[0m[1m,[0m [1mcurrent_block[0m[1m,[0m [1mdirective[0m[1m)[0m
+    [36m         │                               │       │              └ [0m[36m[1m'process'[0m
+    [36m         │                               │       └ [0m[36m[1m'# Create Glossary\n\n## Glossary Name\n\nEgeria-Markdown\n\n## Language\n\nEnglish\n\n## Description\n\nGlossary to describe...[0m
+    [36m         │                               └ [0m[36m[1m<pyegeria.egeria_tech_client.EgeriaTech object at 0x112b20440>[0m
+    [36m         └ [0m[36m[1m<function process_glossary_upsert_command at 0x1132e79c0>[0m
+
+  File "[32m/Users/dwolfson/localGit/egeria-v5-3/egeria-python/md_processing/md_commands/[0m[32m[1mglossary_commands.py[0m", line [33m142[0m, in [35mprocess_glossary_upsert_command[0m
+    [1mdisplay_name[0m [35m[1m=[0m [1mattributes[0m[1m[[0m[36m'Glossary Name'[0m[1m][0m[35m[1m.[0m[1mget[0m[1m([0m[36m'value'[0m[1m,[0m [36m[1mNone[0m[1m)[0m
+    [36m               └ [0m[36m[1m{'Display Name': {'status': 'INFO', 'reason': 'Glossary `Egeria-Markdown` does not exist', 'value': 'Egeria-Markdown', 'valid...[0m
+
+[31m[1mKeyError[0m:[1m 'Glossary Name'[0m
+D [32m 2025-08-22T21:22:14.498525-0500 [0m | INFO | process_markdown_file | 94 | 
+
+====================================================
+
+ | {}
+D [32m 2025-08-22T21:22:14.499907-0500 [0m | INFO | process_markdown_file | 95 | Processing Markdown File: ../../md_processing/dr_egeria_inbox/dr_egeria_intro_part1.md | {}
+D [32m 2025-08-22T21:22:14.502415-0500 [0m | INFO | parse_upsert_command | 84 | 	Processing Create on a Glossary  
+ | {}
+D [32m 2025-08-22T21:22:14.503043-0500 [0m | INFO | print_msg | 142 | INFO-Optional attribute with labels `{'Published Version', 'Version Identifier', 'Version'}` missing | {}
+D [32m 2025-08-22T21:22:14.572510-0500 [0m | INFO | print_msg | 142 | DEBUG-INFO->Glossary `Egeria-Markdown` not found in Egeria | {}
+D [32m 2025-08-22T21:22:14.572609-0500 [0m | INFO | proc_el_id | 732 | Glossary `Egeria-Markdown` does not exist | {}
+D [32m 2025-08-22T21:22:14.572835-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Category'}` missing | {}
+D [32m 2025-08-22T21:22:14.573005-0500 [0m | INFO | proc_el_id | 691 | Optional attribute with label`Glossary` missing | {}
+D [32m 2025-08-22T21:22:14.573184-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Guid', 'GUID', 'guid'}` missing | {}
+D [32m 2025-08-22T21:22:14.573218-0500 [0m | INFO | parse_upsert_command | 260 | Element `Egeria-Markdown` does not exist so it can be created
+ | {}
+D [32m 2025-08-22T21:22:14.599817-0500 [0m | SUCCESS | process_glossary_upsert_command | 217 | Created Element `Egeria-Markdown` with GUID c0eae997-3c0a-48c5-bc68-c32ffdc0577c
+
+___ | {}
+D [32m 2025-08-22T21:23:34.572995-0500 [0m | INFO | process_markdown_file | 94 | 
+
+====================================================
+
+ | {}
+D [32m 2025-08-22T21:23:34.573559-0500 [0m | INFO | process_markdown_file | 95 | Processing Markdown File: ../../md_processing/dr_egeria_inbox/dr_egeria_intro_part1.md | {}
+D [32m 2025-08-22T21:23:34.576530-0500 [0m | INFO | parse_upsert_command | 84 | 	Processing Update on a Glossary  
+ | {}
+D [32m 2025-08-22T21:23:34.577246-0500 [0m | INFO | print_msg | 142 | INFO-Optional attribute with labels `{'Version', 'Published Version', 'Version Identifier'}` missing | {}
+D [32m 2025-08-22T21:23:34.709445-0500 [0m | INFO | print_msg | 142 | DEBUG-INFO->Found Glossary `Egeria-Markdown` with qualified name `Glossary::Egeria-Markdown` | {}
+D [32m 2025-08-22T21:23:34.709558-0500 [0m | INFO | proc_el_id | 716 | Element Egeria-Markdown exists | {}
+D [32m 2025-08-22T21:23:34.709952-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Category'}` missing | {}
+D [32m 2025-08-22T21:23:34.710121-0500 [0m | INFO | proc_el_id | 691 | Optional attribute with label`Glossary` missing | {}
+D [32m 2025-08-22T21:23:34.710288-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'guid', 'GUID', 'Guid'}` missing | {}
+D [32m 2025-08-22T21:23:34.734814-0500 [0m | SUCCESS | process_glossary_upsert_command | 184 | Updated  Glossary `Egeria-Markdown` with GUID c0eae997-3c0a-48c5-bc68-c32ffdc0577c
+
+___ | {}
+D [32m 2025-08-23T14:57:47.412766-0500 [0m | INFO | process_markdown_file | 94 | 
+
+====================================================
+
+ | {}
+D [32m 2025-08-23T14:57:47.413696-0500 [0m | INFO | process_markdown_file | 95 | Processing Markdown File: ../../md_processing/dr_egeria_inbox/dr_egeria_intro_part1.md | {}
+D [32m 2025-08-23T14:57:47.416684-0500 [0m | INFO | parse_upsert_command | 84 | 	Processing Create on a Term  
+ | {}
+D [32m 2025-08-23T14:57:47.489804-0500 [0m | INFO | print_msg | 142 | DEBUG-INFO-> `Command` not found in Egeria | {}
+D [32m 2025-08-23T14:57:47.489941-0500 [0m | INFO | proc_el_id | 732 |  `Command` does not exist | {}
+D [32m 2025-08-23T14:57:47.490341-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Category'}` missing | {}
+D [32m 2025-08-23T14:57:47.490451-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Abbreviation'}` missing | {}
+D [32m 2025-08-23T14:57:47.490534-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Example'}` missing | {}
+D [32m 2025-08-23T14:57:47.490700-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Version Identifier'}` missing | {}
+D [32m 2025-08-23T14:57:47.490741-0500 [0m | INFO | proc_el_id | 691 | Optional attribute with label`` missing | {}
+D [32m 2025-08-23T14:57:47.490924-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'guid', 'GUID', 'Guid'}` missing | {}
+D [32m 2025-08-23T14:57:47.490961-0500 [0m | INFO | parse_upsert_command | 260 | Element `Command` does not exist so it can be created
+ | {}
+D [32m 2025-08-23T14:57:47.503372-0500 [0m | ERROR | process_term_upsert_command | 605 | Pyegeria error performing Create Term: 
+
+=> 	SERVER_ERROR_500
+=>	Egeria detected error: `https://localhost:9443/servers/qs-view-server/api/open-metadata/collection-manager/collections`.
+	* Context: 
+		* class name=`Client2`
+		* caller method=`_async_create_collection`
+	* System Action: Server-side issue requires attention.
+	* User Action: Contact server support.
+	* HTTP Code: 200
+ | {}
+D [32m 2025-08-23T14:57:47.509468-0500 [0m | ERROR | process_markdown_file | 310 | ===> Unknown Command? <=== | {}
+D [32m 2025-08-23T14:59:22.695132-0500 [0m | INFO | process_markdown_file | 94 | 
+
+====================================================
+
+ | {}
+D [32m 2025-08-23T14:59:22.695771-0500 [0m | INFO | process_markdown_file | 95 | Processing Markdown File: ../../md_processing/dr_egeria_inbox/dr_egeria_intro_part1.md | {}
+D [32m 2025-08-23T14:59:22.698313-0500 [0m | INFO | parse_upsert_command | 84 | 	Processing Create on a Term  
+ | {}
+D [32m 2025-08-23T14:59:22.772061-0500 [0m | INFO | print_msg | 142 | DEBUG-INFO-> `Command` not found in Egeria | {}
+D [32m 2025-08-23T14:59:22.772158-0500 [0m | INFO | proc_el_id | 732 |  `Command` does not exist | {}
+D [32m 2025-08-23T14:59:22.772488-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Category'}` missing | {}
+D [32m 2025-08-23T14:59:22.772581-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Abbreviation'}` missing | {}
+D [32m 2025-08-23T14:59:22.772669-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Example'}` missing | {}
+D [32m 2025-08-23T14:59:22.772825-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Version Identifier'}` missing | {}
+D [32m 2025-08-23T14:59:22.772869-0500 [0m | INFO | proc_el_id | 691 | Optional attribute with label`` missing | {}
+D [32m 2025-08-23T14:59:22.773057-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Guid', 'GUID', 'guid'}` missing | {}
+D [32m 2025-08-23T14:59:22.773094-0500 [0m | INFO | parse_upsert_command | 260 | Element `Command` does not exist so it can be created
+ | {}
+D [32m 2025-08-23T14:59:22.784001-0500 [0m | ERROR | process_term_upsert_command | 605 | Pyegeria error performing Create Term: 
+
+=> 	SERVER_ERROR_500
+=>	Egeria detected error: `https://localhost:9443/servers/qs-view-server/api/open-metadata/collection-manager/collections`.
+	* Context: 
+		* class name=`Client2`
+		* caller method=`_async_create_collection`
+	* System Action: Server-side issue requires attention.
+	* User Action: Contact server support.
+	* HTTP Code: 200
+ | {}
+D [32m 2025-08-23T14:59:22.789395-0500 [0m | ERROR | process_markdown_file | 310 | ===> Unknown Command? <=== | {}
+D [32m 2025-08-23T14:59:56.578480-0500 [0m | INFO | process_markdown_file | 94 | 
+
+====================================================
+
+ | {}
+D [32m 2025-08-23T14:59:56.578976-0500 [0m | INFO | process_markdown_file | 95 | Processing Markdown File: ../../md_processing/dr_egeria_inbox/dr_egeria_intro_part1.md | {}
+D [32m 2025-08-23T14:59:56.586038-0500 [0m | INFO | parse_upsert_command | 84 | 	Processing Create on a Term  
+ | {}
+D [32m 2025-08-23T14:59:56.662810-0500 [0m | INFO | print_msg | 142 | DEBUG-INFO-> `Command` not found in Egeria | {}
+D [32m 2025-08-23T14:59:56.662918-0500 [0m | INFO | proc_el_id | 732 |  `Command` does not exist | {}
+D [32m 2025-08-23T14:59:56.664214-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Category'}` missing | {}
+D [32m 2025-08-23T14:59:56.664645-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Abbreviation'}` missing | {}
+D [32m 2025-08-23T14:59:56.665063-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Example'}` missing | {}
+D [32m 2025-08-23T14:59:56.666054-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Version Identifier'}` missing | {}
+D [32m 2025-08-23T14:59:56.666157-0500 [0m | INFO | proc_el_id | 691 | Optional attribute with label`` missing | {}
+D [32m 2025-08-23T14:59:56.667454-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'guid', 'GUID', 'Guid'}` missing | {}
+D [32m 2025-08-23T14:59:56.667522-0500 [0m | INFO | parse_upsert_command | 260 | Element `Command` does not exist so it can be created
+ | {}
+D [32m 2025-08-23T15:05:32.486374-0500 [0m | INFO | process_markdown_file | 94 | 
+
+====================================================
+
+ | {}
+D [32m 2025-08-23T15:05:32.486862-0500 [0m | INFO | process_markdown_file | 95 | Processing Markdown File: ../../md_processing/dr_egeria_inbox/dr_egeria_intro_part1.md | {}
+D [32m 2025-08-23T15:05:32.490759-0500 [0m | INFO | parse_upsert_command | 84 | 	Processing Create on a Term  
+ | {}
+D [32m 2025-08-23T15:05:32.569404-0500 [0m | INFO | print_msg | 142 | DEBUG-INFO-> `Command` not found in Egeria | {}
+D [32m 2025-08-23T15:05:32.569516-0500 [0m | INFO | proc_el_id | 732 |  `Command` does not exist | {}
+D [32m 2025-08-23T15:05:32.569882-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Category'}` missing | {}
+D [32m 2025-08-23T15:05:32.569973-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Abbreviation'}` missing | {}
+D [32m 2025-08-23T15:05:32.570057-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Example'}` missing | {}
+D [32m 2025-08-23T15:05:32.570263-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Version Identifier'}` missing | {}
+D [32m 2025-08-23T15:05:32.570318-0500 [0m | INFO | proc_el_id | 691 | Optional attribute with label`` missing | {}
+D [32m 2025-08-23T15:05:32.570573-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'guid', 'GUID', 'Guid'}` missing | {}
+D [32m 2025-08-23T15:05:32.570621-0500 [0m | INFO | parse_upsert_command | 260 | Element `Command` does not exist so it can be created
+ | {}
+D [32m 2025-08-23T15:05:32.573109-0500 [0m | ERROR | process_term_upsert_command | 609 | Error performing Create Term: EgeriaTech object has no attribute 'create_term' | {}
+D [32m 2025-08-23T15:05:32.574496-0500 [0m | ERROR | process_markdown_file | 310 | ===> Unknown Command? <=== | {}
+D [32m 2025-08-23T15:06:54.050522-0500 [0m | INFO | process_markdown_file | 94 | 
+
+====================================================
+
+ | {}
+D [32m 2025-08-23T15:06:54.051033-0500 [0m | INFO | process_markdown_file | 95 | Processing Markdown File: ../../md_processing/dr_egeria_inbox/dr_egeria_intro_part1.md | {}
+D [32m 2025-08-23T15:06:54.053738-0500 [0m | INFO | parse_upsert_command | 84 | 	Processing Create on a Term  
+ | {}
+D [32m 2025-08-23T15:06:54.129693-0500 [0m | INFO | print_msg | 142 | DEBUG-INFO-> `Command` not found in Egeria | {}
+D [32m 2025-08-23T15:06:54.129804-0500 [0m | INFO | proc_el_id | 732 |  `Command` does not exist | {}
+D [32m 2025-08-23T15:06:54.130166-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Category'}` missing | {}
+D [32m 2025-08-23T15:06:54.130272-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Abbreviation'}` missing | {}
+D [32m 2025-08-23T15:06:54.130356-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Example'}` missing | {}
+D [32m 2025-08-23T15:06:54.130512-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Version Identifier'}` missing | {}
+D [32m 2025-08-23T15:06:54.130552-0500 [0m | INFO | proc_el_id | 691 | Optional attribute with label`` missing | {}
+D [32m 2025-08-23T15:06:54.130764-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'GUID', 'guid', 'Guid'}` missing | {}
+D [32m 2025-08-23T15:06:54.130809-0500 [0m | INFO | parse_upsert_command | 260 | Element `Command` does not exist so it can be created
+ | {}
+D [32m 2025-08-23T15:06:54.194490-0500 [0m | SUCCESS | process_term_upsert_command | 597 | Created Element `Command` with GUID 7bb48da4-f242-4deb-9293-375bb67bbbcf
+
+___ | {}
+D [32m 2025-08-23T15:07:48.867366-0500 [0m | INFO | process_markdown_file | 94 | 
+
+====================================================
+
+ | {}
+D [32m 2025-08-23T15:07:48.867983-0500 [0m | INFO | process_markdown_file | 95 | Processing Markdown File: ../../md_processing/dr_egeria_inbox/dr_egeria_intro_part1.md | {}
+D [32m 2025-08-23T15:07:48.870410-0500 [0m | INFO | parse_upsert_command | 84 | 	Processing Update on a Term  
+ | {}
+D [32m 2025-08-23T15:07:48.951635-0500 [0m | INFO | print_msg | 142 | DEBUG-INFO->Found  `Command` with qualified name `Term::Command::0.2` | {}
+D [32m 2025-08-23T15:07:48.951755-0500 [0m | INFO | proc_el_id | 716 | Element Command exists | {}
+D [32m 2025-08-23T15:07:48.952163-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Category'}` missing | {}
+D [32m 2025-08-23T15:07:48.952286-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Abbreviation'}` missing | {}
+D [32m 2025-08-23T15:07:48.952371-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Example'}` missing | {}
+D [32m 2025-08-23T15:07:48.952526-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Version Identifier'}` missing | {}
+D [32m 2025-08-23T15:07:48.952565-0500 [0m | INFO | proc_el_id | 691 | Optional attribute with label`` missing | {}
+D [32m 2025-08-23T15:07:48.952746-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Guid', 'guid', 'GUID'}` missing | {}
+D [32m 2025-08-23T15:07:48.963763-0500 [0m | ERROR | process_term_upsert_command | 605 | Pyegeria error performing Update Term: 
+
+=> 	SERVER_ERROR_500
+=>	Egeria detected error: `https://localhost:9443/servers/qs-view-server/api/open-metadata/collection-manager/collections/7bb48da4-f242-4deb-9293-375bb67bbbcf/update`.
+	* Context: 
+		* class name=`Client2`
+		* caller method=`_async_update_element_body_request`
+	* System Action: Server-side issue requires attention.
+	* User Action: Contact server support.
+	* HTTP Code: 200
+ | {}
+D [32m 2025-08-23T15:07:48.968793-0500 [0m | ERROR | process_markdown_file | 310 | ===> Unknown Command? <=== | {}
+D [32m 2025-08-23T15:18:32.487941-0500 [0m | INFO | process_markdown_file | 94 | 
+
+====================================================
+
+ | {}
+D [32m 2025-08-23T15:18:32.488677-0500 [0m | INFO | process_markdown_file | 95 | Processing Markdown File: ../../md_processing/dr_egeria_inbox/dr_egeria_intro_part1.md | {}
+D [32m 2025-08-23T15:18:32.493599-0500 [0m | INFO | parse_upsert_command | 84 | 	Processing Update on a Term  
+ | {}
+D [32m 2025-08-23T15:18:32.582505-0500 [0m | INFO | print_msg | 142 | DEBUG-INFO->Found  `Command` with qualified name `Term::Command::0.2` | {}
+D [32m 2025-08-23T15:18:32.582607-0500 [0m | INFO | proc_el_id | 716 | Element Command exists | {}
+D [32m 2025-08-23T15:18:32.582939-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Category'}` missing | {}
+D [32m 2025-08-23T15:18:32.583055-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Abbreviation'}` missing | {}
+D [32m 2025-08-23T15:18:32.583137-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Example'}` missing | {}
+D [32m 2025-08-23T15:18:32.583297-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Version Identifier'}` missing | {}
+D [32m 2025-08-23T15:18:32.583339-0500 [0m | INFO | proc_el_id | 691 | Optional attribute with label`` missing | {}
+D [32m 2025-08-23T15:18:32.583510-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'GUID', 'Guid', 'guid'}` missing | {}
+D [32m 2025-08-23T15:18:32.586635-0500 [0m | ERROR | process_term_upsert_command | 609 | Error performing Update Term: EgeriaTech object has no attribute 'update_glossary_term' | {}
+D [32m 2025-08-23T15:18:32.587847-0500 [0m | ERROR | process_markdown_file | 310 | ===> Unknown Command? <=== | {}
+D [32m 2025-08-23T15:19:59.020490-0500 [0m | INFO | process_markdown_file | 94 | 
+
+====================================================
+
+ | {}
+D [32m 2025-08-23T15:19:59.021001-0500 [0m | INFO | process_markdown_file | 95 | Processing Markdown File: ../../md_processing/dr_egeria_inbox/dr_egeria_intro_part1.md | {}
+D [32m 2025-08-23T15:19:59.023350-0500 [0m | INFO | parse_upsert_command | 84 | 	Processing Update on a Term  
+ | {}
+D [32m 2025-08-23T15:19:59.098021-0500 [0m | INFO | print_msg | 142 | DEBUG-INFO->Found  `Command` with qualified name `Term::Command::0.2` | {}
+D [32m 2025-08-23T15:19:59.098104-0500 [0m | INFO | proc_el_id | 716 | Element Command exists | {}
+D [32m 2025-08-23T15:19:59.098389-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Category'}` missing | {}
+D [32m 2025-08-23T15:19:59.098488-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Abbreviation'}` missing | {}
+D [32m 2025-08-23T15:19:59.098573-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Example'}` missing | {}
+D [32m 2025-08-23T15:19:59.098774-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Version Identifier'}` missing | {}
+D [32m 2025-08-23T15:19:59.098818-0500 [0m | INFO | proc_el_id | 691 | Optional attribute with label`` missing | {}
+D [32m 2025-08-23T15:19:59.099025-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'guid', 'Guid', 'GUID'}` missing | {}
+D [32m 2025-08-23T15:19:59.102180-0500 [0m | ERROR | process_term_upsert_command | 609 | Error performing Update Term: 'GlossaryManager' object has no attribute '_async_update_term' | {}
+D [32m 2025-08-23T15:19:59.103350-0500 [0m | ERROR | process_markdown_file | 310 | ===> Unknown Command? <=== | {}
+D [32m 2025-08-23T15:20:30.335566-0500 [0m | INFO | process_markdown_file | 94 | 
+
+====================================================
+
+ | {}
+D [32m 2025-08-23T15:20:30.336116-0500 [0m | INFO | process_markdown_file | 95 | Processing Markdown File: ../../md_processing/dr_egeria_inbox/dr_egeria_intro_part1.md | {}
+D [32m 2025-08-23T15:20:30.338468-0500 [0m | INFO | parse_upsert_command | 84 | 	Processing Update on a Term  
+ | {}
+D [32m 2025-08-23T15:20:30.421343-0500 [0m | INFO | print_msg | 142 | DEBUG-INFO->Found  `Command` with qualified name `Term::Command::0.2` | {}
+D [32m 2025-08-23T15:20:30.421429-0500 [0m | INFO | proc_el_id | 716 | Element Command exists | {}
+D [32m 2025-08-23T15:20:30.421708-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Category'}` missing | {}
+D [32m 2025-08-23T15:20:30.421800-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Abbreviation'}` missing | {}
+D [32m 2025-08-23T15:20:30.421885-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Example'}` missing | {}
+D [32m 2025-08-23T15:20:30.422049-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Version Identifier'}` missing | {}
+D [32m 2025-08-23T15:20:30.422108-0500 [0m | INFO | proc_el_id | 691 | Optional attribute with label`` missing | {}
+D [32m 2025-08-23T15:20:30.422276-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Guid', 'GUID', 'guid'}` missing | {}
+D [32m 2025-08-23T15:20:30.443743-0500 [0m | ERROR | process_term_upsert_command | 609 | Error performing Update Term: 1 validation error for UpdateStatusRequestBody
+status
+  Field required [type=missing, input_value={'class': 'UpdateStatusRe..., 'newStatus': 'ACTIVE'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing | {}
+D [32m 2025-08-23T15:20:30.445095-0500 [0m | ERROR | process_markdown_file | 310 | ===> Unknown Command? <=== | {}
+D [32m 2025-08-23T15:21:29.479173-0500 [0m | INFO | process_markdown_file | 94 | 
+
+====================================================
+
+ | {}
+D [32m 2025-08-23T15:21:29.479887-0500 [0m | INFO | process_markdown_file | 95 | Processing Markdown File: ../../md_processing/dr_egeria_inbox/dr_egeria_intro_part1.md | {}
+D [32m 2025-08-23T15:21:29.487136-0500 [0m | INFO | parse_upsert_command | 84 | 	Processing Update on a Term  
+ | {}
+D [32m 2025-08-23T15:21:29.575678-0500 [0m | INFO | print_msg | 142 | DEBUG-INFO->Found  `Command` with qualified name `Term::Command::0.2` | {}
+D [32m 2025-08-23T15:21:29.575804-0500 [0m | INFO | proc_el_id | 716 | Element Command exists | {}
+D [32m 2025-08-23T15:21:29.577098-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Category'}` missing | {}
+D [32m 2025-08-23T15:21:29.577617-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Abbreviation'}` missing | {}
+D [32m 2025-08-23T15:21:29.578085-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Example'}` missing | {}
+D [32m 2025-08-23T15:21:29.578966-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Version Identifier'}` missing | {}
+D [32m 2025-08-23T15:21:29.579050-0500 [0m | INFO | proc_el_id | 691 | Optional attribute with label`` missing | {}
+D [32m 2025-08-23T15:21:29.580228-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'guid', 'GUID', 'Guid'}` missing | {}
+D [32m 2025-08-23T15:29:06.592157-0500 [0m | INFO | process_markdown_file | 94 | 
+
+====================================================
+
+ | {}
+D [32m 2025-08-23T15:29:06.592599-0500 [0m | INFO | process_markdown_file | 95 | Processing Markdown File: ../../md_processing/dr_egeria_inbox/dr_egeria_intro_part1.md | {}
+D [32m 2025-08-23T15:29:06.599658-0500 [0m | INFO | parse_upsert_command | 84 | 	Processing Update on a Term  
+ | {}
+D [32m 2025-08-23T15:29:06.688052-0500 [0m | INFO | print_msg | 142 | DEBUG-INFO->Found  `Command` with qualified name `Term::Command::0.2` | {}
+D [32m 2025-08-23T15:29:06.688165-0500 [0m | INFO | proc_el_id | 716 | Element Command exists | {}
+D [32m 2025-08-23T15:29:06.689419-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Category'}` missing | {}
+D [32m 2025-08-23T15:29:06.689849-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Abbreviation'}` missing | {}
+D [32m 2025-08-23T15:29:06.690259-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Example'}` missing | {}
+D [32m 2025-08-23T15:29:06.691568-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Version Identifier'}` missing | {}
+D [32m 2025-08-23T15:29:06.691804-0500 [0m | INFO | proc_el_id | 691 | Optional attribute with label`` missing | {}
+D [32m 2025-08-23T15:29:06.693314-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'GUID', 'guid', 'Guid'}` missing | {}
+D [32m 2025-08-23T15:30:01.142611-0500 [0m | INFO | process_markdown_file | 94 | 
+
+====================================================
+
+ | {}
+D [32m 2025-08-23T15:30:01.142821-0500 [0m | INFO | process_markdown_file | 95 | Processing Markdown File: ../../md_processing/dr_egeria_inbox/dr_egeria_intro_part1.md | {}
+D [32m 2025-08-23T15:30:01.144150-0500 [0m | INFO | parse_upsert_command | 84 | 	Processing Update on a Term  
+ | {}
+D [32m 2025-08-23T15:30:01.216309-0500 [0m | INFO | print_msg | 142 | DEBUG-INFO->Found  `Command` with qualified name `Term::Command::0.2` | {}
+D [32m 2025-08-23T15:30:01.216398-0500 [0m | INFO | proc_el_id | 716 | Element Command exists | {}
+D [32m 2025-08-23T15:30:01.216686-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Category'}` missing | {}
+D [32m 2025-08-23T15:30:01.216784-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Abbreviation'}` missing | {}
+D [32m 2025-08-23T15:30:01.216863-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Example'}` missing | {}
+D [32m 2025-08-23T15:30:01.217024-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Version Identifier'}` missing | {}
+D [32m 2025-08-23T15:30:01.217066-0500 [0m | INFO | proc_el_id | 691 | Optional attribute with label`` missing | {}
+D [32m 2025-08-23T15:30:01.217271-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'GUID', 'guid', 'Guid'}` missing | {}
+D [32m 2025-08-23T15:30:01.308468-0500 [0m | SUCCESS | process_term_upsert_command | 567 | Updated  Term `Command` with GUID 7bb48da4-f242-4deb-9293-375bb67bbbcf
+
+___ | {}
+D [32m 2025-08-23T15:31:25.090863-0500 [0m | INFO | process_markdown_file | 94 | 
+
+====================================================
+
+ | {}
+D [32m 2025-08-23T15:31:25.091821-0500 [0m | INFO | process_markdown_file | 95 | Processing Markdown File: ../../md_processing/dr_egeria_inbox/dr_egeria_intro_part1.md | {}
+D [32m 2025-08-23T15:31:25.094447-0500 [0m | INFO | parse_upsert_command | 84 | 	Processing Update on a Glossary  
+ | {}
+D [32m 2025-08-23T15:31:25.095155-0500 [0m | INFO | print_msg | 142 | INFO-Optional attribute with labels `{'Version', 'Version Identifier', 'Published Version'}` missing | {}
+D [32m 2025-08-23T15:31:25.237574-0500 [0m | INFO | print_msg | 142 | DEBUG-INFO->Found Glossary `Egeria-Markdown` with qualified name `Glossary::Egeria-Markdown` | {}
+D [32m 2025-08-23T15:31:25.237714-0500 [0m | INFO | proc_el_id | 716 | Element Egeria-Markdown exists | {}
+D [32m 2025-08-23T15:31:25.237927-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Category'}` missing | {}
+D [32m 2025-08-23T15:31:25.238113-0500 [0m | INFO | proc_el_id | 691 | Optional attribute with label`Glossary` missing | {}
+D [32m 2025-08-23T15:31:25.238281-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'GUID', 'Guid', 'guid'}` missing | {}
+D [32m 2025-08-23T15:31:25.256479-0500 [0m | SUCCESS | process_glossary_upsert_command | 185 | Updated  Glossary `Egeria-Markdown` with GUID c0eae997-3c0a-48c5-bc68-c32ffdc0577c
+
+___ | {}
+D [32m 2025-08-23T15:31:25.285615-0500 [0m | INFO | parse_upsert_command | 84 | 	Processing Update on a Term  
+ | {}
+D [32m 2025-08-23T15:31:25.317775-0500 [0m | INFO | print_msg | 142 | DEBUG-INFO->Found  `Command` with qualified name `Term::Command::0.2` | {}
+D [32m 2025-08-23T15:31:25.317869-0500 [0m | INFO | proc_el_id | 716 | Element Command exists | {}
+D [32m 2025-08-23T15:31:25.318054-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Category'}` missing | {}
+D [32m 2025-08-23T15:31:25.318152-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Abbreviation'}` missing | {}
+D [32m 2025-08-23T15:31:25.318242-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Example'}` missing | {}
+D [32m 2025-08-23T15:31:25.318366-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Version Identifier'}` missing | {}
+D [32m 2025-08-23T15:31:25.318408-0500 [0m | INFO | proc_el_id | 691 | Optional attribute with label`` missing | {}
+D [32m 2025-08-23T15:31:25.318468-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'GUID', 'Guid', 'guid'}` missing | {}
+D [32m 2025-08-23T15:31:25.436475-0500 [0m | SUCCESS | process_term_upsert_command | 567 | Updated  Term `Command` with GUID 7bb48da4-f242-4deb-9293-375bb67bbbcf
+
+___ | {}
+D [32m 2025-08-23T15:31:25.471429-0500 [0m | INFO | parse_upsert_command | 84 | 	Processing Create on a Term  
+ | {}
+D [32m 2025-08-23T15:31:25.497221-0500 [0m | INFO | print_msg | 142 | DEBUG-INFO-> `Source` not found in Egeria | {}
+D [32m 2025-08-23T15:31:25.497363-0500 [0m | INFO | proc_el_id | 732 |  `Source` does not exist | {}
+D [32m 2025-08-23T15:31:25.497508-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Category'}` missing | {}
+D [32m 2025-08-23T15:31:25.497567-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Abbreviation'}` missing | {}
+D [32m 2025-08-23T15:31:25.497619-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Example'}` missing | {}
+D [32m 2025-08-23T15:31:25.497671-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Usage'}` missing | {}
+D [32m 2025-08-23T15:31:25.497752-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Version Identifier'}` missing | {}
+D [32m 2025-08-23T15:31:25.497813-0500 [0m | INFO | proc_el_id | 691 | Optional attribute with label`` missing | {}
+D [32m 2025-08-23T15:31:25.497880-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'GUID', 'Guid', 'guid'}` missing | {}
+D [32m 2025-08-23T15:31:25.497929-0500 [0m | INFO | parse_upsert_command | 260 | Element `Source` does not exist so it can be created
+ | {}
+D [32m 2025-08-23T15:31:25.562268-0500 [0m | SUCCESS | process_term_upsert_command | 597 | Created Element `Source` with GUID 2f477fd8-6dea-4ad3-b681-a7e80bdcdd7c
+
+___ | {}
+D [32m 2025-08-23T15:31:25.581923-0500 [0m | INFO | parse_upsert_command | 84 | 	Processing Create on a Term  
+ | {}
+D [32m 2025-08-23T15:31:25.607253-0500 [0m | INFO | print_msg | 142 | DEBUG-INFO-> `Directive` not found in Egeria | {}
+D [32m 2025-08-23T15:31:25.607405-0500 [0m | INFO | proc_el_id | 732 |  `Directive` does not exist | {}
+D [32m 2025-08-23T15:31:25.607558-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Category'}` missing | {}
+D [32m 2025-08-23T15:31:25.607622-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Abbreviation'}` missing | {}
+D [32m 2025-08-23T15:31:25.607676-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Example'}` missing | {}
+D [32m 2025-08-23T15:31:25.607726-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Usage'}` missing | {}
+D [32m 2025-08-23T15:31:25.607804-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Version Identifier'}` missing | {}
+D [32m 2025-08-23T15:31:25.607865-0500 [0m | INFO | proc_el_id | 691 | Optional attribute with label`` missing | {}
+D [32m 2025-08-23T15:31:25.607932-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'GUID', 'Guid', 'guid'}` missing | {}
+D [32m 2025-08-23T15:31:25.607984-0500 [0m | INFO | parse_upsert_command | 260 | Element `Directive` does not exist so it can be created
+ | {}
+D [32m 2025-08-23T15:31:25.670080-0500 [0m | SUCCESS | process_term_upsert_command | 597 | Created Element `Directive` with GUID 72f81531-b869-4fa1-84df-c0a4ac62f62f
+
+___ | {}
+D [32m 2025-08-23T15:39:22.793116-0500 [0m | INFO | process_markdown_file | 94 | 
+
+====================================================
+
+ | {}
+D [32m 2025-08-23T15:39:22.793439-0500 [0m | INFO | process_markdown_file | 95 | Processing Markdown File: ../../md_processing/dr_egeria_inbox/dr_egeria_intro_part2.md | {}
+D [32m 2025-08-23T15:39:22.795425-0500 [0m | INFO | parse_upsert_command | 84 | 	Processing Create on a Collection  
+ | {}
+D [32m 2025-08-23T15:39:22.796059-0500 [0m | INFO | print_msg | 142 | INFO-Optional attribute with labels `{'Version Identifier', 'Published Version', 'Version'}` missing | {}
+D [32m 2025-08-23T15:39:22.872215-0500 [0m | INFO | print_msg | 142 | DEBUG-INFO->Collection `Writing Dr.Egeria Markdown` not found in Egeria | {}
+D [32m 2025-08-23T15:39:22.872321-0500 [0m | INFO | proc_el_id | 732 | Collection `Writing Dr.Egeria Markdown` does not exist | {}
+D [32m 2025-08-23T15:39:22.872712-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Category'}` missing | {}
+D [32m 2025-08-23T15:39:22.872772-0500 [0m | INFO | proc_el_id | 691 | Optional attribute with label`Collection` missing | {}
+D [32m 2025-08-23T15:39:22.872961-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Guid', 'guid', 'GUID'}` missing | {}
+D [32m 2025-08-23T15:39:22.873002-0500 [0m | INFO | parse_upsert_command | 260 | Element `Writing Dr.Egeria Markdown` does not exist so it can be created
+ | {}
+D [32m 2025-08-23T15:39:22.883579-0500 [0m | ERROR | process_collection_upsert_command | 258 | Pyegeria error performing Create Collection: 
+
+=> 	CLIENT_ERROR_400
+=>	Client error occurred with status code `https://localhost:9443/servers/qs-view-server/api/open-metadata/collection-manager/collections`.
+	* Context: 
+		* class name=`Client2`
+		* caller method=`_async_create_collection`
+	* System Action: The client is unable to connect to the Egeria platform.
+	* User Action: Check the URL to ensure the valid platform url, server, user id are correct.
+	* HTTP Code: 400
+ | {}
+D [32m 2025-08-23T15:39:22.888404-0500 [0m | ERROR | process_markdown_file | 310 | ===> Unknown Command? <=== | {}
+D [32m 2025-08-23T15:41:37.858443-0500 [0m | INFO | process_markdown_file | 94 | 
+
+====================================================
+
+ | {}
+D [32m 2025-08-23T15:41:37.858924-0500 [0m | INFO | process_markdown_file | 95 | Processing Markdown File: ../../md_processing/dr_egeria_inbox/dr_egeria_intro_part2.md | {}
+D [32m 2025-08-23T15:41:37.867699-0500 [0m | INFO | parse_upsert_command | 84 | 	Processing Create on a Collection  
+ | {}
+D [32m 2025-08-23T15:41:37.869891-0500 [0m | INFO | print_msg | 142 | INFO-Optional attribute with labels `{'Version Identifier', 'Published Version', 'Version'}` missing | {}
+D [32m 2025-08-23T15:41:37.967946-0500 [0m | INFO | print_msg | 142 | DEBUG-INFO->Collection `Writing Dr.Egeria Markdown` not found in Egeria | {}
+D [32m 2025-08-23T15:41:37.968065-0500 [0m | INFO | proc_el_id | 732 | Collection `Writing Dr.Egeria Markdown` does not exist | {}
+D [32m 2025-08-23T15:41:37.969424-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Category'}` missing | {}
+D [32m 2025-08-23T15:41:37.969642-0500 [0m | INFO | proc_el_id | 691 | Optional attribute with label`Collection` missing | {}
+D [32m 2025-08-23T15:41:37.970805-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'GUID', 'Guid', 'guid'}` missing | {}
+D [32m 2025-08-23T15:41:37.970897-0500 [0m | INFO | parse_upsert_command | 260 | Element `Writing Dr.Egeria Markdown` does not exist so it can be created
+ | {}
+D [32m 2025-08-23T15:45:20.842379-0500 [0m | INFO | process_markdown_file | 94 | 
+
+====================================================
+
+ | {}
+D [32m 2025-08-23T15:45:20.842830-0500 [0m | INFO | process_markdown_file | 95 | Processing Markdown File: ../../md_processing/dr_egeria_inbox/dr_egeria_intro_part2.md | {}
+D [32m 2025-08-23T15:45:20.849456-0500 [0m | INFO | parse_upsert_command | 84 | 	Processing Create on a Collection  
+ | {}
+D [32m 2025-08-23T15:45:20.851201-0500 [0m | INFO | print_msg | 142 | INFO-Optional attribute with labels `{'Published Version', 'Version', 'Version Identifier'}` missing | {}
+D [32m 2025-08-23T15:45:20.935926-0500 [0m | INFO | print_msg | 142 | DEBUG-INFO->Collection `Writing Dr.Egeria Markdown` not found in Egeria | {}
+D [32m 2025-08-23T15:45:20.936031-0500 [0m | INFO | proc_el_id | 732 | Collection `Writing Dr.Egeria Markdown` does not exist | {}
+D [32m 2025-08-23T15:45:20.937681-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Category'}` missing | {}
+D [32m 2025-08-23T15:45:20.937794-0500 [0m | INFO | proc_el_id | 691 | Optional attribute with label`Collection` missing | {}
+D [32m 2025-08-23T15:45:20.938868-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'guid', 'Guid', 'GUID'}` missing | {}
+D [32m 2025-08-23T15:45:20.938951-0500 [0m | INFO | parse_upsert_command | 260 | Element `Writing Dr.Egeria Markdown` does not exist so it can be created
+ | {}
+D [32m 2025-08-23T15:45:40.950910-0500 [0m | INFO | process_markdown_file | 94 | 
+
+====================================================
+
+ | {}
+D [32m 2025-08-23T15:45:40.951280-0500 [0m | INFO | process_markdown_file | 95 | Processing Markdown File: ../../md_processing/dr_egeria_inbox/dr_egeria_intro_part2.md | {}
+D [32m 2025-08-23T15:45:40.954701-0500 [0m | INFO | parse_upsert_command | 84 | 	Processing Create on a Collection  
+ | {}
+D [32m 2025-08-23T15:45:40.956460-0500 [0m | INFO | print_msg | 142 | INFO-Optional attribute with labels `{'Version Identifier', 'Version', 'Published Version'}` missing | {}
+D [32m 2025-08-23T15:45:41.040804-0500 [0m | INFO | print_msg | 142 | DEBUG-INFO->Collection `Writing Dr.Egeria Markdown` not found in Egeria | {}
+D [32m 2025-08-23T15:45:41.040995-0500 [0m | INFO | proc_el_id | 732 | Collection `Writing Dr.Egeria Markdown` does not exist | {}
+D [32m 2025-08-23T15:45:41.042824-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Category'}` missing | {}
+D [32m 2025-08-23T15:45:41.043000-0500 [0m | INFO | proc_el_id | 691 | Optional attribute with label`Collection` missing | {}
+D [32m 2025-08-23T15:45:41.044217-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Guid', 'guid', 'GUID'}` missing | {}
+D [32m 2025-08-23T15:45:41.044348-0500 [0m | INFO | parse_upsert_command | 260 | Element `Writing Dr.Egeria Markdown` does not exist so it can be created
+ | {}
+D [32m 2025-08-23T15:46:05.124569-0500 [0m | INFO | process_markdown_file | 94 | 
+
+====================================================
+
+ | {}
+D [32m 2025-08-23T15:46:05.125031-0500 [0m | INFO | process_markdown_file | 95 | Processing Markdown File: ../../md_processing/dr_egeria_inbox/dr_egeria_intro_part2.md | {}
+D [32m 2025-08-23T15:46:05.131413-0500 [0m | INFO | parse_upsert_command | 84 | 	Processing Create on a Collection  
+ | {}
+D [32m 2025-08-23T15:46:05.133081-0500 [0m | INFO | print_msg | 142 | INFO-Optional attribute with labels `{'Published Version', 'Version', 'Version Identifier'}` missing | {}
+D [32m 2025-08-23T15:46:05.217662-0500 [0m | INFO | print_msg | 142 | DEBUG-INFO->Collection `Writing Dr.Egeria Markdown` not found in Egeria | {}
+D [32m 2025-08-23T15:46:05.217798-0500 [0m | INFO | proc_el_id | 732 | Collection `Writing Dr.Egeria Markdown` does not exist | {}
+D [32m 2025-08-23T15:46:05.219419-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Category'}` missing | {}
+D [32m 2025-08-23T15:46:05.219567-0500 [0m | INFO | proc_el_id | 691 | Optional attribute with label`Collection` missing | {}
+D [32m 2025-08-23T15:46:05.220910-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Guid', 'GUID', 'guid'}` missing | {}
+D [32m 2025-08-23T15:46:05.221004-0500 [0m | INFO | parse_upsert_command | 260 | Element `Writing Dr.Egeria Markdown` does not exist so it can be created
+ | {}
+D [32m 2025-08-23T15:53:06.255558-0500 [0m | INFO | process_markdown_file | 94 | 
+
+====================================================
+
+ | {}
+D [32m 2025-08-23T15:53:06.256125-0500 [0m | INFO | process_markdown_file | 95 | Processing Markdown File: ../../md_processing/dr_egeria_inbox/dr_egeria_intro_part2.md | {}
+D [32m 2025-08-23T15:53:06.257209-0500 [0m | ERROR | process_markdown_file | 310 | ===> Unknown Command? <=== | {}
+D [32m 2025-08-23T15:53:37.954656-0500 [0m | INFO | process_markdown_file | 94 | 
+
+====================================================
+
+ | {}
+D [32m 2025-08-23T15:53:37.955227-0500 [0m | INFO | process_markdown_file | 95 | Processing Markdown File: ../../md_processing/dr_egeria_inbox/dr_egeria_intro_part2.md | {}
+D [32m 2025-08-23T15:53:37.956743-0500 [0m | ERROR | process_markdown_file | 310 | ===> Unknown Command? <=== | {}
+D [32m 2025-08-23T15:54:00.115679-0500 [0m | INFO | process_markdown_file | 94 | 
+
+====================================================
+
+ | {}
+D [32m 2025-08-23T15:54:00.116170-0500 [0m | INFO | process_markdown_file | 95 | Processing Markdown File: ../../md_processing/dr_egeria_inbox/dr_egeria_intro_part2.md | {}
+D [32m 2025-08-23T15:54:00.119242-0500 [0m | INFO | parse_upsert_command | 84 | 	Processing Create on a Collection  
+ | {}
+D [32m 2025-08-23T15:54:00.119913-0500 [0m | INFO | print_msg | 142 | INFO-Optional attribute with labels `{'Version', 'Published Version', 'Version Identifier'}` missing | {}
+D [32m 2025-08-23T15:54:00.198044-0500 [0m | INFO | print_msg | 142 | DEBUG-INFO->Collection `Writing Dr.Egeria Markdown` not found in Egeria | {}
+D [32m 2025-08-23T15:54:00.198143-0500 [0m | INFO | proc_el_id | 735 | Collection `Writing Dr.Egeria Markdown` does not exist | {}
+D [32m 2025-08-23T15:54:00.198470-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Category'}` missing | {}
+D [32m 2025-08-23T15:54:00.198536-0500 [0m | INFO | proc_el_id | 694 | Optional attribute with label`Collection` missing | {}
+D [32m 2025-08-23T15:54:00.198705-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'GUID', 'guid', 'Guid'}` missing | {}
+D [32m 2025-08-23T15:54:00.198747-0500 [0m | INFO | parse_upsert_command | 260 | Element `Writing Dr.Egeria Markdown` does not exist so it can be created
+ | {}
+D [32m 2025-08-23T15:54:00.206864-0500 [0m | ERROR | process_collection_upsert_command | 258 | Pyegeria error performing Create Collection: 
+
+=> 	CLIENT_ERROR_400
+=>	Client error occurred with status code `https://localhost:9443/servers/qs-view-server/api/open-metadata/collection-manager/collections`.
+	* Context: 
+		* class name=`Client2`
+		* caller method=`_async_create_collection`
+	* System Action: The client is unable to connect to the Egeria platform.
+	* User Action: Check the URL to ensure the valid platform url, server, user id are correct.
+	* HTTP Code: 400
+ | {}
+D [32m 2025-08-23T15:54:00.211676-0500 [0m | ERROR | process_markdown_file | 310 | ===> Unknown Command? <=== | {}
+D [32m 2025-08-23T15:54:25.321328-0500 [0m | INFO | process_markdown_file | 94 | 
+
+====================================================
+
+ | {}
+D [32m 2025-08-23T15:54:25.321742-0500 [0m | INFO | process_markdown_file | 95 | Processing Markdown File: ../../md_processing/dr_egeria_inbox/dr_egeria_intro_part2.md | {}
+D [32m 2025-08-23T15:54:25.328232-0500 [0m | INFO | parse_upsert_command | 84 | 	Processing Create on a Collection  
+ | {}
+D [32m 2025-08-23T15:54:25.330583-0500 [0m | INFO | print_msg | 142 | INFO-Optional attribute with labels `{'Version', 'Published Version', 'Version Identifier'}` missing | {}
+D [32m 2025-08-23T15:54:25.414809-0500 [0m | INFO | print_msg | 142 | DEBUG-INFO->Collection `Writing Dr.Egeria Markdown` not found in Egeria | {}
+D [32m 2025-08-23T15:54:25.414918-0500 [0m | INFO | proc_el_id | 735 | Collection `Writing Dr.Egeria Markdown` does not exist | {}
+D [32m 2025-08-23T15:54:25.416233-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Category'}` missing | {}
+D [32m 2025-08-23T15:54:25.416349-0500 [0m | INFO | proc_el_id | 694 | Optional attribute with label`Collection` missing | {}
+D [32m 2025-08-23T15:54:25.417462-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Guid', 'guid', 'GUID'}` missing | {}
+D [32m 2025-08-23T15:54:25.417547-0500 [0m | INFO | parse_upsert_command | 260 | Element `Writing Dr.Egeria Markdown` does not exist so it can be created
+ | {}
+D [32m 2025-08-23T16:08:39.443436-0500 [0m | INFO | process_markdown_file | 94 | 
+
+====================================================
+
+ | {}
+D [32m 2025-08-23T16:08:39.444073-0500 [0m | INFO | process_markdown_file | 95 | Processing Markdown File: ../../md_processing/dr_egeria_inbox/dr_egeria_intro_part2.md | {}
+D [32m 2025-08-23T16:08:39.447175-0500 [0m | INFO | parse_upsert_command | 84 | 	Processing Update on a Term  
+ | {}
+D [32m 2025-08-23T16:08:39.522133-0500 [0m | INFO | print_msg | 142 | DEBUG-INFO->Found  `Command` with qualified name `Term::Command::0.2` | {}
+D [32m 2025-08-23T16:08:39.522239-0500 [0m | INFO | proc_el_id | 719 | Element Command exists | {}
+D [32m 2025-08-23T16:08:39.522527-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Category'}` missing | {}
+D [32m 2025-08-23T16:08:39.522617-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Abbreviation'}` missing | {}
+D [32m 2025-08-23T16:08:39.522703-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Example'}` missing | {}
+D [32m 2025-08-23T16:08:39.522863-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Version Identifier'}` missing | {}
+D [32m 2025-08-23T16:08:39.522902-0500 [0m | INFO | proc_el_id | 694 | Optional attribute with label`` missing | {}
+D [32m 2025-08-23T16:08:39.523083-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'guid', 'Guid', 'GUID'}` missing | {}
+D [32m 2025-08-23T16:08:39.607755-0500 [0m | SUCCESS | process_term_upsert_command | 567 | Updated  Term `Command` with GUID 7bb48da4-f242-4deb-9293-375bb67bbbcf
+
+___ | {}
+D [32m 2025-08-23T16:12:26.073702-0500 [0m | INFO | process_markdown_file | 94 | 
+
+====================================================
+
+ | {}
+D [32m 2025-08-23T16:12:26.074206-0500 [0m | INFO | process_markdown_file | 95 | Processing Markdown File: ../../md_processing/dr_egeria_inbox/dr_egeria_intro_part2.md | {}
+D [32m 2025-08-23T16:12:26.077357-0500 [0m | INFO | parse_upsert_command | 84 | 	Processing Update on a Term  
+ | {}
+D [32m 2025-08-23T16:12:26.153877-0500 [0m | INFO | print_msg | 142 | DEBUG-INFO->Found  `Command` with qualified name `Term::Command::0.2` | {}
+D [32m 2025-08-23T16:12:26.153968-0500 [0m | INFO | proc_el_id | 719 | Element Command exists | {}
+D [32m 2025-08-23T16:12:26.154250-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Category'}` missing | {}
+D [32m 2025-08-23T16:12:26.154335-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Abbreviation'}` missing | {}
+D [32m 2025-08-23T16:12:26.154415-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Example'}` missing | {}
+D [32m 2025-08-23T16:12:26.154563-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'Version Identifier'}` missing | {}
+D [32m 2025-08-23T16:12:26.154636-0500 [0m | INFO | proc_el_id | 694 | Optional attribute with label`` missing | {}
+D [32m 2025-08-23T16:12:26.154874-0500 [0m | INFO | proc_simple_attribute | 468 | Optional attribute with labels: `{'guid', 'Guid', 'GUID'}` missing | {}
+D [32m 2025-08-23T16:12:26.314234-0500 [0m | SUCCESS | process_term_upsert_command | 567 | Updated  Term `Command` with GUID 7bb48da4-f242-4deb-9293-375bb67bbbcf
+
+___ | {}
