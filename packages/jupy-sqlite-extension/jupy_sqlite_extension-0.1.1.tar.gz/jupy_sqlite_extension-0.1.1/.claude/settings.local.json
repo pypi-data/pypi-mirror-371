@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(jlpm build:*)",
+      "WebFetch(domain:rich.readthedocs.io)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

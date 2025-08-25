@@ -1,0 +1,15 @@
+# Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
+_commit: v4.4.0
+_src_path: https://github.com/jupyterlab/extension-template
+author_email: yiwei@deeplearning.ai
+author_name: Yiwei Chen
+has_binder: false
+has_settings: false
+kind: frontend-and-server
+labextension_name: jupy-sqlite-extension
+project_short_description: JupyterLab extension for SQLite execution based on cell
+    metadata without magic
+python_name: jupy_sqlite_extension
+repository: ''
+test: true
+
