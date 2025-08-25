@@ -1,0 +1,34 @@
+[tool.poetry]
+name = "iceos-client"
+version = "0.1.2"
+description = "Typed async Python client for the iceOS Orchestrator API"
+license = "MIT"
+readme = "README.md"
+authors = ["iceOS Developers <dev@iceos.dev>"]
+packages = [{ include = "ice_client" }]
+homepage = "https://github.com/noozrad/iceOS"
+repository = "https://github.com/noozrad/iceOS"
+keywords = ["iceos", "client", "async", "httpx", "orchestrator", "mcp", "agents"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Topic :: Software Development :: Libraries",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+httpx = "^0.27.2"
+pydantic = "^2.8.2"
+PyYAML = "^6.0.2"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.2"
+
+[build-system]
+requires = ["poetry-core>=1.8.0"]
+build-backend = "poetry.core.masonry.api"
