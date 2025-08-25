@@ -1,0 +1,10 @@
+folder_classifier/__init__.py,sha256=k0YWZyUNe7myJiKeX0OaXtJ30_3EGE-vsZiAUbqa-3E,46
+folder_classifier/app.py,sha256=doaXkKnpe-LNztkMkuROutjId7XPS_t9G7m9dSXt-ow,1330
+folder_classifier/classifier.py,sha256=3V4M-x5K7vASStsnPlrW2M9tA6uWsKA4L1rCMHqCQ_M,7705
+folder_classifier/deploy.py,sha256=UQTbQjR_JX92Xo8L5EbK4nPg_VJmwWDmzMQSjP3-7iQ,412
+folder_classifier/dto.py,sha256=pCRErTIflx8zMe7dD_GcnaBagPYpuZy2vIZCAbb0i0Q,767
+folder_classifier/util.py,sha256=4zk52bPVyoVU0FfDTmeK5JdM4y0IbnuaPS1PWc9txa4,3065
+folder_classifier-0.3.1.dist-info/METADATA,sha256=x4Dv4CCUXoo0GAL5DX3I3FPrHvTWYKowY1UrkMGD2Gs,392
+folder_classifier-0.3.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+folder_classifier-0.3.1.dist-info/top_level.txt,sha256=36ugc9pEbNQ-mnzz4Ot2WVjY3t_LzAN6XOCjDFP4p4k,18
+folder_classifier-0.3.1.dist-info/RECORD,,
