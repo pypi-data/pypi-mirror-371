@@ -1,0 +1,15 @@
+lims2/__init__.py,sha256=6k-n-obpqo5rg2hGrlbBCf73h_9JcKdlOe-Ayw9OXfc,6146
+lims2/chart.py,sha256=NPR-mejAeg4xwmnDKwtqb4oYWzb1Yxc9435OYCdnjfo,10530
+lims2/client.py,sha256=ziMAzzjmx09k3DedKtIzkppg8CybhMEHVafG2HMiLec,3156
+lims2/config.py,sha256=6DS5AirgSsEMcXgn-scIGiZYI4a7NAqTHhVDCzsCxR4,1551
+lims2/exceptions.py,sha256=wfc9EsZCYhtGq8yRRpQUdThT5rSIHHxakWz47K4OxL0,483
+lims2/oss_base.py,sha256=sZL-mPPwdzF3FCuGLMoMnrahH9sr8g5rPFpcD-gP9zI,3950
+lims2/storage.py,sha256=-SIdsyHePdS09JSbL2aYnbeUJ-jdslqrKHLuaqpIa48,17426
+lims2/utils.py,sha256=W4I-M5JzVfP4n-Mcj9DtMMnjRCmv5Ip9QrEzfXJQUFU,6343
+lims2_cli/__init__.py,sha256=Bk73RGJrRA2CvnPYrCBQ8fsWTp_ddKMkPqTr7kgNRXw,20
+lims2_cli/main.py,sha256=fqtUXtslKgFQw1_u3ljkHQbRP8LE1j_fHLZWSnEZt9k,12066
+lims2_sdk-0.4.5.dist-info/METADATA,sha256=Je31Dakz9v69WWzPE5NWG6fZQmqIo6ZfGx1KmAh-QEI,4981
+lims2_sdk-0.4.5.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+lims2_sdk-0.4.5.dist-info/entry_points.txt,sha256=ZCfMNCbq-Z6H6a7IP8TLdxokJ0xoaBjX011CCIDfEYU,45
+lims2_sdk-0.4.5.dist-info/top_level.txt,sha256=bk2gi5vGlsbVCGJWKbmc9QqCKl1FOmsQ1Oa3MUmlXkg,16
+lims2_sdk-0.4.5.dist-info/RECORD,,
