@@ -1,0 +1,17 @@
+UFOpticSim/__init__.py,sha256=Spd0tP3asw50TZpR9FZsBIcp_2pglb35a0rFi36KULw,309
+UFOpticSim/beamsplitter.py,sha256=_rzcEJ4kKDUkj3tFiizb5COqLJqWOuhuZetgZik2U2Q,184
+UFOpticSim/calc.py,sha256=nGnc2dEPyqdjljRz4L4nbGD8jlI1BuC9nmtzKzH-ljY,1231
+UFOpticSim/grating.py,sha256=TDn1aFDHjPoSlYDwyDNlpcYGuWy8AQeMENjv3RhR7tA,185
+UFOpticSim/laser.py,sha256=QsKrIkt-oqJavMK9p70Alr8LIdeRidS6pxIZkIsrm3o,794
+UFOpticSim/lens.py,sha256=IUd7cNgCtD7NET1Vl37b2FgWOyCyC_5YGGhbZ07AFAI,868
+UFOpticSim/material.py,sha256=NRIqPvHJ3Z9gC_s1MH34ko7Amxbt0F34mPMnTr9uVVk,1268
+UFOpticSim/mirror.py,sha256=o2gjtcZVPMrOKc6bFUInAlS9LEPNwaaeyL5zAkIcX-M,1086
+UFOpticSim/prism.py,sha256=ZwNJDYf2jAlvXmXyVeZ0m1-60WemmOUTIAKilsfUdUw,192
+UFOpticSim/pulseprofile.py,sha256=lZ0gPW80QARU9v6dvJ4RuNJ6R_vfdAyS8t6ZF17Sml4,909
+UFOpticSim/results.py,sha256=YfvGPix5FgwlaCA10GI6JTt_xhcDYcc1I-FyZSmhsCM,1713
+UFOpticSim/screen.py,sha256=sURb7KtiGDs8EJAOWmLj4BHcwEEtPMAbWadtiF3z3vQ,857
+UFOpticSim/simulation.py,sha256=aHKDzyrTw6UthYshGqCL4nDcvPaY5mQryANj9k3Dwt8,5949
+UFOpticSim-0.1.dist-info/METADATA,sha256=czEYiRI_KtYyNcQq_fkOtO95W5Nt3SK4Sq7Xe2ukGiY,2550
+UFOpticSim-0.1.dist-info/WHEEL,sha256=oiQVh_5PnQM0E3gPdiz09WCNmwiHDMaGer_elqB3coM,92
+UFOpticSim-0.1.dist-info/top_level.txt,sha256=YPjxhKk4F6tabtuvmHCYGUe0DUHvMUGxajBqM5VyE4M,11
+UFOpticSim-0.1.dist-info/RECORD,,
