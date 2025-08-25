@@ -1,0 +1,434 @@
+Metadata-Version: 2.4
+Name: graphbridge
+Version: 0.0.5
+Summary: GraphBridge is a lightweight Microsoft Graph client that uses app-only (Azure AD) authentication and streamlines SharePoint site/list operations: metadata retrieval, feature-based queries, CRUD, upsert, and field key encoding/decoding.
+Author-email: Cecchelani Diego <ceccdieg@gmail.com>
+License-Expression: MIT
+Project-URL: Homepage, https://www
+Project-URL: Issues, https://www
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENCE
+Requires-Dist: azure-identity==1.24.0
+Requires-Dist: requests==2.32.5
+Dynamic: license-file
+
+# GraphBridge
+
+A tiny Python helper to authenticate against **Microsoft Graph** (app-only) and work with **SharePoint Online** (sites & lists): read, create, update, delete, upsert, and batch.
+
+> Works with Python **3.10+** · Microsoft Graph **v1.0** · App-only auth via **client credentials** (Entra ID / Azure AD)
+
+---
+
+## Table of Contents
+
+* [Installation](#installation)
+* [Microsoft 365 prerequisites](#microsoft-365-prerequisites)
+* [Key concepts](#key-concepts)
+* [Quick start](#quick-start)
+* [Usage examples](#usage-examples)
+  * [Read list rows](#read-list-rows)
+  * [Create, update, delete](#create-update-delete)
+  * [Upsert with `upload()`](#upsert-with-upload)
+  * [Batch: `create_many()` and `delete_many()`](#batch-create_many-and-delete_many)
+  * [Filter with `get_items_by_features()`](#filter-with-get_items_by_features)
+  * [Handle fields with spaces/symbols](#handle-fields-with-spacessymbols)
+* [API reference](#api-reference)
+* [Errors & best practices](#errors--best-practices)
+* [Security](#security)
+* [Compatibility & notes](#compatibility--notes)
+* [Full example](#full-example)
+
+---
+
+## Installation
+
+```bash
+pip install graphbridge azure-identity requests
+```
+
+> If your package on PyPI uses a different name, replace `graphbridge` with the actual name.
+> Runtime dependencies: `azure-identity` and `requests`.
+
+---
+
+## Microsoft 365 prerequisites
+
+1. An **App registration** in Entra ID (Azure AD) with **Client ID**, **Tenant ID**, and **Client Secret**.
+2. **Application** permissions for Microsoft Graph (SharePoint scope):
+
+   * Read-only: `Sites.Read.All`
+   * Read/Write: `Sites.ReadWrite.All`
+3. **Admin consent** granted by a tenant admin.
+4. The app must have access to the target **SharePoint site** and **list**.
+
+---
+
+## Key concepts
+
+* **GbAuth**
+  Builds app-only authentication (client credentials) and provides the Bearer **token** and **headers**.
+
+* **GbSite**
+  Resolves a **SharePoint site** from `hostname` (e.g., `contoso.sharepoint.com`) and `site_path` (e.g., `/sites/Marketing`) to obtain the `site_id` via Graph.
+
+* **GbList**
+  Operates on a **SharePoint list**: read items/rows, create, update, delete, **upsert**, and **batch** via Graph `$batch`.
+
+---
+
+## Quick start
+
+```python
+from graphbridge import GbAuth, GbSite, GbList
+import os
+
+# 1) App-only authentication
+auth = GbAuth(
+    tenant_id=os.environ["AZURE_TENANT_ID"],
+    client_id=os.environ["AZURE_CLIENT_ID"],
+    client_secret=os.environ["AZURE_CLIENT_SECRET"],
+)
+
+# 2) Resolve the SharePoint site
+site = GbSite(
+    hostname="contoso.sharepoint.com",
+    site_path="/sites/Marketing",
+    gb_auth=auth,
+)
+print("Site ID:", site.site_id)
+
+# 3) Bind the list
+tasks = GbList(
+    list_name="Tasks",   # display name of your list
+    gb_site=site
+)
+
+# 4) Read the first rows
+rows = tasks.list_rows
+print("Example row:", rows[0] if rows else "No items")
+```
+
+---
+
+## Usage examples
+
+### Read list rows
+
+```python
+rows = tasks.list_rows        # list of dicts under 'fields'
+ids = tasks.list_ids          # list item IDs
+columns = tasks.list_fields   # column names (keys from first 'fields')
+
+for r in rows[:5]:
+    print(r.get("Title"), r.get("Status"))
+```
+
+> `list_rows` relies on `list_items_all`, which automatically **paginates** and returns **all** items in the list.
+
+---
+
+### Create, update, delete
+
+**Create one or more items**
+
+```python
+# Single
+res_create = tasks.create({"Title": "New task", "Status": "Open"})
+print(res_create)
+
+# Multiple
+res_create_many = tasks.create([
+    {"Title": "Task 1", "Status": "Open"},
+    {"Title": "Task 2", "Status": "InProgress"},
+])
+print(res_create_many)
+```
+
+**Update by ID (PATCH fields)**
+
+```python
+res_update = tasks.update(
+    ids="25",
+    rows={"Status": "Done", "PercentComplete": 1.0}
+)
+print(res_update)
+```
+
+**Delete by ID**
+
+```python
+res_delete = tasks.delete(ids=["25", "26", "27"])
+print(res_delete)
+```
+
+> Every method returns a result object with `successes` and `failures` so you can inspect what happened.
+
+---
+
+### Upsert with `upload()`
+
+`upload(ids, rows, force=False, delete=False)` synchronizes the list with your local source:
+
+* If an `id` already exists:
+
+  * `force=True` ➜ **delete & recreate** the item (replace).
+  * `force=False` ➜ **patch update** the item.
+* If an `id` does not exist ➜ **create** a new item.
+* `delete=True` ➜ **remove** items **not** present in `ids` (cleanup).
+
+```python
+# Bring the list in sync with 3 source rows:
+ids = ["101", "102", "103"]
+rows = [
+    {"Title": "A", "Status": "Open"},
+    {"Title": "B", "Status": "InProgress"},
+    {"Title": "C", "Status": "Done"},
+]
+
+res_upload = tasks.upload(ids=ids, rows=rows, force=False, delete=True)
+print(res_upload)
+```
+
+Simplified return shape:
+
+```json
+{
+  "delete_results": {"successes": [], "failures": []},
+  "force_results": {
+    "replaced": {"successes": [], "failures": []},
+    "updated":  {"successes": [{"id":"101","row":{"Title":"A"}}], "failures": []},
+    "created":  {"successes": [{"id":"103","new_id":"345"}], "failures": []}
+  }
+}
+```
+
+---
+
+### Batch: `create_many()` and `delete_many()`
+
+These use the Graph **`$batch`** endpoint (default **20** sub-requests per batch).
+
+```python
+# CREATE in batch
+bulk_rows = [{"Title": f"Bulk {i}"} for i in range(1, 51)]
+bulk_create = tasks.create_many(bulk_rows, batch_size=20)
+print(bulk_create)
+
+# DELETE in batch
+bulk_delete = tasks.delete_many(ids=["301", "302", "303"], batch_size=20, if_match="*")
+print(bulk_delete)
+```
+
+> `if_match="*"` disables concurrency checks for batch deletes (use carefully).
+
+---
+
+### Filter with `get_items_by_features()`
+
+Returns **raw list items** (not only `fields`) that match **at least one** criteria dict (OR across dicts; AND inside each dict).
+
+> Important: matching occurs on the **top-level keys** of each item.
+> To filter by list fields, include the **`"fields"`** key explicitly.
+
+```python
+features = [
+    {"fields": {"Status": "Open"}},  # match on fields.Status
+    {"id": "123"}                    # match on top-level id
+]
+
+matched_items = tasks.get_items_by_features(features)
+print(len(matched_items))
+```
+
+---
+
+### Handle fields with spaces/symbols
+
+SharePoint often encodes internal column names (e.g., spaces) as `_x0020_`.
+Use the helpers to map keys both ways:
+
+```python
+row = {"Project Name": "Apollo", "Start-Date": "2025-08-24"}
+
+encoded = tasks.encode_row(row)   # {'Project_x0020_Name': 'Apollo', 'Start_x002d_Date': '2025-08-24'}
+decoded = tasks.decode_row(encoded)  # back to human-friendly keys
+```
+
+This is handy when an API/payload requires **internal** field names.
+
+---
+
+## API reference
+
+### Utility
+
+* `deduplicate_dicts(dict_list: list[dict]) -> list[dict]`
+  Removes duplicates (by sorted JSON) from a list of dicts.
+
+---
+
+### `class GbAuth`
+
+```python
+GbAuth(tenant_id: str, client_id: str, client_secret: str)
+```
+
+Properties:
+
+* `credential: ClientSecretCredential` – lazily cached `azure.identity.ClientSecretCredential`.
+* `token: str` – Graph access token for `https://graph.microsoft.com/.default`.
+* `headers: dict` – `{"Authorization": f"Bearer {token}"}`.
+
+Validation: raises `TypeError`/`ValueError` for empty/non-string inputs; raises `RuntimeError` if token acquisition fails.
+
+---
+
+### `class GbSite(GbAuth)`
+
+```python
+GbSite(hostname: str, site_path: str, gb_auth: GbAuth | None = None, **auth_kwargs)
+```
+
+* Pass **either** an existing `GbAuth` via `gb_auth` **or** auth keywords (`tenant_id`, `client_id`, `client_secret`).
+
+Properties:
+
+* `hostname: str` – e.g., `contoso.sharepoint.com`
+* `site_path: str` – e.g., `/sites/Marketing` (or `/teams/...`)
+* `site_url: str` – Graph URL for the site.
+* `site_data: dict` – site metadata (cached).
+* `site_id: str` – resolved from `site_data`.
+
+Errors: raises `RuntimeError` if the site GET is not 200.
+
+---
+
+### `class GbList(GbSite)`
+
+```python
+GbList(list_name: str, gb_site: GbSite | None = None, **site_and_auth_kwargs)
+```
+
+* Pass **either** a `GbSite` **or** site+auth keywords (`hostname`, `site_path`, `tenant_id`, …).
+
+Core properties:
+
+* `list_url: str`, `list_data: dict`, `list_id: str`
+* `list_items_all -> list[dict]`
+  **All** list items with automatic pagination. Internally requests pages of **200** items; page size is not configurable via the property.
+* `list_items -> list[dict]`
+  **First page** of items (handy for quick checks).
+* `list_rows -> list[dict]`
+  Only the `fields` section of each item (derived from `list_items_all`).
+* `list_ids -> list[str]`
+* `list_fields -> list[str]` (keys from the first `fields` if present)
+* `encode_row(row: dict) -> dict`, `decode_row(row: dict) -> dict`
+  Bidirectional mapping between friendly keys and encoded `_x00.._` internal names.
+
+CRUD methods:
+
+* `create(rows: dict | list[dict] | tuple[dict] | set[dict]) -> dict`
+* `update(ids: str | int | list[str] | tuple[str] | set[str], rows: dict | list[dict] | tuple[dict]) -> dict`
+* `delete(ids: str | list[str] | tuple[str] | set[str]) -> dict`
+
+Upsert & batch:
+
+* `upload(ids, rows, force=False, delete=False) -> dict`
+* `create_many(rows: list[dict], batch_size: int = 20) -> dict`
+* `delete_many(ids, batch_size: int = 20, if_match: str | None = None) -> dict`
+
+Criteria-based retrieval:
+
+* `get_items_by_features(features: list[dict]) -> list[dict]`
+  OR across dicts, AND within each dict.
+  **Note:** comparisons are on top-level item keys; use `{"fields": {...}}` for list fields.
+
+---
+
+## Errors & best practices
+
+* Methods that call Graph return:
+
+  * `successes`: items with details (`id`, `item`, `updated_row`, …)
+  * `failures`: errors with `status`/`error` payload
+* Wrap critical calls with `try/except`:
+
+```python
+try:
+    out = tasks.create({"Title": "Check errors"})
+    if out["failures"]:
+        print("Failures:", out["failures"])
+except Exception as e:
+    print("Fatal error:", e)
+```
+
+* **Permissions**: `403 Forbidden` usually means missing application permission (`Sites.ReadWrite.All`) or missing **admin consent**.
+* **Concurrency**: batch deletes support `if_match`; standard updates use PATCH on `fields`.
+* **Pagination**: prefer `list_rows`/`list_items_all` to fetch complete sets; `list_items` is a single page.
+* **Rate limits**: for large workloads, prefer **batch** methods and keep `batch_size` reasonable (typically ≤ 20).
+
+---
+
+## Security
+
+* Never hardcode the **Client Secret**. Use **environment variables** or a **secret vault**.
+* `GbAuth` obtains **tokens** at runtime via `azure-identity`.
+* Never commit credentials or tokens to source control.
+
+---
+
+## Compatibility & notes
+
+* **Python 3.10+** (uses modern union types like `str | int`).
+* `list_items_all` is exposed as a **property**; it internally requests pages of 200 items until completion.
+* Column names: Graph’s `fields` often use **internal** names; if your columns have spaces/symbols, use `encode_row`/`decode_row` to simplify payload handling.
+
+---
+
+## Full example
+
+```python
+from graphbridge import GbAuth, GbSite, GbList
+
+auth = GbAuth(
+    tenant_id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    client_id="yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy",
+    client_secret="********"
+)
+
+site = GbSite(
+    hostname="contoso.sharepoint.com",
+    site_path="/sites/Finance",
+    gb_auth=auth
+)
+
+invoices = GbList(list_name="Invoices", gb_site=site)
+
+# 1) Read
+for r in invoices.list_rows[:3]:
+    print("Invoice:", r.get("Title"), r.get("Amount"))
+
+# 2) Create
+new_items = invoices.create([
+    {"Title": "I-2025-001", "Amount": 1000},
+    {"Title": "I-2025-002", "Amount": 2500},
+])
+print("Create:", new_items["successes"])
+
+# 3) Update
+upd = invoices.update(ids="42", rows={"Amount": 3000})
+print("Update:", upd)
+
+# 4) Upsert & cleanup
+ids = ["1001", "1002"]
+rows = [{"Title": "A"}, {"Title": "B"}]
+print(invoices.upload(ids=ids, rows=rows, force=False, delete=True))
+
+# 5) Batch delete
+print(invoices.delete_many(ids=["1001", "1002"], if_match="*"))
+```
