@@ -1,0 +1,7 @@
+pyproject.toml
+mbr_test_pckg/__init__.py
+mbr_test_pckg/show_py_interpreter.py
+mbr_test_pckg.egg-info/PKG-INFO
+mbr_test_pckg.egg-info/SOURCES.txt
+mbr_test_pckg.egg-info/dependency_links.txt
+mbr_test_pckg.egg-info/top_level.txt
