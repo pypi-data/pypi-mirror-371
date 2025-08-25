@@ -1,0 +1,18 @@
+[project]
+name = "niebla"
+version = "0.0.1"
+authors = [
+  { name="Sara Porras Bedmar", email="saraporrasbedmar@gmail.com" },
+]
+description = "Python package to compute the EBL with a forward folding approach."
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license-files = ["LICENSE"]
+
+[project.urls]
+Homepage = "https://github.com/saraporrasbedmar/niebla"
+Issues = "https://github.com/saraporrasbedmar/niebla/issues"

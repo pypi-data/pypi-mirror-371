@@ -1,0 +1,49 @@
+Metadata-Version: 2.4
+Name: niebla
+Version: 0.0.1
+Summary: Python package to compute the EBL with a forward folding approach.
+Home-page: https://github.com/saraporrasbedmar/niebla
+Author: Sara Porras Bedmar
+Author-email: Sara Porras Bedmar <saraporrasbedmar@gmail.com>
+Project-URL: Homepage, https://github.com/saraporrasbedmar/niebla
+Project-URL: Issues, https://github.com/saraporrasbedmar/niebla/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7, <4
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: author
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-python
+
+niebla
+========
+
+Python package to compute the EBL with a forward folding approach.
+
+
+Prerequisites
+-------------
+
+Python 3.5 or higher and the following packages: 
+    - numpy 
+    - scipy
+    - astropy
+
+An extra library is required to calculate the intensity of the
+intrahalo light. However, implementing it is not trivial in a
+virtual enviroment, I would not reccomend to get stuck trying to
+implement it if it is not needed:
+    - hmf
+
+Installation: TODO
+------------
+
+
+Example scripts and notebooks are provided on the github page in the
+scripts/ and notebooks/ folder, https://github.com/
+
+License
+-------
+niebla is distributed under the modified BSD License.
