@@ -1,0 +1,10 @@
+sqlvault/__init__.py,sha256=T0vImDZLRC-oQlZ4SJXxsbjvBUFHz9l7VWRXrmWY1gU,199
+sqlvault/memoize.py,sha256=mYr0lWQ1YXXmuSqC85raCx_CqXjFucN-gfK3Yn7Zc5Q,3698
+sqlvault/serialize.py,sha256=LUIW9fX_wLg6abmOXk8RxEHWa1CgyAlTrdoVsMdEbJU,712
+sqlvault/vault.py,sha256=6L5z28uxlVVLpUgqbFW9vGWPGq4R_UgBHJFsBqCmTiE,12045
+sqlvault-0.0.1.dist-info/licenses/LICENSE,sha256=JZ3zXMkWM8u7zzX78u04uiN6Ckll8Vy8rUbEPxq-IVY,1062
+tests/test_sqlvault.py,sha256=MkjniMjSFcNFV2wCPvz-oDXG7niQs5NQqWfMu_TSTxc,2091
+sqlvault-0.0.1.dist-info/METADATA,sha256=IxU5GdsCy4K0GQujEmIFhZ_4SapoPxAoN5LORoAAxAc,2238
+sqlvault-0.0.1.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+sqlvault-0.0.1.dist-info/top_level.txt,sha256=1YIQ3nfAfj0Z4qxIg9iTRuPjW2Azrpvz-gY16yNu9jc,15
+sqlvault-0.0.1.dist-info/RECORD,,
