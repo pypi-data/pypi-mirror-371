@@ -1,0 +1,8 @@
+LICENSE
+README.md
+pyproject.toml
+src/criterion/__init__.py
+src/criterion.egg-info/PKG-INFO
+src/criterion.egg-info/SOURCES.txt
+src/criterion.egg-info/dependency_links.txt
+src/criterion.egg-info/top_level.txt
