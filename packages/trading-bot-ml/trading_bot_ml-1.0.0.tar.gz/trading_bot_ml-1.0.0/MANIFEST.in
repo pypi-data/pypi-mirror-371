@@ -1,0 +1,18 @@
+include README.md
+include requirements.txt
+include pyproject.toml
+include LICENSE
+recursive-include arbi *.py
+recursive-include arbi *.json
+recursive-include arbi *.yaml
+recursive-include arbi *.yml
+recursive-include arbi *.sql
+recursive-include data *.db
+recursive-include models *.pkl
+recursive-include models *.joblib
+recursive-include notebooks *.ipynb
+recursive-include tests *.py
+global-exclude *.pyc
+global-exclude __pycache__
+global-exclude .git*
+global-exclude .DS_Store

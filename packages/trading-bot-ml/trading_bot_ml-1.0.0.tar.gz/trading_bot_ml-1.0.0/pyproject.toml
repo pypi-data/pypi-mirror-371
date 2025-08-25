@@ -1,0 +1,110 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "trading-bot-ml"
+version = "1.0.0"
+description = "Advanced ML-powered trading bot with real-time market analysis"
+readme = "README.md"
+authors = [{name = "Trading Bot Team", email = "krish567366@example.com"}]
+license = {text = "MIT"}
+requires-python = ">=3.8"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Financial and Insurance Industry",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Office/Business :: Financial :: Investment",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+keywords = ["trading", "machine-learning", "finance", "cryptocurrency", "bot"]
+
+dependencies = [
+    "pandas>=1.5.0",
+    "numpy>=1.21.0",
+    "scikit-learn>=1.1.0",
+    "lightgbm>=3.3.0",
+    "xgboost>=1.6.0",
+    "joblib>=1.1.0",
+    "matplotlib>=3.5.0",
+    "seaborn>=0.11.0",
+    "yfinance>=0.2.0",
+    "ccxt>=4.0.0",
+    "ta>=0.10.0",
+    "alpha-vantage>=2.3.0",
+    "sqlalchemy>=1.4.0",
+    "nest-asyncio>=1.5.0",
+    "requests>=2.28.0",
+    "python-dotenv>=0.19.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.21.0",
+    "pytest-cov>=4.1.0",
+    "pytest-mock>=3.12.0",
+    "black>=23.11.0",
+    "flake8>=6.1.0",
+    "mypy>=1.7.0",
+    "isort>=5.12.0",
+    "pre-commit>=3.6.0",
+]
+ml-extra = [
+    "catboost>=1.2.0",
+    "optuna>=3.0.0",
+    "shap>=0.41.0",
+    "plotly>=5.15.0",
+    "jupyter>=1.0.0",
+    "notebook>=6.5.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/krish567366/bot-model"
+Repository = "https://github.com/krish567366/bot-model"
+Issues = "https://github.com/krish567366/bot-model/issues"
+
+[project.scripts]
+trading-bot = "arbi.main:main"
+
+[tool.setuptools]
+packages = ["arbi", "arbi.ai", "arbi.core", "arbi.config", "arbi.api", "arbi.ui", "arbi.tests"]
+include-package-data = true
+
+[tool.setuptools.package-data]
+arbi = ["*.json", "*.yaml", "*.yml", "*.sql"]
+
+[tool.black]
+line-length = 100
+target-version = ['py38', 'py39', 'py310', 'py311']
+
+[tool.isort]
+profile = "black"
+line_length = 100
+multi_line_output = 3
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "arbi/tests"]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+    "--cov=arbi",
+    "--cov-report=term-missing",
+    "--cov-report=html",
+    "--strict-markers",
+    "-v"
+]
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
