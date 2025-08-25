@@ -1,0 +1,9 @@
+odoo/addons/redis_session_store/__init__.py,sha256=YTX9esLTin4ibzflKhPDsrBImVcibVOj4W9SV-5x0Yk,1666
+odoo/addons/redis_session_store/__manifest__.py,sha256=Yfc2F7wmxGZno-yXD-VmJPbUHC1bRlKVXZhIz-1h29Y,456
+odoo/addons/redis_session_store/json_encoding.py,sha256=Zb9MqFWi9aCCaWml5ErXlNtmDqmfUK1C6fD0MRRa_ok,1219
+odoo/addons/redis_session_store/patcher.py,sha256=nnKh0NMnkyn1bLqYN3ylEMc-DFo9_S6YKFRMWgXT_TU,964
+odoo/addons/redis_session_store/redis_config.py,sha256=nDPZzDX2urGu353eZPQCp9m4edUJAgalJlc_jNJEyDk,3468
+odoo/addons/redis_session_store/redis_session.py,sha256=zOq_TE-_T3L4SsJX51NdHHXheG3mrhrjlCjqcE1VyRg,4715
+mangono_odoo_redis_session-1.3.0.dist-info/METADATA,sha256=26_tgG5tFwQt0Bjv3npKvFv_CQDExhdfvUMST3BElS0,2329
+mangono_odoo_redis_session-1.3.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+mangono_odoo_redis_session-1.3.0.dist-info/RECORD,,
