@@ -1,0 +1,2 @@
+[aiida.data]
+bmcs_matmod.gsm_lagrange.response_data = bmcs_matmod.gsm_lagrange.aiida_plugin.response_data_node:ResponseDataNode

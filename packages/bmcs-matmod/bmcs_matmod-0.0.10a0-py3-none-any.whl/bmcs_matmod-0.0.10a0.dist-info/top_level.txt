@@ -1,0 +1,3 @@
+bmcs_matmod
+examples
+notebooks
