@@ -1,0 +1,23 @@
+Metadata-Version: 2.4
+Name: wspr-ai-lite
+Version: 0.2.6
+Project-URL: Homepage, https://github.com/KI7MT/wspr-ai-lite
+Project-URL: Documentation, https://ki7mt.github.io/wspr-ai-lite/
+Project-URL: Source, https://github.com/KI7MT/wspr-ai-lite
+Project-URL: Issues, https://github.com/KI7MT/wspr-ai-lite/issues
+Project-URL: Changelog, https://github.com/KI7MT/wspr-ai-lite/blob/main/CHANGELOG.md
+Requires-Python: >=3.11
+License-File: LICENSE
+Requires-Dist: duckdb>=0.10.2
+Requires-Dist: streamlit>=1.37.0
+Requires-Dist: pandas>=2.2
+Requires-Dist: click>=8.1
+Requires-Dist: requests>=2.31
+Provides-Extra: dev
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: pre-commit; extra == "dev"
+Provides-Extra: docs
+Requires-Dist: mkdocs; extra == "docs"
+Requires-Dist: mkdocs-material; extra == "docs"
+Requires-Dist: mkdocs-macros-plugin; extra == "docs"
+Dynamic: license-file
