@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+src/jsonlutils/__init__.py
+src/jsonlutils/jsonl_converter_utils.py
+src/jsonlutils.egg-info/PKG-INFO
+src/jsonlutils.egg-info/SOURCES.txt
+src/jsonlutils.egg-info/dependency_links.txt
+src/jsonlutils.egg-info/top_level.txt
+tests/test_converter.py
