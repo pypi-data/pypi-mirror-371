@@ -1,0 +1,17 @@
+schic/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+schic/main.py,sha256=jVi5e8LMaW1Vzf78HAxYw1k9ag0o_ov7qVF6NdZ3vuY,590
+schic/modules/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+schic/modules/contacts.py,sha256=nkXm5ZIIa0YjoeApibrRFQPLU3BG8gsphyDTIOAooSk,1735
+schic/modules/cutadapt.py,sha256=wEWetsJqXGQ3yr9EH5L4WshkYl-b7NLt2ucAKrppGzw,1680
+schic/modules/extract.py,sha256=5RfBNcEigL1upvksWm7QUxQLXvxGZyinyBBj1dgC1EA,2076
+schic/modules/report.py,sha256=_CjOP1b_X9N-t8wy-L2nq2z7is1BI0ZJrthINOlRCWA,1752
+schic/modules/whitelist.py,sha256=jnCkMMLjSNw0fSTGtSr1zh5pk2eXz1pSYesipIojyPU,2128
+schic/scripts/contacts.sh,sha256=neni4O7DKpalXbda_WHcQdrp9o3vNtdurJEkXr5XVms,2435
+schic/static/env.yaml,sha256=1xon2V0EgdnBoh30SrCmY1jdsDCPkAOinGsulWyg-wY,494
+schic/utils/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+schic/utils/pairtools.py,sha256=47sxbGK-z3DvKBlcahiB_vWLDtmS85AYLsysjyz4qPY,14132
+schic/utils/umitools.py,sha256=U2EBR3PlKk2Icz4jlO_OvI6U3kJE1_yiJSIALFbwi9M,4695
+schic-0.1.9.dist-info/METADATA,sha256=aX0zQHWULe1z0yL_Am6IdSPa07adDNlG2XYRcjHKIC0,4784
+schic-0.1.9.dist-info/WHEEL,sha256=IYZQI976HJqqOpQU6PHkJ8fb3tMNBFjg-Cn-pwAbaFM,88
+schic-0.1.9.dist-info/entry_points.txt,sha256=vSD3NK2g5bcVtj7SJgIIytfsaKSo0bi3x5IkYqSEvqY,40
+schic-0.1.9.dist-info/RECORD,,
