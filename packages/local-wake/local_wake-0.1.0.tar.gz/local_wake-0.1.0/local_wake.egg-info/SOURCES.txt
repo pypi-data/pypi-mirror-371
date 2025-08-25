@@ -1,0 +1,16 @@
+LICENSE
+README.md
+pyproject.toml
+local_wake.egg-info/PKG-INFO
+local_wake.egg-info/SOURCES.txt
+local_wake.egg-info/dependency_links.txt
+local_wake.egg-info/entry_points.txt
+local_wake.egg-info/requires.txt
+local_wake.egg-info/top_level.txt
+lwake/__init__.py
+lwake/cli.py
+lwake/compare.py
+lwake/features.py
+lwake/listen.py
+lwake/record.py
+lwake/models/speech-embedding.onnx

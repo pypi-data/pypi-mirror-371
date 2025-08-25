@@ -1,0 +1,6 @@
+onnxruntime
+silero-vad
+librosa
+sounddevice
+soundfile
+numpy
