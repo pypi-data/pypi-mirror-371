@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+moviepy_layout/__init__.py
+moviepy_layout/layout.py
+moviepy_layout.egg-info/PKG-INFO
+moviepy_layout.egg-info/SOURCES.txt
+moviepy_layout.egg-info/dependency_links.txt
+moviepy_layout.egg-info/requires.txt
+moviepy_layout.egg-info/top_level.txt
