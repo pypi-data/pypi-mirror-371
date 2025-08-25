@@ -1,0 +1,41 @@
+Metadata-Version: 2.4
+Name: bassa-reg
+Version: 0.1.1
+Summary: The BASSA algorithm as presented in the paper Sparse Linear Bayesian Models for Organic Chemistry
+Author-email: Tsoof Bar Or <tsoofbaror@gmail.com>
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: contourpy==1.3.0
+Requires-Dist: cycler==0.12.1
+Requires-Dist: fonttools==4.59.0
+Requires-Dist: importlib_resources==6.5.2
+Requires-Dist: joblib==1.5.1
+Requires-Dist: kiwisolver==1.4.7
+Requires-Dist: llvmlite==0.43.0
+Requires-Dist: matplotlib==3.9.4
+Requires-Dist: numba==0.60.0
+Requires-Dist: numpy==2.0.2
+Requires-Dist: packaging==25.0
+Requires-Dist: pandas==2.3.1
+Requires-Dist: patsy==1.0.1
+Requires-Dist: pillow==11.3.0
+Requires-Dist: pyparsing==3.2.3
+Requires-Dist: python-dateutil==2.9.0.post0
+Requires-Dist: pytz==2025.2
+Requires-Dist: scikit-learn==1.6.1
+Requires-Dist: scipy==1.13.1
+Requires-Dist: six==1.17.0
+Requires-Dist: statsmodels==0.14.5
+Requires-Dist: threadpoolctl==3.6.0
+Requires-Dist: tqdm==4.67.1
+Requires-Dist: tzdata==2025.2
+Requires-Dist: UpSetPlot==0.9.0
+Requires-Dist: zipp==3.23.0
+Requires-Dist: importlib_resources==6.5.2
+Dynamic: license-file
+
+How do install and run examples
