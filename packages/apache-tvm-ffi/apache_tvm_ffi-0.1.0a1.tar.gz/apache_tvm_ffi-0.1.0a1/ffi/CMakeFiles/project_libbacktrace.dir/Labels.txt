@@ -1,0 +1,14 @@
+# Target labels
+ project_libbacktrace
+# Source files and their labels
+/Users/tqchen/github/tvm/ffi/ffi/CMakeFiles/project_libbacktrace
+/Users/tqchen/github/tvm/ffi/ffi/CMakeFiles/project_libbacktrace.rule
+/Users/tqchen/github/tvm/ffi/ffi/CMakeFiles/project_libbacktrace-complete.rule
+/Users/tqchen/github/tvm/ffi/ffi/libbacktrace/src/project_libbacktrace-stamp/project_libbacktrace-build.rule
+/Users/tqchen/github/tvm/ffi/ffi/libbacktrace/src/project_libbacktrace-stamp/project_libbacktrace-checkout.rule
+/Users/tqchen/github/tvm/ffi/ffi/libbacktrace/src/project_libbacktrace-stamp/project_libbacktrace-configure.rule
+/Users/tqchen/github/tvm/ffi/ffi/libbacktrace/src/project_libbacktrace-stamp/project_libbacktrace-download.rule
+/Users/tqchen/github/tvm/ffi/ffi/libbacktrace/src/project_libbacktrace-stamp/project_libbacktrace-install.rule
+/Users/tqchen/github/tvm/ffi/ffi/libbacktrace/src/project_libbacktrace-stamp/project_libbacktrace-mkdir.rule
+/Users/tqchen/github/tvm/ffi/ffi/libbacktrace/src/project_libbacktrace-stamp/project_libbacktrace-patch.rule
+/Users/tqchen/github/tvm/ffi/ffi/libbacktrace/src/project_libbacktrace-stamp/project_libbacktrace-update.rule
