@@ -1,0 +1,3 @@
+[mkdocs.plugins]
+include-files=mkdocs_include_files.plugin:IncludeFilesPlugin
+
