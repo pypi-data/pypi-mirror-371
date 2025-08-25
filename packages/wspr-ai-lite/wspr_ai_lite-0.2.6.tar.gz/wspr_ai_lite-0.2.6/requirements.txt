@@ -1,0 +1,7 @@
+streamlit
+duckdb
+pandas
+numpy
+requests
+pytest
+pyyaml-env-tag

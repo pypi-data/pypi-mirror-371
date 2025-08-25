@@ -1,0 +1,63 @@
+name: docs
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'mkdocs.yml'
+      - 'docs/**'
+      - 'src/**'          # rebuild if you show version from code (macros)
+      - '.github/workflows/docs.yml'
+  workflow_dispatch: {}   # allow manual rebuilds from Actions tab
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Prepare docs assets
+        run: |
+          cp CHANGELOG.md docs/CHANGELOG.md
+          cp CONTRIBUTORS.md docs/CONTRIBUTORS.md
+          # If your license file is named 'LICENSE' (no extension), copy to LICENSE.md for MkDocs
+          if [ -f LICENSE ]; then cp LICENSE docs/LICENSE.md; fi
+          if [ -f LICENSE.md ]; then cp LICENSE.md docs/LICENSE.md; fi
+          if [ -f LICENSE.md ]; then cp LICENSE.md docs/LICENSE.md; fi
+
+      - name: Install MkDocs + plugins
+        run: |
+          python -m pip install --upgrade pip
+          pip install mkdocs-material mkdocs-material-extensions mkdocs-macros-plugin pyyaml-env-tag
+
+      - name: Compute docs version
+        id: ver
+        run: echo "WSPR_AI_LITE_VERSION=$(python scripts/get_version.py)" >> $GITHUB_ENV
+
+      - name: Build site
+        run: mkdocs build --strict
+        env:
+          WSPR_AI_LITE_VERSION: ${{ env.WSPR_AI_LITE_VERSION }}
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4

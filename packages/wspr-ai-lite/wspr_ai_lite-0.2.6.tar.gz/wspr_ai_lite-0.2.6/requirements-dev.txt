@@ -1,0 +1,7 @@
+# Development dependencies for wspr-ai-lite
+# Includes runtime requirements via -r so tools have the same environment.
+-r requirements.txt
+pytest
+pre-commit
+interrogate
+pydocstyle

@@ -1,0 +1,14 @@
+duckdb>=0.10.2
+streamlit>=1.37.0
+pandas>=2.2
+click>=8.1
+requests>=2.31
+
+[dev]
+pytest
+pre-commit
+
+[docs]
+mkdocs
+mkdocs-material
+mkdocs-macros-plugin
