@@ -1,0 +1,7 @@
+README.md
+main.py
+pyproject.toml
+rebranched.egg-info/PKG-INFO
+rebranched.egg-info/SOURCES.txt
+rebranched.egg-info/dependency_links.txt
+rebranched.egg-info/top_level.txt

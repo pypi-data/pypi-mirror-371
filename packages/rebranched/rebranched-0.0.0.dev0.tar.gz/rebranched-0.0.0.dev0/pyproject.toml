@@ -1,0 +1,12 @@
+[project]
+name = "rebranched"
+version = "0.0.0-dev"
+description = "TBD"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "twine>=6.1.0",
+]
