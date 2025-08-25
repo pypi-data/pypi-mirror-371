@@ -1,0 +1,9 @@
+xlum/__init__.py,sha256=ER6HIq0Wlkp5AfkKJHS8o9MybguNMqcdoUKIDIsng8o,230
+xlum/data/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+xlum/data/classes.py,sha256=3clT0Q7y2HcxTKjAlXPhvqELEEdDelH5QuN06G85nJE,13605
+xlum/data/enumerations.py,sha256=igzepDqQPThM7FUHs0P_Zr5eVPOLon6-lAS8fyb7zHw,801
+xlum/importer.py,sha256=P7l1y5d2k_5r0yURh4tFZiVCrCWQPSy1tPR6FmP9gkw,1611
+xlum-0.0.9.dist-info/licenses/LICENSE,sha256=DEcWVWYQS80IfovxulkS_t0xULF5_5TVDeR7fRrhROI,1068
+xlum-0.0.9.dist-info/WHEEL,sha256=4n27za1eEkOnA7dNjN6C5-O2rUiw6iapszm14Uj-Qmk,79
+xlum-0.0.9.dist-info/METADATA,sha256=V0PpCHj9eBQz-Oozz0JPYyu0JOTDkCUVRsdlQSAWET0,2273
+xlum-0.0.9.dist-info/RECORD,,
