@@ -1,0 +1,49 @@
+from dataclasses import dataclass
+from typing import Optional
+
+from .ui.colors import ColorPalette
+
+
+@dataclass
+class Config:
+    url: str
+    interval: float = 1.0
+    count: Optional[int] = None
+    timeout: float = 5.0
+    method: str = "HEAD"
+    include_body: bool = False
+    mode: str = "interactive"  # interactive | json | plain
+
+    # Alerting thresholds (in milliseconds)
+    warn_threshold: Optional[float] = None
+    crit_threshold: Optional[float] = None
+
+    # Additional options
+    keepalive: bool = True
+    resolve_once: bool = False
+    user_agent: Optional[str] = None
+    auth: Optional[str] = None  # Format: "user:pass" or "bearer:token"
+    insecure: bool = False
+    export_file: Optional[str] = None
+    show_percentiles: bool = False
+
+    # Network options
+    ipv4_only: bool = False
+    ipv6_only: bool = False
+
+    # UI options
+    refresh_rate: float = 4.0
+    color_palette: ColorPalette = ColorPalette.SUNSET
+    xterm_colors_only: bool = False
+
+    def get_console_kwargs(self) -> dict:
+        """Get kwargs for Rich Console creation based on color settings.
+
+        Returns:
+            dict: Keyword arguments for Console() constructor
+        """
+        kwargs = {}
+        if self.xterm_colors_only:
+            # Force standard 16-color mode for xterm compatibility
+            kwargs["color_system"] = "standard"
+        return kwargs
