@@ -1,0 +1,2 @@
+[napari.manifest]
+napari-flowreg = napari_flowreg:napari.yaml

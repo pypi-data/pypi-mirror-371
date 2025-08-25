@@ -1,0 +1,113 @@
+Metadata-Version: 2.4
+Name: napari-flowreg
+Version: 0.1.0a2.post1.dev0
+Summary: napari plugin for Flow-Registration motion correction
+Author-email: Philipp Flotho <Philipp.Flotho@uni-saarland.de>
+License: CC BY-NC-SA 4.0
+Project-URL: Homepage, https://github.com/FlowRegSuite/napari-flowreg
+Project-URL: Source, https://github.com/FlowRegSuite/napari-flowreg
+Project-URL: Tracker, https://github.com/FlowRegSuite/napari-flowreg/issues
+Project-URL: Documentation, https://flowregsuite.github.io/napari-flowreg/
+Classifier: Development Status :: 3 - Alpha
+Classifier: Framework :: napari
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering :: Image Processing
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: pyflowreg[vis]
+Requires-Dist: qtpy
+Requires-Dist: numpy
+Requires-Dist: scipy>=1.10.0
+Requires-Dist: matplotlib>=3.5.0
+Provides-Extra: testing
+Requires-Dist: pytest>=7.0; extra == "testing"
+Requires-Dist: pytest-cov>=4.0; extra == "testing"
+Requires-Dist: pytest-qt; extra == "testing"
+Requires-Dist: pytest-xvfb; extra == "testing"
+Requires-Dist: npe2>=0.7.0; extra == "testing"
+Requires-Dist: PySide6>=6.5; extra == "testing"
+Requires-Dist: h5py; extra == "testing"
+Requires-Dist: tifffile; extra == "testing"
+Requires-Dist: psutil; extra == "testing"
+Requires-Dist: tomli>=2.0.1; extra == "testing"
+Requires-Dist: napari[all]>=0.4.18; extra == "testing"
+Provides-Extra: dev
+Requires-Dist: napari[all]>=0.4.18; extra == "dev"
+Requires-Dist: pre-commit; extra == "dev"
+Requires-Dist: black; extra == "dev"
+Requires-Dist: ruff; extra == "dev"
+
+[![PyPI - Version](https://img.shields.io/pypi/v/napari-flowreg)](https://pypi.org/project/napari-flowreg/)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/napari-flowreg)](https://pypi.org/project/napari-flowreg/)
+[![PyPI - License](https://img.shields.io/pypi/l/napari-flowreg)](LICENSE)
+[![PyPI - Downloads](https://img.shields.io/pypi/dm/napari-flowreg)](https://pypistats.org/packages/napari-flowreg)
+[![GitHub Actions](https://github.com/FlowRegSuite/napari-flowreg/actions/workflows/pypi-release.yml/badge.svg)](https://github.com/FlowRegSuite/napari-flowreg/actions/workflows/pypi-release.yml)
+
+## 🚧 Under Development
+
+This project is still in an **alpha stage**. Expect rapid changes, incomplete features, and possible breaking updates between releases. 
+
+- The API may evolve as we stabilize core functionality.  
+- Documentation and examples are incomplete.  
+- Feedback and bug reports are especially valuable at this stage.
+
+# <img src="https://raw.githubusercontent.com/FlowRegSuite/napari-flowreg/v0.1.0a2/img/flowreglogo.png" alt="FlowReg logo" height="64"> napari-FlowReg
+
+This repository contains the napari wrapper for the Flow-Registration toolbox, which is a toolbox for the compensation and stabilization of multichannel microscopy videos. 
+The publication for this toolbox can be found [here](https://doi.org/10.1002/jbio.202100330) and the project website with video results [here](https://www.snnu.uni-saarland.de/flow-registration/).
+
+**Related projects**
+- PyFlowReg: https://github.com/FlowRegSuite/pyflowreg
+- Original Flow-Registration repo: https://github.com/FlowRegSuite/flow_registration
+- ImageJ/Fiji plugin: https://github.com/FlowRegSuite/flow_registration_IJ
+
+
+![Fig1](https://raw.githubusercontent.com/FlowRegSuite/napari-flowreg/v0.1.0a2/img/bg.jpg)
+
+
+## Installation via pip and conda
+
+To install the plugin via conda, you can create a new environment and install `napari` along with the plugin:
+
+    conda create -n flowreg -c conda-forge python=3.12.0 napari
+
+You can then install `napari-flowreg` via [pip]:
+
+    pip install napari[all] napari-flowreg
+
+or from the directly from the GitHub repository:
+
+    pip install git+https://github.com/flowregsuite/napari-flowreg.git
+
+
+## Dataset
+
+The dataset which we used for our evaluations is available as [2-Photon Movies with Motion Artifacts](https://drive.google.com/drive/folders/1fPdzQo5SiA-62k4eHF0ZaKJDt1vmTVed?usp=sharing).
+
+## Citation
+
+Details on the original method and video results can be found [here](https://www.snnu.uni-saarland.de/flow-registration/).
+
+If you use parts of this code or the plugin for your work, please cite
+
+> “Pyflowreg,” (in preparation), 2025.
+
+and 
+
+> P. Flotho, S. Nomura, B. Kuhn and D. J. Strauss, “Software for Non-Parametric Image Registration of 2-Photon Imaging Data,” J Biophotonics, 2022. [doi:https://doi.org/10.1002/jbio.202100330](https://doi.org/10.1002/jbio.202100330)
+
+BibTeX entry
+```
+@article{flotea2022a,
+    author = {Flotho, P. and Nomura, S. and Kuhn, B. and Strauss, D. J.},
+    title = {Software for Non-Parametric Image Registration of 2-Photon Imaging Data},
+    year = {2022},
+  journal = {J Biophotonics},
+  doi = {https://doi.org/10.1002/jbio.202100330}
+}
+```
