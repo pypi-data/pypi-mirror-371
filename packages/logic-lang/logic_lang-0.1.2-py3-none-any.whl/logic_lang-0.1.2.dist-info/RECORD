@@ -1,0 +1,12 @@
+logic_lang/__init__.py,sha256=MdqmszIjoT5eiMdmx69YHc4dz9-timIUIf2Jl59NaYY,2078
+logic_lang/ast_nodes.py,sha256=5TDBR1N_JiZEGAe4IFyoIm7Hxh6jKFVD1Ox5ZhSczAk,3636
+logic_lang/exceptions.py,sha256=rRVsmn4Mj7d2EIZA-h3jAqC3bNCXtMJLW9kiE_j30is,2971
+logic_lang/interpreter.py,sha256=_A5WhGSukE4-5Wde6rgILbLMt4o50UFLwvGqxASbPr8,32868
+logic_lang/loss.py,sha256=xPavKwSPuEXGk0nNbMxS82e_wU68kv_NCXY0ed3XgMI,23290
+logic_lang/parser.py,sha256=2tRdmhwVTsMaL65vKbBiF11rHsfa6wE3tZX_x25_8sg,17158
+logic_lang/soft_logic.py,sha256=c5diSA-bUG7TKC6faU962tsiZnLSHRQpLX79bqPci8Q,50198
+logic_lang-0.1.2.dist-info/licenses/LICENSE,sha256=eLBzlUeU9wRBEkuGiWbgXpoNdiqaqpLXRm9WTStuz4g,1079
+logic_lang-0.1.2.dist-info/METADATA,sha256=TsQe50XUwE0AkQ-ytUt9cuo9lRZcj1CSPivjKxTDTAo,19986
+logic_lang-0.1.2.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+logic_lang-0.1.2.dist-info/top_level.txt,sha256=bJCBs1rF0m9564bwm5ziYpM_Cfe7r-qm2MLwmae0qyM,11
+logic_lang-0.1.2.dist-info/RECORD,,
