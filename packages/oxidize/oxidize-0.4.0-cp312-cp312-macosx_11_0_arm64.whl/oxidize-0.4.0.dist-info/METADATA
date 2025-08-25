@@ -1,0 +1,5 @@
+Metadata-Version: 2.4
+Name: oxidize
+Version: 0.4.0
+Summary: High performance xml to json parsing
+Requires-Python: >=3.9
