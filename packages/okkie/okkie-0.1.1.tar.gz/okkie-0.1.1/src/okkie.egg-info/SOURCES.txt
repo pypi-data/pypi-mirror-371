@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+src/okkie/__init__.py
+src/okkie/cli.py
+src/okkie.egg-info/PKG-INFO
+src/okkie.egg-info/SOURCES.txt
+src/okkie.egg-info/dependency_links.txt
+src/okkie.egg-info/entry_points.txt
+src/okkie.egg-info/top_level.txt
+tests/test_okkie.py
