@@ -1,0 +1,7 @@
+include README.md
+include LICENSE
+include CHANGELOG.md
+recursive-include gnssir/configs *.yaml
+recursive-include gnssir *.pickle
+include ruff.toml
+
