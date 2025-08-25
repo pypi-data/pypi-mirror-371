@@ -1,0 +1,13 @@
+.venv
+
+**/__pycache__
+**/*.pyc
+**/*egg-info*
+
+**/*~
+**/#*#
+
+**/*.json
+!time_slots.json
+!sample.json
+!example_rest_config.json
