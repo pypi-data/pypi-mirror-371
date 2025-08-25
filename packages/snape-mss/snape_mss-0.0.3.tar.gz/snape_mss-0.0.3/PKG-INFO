@@ -1,0 +1,16 @@
+Metadata-Version: 2.4
+Name: snape_mss
+Version: 0.0.3
+Summary: Base library for Snape development
+Project-URL: Homepage, https://github.com/WadeTyler/Snape-Lib
+Project-URL: Issues, https://github.com/WadeTyler/Snape-Lib/issues
+Author-email: Tyler Wade <contact@tylerwade.net>
+License-Expression: MIT
+License-File: LICENSE
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+
+# Snape Development Library
+Provides the necessary content for developing with Snape functions.
