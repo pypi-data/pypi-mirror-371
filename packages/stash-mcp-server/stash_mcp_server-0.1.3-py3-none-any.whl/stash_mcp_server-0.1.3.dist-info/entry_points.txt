@@ -1,0 +1,2 @@
+[console_scripts]
+stash-mcp-server = stash_mcp_server.main:main
