@@ -1,0 +1,130 @@
+[project]
+name = "heron-ssl"
+version = "0.1.0a1"
+description = "A high-level self-supervised learning library on top of JAX"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [
+    { name = "Hassan Abedi", email = "hassan.abedi.t+heron@gmail.com" }
+]
+maintainers = [
+    { name = "Hassan Abedi", email = "hassan.abedi.t+heron@gmail.com" }
+]
+keywords = ["self-supervised-learning", "pytorch", "deep-learning", "ssl"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Libraries :: Python Modules"
+]
+
+requires-python = ">=3.10,<4.0"
+dependencies = [
+    "flax>=0.10.7",
+    "optax>=0.2.5",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.1",
+    "pytest-cov>=6.0.0",
+    "pytest-mock>=3.14.0",
+    "pytest-asyncio (>=0.26.0,<0.27.0)",
+    "mypy>=1.11.1",
+    "ruff>=0.9.3",
+    "pre-commit (>=4.2.0,<5.0.0)",
+    "griffe (>=1.7.3,<2.0.0)",
+    "mkdocs (>=1.6.1,<2.0.0)",
+    "mkdocstrings-python (>=1.16.10,<2.0.0)",
+    "mkdocs-material (>=9.6.14,<10.0.0)",
+    "types-requests (>=2.32.0.20250515,<3.0.0.0)"
+]
+
+[project.urls]
+Repository = "https://github.com/habedi/heron"
+Documentation = "https://github.com/habedi/heron/blob/main/docs/index.md"
+
+[tool.poetry]
+include = ["README.md"]
+packages = [{ include = "heron_ssl" }]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+pythonpath = ["heron_ssl"]
+testpaths = ["tests"]
+addopts = [
+    "--tb=short",
+    #"--disable-warnings",
+    "--cov=library",
+    "--cov-branch",
+    "--cov-report=term",
+    "--cov-report=xml",
+    "-rs"
+]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+asyncio_default_test_loop_scope = "function"
+
+[tool.coverage.run]
+branch = true
+parallel = true
+source = ["."]
+omit = ["tests/*"]
+
+[tool.coverage.report]
+show_missing = false
+skip_empty = true
+precision = 2
+
+[tool.mypy]
+python_version = "3.10"
+ignore_missing_imports = true
+disallow_untyped_defs = true
+disallow_untyped_calls = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+warn_return_any = true
+strict_optional = true
+warn_redundant_casts = true
+exclude = "^(examples/|tests/)"
+
+[tool.ruff]
+exclude = [
+    ".bzr", ".direnv", ".eggs", ".git", ".git-rewrite", ".hg", ".mypy_cache",
+    ".nox", ".pants.d", ".pytype", ".ruff_cache", ".svn", ".tox", ".venv",
+    "__pypackages__", "_build", "buck-out", "build", "dist", "node_modules",
+    "venv", "tests"
+]
+line-length = 100
+indent-width = 4
+src = ["heron_ssl"]
+target-version = "py310"
+unsafe-fixes = false
+
+[tool.ruff.lint]
+select = ["ANN", "E", "F", "I", "W", "B", "RUF", "SIM", "C90"]
+ignore = ["D100", "D101", "D102", "D103", "D104", "D105", "D106", "D107"]
+fixable = ["ALL"]
+unfixable = []
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = []
