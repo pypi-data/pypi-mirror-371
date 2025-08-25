@@ -1,0 +1,155 @@
+# Reasoning Deployment Service
+
+A comprehensive service for deploying reasoning agents with CLI and GUI editors.
+
+## Installation
+
+### Basic Installation (Core deployment service only)
+
+```bash
+pip install reasoning-deployment-service
+```
+
+### Installation with GUI Editor
+
+```bash
+pip install "reasoning-deployment-service[gui]"
+```
+
+### Installation with CLI Editor
+
+```bash
+pip install "reasoning-deployment-service[cli]"
+```
+
+### Full Installation (Everything)
+
+```bash
+pip install "reasoning-deployment-service[full]"
+```
+
+## Quick Start
+
+### Using the Deploy Script (Recommended)
+
+The easiest way to get started is using the provided deploy script:
+
+```bash
+# Download and run the deploy script
+curl -O https://raw.githubusercontent.com/your-org/AIXAgentDeploymentService/main/deploy.sh
+chmod +x deploy.sh
+./deploy.sh
+```
+
+The deploy script will:
+
+- Set up a virtual environment
+- Install all necessary dependencies
+- Create a `deploy.py` file configured for your agent
+- Run the deployment
+
+## Manual Usage
+
+### Core Deployment Service
+
+The main deployment service for reasoning engines:
+
+```python
+from reasoning_deployment_service import ReasoningEngineDeploymentService
+from google.adk.agents import BaseAgent
+
+# Your agent implementation
+class MyAgent(BaseAgent):
+    # ... your agent implementation
+
+# Deploy using the service
+agent = MyAgent()
+deployment_service = ReasoningEngineDeploymentService(
+    root_agent=agent,
+    deployment_environment="DEV"  # or "PROD"
+)
+
+# Deploy everything
+deployment_service.one_deployment_with_everything_on_it()
+```
+
+### CLI Editor (Optional)
+
+For command-line management of reasoning engines and agent spaces:
+
+```python
+from reasoning_deployment_service.cli_editor import CLIRunner
+
+# Start the CLI interface
+cli = CLIRunner()
+cli.run()
+```
+
+### GUI Editor (Optional)
+
+For graphical management interface:
+
+```python
+from reasoning_deployment_service.gui_editor import GUIEditor
+
+# Start the GUI application
+app = GUIEditor()
+app.mainloop()
+```
+
+## Configuration
+
+Create a `.env` file with your deployment environment variables:
+
+```bash
+# Development Profile
+DEV_PROJECT_ID=your-project-id
+DEV_PROJECT_NUMBER=your-project-number
+DEV_PROJECT_LOCATION=us-central1
+DEV_STAGING_BUCKET=gs://your-staging-bucket
+DEV_AGENT_SPACE_ENGINE=your-agent-space-engine
+DEV_OAUTH_CLIENT_ID=your-oauth-client-id
+DEV_OAUTH_CLIENT_SECRET=your-oauth-client-secret
+
+# Production Profile
+PROD_PROJECT_ID=your-prod-project-id
+PROD_PROJECT_NUMBER=your-prod-project-number
+# ... etc
+```
+
+Create an `aix_agent.yaml` file with your agent metadata:
+
+```yaml
+defaults:
+  scopes:
+    - "https://www.googleapis.com/auth/cloud-platform"
+  metadata:
+    reasoning_engine_name: "my-reasoning-engine"
+    reasoning_engine_description: "My custom reasoning engine"
+    agent_space_name: "my-agent-space"
+    agent_space_description: "My agent space"
+    agent_space_tool_description: "Tool description"
+  auth:
+    oauth_authorization_id: "my-auth-id"
+  environment_variables:
+    - "CUSTOM_VAR=value"
+```
+
+## Dependency Management
+
+Dependencies are now centrally managed in `setup.py`:
+
+- **Core dependencies**: Installed automatically with the base package
+- **GUI dependencies**: Install with `[gui]` extra for tkinter-based interface
+- **CLI dependencies**: Install with `[cli]` extra (currently no additional deps)
+- **Full dependencies**: Install with `[full]` extra for complete functionality
+
+## Modular Usage
+
+Each component can be used independently:
+
+- **Core Service**: Just use `ReasoningEngineDeploymentService` for programmatic deployment
+- **CLI Editor**: Add `cli_editor` for command-line management
+- **GUI Editor**: Add `gui_editor` for graphical interface
+
+The package is designed so users can import only what they need and instantiate the components they want to use.
