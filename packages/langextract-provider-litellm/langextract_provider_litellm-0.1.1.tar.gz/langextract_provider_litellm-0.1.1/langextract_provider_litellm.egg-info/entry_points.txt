@@ -1,0 +1,2 @@
+[langextract.providers]
+litellm = langextract_provider_litellm.provider:LiteLLMLanguageModel
