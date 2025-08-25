@@ -1,0 +1,31 @@
+Metadata-Version: 2.4
+Name: prootvec
+Version: 0.2.0b2
+Summary: ProotVec: vectorización y entrenamiento básico en ARM64/Ubuntu/Termux con MLP minimal (micrograd)
+Author-email: TuNombre <tucorreo@example.com>
+License: MIT
+Project-URL: Homepage, https://pypi.org/project/prootvec/
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: numpy>=1.20
+Requires-Dist: regex>=2020.0.0
+Requires-Dist: tqdm>=4.60.0
+Requires-Dist: micrograd>=0.1.0
+
+# prootvec 🚀
+
+**prootvec** es una mini-biblioteca para entrenar *word embeddings* en Python usando [micrograd](https://github.com/karpathy/micrograd).  
+Ideal para aprender cómo funcionan los modelos tipo *skip-gram* sin frameworks pesados.
+
+## ✨ Features
+- Tokenizador propio con `<PAD>`, `<UNK>`, `<BOS>`, `<EOS>`
+- Entrenadores:
+  - `MicroTrainer` → entrenamiento minimalista masivo con MLP
+  - `Trainer` → versión simple para pruebas rápidas
+- Backend ligero basado en `micrograd`
+- Utilidades: similitud coseno, guardar/cargar embeddings
+
+## 📦 Instalación
+
+```bash
+pip install prootvec

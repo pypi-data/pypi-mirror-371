@@ -1,0 +1,14 @@
+prootvec/__init__.py,sha256=t5ku_DctoF4skCbMfBTauR3AyY71E8Uc_H5yczO-5QA,609
+prootvec/__main__.py,sha256=xVxMryJPFT8yVDthvPFHSqtIlbS6bPiu3zxCy1LbqtI,728
+prootvec/losses.py,sha256=7JXhVfwtfFaYF1kECAkmewWa-232SRDkpLe3OZthDfE,1697
+prootvec/model.py,sha256=e6ae3fhMCdY_VzeNRqyWcyR1lPaBwUNbnPu2N62XeiQ,3133
+prootvec/nltp.py,sha256=URmQA2UlERS-Fj2i0lc9sUCpBSW6dZFsaKR7n-A3Y9s,2524
+prootvec/reinforce.py,sha256=0xq8K37y8Eill8qcu25M3w2L8UpArH803ahgafJUp8s,2197
+prootvec/tokenizer.py,sha256=_9Wk2ej0fO01Q1gLGjRZNA9tn6eLsvVGFopR2z1ugN0,6137
+prootvec/trainer.py,sha256=JAInUFc7omSCLjACcQvEEaT52VJtGQpcGs-OWoZTKNo,3190
+prootvec/trainer_micro.py,sha256=MYhj4Xh6v22Xa_dCXPrEH2Sce6j8_VNOdEUK8MPxFro,2829
+prootvec/utils.py,sha256=wmvLT3je4rCxe6NGAzRGHfypaQohgzQ6Idki569j1PA,2561
+prootvec-0.2.0b2.dist-info/METADATA,sha256=316xvN8_Jj730pSVgiRGcmpAOPotBCe78t461ccbVg0,1069
+prootvec-0.2.0b2.dist-info/WHEEL,sha256=_zCd3N1l69ArxyTb8rzEoP9TpbYXkqRFSNOD5OuxnTs,91
+prootvec-0.2.0b2.dist-info/top_level.txt,sha256=8XEfvoYmYJmY-zln405YMCMh4BNx5tJfmG1XTPaQcA4,9
+prootvec-0.2.0b2.dist-info/RECORD,,
