@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+nlpfig/__init__.py
+nlpfig/clean_t.py
+nlpfig/utils.py
+nlpfig.egg-info/PKG-INFO
+nlpfig.egg-info/SOURCES.txt
+nlpfig.egg-info/dependency_links.txt
+nlpfig.egg-info/top_level.txt

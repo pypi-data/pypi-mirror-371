@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nlpfig"
+version = "0.1.0"
+description = "A simple NLP helper package for text preprocessing and analysis."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [
+    { name = "Smithin_X1", email = "smithinthankachan44@gmail.com" }
+]
+dependencies = []
+requires-python = ">=3.8"
+
+classifiers = [
+     "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent"
+]
+
+[project.urls]
+"connect me" = "https://www.linkedin.com/in/smithin-thankachan-230168301/"
+
