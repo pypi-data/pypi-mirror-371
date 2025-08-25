@@ -1,0 +1,42 @@
+{
+  "meta": {
+    "purpose": "This file contains a short version of risk level definitions used in IPCC reports; Reports such as the special report on climate change and land (SRCCL) includes an even shorter version in their SPM, without explicit reference to 'key risks', while AR6 WGII SPM includes a somewhat longer definition, with more information on the 'magnitude' criteria (see included references').",
+    "sources": "For more information about the definition of risk levels, see for example IPCC, 2022. Summary for Policymakers. Pörtner, H. O., Roberts, D. C., Tignor, M., Poloczanska, E. S., Mintenbeck, K., Alegría, A., Craig, M., Langsdorf, S., Löschke, S., Möller, V., Okem, A., and Rama, B. (Eds.). Climate Change 2022: Impacts, Adaptation and Vulnerability. Contribution of Working Group II to the Sixth Assessment Report of the Intergovernmental Panel on Climate Change, https://doi.org/10.1017/9781009325844.001, 2022. and O'Neill, B., M. van Aalst, Z. Zaiton Ibrahim, L. Berrang Ford, S. Bhadwal, H. Buhaug, D. Diaz, K. Frieler, M. Garschagen, A. Magnan, G. Midgley, A. Mirzabaev, A. Thomas, and R. Warren, 2022. Chapter 16: Key Risks Across Sectors and Regions In: Climate Change 2022: Impacts, Adaptation, and Vulnerability. Contribution of Working Group II to the Sixth Assessment Report of the Intergovernmental Panel on Climate Change. [H.-O. Pörtner, D.C. Roberts, M. Tignor, E.S. Poloczanska, K. Mintenbeck, A. Alegría, M. Craig, S. Langsdorf, S. Löschke, V. Möller, A. Okem, B. Rama. (Eds.)], url: www.ipcc.ch/report/ar6/wg2/downloads/report/IPCC_AR6_WGII_Chapter16.pdf",
+    "warnings": "This file is subject to change in the future; it should provide the default values for the ColourPalettes. Information under the 'meta' key should not be translated.",
+    "do_not_translate": [],
+    "language": "fr"
+  },
+  "levels": [
+    { "name": "undetectable",
+      "definition": "Aucun impact n'est détectable et attribuable aux changements climatiques [Definition depuis l'AR5].",
+      "display_name": "Indétectable",
+      "index": 0
+    },
+    { "name": "moderate",
+      "definition": "Les impacts sont à la fois détectables et attribuables aux changements climatiques avec un degré de confiance au moins moyen, en tenant également compte des autres critères relatifs aux risques clés : ampleur, probabilité, temporalité/persistance et capacité de réaction (y compris par l'adaptation) [Définition depuis l'AR5].",
+      "display_name": "Modéré",
+      "index": 1
+    },
+    { "name": "high",
+      "definition": "Incidences graves et généralisées jugées élevées au regard d'un ou de plusieurs critères relatifs qui définissent les risques clés : ampleur, probabilité, temporalité/persistance et capacité de réaction (y compris par l'adaptation) [Définition depuis l'AR5].",
+      "display_name": "Élevé",
+      "index": 2
+    },
+    { "name": "very high",
+      "definition": "Risque très élevé d'incidences graves et présence d'une irréversibilité significative ou persistance des aléas climatiques, combinés à une capacité d'adaptation limitée en raison de la nature de l'aléa ou des incidences/risques [Définition depuis l'AR5].",
+      "display_name": "Très Élevé",
+      "index": 3
+    }
+  ],
+  "confidence": {
+    "title": "Niveaux de confiance",
+    "explanation": "Confiance dans l'évaluation de la transition (augmentation) du risque, fondée sur le type, la quantité, la qualité, et la cohérence des preuves, ainsi que le degré d'accord (Mastrandrea et al., 2010)",
+    "levels": [
+      {"name": "low", "display_name": "Faible"},
+      {"name": "medium", "display_name": "Moyen"},
+      {"name": "medium-high", "display_name": "Moyen-élevé"},
+      {"name": "high", "display_name": "Élevé"},
+      {"name": "very high", "display_name": "Très élevé"}
+    ]
+  }
+}
