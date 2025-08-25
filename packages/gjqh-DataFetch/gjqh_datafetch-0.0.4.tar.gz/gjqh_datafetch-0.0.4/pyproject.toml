@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools >= 77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gjqh_DataFetch"
+version = "0.0.4"
+authors = [
+  { name="HongYuan", email="yuanhong2@gtht.com" },
+]
+description = "A simple trading API for internal use compatible with IS and XT trading systems."
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "MIT"
+license-files = ["LICENSE.txt"]
+
+[project.urls]
+Homepage = "https://github.com/pypa/sampleproject"
+Issues = "https://github.com/pypa/sampleproject/issues"
+
+
+[tool.setuptools.package-data]
+"gjqh_DataFetch" = ["*.so", "*.pyd"]
+
+
+# 动态指定依赖来源为 requirements.txt
+[project.optional-dependencies]
+# 空配置，实际依赖通过 setup.cfg 或动态读取
+
+[tool.setuptools.dynamic]
+# 从 requirements.txt 读取依赖
+dependencies = { file = ["requirements.txt"] }
