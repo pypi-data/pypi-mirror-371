@@ -1,0 +1,59 @@
+/*
+ * YARA-style Gamma Scanner Rule Example
+ * Demonstrates comprehensive YARA-like syntax features
+ */
+
+rule AdvancedMalwareDetection {
+    meta:
+        author = "Security Research Team"
+        description = "Advanced malware detection with YARA-style syntax"
+        version = "2.0"
+        date = "2024-08-23"
+        category = "malware"
+        reference = "https://security-research.com/malware-analysis"
+        severity = "critical"
+    
+    strings:
+        $text1 = "malicious payload" nocase ascii
+        $text2 = "backdoor connection" wide fullword
+        $regex1 = /exec\([^)]+\)/ nocase
+        $regex2 = /(eval|exec|system)\s*\(/
+        $hex1 = { 4D 5A 90 00 03 00 00 00 }  // PE header
+        $hex2 = { E8 ?? ?? ?? ?? 5D }         // Call with wildcard
+        $hex3 = { C7 45 ?? 01 00 00 00 }     // Mov instruction
+    
+    condition:
+        filesize < 10MB and
+        (
+            // String counting and positioning  
+            (#text1 > 2 or @text2[0] < 1000) and
+            
+            // For expressions
+            for any of ($regex1, $regex2): ($ at entrypoint) or
+            
+            // Multiple string matches
+            all of ($hex*) or
+            2 of them
+        ) and
+        
+        // Bitwise and size checks
+        uint32(0) & 0x00020003 and
+        filesize > 1KB
+}
+
+rule PromptInjectionYARAStyle {
+    meta:
+        description = "YARA-style prompt injection detection"
+        author = "AI Security Team"
+        version = "1.5"
+    
+    strings:
+        $ignore1 = "ignore all previous" nocase
+        $ignore2 = "disregard all previous" nocase
+        $ignore3 = "forget all previous" nocase
+        $prompt_break = /(?i)(ignore|disregard|forget).*(all|previous|prior).*(instruction|prompt|rule)/
+    
+    condition:
+        any of them or
+        for any of ($ignore*): ($ and #$ > 0)
+}
