@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lds-pkg"
+version = "0.1.0"
+description = "A modified version of googletrans with async support"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    { name="ldss", email="your_email@example.com" }
+]
+
+dependencies = [
+    "httpx==0.28.1",
+]
+
+[project.urls]
+Homepage = "https://github.com/ldss/googletrans-ldss"
+Source = "https://github.com/ldss/googletrans-ldss"
+Issues = "https://github.com/ldss/googletrans-ldss/issues"
+
+[tool.setuptools]
+packages = ["googletrans"]
+include-package-data = true
