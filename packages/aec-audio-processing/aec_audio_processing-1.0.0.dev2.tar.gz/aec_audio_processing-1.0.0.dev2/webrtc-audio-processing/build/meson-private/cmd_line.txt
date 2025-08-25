@@ -1,0 +1,7 @@
+[options]
+default_library = shared
+prefix = /Users/deepbhupatkar/Desktop/Developer/HELLO/python-webrtc-audio-processing/webrtc-audio-processing/install
+buildtype = release
+
+[properties]
+
