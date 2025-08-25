@@ -1,0 +1,4 @@
+mypy==1.17.1
+pytest
+types-freezegun
+types-setuptools
