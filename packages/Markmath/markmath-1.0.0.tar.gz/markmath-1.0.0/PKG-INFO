@@ -1,0 +1,42 @@
+Metadata-Version: 2.4
+Name: Markmath
+Version: 1.0.0
+Summary: A module for working with numbers
+Author-email: Mark13 <3548621291@qq.com>
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0; extra == "dev"
+Requires-Dist: twine>=4.0; extra == "dev"
+Dynamic: license-file
+
+##模块介绍
+
+#版本0.1.0介绍
+
+**制作不易！！！！！！！！！！！！！！！！！！！**
+
+该模块为math模块的补充，无需重新导入math模块(导入方式
+为import math)
+
+包括cot()、acot()、coth()、acoth()、rooting()、
+titration()、sigma()、sigmas()、eta()、etas()、
+phi、golden_ratio
+(分别为余切、反余切、双曲余切、反双曲余切、
+开方、幂塔、等差数列求和、等比数列求和、
+等差数列求积、等比数列求积、)
+
+**me只是middle school 学生，please多多支持！**
+
+#注意
+
+_It is in Chinese(coding:UTF-8)_
+
+_It is in Chinese(coding:UTF-8)_
+
+_It is in Chinese(coding:UTF-8)！！！！
+！！！！！！！！！！！_

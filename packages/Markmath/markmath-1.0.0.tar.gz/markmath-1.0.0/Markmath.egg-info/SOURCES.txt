@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+Markmath.egg-info/PKG-INFO
+Markmath.egg-info/SOURCES.txt
+Markmath.egg-info/dependency_links.txt
+Markmath.egg-info/requires.txt
+Markmath.egg-info/top_level.txt
+Math/__init__.py
+Math/maths.py
