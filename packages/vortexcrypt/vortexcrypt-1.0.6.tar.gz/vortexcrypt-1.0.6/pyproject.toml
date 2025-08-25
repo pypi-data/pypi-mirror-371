@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "vortexcrypt"
+version = "1.0.6"
+description = "A novel image encryption package based on time-reversible reaction-diffusion systems."
+authors = ["Fructueux Hollo <fructueuxhollo@gmail.com>, Charbel Mamlankou <charbelzeusmamlankou@gmail.com>, Jude Agbodoyetin <judeseruch@gmail.com>, Ozias Deguenon <deguenonamen@gmail.com>, Marcellin Ogoungbe <ogoungbemarcellin@yahoo.com>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/FructueuxHollo/vortexcrypt"
+repository = "https://github.com/FructueuxHollo/vortexcrypt"
+keywords = ["encryption", "image processing", "reaction-diffusion", "cryptography", "Gray-Scott"]
+packages = [{include = "vortexcrypt", from = "src"}]
+
+
+[tool.poetry.dependencies]
+python = ">=3.11"
+numpy = ">=1.24,<2.3"
+pillow = ">=11.3.0,<12.0.0"
+scipy = ">=1.16.0,<2.0.0"
+tqdm = ">=4.67.1,<5.0.0"
+numba = "^0.61.2"
+typer = {extras = ["all"], version = ">=0.16.0,<0.17.0"}
+
+[tool.poetry.scripts]
+vortexcrypt = "vortexcrypt.cli:app"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
