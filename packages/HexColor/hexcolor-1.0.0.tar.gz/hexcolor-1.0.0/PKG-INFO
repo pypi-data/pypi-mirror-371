@@ -1,0 +1,44 @@
+Metadata-Version: 2.3
+Name: HexColor
+Version: 1.0.0
+Summary: Add HexColor type.
+License: MIT
+Keywords: hex,color,hexcolor,type
+Author: qiufeng
+Author-email: appleidqiufeng@outlook.com
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Project-URL: Changelog, https://github.com/qiufengcute/HexColor/blob/main/CHANGELOG.md
+Project-URL: Homepage, https://github.com/qiufengcute/HexColor
+Project-URL: Repository, https://github.com/qiufengcute/HexColor
+Description-Content-Type: text/markdown
+
+# HexColor
+[License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
+
+Add HexColor type.
+
+## 📦 Installation
+```bash
+pip install HexColor
+```
+
+## 📜 Changelog
+See [CHANGELOG.md](https://github.com/qiufengcute/HexColor/blob/main/CHANGELOG.md)
+
+
+## QuickStart
+```Python
+from HexColor import HexColor
+
+hexcolor = HexColor("#000000")
+```
+
