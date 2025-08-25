@@ -1,0 +1,8 @@
+pip-tools
+black
+isort
+minchin.releaser
+invoke
+
+# held back in `base.in` by Pelican
+pygments <= 2.18.0

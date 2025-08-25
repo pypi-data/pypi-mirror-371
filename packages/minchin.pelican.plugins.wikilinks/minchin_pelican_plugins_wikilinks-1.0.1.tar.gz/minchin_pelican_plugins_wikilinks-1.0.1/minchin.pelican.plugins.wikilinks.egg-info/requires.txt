@@ -1,0 +1,9 @@
+minchin.pelican.plugins.autoloader
+
+[dev]
+pip-tools
+black
+isort
+minchin.releaser
+invoke
+pygments<=2.18.0
