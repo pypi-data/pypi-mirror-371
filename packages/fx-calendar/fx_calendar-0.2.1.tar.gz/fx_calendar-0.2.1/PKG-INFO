@@ -1,0 +1,42 @@
+Metadata-Version: 2.4
+Name: fx-calendar
+Version: 0.2.1
+Summary: Forex Factory weekly calendar collector with CSV export, filters, and summaries.
+Author: Rusznyak Peter
+License: MIT License
+Project-URL: Homepage, https://github.com/PetiRu/forex_calendar_project
+Project-URL: Issues, https://github.com/PetiRu/forex_calendar_project/issues
+Keywords: forex,economics,calendar,pandas,data-collection
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pandas>=1.5
+Requires-Dist: requests>=2.28
+Dynamic: license-file
+
+
+### README.md
+```markdown
+# Forex Calendar Collector
+
+![Python](https://img.shields.io/badge/python-3.9%2B-blue)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+![Tests](https://github.com/PetiRu/forex_calendar_project/actions/workflows/ci.yml/badge.svg)
+
+A simple collector for the Forex Factory weekly economic calendar. It fetches events, saves hourly CSV snapshots without duplicates, and provides helpers to filter and summarize.
+
+## Features
+- Fetch weekly calendar as a DataFrame
+- Save hourly CSV files with duplicate protection
+- Filter by currency and impact
+- List upcoming events within a window
+- Summarize counts by currency and impact
+
+## Installation
+Clone and install:
+```bash
+git clone https://github.com/PetiRu/forex_calendar_project.git
+cd forex_calendar_project
+pip install -r requirements.txt
+pip install -e .
+

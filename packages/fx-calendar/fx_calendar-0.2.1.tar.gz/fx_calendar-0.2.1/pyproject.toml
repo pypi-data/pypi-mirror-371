@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=67.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fx-calendar"
+version = "0.2.1"
+description = "Forex Factory weekly calendar collector with CSV export, filters, and summaries."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT License" }
+authors = [{ name = "Rusznyak Peter" }]
+keywords = ["forex", "economics", "calendar", "pandas", "data-collection"]
+dependencies = [
+    "pandas>=1.5",
+    "requests>=2.28",
+]
+
+[project.urls]
+Homepage = "https://github.com/PetiRu/forex_calendar_project"
+Issues = "https://github.com/PetiRu/forex_calendar_project/issues"
+
