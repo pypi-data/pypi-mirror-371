@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+polygon_math/__init__.py
+polygon_math/polygon.py
+polygon_math.egg-info/PKG-INFO
+polygon_math.egg-info/SOURCES.txt
+polygon_math.egg-info/dependency_links.txt
+polygon_math.egg-info/requires.txt
+polygon_math.egg-info/top_level.txt
