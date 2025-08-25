@@ -1,0 +1,2 @@
+[console_scripts]
+bdd_tags_processor = bdd_tags_processor.bdd_tags_expression_processor:main
