@@ -1,0 +1,10 @@
+ukaddresskit/data/lookups/counties.csv,sha256=VC_BnhPsUI_PwnKa6X_YdN4eubNECNLvmAiF2Dx9mdQ,2983
+ukaddresskit/data/lookups/localities.csv,sha256=AcLQ8yfv-Al7X6ozxdzIamTPQyggxIDQfyx1PWWrLH8,277469
+ukaddresskit/data/lookups/postcode_district_to_town.csv,sha256=TrIr3MNPV-0PCyiwHgNhVRufe-lrfzr0dAQ9zEIJ1X0,43733
+ukaddresskit/data/lookups/synonyms.csv,sha256=NiACbQI_ZkTDY4O0q9XKfb10olr_mE2T5KDk6LizPPs,10294
+ukaddresskit/data/models/base.crfsuite,sha256=aKI8c_xH6WeWbrtOqCRPgK-dwl3GkteP9zSKs8DRT58,9512516
+ukaddresskit-0.0.2.dist-info/METADATA,sha256=ehmN40Xg06QoQfCBP2KT5qhLB2Og1mJnt9W0IDKUa0s,2942
+ukaddresskit-0.0.2.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+ukaddresskit-0.0.2.dist-info/entry_points.txt,sha256=dpU-V0TOSBl0CEup4uu2DntiMAekwByGhW47Y4KBw5Y,55
+ukaddresskit-0.0.2.dist-info/licenses/LICENSE,sha256=2bm9uFabQZ3Ykb_SaSU_uUbAj2-htc6WJQmS_65qD00,1073
+ukaddresskit-0.0.2.dist-info/RECORD,,
